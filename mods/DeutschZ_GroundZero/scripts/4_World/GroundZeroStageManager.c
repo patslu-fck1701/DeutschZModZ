@@ -39,6 +39,8 @@ class GroundZeroStageManager
             GroundZeroStageRuntime runtime = new GroundZeroStageRuntime();
             runtime.StageId = cfg.StageId;
             runtime.Position = m_Config.PossibleStagePositions.Get(Math.RandomInt(0, m_Config.PossibleStagePositions.Count()));
+            runtime.ObjectiveKillCount = 0;
+            runtime.ObjectiveKillRequired = m_Config.GetStageRequiredKills();
             m_State.Stages.Insert(runtime);
         }
     }
@@ -52,6 +54,8 @@ class GroundZeroStageManager
         runtime.State = GroundZeroStageState.GZ_STAGE_OBJECTIVE_ACTIVE;
         runtime.StartedAt = GetGame().GetTime() * 0.001;
         runtime.ObjectiveStartedAt = runtime.StartedAt;
+        runtime.ObjectiveKillCount = 0;
+        runtime.ObjectiveKillRequired = m_Config.GetStageRequiredKills();
         m_State.CurrentStageId = id;
 
         m_Markers.UpdateStageMarker(runtime.Position, cfg.StageName, cfg.StageRadius);
@@ -74,8 +78,54 @@ class GroundZeroStageManager
         if (runtime.State == GroundZeroStageState.GZ_STAGE_OBJECTIVE_ACTIVE)
         {
             bool timedFallbackAllowed = m_Config.AllowTimedObjectiveFallback && !cfg.RequireManualObjectiveCompletion;
-            if (timedFallbackAllowed && now - runtime.ObjectiveStartedAt >= cfg.CompletionHoldSeconds)
-                CompleteStage(runtime, cfg, null);
+            if (timedFallbackAllowed && cfg.CompletionHoldSeconds > 0 && now - runtime.ObjectiveStartedAt >= cfg.CompletionHoldSeconds)
+            {
+                // FIX23: Timed completion is only a fallback after real combat progress.
+                // This prevents GroundZero from rushing through all stages while the player is only nearby.
+                float nearRadius = cfg.StageRadius;
+                if (nearRadius > 45.0)
+                    nearRadius = 45.0;
+
+                if (HasPlayerNear(runtime.Position, nearRadius) && runtime.ObjectiveKillCount >= runtime.ObjectiveKillRequired)
+                    CompleteStage(runtime, cfg, null);
+            }
+        }
+    }
+
+
+    protected bool HasPlayerNear(vector position, float radius)
+    {
+        array<Man> players = new array<Man>();
+        GetGame().GetPlayers(players);
+        foreach (Man man : players)
+        {
+            PlayerBase player = PlayerBase.Cast(man);
+            if (player && player.IsAlive() && vector.Distance(player.GetPosition(), position) <= radius)
+                return true;
+        }
+        return false;
+    }
+
+    void OnEnemyKilled(Object victim, Object killer)
+    {
+        if (!GetGame() || !GetGame().IsServer()) return;
+        GroundZeroStageRuntime runtime = GetStage(m_State.CurrentStageId);
+        GroundZeroStageConfig cfg = m_Config.GetStageConfig(m_State.CurrentStageId);
+        if (!runtime || !cfg) return;
+        if (runtime.State != GroundZeroStageState.GZ_STAGE_OBJECTIVE_ACTIVE) return;
+        if (!victim) return;
+
+        float dist = vector.Distance(victim.GetPosition(), runtime.Position);
+        if (dist > cfg.StageRadius + 80.0) return;
+
+        runtime.ObjectiveKillCount++;
+        m_Notifications.Broadcast(cfg.StageName + ": Gegner eliminiert " + runtime.ObjectiveKillCount.ToString() + "/" + runtime.ObjectiveKillRequired.ToString());
+        GroundZeroLogging.Info("Stage", "Enemy kill progress stage=" + runtime.StageId.ToString() + " kills=" + runtime.ObjectiveKillCount.ToString() + "/" + runtime.ObjectiveKillRequired.ToString());
+
+        if (runtime.ObjectiveKillCount >= runtime.ObjectiveKillRequired)
+        {
+            PlayerBase playerKiller = PlayerBase.Cast(killer);
+            CompleteStage(runtime, cfg, playerKiller);
         }
     }
 
@@ -114,6 +164,9 @@ class GroundZeroStageManager
         }
 
         GroundZeroLogging.Info("Stage", "Completed stage=" + runtime.StageId.ToString());
+
+        if (m_Zombies) m_Zombies.Cleanup();
+        if (m_AI) m_AI.Cleanup();
 
         int nextId = runtime.StageId + 1;
         if (nextId <= 5)

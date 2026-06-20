@@ -32,7 +32,7 @@ class CfgMods
         name = "DeutschZ GroundZero";
         type = "mod";
         author = "Patrick Sluzalek / fck1701";
-        version = "0.4.4-mission-hooks-hotfix";
+        version = "0.4.6-fix23-killgated-testready";
         dependencies[] = {"Game", "World", "Mission"};
 
         class defs

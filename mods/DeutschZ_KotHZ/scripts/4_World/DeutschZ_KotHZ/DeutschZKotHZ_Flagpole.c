@@ -63,6 +63,20 @@ class DeutschZKotHZ_RuntimeFlagpole extends ItemBase
         return attached;
     }
 
+
+    protected string DeutschZKotHZ_GetFlagTexture(string flagClassName)
+    {
+        if (flagClassName == "DeutschZKotHZ_NWAF_Flag") return "/DeutschZ_KotHZ/data/flags/DeutschZ_KotH_NWAF.paa";
+        if (flagClassName == "DeutschZKotHZ_Tisy_Flag") return "/DeutschZ_KotHZ/data/flags/DeutschZ_KotH_Tisy.paa";
+        if (flagClassName == "DeutschZKotHZ_LOPA_Flag") return "/DeutschZ_KotHZ/data/flags/DeutschZ_KotH_LOPA.paa";
+        if (flagClassName == "DeutschZKotHZ_YRAP_Flag") return "/DeutschZ_KotHZ/data/flags/DeutschZ_KotH_YRAP.paa";
+        if (flagClassName == "DeutschZKotHZ_Basebuild_Flag") return "/DeutschZ_KotHZ/data/flags/DeutschZ_KotH_Basebuild.paa";
+        if (flagClassName == "DeutschZKotHZ_Alt_One_Flag") return "/DeutschZ_KotHZ/data/flags/DeutschZ_Alt_One_Flag.paa";
+        if (flagClassName == "DeutschZKotHZ_Alt_Two_Flag") return "/DeutschZ_KotHZ/data/flags/DeutschZ_Alt_Two_Flag.paa";
+        if (flagClassName == "DeutschZKotHZ_Alt_Three_Flag") return "/DeutschZ_KotHZ/data/flags/DeutschZ_Alt_Three_Flag.paa";
+        return "/DeutschZ_KotHZ/data/flags/DeutschZ_KotHZ_Flag.paa";
+    }
+
     protected bool DeutschZKotHZ_AttachSingleFlag(string flagClassName)
     {
         if (flagClassName == "")
@@ -80,7 +94,11 @@ class DeutschZKotHZ_RuntimeFlagpole extends ItemBase
         m_DeutschZKotHZ_AttachedFlag = GetInventory().CreateAttachment(flagClassName);
         if (m_DeutschZKotHZ_AttachedFlag)
         {
-            Print("[DeutschZ_KotHZ] Single logo flag attached to KOTH pole: " + flagClassName);
+            string texturePath = DeutschZKotHZ_GetFlagTexture(flagClassName);
+            if (texturePath != "")
+                m_DeutschZKotHZ_AttachedFlag.SetObjectTexture(0, texturePath);
+
+            Print("[DeutschZ_KotHZ] Single logo flag attached to KOTH pole: " + flagClassName + " texture=" + texturePath);
             return true;
         }
 
@@ -113,34 +131,13 @@ class DeutschZKotHZ_RuntimeFlagpole extends ItemBase
 
     void TriggerKOTHMusic(string soundSetName)
     {
-        if (soundSetName != "")
-            m_DeutschZKotHZ_MusicSoundSetName = soundSetName;
-        else
-            m_DeutschZKotHZ_MusicSoundSetName = "DeutschZ_KotHZ_EventMusic_SoundSet";
-
-        m_DeutschZKotHZ_MusicSerial++;
-        if (m_DeutschZKotHZ_MusicSerial > 1000000)
-            m_DeutschZKotHZ_MusicSerial = 1;
-
-        if (GetGame().IsServer())
-            SetSynchDirty();
+        // FIX21 Safe-Boot: event music disabled. Do not net-sync sound triggers.
+        return;
     }
 
     protected void DeutschZKotHZ_PlayLocalEventMusic()
     {
-        if (GetGame().IsServer())
-            return;
-
-        string soundSetName = m_DeutschZKotHZ_MusicSoundSetName;
-        if (soundSetName == "")
-            soundSetName = "DeutschZ_KotHZ_EventMusic_SoundSet";
-
-        vector pos = GetPosition();
-        pos[1] = pos[1] + 1.2;
-
-        EffectSound sound = SEffectManager.PlaySound(soundSetName, pos);
-        if (sound)
-            sound.SetSoundAutodestroy(true);
+        return;
     }
 
     protected int DeutschZKotHZ_GetParticleForState(int state)
@@ -204,11 +201,6 @@ class DeutschZKotHZ_RuntimeFlagpole extends ItemBase
         if (smokeChanged)
             DeutschZKotHZ_UpdateParticleSmoke();
 
-        if (m_DeutschZKotHZ_MusicSerialLocal != m_DeutschZKotHZ_MusicSerial)
-        {
-            m_DeutschZKotHZ_MusicSerialLocal = m_DeutschZKotHZ_MusicSerial;
-            DeutschZKotHZ_PlayLocalEventMusic();
-        }
 
         if (m_DeutschZKotHZ_ClientCaptureFraction != m_DeutschZKotHZ_ServerCaptureFraction)
         {

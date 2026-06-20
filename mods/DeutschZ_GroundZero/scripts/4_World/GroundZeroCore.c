@@ -56,6 +56,11 @@ class GroundZeroCore
         if (m_EventManager && player) m_EventManager.OnPlayerKilled(player, killer);
     }
 
+    void OnGroundZeroEnemyKilled(Object victim, Object killer)
+    {
+        if (m_EventManager && victim) m_EventManager.OnEnemyKilled(victim, killer);
+    }
+
     void RequestRetry(PlayerBase player)
     {
         if (m_EventManager && player) m_EventManager.RequestRetry(player);

@@ -20,12 +20,12 @@ class DeutschZExpansionBridge_MarkerProvider: DeutschZCore_MarkerProviderAPI
 
     protected string VisibleMarkerClassName(string id)
     {
-        // Vanilla visible fallback. This is not an Expansion map marker replacement,
-        // but it guarantees players can visually find test events even if Expansion marker APIs are unavailable.
+        // FIX23: visible, stable vanilla fallback object.
+        // This is not a guessed Expansion-map API call; it guarantees an in-world beacon for testing.
         if (id.IndexOf("_3D_") >= 0)
             return "Roadflare";
 
-        return "M18SmokeGrenade_Red";
+        return "Barrel_Red";
     }
 
     protected void CreateOrMoveVisibleFallback(string id, vector position)
@@ -35,31 +35,61 @@ class DeutschZExpansionBridge_MarkerProvider: DeutschZCore_MarkerProviderAPI
 
         string className = VisibleMarkerClassName(id);
         if (!GetGame().ConfigIsExisting("CfgVehicles " + className))
-            className = "Roadflare";
+        {
+            className = "M18SmokeGrenade_Red";
+            if (!GetGame().ConfigIsExisting("CfgVehicles " + className))
+                className = "Roadflare";
+        }
 
         Object obj;
         if (m_VisualObjects.Find(id, obj) && obj)
         {
-            obj.SetPosition(position);
+            vector movePos = position;
+            movePos[1] = GetGame().SurfaceY(movePos[0], movePos[2]) + 0.15;
+            obj.SetPosition(movePos);
             return;
         }
 
         vector p = position;
-        p[1] = GetGame().SurfaceY(p[0], p[2]);
+        p[1] = GetGame().SurfaceY(p[0], p[2]) + 0.15;
         obj = GetGame().CreateObjectEx(className, p, ECE_PLACE_ON_SURFACE);
         if (obj)
+        {
+            obj.SetOrientation(Vector(0, 0, 0));
             m_VisualObjects.Set(id, obj);
+        }
+    }
+
+    protected void NotifyMarkerCreated(string id, string label, vector position)
+    {
+        DeutschZCore_NotificationProviderAPI notify = DeutschZCore_ServiceLocator.GetNotificationProvider();
+        if (!notify)
+            return;
+
+        string msg = label + " | Position " + position.ToString();
+        notify.SendEventNotification("DeutschZ Marker", "marker", "DeutschZ Event Marker", msg, position);
     }
 
     override bool CreateMarker(string id, string label, vector position, int colorARGB)
     {
-        if (id == string.Empty)
+        if (id == "")
             return false;
 
         m_Markers.Set(id, position);
         CreateOrMoveVisibleFallback(id, position);
+        NotifyMarkerCreated(id, label, position);
         DeutschZCore_Log.Info("ExpansionBridge", "marker create request id=" + id + " label=" + label + " pos=" + position.ToString());
         return true;
+    }
+
+
+    override bool Create3DMarker(string id, string label, vector position, int colorARGB)
+    {
+        string markerId = id;
+        if (markerId.IndexOf("_3D_") < 0 && markerId.IndexOf("3D_") < 0)
+            markerId = id + "_3D_";
+
+        return CreateMarker(markerId, label, position, colorARGB);
     }
 
     override bool UpdateMarker(string id, vector position)
@@ -115,41 +145,6 @@ class DeutschZExpansionBridge_MarkerProvider: DeutschZCore_MarkerProviderAPI
     }
 }
 
-class DeutschZExpansionBridge_NotificationProvider: DeutschZCore_NotificationProviderAPI
-{
-    protected void SendChatFallback(string text)
-    {
-        if (!GetGame() || !GetGame().IsServer())
-            return;
-
-        array<Man> players = new array<Man>;
-        GetGame().GetPlayers(players);
-
-        foreach (Man man: players)
-        {
-            PlayerBase player = PlayerBase.Cast(man);
-            if (!player || !player.GetIdentity())
-                continue;
-
-            Param1<string> data = new Param1<string>(text);
-            GetGame().RPCSingleParam(player, ERPCs.RPC_USER_ACTION_MESSAGE, data, true, player.GetIdentity());
-        }
-    }
-
-    override bool SendEventNotification(string eventName, string channel, string title, string message, vector position)
-    {
-        if (message == string.Empty)
-            return false;
-
-        string text = "[" + eventName + "] " + message;
-        DeutschZCore_Log.Info("ExpansionBridge", "notification request event=" + eventName + " channel=" + channel + " title=" + title + " message=" + message + " pos=" + position.ToString());
-
-        // Visible server-side fallback. Real Expansion notification calls can be added here after target API verification.
-        SendChatFallback(text);
-        return true;
-    }
-}
-
 class DeutschZExpansionBridge_AIProvider: DeutschZCore_AIProviderAPI
 {
     protected ref map<string, ref array<Object>> m_RuntimeObjects;
@@ -182,7 +177,7 @@ class DeutschZExpansionBridge_AIProvider: DeutschZCore_AIProviderAPI
 
     override bool SpawnInfected(string eventId, string className, vector position)
     {
-        if (!GetGame().IsServer() || className == string.Empty)
+        if (!GetGame().IsServer() || className == "")
             return false;
 
         string spawnClass = className;

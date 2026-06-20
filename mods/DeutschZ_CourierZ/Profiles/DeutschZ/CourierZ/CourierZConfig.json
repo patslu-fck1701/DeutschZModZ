@@ -1,0 +1,90 @@
+{
+    "ConfigVersion": 1,
+    "PresetName": "FAST_TEST_COURIERZ_0_1_0",
+    "DeutschZEventSettings": {
+        "Event": {
+            "Enabled": 1,
+            "MinOnlinePlayers": 1,
+            "MaxSimultaneousEvents": 1,
+            "MaxEventsPerRestart": 999,
+            "MaxRuntimeSeconds": 1800,
+            "CleanupDelaySeconds": 60,
+            "DebugLogs": 1
+        },
+        "Scheduling": {
+            "AutoStartAfterRestart": 1,
+            "StartDelayMinSeconds": 60,
+            "StartDelayMaxSeconds": 60,
+            "RestartAfterFinish": 1,
+            "RestartDelayMinSeconds": 60,
+            "RestartDelayMaxSeconds": 60,
+            "NoPlayerRetryDelaySeconds": 60
+        },
+        "Markers": {
+            "Enabled": 1,
+            "UseMapMarker": 1,
+            "Use3DMarker": 1,
+            "UseDynamicPositionUpdates": 1,
+            "UpdateIntervalSeconds": 10,
+            "ShowEventRadius": 1,
+            "ShowCarrierMarker": 1,
+            "ShowDroppedItemMarker": 1,
+            "ShowFinalMarker": 1,
+            "ShowExtractionMarker": 1,
+            "MarkerName": "DeutschZ CourierZ",
+            "MarkerIcon": "Deliver",
+            "MarkerColorARGB": -65536,
+            "MarkerPrefix": "CourierZ_"
+        },
+        "Notifications": {
+            "Enabled": 1,
+            "UseExpansionNotifications": 1,
+            "UseVanillaNotifications": 1,
+            "UseChatMessages": 1,
+            "StatusNotifications": 1,
+            "StatusIntervalSeconds": 15
+        },
+        "Testing": {
+            "FastTestMode": 1,
+            "CaptureHoldSeconds": 30,
+            "RequiredKillsToWin": 3,
+            "HackDurationSeconds": 30,
+            "WaveDelaySeconds": 30,
+            "StageAutoCompleteSeconds": 0,
+            "FinalDefenseSeconds": 120,
+            "ExtractionDurationSeconds": 30
+        }
+    },
+    "Courier": {
+        "RequireQuestItem": 0,
+        "RequireContactNPC": 0,
+        "EnableCourierPvPMarker": 1,
+        "CarrierOnlyKnowsDestination": 1,
+        "PublicCarrierMarkerDelaySeconds": 300,
+        "DropCaseOnDeath": 1,
+        "DropCaseOnLogout": 1,
+        "PreventStorageTransfer": 1,
+        "DeliveryTimeLimitSeconds": 1800,
+        "AllowPickupByOtherPlayers": 1,
+        "RewardOnDelivery": 1,
+        "FailOnTimeExpired": 1,
+        "CleanupDroppedCaseAfterSeconds": 1800,
+        "PickupRadius": 5.0,
+        "DeliveryRadius": 10.0,
+        "EnemySpawnRadius": 35.0
+    },
+    "ContactPosition": "7500 0 7500",
+    "DeliveryPosition": "7800 0 7800",
+    "ContactOrientation": "0 0 0",
+    "DeliveryOrientation": "0 0 0",
+    "CaseClassName": "DZCR_Aktenkoffer",
+    "RewardChestClassName": "DZCR_RewardChest",
+    "EnemyClassName": "ZmbM_SoldierNormal_Beige",
+    "StartEnemyCount": 3,
+    "DeliveryEnemyCount": 3,
+    "RewardItems": [
+        "BandageDressing",
+        "TacticalBaconCan",
+        "Ammo_556x45"
+    ]
+}

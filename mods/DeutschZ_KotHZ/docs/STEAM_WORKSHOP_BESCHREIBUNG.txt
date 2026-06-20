@@ -1,41 +1,48 @@
-[h1]DeutschZ_KotHZ - Infected Siege[/h1]
+[h1]DeutschZ KotHZ - Infected Siege[/h1]
 
-[b]Projekt:[/b] DeutschZ
-[b]Eigentuemer:[/b] Patrick Sluzalek / fck1701
-[b]Eventtyp:[/b] PvE-KotH / Infected Siege
+KotHZ ist ein DeutschZ-Event mit Capture-Zone, Flaggenobjekt, Zombie-Waves, Rewards, Cleanup, Marker-Requests und sichtbaren Meldungen.
 
-DeutschZ_KotHZ ist ein serverautoritatives King-of-the-Hill Event mit Capture-Zone, Infected-Waves, Rewards, Cleanup, Marker-Intent und sichtbaren Benachrichtigungen.
+[h1]Aktueller Stand - FIX23[/h1]
+Version: 2.2.9-fix23-testready
 
-[h2]Gameplay[/h2]
-[list]
-[*]Event startet nach Restart im Testmodus schnell automatisch.
-[*]Spieler erhalten sichtbare Chat-/Popup-Meldungen.
-[*]Eventzone wird ueber Marker/3D-Marker-Intent angekuendigt.
-[*]Spieler halten die Zone gegen Infizierten-Wellen.
-[*]Nach erfolgreichem Capture werden Rewards freigegeben.
-[*]Runtime-Objekte werden nach Eventende bereinigt.
-[/list]
+- Eventmusik komplett deaktiviert, um Sound-/Native-Crash-Risiken zu vermeiden.
+- Capture-Testzeit in automatisch erzeugten Testconfigs: 45 Sekunden.
+- MinOnlinePlayers im Testmodus: 1.
+- Chat-/Popup-Fallbacks aktiv.
+- Marker- und 3D-Marker-Intent aktiv ueber DeutschZ_Core / ExpansionBridge.
+- Sichtbare Vanilla-Testbeacons am Eventort als Fallback.
+- Flaggen-Texturen/Pfade korrigiert.
+- Keine direkten Expansion Calls im Eventmod.
 
-[h2]Aktueller Teststand[/h2]
-Version: 0.2.4-startready-visible-test
-[list]
-[*]Fast-Test-Config wird bei leerem Profil automatisch erzeugt.
-[*]Start nach ca. 60 Sekunden.
-[*]MinOnlinePlayers = 1.
-[*]Capturezeit reduziert.
-[*]Marker, 3D-Marker-Intent und Chat/Popup-Fallback aktiv.
-[/list]
+[h1]Gameplay-Test[/h1]
+Nach einem Profilreset erzeugt KotHZ automatisch schnelle Testconfigs. Nach kurzer Zeit sollte eine Zone starten, eine Meldung erscheinen, Gegner in der Zone auftauchen und das Event capturebar sein.
 
-[h2]Links[/h2]
-Steam Workshop:
-https://steamcommunity.com/sharedfiles/filedetails/?id=3746385283
 
-Benötigt:
-DeutschZ_Core - https://steamcommunity.com/sharedfiles/filedetails/?id=3748421029
-DeutschZ_ExpansionBridge - https://steamcommunity.com/sharedfiles/filedetails/?id=3748421850
-
-GitHub:
+[h1]Links[/h1]
+GitHub / Source / Audit:
 https://github.com/patslu-fck1701/DeutschZModZ
 
-[h2]Hinweis[/h2]
-Diese Version ist fuer technische Tests vorbereitet. Live-Balancing fuer Capturezeiten, Rewards und Spawnmengen sollte spaeter separat angepasst werden.
+DeutschZ Core:
+https://steamcommunity.com/sharedfiles/filedetails/?id=3748421029
+
+DeutschZ ExpansionBridge:
+https://steamcommunity.com/sharedfiles/filedetails/?id=3748421850
+
+DeutschZ KotHZ / Infected Siege:
+https://steamcommunity.com/sharedfiles/filedetails/?id=3746385283
+
+DeutschZ ConvoyZ:
+https://steamcommunity.com/sharedfiles/filedetails/?id=3745946832
+
+DeutschZ GroundZero:
+https://steamcommunity.com/sharedfiles/filedetails/?id=3748422786
+
+[h1]Transparenz[/h1]
+Dieses Projekt wird als eigenes DeutschZ-Mod-Oekosystem entwickelt. Keine fremden PBOs werden geoeffnet oder kopiert. Der aktuelle Stand enthaelt Dokumentationsdateien wie README, CHANGELOG, NO_COPY_AUDIT, SOURCE_PROVENANCE, PUBLIC_SOURCE_REGISTER, OPEN_ASSUMPTIONS und README_COMPLIANCE.
+
+[h1]Loadorder[/h1]
+1. DeutschZ_Core
+2. DeutschZ_ExpansionBridge
+9. DeutschZ_KotHZ
+10. DeutschZ_ConvoyZ
+11. DeutschZ_GroundZero

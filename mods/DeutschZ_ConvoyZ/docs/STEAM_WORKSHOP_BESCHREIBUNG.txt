@@ -1,44 +1,48 @@
 [h1]DeutschZ ConvoyZ[/h1]
 
-[b]Projekt:[/b] DeutschZ
-[b]Eigentuemer:[/b] Patrick Sluzalek / fck1701
-[b]Eventtyp:[/b] Convoy / Crashsite / Blackbox
+ConvoyZ ist ein dynamisches DeutschZ-Event mit Convoy-Position, Crash-/Lootpunkt, Gegnerwellen, Hack-/Objectivephase, Rewards, Cleanup, Marker-Requests und sichtbaren Meldungen.
 
-DeutschZ_ConvoyZ ist ein serverautoritatives Event rund um eine abgestuerzte/angegriffene Konvoi-Stelle. Spieler sichern die Zone, eliminieren Gegner, hacken die Blackbox und erhalten danach Rewards.
+[h1]Aktueller Stand - FIX23[/h1]
+Version: 0.3.2-fix23-marker-notify-testready
 
-[h2]Gameplay[/h2]
-[list]
-[*]Event startet im Testmodus automatisch kurz nach Restart.
-[*]Crashsite mit Smoke/Objekten wird gespawnt.
-[*]Gegner-Wellen werden gespawnt. Wenn Expansion AI nicht verfuegbar ist, werden Vanilla-Infected-Fallbacks genutzt.
-[*]Spieler muessen eine konfigurierte Anzahl Gegner erledigen.
-[*]Danach wird die Blackbox hackbar.
-[*]Nach erfolgreichem Hack wird der Reward freigegeben.
-[*]Statusmeldungen erscheinen als sichtbare Chatmeldungen.
-[/list]
+- Automatisch erzeugte Testconfigs starten schnell nach Restart.
+- MinOnlinePlayers im Testmodus: 1.
+- RequiredKillsToWin im Testmodus: 3.
+- HackDuration im Testmodus: 30 Sekunden.
+- Crashobjekt-Fehler sind im Testmodus nicht mehr fatal.
+- Gegnerwellen nutzen stabile Vanilla-Infected-Fallbacks.
+- Chat-/Popup-Fallbacks aktiv.
+- Marker- und 3D-Marker-Intent aktiv ueber DeutschZ_Core / ExpansionBridge.
 
-[h2]Aktueller Teststand[/h2]
-Version: 0.3.3-startready-visible-test
-[list]
-[*]Fast-Test-Config wird bei leerem Profil automatisch erzeugt.
-[*]Start nach ca. 60 Sekunden.
-[*]MinOnlinePlayers = 1.
-[*]RequiredKills = 3.
-[*]Hackdauer = 30 Sekunden.
-[*]Marker, 3D-Marker-Intent und sichtbare Chatmeldungen aktiv.
-[*]Nicht kritische Crashobjekte stoppen das Event nicht mehr, falls ein Klassenname nicht spawnt.
-[/list]
+[h1]Gameplay-Test[/h1]
+Nach einem Profilreset sollte ConvoyZ schnell starten. Spieler sollen Meldung, sichtbaren Eventort, Gegner und den Objective-Fortschritt sehen.
 
-[h2]Links[/h2]
-Steam Workshop:
-https://steamcommunity.com/sharedfiles/filedetails/?id=3745946832
 
-Benötigt:
-DeutschZ_Core - https://steamcommunity.com/sharedfiles/filedetails/?id=3748421029
-DeutschZ_ExpansionBridge - https://steamcommunity.com/sharedfiles/filedetails/?id=3748421850
-
-GitHub:
+[h1]Links[/h1]
+GitHub / Source / Audit:
 https://github.com/patslu-fck1701/DeutschZModZ
 
-[h2]Hinweis[/h2]
-Der aktuelle Build ist auf schnelle technische Tests ausgelegt. Fuer Livebetrieb muessen Timings, Gegneranzahl und Rewardwerte wieder hochgesetzt werden.
+DeutschZ Core:
+https://steamcommunity.com/sharedfiles/filedetails/?id=3748421029
+
+DeutschZ ExpansionBridge:
+https://steamcommunity.com/sharedfiles/filedetails/?id=3748421850
+
+DeutschZ KotHZ / Infected Siege:
+https://steamcommunity.com/sharedfiles/filedetails/?id=3746385283
+
+DeutschZ ConvoyZ:
+https://steamcommunity.com/sharedfiles/filedetails/?id=3745946832
+
+DeutschZ GroundZero:
+https://steamcommunity.com/sharedfiles/filedetails/?id=3748422786
+
+[h1]Transparenz[/h1]
+Dieses Projekt wird als eigenes DeutschZ-Mod-Oekosystem entwickelt. Keine fremden PBOs werden geoeffnet oder kopiert. Der aktuelle Stand enthaelt Dokumentationsdateien wie README, CHANGELOG, NO_COPY_AUDIT, SOURCE_PROVENANCE, PUBLIC_SOURCE_REGISTER, OPEN_ASSUMPTIONS und README_COMPLIANCE.
+
+[h1]Loadorder[/h1]
+1. DeutschZ_Core
+2. DeutschZ_ExpansionBridge
+9. DeutschZ_KotHZ
+10. DeutschZ_ConvoyZ
+11. DeutschZ_GroundZero

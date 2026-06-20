@@ -302,7 +302,7 @@ class DeutschZConvoyZEventNotificationSettings
     void DeutschZConvoyZEventNotificationSettings()
     {
         Enabled = 1;
-        UseExpansionNotifications = 0;
+        UseExpansionNotifications = 1;
         UseVanillaNotifications = 1;
         UseChatMessages = 1;
         StatusNotifications = 1;
@@ -374,7 +374,7 @@ class DeutschZConvoyZEventTestingSettings
         RequiredKillsToWin = 3;
         HackDurationSeconds = 30;
         WaveDelaySeconds = 30;
-        StageAutoCompleteSeconds = 20;
+        StageAutoCompleteSeconds = 180;
         FinalDefenseSeconds = 120;
         ExtractionDurationSeconds = 30;
     }

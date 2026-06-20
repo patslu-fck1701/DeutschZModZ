@@ -44,7 +44,7 @@
         {
             "WaveId": "test_wave_1",
             "DelaySeconds": 0,
-            "Count": 4,
+            "Count": 3,
             "AIClassName": "ZmbM_SoldierNormal_Beige",
             "DeutschZAIProfileId": "",
             "LoadoutName": "",
@@ -180,5 +180,6 @@
             }
         ],
         "RewardMode": "SPAWN_CRATE"
-    }
+    },
+    "ConfigInfo": "DeutschZ_ConvoyZ FIX23 FAST TEST Events. Static crash point, stable infected waves, required kills=3."
 }

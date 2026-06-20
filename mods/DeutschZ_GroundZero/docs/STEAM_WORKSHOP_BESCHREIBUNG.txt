@@ -1,46 +1,48 @@
 [h1]DeutschZ GroundZero[/h1]
 
-[b]Projekt:[/b] DeutschZ
-[b]Eigentuemer:[/b] Patrick Sluzalek / fck1701
-[b]Eventtyp:[/b] Mehrstufiges PvE/PvP-Kampagnen-Event
+GroundZero ist ein mehrstufiges DeutschZ-Kampagnen-Event mit Stage-Zielen, Gegnern, Sammel-/Fortschrittssystem, Finalphase, Extraction und Marker-/Notify-Anbindung ueber Core/Bridge.
 
-DeutschZ_GroundZero ist ein mehrstufiges Event mit Stage-Zielen, Komponenten, Carriern, Finalphase, Extraction, Zombies und AI-/Fallback-Gegnern.
+[h1]Aktueller Stand - FIX23[/h1]
+Version: 0.4.6-fix23-killgated-testready
 
-[h2]Gameplay[/h2]
-[list]
-[*]Event startet im Testmodus automatisch kurz nach Restart.
-[*]Mehrere Stage-Ziele werden nacheinander aktiviert.
-[*]Jede Stage erzeugt Marker/3D-Marker-Intent, Zombies und Fallback-Gegner.
-[*]Komponenten koennen aufgenommen, verloren und erneut verfolgt werden.
-[*]Finale Phase aktiviert eine Endposition.
-[*]Extraction schliesst das Event ab.
-[*]Sichtbare Chatmeldungen informieren ueber Fortschritt und Ziele.
-[/list]
+- Autostart-Schleife gestoppt.
+- Kein Durchrauschen durch alle Stages mehr.
+- Stage-Fortschritt ist jetzt kill-gated: Testconfig verlangt 3 Gegnerkills pro Stage.
+- Timed Objective Fallback ist in Testconfigs deaktiviert.
+- Gegnerwellen reduziert und stabilisiert.
+- Military/Rogue-AI standardmaessig aus, Vanilla-Infected-Testfallback aktiv.
+- Stage-, Carrier-, Drop-, Final- und Extraction-Marker-Intent ueber Core/Bridge.
+- Chat-/Popup-Fallbacks aktiv.
 
-[h2]Aktueller Teststand[/h2]
-Version: 0.4.7-startready-visible-test
-[list]
-[*]Autostart-Loop gefixt: fällige Events werden nicht mehr endlos neu geplant.
-[*]Fast-Test-Config wird bei leerem Profil automatisch erzeugt.
-[*]Start nach ca. 60 Sekunden.
-[*]MinOnlinePlayers = 1.
-[*]Stage-Autoabschluss = 20 Sekunden.
-[*]FinalDefense = 120 Sekunden.
-[*]Extraction = 30 Sekunden.
-[*]Zombies und Fallback-AI aktiv.
-[*]Marker, 3D-Marker-Intent und sichtbare Chatmeldungen aktiv.
-[/list]
+[h1]Gameplay-Test[/h1]
+Nach einem Profilreset startet GroundZero schnell. Spieler sollen Meldungen, sichtbare Beacons/Marker-Intent, Gegner und klaren Stage-Fortschritt sehen. Eine Stage soll erst weitergehen, wenn genug Gegner getoetet wurden.
 
-[h2]Links[/h2]
-Steam Workshop:
-https://steamcommunity.com/sharedfiles/filedetails/?id=3748422786
 
-Benötigt:
-DeutschZ_Core - https://steamcommunity.com/sharedfiles/filedetails/?id=3748421029
-DeutschZ_ExpansionBridge - https://steamcommunity.com/sharedfiles/filedetails/?id=3748421850
-
-GitHub:
+[h1]Links[/h1]
+GitHub / Source / Audit:
 https://github.com/patslu-fck1701/DeutschZModZ
 
-[h2]Hinweis[/h2]
-GroundZero ist weiterhin Test-/Stabilisierungsstand. Die aktuelle Version ist bewusst auf sichtbare, schnelle Eventtests ausgelegt.
+DeutschZ Core:
+https://steamcommunity.com/sharedfiles/filedetails/?id=3748421029
+
+DeutschZ ExpansionBridge:
+https://steamcommunity.com/sharedfiles/filedetails/?id=3748421850
+
+DeutschZ KotHZ / Infected Siege:
+https://steamcommunity.com/sharedfiles/filedetails/?id=3746385283
+
+DeutschZ ConvoyZ:
+https://steamcommunity.com/sharedfiles/filedetails/?id=3745946832
+
+DeutschZ GroundZero:
+https://steamcommunity.com/sharedfiles/filedetails/?id=3748422786
+
+[h1]Transparenz[/h1]
+Dieses Projekt wird als eigenes DeutschZ-Mod-Oekosystem entwickelt. Keine fremden PBOs werden geoeffnet oder kopiert. Der aktuelle Stand enthaelt Dokumentationsdateien wie README, CHANGELOG, NO_COPY_AUDIT, SOURCE_PROVENANCE, PUBLIC_SOURCE_REGISTER, OPEN_ASSUMPTIONS und README_COMPLIANCE.
+
+[h1]Loadorder[/h1]
+1. DeutschZ_Core
+2. DeutschZ_ExpansionBridge
+9. DeutschZ_KotHZ
+10. DeutschZ_ConvoyZ
+11. DeutschZ_GroundZero

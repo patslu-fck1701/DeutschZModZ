@@ -1,5 +1,21 @@
 # CHANGELOG
 
+## 2026-06-20 - 2.2.9 FIX23 TestReady
+
+- Event music remains fully disabled to avoid server/native crash risk.
+- Bridge notification routing enabled by default for visible popup/chat fallback.
+- Flag texture paths normalized to reduce white-flag risk.
+- Generated fast-test config defaults validated for marker/3D-marker/notify testing.
+
+
+## 2026-06-20 - FIX21 NoMusic Marker Safe
+
+- Disabled KOTH event music completely for hosted-server safe boot.
+- Removed automatic sound trigger sync from the runtime flagpole.
+- Forced KOTH flag texture assignment after flag attachment to avoid white flag visuals.
+- Kept marker/3D marker requests active through DeutschZ Core/ExpansionBridge.
+
+
 ## 2026-06-20 - 0.2.4 Start-Ready Visible Test Build
 
 - Generated/default config now enables fast test timings, map marker, 3D marker intent, vanilla popup and chat fallback.

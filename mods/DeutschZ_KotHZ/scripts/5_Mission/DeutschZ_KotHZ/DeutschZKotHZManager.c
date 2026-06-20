@@ -493,41 +493,9 @@ class DeutschZKotHZManager
 
     protected void TryPlayEventMusic(string phase)
     {
-        if (!m_Config || !m_Config.EnableEventMusic || !m_ActiveZone)
-            return;
-
-        if (phase == "Ready" && !m_Config.EventMusicPlayOnReady)
-            return;
-        if (phase == "Start" && !m_Config.EventMusicPlayOnStart)
-            return;
-        if (phase == "Captured" && !m_Config.EventMusicPlayOnCaptured)
-            return;
-
-        string soundSetName = m_Config.EventMusicSoundSetName;
-        if (soundSetName == "")
-            soundSetName = "DeutschZ_KotHZ_EventMusic_SoundSet";
-
-        vector pos = GetFlagpoleBasePosition();
-        if (pos == vector.Zero && m_ActiveZone)
-            pos = m_ActiveZone.Position;
-        if (pos != vector.Zero)
-            pos[1] = GetGame().SurfaceY(pos[0], pos[2]) + 1.2;
-
-        bool triggered = false;
-        if (m_Flagpole)
-            triggered = m_Flagpole.TriggerEventMusic(soundSetName);
-
-        if (triggered)
-        {
-            string musicMsg = "[DeutschZ_KotHZ] Event music synced to clients at mast phase=" + phase;
-            musicMsg += " soundSet=" + soundSetName;
-            musicMsg += " pos=" + pos.ToString();
-            Print(musicMsg);
-        }
-        else
-        {
-            Print("[DeutschZ_KotHZ] Event music could not trigger at mast. Flagpole missing or soundset unavailable: " + soundSetName);
-        }
+        // FIX21 Safe-Boot: KOTH music is intentionally disabled.
+        // Keep this as a no-op so config/profile leftovers cannot trigger client sound sync.
+        return;
     }
 
     protected int CountPlayersInZone()

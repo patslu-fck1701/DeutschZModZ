@@ -17,6 +17,8 @@ class GroundZeroStageRuntime: Managed
     float CompletedAt;
     bool RewardSpawned;
     string CompletedByPlayerId;
+    int ObjectiveKillCount;
+    int ObjectiveKillRequired;
 
     void GroundZeroStageRuntime()
     {
@@ -28,6 +30,8 @@ class GroundZeroStageRuntime: Managed
         CompletedAt = 0;
         RewardSpawned = false;
         CompletedByPlayerId = "";
+        ObjectiveKillCount = 0;
+        ObjectiveKillRequired = 3;
     }
 }
 

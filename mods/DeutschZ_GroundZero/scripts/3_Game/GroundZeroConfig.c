@@ -174,7 +174,7 @@ class GroundZeroEventNotificationSettings
     void GroundZeroEventNotificationSettings()
     {
         Enabled = 1;
-        UseExpansionNotifications = 0;
+        UseExpansionNotifications = 1;
         UseVanillaNotifications = 1;
         UseChatMessages = 1;
         StatusNotifications = 1;
@@ -246,7 +246,7 @@ class GroundZeroEventTestingSettings
         RequiredKillsToWin = 3;
         HackDurationSeconds = 30;
         WaveDelaySeconds = 30;
-        StageAutoCompleteSeconds = 20;
+        StageAutoCompleteSeconds = 0;
         FinalDefenseSeconds = 120;
         ExtractionDurationSeconds = 30;
     }
@@ -258,7 +258,7 @@ class GroundZeroEventTestingSettings
         if (RequiredKillsToWin < 0) RequiredKillsToWin = 0;
         if (HackDurationSeconds < 5) HackDurationSeconds = 5;
         if (WaveDelaySeconds < 0) WaveDelaySeconds = 0;
-        if (StageAutoCompleteSeconds < 5) StageAutoCompleteSeconds = 5;
+        if (StageAutoCompleteSeconds < 0) StageAutoCompleteSeconds = 0;
         if (FinalDefenseSeconds < 30) FinalDefenseSeconds = 30;
         if (ExtractionDurationSeconds < 5) ExtractionDurationSeconds = 5;
     }
@@ -502,6 +502,14 @@ class GroundZeroConfig
         return DeutschZEventSettings.Notifications.Enabled == 1 && DeutschZEventSettings.Notifications.UseChatMessages == 1;
     }
 
+    int GetStageRequiredKills()
+    {
+        EnsureDeutschZEventSettings();
+        int required = DeutschZEventSettings.Testing.RequiredKillsToWin;
+        if (required < 1) required = 1;
+        return required;
+    }
+
     void GroundZeroConfig()
     {
         DeutschZEventSettings = new GroundZeroEventSettings();
@@ -516,7 +524,7 @@ class GroundZeroConfig
 
     void SetDefaults()
     {
-        ConfigVersion = 5;
+        ConfigVersion = 6;
         EnableGroundZero = true;
         AutoStartEnabled = false;
         AutoStartMinDelaySeconds = 1800;
@@ -527,7 +535,7 @@ class GroundZeroConfig
         EventMaxDurationSeconds = 5400;
         EventCleanupDelaySeconds = 300;
 
-        AllowTimedObjectiveFallback = true;
+        AllowTimedObjectiveFallback = false;
         RetryLimitPerEvent = 3;
         RetrySpawnBackDistanceMin = 300;
         RetrySpawnBackDistanceMax = 600;
@@ -600,11 +608,11 @@ class GroundZeroConfig
     void BuildDefaultStages()
     {
         Stages.Clear();
-        AddStage(1, "Signalstation", "Funkstation aktivieren", ItemAlphaDataModule, 1, 8, 2, 0, 120, 20, false);
-        AddStage(2, "Generatorstation", "Generator mit Treibstoff versorgen", ItemEnergyCell, 2, 10, 2, 0, 140, 20, false);
-        AddStage(3, "Forschungsstation", "Forschungsdaten sichern", ItemBioSample, 3, 12, 3, 0, 160, 20, false);
-        AddStage(4, "Absturzstelle", "Militaerabsturz untersuchen", ItemAuthChip, 4, 14, 3, 2, 180, 20, false);
-        AddStage(5, "Verseuchte Zone", "Containment-System erreichen", ItemContainmentKey, 5, 16, 4, 3, 220, 20, false);
+        AddStage(1, "Signalstation", "Funkstation sichern", ItemAlphaDataModule, 1, 4, 0, 0, 90, 0, false);
+        AddStage(2, "Generatorstation", "Generatorbereich sichern", ItemEnergyCell, 2, 4, 0, 0, 100, 0, false);
+        AddStage(3, "Forschungsstation", "Forschungsbereich sichern", ItemBioSample, 3, 5, 0, 0, 110, 0, false);
+        AddStage(4, "Absturzstelle", "Absturzstelle sichern", ItemAuthChip, 4, 5, 0, 0, 120, 0, false);
+        AddStage(5, "Verseuchte Zone", "Containment-Zone sichern", ItemContainmentKey, 5, 6, 0, 0, 130, 0, false);
     }
 
     void AddStage(int id, string name, string objective, string reward, int threat, int z, int m, int r, float radius, float hold, bool manual)
@@ -627,11 +635,9 @@ class GroundZeroConfig
     void BuildDefaultFinalWaves()
     {
         FinalWaves.Clear();
-        AddFinalWave(1, "Militaerzombies", 2, 10, 0, 0, 0);
-        AddFinalWave(2, "Hunter", 3, 10, 0, 0, 30);
-        AddFinalWave(3, "Militaer AI", 3, 8, 4, 0, 60);
-        AddFinalWave(4, "Rogue AI", 4, 8, 0, 4, 90);
-        AddFinalWave(5, "Elite-Welle", 5, 12, 4, 4, 120);
+        AddFinalWave(1, "Militaerzombies", 2, 4, 0, 0, 0);
+        AddFinalWave(2, "Hunter", 3, 4, 0, 0, 30);
+        AddFinalWave(3, "Elite-Welle", 5, 5, 0, 0, 60);
     }
 
     void AddFinalWave(int id, string name, int threat, int z, int m, int r, float d)
@@ -681,7 +687,7 @@ class GroundZeroConfig
         EnsureDeutschZEventSettings();
         ApplyDeutschZEventSettings();
 
-        if (ConfigVersion < 5) ConfigVersion = 5;
+        if (ConfigVersion < 6) ConfigVersion = 6;
         if (AutoStartMaxDelaySeconds < AutoStartMinDelaySeconds) AutoStartMaxDelaySeconds = AutoStartMinDelaySeconds + 1800;
         if (MinOnlinePlayersToAutoStart < 0) MinOnlinePlayersToAutoStart = 0;
         if (EventMinDurationSeconds < 600) EventMinDurationSeconds = 2700;

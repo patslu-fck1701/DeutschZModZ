@@ -1,32 +1,48 @@
 [h1]DeutschZ Core[/h1]
 
-[b]Projekt:[/b] DeutschZ
-[b]Eigentuemer:[/b] Patrick Sluzalek / fck1701
-[b]Server:[/b] DeutschZ DayZ Server
+DeutschZ Core ist die zentrale Basis fuer das DeutschZ-Mod-Oekosystem. Core stellt gemeinsame Profilpfade, Logging, Provider-APIs, Event-State-Grundlagen, Config-Validation und Fallback-Strukturen bereit.
 
-DeutschZ_Core ist die Pflicht-Basis fuer das DeutschZ Mod-Oekosystem. Die Mod stellt gemeinsame Infrastruktur bereit, damit Event- und Gameplay-Module serverautoritativ, nachvollziehbar und ohne Client-Autoritaet arbeiten koennen.
+[h1]Aktueller Stand - FIX23[/h1]
+Version: 0.1.6-fix23-provider-api
 
-[h2]Funktionen[/h2]
-[list]
-[*]Gemeinsame Profilpfade unter $profile:DeutschZ/
-[*]Logging-Grundlage fuer alle DeutschZ-Module
-[*]JSON Save/Load-Helfer
-[*]Provider-APIs fuer Marker, Notifications und AI
-[*]ServiceLocator fuer Core/Bridge-Kommunikation
-[*]Event-State-Grundlagen fuer Event-Module
-[*]Safe-Boot-orientierte Basis ohne Gameplay-Abhaengigkeit
-[/list]
+- Safe-Boot-Stand bleibt erhalten.
+- Provider-API fuer Marker, Notifications und AI bleibt zentrale Schnittstelle.
+- Events sprechen weiterhin ueber Core/Bridge statt direkt ueber Expansion.
+- Automatisch erzeugte Testconfigs werden von den Events sauber unter $profile:DeutschZ/ verwendet.
 
-[h2]Aktueller Stand[/h2]
-Version: 0.1.5-visible-provider
-Der Server startet mit dem aktuellen Safe-Boot-Stand. Core bleibt bewusst schlank; sichtbare Marker-/Notification-/AI-Fallbacks liegen in DeutschZ_ExpansionBridge.
+[h1]Fuer Serveradmins[/h1]
+Core muss vor allen DeutschZ-Eventmods geladen werden. Ohne Core sollen die Eventmods nicht betrieben werden.
 
-[h2]Links[/h2]
-Steam Workshop:
-https://steamcommunity.com/sharedfiles/filedetails/?id=3748421029
 
-GitHub:
+[h1]Links[/h1]
+GitHub / Source / Audit:
 https://github.com/patslu-fck1701/DeutschZModZ
 
-[h2]Abhaengigkeiten[/h2]
-Keine harte Gameplay-Mod-Abhaengigkeit ausser DayZ selbst. Community Framework/Expansion werden von hoeheren Modulen genutzt, nicht von Core erzwungen.
+DeutschZ Core:
+https://steamcommunity.com/sharedfiles/filedetails/?id=3748421029
+
+DeutschZ ExpansionBridge:
+https://steamcommunity.com/sharedfiles/filedetails/?id=3748421850
+
+DeutschZ KotHZ / Infected Siege:
+https://steamcommunity.com/sharedfiles/filedetails/?id=3746385283
+
+DeutschZ ConvoyZ:
+https://steamcommunity.com/sharedfiles/filedetails/?id=3745946832
+
+DeutschZ GroundZero:
+https://steamcommunity.com/sharedfiles/filedetails/?id=3748422786
+
+[h1]Transparenz[/h1]
+Dieses Projekt wird als eigenes DeutschZ-Mod-Oekosystem entwickelt. Keine fremden PBOs werden geoeffnet oder kopiert. Der aktuelle Stand enthaelt Dokumentationsdateien wie README, CHANGELOG, NO_COPY_AUDIT, SOURCE_PROVENANCE, PUBLIC_SOURCE_REGISTER, OPEN_ASSUMPTIONS und README_COMPLIANCE.
+
+[h1]Loadorder[/h1]
+1. DeutschZ_Core
+2. DeutschZ_ExpansionBridge
+9. DeutschZ_KotHZ
+10. DeutschZ_ConvoyZ
+11. DeutschZ_GroundZero
+
+
+Neue/kommende DeutschZ Erweiterung:
+DeutschZ CourierZ - Operation Aktenkoffer: [WORKSHOP_LINK_DEUTSCHZ_COURIERZ_AFTER_FIRST_UPLOAD]

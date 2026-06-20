@@ -1,32 +1,48 @@
 [h1]DeutschZ ExpansionBridge[/h1]
 
-[b]Projekt:[/b] DeutschZ
-[b]Eigentuemer:[/b] Patrick Sluzalek / fck1701
+DeutschZ ExpansionBridge ist die einzige direkte Erweiterungsschicht fuer Expansion-nahe Funktionen im DeutschZ-System. Eventmods duerfen keine direkten Expansion-Calls verwenden, sondern gehen ueber Core/Bridge.
 
-DeutschZ_ExpansionBridge ist die einzige direkte Integrationsschicht fuer optionale Expansion-nahe Funktionen. Event-Mods sprechen nicht direkt mit Expansion, sondern nur ueber Core/Bridge-Provider.
+[h1]Aktueller Stand - FIX23[/h1]
+Version: 0.1.2-fix23-marker-notify-fallback
 
-[h2]Funktionen[/h2]
-[list]
-[*]MarkerProvider fuer DeutschZ Event-Marker
-[*]3D-Marker-Intent ueber denselben Providerweg
-[*]NotificationProvider mit sichtbarem Chat-Fallback
-[*]AIProvider mit sicherem Vanilla-Infected-Fallback fuer Tests
-[*]Marker-Cleanup per Prefix
-[*]Keine direkten Expansion-Calls in Event-Mods notwendig
-[/list]
+- Sichtbare Chat- und Popup-Fallbacks fuer Eventmeldungen.
+- Marker- und 3D-Marker-Requests erzeugen zusaetzlich sichtbare Vanilla-Testbeacons am Eventort.
+- AI-Testfallback spawnt stabile Vanilla-Infected, wenn keine echte Expansion-AI verwendet wird.
+- Keine geratenen Direktaufrufe in Eventmods.
 
-[h2]Aktueller Teststand[/h2]
-Version: 0.1.3-visible-marker-notify-fallbacks
+[h1]Hinweis[/h1]
+Wenn echte Expansion-Kartenmarker spaeter erweitert werden, bleibt diese Bridge der einzige Ort fuer die Integration.
 
-Wenn echte Expansion Marker noch nicht sichtbar sind, erzeugt die Bridge zusaetzlich sichtbare Vanilla-Fallbackobjekte am Eventort, damit Events testbar sind. Notifications werden sichtbar an Spieler gesendet.
 
-[h2]Links[/h2]
-Steam Workshop:
-https://steamcommunity.com/sharedfiles/filedetails/?id=3748421850
-
-GitHub:
+[h1]Links[/h1]
+GitHub / Source / Audit:
 https://github.com/patslu-fck1701/DeutschZModZ
 
-[h2]Abhaengigkeiten[/h2]
-DeutschZ_Core ist Pflicht.
-DayZ Expansion bleibt optional fuer spaetere echte API-Anbindung. Events muessen ohne Expansion crashfrei bleiben.
+DeutschZ Core:
+https://steamcommunity.com/sharedfiles/filedetails/?id=3748421029
+
+DeutschZ ExpansionBridge:
+https://steamcommunity.com/sharedfiles/filedetails/?id=3748421850
+
+DeutschZ KotHZ / Infected Siege:
+https://steamcommunity.com/sharedfiles/filedetails/?id=3746385283
+
+DeutschZ ConvoyZ:
+https://steamcommunity.com/sharedfiles/filedetails/?id=3745946832
+
+DeutschZ GroundZero:
+https://steamcommunity.com/sharedfiles/filedetails/?id=3748422786
+
+[h1]Transparenz[/h1]
+Dieses Projekt wird als eigenes DeutschZ-Mod-Oekosystem entwickelt. Keine fremden PBOs werden geoeffnet oder kopiert. Der aktuelle Stand enthaelt Dokumentationsdateien wie README, CHANGELOG, NO_COPY_AUDIT, SOURCE_PROVENANCE, PUBLIC_SOURCE_REGISTER, OPEN_ASSUMPTIONS und README_COMPLIANCE.
+
+[h1]Loadorder[/h1]
+1. DeutschZ_Core
+2. DeutschZ_ExpansionBridge
+9. DeutschZ_KotHZ
+10. DeutschZ_ConvoyZ
+11. DeutschZ_GroundZero
+
+
+Neue/kommende DeutschZ Erweiterung:
+DeutschZ CourierZ - Operation Aktenkoffer: [WORKSHOP_LINK_DEUTSCHZ_COURIERZ_AFTER_FIRST_UPLOAD]

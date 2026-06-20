@@ -147,7 +147,7 @@ class DeutschZKotHZEventNotificationSettings
     void DeutschZKotHZEventNotificationSettings()
     {
         Enabled = 1;
-        UseExpansionNotifications = 0;
+        UseExpansionNotifications = 1;
         UseVanillaNotifications = 1;
         UseChatMessages = 1;
         StatusNotifications = 1;
@@ -219,7 +219,7 @@ class DeutschZKotHZEventTestingSettings
         RequiredKillsToWin = 3;
         HackDurationSeconds = 30;
         WaveDelaySeconds = 30;
-        StageAutoCompleteSeconds = 20;
+        StageAutoCompleteSeconds = 180;
         FinalDefenseSeconds = 120;
         ExtractionDurationSeconds = 30;
     }
@@ -406,7 +406,7 @@ class DeutschZKotHZConfig
     void DeutschZKotHZConfig()
     {
         DeutschZEventSettings = new DeutschZKotHZEventSettings();
-        ConfigInfo = "DeutschZ_KotHZ main config FIX20. Custom event music OGG uses aligned file/path data/sounds/DeutschZ_KotHZ_RoterRauch.ogg; fast-start test balance remains active from FIX17.";
+        ConfigInfo = "DeutschZ_KotHZ FIX23 fast-test config. Event music is disabled; marker/3D-marker intent and Bridge popup/chat fallbacks are enabled.";
         EditHint = "TESTVERSION: starts after 1 minute, capture time is reduced, and all zones use DeutschZ_Test_HighValue reward pool for quick loot testing. Do not use these fast timings as final live balance.";
         OwnerName = "Patrick Sluzalek";
         OwnerPlayerName = "fck1701";
@@ -424,7 +424,7 @@ class DeutschZKotHZConfig
         EnableProgressHUD = 1;
         EnableHUDDistanceLimit = 1;
         HUDMaxDisplayDistanceMeters = 500.0;
-        EnableExpansionNotifications = 0;
+        EnableExpansionNotifications = 1;
         EnableExpansionMarker = 1;
         EnableExpansion3DMarker = 1;
         EnableVanillaNotifications = 1;
@@ -451,13 +451,13 @@ class DeutschZKotHZConfig
         DeliveryCrateDropDelaySeconds = 2.0;
         DeliveryHelicopterCleanupSeconds = 25.0;
         DeliveryCrateLandingConfirmSeconds = 10.0;
-        EnableEventMusic = 1;
-        EventMusicSoundSetName = "DeutschZ_KotHZ_EventMusic_SoundSet";
-        EventMusicPlayOnReady = 1;
-        EventMusicPlayOnStart = 1;
-        EventMusicPlayOnCaptured = 1;
-        EventMusicRadius = 120.0;
-        EventMusicVolume = 1.0;
+        EnableEventMusic = 0;
+        EventMusicSoundSetName = "";
+        EventMusicPlayOnReady = 0;
+        EventMusicPlayOnStart = 0;
+        EventMusicPlayOnCaptured = 0;
+        EventMusicRadius = 0.0;
+        EventMusicVolume = 0.0;
 
         Zones = new array<ref DeutschZKotHZZone>;
         Rewards = new array<ref DeutschZKotHZReward>;

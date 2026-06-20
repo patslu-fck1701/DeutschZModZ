@@ -338,7 +338,7 @@ class DeutschZKotHZConfigManager
         // DeutschZ KotHZ test build: markers stay routed through DeutschZ_ExpansionBridge,
         // but visible player feedback must also work through vanilla popup/chat fallback.
         config.EnsureDeutschZEventSettings();
-        config.DeutschZEventSettings.Notifications.UseExpansionNotifications = 0;
+        config.DeutschZEventSettings.Notifications.UseExpansionNotifications = 1;
         config.DeutschZEventSettings.Notifications.UseVanillaNotifications = 1;
         config.DeutschZEventSettings.Notifications.UseChatMessages = 1;
         config.DeutschZEventSettings.Markers.UseMapMarker = 1;
@@ -397,19 +397,16 @@ class DeutschZKotHZConfigManager
         if (config.DeliveryCrateLandingConfirmSeconds <= 0)
             config.DeliveryCrateLandingConfirmSeconds = 10.0;
 
-        if (config.EventMusicSoundSetName == "")
-            config.EventMusicSoundSetName = "DeutschZ_KotHZ_EventMusic_SoundSet";
-
-        config.EnableEventMusic = 1;
-        config.EventMusicPlayOnReady = 1;
-        config.EventMusicPlayOnStart = 1;
-        config.EventMusicPlayOnCaptured = 1;
-
-        if (config.EventMusicRadius <= 0)
-            config.EventMusicRadius = 120.0;
-
-        if (config.EventMusicVolume <= 0)
-            config.EventMusicVolume = 1.0;
+        // FIX21: Event music is disabled by default for Safe-Boot. The previous client-synced
+        // sound path could trigger native instability on some hosted servers. Re-enable only
+        // after the soundset is verified on a local test server.
+        config.EnableEventMusic = 0;
+        config.EventMusicSoundSetName = "";
+        config.EventMusicPlayOnReady = 0;
+        config.EventMusicPlayOnStart = 0;
+        config.EventMusicPlayOnCaptured = 0;
+        config.EventMusicRadius = 0.0;
+        config.EventMusicVolume = 0.0;
 
         // DeutschZ KotHZ marker stays red in memory for consistent event presentation.
         config.ExpansionMarkerColorARGB = ARGB(255, 255, 0, 0);

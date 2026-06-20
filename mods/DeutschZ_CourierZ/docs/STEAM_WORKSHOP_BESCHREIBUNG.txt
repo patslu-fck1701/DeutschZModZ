@@ -1,0 +1,29 @@
+[h1]DeutschZ CourierZ - Operation Aktenkoffer[/h1]
+
+[b]Status:[/b] Safe-Boot / Testphase
+[b]Workshop Link:[/b] [WORKSHOP_LINK_DEUTSCHZ_COURIERZ_AFTER_FIRST_UPLOAD]
+[b]GitHub:[/b] https://github.com/patslu-fck1701/DeutschZModZ
+
+[h2]Beschreibung[/h2]
+CourierZ ist ein serverautoritaeres Transport-Event fuer DeutschZ. Der Spieler selbst wird zum Event: Ein Aktenkoffer muss aufgenommen, transportiert und am Zielpunkt abgegeben werden.
+
+[h2]Aktueller Testumfang[/h2]
+[list]
+[*]Autogenerierte FAST_TEST Config nach Profil-Reset
+[*]Start nach ca. 60 Sekunden mit 1 Spieler
+[*]sichtbarer Aktenkoffer-Abholpunkt
+[*]Carrier-/Delivery-Flow
+[*]Map- und 3D-Marker Requests ueber DeutschZ_ExpansionBridge
+[*]Chat/Popup Notifications ueber Bridge
+[*]Vanilla-Infected-Fallback-Gegner fuer Tests
+[*]Reward-Kiste am Zielpunkt
+[/list]
+
+[h2]Abhaengigkeiten[/h2]
+[list]
+[*]DeutschZ_Core
+[*]DeutschZ_ExpansionBridge
+[/list]
+
+[h2]Wichtiger Hinweis[/h2]
+Keine direkten Expansion Calls in CourierZ. Optionales Expansion-Verhalten laeuft ausschliesslich ueber DeutschZ_ExpansionBridge. Ohne Expansion darf das Event nicht crashen.

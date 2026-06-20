@@ -1,5 +1,24 @@
 # CHANGELOG
 
+## 2026-06-20 - 0.1.4-courierz-3dmarker-bridge
+
+- Added explicit Create3DMarker bridge fallback for CourierZ marker requests.
+- Added DeutschZ_CourierZ placeholder references to documentation.
+
+## 2026-06-20 - 0.1.2 FIX23 Marker/Notify Fallback
+
+- Added stronger visible marker fallback objects for event tests.
+- Marker creation now also sends a visible test notification with coordinates.
+- Notification provider remains central Bridge route for chat/popup fallback.
+- No direct Expansion API guesses added.
+
+
+## 2026-06-20 - FIX21 Visible Notification Provider
+
+- Added Mission notification provider that sends chat fallback and vanilla popup notifications to online players.
+- Event modules still use Core/Bridge APIs only.
+
+
 ## 2026-06-20 - 0.1.3 Visible Marker/Notify Fallbacks
 
 - Marker provider now keeps marker requests tracked and creates a visible vanilla fallback object for test visibility.

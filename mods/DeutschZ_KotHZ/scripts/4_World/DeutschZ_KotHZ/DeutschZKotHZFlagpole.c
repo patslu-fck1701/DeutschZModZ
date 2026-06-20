@@ -172,12 +172,8 @@ class DeutschZKotHZFlagpole
 
     bool TriggerEventMusic(string soundSetName)
     {
-        DeutschZKotHZ_RuntimeFlagpole customPole = DeutschZKotHZ_RuntimeFlagpole.Cast(m_PoleObject);
-        if (!customPole)
-            return false;
-
-        customPole.TriggerKOTHMusic(soundSetName);
-        return true;
+        // FIX21 Safe-Boot: KOTH music is disabled. Keep API stable but do not trigger sound sync.
+        return false;
     }
 
     bool ShouldDeleteOnEventEnd()

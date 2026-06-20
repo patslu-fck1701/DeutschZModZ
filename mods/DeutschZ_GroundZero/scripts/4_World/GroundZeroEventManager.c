@@ -202,6 +202,15 @@ class GroundZeroEventManager
         return (GetGame().GetTime() * 0.001) >= m_State.EventEndsAt;
     }
 
+    void OnEnemyKilled(Object victim, Object killer)
+    {
+        if (m_State.EventState == GroundZeroEventState.GZ_STAGE_ACTIVE && Stages)
+        {
+            Stages.OnEnemyKilled(victim, killer);
+            Save();
+        }
+    }
+
     void OnPlayerKilled(PlayerBase player, Object killer)
     {
         if (!player) return;

@@ -1,5 +1,17 @@
 # CHANGELOG
 
+## 2026-06-20 - 0.1.4-courierz-provider-api
+
+- Added explicit Create3DMarker provider method for CourierZ and future events.
+- Added DeutschZ_CourierZ placeholder references to documentation.
+
+## 2026-06-20 - 0.1.6 FIX23 Provider API Validation
+
+- Kept Core provider APIs stable for Marker, Notification and AI routing.
+- Version aligned with FIX23 full replacement package.
+- No gameplay dependency added to Core.
+
+
 ## 2026-06-20 - 0.1.5 Visible Provider Readiness
 
 - Kept current safe-boot core state intact.

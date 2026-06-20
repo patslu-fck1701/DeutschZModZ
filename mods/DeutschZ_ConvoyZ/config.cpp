@@ -31,8 +31,8 @@ class CfgMods
         hidePicture = 1;
         name = "DeutschZ_ConvoyZ";
         credits = "DeutschZ";
-        author = "DeutschZ";
-        version = "1.0.0";
+        author = "Patrick Sluzalek / fck1701";
+        version = "0.3.2-fix23-marker-notify-testready";
         type = "mod";
         dependencies[] = {"Game", "World", "Mission"};
         class defs

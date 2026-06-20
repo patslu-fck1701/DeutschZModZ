@@ -14,6 +14,11 @@ class DeutschZCore_MarkerProviderAPI
         return false;
     }
 
+    bool Create3DMarker(string id, string label, vector position, int colorARGB)
+    {
+        return CreateMarker(id, label, position, colorARGB);
+    }
+
     bool UpdateMarker(string id, vector position)
     {
         return false;

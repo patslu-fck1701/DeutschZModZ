@@ -1,5 +1,19 @@
 # CHANGELOG
 
+## 2026-06-20 - 0.3.2 FIX23 TestReady
+
+- Bridge notification routing enabled by default for visible popup/chat fallback.
+- Marker and 3D-marker requests remain active with visible Bridge fallback.
+- Fast-test defaults validated for 1-player restart testing.
+- Stable infected enemy flow kept for kill testing.
+
+
+## 2026-06-20 - FIX21 Test Stable Enemies
+
+- ConvoyZ no longer auto-converts Survivor/eAI class names during test mode.
+- Uses vanilla infected fallback enemies for stable kill/secure testing until Expansion AI API is verified in the Bridge.
+
+
 ## 2026-06-20 - 0.3.3 Start-Ready Visible Test Build
 
 - Generated/default config now starts after 60 seconds with one online player and restarts quickly after cleanup.

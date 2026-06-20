@@ -10,7 +10,7 @@
 class GroundZeroConstants
 {
     static const string MOD_NAME = "DeutschZ_GroundZero";
-    static const string VERSION = "0.4.4-mission-hooks-hotfix";
+    static const string VERSION = "0.4.6-fix23-killgated-testready";
 
     static const string PROFILE_ROOT = "$profile:DeutschZ/";
     static const string PROFILE_DIR = "$profile:DeutschZ/GroundZero/";
