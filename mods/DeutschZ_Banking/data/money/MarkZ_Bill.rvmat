@@ -1,0 +1,14 @@
+specular[] = {0.0,0.0,0.0,0};
+specularPower = 0;
+PixelShaderID = "NormalMapSpecularMap";
+VertexShaderID = "NormalMap";
+class Stage1
+{
+  texture="DeutschZ_Banking\data\money\MarkZ_Bill_nohq.paa";
+  uvSource="tex";
+};
+class Stage2
+{
+  texture="#(argb,8,8,3)color(1,1,0,0,SM)";
+  uvSource="tex";
+};

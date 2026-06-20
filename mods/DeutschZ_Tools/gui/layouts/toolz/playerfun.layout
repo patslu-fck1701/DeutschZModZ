@@ -1,0 +1,646 @@
+PanelWidgetClass ToolzFrameRoot
+{
+    position 0 0
+    size 1468 790
+    hexactpos 1
+    vexactpos 1
+    hexactsize 1
+    vexactsize 1
+    color 0 0 0 0
+    visible 1
+    ignorepointer 0
+    clipchildren 1
+
+    TextWidgetClass FrameTitle
+    {
+        position 24 18
+        size 900 32
+        hexactpos 1
+        vexactpos 1
+        hexactsize 1
+        vexactsize 1
+        visible 1
+        ignorepointer 1
+        text "PlayerFun"
+        font "gui/fonts/Metron14"
+        "exact text size" 22
+        color 0.82 1 0.18 1
+    }
+
+    TextWidgetClass FrameInfo
+    {
+        position 24 56
+        size 1260 24
+        hexactpos 1
+        vexactpos 1
+        hexactsize 1
+        vexactsize 1
+        visible 1
+        ignorepointer 1
+        text "Spieler laden, Ziel anklicken, Aktion ausfuehren. Keine Steam64 per Hand noetig."
+        font "gui/fonts/Metron14"
+        "exact text size" 13
+        color 0.86 0.94 0.86 0.95
+    }
+
+    PanelWidgetClass PlayerFunPanel
+    {
+        position 24 100
+        size 820 360
+        hexactpos 1
+        vexactpos 1
+        hexactsize 1
+        vexactsize 1
+        color 0.3922 0.3922 0.3922 0.30
+        visible 1
+        ignorepointer 1
+        style rover_sim_colorable
+    }
+
+
+    TextWidgetClass PlayerFunTargetLabel
+    {
+        position 46 122
+        size 250 20
+        hexactpos 1
+        vexactpos 1
+        hexactsize 1
+        vexactsize 1
+        visible 1
+        ignorepointer 1
+        text "Ausgewaehlter Spieler"
+        font "gui/fonts/Metron14"
+        "exact text size" 13
+        color 0.82 1 0.18 1
+    }
+
+
+    EditBoxWidgetClass TargetSteam64
+    {
+        position 46 146
+        size 420 38
+        hexactpos 1
+        vexactpos 1
+        hexactsize 1
+        vexactsize 1
+        visible 1
+        ignorepointer 1
+        text ""
+        font "gui/fonts/Metron14"
+        "exact text size" 13
+    }
+
+    ButtonWidgetClass BtnPlayerList
+    {
+        position 486 146
+        size 280 38
+        hexactpos 1
+        vexactpos 1
+        hexactsize 1
+        vexactsize 1
+        visible 1
+        ignorepointer 0
+        text "Spieler laden"
+        font "gui/fonts/Metron14"
+    }
+
+
+    PanelWidgetClass BtnPlayerFunFreezeBg
+    {
+        position 46 190
+        size 220 46
+        hexactpos 1
+        vexactpos 1
+        hexactsize 1
+        vexactsize 1
+        color 0.3922 0.3922 0.3922 0.45
+        visible 1
+        ignorepointer 1
+        style rover_sim_colorable
+    }
+
+    PanelWidgetClass BtnPlayerFunFreezeLine
+    {
+        position 46 190
+        size 4 46
+        hexactpos 1
+        vexactpos 1
+        hexactsize 1
+        vexactsize 1
+        color 0.82 0 0 0.95
+        visible 1
+        ignorepointer 1
+        style rover_sim_colorable
+    }
+
+    ButtonWidgetClass BtnPlayerFunFreeze
+    {
+        position 46 190
+        size 220 46
+        hexactpos 1
+        vexactpos 1
+        hexactsize 1
+        vexactsize 1
+        visible 1
+        ignorepointer 0
+        text "Einfrieren"
+        font "gui/fonts/Metron14"
+    }
+
+    PanelWidgetClass BtnPlayerFunUnfreezeBg
+    {
+        position 296 190
+        size 220 46
+        hexactpos 1
+        vexactpos 1
+        hexactsize 1
+        vexactsize 1
+        color 0.3922 0.3922 0.3922 0.45
+        visible 1
+        ignorepointer 1
+        style rover_sim_colorable
+    }
+
+    PanelWidgetClass BtnPlayerFunUnfreezeLine
+    {
+        position 296 190
+        size 4 46
+        hexactpos 1
+        vexactpos 1
+        hexactsize 1
+        vexactsize 1
+        color 0.82 0 0 0.95
+        visible 1
+        ignorepointer 1
+        style rover_sim_colorable
+    }
+
+    ButtonWidgetClass BtnPlayerFunUnfreeze
+    {
+        position 296 190
+        size 220 46
+        hexactpos 1
+        vexactpos 1
+        hexactsize 1
+        vexactsize 1
+        visible 1
+        ignorepointer 0
+        text "Freigeben"
+        font "gui/fonts/Metron14"
+    }
+
+    PanelWidgetClass BtnPlayerFunVomitBg
+    {
+        position 546 190
+        size 220 46
+        hexactpos 1
+        vexactpos 1
+        hexactsize 1
+        vexactsize 1
+        color 0.3922 0.3922 0.3922 0.45
+        visible 1
+        ignorepointer 1
+        style rover_sim_colorable
+    }
+
+    PanelWidgetClass BtnPlayerFunVomitLine
+    {
+        position 546 190
+        size 4 46
+        hexactpos 1
+        vexactpos 1
+        hexactsize 1
+        vexactsize 1
+        color 0.82 0 0 0.95
+        visible 1
+        ignorepointer 1
+        style rover_sim_colorable
+    }
+
+    ButtonWidgetClass BtnPlayerFunVomit
+    {
+        position 546 190
+        size 220 46
+        hexactpos 1
+        vexactpos 1
+        hexactsize 1
+        vexactsize 1
+        visible 1
+        ignorepointer 0
+        text "Uebelkeit"
+        font "gui/fonts/Metron14"
+    }
+
+    PanelWidgetClass BtnPlayerFunTinyBg
+    {
+        position 46 254
+        size 220 46
+        hexactpos 1
+        vexactpos 1
+        hexactsize 1
+        vexactsize 1
+        color 0.3922 0.3922 0.3922 0.45
+        visible 1
+        ignorepointer 1
+        style rover_sim_colorable
+    }
+
+    PanelWidgetClass BtnPlayerFunTinyLine
+    {
+        position 46 254
+        size 4 46
+        hexactpos 1
+        vexactpos 1
+        hexactsize 1
+        vexactsize 1
+        color 0.82 0 0 0.95
+        visible 1
+        ignorepointer 1
+        style rover_sim_colorable
+    }
+
+    ButtonWidgetClass BtnPlayerFunTiny
+    {
+        position 46 254
+        size 220 46
+        hexactpos 1
+        vexactpos 1
+        hexactsize 1
+        vexactsize 1
+        visible 1
+        ignorepointer 0
+        text "Klein"
+        font "gui/fonts/Metron14"
+    }
+
+    PanelWidgetClass BtnPlayerFunGiantBg
+    {
+        position 296 254
+        size 220 46
+        hexactpos 1
+        vexactpos 1
+        hexactsize 1
+        vexactsize 1
+        color 0.3922 0.3922 0.3922 0.45
+        visible 1
+        ignorepointer 1
+        style rover_sim_colorable
+    }
+
+    PanelWidgetClass BtnPlayerFunGiantLine
+    {
+        position 296 254
+        size 4 46
+        hexactpos 1
+        vexactpos 1
+        hexactsize 1
+        vexactsize 1
+        color 0.82 0 0 0.95
+        visible 1
+        ignorepointer 1
+        style rover_sim_colorable
+    }
+
+    ButtonWidgetClass BtnPlayerFunGiant
+    {
+        position 296 254
+        size 220 46
+        hexactpos 1
+        vexactpos 1
+        hexactsize 1
+        vexactsize 1
+        visible 1
+        ignorepointer 0
+        text "Gross"
+        font "gui/fonts/Metron14"
+    }
+
+    PanelWidgetClass BtnPlayerFunResetSizeBg
+    {
+        position 546 254
+        size 220 46
+        hexactpos 1
+        vexactpos 1
+        hexactsize 1
+        vexactsize 1
+        color 0.3922 0.3922 0.3922 0.45
+        visible 1
+        ignorepointer 1
+        style rover_sim_colorable
+    }
+
+    PanelWidgetClass BtnPlayerFunResetSizeLine
+    {
+        position 546 254
+        size 4 46
+        hexactpos 1
+        vexactpos 1
+        hexactsize 1
+        vexactsize 1
+        color 0.82 0 0 0.95
+        visible 1
+        ignorepointer 1
+        style rover_sim_colorable
+    }
+
+    ButtonWidgetClass BtnPlayerFunResetSize
+    {
+        position 546 254
+        size 220 46
+        hexactpos 1
+        vexactpos 1
+        hexactsize 1
+        vexactsize 1
+        visible 1
+        ignorepointer 0
+        text "Reset Size"
+        font "gui/fonts/Metron14"
+    }
+
+    PanelWidgetClass BtnPlayerFunSpinBg
+    {
+        position 46 318
+        size 220 46
+        hexactpos 1
+        vexactpos 1
+        hexactsize 1
+        vexactsize 1
+        color 0.3922 0.3922 0.3922 0.45
+        visible 1
+        ignorepointer 1
+        style rover_sim_colorable
+    }
+
+    PanelWidgetClass BtnPlayerFunSpinLine
+    {
+        position 46 318
+        size 4 46
+        hexactpos 1
+        vexactpos 1
+        hexactsize 1
+        vexactsize 1
+        color 0.82 0 0 0.95
+        visible 1
+        ignorepointer 1
+        style rover_sim_colorable
+    }
+
+    ButtonWidgetClass BtnPlayerFunSpin
+    {
+        position 46 318
+        size 220 46
+        hexactpos 1
+        vexactpos 1
+        hexactsize 1
+        vexactsize 1
+        visible 1
+        ignorepointer 0
+        text "Spin 180"
+        font "gui/fonts/Metron14"
+    }
+
+    PanelWidgetClass BtnPlayerFunPigBg
+    {
+        position 296 318
+        size 220 46
+        hexactpos 1
+        vexactpos 1
+        hexactsize 1
+        vexactsize 1
+        color 0.3922 0.3922 0.3922 0.45
+        visible 1
+        ignorepointer 1
+        style rover_sim_colorable
+    }
+
+    PanelWidgetClass BtnPlayerFunPigLine
+    {
+        position 296 318
+        size 4 46
+        hexactpos 1
+        vexactpos 1
+        hexactsize 1
+        vexactsize 1
+        color 0.82 0 0 0.95
+        visible 1
+        ignorepointer 1
+        style rover_sim_colorable
+    }
+
+    ButtonWidgetClass BtnPlayerFunPig
+    {
+        position 296 318
+        size 220 46
+        hexactpos 1
+        vexactpos 1
+        hexactsize 1
+        vexactsize 1
+        visible 1
+        ignorepointer 0
+        text "Schwein"
+        font "gui/fonts/Metron14"
+    }
+
+    PanelWidgetClass BtnPlayerFunGoatBg
+    {
+        position 546 318
+        size 220 46
+        hexactpos 1
+        vexactpos 1
+        hexactsize 1
+        vexactsize 1
+        color 0.3922 0.3922 0.3922 0.45
+        visible 1
+        ignorepointer 1
+        style rover_sim_colorable
+    }
+
+    PanelWidgetClass BtnPlayerFunGoatLine
+    {
+        position 546 318
+        size 4 46
+        hexactpos 1
+        vexactpos 1
+        hexactsize 1
+        vexactsize 1
+        color 0.82 0 0 0.95
+        visible 1
+        ignorepointer 1
+        style rover_sim_colorable
+    }
+
+    ButtonWidgetClass BtnPlayerFunGoat
+    {
+        position 546 318
+        size 220 46
+        hexactpos 1
+        vexactpos 1
+        hexactsize 1
+        vexactsize 1
+        visible 1
+        ignorepointer 0
+        text "Ziege"
+        font "gui/fonts/Metron14"
+    }
+
+
+    PanelWidgetClass PlayerFunInfoPanel
+    {
+        position 900 100
+        size 430 360
+        hexactpos 1
+        vexactpos 1
+        hexactsize 1
+        vexactsize 1
+        color 0.3922 0.3922 0.3922 0.24
+        visible 1
+        ignorepointer 1
+        style rover_sim_colorable
+    }
+
+
+    TextWidgetClass PlayerFunInfoTitle
+    {
+        position 922 122
+        size 360 22
+        hexactpos 1
+        vexactpos 1
+        hexactsize 1
+        vexactsize 1
+        visible 1
+        ignorepointer 1
+        text "ONLINE SPIELER"
+        font "gui/fonts/Metron14"
+        "exact text size" 15
+        color 0.82 1 0.18 1
+    }
+
+
+    TextWidgetClass PlayerFunInfo1
+    {
+        position 922 160
+        size 380 22
+        hexactpos 1
+        vexactpos 1
+        hexactsize 1
+        vexactsize 1
+        visible 1
+        ignorepointer 1
+        text ""
+        font "gui/fonts/Metron14"
+        "exact text size" 12
+        color 0.86 0.94 0.86 0.95
+    }
+
+
+    TextWidgetClass PlayerFunInfo2
+    {
+        position 922 188
+        size 380 22
+        hexactpos 1
+        vexactpos 1
+        hexactsize 1
+        vexactsize 1
+        visible 1
+        ignorepointer 1
+        text ""
+        font "gui/fonts/Metron14"
+        "exact text size" 12
+        color 0.86 0.94 0.86 0.95
+    }
+
+
+    TextWidgetClass PlayerFunInfo3
+    {
+        position 922 216
+        size 380 22
+        hexactpos 1
+        vexactpos 1
+        hexactsize 1
+        vexactsize 1
+        visible 1
+        ignorepointer 1
+        text ""
+        font "gui/fonts/Metron14"
+        "exact text size" 12
+        color 0.86 0.94 0.86 0.95
+    }
+
+
+    TextWidgetClass PlayerFunInfo4
+    {
+        position 922 244
+        size 380 22
+        hexactpos 1
+        vexactpos 1
+        hexactsize 1
+        vexactsize 1
+        visible 1
+        ignorepointer 1
+        text ""
+        font "gui/fonts/Metron14"
+        "exact text size" 12
+        color 0.86 0.94 0.86 0.95
+    }
+
+
+    TextWidgetClass PlayerFunInfo5
+    {
+        position 922 272
+        size 380 22
+        hexactpos 1
+        vexactpos 1
+        hexactsize 1
+        vexactsize 1
+        visible 1
+        ignorepointer 1
+        text ""
+        font "gui/fonts/Metron14"
+        "exact text size" 12
+        color 0.86 0.94 0.86 0.95
+    }
+
+    TextWidgetClass PlayerListSummary
+    {
+        position 922 154
+        size 380 20
+        hexactpos 1
+        vexactpos 1
+        hexactsize 1
+        vexactsize 1
+        visible 1
+        ignorepointer 1
+        text "Spieler laden und anklicken."
+        font "gui/fonts/MetronLight14"
+        "exact text size" 12
+        color 0.86 0.94 0.86 0.95
+    }
+
+    ButtonWidgetClass BtnPlayerRow0 { position 922 188 size 380 26 hexactpos 1 vexactpos 1 hexactsize 1 vexactsize 1 visible 1 ignorepointer 0 text "" font "gui/fonts/MetronLight14" }
+    TextWidgetClass PlayerRowNo0 { position 928 193 size 24 16 hexactpos 1 vexactpos 1 hexactsize 1 vexactsize 1 visible 1 ignorepointer 1 text "" font "gui/fonts/MetronLight14" "exact text size" 11 color 0.82 1 0.18 1 }
+    TextWidgetClass PlayerRowName0 { position 956 193 size 158 16 hexactpos 1 vexactpos 1 hexactsize 1 vexactsize 1 visible 1 ignorepointer 1 text "" font "gui/fonts/MetronLight14" "exact text size" 11 color 0.86 0.94 0.86 0.95 }
+    TextWidgetClass PlayerRowSteam0 { position 1118 193 size 128 16 hexactpos 1 vexactpos 1 hexactsize 1 vexactsize 1 visible 1 ignorepointer 1 text "" font "gui/fonts/MetronLight14" "exact text size" 10 color 0.86 0.94 0.86 0.95 }
+    TextWidgetClass PlayerRowState0 { position 1250 193 size 42 16 hexactpos 1 vexactpos 1 hexactsize 1 vexactsize 1 visible 1 ignorepointer 1 text "" font "gui/fonts/MetronLight14" "exact text size" 10 color 0.86 0.94 0.86 0.95 }
+    TextWidgetClass PlayerRowPos0 { position 1295 193 size 1 16 hexactpos 1 vexactpos 1 hexactsize 1 vexactsize 1 visible 0 ignorepointer 1 text "" font "gui/fonts/MetronLight14" }
+
+    ButtonWidgetClass BtnPlayerRow1 { position 922 222 size 380 26 hexactpos 1 vexactpos 1 hexactsize 1 vexactsize 1 visible 1 ignorepointer 0 text "" font "gui/fonts/MetronLight14" }
+    TextWidgetClass PlayerRowNo1 { position 928 227 size 24 16 hexactpos 1 vexactpos 1 hexactsize 1 vexactsize 1 visible 1 ignorepointer 1 text "" font "gui/fonts/MetronLight14" "exact text size" 11 color 0.82 1 0.18 1 }
+    TextWidgetClass PlayerRowName1 { position 956 227 size 158 16 hexactpos 1 vexactpos 1 hexactsize 1 vexactsize 1 visible 1 ignorepointer 1 text "" font "gui/fonts/MetronLight14" "exact text size" 11 color 0.86 0.94 0.86 0.95 }
+    TextWidgetClass PlayerRowSteam1 { position 1118 227 size 128 16 hexactpos 1 vexactpos 1 hexactsize 1 vexactsize 1 visible 1 ignorepointer 1 text "" font "gui/fonts/MetronLight14" "exact text size" 10 color 0.86 0.94 0.86 0.95 }
+    TextWidgetClass PlayerRowState1 { position 1250 227 size 42 16 hexactpos 1 vexactpos 1 hexactsize 1 vexactsize 1 visible 1 ignorepointer 1 text "" font "gui/fonts/MetronLight14" "exact text size" 10 color 0.86 0.94 0.86 0.95 }
+    TextWidgetClass PlayerRowPos1 { position 1295 227 size 1 16 hexactpos 1 vexactpos 1 hexactsize 1 vexactsize 1 visible 0 ignorepointer 1 text "" font "gui/fonts/MetronLight14" }
+
+    ButtonWidgetClass BtnPlayerRow2 { position 922 256 size 380 26 hexactpos 1 vexactpos 1 hexactsize 1 vexactsize 1 visible 1 ignorepointer 0 text "" font "gui/fonts/MetronLight14" }
+    TextWidgetClass PlayerRowNo2 { position 928 261 size 24 16 hexactpos 1 vexactpos 1 hexactsize 1 vexactsize 1 visible 1 ignorepointer 1 text "" font "gui/fonts/MetronLight14" "exact text size" 11 color 0.82 1 0.18 1 }
+    TextWidgetClass PlayerRowName2 { position 956 261 size 158 16 hexactpos 1 vexactpos 1 hexactsize 1 vexactsize 1 visible 1 ignorepointer 1 text "" font "gui/fonts/MetronLight14" "exact text size" 11 color 0.86 0.94 0.86 0.95 }
+    TextWidgetClass PlayerRowSteam2 { position 1118 261 size 128 16 hexactpos 1 vexactpos 1 hexactsize 1 vexactsize 1 visible 1 ignorepointer 1 text "" font "gui/fonts/MetronLight14" "exact text size" 10 color 0.86 0.94 0.86 0.95 }
+    TextWidgetClass PlayerRowState2 { position 1250 261 size 42 16 hexactpos 1 vexactpos 1 hexactsize 1 vexactsize 1 visible 1 ignorepointer 1 text "" font "gui/fonts/MetronLight14" "exact text size" 10 color 0.86 0.94 0.86 0.95 }
+    TextWidgetClass PlayerRowPos2 { position 1295 261 size 1 16 hexactpos 1 vexactpos 1 hexactsize 1 vexactsize 1 visible 0 ignorepointer 1 text "" font "gui/fonts/MetronLight14" }
+
+    ButtonWidgetClass BtnPlayerRow3 { position 922 290 size 380 26 hexactpos 1 vexactpos 1 hexactsize 1 vexactsize 1 visible 1 ignorepointer 0 text "" font "gui/fonts/MetronLight14" }
+    TextWidgetClass PlayerRowNo3 { position 928 295 size 24 16 hexactpos 1 vexactpos 1 hexactsize 1 vexactsize 1 visible 1 ignorepointer 1 text "" font "gui/fonts/MetronLight14" "exact text size" 11 color 0.82 1 0.18 1 }
+    TextWidgetClass PlayerRowName3 { position 956 295 size 158 16 hexactpos 1 vexactpos 1 hexactsize 1 vexactsize 1 visible 1 ignorepointer 1 text "" font "gui/fonts/MetronLight14" "exact text size" 11 color 0.86 0.94 0.86 0.95 }
+    TextWidgetClass PlayerRowSteam3 { position 1118 295 size 128 16 hexactpos 1 vexactpos 1 hexactsize 1 vexactsize 1 visible 1 ignorepointer 1 text "" font "gui/fonts/MetronLight14" "exact text size" 10 color 0.86 0.94 0.86 0.95 }
+    TextWidgetClass PlayerRowState3 { position 1250 295 size 42 16 hexactpos 1 vexactpos 1 hexactsize 1 vexactsize 1 visible 1 ignorepointer 1 text "" font "gui/fonts/MetronLight14" "exact text size" 10 color 0.86 0.94 0.86 0.95 }
+    TextWidgetClass PlayerRowPos3 { position 1295 295 size 1 16 hexactpos 1 vexactpos 1 hexactsize 1 vexactsize 1 visible 0 ignorepointer 1 text "" font "gui/fonts/MetronLight14" }
+}

@@ -1,0 +1,19 @@
+FrameWidgetClass DZG_CompassHud
+{
+    position 0.35 0.03
+    size 0.30 0.045
+    color 0 0 0 100
+    {
+        TextWidgetClass DZG_CompassText
+        {
+            position 0.03 0.10
+            size 0.94 0.80
+            text "N  NO  O  SO  S  SW  W  NW"
+            font "gui/fonts/Metron14"
+            "exact text size" 16
+            color 220 220 220 255
+            "text halign" center
+            "text valign" center
+        }
+    }
+}

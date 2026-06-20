@@ -1,0 +1,9 @@
+name = "DeutschZ TraderZ";
+picture = "";
+logoSmall = "";
+logo = "";
+logoOver = "";
+tooltip = "DeutschZ TraderZ";
+overview = "Own dynamic trader, market, safezone and economy foundation for DeutschZ.";
+author = "Patrick Sluzalek / fck1701 / DeutschZ";
+version = "0.1.5 Menu Constant Fix";

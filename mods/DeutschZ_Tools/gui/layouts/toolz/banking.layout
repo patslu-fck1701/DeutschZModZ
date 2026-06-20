@@ -1,0 +1,1452 @@
+PanelWidgetClass ToolzFrameRoot
+{
+    position 0 0
+    size 1468 790
+    hexactpos 1
+    vexactpos 1
+    hexactsize 1
+    vexactsize 1
+    color 0 0 0 0
+    visible 1
+    ignorepointer 0
+    clipchildren 1
+
+    TextWidgetClass FrameTitle
+    {
+        position 24 18
+        size 900 32
+        hexactpos 1
+        vexactpos 1
+        hexactsize 1
+        vexactsize 1
+        visible 1
+        ignorepointer 1
+        text "Banking Admin"
+        font "gui/fonts/Metron14"
+        "exact text size" 22
+        color 0.82 1 0.18 1
+    }
+
+    TextWidgetClass FrameInfo
+    {
+        position 24 56
+        size 1260 24
+        hexactpos 1
+        vexactpos 1
+        hexactsize 1
+        vexactsize 1
+        visible 1
+        ignorepointer 1
+        text "Spieler im Spieler-Reiter oder hier per Spieler laden waehlen, Betrag setzen, Bank-Aktion ausfuehren."
+        font "gui/fonts/MetronLight14"
+        "exact text size" 13
+        color 0.86 0.94 0.86 0.95
+    }
+
+    PanelWidgetClass BankingTargetPanel
+    {
+        position 24 96
+        size 1390 112
+        hexactpos 1
+        vexactpos 1
+        hexactsize 1
+        vexactsize 1
+        color 0.045 0.045 0.045 0.84
+        visible 1
+        ignorepointer 1
+        style rover_sim_colorable
+    }
+
+    TextWidgetClass BankingTargetLabel
+    {
+        position 44 112
+        size 280 22
+        hexactpos 1
+        vexactpos 1
+        hexactsize 1
+        vexactsize 1
+        visible 1
+        ignorepointer 1
+        text "AUSGEWAEHLTER SPIELER"
+        font "gui/fonts/Metron14"
+        "exact text size" 14
+        color 0.82 1 0.18 1
+    }
+
+    EditBoxWidgetClass BankingSteam64
+    {
+        position 44 140
+        size 430 36
+        hexactpos 1
+        vexactpos 1
+        hexactsize 1
+        vexactsize 1
+        visible 1
+        ignorepointer 1
+        text ""
+        font "gui/fonts/MetronLight14"
+        "exact text size" 14
+        color 0.86 0.94 0.86 0.95
+    }
+
+    ButtonWidgetClass BtnPlayerList
+    {
+        position 700 104
+        size 190 28
+        hexactpos 1
+        vexactpos 1
+        hexactsize 1
+        vexactsize 1
+        visible 1
+        ignorepointer 0
+        text "Spieler laden"
+        font "gui/fonts/Metron14"
+    }
+
+    TextWidgetClass BankingAmountLabel
+    {
+        position 494 112
+        size 220 22
+        hexactpos 1
+        vexactpos 1
+        hexactsize 1
+        vexactsize 1
+        visible 1
+        ignorepointer 1
+        text "AMOUNT"
+        font "gui/fonts/Metron14"
+        "exact text size" 14
+        color 0.82 1 0.18 1
+    }
+
+    EditBoxWidgetClass BankingAmount
+    {
+        position 494 140
+        size 180 36
+        hexactpos 1
+        vexactpos 1
+        hexactsize 1
+        vexactsize 1
+        visible 1
+        ignorepointer 0
+        text "0"
+        font "gui/fonts/MetronLight14"
+        "exact text size" 14
+        color 0.86 0.94 0.86 0.95
+    }
+
+    PanelWidgetClass BtnBankingStatusBg
+    {
+        position 700 136
+        size 190 40
+        hexactpos 1
+        vexactpos 1
+        hexactsize 1
+        vexactsize 1
+        color 0.3922 0.3922 0.3922 0.46
+        visible 1
+        ignorepointer 1
+        style rover_sim_colorable
+    }
+
+    PanelWidgetClass BtnBankingStatusLine
+    {
+        position 700 136
+        size 4 40
+        hexactpos 1
+        vexactpos 1
+        hexactsize 1
+        vexactsize 1
+        color 0.82 0 0 0.95
+        visible 1
+        ignorepointer 1
+        style rover_sim_colorable
+    }
+
+    ButtonWidgetClass BtnBankingStatus
+    {
+        position 700 136
+        size 190 40
+        hexactpos 1
+        vexactpos 1
+        hexactsize 1
+        vexactsize 1
+        visible 1
+        ignorepointer 0
+        text "Bank Status"
+        font "gui/fonts/Metron14"
+    }
+
+    PanelWidgetClass BtnBankingReloadBg
+    {
+        position 910 136
+        size 190 40
+        hexactpos 1
+        vexactpos 1
+        hexactsize 1
+        vexactsize 1
+        color 0.3922 0.3922 0.3922 0.46
+        visible 1
+        ignorepointer 1
+        style rover_sim_colorable
+    }
+
+    PanelWidgetClass BtnBankingReloadLine
+    {
+        position 910 136
+        size 4 40
+        hexactpos 1
+        vexactpos 1
+        hexactsize 1
+        vexactsize 1
+        color 0.82 0 0 0.95
+        visible 1
+        ignorepointer 1
+        style rover_sim_colorable
+    }
+
+    ButtonWidgetClass BtnBankingReload
+    {
+        position 910 136
+        size 190 40
+        hexactpos 1
+        vexactpos 1
+        hexactsize 1
+        vexactsize 1
+        visible 1
+        ignorepointer 0
+        text "Bridge neu laden"
+        font "gui/fonts/Metron14"
+    }
+
+    PanelWidgetClass BtnBankingLookupBg
+    {
+        position 1120 112
+        size 190 32
+        hexactpos 1
+        vexactpos 1
+        hexactsize 1
+        vexactsize 1
+        color 0.3922 0.3922 0.3922 0.46
+        visible 1
+        ignorepointer 1
+        style rover_sim_colorable
+    }
+
+    PanelWidgetClass BtnBankingLookupLine
+    {
+        position 1120 112
+        size 4 32
+        hexactpos 1
+        vexactpos 1
+        hexactsize 1
+        vexactsize 1
+        color 0.82 0 0 0.95
+        visible 1
+        ignorepointer 1
+        style rover_sim_colorable
+    }
+
+    ButtonWidgetClass BtnBankingLookup
+    {
+        position 1120 112
+        size 190 32
+        hexactpos 1
+        vexactpos 1
+        hexactsize 1
+        vexactsize 1
+        visible 1
+        ignorepointer 0
+        text "Suchen"
+        font "gui/fonts/Metron14"
+    }
+
+    PanelWidgetClass BtnBankingAuditBg
+    {
+        position 1120 150
+        size 190 32
+        hexactpos 1
+        vexactpos 1
+        hexactsize 1
+        vexactsize 1
+        color 0.3922 0.3922 0.3922 0.46
+        visible 1
+        ignorepointer 1
+        style rover_sim_colorable
+    }
+
+    PanelWidgetClass BtnBankingAuditLine
+    {
+        position 1120 150
+        size 4 32
+        hexactpos 1
+        vexactpos 1
+        hexactsize 1
+        vexactsize 1
+        color 0.82 0 0 0.95
+        visible 1
+        ignorepointer 1
+        style rover_sim_colorable
+    }
+
+    ButtonWidgetClass BtnBankingAudit
+    {
+        position 1120 150
+        size 190 32
+        hexactpos 1
+        vexactpos 1
+        hexactsize 1
+        vexactsize 1
+        visible 1
+        ignorepointer 0
+        text "Audit"
+        font "gui/fonts/Metron14"
+    }
+
+    PanelWidgetClass BankingListPanel
+    {
+        position 24 236
+        size 880 474
+        hexactpos 1
+        vexactpos 1
+        hexactsize 1
+        vexactsize 1
+        color 0.045 0.045 0.045 0.84
+        visible 1
+        ignorepointer 1
+        style rover_sim_colorable
+    }
+
+    PanelWidgetClass BankingListAccent
+    {
+        position 24 236
+        size 4 474
+        hexactpos 1
+        vexactpos 1
+        hexactsize 1
+        vexactsize 1
+        color 0.70 0 0 0.95
+        visible 1
+        ignorepointer 1
+        style rover_sim_colorable
+    }
+
+    TextWidgetClass BankingListTitle
+    {
+        position 44 252
+        size 500 24
+        hexactpos 1
+        vexactpos 1
+        hexactsize 1
+        vexactsize 1
+        visible 1
+        ignorepointer 1
+        text "BANK ACCOUNTS / TRANSACTIONS"
+        font "gui/fonts/Metron14"
+        "exact text size" 15
+        color 0.82 1 0.18 1
+    }
+
+    PanelWidgetClass BankingHeaderBg
+    {
+        position 44 286
+        size 830 30
+        hexactpos 1
+        vexactpos 1
+        hexactsize 1
+        vexactsize 1
+        color 0.13 0.13 0.13 0.88
+        visible 1
+        ignorepointer 1
+        style rover_sim_colorable
+    }
+
+    TextWidgetClass BankingH0
+    {
+        position 54 292
+        size 60 20
+        hexactpos 1
+        vexactpos 1
+        hexactsize 1
+        vexactsize 1
+        visible 1
+        ignorepointer 1
+        text "#"
+        font "gui/fonts/Metron14"
+        "exact text size" 12
+        color 0.82 1 0.18 1
+    }
+
+    TextWidgetClass BankingH1
+    {
+        position 115 292
+        size 220 20
+        hexactpos 1
+        vexactpos 1
+        hexactsize 1
+        vexactsize 1
+        visible 1
+        ignorepointer 1
+        text "PLAYER"
+        font "gui/fonts/Metron14"
+        "exact text size" 12
+        color 0.82 1 0.18 1
+    }
+
+    TextWidgetClass BankingH2
+    {
+        position 345 292
+        size 150 20
+        hexactpos 1
+        vexactpos 1
+        hexactsize 1
+        vexactsize 1
+        visible 1
+        ignorepointer 1
+        text "BALANCE"
+        font "gui/fonts/Metron14"
+        "exact text size" 12
+        color 0.82 1 0.18 1
+    }
+
+    TextWidgetClass BankingH3
+    {
+        position 505 292
+        size 160 20
+        hexactpos 1
+        vexactpos 1
+        hexactsize 1
+        vexactsize 1
+        visible 1
+        ignorepointer 1
+        text "TYPE"
+        font "gui/fonts/Metron14"
+        "exact text size" 12
+        color 0.82 1 0.18 1
+    }
+
+    TextWidgetClass BankingH4
+    {
+        position 675 292
+        size 180 20
+        hexactpos 1
+        vexactpos 1
+        hexactsize 1
+        vexactsize 1
+        visible 1
+        ignorepointer 1
+        text "TIME"
+        font "gui/fonts/Metron14"
+        "exact text size" 12
+        color 0.82 1 0.18 1
+    }
+
+    PanelWidgetClass BankingRowBg0
+    {
+        position 44 324
+        size 830 34
+        hexactpos 1
+        vexactpos 1
+        hexactsize 1
+        vexactsize 1
+        color 0.09 0.09 0.09 0.70
+        visible 1
+        ignorepointer 1
+        style rover_sim_colorable
+    }
+
+    TextWidgetClass BankingRowNo0
+    {
+        position 54 332
+        size 60 18
+        hexactpos 1
+        vexactpos 1
+        hexactsize 1
+        vexactsize 1
+        visible 1
+        ignorepointer 1
+        text "1"
+        font "gui/fonts/MetronLight14"
+        "exact text size" 11
+        color 0.86 0.94 0.86 0.95
+    }
+
+    TextWidgetClass BankingRowPlayer0
+    {
+        position 115 332
+        size 220 18
+        hexactpos 1
+        vexactpos 1
+        hexactsize 1
+        vexactsize 1
+        visible 1
+        ignorepointer 1
+        text "select target and press Lookup / Audit"
+        font "gui/fonts/MetronLight14"
+        "exact text size" 11
+        color 0.86 0.94 0.86 0.95
+    }
+
+    TextWidgetClass BankingRowBalance0
+    {
+        position 345 332
+        size 150 18
+        hexactpos 1
+        vexactpos 1
+        hexactsize 1
+        vexactsize 1
+        visible 1
+        ignorepointer 1
+        text "prepared"
+        font "gui/fonts/MetronLight14"
+        "exact text size" 11
+        color 0.86 0.94 0.86 0.95
+    }
+
+    TextWidgetClass BankingRowType0
+    {
+        position 505 332
+        size 160 18
+        hexactpos 1
+        vexactpos 1
+        hexactsize 1
+        vexactsize 1
+        visible 1
+        ignorepointer 1
+        text "bridge"
+        font "gui/fonts/MetronLight14"
+        "exact text size" 11
+        color 0.86 0.94 0.86 0.95
+    }
+
+    TextWidgetClass BankingRowTime0
+    {
+        position 675 332
+        size 180 18
+        hexactpos 1
+        vexactpos 1
+        hexactsize 1
+        vexactsize 1
+        visible 1
+        ignorepointer 1
+        text "-"
+        font "gui/fonts/MetronLight14"
+        "exact text size" 11
+        color 0.86 0.94 0.86 0.95
+    }
+
+    PanelWidgetClass BankingRowBg1
+    {
+        position 44 362
+        size 830 34
+        hexactpos 1
+        vexactpos 1
+        hexactsize 1
+        vexactsize 1
+        color 0.065 0.065 0.065 0.70
+        visible 1
+        ignorepointer 1
+        style rover_sim_colorable
+    }
+
+    TextWidgetClass BankingRowNo1
+    {
+        position 54 370
+        size 60 18
+        hexactpos 1
+        vexactpos 1
+        hexactsize 1
+        vexactsize 1
+        visible 1
+        ignorepointer 1
+        text ""
+        font "gui/fonts/MetronLight14"
+        "exact text size" 11
+        color 0.86 0.94 0.86 0.95
+    }
+
+    TextWidgetClass BankingRowPlayer1
+    {
+        position 115 370
+        size 220 18
+        hexactpos 1
+        vexactpos 1
+        hexactsize 1
+        vexactsize 1
+        visible 1
+        ignorepointer 1
+        text ""
+        font "gui/fonts/MetronLight14"
+        "exact text size" 11
+        color 0.86 0.94 0.86 0.95
+    }
+
+    TextWidgetClass BankingRowBalance1
+    {
+        position 345 370
+        size 150 18
+        hexactpos 1
+        vexactpos 1
+        hexactsize 1
+        vexactsize 1
+        visible 1
+        ignorepointer 1
+        text ""
+        font "gui/fonts/MetronLight14"
+        "exact text size" 11
+        color 0.86 0.94 0.86 0.95
+    }
+
+    TextWidgetClass BankingRowType1
+    {
+        position 505 370
+        size 160 18
+        hexactpos 1
+        vexactpos 1
+        hexactsize 1
+        vexactsize 1
+        visible 1
+        ignorepointer 1
+        text ""
+        font "gui/fonts/MetronLight14"
+        "exact text size" 11
+        color 0.86 0.94 0.86 0.95
+    }
+
+    TextWidgetClass BankingRowTime1
+    {
+        position 675 370
+        size 180 18
+        hexactpos 1
+        vexactpos 1
+        hexactsize 1
+        vexactsize 1
+        visible 1
+        ignorepointer 1
+        text ""
+        font "gui/fonts/MetronLight14"
+        "exact text size" 11
+        color 0.86 0.94 0.86 0.95
+    }
+
+    PanelWidgetClass BankingRowBg2
+    {
+        position 44 400
+        size 830 34
+        hexactpos 1
+        vexactpos 1
+        hexactsize 1
+        vexactsize 1
+        color 0.09 0.09 0.09 0.70
+        visible 1
+        ignorepointer 1
+        style rover_sim_colorable
+    }
+
+    TextWidgetClass BankingRowNo2
+    {
+        position 54 408
+        size 60 18
+        hexactpos 1
+        vexactpos 1
+        hexactsize 1
+        vexactsize 1
+        visible 1
+        ignorepointer 1
+        text ""
+        font "gui/fonts/MetronLight14"
+        "exact text size" 11
+        color 0.86 0.94 0.86 0.95
+    }
+
+    TextWidgetClass BankingRowPlayer2
+    {
+        position 115 408
+        size 220 18
+        hexactpos 1
+        vexactpos 1
+        hexactsize 1
+        vexactsize 1
+        visible 1
+        ignorepointer 1
+        text ""
+        font "gui/fonts/MetronLight14"
+        "exact text size" 11
+        color 0.86 0.94 0.86 0.95
+    }
+
+    TextWidgetClass BankingRowBalance2
+    {
+        position 345 408
+        size 150 18
+        hexactpos 1
+        vexactpos 1
+        hexactsize 1
+        vexactsize 1
+        visible 1
+        ignorepointer 1
+        text ""
+        font "gui/fonts/MetronLight14"
+        "exact text size" 11
+        color 0.86 0.94 0.86 0.95
+    }
+
+    TextWidgetClass BankingRowType2
+    {
+        position 505 408
+        size 160 18
+        hexactpos 1
+        vexactpos 1
+        hexactsize 1
+        vexactsize 1
+        visible 1
+        ignorepointer 1
+        text ""
+        font "gui/fonts/MetronLight14"
+        "exact text size" 11
+        color 0.86 0.94 0.86 0.95
+    }
+
+    TextWidgetClass BankingRowTime2
+    {
+        position 675 408
+        size 180 18
+        hexactpos 1
+        vexactpos 1
+        hexactsize 1
+        vexactsize 1
+        visible 1
+        ignorepointer 1
+        text ""
+        font "gui/fonts/MetronLight14"
+        "exact text size" 11
+        color 0.86 0.94 0.86 0.95
+    }
+
+    PanelWidgetClass BankingRowBg3
+    {
+        position 44 438
+        size 830 34
+        hexactpos 1
+        vexactpos 1
+        hexactsize 1
+        vexactsize 1
+        color 0.065 0.065 0.065 0.70
+        visible 1
+        ignorepointer 1
+        style rover_sim_colorable
+    }
+
+    TextWidgetClass BankingRowNo3
+    {
+        position 54 446
+        size 60 18
+        hexactpos 1
+        vexactpos 1
+        hexactsize 1
+        vexactsize 1
+        visible 1
+        ignorepointer 1
+        text ""
+        font "gui/fonts/MetronLight14"
+        "exact text size" 11
+        color 0.86 0.94 0.86 0.95
+    }
+
+    TextWidgetClass BankingRowPlayer3
+    {
+        position 115 446
+        size 220 18
+        hexactpos 1
+        vexactpos 1
+        hexactsize 1
+        vexactsize 1
+        visible 1
+        ignorepointer 1
+        text ""
+        font "gui/fonts/MetronLight14"
+        "exact text size" 11
+        color 0.86 0.94 0.86 0.95
+    }
+
+    TextWidgetClass BankingRowBalance3
+    {
+        position 345 446
+        size 150 18
+        hexactpos 1
+        vexactpos 1
+        hexactsize 1
+        vexactsize 1
+        visible 1
+        ignorepointer 1
+        text ""
+        font "gui/fonts/MetronLight14"
+        "exact text size" 11
+        color 0.86 0.94 0.86 0.95
+    }
+
+    TextWidgetClass BankingRowType3
+    {
+        position 505 446
+        size 160 18
+        hexactpos 1
+        vexactpos 1
+        hexactsize 1
+        vexactsize 1
+        visible 1
+        ignorepointer 1
+        text ""
+        font "gui/fonts/MetronLight14"
+        "exact text size" 11
+        color 0.86 0.94 0.86 0.95
+    }
+
+    TextWidgetClass BankingRowTime3
+    {
+        position 675 446
+        size 180 18
+        hexactpos 1
+        vexactpos 1
+        hexactsize 1
+        vexactsize 1
+        visible 1
+        ignorepointer 1
+        text ""
+        font "gui/fonts/MetronLight14"
+        "exact text size" 11
+        color 0.86 0.94 0.86 0.95
+    }
+
+    PanelWidgetClass BankingRowBg4
+    {
+        position 44 476
+        size 830 34
+        hexactpos 1
+        vexactpos 1
+        hexactsize 1
+        vexactsize 1
+        color 0.09 0.09 0.09 0.70
+        visible 1
+        ignorepointer 1
+        style rover_sim_colorable
+    }
+
+    TextWidgetClass BankingRowNo4
+    {
+        position 54 484
+        size 60 18
+        hexactpos 1
+        vexactpos 1
+        hexactsize 1
+        vexactsize 1
+        visible 1
+        ignorepointer 1
+        text ""
+        font "gui/fonts/MetronLight14"
+        "exact text size" 11
+        color 0.86 0.94 0.86 0.95
+    }
+
+    TextWidgetClass BankingRowPlayer4
+    {
+        position 115 484
+        size 220 18
+        hexactpos 1
+        vexactpos 1
+        hexactsize 1
+        vexactsize 1
+        visible 1
+        ignorepointer 1
+        text ""
+        font "gui/fonts/MetronLight14"
+        "exact text size" 11
+        color 0.86 0.94 0.86 0.95
+    }
+
+    TextWidgetClass BankingRowBalance4
+    {
+        position 345 484
+        size 150 18
+        hexactpos 1
+        vexactpos 1
+        hexactsize 1
+        vexactsize 1
+        visible 1
+        ignorepointer 1
+        text ""
+        font "gui/fonts/MetronLight14"
+        "exact text size" 11
+        color 0.86 0.94 0.86 0.95
+    }
+
+    TextWidgetClass BankingRowType4
+    {
+        position 505 484
+        size 160 18
+        hexactpos 1
+        vexactpos 1
+        hexactsize 1
+        vexactsize 1
+        visible 1
+        ignorepointer 1
+        text ""
+        font "gui/fonts/MetronLight14"
+        "exact text size" 11
+        color 0.86 0.94 0.86 0.95
+    }
+
+    TextWidgetClass BankingRowTime4
+    {
+        position 675 484
+        size 180 18
+        hexactpos 1
+        vexactpos 1
+        hexactsize 1
+        vexactsize 1
+        visible 1
+        ignorepointer 1
+        text ""
+        font "gui/fonts/MetronLight14"
+        "exact text size" 11
+        color 0.86 0.94 0.86 0.95
+    }
+
+    PanelWidgetClass BankingRowBg5
+    {
+        position 44 514
+        size 830 34
+        hexactpos 1
+        vexactpos 1
+        hexactsize 1
+        vexactsize 1
+        color 0.065 0.065 0.065 0.70
+        visible 1
+        ignorepointer 1
+        style rover_sim_colorable
+    }
+
+    TextWidgetClass BankingRowNo5
+    {
+        position 54 522
+        size 60 18
+        hexactpos 1
+        vexactpos 1
+        hexactsize 1
+        vexactsize 1
+        visible 1
+        ignorepointer 1
+        text ""
+        font "gui/fonts/MetronLight14"
+        "exact text size" 11
+        color 0.86 0.94 0.86 0.95
+    }
+
+    TextWidgetClass BankingRowPlayer5
+    {
+        position 115 522
+        size 220 18
+        hexactpos 1
+        vexactpos 1
+        hexactsize 1
+        vexactsize 1
+        visible 1
+        ignorepointer 1
+        text ""
+        font "gui/fonts/MetronLight14"
+        "exact text size" 11
+        color 0.86 0.94 0.86 0.95
+    }
+
+    TextWidgetClass BankingRowBalance5
+    {
+        position 345 522
+        size 150 18
+        hexactpos 1
+        vexactpos 1
+        hexactsize 1
+        vexactsize 1
+        visible 1
+        ignorepointer 1
+        text ""
+        font "gui/fonts/MetronLight14"
+        "exact text size" 11
+        color 0.86 0.94 0.86 0.95
+    }
+
+    TextWidgetClass BankingRowType5
+    {
+        position 505 522
+        size 160 18
+        hexactpos 1
+        vexactpos 1
+        hexactsize 1
+        vexactsize 1
+        visible 1
+        ignorepointer 1
+        text ""
+        font "gui/fonts/MetronLight14"
+        "exact text size" 11
+        color 0.86 0.94 0.86 0.95
+    }
+
+    TextWidgetClass BankingRowTime5
+    {
+        position 675 522
+        size 180 18
+        hexactpos 1
+        vexactpos 1
+        hexactsize 1
+        vexactsize 1
+        visible 1
+        ignorepointer 1
+        text ""
+        font "gui/fonts/MetronLight14"
+        "exact text size" 11
+        color 0.86 0.94 0.86 0.95
+    }
+
+    PanelWidgetClass BankingRowBg6
+    {
+        position 44 552
+        size 830 34
+        hexactpos 1
+        vexactpos 1
+        hexactsize 1
+        vexactsize 1
+        color 0.09 0.09 0.09 0.70
+        visible 1
+        ignorepointer 1
+        style rover_sim_colorable
+    }
+
+    TextWidgetClass BankingRowNo6
+    {
+        position 54 560
+        size 60 18
+        hexactpos 1
+        vexactpos 1
+        hexactsize 1
+        vexactsize 1
+        visible 1
+        ignorepointer 1
+        text ""
+        font "gui/fonts/MetronLight14"
+        "exact text size" 11
+        color 0.86 0.94 0.86 0.95
+    }
+
+    TextWidgetClass BankingRowPlayer6
+    {
+        position 115 560
+        size 220 18
+        hexactpos 1
+        vexactpos 1
+        hexactsize 1
+        vexactsize 1
+        visible 1
+        ignorepointer 1
+        text ""
+        font "gui/fonts/MetronLight14"
+        "exact text size" 11
+        color 0.86 0.94 0.86 0.95
+    }
+
+    TextWidgetClass BankingRowBalance6
+    {
+        position 345 560
+        size 150 18
+        hexactpos 1
+        vexactpos 1
+        hexactsize 1
+        vexactsize 1
+        visible 1
+        ignorepointer 1
+        text ""
+        font "gui/fonts/MetronLight14"
+        "exact text size" 11
+        color 0.86 0.94 0.86 0.95
+    }
+
+    TextWidgetClass BankingRowType6
+    {
+        position 505 560
+        size 160 18
+        hexactpos 1
+        vexactpos 1
+        hexactsize 1
+        vexactsize 1
+        visible 1
+        ignorepointer 1
+        text ""
+        font "gui/fonts/MetronLight14"
+        "exact text size" 11
+        color 0.86 0.94 0.86 0.95
+    }
+
+    TextWidgetClass BankingRowTime6
+    {
+        position 675 560
+        size 180 18
+        hexactpos 1
+        vexactpos 1
+        hexactsize 1
+        vexactsize 1
+        visible 1
+        ignorepointer 1
+        text ""
+        font "gui/fonts/MetronLight14"
+        "exact text size" 11
+        color 0.86 0.94 0.86 0.95
+    }
+
+    PanelWidgetClass BankingRowBg7
+    {
+        position 44 590
+        size 830 34
+        hexactpos 1
+        vexactpos 1
+        hexactsize 1
+        vexactsize 1
+        color 0.065 0.065 0.065 0.70
+        visible 1
+        ignorepointer 1
+        style rover_sim_colorable
+    }
+
+    TextWidgetClass BankingRowNo7
+    {
+        position 54 598
+        size 60 18
+        hexactpos 1
+        vexactpos 1
+        hexactsize 1
+        vexactsize 1
+        visible 1
+        ignorepointer 1
+        text ""
+        font "gui/fonts/MetronLight14"
+        "exact text size" 11
+        color 0.86 0.94 0.86 0.95
+    }
+
+    TextWidgetClass BankingRowPlayer7
+    {
+        position 115 598
+        size 220 18
+        hexactpos 1
+        vexactpos 1
+        hexactsize 1
+        vexactsize 1
+        visible 1
+        ignorepointer 1
+        text ""
+        font "gui/fonts/MetronLight14"
+        "exact text size" 11
+        color 0.86 0.94 0.86 0.95
+    }
+
+    TextWidgetClass BankingRowBalance7
+    {
+        position 345 598
+        size 150 18
+        hexactpos 1
+        vexactpos 1
+        hexactsize 1
+        vexactsize 1
+        visible 1
+        ignorepointer 1
+        text ""
+        font "gui/fonts/MetronLight14"
+        "exact text size" 11
+        color 0.86 0.94 0.86 0.95
+    }
+
+    TextWidgetClass BankingRowType7
+    {
+        position 505 598
+        size 160 18
+        hexactpos 1
+        vexactpos 1
+        hexactsize 1
+        vexactsize 1
+        visible 1
+        ignorepointer 1
+        text ""
+        font "gui/fonts/MetronLight14"
+        "exact text size" 11
+        color 0.86 0.94 0.86 0.95
+    }
+
+    TextWidgetClass BankingRowTime7
+    {
+        position 675 598
+        size 180 18
+        hexactpos 1
+        vexactpos 1
+        hexactsize 1
+        vexactsize 1
+        visible 1
+        ignorepointer 1
+        text ""
+        font "gui/fonts/MetronLight14"
+        "exact text size" 11
+        color 0.86 0.94 0.86 0.95
+    }
+
+    PanelWidgetClass BankingRowBg8
+    {
+        position 44 628
+        size 830 34
+        hexactpos 1
+        vexactpos 1
+        hexactsize 1
+        vexactsize 1
+        color 0.09 0.09 0.09 0.70
+        visible 1
+        ignorepointer 1
+        style rover_sim_colorable
+    }
+
+    TextWidgetClass BankingRowNo8
+    {
+        position 54 636
+        size 60 18
+        hexactpos 1
+        vexactpos 1
+        hexactsize 1
+        vexactsize 1
+        visible 1
+        ignorepointer 1
+        text ""
+        font "gui/fonts/MetronLight14"
+        "exact text size" 11
+        color 0.86 0.94 0.86 0.95
+    }
+
+    TextWidgetClass BankingRowPlayer8
+    {
+        position 115 636
+        size 220 18
+        hexactpos 1
+        vexactpos 1
+        hexactsize 1
+        vexactsize 1
+        visible 1
+        ignorepointer 1
+        text ""
+        font "gui/fonts/MetronLight14"
+        "exact text size" 11
+        color 0.86 0.94 0.86 0.95
+    }
+
+    TextWidgetClass BankingRowBalance8
+    {
+        position 345 636
+        size 150 18
+        hexactpos 1
+        vexactpos 1
+        hexactsize 1
+        vexactsize 1
+        visible 1
+        ignorepointer 1
+        text ""
+        font "gui/fonts/MetronLight14"
+        "exact text size" 11
+        color 0.86 0.94 0.86 0.95
+    }
+
+    TextWidgetClass BankingRowType8
+    {
+        position 505 636
+        size 160 18
+        hexactpos 1
+        vexactpos 1
+        hexactsize 1
+        vexactsize 1
+        visible 1
+        ignorepointer 1
+        text ""
+        font "gui/fonts/MetronLight14"
+        "exact text size" 11
+        color 0.86 0.94 0.86 0.95
+    }
+
+    TextWidgetClass BankingRowTime8
+    {
+        position 675 636
+        size 180 18
+        hexactpos 1
+        vexactpos 1
+        hexactsize 1
+        vexactsize 1
+        visible 1
+        ignorepointer 1
+        text ""
+        font "gui/fonts/MetronLight14"
+        "exact text size" 11
+        color 0.86 0.94 0.86 0.95
+    }
+
+    PanelWidgetClass BankingActionPanel
+    {
+        position 930 236
+        size 484 474
+        hexactpos 1
+        vexactpos 1
+        hexactsize 1
+        vexactsize 1
+        color 0.045 0.045 0.045 0.84
+        visible 1
+        ignorepointer 1
+        style rover_sim_colorable
+    }
+
+    PanelWidgetClass BankingActionAccent
+    {
+        position 930 236
+        size 4 474
+        hexactpos 1
+        vexactpos 1
+        hexactsize 1
+        vexactsize 1
+        color 0.70 0 0 0.95
+        visible 1
+        ignorepointer 1
+        style rover_sim_colorable
+    }
+
+    TextWidgetClass BankingActionTitle
+    {
+        position 950 252
+        size 420 24
+        hexactpos 1
+        vexactpos 1
+        hexactsize 1
+        vexactsize 1
+        visible 1
+        ignorepointer 1
+        text "BANKING ACTIONS"
+        font "gui/fonts/Metron14"
+        "exact text size" 15
+        color 0.82 1 0.18 1
+    }
+
+    PanelWidgetClass BtnBankingAddMoneyBg
+    {
+        position 950 300
+        size 200 42
+        hexactpos 1
+        vexactpos 1
+        hexactsize 1
+        vexactsize 1
+        color 0.3922 0.3922 0.3922 0.46
+        visible 1
+        ignorepointer 1
+        style rover_sim_colorable
+    }
+
+    PanelWidgetClass BtnBankingAddMoneyLine
+    {
+        position 950 300
+        size 4 42
+        hexactpos 1
+        vexactpos 1
+        hexactsize 1
+        vexactsize 1
+        color 0.82 0 0 0.95
+        visible 1
+        ignorepointer 1
+        style rover_sim_colorable
+    }
+
+    ButtonWidgetClass BtnBankingAddMoney
+    {
+        position 950 300
+        size 200 42
+        hexactpos 1
+        vexactpos 1
+        hexactsize 1
+        vexactsize 1
+        visible 1
+        ignorepointer 0
+        text "Geld geben"
+        font "gui/fonts/Metron14"
+    }
+
+    PanelWidgetClass BtnBankingRemoveMoneyBg
+    {
+        position 1170 300
+        size 200 42
+        hexactpos 1
+        vexactpos 1
+        hexactsize 1
+        vexactsize 1
+        color 0.3922 0.3922 0.3922 0.46
+        visible 1
+        ignorepointer 1
+        style rover_sim_colorable
+    }
+
+    PanelWidgetClass BtnBankingRemoveMoneyLine
+    {
+        position 1170 300
+        size 4 42
+        hexactpos 1
+        vexactpos 1
+        hexactsize 1
+        vexactsize 1
+        color 0.82 0 0 0.95
+        visible 1
+        ignorepointer 1
+        style rover_sim_colorable
+    }
+
+    ButtonWidgetClass BtnBankingRemoveMoney
+    {
+        position 1170 300
+        size 200 42
+        hexactpos 1
+        vexactpos 1
+        hexactsize 1
+        vexactsize 1
+        visible 1
+        ignorepointer 0
+        text "Geld nehmen"
+        font "gui/fonts/Metron14"
+    }
+
+    TextWidgetClass BankingInfoBody
+    {
+        position 950 370
+        size 430 230
+        hexactpos 1
+        vexactpos 1
+        hexactsize 1
+        vexactsize 1
+        visible 1
+        ignorepointer 1
+        text "Connected actions: status, reload, lookup, add money, remove money and audit rows. Requires @DeutschZ_Banking loaded with @DeutschZ_Tools."
+        font "gui/fonts/MetronLight14"
+        "exact text size" 13
+        color 0.86 0.94 0.86 0.95
+    }
+
+    TextWidgetClass BankingInfoKeys
+    {
+        position 950 620
+        size 430 80
+        hexactpos 1
+        vexactpos 1
+        hexactsize 1
+        vexactsize 1
+        visible 1
+        ignorepointer 1
+        text "Permission: tools.banking.admin
+Actions: status, reload, lookup, add, remove, audit
+Config: EnableBankingBridge = 1"
+        font "gui/fonts/MetronLight14"
+        "exact text size" 12
+        color 0.75 0.85 0.75 0.95
+    }
+
+}

@@ -1,0 +1,13 @@
+FrameWidgetClass DZG_CreateGroupPopup {
+ position 0.36 0.31
+ size 0.28 0.32
+ color 0 0 0 220
+ {
+  TextWidgetClass DZG_Title { position 0.04 0.04 size 0.92 0.12 text "DeutschZ Gruppe erstellen" font "gui/fonts/MetronBook24" color 220 220 220 255 }
+  EditBoxWidgetClass DZG_GroupNameInput { position 0.05 0.20 size 0.90 0.12 text "Gruppenname" color 40 40 40 230 }
+  EditBoxWidgetClass DZG_GroupTagInput { position 0.05 0.36 size 0.90 0.12 text "TAG" color 40 40 40 230 }
+  ButtonWidgetClass DZG_CreateConfirm { position 0.05 0.58 size 0.42 0.14 text "Erstellen" }
+  ButtonWidgetClass DZG_CreateCancel { position 0.53 0.58 size 0.42 0.14 text "Abbrechen" }
+  TextWidgetClass DZG_Info { position 0.05 0.78 size 0.90 0.16 text "Name und Tag werden serverseitig geprueft." color 180 180 180 255 }
+ }
+}

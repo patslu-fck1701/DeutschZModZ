@@ -1,0 +1,57 @@
+PanelWidgetClass DZG_MarkerEntryRoot {
+ color 0.08 0.08 0.08 0.90
+ position 0 0
+ size 275 34
+ hexactpos 1
+ vexactpos 1
+ hexactsize 1
+ vexactsize 1
+ style editor_quad
+ {
+  TextWidgetClass DZG_MarkerName {
+   ignorepointer 1
+   position 8 3
+   size 170 14
+   hexactpos 1
+   vexactpos 1
+   hexactsize 1
+   vexactsize 1
+   text "Marker"
+   font "gui/fonts/sdf_MetronLight12"
+  }
+  TextWidgetClass DZG_MarkerType {
+   ignorepointer 1
+   position 8 18
+   size 170 13
+   hexactpos 1
+   vexactpos 1
+   hexactsize 1
+   vexactsize 1
+   text "Gruppe"
+   font "gui/fonts/sdf_MetronLight11"
+   color 0.75 0.75 0.75 1
+  }
+  ButtonWidgetClass DZG_MarkerGoto {
+   position 186 5
+   size 38 24
+   hexactpos 1
+   vexactpos 1
+   hexactsize 1
+   vexactsize 1
+   text ">"
+   font "gui/fonts/sdf_MetronLight12"
+   color 0.10 0.10 0.10 1
+  }
+  ButtonWidgetClass DZG_MarkerDelete {
+   position 230 5
+   size 38 24
+   hexactpos 1
+   vexactpos 1
+   hexactsize 1
+   vexactsize 1
+   text "X"
+   font "gui/fonts/sdf_MetronLight12"
+   color 0.25 0.03 0.03 1
+  }
+ }
+}

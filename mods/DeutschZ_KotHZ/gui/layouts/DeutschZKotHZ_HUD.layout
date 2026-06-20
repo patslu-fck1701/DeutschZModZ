@@ -1,0 +1,27 @@
+FrameWidgetClass KOTHRoot {
+ position 0.28 0.025
+ size 0.44 0.105
+ visible 0
+ color 0xAA000000
+ TextWidgetClass KOTHTitle {
+  position 0.02 0.08
+  size 0.96 0.26
+  text "KOTH"
+  font "gui/fonts/sdf_MetronBook24"
+  exacttext 1
+  textcolor 0xFFFFFFFF
+ }
+ ProgressBarWidgetClass KOTHProgress {
+  position 0.02 0.40
+  size 0.96 0.20
+  current 0
+ }
+ TextWidgetClass KOTHInfo {
+  position 0.02 0.66
+  size 0.96 0.26
+  text ""
+  font "gui/fonts/sdf_MetronBook24"
+  exacttext 1
+  textcolor 0xFFFFFFFF
+ }
+}

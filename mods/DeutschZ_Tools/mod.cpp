@@ -1,0 +1,10 @@
+name = "DeutschZ Tools";
+picture = "";
+logo = "";
+logoSmall = "";
+logoOver = "";
+tooltip = "DeutschZ Tools";
+overview = "DeutschZ Admin Tool mit Bank, Garage, Gruppen, KOTH, TraderZ und deutschem Spawner mit Vorschau.";
+action = "";
+author = "Patrick Sluzalek / fck1701 / DeutschZ";
+version = "1.4.1 Player Picker Polish";

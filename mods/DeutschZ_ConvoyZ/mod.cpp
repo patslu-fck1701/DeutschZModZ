@@ -1,0 +1,10 @@
+name = "DeutschZ ConvoyZ";
+picture = "";
+logo = "";
+logoSmall = "";
+logoOver = "";
+tooltip = "DeutschZ ConvoyZ";
+overview = "Server-authoritative DeutschZ ConvoyZ event module.";
+action = "";
+author = "Patrick Sluzalek / fck1701";
+version = "1.0.0-source";

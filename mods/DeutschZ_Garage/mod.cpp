@@ -1,0 +1,10 @@
+name = "DeutschZ Garage";
+picture = "";
+logo = "";
+logoSmall = "";
+logoOver = "";
+tooltip = "DeutschZ Garage";
+overview = "DeutschZ Garage mit ToolZ-nahem Parkstation-Menue und modularer Fahrzeugpersistenz.";
+action = "";
+author = "Patrick Sluzalek / DeutschZ";
+version = "0.1.9 ToolZ UI";

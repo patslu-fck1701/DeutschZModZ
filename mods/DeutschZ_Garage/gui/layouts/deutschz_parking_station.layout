@@ -1,0 +1,161 @@
+FrameWidgetClass rootFrame
+{
+ position 0 0
+ size 1 1
+ halign center_ref
+ valign center_ref
+ hexactpos 1
+ vexactpos 1
+ hexactsize 0
+ vexactsize 0
+ {
+  PanelWidgetClass Dim
+  {
+   position 0 0
+   size 1 1
+   hexactpos 0
+   vexactpos 0
+   hexactsize 0
+   vexactsize 0
+   color 0 0 0 0.58
+   ignorepointer 1
+  }
+  PanelWidgetClass Panel
+  {
+   color 0.018 0.019 0.021 0.96
+   position 0 0
+   size 860 560
+   halign center_ref
+   valign center_ref
+   hexactpos 1
+   vexactpos 1
+   hexactsize 1
+   vexactsize 1
+   style editor_quad
+   {
+    TextWidgetClass Title
+    {
+     position 28 22
+     size 520 34
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     text "DeutschZ Garage"
+     font "gui/fonts/Metron14"
+     "exact text size" 24
+     "text valign" center
+     color 0.82 1 0.18 1
+    }
+    ButtonWidgetClass CloseButton
+    {
+     position 730 22
+     size 102 34
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     text "Schliessen"
+     font "gui/fonts/Metron14"
+    }
+    PanelWidgetClass TopLine
+    {
+     position 28 72
+     size 804 3
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     color 0.82 0 0 1
+     ignorepointer 1
+    }
+    TextWidgetClass CountText
+    {
+     position 28 96
+     size 804 28
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     text "Eingelagert: 0"
+     font "gui/fonts/MetronLight14"
+     "exact text size" 16
+     color 0.86 0.94 0.86 0.95
+    }
+    PanelWidgetClass ListPanel
+    {
+     position 28 138
+     size 804 302
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     color 0.045 0.045 0.045 0.88
+     style editor_quad
+     ignorepointer 1
+    }
+    PanelWidgetClass ListLine
+    {
+     position 28 138
+     size 5 302
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     color 0.82 0 0 0.95
+     ignorepointer 1
+    }
+    TextListboxWidgetClass VehicleList
+    {
+     position 44 154
+     size 772 270
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     colums "1"
+     lines 11
+     font "gui/fonts/MetronLight14"
+     color 0.86 0.94 0.86 0.95
+    }
+    ButtonWidgetClass StoreButton
+    {
+     position 28 470
+     size 250 44
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     text "Einlagern"
+     font "gui/fonts/Metron14"
+    }
+    ButtonWidgetClass RestoreButton
+    {
+     position 306 470
+     size 250 44
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     text "Auslagern"
+     font "gui/fonts/Metron14"
+    }
+    TextWidgetClass HintText
+    {
+     position 584 468
+     size 248 48
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     text "Fahrzeug aus der Liste waehlen und auslagern."
+     font "gui/fonts/MetronLight14"
+     "exact text size" 13
+     "text valign" center
+     color 0.86 0.94 0.86 0.95
+     ignorepointer 1
+    }
+   }
+  }
+ }
+}

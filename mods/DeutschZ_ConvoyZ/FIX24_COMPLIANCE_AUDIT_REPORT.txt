@@ -1,0 +1,12 @@
+DeutschZ_ConvoyZ FIX24 COMPLIANCE AUDITED
+
+Status: OK
+Active high-risk findings: 0
+Compliance docs: present
+DeutschZ headers: present
+M249 in Events.json: removed
+KobraOptic: present
+Quick test mode: active
+
+Before test delete:
+profiles/DeutschZ/ConvoyZ/

@@ -1,0 +1,16 @@
+name: Source Check
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  no-copy-structure-check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check forbidden legacy strings
+        run: |
+          ! grep -RInE "LBmaster|LBAdvancedGroups|LBAdminTool|SFKOTH|BasicMap|VPPAdmin|MarkerBridge|MarkerBackend|ExpansionEventAI" mods || exit 1
+      - name: List source tree
+        run: find mods -maxdepth 4 -type f | sort

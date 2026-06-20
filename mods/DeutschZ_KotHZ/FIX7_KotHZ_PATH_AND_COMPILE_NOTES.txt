@@ -1,0 +1,8 @@
+FIX7
+- Mod root renamed to DeutschZ_KotHZ.
+- $PBOPREFIX$ changed to DeutschZ_KotHZ.
+- CfgMods dir/files changed to DeutschZ_KotHZ/scripts/*.
+- Script namespace folders renamed to scripts/*/DeutschZ_KotHZ.
+- Texture/sound/icon paths changed from DeutschZ_KotHZ to DeutschZ_KotHZ.
+- Config generation remains $profile:DeutschZ/KotHZ/Config/.
+- Removed invalid override from DeutschZKotHZ_RuntimeFlagpole.UpdateVisuals(), because ItemBase has no UpdateVisuals() on this DayZ server build.

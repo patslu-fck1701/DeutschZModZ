@@ -1,0 +1,8 @@
+FrameWidgetClass DZG_GPSHud {
+ position 0.78 0.08
+ size 0.20 0.07
+ color 0 0 0 130
+ {
+  TextWidgetClass DZG_GPSText { position 0.04 0.16 size 0.92 0.68 text "DeutschZ GPS" color 220 220 220 255 }
+ }
+}

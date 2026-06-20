@@ -1,0 +1,184 @@
+{
+    "EventName": "DeutschZ ConvoyZ TEST Reward Crash",
+    "EventIdPrefix": "convoyz_static_crash",
+    "EventCenter": "7500 0 7500",
+    "EventRadius": 450.0,
+    "Vehicles": [],
+    "CrashObjects": [
+        {
+            "ClassName": "Land_Wreck_UH1Y",
+            "Position": "7500 0 7500",
+            "Orientation": "35 0 0",
+            "Critical": 1
+        },
+        {
+            "ClassName": "Land_Wreck_Volha_Police",
+            "Position": "7492 0 7507",
+            "Orientation": "120 0 0",
+            "Critical": 0
+        },
+        {
+            "ClassName": "Land_Wreck_HMMWV",
+            "Position": "7511 0 7493",
+            "Orientation": "260 0 0",
+            "Critical": 0
+        }
+    ],
+    "Blackbox": {
+        "ClassName": "Land_HACKEDCRATE",
+        "Position": "7504 0 7502",
+        "Orientation": "0 0 0",
+        "Critical": 1
+    },
+    "Smoke": {
+        "Position": "7500 0 7500",
+        "RedSmokeClassName": "M18SmokeGrenade_Red",
+        "YellowSmokeClassName": "M18SmokeGrenade_Yellow",
+        "GreenSmokeClassName": "M18SmokeGrenade_Green",
+        "WhiteSmokeClassName": "M18SmokeGrenade_White",
+        "Count": 4,
+        "Radius": 12.0,
+        "RefreshSeconds": 90
+    },
+    "AIWaves": [
+        {
+            "WaveId": "test_wave_1",
+            "DelaySeconds": 0,
+            "Count": 3,
+            "AIClassName": "eAI_SurvivorM_Denis",
+            "DeutschZAIProfileId": "",
+            "LoadoutName": "PoliceLoadout",
+            "SpawnPoints": [
+                {
+                    "Position": "7475 0 7490",
+                    "Orientation": "0 0 0"
+                }
+            ]
+        }
+    ],
+    "RequiredAiKills": 3,
+    "HackDurationSeconds": 20,
+    "Reward": {
+        "RewardContainerClassName": "DZCV_ProtectedCase",
+        "RewardPosition": "7507 0 7505",
+        "RewardOrientation": "0 0 0",
+        "Items": [
+            {
+                "ClassName": "DZCV_AccessCard",
+                "Quantity": 1,
+                "Chance": 1.0
+            },
+            {
+                "ClassName": "DZCV_CardReader",
+                "Quantity": 1,
+                "Chance": 1.0
+            },
+            {
+                "ClassName": "DZCV_BlackboxCore",
+                "Quantity": 1,
+                "Chance": 0.6
+            },
+            {
+                "ClassName": "DZCV_EncryptedDataDrive",
+                "Quantity": 2,
+                "Chance": 1.0
+            },
+            {
+                "ClassName": "DZCV_ClassifiedIntel",
+                "Quantity": 2,
+                "Chance": 1.0
+            },
+            {
+                "ClassName": "PunchedCard",
+                "Quantity": 1,
+                "Chance": 0.5
+            },
+            {
+                "ClassName": "GPSReceiver",
+                "Quantity": 1,
+                "Chance": 0.5
+            },
+            {
+                "ClassName": "SNHK417_Gun",
+                "Quantity": 1,
+                "Chance": 0.35
+            },
+            {
+                "ClassName": "HK416_Gun",
+                "Quantity": 1,
+                "Chance": 0.35
+            },
+            {
+                "ClassName": "M4A1",
+                "Quantity": 1,
+                "Chance": 0.35
+            },
+            {
+                "ClassName": "SVD",
+                "Quantity": 1,
+                "Chance": 0.35
+            },
+            {
+                "ClassName": "SNHK417_Mag",
+                "Quantity": 2,
+                "Chance": 0.75
+            },
+            {
+                "ClassName": "GCGN_HK416_Mag",
+                "Quantity": 2,
+                "Chance": 0.75
+            },
+            {
+                "ClassName": "Mag_STANAG_60Rnd",
+                "Quantity": 2,
+                "Chance": 0.75
+            },
+            {
+                "ClassName": "Mag_STANAG_30Rnd",
+                "Quantity": 2,
+                "Chance": 0.75
+            },
+            {
+                "ClassName": "Mag_SVD_10Rnd",
+                "Quantity": 2,
+                "Chance": 0.75
+            },
+            {
+                "ClassName": "Mag_Fal_20rnd",
+                "Quantity": 2,
+                "Chance": 0.75
+            },
+            {
+                "ClassName": "Ammo_308Win",
+                "Quantity": 2,
+                "Chance": 0.8
+            },
+            {
+                "ClassName": "Ammo_308WinTracer",
+                "Quantity": 2,
+                "Chance": 0.8
+            },
+            {
+                "ClassName": "Ammo_556x45",
+                "Quantity": 2,
+                "Chance": 0.8
+            },
+            {
+                "ClassName": "Ammo_556x45Tracer",
+                "Quantity": 2,
+                "Chance": 0.8
+            },
+            {
+                "ClassName": "KobraOptic",
+                "Quantity": 2,
+                "Chance": 1.0
+            },
+            {
+                "ClassName": "PSO1Optic",
+                "Quantity": 1,
+                "Chance": 0.65
+            }
+        ],
+        "RewardMode": "SPAWN_CRATE"
+    }
+}

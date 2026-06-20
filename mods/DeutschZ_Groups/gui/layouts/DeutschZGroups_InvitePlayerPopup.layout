@@ -1,0 +1,13 @@
+FrameWidgetClass DZG_InvitePlayerPopup {
+ position 0.36 0.31
+ size 0.28 0.32
+ color 0 0 0 220
+ {
+  TextWidgetClass DZG_Title { position 0.04 0.04 size 0.92 0.12 text "Spieler einladen" font "gui/fonts/MetronBook24" color 220 220 220 255 }
+  EditBoxWidgetClass DZG_TargetSteamInput { position 0.05 0.20 size 0.90 0.12 text "Steam64" color 40 40 40 230 }
+  EditBoxWidgetClass DZG_TargetNameInput { position 0.05 0.36 size 0.90 0.12 text "Name optional" color 40 40 40 230 }
+  ButtonWidgetClass DZG_InviteConfirm { position 0.05 0.58 size 0.42 0.14 text "Einladen" }
+  ButtonWidgetClass DZG_InviteCancel { position 0.53 0.58 size 0.42 0.14 text "Abbrechen" }
+  TextWidgetClass DZG_Info { position 0.05 0.78 size 0.90 0.16 text "Zielspieler ueber Steam64 einladen." color 180 180 180 255 }
+ }
+}

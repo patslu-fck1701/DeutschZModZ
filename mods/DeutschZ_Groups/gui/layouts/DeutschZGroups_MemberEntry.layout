@@ -1,0 +1,48 @@
+PanelWidgetClass DZG_MemberEntryRoot {
+ color 0.08 0.08 0.08 0.90
+ position 0 0
+ size 267 32
+ hexactpos 1
+ vexactpos 1
+ hexactsize 1
+ vexactsize 1
+ style editor_quad
+ {
+  TextWidgetClass DZG_MemberName {
+   ignorepointer 1
+   position 8 2
+   size 150 14
+   hexactpos 1
+   vexactpos 1
+   hexactsize 1
+   vexactsize 1
+   text "Spieler"
+   font "gui/fonts/sdf_MetronLight12"
+  }
+  TextWidgetClass DZG_MemberRank {
+   ignorepointer 1
+   position 8 16
+   size 150 14
+   hexactpos 1
+   vexactpos 1
+   hexactsize 1
+   vexactsize 1
+   text "Rekrut"
+   font "gui/fonts/sdf_MetronLight11"
+   color 0.75 0.75 0.75 1
+  }
+  TextWidgetClass DZG_MemberOnline {
+   ignorepointer 1
+   position 188 7
+   size 70 18
+   hexactpos 1
+   vexactpos 1
+   hexactsize 1
+   vexactsize 1
+   text "offline"
+   font "gui/fonts/sdf_MetronLight11"
+   "text halign" right
+   color 0.9 0.25 0.25 1
+  }
+ }
+}

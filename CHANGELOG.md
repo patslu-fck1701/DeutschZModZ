@@ -1,4 +1,5 @@
 # Changelog
 
-## v0.1
-- Initial repository baseline
+## 0.1.0
+
+- Repository-Scaffold fuer alle DeutschZ-Module angelegt.

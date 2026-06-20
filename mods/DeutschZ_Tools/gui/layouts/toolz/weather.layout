@@ -1,0 +1,400 @@
+PanelWidgetClass ToolzFrameRoot
+{
+    position 0 0
+    size 1468 790
+    hexactpos 1
+    vexactpos 1
+    hexactsize 1
+    vexactsize 1
+    color 0 0 0 0
+    visible 1
+    ignorepointer 0
+    clipchildren 1
+
+    TextWidgetClass FrameTitle
+    {
+        position 24 18
+        size 900 32
+        hexactpos 1
+        vexactpos 1
+        hexactsize 1
+        vexactsize 1
+        visible 1
+        ignorepointer 1
+        text "Wetter / Zeit"
+        font "gui/fonts/Metron14"
+        "exact text size" 22
+        color 0.82 1 0.18 1
+    }
+
+    TextWidgetClass FrameInfo
+    {
+        position 24 56
+        size 1260 24
+        hexactpos 1
+        vexactpos 1
+        hexactsize 1
+        vexactsize 1
+        visible 1
+        ignorepointer 1
+        text "Weather presets are active. Custom values and time presets are prepared."
+        font "gui/fonts/MetronLight14"
+        "exact text size" 13
+        color 0.86 0.94 0.86 0.95
+    }
+
+    PanelWidgetClass BtnWeatherClearBg
+    {
+        position 24 110
+        size 260 46
+        hexactpos 1
+        vexactpos 1
+        hexactsize 1
+        vexactsize 1
+        color 0.3922 0.3922 0.3922 0.45
+        visible 1
+        ignorepointer 1
+        style rover_sim_colorable
+    }
+
+    PanelWidgetClass BtnWeatherClearLine
+    {
+        position 24 110
+        size 4 46
+        hexactpos 1
+        vexactpos 1
+        hexactsize 1
+        vexactsize 1
+        color 0.82 0 0 0.95
+        visible 1
+        ignorepointer 1
+        style rover_sim_colorable
+    }
+
+    ButtonWidgetClass BtnWeatherClear
+    {
+        position 24 110
+        size 260 46
+        hexactpos 1
+        vexactpos 1
+        hexactsize 1
+        vexactsize 1
+        visible 1
+        ignorepointer 0
+        text "Klar"
+        font "gui/fonts/Metron14"
+    }
+
+    PanelWidgetClass BtnWeatherRainBg
+    {
+        position 304 110
+        size 260 46
+        hexactpos 1
+        vexactpos 1
+        hexactsize 1
+        vexactsize 1
+        color 0.3922 0.3922 0.3922 0.45
+        visible 1
+        ignorepointer 1
+        style rover_sim_colorable
+    }
+
+    PanelWidgetClass BtnWeatherRainLine
+    {
+        position 304 110
+        size 4 46
+        hexactpos 1
+        vexactpos 1
+        hexactsize 1
+        vexactsize 1
+        color 0.82 0 0 0.95
+        visible 1
+        ignorepointer 1
+        style rover_sim_colorable
+    }
+
+    ButtonWidgetClass BtnWeatherRain
+    {
+        position 304 110
+        size 260 46
+        hexactpos 1
+        vexactpos 1
+        hexactsize 1
+        vexactsize 1
+        visible 1
+        ignorepointer 0
+        text "Regen"
+        font "gui/fonts/Metron14"
+    }
+
+    PanelWidgetClass BtnWeatherStormBg
+    {
+        position 584 110
+        size 260 46
+        hexactpos 1
+        vexactpos 1
+        hexactsize 1
+        vexactsize 1
+        color 0.3922 0.3922 0.3922 0.45
+        visible 1
+        ignorepointer 1
+        style rover_sim_colorable
+    }
+
+    PanelWidgetClass BtnWeatherStormLine
+    {
+        position 584 110
+        size 4 46
+        hexactpos 1
+        vexactpos 1
+        hexactsize 1
+        vexactsize 1
+        color 0.82 0 0 0.95
+        visible 1
+        ignorepointer 1
+        style rover_sim_colorable
+    }
+
+    ButtonWidgetClass BtnWeatherStorm
+    {
+        position 584 110
+        size 260 46
+        hexactpos 1
+        vexactpos 1
+        hexactsize 1
+        vexactsize 1
+        visible 1
+        ignorepointer 0
+        text "Sturm"
+        font "gui/fonts/Metron14"
+    }
+
+    PanelWidgetClass BtnWeatherFogBg
+    {
+        position 864 110
+        size 260 46
+        hexactpos 1
+        vexactpos 1
+        hexactsize 1
+        vexactsize 1
+        color 0.3922 0.3922 0.3922 0.45
+        visible 1
+        ignorepointer 1
+        style rover_sim_colorable
+    }
+
+    PanelWidgetClass BtnWeatherFogLine
+    {
+        position 864 110
+        size 4 46
+        hexactpos 1
+        vexactpos 1
+        hexactsize 1
+        vexactsize 1
+        color 0.82 0 0 0.95
+        visible 1
+        ignorepointer 1
+        style rover_sim_colorable
+    }
+
+    ButtonWidgetClass BtnWeatherFog
+    {
+        position 864 110
+        size 260 46
+        hexactpos 1
+        vexactpos 1
+        hexactsize 1
+        vexactsize 1
+        visible 1
+        ignorepointer 0
+        text "Nebel"
+        font "gui/fonts/Metron14"
+    }
+
+    PanelWidgetClass BtnWeatherApplyBg
+    {
+        position 24 200
+        size 260 46
+        hexactpos 1
+        vexactpos 1
+        hexactsize 1
+        vexactsize 1
+        color 0.3922 0.3922 0.3922 0.45
+        visible 1
+        ignorepointer 1
+        style rover_sim_colorable
+    }
+
+    PanelWidgetClass BtnWeatherApplyLine
+    {
+        position 24 200
+        size 4 46
+        hexactpos 1
+        vexactpos 1
+        hexactsize 1
+        vexactsize 1
+        color 0.82 0 0 0.95
+        visible 1
+        ignorepointer 1
+        style rover_sim_colorable
+    }
+
+    ButtonWidgetClass BtnWeatherApply
+    {
+        position 24 200
+        size 260 46
+        hexactpos 1
+        vexactpos 1
+        hexactsize 1
+        vexactsize 1
+        visible 1
+        ignorepointer 0
+        text "Wetter setzen"
+        font "gui/fonts/Metron14"
+    }
+
+    PanelWidgetClass BtnTimeApplyBg
+    {
+        position 304 200
+        size 260 46
+        hexactpos 1
+        vexactpos 1
+        hexactsize 1
+        vexactsize 1
+        color 0.3922 0.3922 0.3922 0.45
+        visible 1
+        ignorepointer 1
+        style rover_sim_colorable
+    }
+
+    PanelWidgetClass BtnTimeApplyLine
+    {
+        position 304 200
+        size 4 46
+        hexactpos 1
+        vexactpos 1
+        hexactsize 1
+        vexactsize 1
+        color 0.82 0 0 0.95
+        visible 1
+        ignorepointer 1
+        style rover_sim_colorable
+    }
+
+    ButtonWidgetClass BtnTimeApply
+    {
+        position 304 200
+        size 260 46
+        hexactpos 1
+        vexactpos 1
+        hexactsize 1
+        vexactsize 1
+        visible 1
+        ignorepointer 0
+        text "Zeit setzen"
+        font "gui/fonts/Metron14"
+    }
+
+    PanelWidgetClass BtnWeatherResetBg
+    {
+        position 584 200
+        size 260 46
+        hexactpos 1
+        vexactpos 1
+        hexactsize 1
+        vexactsize 1
+        color 0.3922 0.3922 0.3922 0.45
+        visible 1
+        ignorepointer 1
+        style rover_sim_colorable
+    }
+
+    PanelWidgetClass BtnWeatherResetLine
+    {
+        position 584 200
+        size 4 46
+        hexactpos 1
+        vexactpos 1
+        hexactsize 1
+        vexactsize 1
+        color 0.82 0 0 0.95
+        visible 1
+        ignorepointer 1
+        style rover_sim_colorable
+    }
+
+    ButtonWidgetClass BtnWeatherReset
+    {
+        position 584 200
+        size 260 46
+        hexactpos 1
+        vexactpos 1
+        hexactsize 1
+        vexactsize 1
+        visible 1
+        ignorepointer 0
+        text "Wetter reset"
+        font "gui/fonts/Metron14"
+    }
+
+    PanelWidgetClass WeatherNotes
+    {
+        position 24 300
+        size 900 150
+        hexactpos 1
+        vexactpos 1
+        hexactsize 1
+        vexactsize 1
+        color 0.3922 0.3922 0.3922 0.30
+        visible 1
+        ignorepointer 1
+        style rover_sim_colorable
+    }
+
+    PanelWidgetClass WeatherNotesAccent
+    {
+        position 24 300
+        size 4 150
+        hexactpos 1
+        vexactpos 1
+        hexactsize 1
+        vexactsize 1
+        color 0.82 0 0 0.95
+        visible 1
+        ignorepointer 1
+        style rover_sim_colorable
+    }
+
+    TextWidgetClass WeatherNotesTitle
+    {
+        position 46 318
+        size 856 24
+        hexactpos 1
+        vexactpos 1
+        hexactsize 1
+        vexactsize 1
+        visible 1
+        ignorepointer 1
+        text "Wetter Quelle"
+        font "gui/fonts/Metron14"
+        "exact text size" 16
+        color 0.82 1 0.18 1
+    }
+
+    TextWidgetClass WeatherNotesBody
+    {
+        position 46 352
+        size 856 88
+        hexactpos 1
+        vexactpos 1
+        hexactsize 1
+        vexactsize 1
+        visible 1
+        ignorepointer 1
+        text "Active: clear/rain/storm/fog. Prepared: sliders, time presets, persistent server config."
+        font "gui/fonts/MetronLight14"
+        "exact text size" 13
+        color 0.86 0.94 0.86 0.95
+    }
+
+}

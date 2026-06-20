@@ -1,0 +1,274 @@
+PanelWidgetClass ToolzFrameRoot
+{
+    position 0 0
+    size 1468 790
+    hexactpos 1
+    vexactpos 1
+    hexactsize 1
+    vexactsize 1
+    color 0 0 0 0
+    visible 1
+    ignorepointer 0
+    clipchildren 1
+
+    TextWidgetClass FrameTitle
+    {
+        position 24 18
+        size 900 32
+        hexactpos 1
+        vexactpos 1
+        hexactsize 1
+        vexactsize 1
+        visible 1
+        ignorepointer 1
+        text "Events / KOTH"
+        font "gui/fonts/Metron14"
+        "exact text size" 22
+        color 0.82 1 0.18 1
+    }
+
+    TextWidgetClass FrameInfo
+    {
+        position 24 56
+        size 1260 24
+        hexactpos 1
+        vexactpos 1
+        hexactsize 1
+        vexactsize 1
+        visible 1
+        ignorepointer 1
+        text "DeutschZ event bridge. KOTH bridge commands are routed through own RPC."
+        font "gui/fonts/MetronLight14"
+        "exact text size" 13
+        color 0.86 0.94 0.86 0.95
+    }
+
+    PanelWidgetClass BtnKothStatusBg
+    {
+        position 24 110
+        size 260 46
+        hexactpos 1
+        vexactpos 1
+        hexactsize 1
+        vexactsize 1
+        color 0.3922 0.3922 0.3922 0.45
+        visible 1
+        ignorepointer 1
+        style rover_sim_colorable
+    }
+
+    PanelWidgetClass BtnKothStatusLine
+    {
+        position 24 110
+        size 4 46
+        hexactpos 1
+        vexactpos 1
+        hexactsize 1
+        vexactsize 1
+        color 0.82 0 0 0.95
+        visible 1
+        ignorepointer 1
+        style rover_sim_colorable
+    }
+
+    ButtonWidgetClass BtnKothStatus
+    {
+        position 24 110
+        size 260 46
+        hexactpos 1
+        vexactpos 1
+        hexactsize 1
+        vexactsize 1
+        visible 1
+        ignorepointer 0
+        text "KOTH Status"
+        font "gui/fonts/Metron14"
+    }
+
+    PanelWidgetClass BtnKothForceStartBg
+    {
+        position 304 110
+        size 260 46
+        hexactpos 1
+        vexactpos 1
+        hexactsize 1
+        vexactsize 1
+        color 0.3922 0.3922 0.3922 0.45
+        visible 1
+        ignorepointer 1
+        style rover_sim_colorable
+    }
+
+    PanelWidgetClass BtnKothForceStartLine
+    {
+        position 304 110
+        size 4 46
+        hexactpos 1
+        vexactpos 1
+        hexactsize 1
+        vexactsize 1
+        color 0.82 0 0 0.95
+        visible 1
+        ignorepointer 1
+        style rover_sim_colorable
+    }
+
+    ButtonWidgetClass BtnKothForceStart
+    {
+        position 304 110
+        size 260 46
+        hexactpos 1
+        vexactpos 1
+        hexactsize 1
+        vexactsize 1
+        visible 1
+        ignorepointer 0
+        text "Force Start"
+        font "gui/fonts/Metron14"
+    }
+
+    PanelWidgetClass BtnKothForceStopBg
+    {
+        position 584 110
+        size 260 46
+        hexactpos 1
+        vexactpos 1
+        hexactsize 1
+        vexactsize 1
+        color 0.3922 0.3922 0.3922 0.45
+        visible 1
+        ignorepointer 1
+        style rover_sim_colorable
+    }
+
+    PanelWidgetClass BtnKothForceStopLine
+    {
+        position 584 110
+        size 4 46
+        hexactpos 1
+        vexactpos 1
+        hexactsize 1
+        vexactsize 1
+        color 0.82 0 0 0.95
+        visible 1
+        ignorepointer 1
+        style rover_sim_colorable
+    }
+
+    ButtonWidgetClass BtnKothForceStop
+    {
+        position 584 110
+        size 260 46
+        hexactpos 1
+        vexactpos 1
+        hexactsize 1
+        vexactsize 1
+        visible 1
+        ignorepointer 0
+        text "Force Stop"
+        font "gui/fonts/Metron14"
+    }
+
+    PanelWidgetClass BtnKothReloadBg
+    {
+        position 864 110
+        size 260 46
+        hexactpos 1
+        vexactpos 1
+        hexactsize 1
+        vexactsize 1
+        color 0.3922 0.3922 0.3922 0.45
+        visible 1
+        ignorepointer 1
+        style rover_sim_colorable
+    }
+
+    PanelWidgetClass BtnKothReloadLine
+    {
+        position 864 110
+        size 4 46
+        hexactpos 1
+        vexactpos 1
+        hexactsize 1
+        vexactsize 1
+        color 0.82 0 0 0.95
+        visible 1
+        ignorepointer 1
+        style rover_sim_colorable
+    }
+
+    ButtonWidgetClass BtnKothReload
+    {
+        position 864 110
+        size 260 46
+        hexactpos 1
+        vexactpos 1
+        hexactsize 1
+        vexactsize 1
+        visible 1
+        ignorepointer 0
+        text "KOTH neu laden"
+        font "gui/fonts/Metron14"
+    }
+
+    PanelWidgetClass EventNotes
+    {
+        position 24 210
+        size 900 160
+        hexactpos 1
+        vexactpos 1
+        hexactsize 1
+        vexactsize 1
+        color 0.3922 0.3922 0.3922 0.30
+        visible 1
+        ignorepointer 1
+        style rover_sim_colorable
+    }
+
+    PanelWidgetClass EventNotesAccent
+    {
+        position 24 210
+        size 4 160
+        hexactpos 1
+        vexactpos 1
+        hexactsize 1
+        vexactsize 1
+        color 0.82 0 0 0.95
+        visible 1
+        ignorepointer 1
+        style rover_sim_colorable
+    }
+
+    TextWidgetClass EventNotesTitle
+    {
+        position 46 228
+        size 856 24
+        hexactpos 1
+        vexactpos 1
+        hexactsize 1
+        vexactsize 1
+        visible 1
+        ignorepointer 1
+        text "Bridge Status"
+        font "gui/fonts/Metron14"
+        "exact text size" 16
+        color 0.82 1 0.18 1
+    }
+
+    TextWidgetClass EventNotesBody
+    {
+        position 46 262
+        size 856 98
+        hexactpos 1
+        vexactpos 1
+        hexactsize 1
+        vexactsize 1
+        visible 1
+        ignorepointer 1
+        text "Active bridge: status/start/stop/reload. No hard Expansion dependency. KOTH integration uses optional server-side method discovery."
+        font "gui/fonts/MetronLight14"
+        "exact text size" 13
+        color 0.86 0.94 0.86 0.95
+    }
+
+}

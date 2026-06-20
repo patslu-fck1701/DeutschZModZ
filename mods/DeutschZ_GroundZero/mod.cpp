@@ -1,0 +1,10 @@
+name = "DeutschZ GroundZero";
+picture = "";
+logo = "";
+logoSmall = "";
+logoOver = "";
+tooltip = "DeutschZ GroundZero";
+overview = "Server-authoritative DeutschZ GroundZero event module.";
+action = "";
+author = "Patrick Sluzalek / fck1701";
+version = "0.4.0-source";

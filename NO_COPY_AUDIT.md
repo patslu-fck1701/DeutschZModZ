@@ -1,1 +1,3 @@
-No third-party code copied. Concepts may be analyzed from public sources.
+# No-Copy Audit
+
+Initiale Source-Basis neu angelegt. Keine fremden Mod-Dateien enthalten.

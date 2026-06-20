@@ -1,0 +1,11 @@
+FrameWidgetClass DZG_RankPopup {
+ position 0.37 0.28
+ size 0.26 0.38
+ color 0 0 0 220
+ {
+  TextWidgetClass DZG_Title { position 0.04 0.04 size 0.92 0.11 text "Rang setzen" font "gui/fonts/MetronBook24" color 220 220 220 255 }
+  TextListboxWidgetClass DZG_RankList { position 0.05 0.18 size 0.90 0.54 color 20 20 20 230 }
+  ButtonWidgetClass DZG_RankApply { position 0.05 0.78 size 0.42 0.12 text "Setzen" }
+  ButtonWidgetClass DZG_RankCancel { position 0.53 0.78 size 0.42 0.12 text "Abbrechen" }
+ }
+}

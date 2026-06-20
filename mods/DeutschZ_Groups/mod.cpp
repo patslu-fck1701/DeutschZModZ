@@ -1,0 +1,10 @@
+name = "DeutschZ Groups";
+picture = "";
+logo = "";
+logoSmall = "";
+logoOver = "";
+tooltip = "DeutschZ Groups";
+overview = "DeutschZ Groups mit ToolZ-nahem Map-Menue, direkten Markern, Invites, Garage- und Bank-Bruecken.";
+action = "";
+author = "Patrick Sluzalek / DeutschZ";
+version = "0.5.2 ToolZ Map UI";

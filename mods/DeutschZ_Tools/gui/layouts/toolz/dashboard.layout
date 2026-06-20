@@ -1,0 +1,494 @@
+PanelWidgetClass ToolzFrameRoot
+{
+    position 0 0
+    size 1468 790
+    hexactpos 1
+    vexactpos 1
+    hexactsize 1
+    vexactsize 1
+    color 0 0 0 0
+    visible 1
+    ignorepointer 0
+    clipchildren 1
+
+    TextWidgetClass FrameTitle
+    {
+        position 24 18
+        size 900 32
+        hexactpos 1
+        vexactpos 1
+        hexactsize 1
+        vexactsize 1
+        visible 1
+        ignorepointer 1
+        text "Uebersicht"
+        font "gui/fonts/Metron14"
+        "exact text size" 22
+        color 0.82 1 0.18 1
+    }
+
+    TextWidgetClass FrameInfo
+    {
+        position 24 56
+        size 1260 24
+        hexactpos 1
+        vexactpos 1
+        hexactsize 1
+        vexactsize 1
+        visible 1
+        ignorepointer 1
+        text "Quick actions, server response and DeutschZ bridge status."
+        font "gui/fonts/MetronLight14"
+        "exact text size" 13
+        color 0.86 0.94 0.86 0.95
+    }
+
+    PanelWidgetClass DashCard1
+    {
+        position 24 104
+        size 380 118
+        hexactpos 1
+        vexactpos 1
+        hexactsize 1
+        vexactsize 1
+        color 0.3922 0.3922 0.3922 0.30
+        visible 1
+        ignorepointer 1
+        style rover_sim_colorable
+    }
+
+    PanelWidgetClass DashCard1Accent
+    {
+        position 24 104
+        size 4 118
+        hexactpos 1
+        vexactpos 1
+        hexactsize 1
+        vexactsize 1
+        color 0.82 0 0 0.95
+        visible 1
+        ignorepointer 1
+        style rover_sim_colorable
+    }
+
+    TextWidgetClass DashCard1Title
+    {
+        position 46 122
+        size 336 24
+        hexactpos 1
+        vexactpos 1
+        hexactsize 1
+        vexactsize 1
+        visible 1
+        ignorepointer 1
+        text "Spieler online"
+        font "gui/fonts/Metron14"
+        "exact text size" 16
+        color 0.82 1 0.18 1
+    }
+
+    TextWidgetClass DashCard1Body
+    {
+        position 46 156
+        size 336 56
+        hexactpos 1
+        vexactpos 1
+        hexactsize 1
+        vexactsize 1
+        visible 1
+        ignorepointer 1
+        text "Current cache. Press Load Playerlist to refresh."
+        font "gui/fonts/MetronLight14"
+        "exact text size" 13
+        color 0.86 0.94 0.86 0.95
+    }
+
+    TextWidgetClass DashboardOnlineText
+    {
+        position 46 128
+        size 320 24
+        hexactpos 1
+        vexactpos 1
+        hexactsize 1
+        vexactsize 1
+        visible 1
+        ignorepointer 1
+        text "Spieler online: 0"
+        font "gui/fonts/Metron14"
+        "exact text size" 16
+        color 0.82 1 0.18 1
+    }
+
+    PanelWidgetClass DashCard2
+    {
+        position 430 104
+        size 380 118
+        hexactpos 1
+        vexactpos 1
+        hexactsize 1
+        vexactsize 1
+        color 0.3922 0.3922 0.3922 0.30
+        visible 1
+        ignorepointer 1
+        style rover_sim_colorable
+    }
+
+    PanelWidgetClass DashCard2Accent
+    {
+        position 430 104
+        size 4 118
+        hexactpos 1
+        vexactpos 1
+        hexactsize 1
+        vexactsize 1
+        color 0.82 0 0 0.95
+        visible 1
+        ignorepointer 1
+        style rover_sim_colorable
+    }
+
+    TextWidgetClass DashCard2Title
+    {
+        position 452 122
+        size 336 24
+        hexactpos 1
+        vexactpos 1
+        hexactsize 1
+        vexactsize 1
+        visible 1
+        ignorepointer 1
+        text "Schnell Admin"
+        font "gui/fonts/Metron14"
+        "exact text size" 16
+        color 0.82 1 0.18 1
+    }
+
+    TextWidgetClass DashCard2Body
+    {
+        position 452 156
+        size 336 56
+        hexactpos 1
+        vexactpos 1
+        hexactsize 1
+        vexactsize 1
+        visible 1
+        ignorepointer 1
+        text "Use player list, reloads and KOTH bridge from here."
+        font "gui/fonts/MetronLight14"
+        "exact text size" 13
+        color 0.86 0.94 0.86 0.95
+    }
+
+    PanelWidgetClass DashCard3
+    {
+        position 836 104
+        size 380 118
+        hexactpos 1
+        vexactpos 1
+        hexactsize 1
+        vexactsize 1
+        color 0.3922 0.3922 0.3922 0.30
+        visible 1
+        ignorepointer 1
+        style rover_sim_colorable
+    }
+
+    PanelWidgetClass DashCard3Accent
+    {
+        position 836 104
+        size 4 118
+        hexactpos 1
+        vexactpos 1
+        hexactsize 1
+        vexactsize 1
+        color 0.82 0 0 0.95
+        visible 1
+        ignorepointer 1
+        style rover_sim_colorable
+    }
+
+    TextWidgetClass DashCard3Title
+    {
+        position 858 122
+        size 336 24
+        hexactpos 1
+        vexactpos 1
+        hexactsize 1
+        vexactsize 1
+        visible 1
+        ignorepointer 1
+        text "LBAdminTool Source Layout"
+        font "gui/fonts/Metron14"
+        "exact text size" 16
+        color 0.82 1 0.18 1
+    }
+
+    TextWidgetClass DashCard3Body
+    {
+        position 858 156
+        size 336 56
+        hexactpos 1
+        vexactpos 1
+        hexactsize 1
+        vexactsize 1
+        visible 1
+        ignorepointer 1
+        text "Main menu loads one content frame at a time."
+        font "gui/fonts/MetronLight14"
+        "exact text size" 13
+        color 0.86 0.94 0.86 0.95
+    }
+
+    PanelWidgetClass BtnDashPlayerListBg
+    {
+        position 24 270
+        size 270 48
+        hexactpos 1
+        vexactpos 1
+        hexactsize 1
+        vexactsize 1
+        color 0.3922 0.3922 0.3922 0.45
+        visible 1
+        ignorepointer 1
+        style rover_sim_colorable
+    }
+
+    PanelWidgetClass BtnDashPlayerListLine
+    {
+        position 24 270
+        size 4 48
+        hexactpos 1
+        vexactpos 1
+        hexactsize 1
+        vexactsize 1
+        color 0.82 0 0 0.95
+        visible 1
+        ignorepointer 1
+        style rover_sim_colorable
+    }
+
+    ButtonWidgetClass BtnDashPlayerList
+    {
+        position 24 270
+        size 270 48
+        hexactpos 1
+        vexactpos 1
+        hexactsize 1
+        vexactsize 1
+        visible 1
+        ignorepointer 0
+        text "Spieler laden"
+        font "gui/fonts/Metron14"
+    }
+
+    PanelWidgetClass BtnDashReloadConfigsBg
+    {
+        position 314 270
+        size 270 48
+        hexactpos 1
+        vexactpos 1
+        hexactsize 1
+        vexactsize 1
+        color 0.3922 0.3922 0.3922 0.45
+        visible 1
+        ignorepointer 1
+        style rover_sim_colorable
+    }
+
+    PanelWidgetClass BtnDashReloadConfigsLine
+    {
+        position 314 270
+        size 4 48
+        hexactpos 1
+        vexactpos 1
+        hexactsize 1
+        vexactsize 1
+        color 0.82 0 0 0.95
+        visible 1
+        ignorepointer 1
+        style rover_sim_colorable
+    }
+
+    ButtonWidgetClass BtnDashReloadConfigs
+    {
+        position 314 270
+        size 270 48
+        hexactpos 1
+        vexactpos 1
+        hexactsize 1
+        vexactsize 1
+        visible 1
+        ignorepointer 0
+        text "Configs neu laden"
+        font "gui/fonts/Metron14"
+    }
+
+    PanelWidgetClass BtnDashKothStatusBg
+    {
+        position 604 270
+        size 250 48
+        hexactpos 1
+        vexactpos 1
+        hexactsize 1
+        vexactsize 1
+        color 0.3922 0.3922 0.3922 0.45
+        visible 1
+        ignorepointer 1
+        style rover_sim_colorable
+    }
+
+    PanelWidgetClass BtnDashKothStatusLine
+    {
+        position 604 270
+        size 4 48
+        hexactpos 1
+        vexactpos 1
+        hexactsize 1
+        vexactsize 1
+        color 0.82 0 0 0.95
+        visible 1
+        ignorepointer 1
+        style rover_sim_colorable
+    }
+
+    ButtonWidgetClass BtnDashKothStatus
+    {
+        position 604 270
+        size 250 48
+        hexactpos 1
+        vexactpos 1
+        hexactsize 1
+        vexactsize 1
+        visible 1
+        ignorepointer 0
+        text "KOTH Status"
+        font "gui/fonts/Metron14"
+    }
+
+    PanelWidgetClass BtnDashKothReloadBg
+    {
+        position 24 336
+        size 270 48
+        hexactpos 1
+        vexactpos 1
+        hexactsize 1
+        vexactsize 1
+        color 0.3922 0.3922 0.3922 0.45
+        visible 1
+        ignorepointer 1
+        style rover_sim_colorable
+    }
+
+    PanelWidgetClass BtnDashKothReloadLine
+    {
+        position 24 336
+        size 4 48
+        hexactpos 1
+        vexactpos 1
+        hexactsize 1
+        vexactsize 1
+        color 0.82 0 0 0.95
+        visible 1
+        ignorepointer 1
+        style rover_sim_colorable
+    }
+
+    ButtonWidgetClass BtnDashKothReload
+    {
+        position 24 336
+        size 270 48
+        hexactpos 1
+        vexactpos 1
+        hexactsize 1
+        vexactsize 1
+        visible 1
+        ignorepointer 0
+        text "KOTH neu laden"
+        font "gui/fonts/Metron14"
+    }
+
+    PanelWidgetClass BtnDashWeatherClearBg
+    {
+        position 314 336
+        size 270 48
+        hexactpos 1
+        vexactpos 1
+        hexactsize 1
+        vexactsize 1
+        color 0.3922 0.3922 0.3922 0.45
+        visible 1
+        ignorepointer 1
+        style rover_sim_colorable
+    }
+
+    PanelWidgetClass BtnDashWeatherClearLine
+    {
+        position 314 336
+        size 4 48
+        hexactpos 1
+        vexactpos 1
+        hexactsize 1
+        vexactsize 1
+        color 0.82 0 0 0.95
+        visible 1
+        ignorepointer 1
+        style rover_sim_colorable
+    }
+
+    ButtonWidgetClass BtnDashWeatherClear
+    {
+        position 314 336
+        size 270 48
+        hexactpos 1
+        vexactpos 1
+        hexactsize 1
+        vexactsize 1
+        visible 1
+        ignorepointer 0
+        text "Wetter klar"
+        font "gui/fonts/Metron14"
+    }
+
+    PanelWidgetClass BtnPingBg
+    {
+        position 604 336
+        size 250 48
+        hexactpos 1
+        vexactpos 1
+        hexactsize 1
+        vexactsize 1
+        color 0.3922 0.3922 0.3922 0.45
+        visible 1
+        ignorepointer 1
+        style rover_sim_colorable
+    }
+
+    PanelWidgetClass BtnPingLine
+    {
+        position 604 336
+        size 4 48
+        hexactpos 1
+        vexactpos 1
+        hexactsize 1
+        vexactsize 1
+        color 0.82 0 0 0.95
+        visible 1
+        ignorepointer 1
+        style rover_sim_colorable
+    }
+
+    ButtonWidgetClass BtnPing
+    {
+        position 604 336
+        size 250 48
+        hexactpos 1
+        vexactpos 1
+        hexactsize 1
+        vexactsize 1
+        visible 1
+        ignorepointer 0
+        text "Rechte testen"
+        font "gui/fonts/Metron14"
+    }
+
+}

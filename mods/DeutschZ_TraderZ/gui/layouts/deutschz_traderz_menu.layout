@@ -1,0 +1,112 @@
+FrameWidgetClass layoutRoot
+{
+    position 0 0
+    size 1 1
+    visible 1
+    color 0 0 0 0.55
+    {
+        PanelWidgetClass MainPanel
+        {
+            position 0.18 0.12
+            size 0.64 0.76
+            color 0.02 0.02 0.02 0.92
+            {
+                TextWidgetClass TraderZTitle
+                {
+                    position 0.03 0.03
+                    size 0.55 0.05
+                    text "DeutschZ TraderZ"
+                    font "gui/fonts/sdf_MetronBook24"
+                    color 0.95 0.08 0.08 1
+                }
+                ButtonWidgetClass TraderZButtonClose
+                {
+                    position 0.90 0.03
+                    size 0.07 0.05
+                    text "X"
+                }
+                TextWidgetClass TraderZStatus
+                {
+                    position 0.03 0.09
+                    size 0.94 0.04
+                    text "Ready"
+                    font "gui/fonts/sdf_MetronBook18"
+                    color 0.45 0.9 0.35 1
+                }
+                MultilineTextWidgetClass TraderZCategoryText
+                {
+                    position 0.03 0.16
+                    size 0.24 0.46
+                    text "Categories"
+                    font "gui/fonts/sdf_MetronBook18"
+                    color 0.85 0.85 0.85 1
+                }
+                MultilineTextWidgetClass TraderZItemText
+                {
+                    position 0.30 0.16
+                    size 0.67 0.46
+                    text "Items"
+                    font "gui/fonts/sdf_MetronBook18"
+                    color 0.85 0.85 0.85 1
+                }
+                TextWidgetClass CategoryLabel
+                {
+                    position 0.03 0.65
+                    size 0.20 0.035
+                    text "Category"
+                    color 0.8 0.8 0.8 1
+                }
+                EditBoxWidgetClass TraderZCategoryBox
+                {
+                    position 0.03 0.69
+                    size 0.24 0.05
+                    text ""
+                }
+                ButtonWidgetClass TraderZButtonLoadCategory
+                {
+                    position 0.03 0.755
+                    size 0.24 0.06
+                    text "LOAD CATEGORY"
+                }
+                TextWidgetClass ClassLabel
+                {
+                    position 0.30 0.65
+                    size 0.20 0.035
+                    text "Classname"
+                    color 0.8 0.8 0.8 1
+                }
+                EditBoxWidgetClass TraderZClassBox
+                {
+                    position 0.30 0.69
+                    size 0.30 0.05
+                    text ""
+                }
+                TextWidgetClass AmountLabel
+                {
+                    position 0.63 0.65
+                    size 0.12 0.035
+                    text "Amount"
+                    color 0.8 0.8 0.8 1
+                }
+                EditBoxWidgetClass TraderZAmountBox
+                {
+                    position 0.63 0.69
+                    size 0.10 0.05
+                    text "1"
+                }
+                ButtonWidgetClass TraderZButtonBuy
+                {
+                    position 0.30 0.755
+                    size 0.20 0.06
+                    text "BUY"
+                }
+                ButtonWidgetClass TraderZButtonSell
+                {
+                    position 0.53 0.755
+                    size 0.20 0.06
+                    text "SELL"
+                }
+            }
+        }
+    }
+}

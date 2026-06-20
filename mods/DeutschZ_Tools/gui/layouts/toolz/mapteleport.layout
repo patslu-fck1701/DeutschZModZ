@@ -1,0 +1,421 @@
+PanelWidgetClass ToolzFrameRoot
+{
+    position 0 0
+    size 1468 790
+    hexactpos 1
+    vexactpos 1
+    hexactsize 1
+    vexactsize 1
+    color 0 0 0 0
+    visible 1
+    ignorepointer 0
+    clipchildren 1
+
+    TextWidgetClass FrameTitle
+    {
+        position 24 18
+        size 900 32
+        hexactpos 1
+        vexactpos 1
+        hexactsize 1
+        vexactsize 1
+        visible 1
+        ignorepointer 1
+        text "Karte / Teleport"
+        font "gui/fonts/Metron14"
+        "exact text size" 22
+        color 0.82 1 0.18 1
+    }
+
+    TextWidgetClass FrameInfo
+    {
+        position 24 56
+        size 1260 24
+        hexactpos 1
+        vexactpos 1
+        hexactsize 1
+        vexactsize 1
+        visible 1
+        ignorepointer 1
+        text "Teleport by fields. Native map popup opens only when requested."
+        font "gui/fonts/MetronLight14"
+        "exact text size" 13
+        color 0.86 0.94 0.86 0.95
+    }
+
+    TextWidgetClass TeleportLabel
+    {
+        position 24 104
+        size 500 24
+        hexactpos 1
+        vexactpos 1
+        hexactsize 1
+        vexactsize 1
+        visible 1
+        ignorepointer 1
+        text "TELEPORT COORDINATES"
+        font "gui/fonts/Metron14"
+        "exact text size" 15
+        color 0.82 1 0.18 1
+    }
+
+    TextWidgetClass TeleportXLabel
+    {
+        position 24 140
+        size 80 24
+        hexactpos 1
+        vexactpos 1
+        hexactsize 1
+        vexactsize 1
+        visible 1
+        ignorepointer 1
+        text "X"
+        font "gui/fonts/Metron14"
+        "exact text size" 14
+        color 0.82 1 0.18 1
+    }
+
+    EditBoxWidgetClass TeleportX
+    {
+        position 60 136
+        size 220 38
+        hexactpos 1
+        vexactpos 1
+        hexactsize 1
+        vexactsize 1
+        visible 1
+        ignorepointer 0
+        text ""
+        font "gui/fonts/MetronLight14"
+        "exact text size" 15
+        color 0.86 0.94 0.86 0.95
+    }
+
+    TextWidgetClass TeleportZLabel
+    {
+        position 306 140
+        size 80 24
+        hexactpos 1
+        vexactpos 1
+        hexactsize 1
+        vexactsize 1
+        visible 1
+        ignorepointer 1
+        text "Z"
+        font "gui/fonts/Metron14"
+        "exact text size" 14
+        color 0.82 1 0.18 1
+    }
+
+    EditBoxWidgetClass TeleportZ
+    {
+        position 342 136
+        size 220 38
+        hexactpos 1
+        vexactpos 1
+        hexactsize 1
+        vexactsize 1
+        visible 1
+        ignorepointer 0
+        text ""
+        font "gui/fonts/MetronLight14"
+        "exact text size" 15
+        color 0.86 0.94 0.86 0.95
+    }
+
+    PanelWidgetClass BtnTeleportCoordsBg
+    {
+        position 24 196
+        size 260 44
+        hexactpos 1
+        vexactpos 1
+        hexactsize 1
+        vexactsize 1
+        color 0.3922 0.3922 0.3922 0.45
+        visible 1
+        ignorepointer 1
+        style rover_sim_colorable
+    }
+
+    PanelWidgetClass BtnTeleportCoordsLine
+    {
+        position 24 196
+        size 4 44
+        hexactpos 1
+        vexactpos 1
+        hexactsize 1
+        vexactsize 1
+        color 0.82 0 0 0.95
+        visible 1
+        ignorepointer 1
+        style rover_sim_colorable
+    }
+
+    ButtonWidgetClass BtnTeleportCoords
+    {
+        position 24 196
+        size 260 44
+        hexactpos 1
+        vexactpos 1
+        hexactsize 1
+        vexactsize 1
+        visible 1
+        ignorepointer 0
+        text "Zu X/Z teleportieren"
+        font "gui/fonts/Metron14"
+    }
+
+    PanelWidgetClass BtnSetAdminPosFieldsBg
+    {
+        position 306 196
+        size 280 44
+        hexactpos 1
+        vexactpos 1
+        hexactsize 1
+        vexactsize 1
+        color 0.3922 0.3922 0.3922 0.45
+        visible 1
+        ignorepointer 1
+        style rover_sim_colorable
+    }
+
+    PanelWidgetClass BtnSetAdminPosFieldsLine
+    {
+        position 306 196
+        size 4 44
+        hexactpos 1
+        vexactpos 1
+        hexactsize 1
+        vexactsize 1
+        color 0.82 0 0 0.95
+        visible 1
+        ignorepointer 1
+        style rover_sim_colorable
+    }
+
+    ButtonWidgetClass BtnSetAdminPosFields
+    {
+        position 306 196
+        size 280 44
+        hexactpos 1
+        vexactpos 1
+        hexactsize 1
+        vexactsize 1
+        visible 1
+        ignorepointer 0
+        text "Admin Position nutzen"
+        font "gui/fonts/Metron14"
+    }
+
+    PanelWidgetClass BtnMapLightBg
+    {
+        position 24 276
+        size 260 44
+        hexactpos 1
+        vexactpos 1
+        hexactsize 1
+        vexactsize 1
+        color 0.3922 0.3922 0.3922 0.45
+        visible 1
+        ignorepointer 1
+        style rover_sim_colorable
+    }
+
+    PanelWidgetClass BtnMapLightLine
+    {
+        position 24 276
+        size 4 44
+        hexactpos 1
+        vexactpos 1
+        hexactsize 1
+        vexactsize 1
+        color 0.82 0 0 0.95
+        visible 1
+        ignorepointer 1
+        style rover_sim_colorable
+    }
+
+    ButtonWidgetClass BtnMapLight
+    {
+        position 24 276
+        size 260 44
+        hexactpos 1
+        vexactpos 1
+        hexactsize 1
+        vexactsize 1
+        visible 1
+        ignorepointer 0
+        text "Karte oeffnen"
+        font "gui/fonts/Metron14"
+    }
+
+    PanelWidgetClass BtnMapDarkBg
+    {
+        position 306 276
+        size 280 44
+        hexactpos 1
+        vexactpos 1
+        hexactsize 1
+        vexactsize 1
+        color 0.3922 0.3922 0.3922 0.45
+        visible 1
+        ignorepointer 1
+        style rover_sim_colorable
+    }
+
+    PanelWidgetClass BtnMapDarkLine
+    {
+        position 306 276
+        size 4 44
+        hexactpos 1
+        vexactpos 1
+        hexactsize 1
+        vexactsize 1
+        color 0.82 0 0 0.95
+        visible 1
+        ignorepointer 1
+        style rover_sim_colorable
+    }
+
+    ButtonWidgetClass BtnMapDark
+    {
+        position 306 276
+        size 280 44
+        hexactpos 1
+        vexactpos 1
+        hexactsize 1
+        vexactsize 1
+        visible 1
+        ignorepointer 0
+        text "Karte neu oeffnen"
+        font "gui/fonts/Metron14"
+    }
+
+    PanelWidgetClass BtnPlaceholderMapClickBg
+    {
+        position 24 340
+        size 260 44
+        hexactpos 1
+        vexactpos 1
+        hexactsize 1
+        vexactsize 1
+        color 0.3922 0.3922 0.3922 0.45
+        visible 1
+        ignorepointer 1
+        style rover_sim_colorable
+    }
+
+    PanelWidgetClass BtnPlaceholderMapClickLine
+    {
+        position 24 340
+        size 4 44
+        hexactpos 1
+        vexactpos 1
+        hexactsize 1
+        vexactsize 1
+        color 0.82 0 0 0.95
+        visible 1
+        ignorepointer 1
+        style rover_sim_colorable
+    }
+
+    ButtonWidgetClass BtnPlaceholderMapClick
+    {
+        position 24 340
+        size 260 44
+        hexactpos 1
+        vexactpos 1
+        hexactsize 1
+        vexactsize 1
+        visible 1
+        ignorepointer 0
+        text "Klick-Teleport"
+        font "gui/fonts/Metron14"
+    }
+
+    TextWidgetClass AdminPositionText
+    {
+        position 24 420
+        size 760 22
+        hexactpos 1
+        vexactpos 1
+        hexactsize 1
+        vexactsize 1
+        visible 1
+        ignorepointer 1
+        text "Admin Position: unbekannt"
+        font "gui/fonts/MetronLight14"
+        "exact text size" 13
+        color 0.86 0.94 0.86 0.95
+    }
+
+    PanelWidgetClass MapFrame
+    {
+        position 642 20
+        size 800 690
+        hexactpos 1
+        vexactpos 1
+        hexactsize 1
+        vexactsize 1
+        color 0.0392 0.0392 0.0392 0.97
+        visible 1
+        ignorepointer 0
+        style rover_sim_colorable
+
+        PanelWidgetClass MapPopupRedLine
+        {
+            position 0 0
+            size 5 690
+            hexactpos 1
+            vexactpos 1
+            hexactsize 1
+            vexactsize 1
+            color 0.78 0 0 1
+            visible 1
+            ignorepointer 1
+            style rover_sim_colorable
+        }
+
+        TextWidgetClass MapTitle
+        {
+            position 20 16
+            size 500 24
+            hexactpos 1
+            vexactpos 1
+            hexactsize 1
+            vexactsize 1
+            visible 1
+            ignorepointer 1
+            text "CHERNARUS MAP / TELEPORT"
+            font "gui/fonts/Metron14"
+            "exact text size" 15
+            color 0.82 1 0.18 1
+        }
+
+        ButtonWidgetClass BtnMapClose
+        {
+            position 666 12
+            size 114 30
+            hexactpos 1
+            vexactpos 1
+            hexactsize 1
+            vexactsize 1
+            visible 1
+            text "Karte schliessen"
+            font "gui/fonts/Metron14"
+        }
+
+        MapWidgetClass MapNative
+        {
+            position 20 54
+            size 760 616
+            hexactpos 1
+            vexactpos 1
+            hexactsize 1
+            vexactsize 1
+            visible 1
+            ignorepointer 0
+        }
+    }
+
+}
