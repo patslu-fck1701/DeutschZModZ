@@ -1,0 +1,37 @@
+DeutschZ_ExpansionBridge
+
+Kurzbeschreibung:
+Zentrale DeutschZ-Bruecke fuer optionale Expansion-Anbindungen. Diese Mod ist die einzige Schicht, ueber die DeutschZ-Events spaeter Expansion-Marker, Expansion-AI oder weitere Expansion-Funktionen ansprechen sollen.
+
+Features:
+- Gekapselte Bridge-Struktur fuer Expansion-Funktionen
+- MarkerProviderAPI vorbereitet
+- AIProviderAPI vorbereitet
+- Safe-Fallbacks fuer deaktivierte/fehlende Funktionen
+- Keine direkte Expansion-Anbindung in den Event-ModZ erforderlich
+
+Konfiguration:
+- Hauptpfad: $profile:DeutschZ/ExpansionBridge/
+- Bridge-Funktionen werden nur genutzt, wenn Server-Setup und Event-Config sie aktivieren.
+- Unsichere/noch nicht live-validierte Expansion-API-Aufrufe bleiben als TODO/OPEN_ASSUMPTION dokumentiert.
+
+Abhaengigkeiten / Lade-Reihenfolge:
+1. CF [WORKSHOP_LINK_CF] - falls von Expansion/Serverliste benoetigt
+2. DayZ Expansion [WORKSHOP_LINK_DAYZ_EXPANSION] - nur falls Expansion-Funktionen aktiv genutzt werden
+3. DeutschZ_Core [WORKSHOP_LINK_DEUTSCHZ_CORE]
+4. DeutschZ_ExpansionBridge [WORKSHOP_LINK_DEUTSCHZ_EXPANSIONBRIDGE]
+
+DeutschZ-ModZ, die diese Bridge optional nutzen koennen:
+- DeutschZ_KotHZ [WORKSHOP_LINK_DEUTSCHZ_KOTHZ]
+- DeutschZ_ConvoyZ [WORKSHOP_LINK_DEUTSCHZ_CONVOYZ]
+- DeutschZ_GroundZero [WORKSHOP_LINK_DEUTSCHZ_GROUNDZERO]
+
+GitHub / Source / Transparenz:
+GitHub Repository: https://github.com/DEIN_GITHUB_ACCOUNT/DeutschZModZ
+Der Link wird vor Workshop-Release durch den echten Repository-Link ersetzt.
+
+Server-Admin-Hinweis:
+Diese Version ist fuer den ersten Dedicated-Server-Test vorbereitet. Es wurde kein PBO gebaut und kein lokaler Server-Test durchgefuehrt. Expansion-Funktionen erst nach Core-Test aktivieren.
+
+Compliance:
+Eigenstaendige DeutschZ-Implementierung. Expansion wird nur als Abhaengigkeit/API genutzt, nicht durch kopierten Quellcode.

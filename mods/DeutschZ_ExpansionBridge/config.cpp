@@ -5,7 +5,7 @@ class CfgPatches
         units[] = {};
         weapons[] = {};
         requiredVersion = 0.1;
-        requiredAddons[] = {"DZ_Data", "DZ_Scripts", "DeutschZ_Core", "DayZExpansion_Core_Scripts", "DayZExpansion_Navigation_Scripts", "DayZExpansion_AI_Scripts"};
+        requiredAddons[] = {"DZ_Data", "DZ_Scripts", "DeutschZ_Core"};
     };
 };
 

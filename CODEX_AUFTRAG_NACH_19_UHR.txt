@@ -1,0 +1,27 @@
+Codex-Auftrag nach 19 Uhr - aktueller Stand weiterpruefen
+
+Arbeite lokal in:
+P:\GitHub_DeutschZModZ\DeutschZModZ\mods
+
+Nur diese Module bearbeiten:
+DeutschZ_Core, DeutschZ_ExpansionBridge, DeutschZ_KotHZ, DeutschZ_ConvoyZ, DeutschZ_GroundZero.
+
+Nicht tun:
+- Keine PBOs packen.
+- Kein AddonBuilder.
+- Kein lokaler Server-Test.
+- Keine Release-Artefakte erzeugen.
+- Keine fremden Mod-Dateien kopieren.
+
+Aktueller Vorbereitungsstand:
+- SteamWorkshop-Beschreibungen und Config-Beschreibungen wurden vorbereitet.
+- types.xml Templates wurden erstellt; Event-Items sind mit nominal=0 vorgesehen.
+- DeutschZ_ExpansionBridge soll keine geratenen Expansion-CfgPatches hart voraussetzen.
+- Echte Expansion AI/Marker API nur einbauen, wenn Ziel-API sicher geprueft ist. Sonst TODO/OPEN_ASSUMPTION dokumentieren.
+
+Naechste Aufgabe:
+1. Aktuellen Repo-Stand gegen diese Dateien vergleichen.
+2. Event-Module compile-nah pruefen, besonders modded MissionServer-Ketten, doppelte Klassennamen, CfgVehicles vs Scriptklassen, Action-Hooks und RPCs.
+3. KOTH, ConvoyZ und GroundZero jeweils einzeln auf Safe-Boot pruefbar vorbereiten.
+4. EVENTS_CORE_BRIDGE_STATUS.md aktualisieren.
+5. Klare Aussage liefern: Dedicated-Test bereit oder blockiert, mit Datei/Zeile/Grund.
