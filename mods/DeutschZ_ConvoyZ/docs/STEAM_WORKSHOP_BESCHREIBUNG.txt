@@ -1,42 +1,44 @@
-DeutschZ_ConvoyZ
+[h1]DeutschZ ConvoyZ[/h1]
 
-Kurzbeschreibung:
-Serverseitiges Convoy-/Event-System fuer DeutschZ mit Wave-/Hack-/Reward-/Cleanup-Grundlage und kontrollierten Fallback-Gegnern.
+[b]Projekt:[/b] DeutschZ
+[b]Eigentuemer:[/b] Patrick Sluzalek / fck1701
+[b]Eventtyp:[/b] Convoy / Crashsite / Blackbox
 
-Features:
-- Server-autoritativ vorbereitet
-- Convoy-State-Machine vorbereitet
-- Wave-/Spawn-/Hack-/Reward-Grundlage
-- Cleanup- und Fail-Safe-Logik vorbereitet
-- Lokale Fallback-Gegner begrenzt und loggbar
-- Expansion-Funktionen nur optional ueber DeutschZ_ExpansionBridge
-- DeutschZEventSettings steuert Marker, 3D-Marker, Notifications und Fast-Test-Werte.
+DeutschZ_ConvoyZ ist ein serverautoritatives Event rund um eine abgestuerzte/angegriffene Konvoi-Stelle. Spieler sichern die Zone, eliminieren Gegner, hacken die Blackbox und erhalten danach Rewards.
 
-Konfiguration:
-- Core/Framework: $profile:DeutschZ/
-- Event-Pfad: $profile:DeutschZ/ConvoyZ/ bzw. $profile:DeutschZ/ConvoyZ/Config/
-- Mitgelieferte Configs sind Startpunkte und muessen nach Server-Setup geprueft werden.
+[h2]Gameplay[/h2]
+[list]
+[*]Event startet im Testmodus automatisch kurz nach Restart.
+[*]Crashsite mit Smoke/Objekten wird gespawnt.
+[*]Gegner-Wellen werden gespawnt. Wenn Expansion AI nicht verfuegbar ist, werden Vanilla-Infected-Fallbacks genutzt.
+[*]Spieler muessen eine konfigurierte Anzahl Gegner erledigen.
+[*]Danach wird die Blackbox hackbar.
+[*]Nach erfolgreichem Hack wird der Reward freigegeben.
+[*]Statusmeldungen erscheinen als sichtbare Chatmeldungen.
+[/list]
 
-Types.xml:
-types.xml ist nur als Template mit nominal=0 enthalten. Event-Items sollen nicht zufaellig auf der Map spawnen, sondern gezielt ueber Event, Reward, Trader oder Admin-Tools kommen.
+[h2]Aktueller Teststand[/h2]
+Version: 0.3.3-startready-visible-test
+[list]
+[*]Fast-Test-Config wird bei leerem Profil automatisch erzeugt.
+[*]Start nach ca. 60 Sekunden.
+[*]MinOnlinePlayers = 1.
+[*]RequiredKills = 3.
+[*]Hackdauer = 30 Sekunden.
+[*]Marker, 3D-Marker-Intent und sichtbare Chatmeldungen aktiv.
+[*]Nicht kritische Crashobjekte stoppen das Event nicht mehr, falls ein Klassenname nicht spawnt.
+[/list]
 
-Abhaengigkeiten / Lade-Reihenfolge:
-1. CF [WORKSHOP_LINK_CF] - falls von deiner Server-Modliste benoetigt
-2. DayZ Expansion [WORKSHOP_LINK_DAYZ_EXPANSION] - nur falls Expansion-Funktionen aktiv genutzt werden
-3. DeutschZ_Core [WORKSHOP_LINK_DEUTSCHZ_CORE]
-4. DeutschZ_ExpansionBridge [WORKSHOP_LINK_DEUTSCHZ_EXPANSIONBRIDGE] - optional fuer Expansion-Funktionen
-5. DeutschZ_ConvoyZ [WORKSHOP_LINK_DEUTSCHZ_CONVOYZ]
+[h2]Links[/h2]
+Steam Workshop:
+https://steamcommunity.com/sharedfiles/filedetails/?id=3745946832
 
-Empfohlene DeutschZ-Event-Kombi:
-- DeutschZ_KotHZ [WORKSHOP_LINK_DEUTSCHZ_KOTHZ]
-- DeutschZ_GroundZero [WORKSHOP_LINK_DEUTSCHZ_GROUNDZERO]
+Benötigt:
+DeutschZ_Core - https://steamcommunity.com/sharedfiles/filedetails/?id=3748421029
+DeutschZ_ExpansionBridge - https://steamcommunity.com/sharedfiles/filedetails/?id=3748421850
 
-GitHub / Source / Transparenz:
-GitHub Repository: https://github.com/DEIN_GITHUB_ACCOUNT/DeutschZModZ
-Der Link wird vor Workshop-Release durch den echten Repository-Link ersetzt.
+GitHub:
+https://github.com/patslu-fck1701/DeutschZModZ
 
-Server-Admin-Hinweis:
-Diese Version ist fuer den ersten Dedicated-Server-Test vorbereitet. Es wurde kein PBO gebaut und kein lokaler Server-Test durchgefuehrt. Nach dem ersten Start Script-Log, RPT, Profil-Configs, Convoy-Start, Gegner-Spawns und Cleanup pruefen.
-
-Compliance:
-Eigenstaendige DeutschZ-Implementierung. Keine kopierten Fremdmod-Dateien, keine alten ExpansionEventAI-Stubs und keine LB/SFKOTH/BasicMap/VPP/COT/MarkerBridge-Reste als aktive Source.
+[h2]Hinweis[/h2]
+Der aktuelle Build ist auf schnelle technische Tests ausgelegt. Fuer Livebetrieb muessen Timings, Gegneranzahl und Rewardwerte wieder hochgesetzt werden.

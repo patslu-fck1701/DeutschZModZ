@@ -69,13 +69,16 @@ class GroundZeroEventManager
     {
         if (!m_Config.AutoStartEnabled) return;
         if (!GetGame()) return;
+
+        // Only schedule when no start time exists.
+        // Do not push the start time forward when it is already due.
+        if (m_State.NextAutoStartAt > 0)
+            return;
+
         float now = GetGame().GetTime() * 0.001;
-        if (m_State.NextAutoStartAt <= now)
-        {
-            m_State.NextAutoStartAt = now + Math.RandomInt(m_Config.AutoStartMinDelaySeconds, m_Config.AutoStartMaxDelaySeconds + 1);
-            GroundZeroLogging.Info("Event", "Next autostart at gameTime=" + m_State.NextAutoStartAt.ToString());
-            Save();
-        }
+        m_State.NextAutoStartAt = now + Math.RandomInt(m_Config.AutoStartMinDelaySeconds, m_Config.AutoStartMaxDelaySeconds + 1);
+        GroundZeroLogging.Info("Event", "Next autostart at gameTime=" + m_State.NextAutoStartAt.ToString());
+        Save();
     }
 
     void StartEvent()
@@ -114,8 +117,11 @@ class GroundZeroEventManager
         {
             if (m_Config.AutoStartEnabled)
             {
-                ScheduleNextAutoStart();
-                if (CanAutoStartNow()) StartEvent();
+                if (m_State.NextAutoStartAt <= 0)
+                    ScheduleNextAutoStart();
+
+                if (CanAutoStartNow())
+                    StartEvent();
             }
             return;
         }

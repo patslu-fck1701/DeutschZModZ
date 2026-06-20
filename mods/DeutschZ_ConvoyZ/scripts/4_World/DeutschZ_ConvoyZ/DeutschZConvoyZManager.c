@@ -393,10 +393,12 @@ class DeutschZConvoyZManager
             float dist = vector.Distance(pb.GetPosition(), center);
             if (dist > radius) continue;
 
+            Param1<string> data = new Param1<string>("[DeutschZ ConvoyZ] " + text);
+            GetGame().RPCSingleParam(pb, ERPCs.RPC_USER_ACTION_MESSAGE, data, true, pb.GetIdentity());
             sent++;
         }
 
-        Print("[DeutschZ_ConvoyZ] Status available for " + sent.ToString() + " nearby players: " + text);
+        Print("[DeutschZ_ConvoyZ] Status sent to " + sent.ToString() + " nearby players: " + text);
     }
 
 
@@ -501,6 +503,8 @@ void DeutschZConvoyZ_RemoveMarker(string eventId)
 void DeutschZConvoyZ_SendConfiguredNotify(string title, string text, vector pos)
 {
     if (!GetGame() || !GetGame().IsServer()) return;
+
+    bool useLocalFallback = true;
     DeutschZConvoyZManager mgr = g_DeutschZConvoyZManager;
     if (mgr && mgr.Config && mgr.Config.Settings && mgr.Config.Settings.DeutschZEventSettings)
     {
@@ -508,12 +512,30 @@ void DeutschZConvoyZ_SendConfiguredNotify(string title, string text, vector pos)
         if (notify && notify.Enabled == 0)
             return;
 
+        bool bridgeSent = false;
         if (notify && notify.UseExpansionNotifications == 1)
-            DeutschZConvoyZCoreBridge.SendNotification("status", title, text, pos);
+            bridgeSent = DeutschZConvoyZCoreBridge.SendNotification("status", title, text, pos);
 
-        if (notify && notify.UseVanillaNotifications == 0 && notify.UseChatMessages == 0)
+        useLocalFallback = notify && (notify.UseVanillaNotifications == 1 || notify.UseChatMessages == 1);
+        if (bridgeSent && !useLocalFallback)
             return;
     }
 
     Print("[DeutschZ_ConvoyZ] Notify: " + title + " - " + text + " pos=" + pos.ToString());
+
+    if (!useLocalFallback)
+        return;
+
+    array<Man> players = new array<Man>;
+    GetGame().GetPlayers(players);
+
+    foreach (Man man: players)
+    {
+        PlayerBase player = PlayerBase.Cast(man);
+        if (!player || !player.GetIdentity())
+            continue;
+
+        Param1<string> data = new Param1<string>("[DeutschZ ConvoyZ] " + text);
+        GetGame().RPCSingleParam(player, ERPCs.RPC_USER_ACTION_MESSAGE, data, true, player.GetIdentity());
+    }
 }

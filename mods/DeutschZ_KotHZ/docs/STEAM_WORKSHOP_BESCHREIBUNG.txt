@@ -1,52 +1,41 @@
-DeutschZ_KotHZ - Infected Siege
+[h1]DeutschZ_KotHZ - Infected Siege[/h1]
 
-Kurzbeschreibung:
-PvE-King-of-the-Hill-Event mit Zombie-Wellen, Capture-Zonen, Reward-Crate, roten Event-Effekten und PvP-tauglichem Hotspot-Design.
+[b]Projekt:[/b] DeutschZ
+[b]Eigentuemer:[/b] Patrick Sluzalek / fck1701
+[b]Eventtyp:[/b] PvE-KotH / Infected Siege
 
-Features:
-- Server-autoritativ vorbereitet
-- Capture-Zonen und Event-State-Grundlage
-- Zombie-/Infected-Wellen vorbereitet
-- Reward-Crate-/Reward-Struktur vorbereitet
-- Marker-/Expansion-Funktionen nur ueber DeutschZ_ExpansionBridge
-- Logging/Status fuer Admin-Analyse vorbereitet
-- Safe-Boot-Grundlage ohne Release-/PBO-Artefakte
+DeutschZ_KotHZ ist ein serverautoritatives King-of-the-Hill Event mit Capture-Zone, Infected-Waves, Rewards, Cleanup, Marker-Intent und sichtbaren Benachrichtigungen.
 
-Konfiguration:
-- Core/Framework: $profile:DeutschZ/
-- Event-Pfad: $profile:DeutschZ/KotHZ/ bzw. $profile:DeutschZ/KotHZ/Config/
-- Mitgelieferte Beispiel-/Template-Dateien sind Startpunkte und muessen nach Server-Setup geprueft werden.
+[h2]Gameplay[/h2]
+[list]
+[*]Event startet nach Restart im Testmodus schnell automatisch.
+[*]Spieler erhalten sichtbare Chat-/Popup-Meldungen.
+[*]Eventzone wird ueber Marker/3D-Marker-Intent angekuendigt.
+[*]Spieler halten die Zone gegen Infizierten-Wellen.
+[*]Nach erfolgreichem Capture werden Rewards freigegeben.
+[*]Runtime-Objekte werden nach Eventende bereinigt.
+[/list]
 
-Types.xml:
-types.xml ist nur als Template mit nominal=0 enthalten. Event-Items sollen nicht zufaellig auf der Map spawnen, sondern gezielt ueber Event, Reward, Trader oder Admin-Tools kommen.
+[h2]Aktueller Teststand[/h2]
+Version: 0.2.4-startready-visible-test
+[list]
+[*]Fast-Test-Config wird bei leerem Profil automatisch erzeugt.
+[*]Start nach ca. 60 Sekunden.
+[*]MinOnlinePlayers = 1.
+[*]Capturezeit reduziert.
+[*]Marker, 3D-Marker-Intent und Chat/Popup-Fallback aktiv.
+[/list]
 
-Abhaengigkeiten / Lade-Reihenfolge:
-1. CF [WORKSHOP_LINK_CF] - falls von deiner Server-Modliste benoetigt
-2. DayZ Expansion [WORKSHOP_LINK_DAYZ_EXPANSION] - nur falls Expansion-Funktionen aktiv genutzt werden
-3. DeutschZ_Core [WORKSHOP_LINK_DEUTSCHZ_CORE]
-4. DeutschZ_ExpansionBridge [WORKSHOP_LINK_DEUTSCHZ_EXPANSIONBRIDGE] - fuer Expansion-Marker/Expansion-Funktionen
-5. DeutschZ_KotHZ [WORKSHOP_LINK_DEUTSCHZ_KOTHZ]
+[h2]Links[/h2]
+Steam Workshop:
+https://steamcommunity.com/sharedfiles/filedetails/?id=3746385283
 
-Empfohlene DeutschZ-Event-Kombi:
-- DeutschZ_ConvoyZ [WORKSHOP_LINK_DEUTSCHZ_CONVOYZ]
-- DeutschZ_GroundZero [WORKSHOP_LINK_DEUTSCHZ_GROUNDZERO]
+Benötigt:
+DeutschZ_Core - https://steamcommunity.com/sharedfiles/filedetails/?id=3748421029
+DeutschZ_ExpansionBridge - https://steamcommunity.com/sharedfiles/filedetails/?id=3748421850
 
-GitHub / Source / Transparenz:
-GitHub Repository: https://github.com/DEIN_GITHUB_ACCOUNT/DeutschZModZ
-Der Link wird vor Workshop-Release durch den echten Repository-Link ersetzt.
+GitHub:
+https://github.com/patslu-fck1701/DeutschZModZ
 
-Server-Admin-Hinweis:
-Diese Version ist fuer den ersten Dedicated-Server-Test vorbereitet. Es wurde kein PBO gebaut und kein lokaler Server-Test durchgefuehrt. Nach dem ersten Start unbedingt Script-Log, RPT, Profil-Configs und Event-Start pruefen.
-
-Compliance:
-Eigenstaendige DeutschZ-Implementierung. Keine kopierten Fremdmod-Dateien, keine alten LB/SFKOTH/BasicMap/VPP/COT/MarkerBridge-Reste als aktive Source.
-
-[b]Aktueller Patch 0.2.3[/b]
-- Routed konfigurierte Notifications und 3D-Marker ueber DeutschZ_Core/ExpansionBridge.
-- Startup-Cleanup loggt geloeschte Runtime-Objekte jetzt als Anzahl statt pro Objekt.
-
-
-[b]Aktueller Hotfix 0.2.2[/b]
-- Behebt World-Script-Compile-Fehler in Runtime-Flagpole/FogEmitter.
-- Entfernt falsche override-Markierung von SetPartsAfterStoreLoad, da diese Methode in der aktuellen DayZ-Basisklasse nicht vorhanden ist.
-- Enthält weiterhin den einheitlichen DeutschZEventSettings-Teststandard fuer Marker, 3D-Marker, Notifications und schnelle Eventstarts.
+[h2]Hinweis[/h2]
+Diese Version ist fuer technische Tests vorbereitet. Live-Balancing fuer Capturezeiten, Rewards und Spawnmengen sollte spaeter separat angepasst werden.

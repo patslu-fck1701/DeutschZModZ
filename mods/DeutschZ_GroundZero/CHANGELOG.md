@@ -1,3 +1,14 @@
+# CHANGELOG
+
+## 2026-06-20 - 0.4.7 Start-Ready Visible Test Build
+
+- Fixed autostart loop so due GroundZero events are not rescheduled forever.
+- Generated/default config now starts after 60 seconds with one online player.
+- GroundZero notifications now send visible chat fallback messages to players.
+- Default stage and final-wave values are reduced for practical testing while keeping zombies/fallback AI visible.
+- Map marker and 3D marker intents stay routed through Core/Bridge.
+- No direct Expansion calls added; marker/notification route stays through Core/Bridge.
+
 ## 2026-06-20 - 0.4.6 Event Bridge Config Polish
 
 - Wires Carrier, DroppedItem, Final and Extraction markers to the shared `DeutschZEventSettings.Markers.*` switches.

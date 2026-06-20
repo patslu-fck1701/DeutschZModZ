@@ -2,8 +2,8 @@
     DeutschZ_GroundZero
     Owner: Patrick Sluzalek / fck1701
     Module: 4_World / GroundZeroNotificationManager
-    Purpose: Global server notifications. Expansion notification support can be added here later.
-    Dependencies: DayZ scripts; optional CF/Expansion APIs only through adapter methods.
+    Purpose: Global server notifications with visible vanilla chat fallback.
+    Dependencies: DayZ scripts; optional CF/Expansion APIs only through DeutschZ Core/Bridge.
     Compliance: Original DeutschZ implementation. No copied foreign mod code, assets, configs or stubs.
 */
 
@@ -16,21 +16,39 @@ class GroundZeroNotificationManager
         m_Config = config;
     }
 
-    void Broadcast(string message)
+    protected void SendChatFallback(string message)
     {
-        if (!m_Config || !m_Config.EnableGlobalNotifications) return;
-
-        GroundZeroLogging.Info("Notify", message);
-        if (m_Config.UseExpansionNotifications())
-            GroundZeroCoreBridge.SendNotification("status", "DeutschZ GroundZero", message, "0 0 0");
+        if (!GetGame() || !GetGame().IsServer())
+            return;
 
         array<Man> players = new array<Man>();
         GetGame().GetPlayers(players);
-        GroundZeroLogging.Debug("Notify", "Recipients=" + players.Count().ToString());
 
-        if (m_Config.UseVanillaNotifications())
-            GroundZeroLogging.Debug("Notify", "Vanilla notification fallback requested for " + players.Count().ToString() + " players");
-        if (m_Config.UseChatMessages())
-            GroundZeroLogging.Debug("Notify", "Chat fallback requested for " + players.Count().ToString() + " players");
+        foreach (Man man : players)
+        {
+            PlayerBase player = PlayerBase.Cast(man);
+            if (!player || !player.GetIdentity())
+                continue;
+
+            Param1<string> data = new Param1<string>("[DeutschZ GroundZero] " + message);
+            GetGame().RPCSingleParam(player, ERPCs.RPC_USER_ACTION_MESSAGE, data, true, player.GetIdentity());
+        }
+
+        GroundZeroLogging.Debug("Notify", "Chat fallback sent to " + players.Count().ToString() + " players");
+    }
+
+    void Broadcast(string message)
+    {
+        if (!m_Config || !m_Config.EnableGlobalNotifications)
+            return;
+
+        GroundZeroLogging.Info("Notify", message);
+
+        bool bridgeSent = false;
+        if (m_Config.UseExpansionNotifications())
+            bridgeSent = GroundZeroCoreBridge.SendNotification("status", "DeutschZ GroundZero", message, "0 0 0");
+
+        if (!bridgeSent && (m_Config.UseVanillaNotifications() || m_Config.UseChatMessages()))
+            SendChatFallback(message);
     }
 }

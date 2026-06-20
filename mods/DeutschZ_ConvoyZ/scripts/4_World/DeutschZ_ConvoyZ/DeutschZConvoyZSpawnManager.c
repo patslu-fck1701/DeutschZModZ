@@ -39,7 +39,11 @@ class DeutschZConvoyZSpawnManager
         {
             if (!def) continue;
             Object obj = SpawnObject(def.ClassName, def.Position, def.Orientation, state.EventId, "crash_object");
-            if (!obj && def.Critical == 1) return false;
+            if (!obj && def.Critical == 1)
+            {
+                DeutschZConvoyZLogger.Log("CrashObjectNonFatal", state.EventId, "SPAWNING", "", def.Position, "WARN", def.ClassName + " failed but event continues for test readiness");
+                continue;
+            }
             if (obj) state.SpawnedObjects.Insert(obj);
         }
         Object blackbox = SpawnObject(cfg.EventData.Blackbox.ClassName, cfg.EventData.Blackbox.Position, cfg.EventData.Blackbox.Orientation, state.EventId, "blackbox");

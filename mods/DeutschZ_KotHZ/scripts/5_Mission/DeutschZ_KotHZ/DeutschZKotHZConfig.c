@@ -147,9 +147,9 @@ class DeutschZKotHZEventNotificationSettings
     void DeutschZKotHZEventNotificationSettings()
     {
         Enabled = 1;
-        UseExpansionNotifications = 1;
-        UseVanillaNotifications = 0;
-        UseChatMessages = 0;
+        UseExpansionNotifications = 0;
+        UseVanillaNotifications = 1;
+        UseChatMessages = 1;
         StatusNotifications = 1;
         StatusIntervalSeconds = 10;
         NotifyOnScheduled = 1;
@@ -424,14 +424,14 @@ class DeutschZKotHZConfig
         EnableProgressHUD = 1;
         EnableHUDDistanceLimit = 1;
         HUDMaxDisplayDistanceMeters = 500.0;
-        EnableExpansionNotifications = 1;
+        EnableExpansionNotifications = 0;
         EnableExpansionMarker = 1;
         EnableExpansion3DMarker = 1;
-        EnableVanillaNotifications = 0;
-        EnableVanillaChatMessages = 0;
-        EnableMarkerFallbackNotifications = 0;
+        EnableVanillaNotifications = 1;
+        EnableVanillaChatMessages = 1;
+        EnableMarkerFallbackNotifications = 1;
         MarkerMode = "Expansion";
-        MarkerEditHint = "DeutschZ KotHZ default: MarkerMode=Expansion only. Third-party marker modes are intentionally not supported in this build. Expansion map marker and 3D marker enabled; vanilla popup/chat disabled by default to avoid duplicates.";
+        MarkerEditHint = "DeutschZ KotHZ test default: map marker and 3D marker enabled through DeutschZ_ExpansionBridge; vanilla popup and chat fallback enabled so players always see event messages.";
         ExpansionMarkerColorARGB = ARGB(255, 255, 0, 0);
         ExpansionMarkerIcon = "Territory";
         RewardCrateMinimumLifetimeSeconds = 1800;

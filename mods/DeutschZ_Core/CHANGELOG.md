@@ -1,5 +1,12 @@
 # CHANGELOG
 
+## 2026-06-20 - 0.1.5 Visible Provider Readiness
+
+- Kept current safe-boot core state intact.
+- Documented event-provider readiness for visible notifications through DeutschZ_ExpansionBridge.
+- No gameplay logic moved into Core.
+- No foreign mod code, classes, configs, UI or assets added.
+
 ## 2026-06-20 - 0.1.4 Notification Provider
 
 - Added optional `DeutschZCore_NotificationProviderAPI` and ServiceLocator registration/getter.

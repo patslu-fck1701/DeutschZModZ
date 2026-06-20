@@ -1,5 +1,15 @@
 # CHANGELOG
 
+## 2026-06-20 - 0.3.3 Start-Ready Visible Test Build
+
+- Generated/default config now starts after 60 seconds with one online player and restarts quickly after cleanup.
+- ConvoyZ visible chat notifications now send to players instead of only logging.
+- Nearby status messages now send to players around the event.
+- Non-critical crash objects no longer fail the entire event if a static wreck class cannot spawn.
+- Default AI waves use vanilla infected fallback classes for immediate test enemies.
+- Required kills and hack duration are reduced for fast event testing.
+- No direct Expansion calls added; marker/notification route stays through Core/Bridge.
+
 ## 2026-06-20 - 0.3.2 Event Bridge Config Polish
 
 - Creates matching Core 3D marker intents when `DeutschZEventSettings.Markers.Use3DMarker` is enabled.

@@ -1,51 +1,46 @@
-DeutschZ_GroundZero
+[h1]DeutschZ GroundZero[/h1]
 
-Kurzbeschreibung:
-DeutschZ Ground-Zero-Eventbasis fuer intensive PvE-/PvP-Hotspots mit serverseitigem Event-State, Config-Grundlage, Logging und Safe-Boot-Struktur.
+[b]Projekt:[/b] DeutschZ
+[b]Eigentuemer:[/b] Patrick Sluzalek / fck1701
+[b]Eventtyp:[/b] Mehrstufiges PvE/PvP-Kampagnen-Event
 
+DeutschZ_GroundZero ist ein mehrstufiges Event mit Stage-Zielen, Komponenten, Carriern, Finalphase, Extraction, Zombies und AI-/Fallback-Gegnern.
 
-Aktueller Teststand 2026-06-20:
-- Patch 0.4.6: DeutschZEventSettings steuert Stage-, Carrier-, Drop-, Final- und Extraction-Marker sowie Notifications ueber Core/Bridge.
-- Hotfix v7: Mission-Compilefehler durch PlayerBase-Hooks im falschen Scriptmodul behoben.
-- PlayerBase RPC-/Death-Hooks liegen jetzt in 4_World; 5_Mission bleibt reines MissionServer-Wiring ohne PlayerBase-Parameter.
-- Hotfix v6: World-Compilefehler in GroundZeroZombieManager behoben.
-- Hotfix v5: World-Compilefehler in GroundZeroItems behoben.
-- Zombie-Bedrohungsklassen behalten dieselbe Fallback-Logik; nur Compiler-kompatibel ausgeschrieben.
-- Item-Klassen behalten Storage-Restriktionen und Split-Sperre.
-- Keine neuen Features, nur Safe-Boot- und Scriptmodul-Trennungs-Korrektur.
+[h2]Gameplay[/h2]
+[list]
+[*]Event startet im Testmodus automatisch kurz nach Restart.
+[*]Mehrere Stage-Ziele werden nacheinander aktiviert.
+[*]Jede Stage erzeugt Marker/3D-Marker-Intent, Zombies und Fallback-Gegner.
+[*]Komponenten koennen aufgenommen, verloren und erneut verfolgt werden.
+[*]Finale Phase aktiviert eine Endposition.
+[*]Extraction schliesst das Event ab.
+[*]Sichtbare Chatmeldungen informieren ueber Fortschritt und Ziele.
+[/list]
 
-Features:
-- Server-autoritativ vorbereitet
-- Event-State-Anbindung an DeutschZ_Core
-- Config-/Logging-/Cleanup-Grundlage
-- Safe-Boot-Verhalten vorbereitet
-- Expansion-Marker/Expansion-AI nur optional ueber DeutschZ_ExpansionBridge
+[h2]Aktueller Teststand[/h2]
+Version: 0.4.7-startready-visible-test
+[list]
+[*]Autostart-Loop gefixt: fällige Events werden nicht mehr endlos neu geplant.
+[*]Fast-Test-Config wird bei leerem Profil automatisch erzeugt.
+[*]Start nach ca. 60 Sekunden.
+[*]MinOnlinePlayers = 1.
+[*]Stage-Autoabschluss = 20 Sekunden.
+[*]FinalDefense = 120 Sekunden.
+[*]Extraction = 30 Sekunden.
+[*]Zombies und Fallback-AI aktiv.
+[*]Marker, 3D-Marker-Intent und sichtbare Chatmeldungen aktiv.
+[/list]
 
-Konfiguration:
-- Core/Framework: $profile:DeutschZ/
-- Event-Pfad: $profile:DeutschZ/GroundZero/ bzw. $profile:DeutschZ/GroundZero/Config/
-- Mitgelieferte Configs sind Startpunkte und muessen nach Server-Setup geprueft werden.
+[h2]Links[/h2]
+Steam Workshop:
+https://steamcommunity.com/sharedfiles/filedetails/?id=3748422786
 
-Types.xml:
-types.xml ist nur als Template mit nominal=0 enthalten. Event-Items sollen nicht zufaellig auf der Map spawnen, sondern gezielt ueber Event, Reward, Trader oder Admin-Tools kommen.
+Benötigt:
+DeutschZ_Core - https://steamcommunity.com/sharedfiles/filedetails/?id=3748421029
+DeutschZ_ExpansionBridge - https://steamcommunity.com/sharedfiles/filedetails/?id=3748421850
 
-Abhaengigkeiten / Lade-Reihenfolge:
-1. CF [WORKSHOP_LINK_CF] - falls von deiner Server-Modliste benoetigt
-2. DayZ Expansion [WORKSHOP_LINK_DAYZ_EXPANSION] - nur falls Expansion-Funktionen aktiv genutzt werden
-3. DeutschZ_Core [WORKSHOP_LINK_DEUTSCHZ_CORE]
-4. DeutschZ_ExpansionBridge [WORKSHOP_LINK_DEUTSCHZ_EXPANSIONBRIDGE] - optional fuer Expansion-Marker/Expansion-AI
-5. DeutschZ_GroundZero [WORKSHOP_LINK_DEUTSCHZ_GROUNDZERO]
+GitHub:
+https://github.com/patslu-fck1701/DeutschZModZ
 
-Empfohlene DeutschZ-Event-Kombi:
-- DeutschZ_KotHZ [WORKSHOP_LINK_DEUTSCHZ_KOTHZ]
-- DeutschZ_ConvoyZ [WORKSHOP_LINK_DEUTSCHZ_CONVOYZ]
-
-GitHub / Source / Transparenz:
-GitHub Repository: https://github.com/DEIN_GITHUB_ACCOUNT/DeutschZModZ
-Der Link wird vor Workshop-Release durch den echten Repository-Link ersetzt.
-
-Server-Admin-Hinweis:
-Diese Version ist fuer den ersten Dedicated-Server-Test vorbereitet. Es wurde kein PBO gebaut und kein lokaler Server-Test durchgefuehrt. Nach dem ersten Start Script-Log, RPT, Profil-Configs und Event-Aktivierung pruefen.
-
-Compliance:
-Eigenstaendige DeutschZ-Implementierung. Keine kopierten Fremdmod-Dateien und keine alten LB/SFKOTH/BasicMap/VPP/COT/MarkerBridge-Reste als aktive Source.
+[h2]Hinweis[/h2]
+GroundZero ist weiterhin Test-/Stabilisierungsstand. Die aktuelle Version ist bewusst auf sichtbare, schnelle Eventtests ausgelegt.

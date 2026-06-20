@@ -9,7 +9,7 @@
             "ClassName": "Land_Wreck_UH1Y",
             "Position": "7500 0 7500",
             "Orientation": "35 0 0",
-            "Critical": 1
+            "Critical": 0
         },
         {
             "ClassName": "Land_Wreck_Volha_Police",
@@ -44,10 +44,10 @@
         {
             "WaveId": "test_wave_1",
             "DelaySeconds": 0,
-            "Count": 3,
-            "AIClassName": "eAI_SurvivorM_Denis",
+            "Count": 4,
+            "AIClassName": "ZmbM_SoldierNormal_Beige",
             "DeutschZAIProfileId": "",
-            "LoadoutName": "PoliceLoadout",
+            "LoadoutName": "",
             "SpawnPoints": [
                 {
                     "Position": "7475 0 7490",
@@ -57,7 +57,7 @@
         }
     ],
     "RequiredAiKills": 3,
-    "HackDurationSeconds": 20,
+    "HackDurationSeconds": 30,
     "Reward": {
         "RewardContainerClassName": "DZCV_ProtectedCase",
         "RewardPosition": "7507 0 7505",

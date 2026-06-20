@@ -158,8 +158,8 @@ class DeutschZConvoyZConfig
     {
         EventData = new DeutschZConvoyZEventDef();
         EventData.EventCenter = "7500 0 7500";
-        EventData.RequiredAiKills = 15;
-        EventData.HackDurationSeconds = 120;
+        EventData.RequiredAiKills = 3;
+        EventData.HackDurationSeconds = 30;
 
         // FIX26 static-only: Do not spawn drivable trucks here.
         // Convoy visuals use real vanilla static Land_Wreck_* objects only.
@@ -167,7 +167,7 @@ class DeutschZConvoyZConfig
         wreck1.ClassName = "Land_Wreck_UH1Y";
         wreck1.Position = "7500 0 7500";
         wreck1.Orientation = "35 0 0";
-        wreck1.Critical = 1;
+        wreck1.Critical = 0;
         EventData.CrashObjects.Insert(wreck1);
 
         DeutschZConvoyZObjectDef wreck2 = new DeutschZConvoyZObjectDef();
@@ -201,11 +201,11 @@ class DeutschZConvoyZConfig
         {
             DeutschZConvoyZAIWaveDef wave = new DeutschZConvoyZAIWaveDef();
             wave.WaveId = "wave_" + (i + 1).ToString();
-            wave.DelaySeconds = i * 180;
-            wave.Count = 5;
-            if (i == 0) wave.AIClassName = DeutschZConvoyZConstants.DEFAULT_EXPANSION_AI_CLASS;
-            else if (i == 1) wave.AIClassName = "eAI_SurvivorM_Denis";
-            else wave.AIClassName = "eAI_SurvivorM_Boris";
+            wave.DelaySeconds = i * 30;
+            wave.Count = 4;
+            if (i == 0) wave.AIClassName = "ZmbM_SoldierNormal_Beige";
+            else if (i == 1) wave.AIClassName = "ZmbM_SoldierHeavy_Green";
+            else wave.AIClassName = "ZmbM_usSoldier_Officer_Desert";
             wave.DeutschZAIProfileId = "";
             wave.LoadoutName = "PoliceLoadout";
 

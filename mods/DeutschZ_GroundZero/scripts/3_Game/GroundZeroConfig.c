@@ -174,9 +174,9 @@ class GroundZeroEventNotificationSettings
     void GroundZeroEventNotificationSettings()
     {
         Enabled = 1;
-        UseExpansionNotifications = 1;
-        UseVanillaNotifications = 0;
-        UseChatMessages = 0;
+        UseExpansionNotifications = 0;
+        UseVanillaNotifications = 1;
+        UseChatMessages = 1;
         StatusNotifications = 1;
         StatusIntervalSeconds = 10;
         NotifyOnScheduled = 1;
@@ -600,11 +600,11 @@ class GroundZeroConfig
     void BuildDefaultStages()
     {
         Stages.Clear();
-        AddStage(1, "Signalstation", "Funkstation aktivieren", ItemAlphaDataModule, 1, 12, 2, 0, 120, 60, false);
-        AddStage(2, "Generatorstation", "Generator mit Treibstoff versorgen", ItemEnergyCell, 2, 18, 4, 0, 140, 90, false);
-        AddStage(3, "Forschungsstation", "Forschungsdaten sichern", ItemBioSample, 3, 24, 6, 0, 160, 120, false);
-        AddStage(4, "Absturzstelle", "Militärabsturz untersuchen", ItemAuthChip, 4, 28, 6, 6, 180, 120, false);
-        AddStage(5, "Verseuchte Zone", "Containment-System erreichen", ItemContainmentKey, 5, 36, 8, 8, 220, 180, false);
+        AddStage(1, "Signalstation", "Funkstation aktivieren", ItemAlphaDataModule, 1, 8, 2, 0, 120, 20, false);
+        AddStage(2, "Generatorstation", "Generator mit Treibstoff versorgen", ItemEnergyCell, 2, 10, 2, 0, 140, 20, false);
+        AddStage(3, "Forschungsstation", "Forschungsdaten sichern", ItemBioSample, 3, 12, 3, 0, 160, 20, false);
+        AddStage(4, "Absturzstelle", "Militaerabsturz untersuchen", ItemAuthChip, 4, 14, 3, 2, 180, 20, false);
+        AddStage(5, "Verseuchte Zone", "Containment-System erreichen", ItemContainmentKey, 5, 16, 4, 3, 220, 20, false);
     }
 
     void AddStage(int id, string name, string objective, string reward, int threat, int z, int m, int r, float radius, float hold, bool manual)
@@ -627,11 +627,11 @@ class GroundZeroConfig
     void BuildDefaultFinalWaves()
     {
         FinalWaves.Clear();
-        AddFinalWave(1, "Militärzombies", 2, 20, 0, 0, 0);
-        AddFinalWave(2, "Hunter", 3, 18, 0, 0, 90);
-        AddFinalWave(3, "Militär AI", 3, 12, 8, 0, 180);
-        AddFinalWave(4, "Rogue AI", 4, 14, 0, 8, 270);
-        AddFinalWave(5, "Elite-Welle", 5, 24, 8, 8, 360);
+        AddFinalWave(1, "Militaerzombies", 2, 10, 0, 0, 0);
+        AddFinalWave(2, "Hunter", 3, 10, 0, 0, 30);
+        AddFinalWave(3, "Militaer AI", 3, 8, 4, 0, 60);
+        AddFinalWave(4, "Rogue AI", 4, 8, 0, 4, 90);
+        AddFinalWave(5, "Elite-Welle", 5, 12, 4, 4, 120);
     }
 
     void AddFinalWave(int id, string name, int threat, int z, int m, int r, float d)

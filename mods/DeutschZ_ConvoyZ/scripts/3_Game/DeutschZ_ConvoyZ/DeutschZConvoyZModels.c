@@ -302,9 +302,9 @@ class DeutschZConvoyZEventNotificationSettings
     void DeutschZConvoyZEventNotificationSettings()
     {
         Enabled = 1;
-        UseExpansionNotifications = 1;
-        UseVanillaNotifications = 0;
-        UseChatMessages = 0;
+        UseExpansionNotifications = 0;
+        UseVanillaNotifications = 1;
+        UseChatMessages = 1;
         StatusNotifications = 1;
         StatusIntervalSeconds = 10;
         NotifyOnScheduled = 1;

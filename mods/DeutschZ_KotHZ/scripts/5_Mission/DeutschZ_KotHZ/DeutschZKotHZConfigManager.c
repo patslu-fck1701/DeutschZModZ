@@ -335,18 +335,24 @@ class DeutschZKotHZConfigManager
         if (config.MarkerMode != "Off" && config.MarkerMode != "VanillaNotifications" && config.MarkerMode != "Expansion")
             config.MarkerMode = "Expansion";
 
-        // DeutschZ KotHZ Expansion marker build: force generated and existing profile JSON files to Expansion markers for this build.
+        // DeutschZ KotHZ test build: markers stay routed through DeutschZ_ExpansionBridge,
+        // but visible player feedback must also work through vanilla popup/chat fallback.
+        config.EnsureDeutschZEventSettings();
+        config.DeutschZEventSettings.Notifications.UseExpansionNotifications = 0;
+        config.DeutschZEventSettings.Notifications.UseVanillaNotifications = 1;
+        config.DeutschZEventSettings.Notifications.UseChatMessages = 1;
+        config.DeutschZEventSettings.Markers.UseMapMarker = 1;
+        config.DeutschZEventSettings.Markers.Use3DMarker = 1;
+        config.ApplyDeutschZEventSettings();
+
         config.MarkerMode = "Expansion";
         config.EnableExpansionMarker = 1;
         config.EnableExpansion3DMarker = 1;
-        config.EnableExpansionNotifications = 1;
-        config.EnableVanillaNotifications = 0;
-        config.EnableMarkerFallbackNotifications = 0;
+        config.EnableVanillaNotifications = 1;
+        config.EnableVanillaChatMessages = 1;
+        config.EnableMarkerFallbackNotifications = 1;
 
-        config.MarkerEditHint = "DeutschZ KotHZ default: Expansion marker only. Third-party marker modes are intentionally disabled. Expansion notification only; vanilla popup disabled to avoid duplicates.";
-
-        config.EnsureDeutschZEventSettings();
-        config.ApplyDeutschZEventSettings();
+        config.MarkerEditHint = "DeutschZ KotHZ test default: map marker and 3D marker enabled through DeutschZ_ExpansionBridge; vanilla popup and chat fallback enabled for visible testing.";
 
         if (config.ExpansionMarkerIcon == "")
             config.ExpansionMarkerIcon = "Territory";

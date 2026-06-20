@@ -1,38 +1,32 @@
-DeutschZ_ExpansionBridge
+[h1]DeutschZ ExpansionBridge[/h1]
 
-Kurzbeschreibung:
-Zentrale DeutschZ-Bruecke fuer optionale Expansion-Anbindungen. Diese Mod ist die einzige Schicht, ueber die DeutschZ-Events spaeter Expansion-Marker, Expansion-AI oder weitere Expansion-Funktionen ansprechen sollen.
+[b]Projekt:[/b] DeutschZ
+[b]Eigentuemer:[/b] Patrick Sluzalek / fck1701
 
-Features:
-- Gekapselte Bridge-Struktur fuer Expansion-Funktionen
-- MarkerProviderAPI vorbereitet
-- NotificationProviderAPI vorbereitet
-- AIProviderAPI vorbereitet
-- Safe-Fallbacks fuer deaktivierte/fehlende Funktionen
-- Keine direkte Expansion-Anbindung in den Event-ModZ erforderlich
+DeutschZ_ExpansionBridge ist die einzige direkte Integrationsschicht fuer optionale Expansion-nahe Funktionen. Event-Mods sprechen nicht direkt mit Expansion, sondern nur ueber Core/Bridge-Provider.
 
-Konfiguration:
-- Hauptpfad: $profile:DeutschZ/ExpansionBridge/
-- Bridge-Funktionen werden nur genutzt, wenn Server-Setup und Event-Config sie aktivieren.
-- Unsichere/noch nicht live-validierte Expansion-API-Aufrufe bleiben als TODO/OPEN_ASSUMPTION dokumentiert.
+[h2]Funktionen[/h2]
+[list]
+[*]MarkerProvider fuer DeutschZ Event-Marker
+[*]3D-Marker-Intent ueber denselben Providerweg
+[*]NotificationProvider mit sichtbarem Chat-Fallback
+[*]AIProvider mit sicherem Vanilla-Infected-Fallback fuer Tests
+[*]Marker-Cleanup per Prefix
+[*]Keine direkten Expansion-Calls in Event-Mods notwendig
+[/list]
 
-Abhaengigkeiten / Lade-Reihenfolge:
-1. CF [WORKSHOP_LINK_CF] - falls von Expansion/Serverliste benoetigt
-2. DayZ Expansion [WORKSHOP_LINK_DAYZ_EXPANSION] - nur falls Expansion-Funktionen aktiv genutzt werden
-3. DeutschZ_Core [WORKSHOP_LINK_DEUTSCHZ_CORE]
-4. DeutschZ_ExpansionBridge [WORKSHOP_LINK_DEUTSCHZ_EXPANSIONBRIDGE]
+[h2]Aktueller Teststand[/h2]
+Version: 0.1.3-visible-marker-notify-fallbacks
 
-DeutschZ-ModZ, die diese Bridge optional nutzen koennen:
-- DeutschZ_KotHZ [WORKSHOP_LINK_DEUTSCHZ_KOTHZ]
-- DeutschZ_ConvoyZ [WORKSHOP_LINK_DEUTSCHZ_CONVOYZ]
-- DeutschZ_GroundZero [WORKSHOP_LINK_DEUTSCHZ_GROUNDZERO]
+Wenn echte Expansion Marker noch nicht sichtbar sind, erzeugt die Bridge zusaetzlich sichtbare Vanilla-Fallbackobjekte am Eventort, damit Events testbar sind. Notifications werden sichtbar an Spieler gesendet.
 
-GitHub / Source / Transparenz:
-GitHub Repository: https://github.com/DEIN_GITHUB_ACCOUNT/DeutschZModZ
-Der Link wird vor Workshop-Release durch den echten Repository-Link ersetzt.
+[h2]Links[/h2]
+Steam Workshop:
+https://steamcommunity.com/sharedfiles/filedetails/?id=3748421850
 
-Server-Admin-Hinweis:
-Diese Version ist fuer den ersten Dedicated-Server-Test vorbereitet. Es wurde kein PBO gebaut und kein lokaler Server-Test durchgefuehrt. Expansion-Funktionen erst nach Core-Test aktivieren.
+GitHub:
+https://github.com/patslu-fck1701/DeutschZModZ
 
-Compliance:
-Eigenstaendige DeutschZ-Implementierung. Expansion wird nur als Abhaengigkeit/API genutzt, nicht durch kopierten Quellcode.
+[h2]Abhaengigkeiten[/h2]
+DeutschZ_Core ist Pflicht.
+DayZ Expansion bleibt optional fuer spaetere echte API-Anbindung. Events muessen ohne Expansion crashfrei bleiben.

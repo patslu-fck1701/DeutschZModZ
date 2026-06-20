@@ -1,5 +1,13 @@
 # CHANGELOG
 
+## 2026-06-20 - 0.2.4 Start-Ready Visible Test Build
+
+- Generated/default config now enables fast test timings, map marker, 3D marker intent, vanilla popup and chat fallback.
+- DeutschZEventSettings notification defaults changed to visible local testing: Expansion notify off by default, vanilla/chat on.
+- ConfigManager no longer disables visible fallback notifications during generated config repair.
+- Keeps Infected Siege gameplay, infected waves, capture flow and reward flow intact.
+- No direct Expansion calls added; marker/notification route stays through Core/Bridge.
+
 ## 2026-06-20 - 0.2.3 Event Bridge Config Polish
 
 - Routes configured Expansion-style notifications through the DeutschZ Core/ExpansionBridge provider.
