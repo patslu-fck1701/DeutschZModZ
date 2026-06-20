@@ -17,7 +17,9 @@ class CfgPatches
         {
             "DZ_Data",
             "DZ_Scripts",
-            "DZ_Gear_Containers"
+            "DZ_Gear_Containers",
+            "DeutschZ_Core",
+            "DeutschZ_ExpansionBridge"
         };
     };
 };

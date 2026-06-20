@@ -5,7 +5,7 @@ class CfgPatches
         units[] = {};
         weapons[] = {};
         requiredVersion = 0.1;
-        requiredAddons[] = {"DZ_Data", "DeutschZ_Core"};
+        requiredAddons[] = {"DZ_Data", "DZ_Scripts", "DeutschZ_Core", "DayZExpansion_Core_Scripts", "DayZExpansion_Navigation_Scripts", "DayZExpansion_AI_Scripts"};
     };
 };
 
@@ -14,7 +14,7 @@ class CfgMods
     class DeutschZ_ExpansionBridge
     {
         dir = "DeutschZ_ExpansionBridge";
-        name = "DeutschZ_ExpansionBridge";
+        name = "DeutschZ Expansion Bridge";
         author = "Patrick Sluzalek / fck1701";
         type = "mod";
         dependencies[] = {"Game", "World", "Mission"};

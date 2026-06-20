@@ -15,8 +15,8 @@ class GroundZeroZombieManager
     {
         if(!m_Config.EnableZombies) return;
         string cls=ClassForThreat(threat);
-        for(int i=0;i<count;i++){ vector p=center+Vector(Math.RandomFloat(-radius,radius),0,Math.RandomFloat(-radius,radius)); Object o=GetGame().CreateObjectEx(cls,p,ECE_PLACE_ON_SURFACE); if(o) m_Spawned.Insert(o); }
+        for(int i=0;i<count;i++){ vector p=center+Vector(Math.RandomFloat(-radius,radius),0,Math.RandomFloat(-radius,radius)); if(GroundZeroCoreBridge.SpawnInfected("zombies",cls,p)) continue; Object o=GetGame().CreateObjectEx(cls,p,ECE_PLACE_ON_SURFACE); if(o) m_Spawned.Insert(o); }
         GroundZeroLogging.Info("Zombies", "Spawned wave count=" + count.ToString());
     }
-    void Cleanup(){ foreach(Object o:m_Spawned){ if(o) GetGame().ObjectDelete(o); } m_Spawned.Clear(); }
+    void Cleanup(){ GroundZeroCoreBridge.CleanupAI("zombies"); foreach(Object o:m_Spawned){ if(o) GetGame().ObjectDelete(o); } m_Spawned.Clear(); }
 }

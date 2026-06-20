@@ -1,0 +1,10 @@
+name = "DeutschZ Core";
+picture = "";
+logo = "";
+logoSmall = "";
+logoOver = "";
+tooltip = "DeutschZ Core";
+overview = "Shared DeutschZ profile, logging, rate-limit, provider and event-state base module.";
+action = "";
+author = "Patrick Sluzalek / fck1701";
+version = "0.1.0-source";

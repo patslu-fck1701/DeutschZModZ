@@ -12,7 +12,8 @@ modded class MissionServer
     override void OnInit()
     {
         super.OnInit();
-        DeutschZCore_ServerProfile.EnsureRoot();
-        DeutschZCore_Log.Info("Core", "MissionServer initialized");
+        DeutschZCore_ServiceLocator.RegisterMarkerProvider(new DeutschZExpansionBridge_MarkerProvider);
+        DeutschZCore_ServiceLocator.RegisterAIProvider(new DeutschZExpansionBridge_AIProvider);
+        DeutschZCore_Log.Info("ExpansionBridge", "providers registered");
     }
 }

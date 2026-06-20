@@ -42,10 +42,7 @@ class DeutschZKotHZManager
     protected string m_LastAnnounceMessage;
     protected int m_LastAnnounceTimeMs;
 
-#ifdef EXPANSIONMODNAVIGATION
-    protected ExpansionMarkerModule m_DeutschZKotHZMarkerModule;
-    protected ExpansionMarkerData m_DeutschZKotHZMarker;
-#endif
+    protected string m_DeutschZKotHZMarkerId;
 
     void DeutschZKotHZManager()
     {
@@ -80,10 +77,7 @@ class DeutschZKotHZManager
         m_DZKZ_BossZombie = null;
         m_DZKZ_EventInfectedRegistry = new map<Object, string>;
         m_DZKZ_EventLog = new array<string>;
-#ifdef EXPANSIONMODNAVIGATION
-        m_DeutschZKotHZMarkerModule = null;
-        m_DeutschZKotHZMarker = null;
-#endif
+        m_DeutschZKotHZMarkerId = "";
     }
 
     void StartScheduler()
@@ -2592,19 +2586,19 @@ class DeutschZKotHZManager
             return;
         }
 
-        if (!CreateExpansionMarker())
-            Print("[DeutschZ_KotHZ] Expansion marker could not be created. HUD/notifications remain active.");
+        if (!CreateCoreMarker())
+            Print("[DeutschZ_KotHZ] Core marker could not be created. HUD/notifications remain active.");
     }
 
     protected void UpdateAllMapMarkersForSmokeState(string smokeState)
     {
         if (GetMarkerMode() == "Expansion")
-            UpdateExpansionMarkerForSmokeState(smokeState);
+            UpdateCoreMarkerForSmokeState(smokeState);
     }
 
     protected void DeleteAllMapMarkers()
     {
-        DeleteExpansionMarker();
+        DeleteCoreMarker();
     }
 
     protected string GetMarkerMode()
@@ -2626,64 +2620,41 @@ class DeutschZKotHZManager
         return backend;
     }
 
-    protected bool CreateExpansionMarker()
+    protected bool CreateCoreMarker()
     {
-#ifdef EXPANSIONMODNAVIGATION
         string backend = GetMarkerMode();
         if (!m_Config || !m_Config.EnableExpansionMarker || !m_ActiveZone || backend != "Expansion")
             return false;
 
-        if (m_DeutschZKotHZMarker)
-            DeleteExpansionMarker();
-
-        CF_Modules<ExpansionMarkerModule>.Get(m_DeutschZKotHZMarkerModule);
-        if (!m_DeutschZKotHZMarkerModule)
-        {
-            Print("[DeutschZ_KotHZ] ExpansionMarkerModule not available.");
-            return false;
-        }
-
         vector markerPos = m_ActiveZone.Position;
         markerPos[1] = GetGame().SurfaceY(markerPos[0], markerPos[2]) + 3.0;
-        string icon = m_Config.ExpansionMarkerIcon;
-        if (icon == "")
-            icon = "Territory";
-
-        int expansionMarkerColor = ARGB(255, 255, 0, 0);
-        bool showExpansion3DMarker = m_Config.EnableExpansion3DMarker == 1;
-        m_DeutschZKotHZMarker = m_DeutschZKotHZMarkerModule.CreateServerMarker("KotH - " + GetShortKOTHLocationName(), icon, markerPos, expansionMarkerColor, showExpansion3DMarker);
-        if (m_DeutschZKotHZMarker)
+        m_DeutschZKotHZMarkerId = GetShortKOTHLocationName();
+        if (DeutschZKotHZCoreBridge.CreateEventMarker(m_DeutschZKotHZMarkerId, "KotH - " + GetShortKOTHLocationName(), markerPos))
         {
-            Print("[DeutschZ_KotHZ] Expansion marker created for " + m_ActiveZone.ZoneName);
+            Print("[DeutschZ_KotHZ] Core marker created for " + m_ActiveZone.ZoneName);
             return true;
         }
-#else
-        Print("[DeutschZ_KotHZ] Expansion marker requested, but Expansion navigation scripts are not loaded. HUD/notifications remain active.");
-#endif
+
+        Print("[DeutschZ_KotHZ] Core marker provider unavailable. HUD/notifications remain active.");
         return false;
     }
 
-    protected void UpdateExpansionMarkerForSmokeState(string smokeState)
+    protected void UpdateCoreMarkerForSmokeState(string smokeState)
     {
-#ifdef EXPANSIONMODNAVIGATION
-        if (!m_DeutschZKotHZMarker)
+        if (m_DeutschZKotHZMarkerId == "" || !m_ActiveZone)
             return;
 
-        // Marker is intentionally always red, independent of smoke state.
-        m_DeutschZKotHZMarker.SetColor(ARGB(255, 255, 0, 0));
-#endif
+        DeutschZKotHZCoreBridge.CreateEventMarker(m_DeutschZKotHZMarkerId, "KotH - " + GetShortKOTHLocationName(), m_ActiveZone.Position);
     }
 
-    protected void DeleteExpansionMarker()
+    protected void DeleteCoreMarker()
     {
-#ifdef EXPANSIONMODNAVIGATION
-        if (m_DeutschZKotHZMarker && m_DeutschZKotHZMarkerModule)
+        if (m_DeutschZKotHZMarkerId != "")
         {
-            m_DeutschZKotHZMarkerModule.RemoveServerMarker(m_DeutschZKotHZMarker.GetUID());
-            Print("[DeutschZ_KotHZ] Expansion marker removed.");
+            DeutschZKotHZCoreBridge.DeleteEventMarker(m_DeutschZKotHZMarkerId);
+            Print("[DeutschZ_KotHZ] Core marker removed.");
         }
-        m_DeutschZKotHZMarker = null;
-#endif
+        m_DeutschZKotHZMarkerId = "";
     }
 
     protected int GetMarkerColorForSmokeState(string smokeState)
@@ -2714,16 +2685,6 @@ class DeutschZKotHZManager
         m_LastAnnounceMessage = message;
         m_LastAnnounceTimeMs = nowMs;
 
-        bool expansionNotificationSent = false;
-
-#ifdef EXPANSIONMOD
-        if (m_Config.EnableExpansionNotifications)
-        {
-            ExpansionNotification("DeutschZ KotHZ", message, "Territory", COLOR_EXPANSION_NOTIFICATION_MISSION, 12).Create();
-            expansionNotificationSent = true;
-        }
-#endif
-
         bool sendVanillaNotification = true;
         bool sendVanillaChatMessage = true;
 
@@ -2732,11 +2693,6 @@ class DeutschZKotHZManager
             sendVanillaNotification = m_Config.EnableVanillaNotifications == 1;
             sendVanillaChatMessage = m_Config.EnableVanillaChatMessages == 1;
         }
-
-        // Do not stack a vanilla popup on top of an Expansion popup.
-        // This was the source of the visually duplicated notification on servers using Expansion.
-        if (expansionNotificationSent)
-            sendVanillaNotification = false;
 
         if (!sendVanillaNotification && !sendVanillaChatMessage)
             return;

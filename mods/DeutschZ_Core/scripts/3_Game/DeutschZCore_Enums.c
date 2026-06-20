@@ -7,12 +7,12 @@
     No-Copy-Bestaetigung: Kein Code, keine Assets und keine Configs aus fremden Mods kopiert.
 */
 
-modded class MissionServer
+enum DeutschZCore_EventState
 {
-    override void OnInit()
-    {
-        super.OnInit();
-        DeutschZCore_ServerProfile.EnsureRoot();
-        DeutschZCore_Log.Info("Core", "MissionServer initialized");
-    }
+    DEUTSCHZ_EVENT_IDLE = 0,
+    DEUTSCHZ_EVENT_STARTING = 1,
+    DEUTSCHZ_EVENT_ACTIVE = 2,
+    DEUTSCHZ_EVENT_COMPLETING = 3,
+    DEUTSCHZ_EVENT_CLEANUP = 4,
+    DEUTSCHZ_EVENT_FAILED = 5
 }

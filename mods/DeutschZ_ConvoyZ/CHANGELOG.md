@@ -1,3 +1,11 @@
+# CHANGELOG
+
+## 2026-06-20 - Core/Bridge/Event Integration
+
+- Core-/ExpansionBridge-Basis fuer die drei Event-Module vorbereitet.
+- Sichere Provider- und Pfadstruktur ergaenzt.
+- Keine Fremdmod-Dateien oder kopierten Fremdklassen hinzugefuegt.
+
 # CHANGELOG.md
 
 ## FIX24_COMPLIANCE_AUDITED - 2026-06-18

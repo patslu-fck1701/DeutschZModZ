@@ -393,11 +393,10 @@ class DeutschZConvoyZManager
             float dist = vector.Distance(pb.GetPosition(), center);
             if (dist > radius) continue;
 
-            ExpansionNotification("DeutschZ ConvoyZ", text, "Info", ARGB(255, 190, 0, 0), 6).Create(pb.GetIdentity());
             sent++;
         }
 
-        Print("[DeutschZ_ConvoyZ] Status sent to " + sent.ToString() + " players: " + text);
+        Print("[DeutschZ_ConvoyZ] Status available for " + sent.ToString() + " nearby players: " + text);
     }
 
 
@@ -456,35 +455,22 @@ void DeutschZConvoyZ_RegisterEventMarker(string eventId, vector pos, string name
     if (!GetGame() || !GetGame().IsServer()) return;
     if (eventId == "") return;
 
-    ExpansionMarkerModule markerModule = ExpansionMarkerModule.GetModuleInstance();
-    if (!markerModule)
-    {
-        Print("[DeutschZ_ConvoyZ] Expansion marker FAILED: ExpansionMarkerModule is NULL");
-        return;
-    }
-
     vector markerPos = pos;
     markerPos[1] = GetGame().SurfaceY(markerPos[0], markerPos[2]) + 2.0;
 
-    string uid = "DZCV_" + eventId;
     string markerName = name;
-    string markerIcon = "Vehicle Crash";
-    bool marker3D = true;
-
     DeutschZConvoyZManager mgr = g_DeutschZConvoyZManager;
     if (mgr && mgr.Config && mgr.Config.Settings)
     {
         if (mgr.Config.Settings.EventMarkerName != "") markerName = mgr.Config.Settings.EventMarkerName;
-        if (mgr.Config.Settings.EventMarkerIcon != "") markerIcon = mgr.Config.Settings.EventMarkerIcon;
-        marker3D = mgr.Config.Settings.UseEvent3DMarker == 1;
     }
 
     if (markerName == "") markerName = "DeutschZ ConvoyZ Crash";
 
-    markerModule.RemoveServerMarker(uid);
-    markerModule.CreateServerMarker(markerName, markerIcon, markerPos, ARGB(255, 190, 0, 0), marker3D, uid);
-
-    Print("[DeutschZ_ConvoyZ] Expansion marker CREATED uid=" + uid + " icon=" + markerIcon + " 3D=" + marker3D.ToString() + " pos=" + markerPos.ToString());
+    if (DeutschZConvoyZCoreBridge.CreateEventMarker(eventId, markerName, markerPos))
+        Print("[DeutschZ_ConvoyZ] Core marker registered id=" + eventId + " pos=" + markerPos.ToString());
+    else
+        Print("[DeutschZ_ConvoyZ] Core marker provider unavailable id=" + eventId);
 }
 
 void DeutschZConvoyZ_RemoveEventMarker(string eventId)
@@ -492,12 +478,8 @@ void DeutschZConvoyZ_RemoveEventMarker(string eventId)
     if (!GetGame() || !GetGame().IsServer()) return;
     if (eventId == "") return;
 
-    ExpansionMarkerModule markerModule = ExpansionMarkerModule.GetModuleInstance();
-    if (!markerModule) return;
-
-    string uid = "DZCV_" + eventId;
-    markerModule.RemoveServerMarker(uid);
-    Print("[DeutschZ_ConvoyZ] Expansion marker REMOVED uid=" + uid);
+    if (DeutschZConvoyZCoreBridge.DeleteEventMarker(eventId))
+        Print("[DeutschZ_ConvoyZ] Core marker removed id=" + eventId);
 }
 
 void DeutschZConvoyZ_RegisterMarker(string eventId, vector pos, string name)
@@ -513,16 +495,5 @@ void DeutschZConvoyZ_RemoveMarker(string eventId)
 void DeutschZConvoyZ_ExpansionNotify(string title, string text, vector pos)
 {
     if (!GetGame() || !GetGame().IsServer()) return;
-
-    array<Man> players = new array<Man>;
-    GetGame().GetPlayers(players);
-
-    foreach (Man man: players)
-    {
-        PlayerBase pb = PlayerBase.Cast(man);
-        if (!pb || !pb.GetIdentity()) continue;
-        ExpansionNotification(title, text, "Info", ARGB(255, 190, 0, 0), 8).Create(pb.GetIdentity());
-    }
-
-    Print("[DeutschZ_ConvoyZ] Expansion notify SENT: " + title + " - " + text);
+    Print("[DeutschZ_ConvoyZ] Notify: " + title + " - " + text + " pos=" + pos.ToString());
 }

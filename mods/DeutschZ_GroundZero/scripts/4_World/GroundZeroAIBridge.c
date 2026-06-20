@@ -50,6 +50,9 @@ class GroundZeroAIBridge
         for (int i = 0; i < count; i++)
         {
             vector pos = center + Vector(Math.RandomFloat(-radius, radius), 0, Math.RandomFloat(-radius, radius));
+            if (GroundZeroCoreBridge.SpawnInfected("ai_fallback", className, pos))
+                continue;
+
             Object obj = GetGame().CreateObjectEx(className, pos, ECE_PLACE_ON_SURFACE);
             if (obj) m_FallbackUnits.Insert(obj);
         }
@@ -57,6 +60,7 @@ class GroundZeroAIBridge
 
     void Cleanup()
     {
+        GroundZeroCoreBridge.CleanupAI("ai_fallback");
         foreach (Object obj : m_FallbackUnits)
         {
             if (obj) GetGame().ObjectDelete(obj);

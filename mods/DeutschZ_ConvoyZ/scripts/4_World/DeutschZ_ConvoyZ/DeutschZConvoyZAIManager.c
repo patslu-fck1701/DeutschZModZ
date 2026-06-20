@@ -51,6 +51,11 @@ class DeutschZConvoyZAIManager
             p[2] = p[2] + offsetZ;
             p[1] = GetGame().SurfaceY(p[0], p[2]);
             string aiClass = NormalizeAIClassName(wave.AIClassName);
+            if (!GetGame().ConfigIsExisting("CfgVehicles " + aiClass))
+            {
+                DeutschZConvoyZLogger.Log("AIClassFallback", state.EventId, DeutschZConvoyZ_StateName(state.CurrentState), "", p, "WARN", aiClass + " missing, using vanilla infected fallback");
+                aiClass = "ZmbM_SoldierNormal_Beige";
+            }
             Object ai = GetGame().CreateObjectEx(aiClass, p, ECE_SETUP | ECE_CREATEPHYSICS | ECE_UPDATEPATHGRAPH);
             if (ai)
             {
@@ -70,19 +75,7 @@ class DeutschZConvoyZAIManager
 
         string loadoutName = wave.LoadoutName;
         if (loadoutName == "") loadoutName = "PoliceLoadout";
-
-        eAIBase eai = eAIBase.Cast(aiObject);
-        if (!eai)
-        {
-            DeutschZConvoyZLogger.Log("AILoadoutSkipped", "", "", "", aiObject.GetPosition(), "FAILED", "Object is not eAIBase");
-            return;
-        }
-
-        ExpansionHumanLoadout.Apply(eai, loadoutName, false);
-        eai.Expansion_SetCanBeLooted(true);
-        eai.eAI_SetUnlimitedReload(true);
-
-        DeutschZConvoyZLogger.Log("AILoadoutApplied", "", "", "", aiObject.GetPosition(), "OK", loadoutName);
+        DeutschZConvoyZLogger.Log("AILoadoutDeferred", "", "", "", aiObject.GetPosition(), "OK", "Loadout '" + loadoutName + "' must be applied by DeutschZ_ExpansionBridge after target API verification");
     }
 
     string NormalizeAIClassName(string className)

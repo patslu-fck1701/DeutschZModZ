@@ -16,7 +16,7 @@ class CfgPatches
         units[] = {"Land_HACKEDCRATE", "DZCV_ProtectedCase", "DZCV_AccessCard", "DZCV_CardReader", "DZCV_BlackboxCore", "DZCV_EncryptedDataDrive", "DZCV_ClassifiedIntel", "DZCV_SealedRewardChest"};
         weapons[] = {};
         requiredVersion = 0.1;
-        requiredAddons[] = {"DZ_Data", "DZ_Scripts", "DZ_Vehicles_Wheeled", "DayZExpansion_Core_Scripts", "DayZExpansion_Navigation_Scripts", "DayZExpansion_AI_Scripts"};
+        requiredAddons[] = {"DZ_Data", "DZ_Scripts", "DZ_Vehicles_Wheeled", "DeutschZ_Core", "DeutschZ_ExpansionBridge"};
     };
 };
 

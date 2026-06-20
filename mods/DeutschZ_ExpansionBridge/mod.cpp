@@ -1,0 +1,10 @@
+name = "DeutschZ ExpansionBridge";
+picture = "";
+logo = "";
+logoSmall = "";
+logoOver = "";
+tooltip = "DeutschZ ExpansionBridge";
+overview = "DeutschZ adapter boundary for optional DayZ Expansion marker and AI provider integration.";
+action = "";
+author = "Patrick Sluzalek / fck1701";
+version = "0.1.0-source";

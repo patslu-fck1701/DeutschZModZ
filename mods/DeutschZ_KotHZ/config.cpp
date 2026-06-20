@@ -13,7 +13,7 @@ class CfgPatches
         units[] = {"DeutschZKotHZ_RuntimeFlagpole", "DeutschZKotHZ_EventFlagpole", "DeutschZKotHZ_RuntimeFogEmitter", "DeutschZKotHZ_RewardCrate", "DeutschZKotHZ_DropCrate", "DeutschZKotHZ_Flag", "DeutschZKotHZ_Alt_One_Flag", "DeutschZKotHZ_Alt_Two_Flag", "DeutschZKotHZ_Alt_Three_Flag", "DeutschZKotHZ_DeutschZ_KotHZ_Flag", "DeutschZKotHZ_NWAF_Flag", "DeutschZKotHZ_Tisy_Flag", "DeutschZKotHZ_LOPA_Flag", "DeutschZKotHZ_YRAP_Flag", "DeutschZKotHZ_Basebuild_Flag", "DeutschZKotHZ_BiohazardReader", "DeutschZKotHZ_AccessCard", "DeutschZKotHZ_ResearchDocument", "DeutschZKotHZ_CommanderInsignia"};
         weapons[] = {};
         requiredVersion = 0.1;
-        requiredAddons[] = {"DZ_Data","DZ_Scripts","DZ_Sounds_Effects","DZ_Gear_Camping","DZ_Gear_Containers","DZ_Gear_Navigation","DZ_Gear_Consumables","JM_CF_Scripts"};
+        requiredAddons[] = {"DZ_Data", "DZ_Scripts", "DZ_Sounds_Effects", "DZ_Gear_Camping", "DZ_Gear_Containers", "DZ_Gear_Navigation", "DZ_Gear_Consumables", "JM_CF_Scripts", "DeutschZ_Core", "DeutschZ_ExpansionBridge"};
     };
 };
 

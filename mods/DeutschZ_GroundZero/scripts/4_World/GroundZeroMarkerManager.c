@@ -22,7 +22,7 @@ class GroundZeroMarkerManager
     {
         if (!m_Config.EnableMapMarkers) return;
         GroundZeroLogging.Info("Markers", "Stage marker label=" + label + " radius=" + radius.ToString() + " pos=" + position.ToString());
-        // ASSUMPTION: Expansion marker creation is intentionally isolated here and added after target Expansion patch names/API are verified.
+        GroundZeroCoreBridge.CreateEventMarker("stage", label, position);
     }
 
     void UpdateCarrierMarker(string playerId, vector position, float radius)
@@ -33,18 +33,22 @@ class GroundZeroMarkerManager
             GroundZeroLogging.Info("Markers", "Carrier exact marker player=" + playerId + " pos=" + position.ToString());
         else
             GroundZeroLogging.Info("Markers", "Carrier search marker player=" + playerId + " radius=" + radius.ToString() + " pos=" + position.ToString());
+
+        GroundZeroCoreBridge.CreateEventMarker("carrier_" + playerId, "GroundZero Carrier", position);
     }
 
     void UpdateFinalMarker(vector position)
     {
         if (!m_Config.EnableMapMarkers) return;
         GroundZeroLogging.Info("Markers", "Final facility marker pos=" + position.ToString());
+        GroundZeroCoreBridge.CreateEventMarker("final", "GroundZero Final Facility", position);
     }
 
     void UpdateExtractionMarker(vector position)
     {
         if (!m_Config.EnableMapMarkers) return;
         GroundZeroLogging.Info("Markers", "Extraction marker pos=" + position.ToString());
+        GroundZeroCoreBridge.CreateEventMarker("extraction", "GroundZero Extraction", position);
     }
 
     void UpdateDroppedItemMarker(GroundZeroDroppedItemRuntime drop)
@@ -71,6 +75,7 @@ class GroundZeroMarkerManager
 
     void Cleanup()
     {
+        GroundZeroCoreBridge.CleanupMarkers();
         GroundZeroLogging.Info("Markers", "Cleanup markers");
     }
 }
