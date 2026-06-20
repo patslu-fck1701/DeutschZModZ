@@ -1,5 +1,12 @@
 # CHANGELOG
 
+## 2026-06-20 - FIX24b Credit Documentation
+
+- Added explicit CourierZ idea/concept credit: Chris / Einarvargr / Konfliktzone.
+- Clarified that development, source, configs, persistence and DeutschZ integration are implemented by Patrick Sluzalek / fck1701.
+- Added documentation note that the credit refers to the concept idea and does not represent copied files, classes, config structures, UI, assets or PBO content.
+
+
 ## 2026-06-20 - 0.1.0 Safe-Boot Event Skeleton
 
 - Added DeutschZ_CourierZ as new Operation Aktenkoffer event module.

@@ -19,6 +19,25 @@ CourierZ ist ein serverautoritaeres Transport-Event fuer DeutschZ. Der Spieler s
 [*]Reward-Kiste am Zielpunkt
 [/list]
 
+
+[h2]Idee / Credit[/h2]
+Die Grundidee fuer [b]Operation Aktenkoffer / CourierZ[/b] stammt nicht von mir allein.
+
+[b]Idee / Konzeptanstoß:[/b]
+[list]
+[*]Chris
+[*]Playername: Einarvargr
+[*]Server: Konfliktzone
+[/list]
+
+[b]Entwicklung / Implementierung:[/b]
+[list]
+[*]Patrick Sluzalek / fck1701
+[*]DeutschZ DayZ Server
+[/list]
+
+Dieser Credit beschreibt den Ideen-/Konzeptanstoß. Es wurden keine fremden Dateien, Klassen, Configs, UIs, Assets oder PBO-Inhalte uebernommen.
+
 [h2]Abhaengigkeiten[/h2]
 [list]
 [*]DeutschZ_Core
