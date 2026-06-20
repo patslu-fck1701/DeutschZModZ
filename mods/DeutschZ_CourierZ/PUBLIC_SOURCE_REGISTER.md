@@ -2,7 +2,7 @@
 
 Public project repository: https://github.com/patslu-fck1701/DeutschZModZ
 
-CourierZ Workshop: [WORKSHOP_LINK_DEUTSCHZ_COURIERZ_AFTER_FIRST_UPLOAD]
+CourierZ Workshop: https://steamcommunity.com/sharedfiles/filedetails/?id=3748646981
 
 ## Credit / Konzeptanstoß
 

@@ -45,4 +45,4 @@ Dieses Projekt wird als eigenes DeutschZ-Mod-Oekosystem entwickelt. Keine fremde
 
 
 Neue/kommende DeutschZ Erweiterung:
-DeutschZ CourierZ - Operation Aktenkoffer: [WORKSHOP_LINK_DEUTSCHZ_COURIERZ_AFTER_FIRST_UPLOAD]
+DeutschZ CourierZ - Operation Aktenkoffer: https://steamcommunity.com/sharedfiles/filedetails/?id=3748646981

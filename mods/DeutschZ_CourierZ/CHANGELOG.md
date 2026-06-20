@@ -16,3 +16,9 @@
 - Added chat/popup notification flow through DeutschZ_ExpansionBridge.
 - Added vanilla infected fallback enemies for testing.
 - Added compliance and workshop documentation placeholders.
+## 2026-06-20 - FIX24c CourierZ Workshop Link
+
+- Added final Steam Workshop link for DeutschZ_CourierZ: https://steamcommunity.com/sharedfiles/filedetails/?id=3748646981
+- Replaced temporary workshop-link placeholders in CourierZ documentation and Workshop descriptions.
+- No gameplay or script changes.
+

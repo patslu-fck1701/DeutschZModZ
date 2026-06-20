@@ -46,3 +46,7 @@ Dieses Projekt wird als eigenes DeutschZ-Mod-Oekosystem entwickelt. Keine fremde
 9. DeutschZ_KotHZ
 10. DeutschZ_ConvoyZ
 11. DeutschZ_GroundZero
+
+
+Neue/kommende DeutschZ Erweiterung:
+DeutschZ CourierZ - Operation Aktenkoffer: https://steamcommunity.com/sharedfiles/filedetails/?id=3748646981

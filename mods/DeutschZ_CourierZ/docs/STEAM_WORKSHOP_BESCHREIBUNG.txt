@@ -1,7 +1,7 @@
 [h1]DeutschZ CourierZ - Operation Aktenkoffer[/h1]
 
 [b]Status:[/b] Safe-Boot / Testphase
-[b]Workshop Link:[/b] [WORKSHOP_LINK_DEUTSCHZ_COURIERZ_AFTER_FIRST_UPLOAD]
+[b]Workshop Link:[/b] https://steamcommunity.com/sharedfiles/filedetails/?id=3748646981
 [b]GitHub:[/b] https://github.com/patslu-fck1701/DeutschZModZ
 
 [h2]Beschreibung[/h2]
