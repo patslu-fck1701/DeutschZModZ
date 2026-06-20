@@ -1,3 +1,12 @@
+## 2026-06-20 - 0.4.5 EventSettings Standard Test
+
+- Added unified `DeutschZEventSettings` config block with the same setting names as KotHZ and ConvoyZ.
+- Syncs shared marker, 3D marker, notification, scheduling, cleanup, debug and fast-test values into GroundZero runtime fields.
+- GroundZero now exposes `Enable3DMarkers` and requests separate GroundZero 3D marker IDs through the DeutschZ Core marker provider.
+- Runtime DTO classes now extend `Managed` to remove ref/autoptr template warnings.
+- Keeps Expansion/marker usage routed through Core/Bridge only; no direct Expansion calls added.
+- No foreign mod code, classes, configs, UI or assets added.
+
 ## 2026-06-20 - GroundZero Hotfix v7
 
 - Fixed Mission module compile error in `scripts/5_Mission/GroundZeroMissionHooks.c`: `Unknown type PlayerBase`.

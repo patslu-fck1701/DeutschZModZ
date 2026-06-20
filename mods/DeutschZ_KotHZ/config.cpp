@@ -145,6 +145,7 @@ class CfgVehicles
                 class Melee { class Health { damage = 0; }; class Blood { damage = 0; }; class Shock { damage = 0; }; };
                 class FragGrenade { class Health { damage = 0; }; class Blood { damage = 0; }; class Shock { damage = 0; }; };
             };
+            class DamageZones {};
         };
 
         class AnimationSources

@@ -345,6 +345,9 @@ class DeutschZKotHZConfigManager
 
         config.MarkerEditHint = "DeutschZ KotHZ default: Expansion marker only. Third-party marker modes are intentionally disabled. Expansion notification only; vanilla popup disabled to avoid duplicates.";
 
+        config.EnsureDeutschZEventSettings();
+        config.ApplyDeutschZEventSettings();
+
         if (config.ExpansionMarkerIcon == "")
             config.ExpansionMarkerIcon = "Territory";
 

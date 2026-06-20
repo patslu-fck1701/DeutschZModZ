@@ -7,7 +7,7 @@
     Compliance: Original DeutschZ implementation. No copied foreign mod code, assets, configs or stubs.
 */
 
-class GroundZeroStageConfig
+class GroundZeroStageConfig: Managed
 {
     int StageId;
     string StageName;
@@ -22,7 +22,7 @@ class GroundZeroStageConfig
     bool RequireManualObjectiveCompletion;
 }
 
-class GroundZeroFinalWaveConfig
+class GroundZeroFinalWaveConfig: Managed
 {
     int WaveId;
     string WaveName;
@@ -33,8 +33,286 @@ class GroundZeroFinalWaveConfig
     float DelaySeconds;
 }
 
+
+// DeutschZ unified event config standard v1.
+// Same JSON block name in every event config: DeutschZEventSettings.
+class GroundZeroEventCoreSettings
+{
+    int Enabled;
+    int MinOnlinePlayers;
+    int MaxSimultaneousEvents;
+    int MaxEventsPerRestart;
+    int MaxRuntimeSeconds;
+    int CleanupDelaySeconds;
+    int DebugLogs;
+
+    void GroundZeroEventCoreSettings()
+    {
+        Enabled = 1;
+        MinOnlinePlayers = 1;
+        MaxSimultaneousEvents = 1;
+        MaxEventsPerRestart = 999;
+        MaxRuntimeSeconds = 1800;
+        CleanupDelaySeconds = 60;
+        DebugLogs = 1;
+    }
+
+    void Repair()
+    {
+        if (Enabled != 0) Enabled = 1;
+        if (MinOnlinePlayers < 0) MinOnlinePlayers = 0;
+        if (MaxSimultaneousEvents < 1) MaxSimultaneousEvents = 1;
+        if (MaxEventsPerRestart < 0) MaxEventsPerRestart = 0;
+        if (MaxRuntimeSeconds < 0) MaxRuntimeSeconds = 0;
+        if (CleanupDelaySeconds < 0) CleanupDelaySeconds = 0;
+        if (DebugLogs != 0) DebugLogs = 1;
+    }
+}
+
+class GroundZeroEventSchedulingSettings
+{
+    int AutoStartAfterRestart;
+    int StartDelayMinSeconds;
+    int StartDelayMaxSeconds;
+    int RestartAfterFinish;
+    int RestartDelayMinSeconds;
+    int RestartDelayMaxSeconds;
+    int NoPlayerRetryDelaySeconds;
+
+    void GroundZeroEventSchedulingSettings()
+    {
+        AutoStartAfterRestart = 1;
+        StartDelayMinSeconds = 60;
+        StartDelayMaxSeconds = 60;
+        RestartAfterFinish = 1;
+        RestartDelayMinSeconds = 60;
+        RestartDelayMaxSeconds = 60;
+        NoPlayerRetryDelaySeconds = 60;
+    }
+
+    void Repair()
+    {
+        if (AutoStartAfterRestart != 0) AutoStartAfterRestart = 1;
+        if (StartDelayMinSeconds < 0) StartDelayMinSeconds = 0;
+        if (StartDelayMaxSeconds < StartDelayMinSeconds) StartDelayMaxSeconds = StartDelayMinSeconds;
+        if (RestartAfterFinish != 0) RestartAfterFinish = 1;
+        if (RestartDelayMinSeconds < 0) RestartDelayMinSeconds = 0;
+        if (RestartDelayMaxSeconds < RestartDelayMinSeconds) RestartDelayMaxSeconds = RestartDelayMinSeconds;
+        if (NoPlayerRetryDelaySeconds < 0) NoPlayerRetryDelaySeconds = 0;
+    }
+}
+
+class GroundZeroEventMarkerSettings
+{
+    int Enabled;
+    int UseMapMarker;
+    int Use3DMarker;
+    int UseDynamicPositionUpdates;
+    int UpdateIntervalSeconds;
+    int ShowEventRadius;
+    int ShowCarrierMarker;
+    int ShowDroppedItemMarker;
+    int ShowFinalMarker;
+    int ShowExtractionMarker;
+    string MarkerName;
+    string MarkerIcon;
+    int MarkerColorARGB;
+    string MarkerPrefix;
+
+    void GroundZeroEventMarkerSettings()
+    {
+        Enabled = 1;
+        UseMapMarker = 1;
+        Use3DMarker = 1;
+        UseDynamicPositionUpdates = 1;
+        UpdateIntervalSeconds = 10;
+        ShowEventRadius = 1;
+        ShowCarrierMarker = 1;
+        ShowDroppedItemMarker = 1;
+        ShowFinalMarker = 1;
+        ShowExtractionMarker = 1;
+        MarkerName = "DeutschZ GroundZero";
+        MarkerIcon = "ContaminatedArea";
+        MarkerColorARGB = -65536;
+        MarkerPrefix = "GroundZero_";
+    }
+
+    void Repair(string fallbackName, string fallbackIcon, string fallbackPrefix)
+    {
+        if (Enabled != 0) Enabled = 1;
+        if (UseMapMarker != 0) UseMapMarker = 1;
+        if (Use3DMarker != 0) Use3DMarker = 1;
+        if (UseDynamicPositionUpdates != 0) UseDynamicPositionUpdates = 1;
+        if (UpdateIntervalSeconds < 1) UpdateIntervalSeconds = 1;
+        if (ShowEventRadius != 0) ShowEventRadius = 1;
+        if (ShowCarrierMarker != 0) ShowCarrierMarker = 1;
+        if (ShowDroppedItemMarker != 0) ShowDroppedItemMarker = 1;
+        if (ShowFinalMarker != 0) ShowFinalMarker = 1;
+        if (ShowExtractionMarker != 0) ShowExtractionMarker = 1;
+        if (MarkerName == "") MarkerName = fallbackName;
+        if (MarkerIcon == "") MarkerIcon = fallbackIcon;
+        if (MarkerPrefix == "") MarkerPrefix = fallbackPrefix;
+        if (MarkerColorARGB == 0) MarkerColorARGB = -65536;
+    }
+}
+
+class GroundZeroEventNotificationSettings
+{
+    int Enabled;
+    int UseExpansionNotifications;
+    int UseVanillaNotifications;
+    int UseChatMessages;
+    int StatusNotifications;
+    int StatusIntervalSeconds;
+    int NotifyOnScheduled;
+    int NotifyOnStart;
+    int NotifyOnStageChange;
+    int NotifyOnMarkerUpdate;
+    int NotifyOnComplete;
+    int NotifyOnFail;
+
+    void GroundZeroEventNotificationSettings()
+    {
+        Enabled = 1;
+        UseExpansionNotifications = 1;
+        UseVanillaNotifications = 0;
+        UseChatMessages = 0;
+        StatusNotifications = 1;
+        StatusIntervalSeconds = 10;
+        NotifyOnScheduled = 1;
+        NotifyOnStart = 1;
+        NotifyOnStageChange = 1;
+        NotifyOnMarkerUpdate = 0;
+        NotifyOnComplete = 1;
+        NotifyOnFail = 1;
+    }
+
+    void Repair()
+    {
+        if (Enabled != 0) Enabled = 1;
+        if (UseExpansionNotifications != 0) UseExpansionNotifications = 1;
+        if (UseVanillaNotifications != 0) UseVanillaNotifications = 1;
+        if (UseChatMessages != 0) UseChatMessages = 1;
+        if (StatusNotifications != 0) StatusNotifications = 1;
+        if (StatusIntervalSeconds < 3) StatusIntervalSeconds = 3;
+        if (NotifyOnScheduled != 0) NotifyOnScheduled = 1;
+        if (NotifyOnStart != 0) NotifyOnStart = 1;
+        if (NotifyOnStageChange != 0) NotifyOnStageChange = 1;
+        if (NotifyOnMarkerUpdate != 0) NotifyOnMarkerUpdate = 1;
+        if (NotifyOnComplete != 0) NotifyOnComplete = 1;
+        if (NotifyOnFail != 0) NotifyOnFail = 1;
+    }
+}
+
+class GroundZeroEventRewardSettings
+{
+    int Enabled;
+    int RewardLifetimeSeconds;
+    int DespawnWarningEnabled;
+    int DespawnWarningSeconds;
+
+    void GroundZeroEventRewardSettings()
+    {
+        Enabled = 1;
+        RewardLifetimeSeconds = 1800;
+        DespawnWarningEnabled = 1;
+        DespawnWarningSeconds = 300;
+    }
+
+    void Repair()
+    {
+        if (Enabled != 0) Enabled = 1;
+        if (RewardLifetimeSeconds < 60) RewardLifetimeSeconds = 60;
+        if (DespawnWarningEnabled != 0) DespawnWarningEnabled = 1;
+        if (DespawnWarningSeconds < 0) DespawnWarningSeconds = 0;
+    }
+}
+
+class GroundZeroEventTestingSettings
+{
+    int FastTestMode;
+    int CaptureHoldSeconds;
+    int RequiredKillsToWin;
+    int HackDurationSeconds;
+    int WaveDelaySeconds;
+    int StageAutoCompleteSeconds;
+    int FinalDefenseSeconds;
+    int ExtractionDurationSeconds;
+
+    void GroundZeroEventTestingSettings()
+    {
+        FastTestMode = 1;
+        CaptureHoldSeconds = 45;
+        RequiredKillsToWin = 3;
+        HackDurationSeconds = 30;
+        WaveDelaySeconds = 30;
+        StageAutoCompleteSeconds = 20;
+        FinalDefenseSeconds = 120;
+        ExtractionDurationSeconds = 30;
+    }
+
+    void Repair()
+    {
+        if (FastTestMode != 0) FastTestMode = 1;
+        if (CaptureHoldSeconds < 5) CaptureHoldSeconds = 5;
+        if (RequiredKillsToWin < 0) RequiredKillsToWin = 0;
+        if (HackDurationSeconds < 5) HackDurationSeconds = 5;
+        if (WaveDelaySeconds < 0) WaveDelaySeconds = 0;
+        if (StageAutoCompleteSeconds < 5) StageAutoCompleteSeconds = 5;
+        if (FinalDefenseSeconds < 30) FinalDefenseSeconds = 30;
+        if (ExtractionDurationSeconds < 5) ExtractionDurationSeconds = 5;
+    }
+}
+
+class GroundZeroEventSettings
+{
+    int SchemaVersion;
+    string PresetName;
+    string ConfigMode;
+    ref GroundZeroEventCoreSettings Event;
+    ref GroundZeroEventSchedulingSettings Scheduling;
+    ref GroundZeroEventMarkerSettings Markers;
+    ref GroundZeroEventNotificationSettings Notifications;
+    ref GroundZeroEventRewardSettings Rewards;
+    ref GroundZeroEventTestingSettings Testing;
+
+    void GroundZeroEventSettings()
+    {
+        SchemaVersion = 1;
+        PresetName = "FAST_TEST";
+        ConfigMode = "FastRestartTest";
+        Event = new GroundZeroEventCoreSettings();
+        Scheduling = new GroundZeroEventSchedulingSettings();
+        Markers = new GroundZeroEventMarkerSettings();
+        Notifications = new GroundZeroEventNotificationSettings();
+        Rewards = new GroundZeroEventRewardSettings();
+        Testing = new GroundZeroEventTestingSettings();
+        Repair("DeutschZ GroundZero", "ContaminatedArea", "GroundZero_");
+    }
+
+    void Repair(string fallbackName, string fallbackIcon, string fallbackPrefix)
+    {
+        if (SchemaVersion < 1) SchemaVersion = 1;
+        if (PresetName == "") PresetName = "FAST_TEST";
+        if (ConfigMode == "") ConfigMode = "FastRestartTest";
+        if (!Event) Event = new GroundZeroEventCoreSettings();
+        if (!Scheduling) Scheduling = new GroundZeroEventSchedulingSettings();
+        if (!Markers) Markers = new GroundZeroEventMarkerSettings();
+        if (!Notifications) Notifications = new GroundZeroEventNotificationSettings();
+        if (!Rewards) Rewards = new GroundZeroEventRewardSettings();
+        if (!Testing) Testing = new GroundZeroEventTestingSettings();
+        Event.Repair();
+        Scheduling.Repair();
+        Markers.Repair(fallbackName, fallbackIcon, fallbackPrefix);
+        Notifications.Repair();
+        Rewards.Repair();
+        Testing.Repair();
+    }
+}
+
 class GroundZeroConfig
 {
+    ref GroundZeroEventSettings DeutschZEventSettings;
     int ConfigVersion;
 
     bool EnableGroundZero;
@@ -106,6 +384,7 @@ class GroundZeroConfig
 
     bool EnableGlobalNotifications;
     bool EnableMapMarkers;
+    bool Enable3DMarkers;
     bool EnableDebugLogs;
 
     ref array<ref GroundZeroStageConfig> Stages;
@@ -114,8 +393,68 @@ class GroundZeroConfig
     ref array<vector> PossibleFinalFacilityPositions;
     ref array<vector> PossibleExtractionPositions;
 
+
+    void EnsureDeutschZEventSettings()
+    {
+        if (!DeutschZEventSettings)
+            DeutschZEventSettings = new GroundZeroEventSettings();
+        DeutschZEventSettings.Repair("DeutschZ GroundZero", "ContaminatedArea", "GroundZero_");
+    }
+
+    void ApplyDeutschZEventSettings()
+    {
+        EnsureDeutschZEventSettings();
+        EnableGroundZero = DeutschZEventSettings.Event.Enabled == 1;
+        AutoStartEnabled = DeutschZEventSettings.Scheduling.AutoStartAfterRestart == 1;
+        AutoStartMinDelaySeconds = DeutschZEventSettings.Scheduling.StartDelayMinSeconds;
+        AutoStartMaxDelaySeconds = DeutschZEventSettings.Scheduling.StartDelayMaxSeconds;
+        MinOnlinePlayersToAutoStart = DeutschZEventSettings.Event.MinOnlinePlayers;
+        EventMinDurationSeconds = DeutschZEventSettings.Event.MaxRuntimeSeconds;
+        EventMaxDurationSeconds = DeutschZEventSettings.Event.MaxRuntimeSeconds;
+        EventCleanupDelaySeconds = DeutschZEventSettings.Event.CleanupDelaySeconds;
+        EnableMapMarkers = DeutschZEventSettings.Markers.Enabled == 1 && DeutschZEventSettings.Markers.UseMapMarker == 1;
+        Enable3DMarkers = DeutschZEventSettings.Markers.Enabled == 1 && DeutschZEventSettings.Markers.Use3DMarker == 1;
+        EnableGlobalNotifications = DeutschZEventSettings.Notifications.Enabled == 1;
+        EnableDebugLogs = DeutschZEventSettings.Event.DebugLogs == 1;
+        FinalDefenseSeconds = DeutschZEventSettings.Testing.FinalDefenseSeconds;
+        ExtractionDurationSeconds = DeutschZEventSettings.Testing.ExtractionDurationSeconds;
+
+        foreach (GroundZeroStageConfig stage: Stages)
+        {
+            if (!stage) continue;
+            if (DeutschZEventSettings.Testing.FastTestMode == 1)
+                stage.CompletionHoldSeconds = DeutschZEventSettings.Testing.StageAutoCompleteSeconds;
+        }
+
+        foreach (GroundZeroFinalWaveConfig wave: FinalWaves)
+        {
+            if (!wave) continue;
+            if (DeutschZEventSettings.Testing.FastTestMode == 1)
+                wave.DelaySeconds = DeutschZEventSettings.Testing.WaveDelaySeconds;
+        }
+    }
+
+    bool MarkersEnabled()
+    {
+        EnsureDeutschZEventSettings();
+        return DeutschZEventSettings.Markers.Enabled == 1;
+    }
+
+    bool UseMapMarker()
+    {
+        EnsureDeutschZEventSettings();
+        return DeutschZEventSettings.Markers.Enabled == 1 && DeutschZEventSettings.Markers.UseMapMarker == 1;
+    }
+
+    bool Use3DMarker()
+    {
+        EnsureDeutschZEventSettings();
+        return DeutschZEventSettings.Markers.Enabled == 1 && DeutschZEventSettings.Markers.Use3DMarker == 1;
+    }
+
     void GroundZeroConfig()
     {
+        DeutschZEventSettings = new GroundZeroEventSettings();
         Stages = new array<ref GroundZeroStageConfig>();
         FinalWaves = new array<ref GroundZeroFinalWaveConfig>();
         PossibleStagePositions = new array<vector>();
@@ -127,7 +466,7 @@ class GroundZeroConfig
 
     void SetDefaults()
     {
-        ConfigVersion = 4;
+        ConfigVersion = 5;
         EnableGroundZero = true;
         AutoStartEnabled = false;
         AutoStartMinDelaySeconds = 1800;
@@ -198,11 +537,14 @@ class GroundZeroConfig
 
         EnableGlobalNotifications = true;
         EnableMapMarkers = true;
+        Enable3DMarkers = true;
         EnableDebugLogs = true;
 
         BuildDefaultStages();
         BuildDefaultFinalWaves();
         BuildDefaultPositions();
+        EnsureDeutschZEventSettings();
+        ApplyDeutschZEventSettings();
     }
 
     void BuildDefaultStages()
@@ -286,7 +628,10 @@ class GroundZeroConfig
         if (!PossibleExtractionPositions) PossibleExtractionPositions = new array<vector>();
         if (!RetryMinimalLoadout) RetryMinimalLoadout = new array<string>();
 
-        if (ConfigVersion < 4) ConfigVersion = 4;
+        EnsureDeutschZEventSettings();
+        ApplyDeutschZEventSettings();
+
+        if (ConfigVersion < 5) ConfigVersion = 5;
         if (AutoStartMaxDelaySeconds < AutoStartMinDelaySeconds) AutoStartMaxDelaySeconds = AutoStartMinDelaySeconds + 1800;
         if (MinOnlinePlayersToAutoStart < 0) MinOnlinePlayersToAutoStart = 0;
         if (EventMinDurationSeconds < 600) EventMinDurationSeconds = 2700;

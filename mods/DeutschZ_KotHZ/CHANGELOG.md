@@ -1,5 +1,21 @@
 # CHANGELOG
 
+## 2026-06-20 - 0.2.2 KotHZ StoreLoad Compile Hotfix
+
+- Fixed World-script compile crash in `DeutschZKotHZ_RuntimeFlagpole`: `SetPartsAfterStoreLoad` was marked as `override`, but the current DayZ base class has no matching method.
+- Applied the same correction to `DeutschZKotHZ_RuntimeFogEmitter` to prevent the next compile stop.
+- Keeps the 0.2.1 unified `DeutschZEventSettings` config standard and fast-test marker/notification setup intact.
+- No gameplay feature changes.
+- No foreign mod code, classes, configs, UI or assets added.
+
+## 2026-06-20 - 0.2.1 EventSettings Standard Test
+
+- Added unified `DeutschZEventSettings` config block with the same setting names as ConvoyZ and GroundZero.
+- Syncs shared marker, 3D marker, notification, scheduling, cleanup, debug and fast-test values into legacy KotHZ keys.
+- Keeps Expansion marker route through DeutschZ Core/Bridge; no direct Expansion calls added.
+- Added override markers for runtime storage hooks and reduced RuntimeFlagpole config warnings.
+- No foreign mod code, classes, configs, UI or assets added.
+
 ## 2026-06-20 - Core/Bridge/Event Integration
 
 - Core-/ExpansionBridge-Basis fuer die drei Event-Module vorbereitet.

@@ -20,40 +20,44 @@ class GroundZeroMarkerManager
 
     void UpdateStageMarker(vector position, string label, float radius)
     {
-        if (!m_Config.EnableMapMarkers) return;
+        if (!m_Config.MarkersEnabled()) return;
         GroundZeroLogging.Info("Markers", "Stage marker label=" + label + " radius=" + radius.ToString() + " pos=" + position.ToString());
-        GroundZeroCoreBridge.CreateEventMarker("stage", label, position);
+        if (m_Config.UseMapMarker()) GroundZeroCoreBridge.CreateEventMarker("stage", label, position);
+        if (m_Config.Use3DMarker()) GroundZeroCoreBridge.CreateEvent3DMarker("stage", label, position);
     }
 
     void UpdateCarrierMarker(string playerId, vector position, float radius)
     {
-        if (!m_Config.EnableMapMarkers) return;
+        if (!m_Config.MarkersEnabled()) return;
 
         if (radius <= 0)
             GroundZeroLogging.Info("Markers", "Carrier exact marker player=" + playerId + " pos=" + position.ToString());
         else
             GroundZeroLogging.Info("Markers", "Carrier search marker player=" + playerId + " radius=" + radius.ToString() + " pos=" + position.ToString());
 
-        GroundZeroCoreBridge.CreateEventMarker("carrier_" + playerId, "GroundZero Carrier", position);
+        if (m_Config.UseMapMarker()) GroundZeroCoreBridge.CreateEventMarker("carrier_" + playerId, "GroundZero Carrier", position);
+        if (m_Config.Use3DMarker()) GroundZeroCoreBridge.CreateEvent3DMarker("carrier_" + playerId, "GroundZero Carrier", position);
     }
 
     void UpdateFinalMarker(vector position)
     {
-        if (!m_Config.EnableMapMarkers) return;
+        if (!m_Config.MarkersEnabled()) return;
         GroundZeroLogging.Info("Markers", "Final facility marker pos=" + position.ToString());
-        GroundZeroCoreBridge.CreateEventMarker("final", "GroundZero Final Facility", position);
+        if (m_Config.UseMapMarker()) GroundZeroCoreBridge.CreateEventMarker("final", "GroundZero Final Facility", position);
+        if (m_Config.Use3DMarker()) GroundZeroCoreBridge.CreateEvent3DMarker("final", "GroundZero Final Facility", position);
     }
 
     void UpdateExtractionMarker(vector position)
     {
-        if (!m_Config.EnableMapMarkers) return;
+        if (!m_Config.MarkersEnabled()) return;
         GroundZeroLogging.Info("Markers", "Extraction marker pos=" + position.ToString());
-        GroundZeroCoreBridge.CreateEventMarker("extraction", "GroundZero Extraction", position);
+        if (m_Config.UseMapMarker()) GroundZeroCoreBridge.CreateEventMarker("extraction", "GroundZero Extraction", position);
+        if (m_Config.Use3DMarker()) GroundZeroCoreBridge.CreateEvent3DMarker("extraction", "GroundZero Extraction", position);
     }
 
     void UpdateDroppedItemMarker(GroundZeroDroppedItemRuntime drop)
     {
-        if (!m_Config.EnableMapMarkers) return;
+        if (!m_Config.MarkersEnabled()) return;
         if (!drop || drop.Resolved) return;
 
         float age = GetGame().GetTime() * 0.001 - drop.DroppedAt;

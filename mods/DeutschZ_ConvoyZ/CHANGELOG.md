@@ -1,5 +1,13 @@
 # CHANGELOG
 
+## 2026-06-20 - 0.3.1 EventSettings Standard Test
+
+- Added unified `DeutschZEventSettings` config block with the same setting names as KotHZ and GroundZero.
+- Syncs shared marker, 3D marker, notification, scheduling, cleanup, debug and fast-test values into legacy ConvoyZ settings.
+- EventData required AI kills and hack duration are now synced from the shared Testing block for fast server testing.
+- Keeps marker route through DeutschZ Core/Bridge; no direct Expansion calls added.
+- No foreign mod code, classes, configs, UI or assets added.
+
 ## 2026-06-20 - Core/Bridge/Event Integration
 
 - Core-/ExpansionBridge-Basis fuer die drei Event-Module vorbereitet.

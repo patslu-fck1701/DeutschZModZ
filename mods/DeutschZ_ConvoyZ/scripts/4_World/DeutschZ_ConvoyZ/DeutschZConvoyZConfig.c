@@ -105,6 +105,10 @@ class DeutschZConvoyZConfig
         if (!EventData.AIWaves) EventData.AIWaves = new array<ref DeutschZConvoyZAIWaveDef>;
         if (!EventData.Reward) EventData.Reward = new DeutschZConvoyZRewardDef();
         if (!EventData.Reward.Items) EventData.Reward.Items = new array<ref DeutschZConvoyZRewardItemDef>;
+        if (!Settings) Settings = new DeutschZConvoyZSettings();
+        Settings.EnsureDeutschZEventSettings();
+        Settings.ApplyDeutschZEventSettings();
+
         if (EventData.Vehicles && EventData.Vehicles.Count() > 0)
         {
             foreach (DeutschZConvoyZVehicleDef veh: EventData.Vehicles)
@@ -133,8 +137,8 @@ class DeutschZConvoyZConfig
             if (wave.LoadoutName == "") wave.LoadoutName = "PoliceLoadout";
             if (wave.DeutschZAIProfileId == "convoy_guard") wave.DeutschZAIProfileId = "";
         }
-        if (EventData.RequiredAiKills <= 0) EventData.RequiredAiKills = Settings.RequiredAiKills;
-        if (EventData.HackDurationSeconds <= 0) EventData.HackDurationSeconds = Settings.HackDurationSeconds;
+        EventData.RequiredAiKills = Settings.RequiredAiKills;
+        EventData.HackDurationSeconds = Settings.HackDurationSeconds;
 
         if (Settings.InitialStartDelayMinSeconds < 0) Settings.InitialStartDelayMinSeconds = 0;
         if (Settings.InitialStartDelayMaxSeconds < Settings.InitialStartDelayMinSeconds) Settings.InitialStartDelayMaxSeconds = Settings.InitialStartDelayMinSeconds;

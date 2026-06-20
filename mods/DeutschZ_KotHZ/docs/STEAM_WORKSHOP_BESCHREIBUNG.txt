@@ -40,3 +40,9 @@ Diese Version ist fuer den ersten Dedicated-Server-Test vorbereitet. Es wurde ke
 
 Compliance:
 Eigenstaendige DeutschZ-Implementierung. Keine kopierten Fremdmod-Dateien, keine alten LB/SFKOTH/BasicMap/VPP/COT/MarkerBridge-Reste als aktive Source.
+
+
+[b]Aktueller Hotfix 0.2.2[/b]
+- Behebt World-Script-Compile-Fehler in Runtime-Flagpole/FogEmitter.
+- Entfernt falsche override-Markierung von SetPartsAfterStoreLoad, da diese Methode in der aktuellen DayZ-Basisklasse nicht vorhanden ist.
+- Enthält weiterhin den einheitlichen DeutschZEventSettings-Teststandard fuer Marker, 3D-Marker, Notifications und schnelle Eventstarts.

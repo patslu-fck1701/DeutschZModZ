@@ -32,6 +32,15 @@ class GroundZeroCoreBridge
         return provider.CreateMarker("GroundZero_" + id, label, position, 0xFFFF0000);
     }
 
+
+    static bool CreateEvent3DMarker(string id, string label, vector position)
+    {
+        DeutschZCore_MarkerProviderAPI provider = DeutschZCore_ServiceLocator.GetMarkerProvider();
+        if (!provider)
+            return false;
+        return provider.CreateMarker("GroundZero_3D_" + id, label, position, 0xFFFF0000);
+    }
+
     static void CleanupMarkers()
     {
         DeutschZCore_MarkerProviderAPI provider = DeutschZCore_ServiceLocator.GetMarkerProvider();

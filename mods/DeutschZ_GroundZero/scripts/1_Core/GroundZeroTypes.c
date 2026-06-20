@@ -7,7 +7,7 @@
     Compliance: Original DeutschZ implementation. No copied foreign mod code, assets, configs or stubs.
 */
 
-class GroundZeroStageRuntime
+class GroundZeroStageRuntime: Managed
 {
     int StageId;
     int State;
@@ -31,7 +31,7 @@ class GroundZeroStageRuntime
     }
 }
 
-class GroundZeroCarrierRuntime
+class GroundZeroCarrierRuntime: Managed
 {
     string PlayerId;
     string PlayerName;
@@ -51,7 +51,7 @@ class GroundZeroCarrierRuntime
     }
 }
 
-class GroundZeroDroppedItemRuntime
+class GroundZeroDroppedItemRuntime: Managed
 {
     string ItemClass;
     vector Position;
@@ -67,7 +67,7 @@ class GroundZeroDroppedItemRuntime
     }
 }
 
-class GroundZeroCheckpointRuntime
+class GroundZeroCheckpointRuntime: Managed
 {
     string PlayerId;
     vector Position;
@@ -89,7 +89,7 @@ class GroundZeroCheckpointRuntime
     }
 }
 
-class GroundZeroPersistentState
+class GroundZeroPersistentState: Managed
 {
     int StateVersion;
     int EventState;
