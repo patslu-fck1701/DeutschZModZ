@@ -3,6 +3,8 @@
 [b]Status:[/b] Safe-Boot / Testphase
 [b]Workshop Link:[/b] https://steamcommunity.com/sharedfiles/filedetails/?id=3748646981
 [b]GitHub:[/b] https://github.com/patslu-fck1701/DeutschZModZ
+[b]DeutschZ Discord:[/b] https://discord.gg/FHzZ7BykFk
+[b]DeutschZ Server:[/b] 193.135.10.128:20076
 
 [h2]Beschreibung[/h2]
 CourierZ ist ein serverautoritaeres Transport-Event fuer DeutschZ. Der Spieler selbst wird zum Event: Ein Aktenkoffer muss aufgenommen, transportiert und am Zielpunkt abgegeben werden.
@@ -10,7 +12,7 @@ CourierZ ist ein serverautoritaeres Transport-Event fuer DeutschZ. Der Spieler s
 [h2]Aktueller Testumfang[/h2]
 [list]
 [*]Autogenerierte FAST_TEST Config nach Profil-Reset
-[*]Start nach ca. 60 Sekunden mit 1 Spieler
+[*]zeitversetzter Teststart im FIX25/FIX26-Testprofil
 [*]sichtbarer Aktenkoffer-Abholpunkt
 [*]Carrier-/Delivery-Flow
 [*]Map- und 3D-Marker Requests ueber DeutschZ_ExpansionBridge
@@ -19,16 +21,16 @@ CourierZ ist ein serverautoritaeres Transport-Event fuer DeutschZ. Der Spieler s
 [*]Reward-Kiste am Zielpunkt
 [/list]
 
-
 [h2]Idee / Credit[/h2]
 Die Grundidee fuer [b]Operation Aktenkoffer / CourierZ[/b] stammt nicht von mir allein.
 
 [b]Idee / Konzeptanstoß:[/b]
 [list]
-[*]Chris
 [*]Playername: Einarvargr
 [*]Server: Konfliktzone
 [/list]
+
+Auf Wunsch des Ideengebers werden kein Vorname und kein Realname genannt.
 
 [b]Entwicklung / Implementierung:[/b]
 [list]
@@ -37,6 +39,16 @@ Die Grundidee fuer [b]Operation Aktenkoffer / CourierZ[/b] stammt nicht von mir 
 [/list]
 
 Dieser Credit beschreibt den Ideen-/Konzeptanstoß. Es wurden keine fremden Dateien, Klassen, Configs, UIs, Assets oder PBO-Inhalte uebernommen.
+
+[h2]Konfliktzone World[/h2]
+Konfliktzone World ist eine verbundene DayZ-Multimap-Spielwelt, in der mehrere Karten ueber ein gemeinsames Hive-System miteinander verknuepft sind. Spieler reisen mit demselben Charakter, Inventar und Fortschritt zwischen Chernarus, Banov und Napf. Unterschiedliche Fraktionen, Wirtschaftssysteme, PvE- und PvP-Zonen sowie langfristige Entwicklung schaffen eine zusammenhaengende Welt statt einzelner Server. 🌍🐺🚁
+
+[b]Konfliktzone Discord:[/b] https://discord.gg/tRtSbWtrsm
+[list]
+[*]Konfliktzone|Chernarus (PVE) - Main Server: 217.146.80.188:2302
+[*]Konfliktzone|Napf (PVE/PVP): 46.4.112.91:2680
+[*]Konfliktzone|Banov (PVE): 168.119.79.147:2680
+[/list]
 
 [h2]Abhaengigkeiten[/h2]
 [list]

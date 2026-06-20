@@ -37,6 +37,25 @@ https://steamcommunity.com/sharedfiles/filedetails/?id=3745946832
 DeutschZ GroundZero:
 https://steamcommunity.com/sharedfiles/filedetails/?id=3748422786
 
+[h1]Community / Serverlinks[/h1]
+DeutschZ Discord:
+https://discord.gg/FHzZ7BykFk
+
+DeutschZ Server:
+193.135.10.128:20076
+
+Konfliktzone Discord:
+https://discord.gg/tRtSbWtrsm
+
+Konfliktzone|Chernarus (PVE) - Main Server:
+217.146.80.188:2302
+
+Konfliktzone|Napf (PVE/PVP):
+46.4.112.91:2680
+
+Konfliktzone|Banov (PVE):
+168.119.79.147:2680
+
 [h1]Transparenz[/h1]
 Dieses Projekt wird als eigenes DeutschZ-Mod-Oekosystem entwickelt. Keine fremden PBOs werden geoeffnet oder kopiert. Der aktuelle Stand enthaelt Dokumentationsdateien wie README, CHANGELOG, NO_COPY_AUDIT, SOURCE_PROVENANCE, PUBLIC_SOURCE_REGISTER, OPEN_ASSUMPTIONS und README_COMPLIANCE.
 

@@ -1,12 +1,26 @@
-# PUBLIC_SOURCE_REGISTER
+# PUBLIC_SOURCE_REGISTER - DeutschZ_CourierZ
 
-Public project repository: https://github.com/patslu-fck1701/DeutschZModZ
-
+GitHub: https://github.com/patslu-fck1701/DeutschZModZ
 CourierZ Workshop: https://steamcommunity.com/sharedfiles/filedetails/?id=3748646981
+DeutschZ Discord: https://discord.gg/FHzZ7BykFk
+DeutschZ Server: 193.135.10.128:20076
 
-## Credit / Konzeptanstoß
+## Idee / Konzeptanstoß
 
-- Idee / Konzeptanstoß: Chris / Einarvargr / Konfliktzone
-- Entwicklung / Implementierung: Patrick Sluzalek / fck1701 / DeutschZ DayZ Server
+- Playername: Einarvargr
+- Server: Konfliktzone
+- Konfliktzone Discord: https://discord.gg/tRtSbWtrsm
+- Konfliktzone|Chernarus (PVE) - Main Server: 217.146.80.188:2302
+- Konfliktzone|Napf (PVE/PVP): 46.4.112.91:2680
+- Konfliktzone|Banov (PVE): 168.119.79.147:2680
 
-Dieser Eintrag dient der transparenten Nachvollziehbarkeit. Er stellt keine Uebernahme fremder Dateien, Klassen, Configs, UIs oder Assets dar.
+Auf Wunsch des Ideengebers wird kein Vorname und kein Realname genannt.
+
+## Entwicklung / Implementierung
+
+- Patrick Sluzalek / fck1701
+- DeutschZ DayZ Server
+
+## Hinweis
+
+Dieser Registereintrag dient der Transparenz. Es wurden keine fremden Dateien, Klassen, Config-Strukturen, UIs, Assets oder PBO-Inhalte uebernommen.

@@ -11,7 +11,6 @@ No foreign mod code, classes, configs, UI or assets were copied.
 Die Grundidee fuer DeutschZ_CourierZ / Operation Aktenkoffer stammt nicht von mir allein.
 
 Idee / Konzeptanstoß:
-- Chris
 - Playername: Einarvargr
 - Server: Konfliktzone
 
@@ -19,4 +18,26 @@ Entwicklung, Implementierung, Code, Configs, Persistenz und DeutschZ-Integration
 - Patrick Sluzalek / fck1701
 - DeutschZ DayZ Server
 
-Dieser Credit beschreibt den Ideen-/Konzeptanstoß. Es wurden dadurch keine fremden Dateien, Klassen, Configs, UIs, Assets oder PBO-Inhalte uebernommen.
+Hinweis: Auf Wunsch des Ideengebers wird kein Vorname und kein Realname genannt. Dieser Credit beschreibt den Ideen-/Konzeptanstoß. Es wurden dadurch keine fremden Dateien, Klassen, Configs, UIs, Assets oder PBO-Inhalte uebernommen.
+
+# Community / Serverlinks
+
+## DeutschZ
+
+- Discord: https://discord.gg/FHzZ7BykFk
+- Server: 193.135.10.128:20076
+
+## Konfliktzone World
+
+Konfliktzone World ist eine verbundene DayZ-Multimap-Spielwelt, in der mehrere Karten ueber ein gemeinsames Hive-System miteinander verknuepft sind. Spieler reisen mit demselben Charakter, Inventar und Fortschritt zwischen Chernarus, Banov und Napf. Unterschiedliche Fraktionen, Wirtschaftssysteme, PvE- und PvP-Zonen sowie langfristige Entwicklung schaffen eine zusammenhaengende Welt statt einzelner Server.
+
+- Discord: https://discord.gg/tRtSbWtrsm
+- Konfliktzone|Chernarus (PVE) - Main Server: 217.146.80.188:2302
+- Konfliktzone|Napf (PVE/PVP): 46.4.112.91:2680
+- Konfliktzone|Banov (PVE): 168.119.79.147:2680
+
+## CourierZ Credit
+
+- Idee / Konzeptanstoß: Playername Einarvargr, Server Konfliktzone
+- Entwicklung / Implementierung: Patrick Sluzalek / fck1701, DeutschZ DayZ Server
+- Hinweis: Es werden kein Vorname und kein Realname des Ideengebers genannt. Der Credit erfolgt bewusst nur mit Playername und Server.
