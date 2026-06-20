@@ -15,7 +15,7 @@ class GroundZero_ComponentBase extends Inventory_Base
         if (!parent) return true;
 
         string parentType = parent.GetType();
-        parentType = parentType.ToLower();
+        parentType.ToLower();
 
         // ASSUMPTION: Generic storage blocking by class-name pattern until exact DeutschZ Banking/Garage APIs are exposed.
         if (parentType.Contains("bank") || parentType.Contains("garage") || parentType.Contains("safe") || parentType.Contains("crate")) return false;

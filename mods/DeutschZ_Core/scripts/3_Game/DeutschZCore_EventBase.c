@@ -14,7 +14,7 @@ class DeutschZCore_EventBase: DeutschZCore_ModuleBase
 
     void DeutschZCore_EventBase(string moduleName)
     {
-        m_State = DEUTSCHZ_EVENT_IDLE;
+        m_State = DeutschZCore_EventState.DEUTSCHZ_EVENT_IDLE;
         m_EventId = moduleName;
     }
 
@@ -30,7 +30,7 @@ class DeutschZCore_EventBase: DeutschZCore_ModuleBase
 
     bool CanStart()
     {
-        return m_State == DEUTSCHZ_EVENT_IDLE || m_State == DEUTSCHZ_EVENT_FAILED;
+        return m_State == DeutschZCore_EventState.DEUTSCHZ_EVENT_IDLE || m_State == DeutschZCore_EventState.DEUTSCHZ_EVENT_FAILED;
     }
 
     void SetState(int state)
@@ -45,11 +45,11 @@ class DeutschZCore_EventBase: DeutschZCore_ModuleBase
     {
         if (!CanStart())
             return;
-        SetState(DEUTSCHZ_EVENT_STARTING);
+        SetState(DeutschZCore_EventState.DEUTSCHZ_EVENT_STARTING);
     }
 
     void StopEvent()
     {
-        SetState(DEUTSCHZ_EVENT_CLEANUP);
+        SetState(DeutschZCore_EventState.DEUTSCHZ_EVENT_CLEANUP);
     }
 }

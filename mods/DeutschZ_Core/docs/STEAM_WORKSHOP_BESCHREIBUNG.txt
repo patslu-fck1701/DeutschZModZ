@@ -3,6 +3,13 @@ DeutschZ_Core
 Kurzbeschreibung:
 Zentrale Basis-Mod fuer DeutschZ-ModZ. DeutschZ_Core stellt gemeinsame Grundfunktionen fuer Profilepfade, Logging, Provider-Registrierung, Rate-Limits und Event-State-Grundlagen bereit.
 
+
+Aktueller Hotfix:
+- Version 0.1.3-serverprofile-hotfix behebt einen World-Script-Compile-Fehler in DeutschZCore_ServerProfile.
+- ConfigPath, StatePath und BackupPath erzeugen Systemordner jetzt direkt ohne internen privaten Helper-Aufruf.
+- Enthält weiterhin den 0.1.2 EventState-Fix fuer DeutschZCore_EventBase.
+- Keine Gameplay-Aenderungen.
+
 Features:
 - Gemeinsame DeutschZ-Profilstruktur unter $profile:DeutschZ/
 - Logging-Grundlage fuer Server-Analyse
@@ -26,7 +33,7 @@ DeutschZ-ModZ, die diesen Core benoetigen:
 - DeutschZ_GroundZero [WORKSHOP_LINK_DEUTSCHZ_GROUNDZERO]
 
 GitHub / Source / Transparenz:
-GitHub Repository: https://github.com/DEIN_GITHUB_ACCOUNT/DeutschZModZ
+GitHub Repository: https://github.com/patslu-fck1701/DeutschZModZ
 Der Link wird vor Workshop-Release durch den echten Repository-Link ersetzt.
 
 Server-Admin-Hinweis:

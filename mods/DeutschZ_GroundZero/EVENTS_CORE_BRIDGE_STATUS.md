@@ -68,3 +68,23 @@ Empfohlene Reihenfolge:
 - Startet jedes Event einzeln ohne die anderen Events?
 - Cleanup nach Eventende/Abbruch.
 - Restart nach erzeugten Event-Objekten.
+
+## GroundZero Hotfix 2026-06-20 16:14 Compile Error
+
+Fixed crash log:
+`DeutschZ_GroundZero/scripts/2_GameLib/groundzeroconfig.c(352): Bad type 'JsonFileLoader'`
+
+Action:
+- Moved GroundZeroConfig.c to scripts/3_Game.
+- Moved GroundZeroPersistence.c to scripts/3_Game.
+- Moved GroundZeroLogging.c to scripts/3_Game.
+- Left scripts/2_GameLib without .c files because JsonFileLoader/FileIO/logging helpers must not be loaded in GameLib.
+
+Static check:
+- No JsonFileLoader usage remains in scripts/1_Core or scripts/2_GameLib.
+- No GetGame() usage remains in scripts/1_Core or scripts/2_GameLib.
+
+Status:
+- Ready for next compile attempt.
+- No PBO built.
+- No local server test performed.

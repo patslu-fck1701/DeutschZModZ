@@ -8,9 +8,40 @@
 
 class GroundZeroZombieManager
 {
-    protected GroundZeroConfig m_Config; ref array<Object> m_Spawned;
-    void GroundZeroZombieManager(GroundZeroConfig cfg){ m_Config=cfg; m_Spawned=new array<Object>(); }
-    string ClassForThreat(int t){ if(t<=1) return "ZmbM_CitizenASkinny_Brown"; if(t==2) return "ZmbM_SoldierNormal_Beige"; if(t==3) return "ZmbM_HunterOld_Autumn"; if(t==4) return "ZmbM_SoldierHeavy_Green"; return "ZmbM_usSoldier_Officer_Desert"; }
+    protected GroundZeroConfig m_Config;
+    ref array<Object> m_Spawned;
+
+    void GroundZeroZombieManager(GroundZeroConfig cfg)
+    {
+        m_Config = cfg;
+        m_Spawned = new array<Object>();
+    }
+
+    string ClassForThreat(int threat)
+    {
+        if (threat <= 1)
+        {
+            return "ZmbM_CitizenASkinny_Brown";
+        }
+
+        if (threat == 2)
+        {
+            return "ZmbM_SoldierNormal_Beige";
+        }
+
+        if (threat == 3)
+        {
+            return "ZmbM_HunterOld_Autumn";
+        }
+
+        if (threat == 4)
+        {
+            return "ZmbM_SoldierHeavy_Green";
+        }
+
+        return "ZmbM_usSoldier_Officer_Desert";
+    }
+
     void SpawnWave(vector center, int threat, int count, float radius)
     {
         if(!m_Config.EnableZombies) return;

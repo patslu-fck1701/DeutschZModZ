@@ -25,21 +25,33 @@ class DeutschZCore_ServerProfile
 
     static string ConfigPath(string systemName)
     {
-        string path = SystemPath(systemName) + DeutschZCore_Constants.CONFIG_FOLDER;
+        EnsureRoot();
+        string systemPath = DeutschZCore_Constants.ROOT_PROFILE + systemName + "/";
+        MakeDirectory(systemPath);
+
+        string path = systemPath + DeutschZCore_Constants.CONFIG_FOLDER;
         MakeDirectory(path);
         return path;
     }
 
     static string StatePath(string systemName)
     {
-        string path = SystemPath(systemName) + DeutschZCore_Constants.STATE_FOLDER;
+        EnsureRoot();
+        string systemPath = DeutschZCore_Constants.ROOT_PROFILE + systemName + "/";
+        MakeDirectory(systemPath);
+
+        string path = systemPath + DeutschZCore_Constants.STATE_FOLDER;
         MakeDirectory(path);
         return path;
     }
 
     static string BackupPath(string systemName)
     {
-        string path = SystemPath(systemName) + DeutschZCore_Constants.BACKUP_FOLDER;
+        EnsureRoot();
+        string systemPath = DeutschZCore_Constants.ROOT_PROFILE + systemName + "/";
+        MakeDirectory(systemPath);
+
+        string path = systemPath + DeutschZCore_Constants.BACKUP_FOLDER;
         MakeDirectory(path);
         return path;
     }
