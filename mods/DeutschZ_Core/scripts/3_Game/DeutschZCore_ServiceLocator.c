@@ -10,6 +10,7 @@
 class DeutschZCore_ServiceLocator
 {
     protected static ref DeutschZCore_MarkerProviderAPI s_MarkerProvider;
+    protected static ref DeutschZCore_NotificationProviderAPI s_NotificationProvider;
     protected static ref DeutschZCore_AIProviderAPI s_AIProvider;
     protected static ref DeutschZCore_RateLimiter s_RateLimiter;
 
@@ -22,6 +23,17 @@ class DeutschZCore_ServiceLocator
     static DeutschZCore_MarkerProviderAPI GetMarkerProvider()
     {
         return s_MarkerProvider;
+    }
+
+    static void RegisterNotificationProvider(DeutschZCore_NotificationProviderAPI provider)
+    {
+        s_NotificationProvider = provider;
+        DeutschZCore_Log.Info("Core", "Notification provider registered");
+    }
+
+    static DeutschZCore_NotificationProviderAPI GetNotificationProvider()
+    {
+        return s_NotificationProvider;
     }
 
     static void RegisterAIProvider(DeutschZCore_AIProviderAPI provider)

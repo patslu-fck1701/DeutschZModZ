@@ -7,4 +7,4 @@ tooltip = "DeutschZ ExpansionBridge";
 overview = "DeutschZ safe adapter boundary for optional Expansion-style marker and AI provider integration. Real Expansion API calls stay behind documented adapters.";
 action = "";
 author = "Patrick Sluzalek / fck1701";
-version = "0.1.1-source";
+version = "0.1.2-notification-provider";

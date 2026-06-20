@@ -1,0 +1,20 @@
+{
+    "StateVersion": 3,
+    "EventState": 0,
+    "CurrentStageId": 0,
+    "EventStartedAt": 0,
+    "EventEndsAt": 0,
+    "NextAutoStartAt": 0,
+    "BossState": 0,
+    "ExtractionStarted": false,
+    "ExtractionSuccess": false,
+    "ExtractionFailed": false,
+    "FinalStartedAt": 0,
+    "ExtractionStartedAt": 0,
+    "FinalFacilityPosition": "0 0 0",
+    "ExtractionPosition": "0 0 0",
+    "Stages": [],
+    "Carriers": [],
+    "Checkpoints": [],
+    "DroppedItems": []
+}

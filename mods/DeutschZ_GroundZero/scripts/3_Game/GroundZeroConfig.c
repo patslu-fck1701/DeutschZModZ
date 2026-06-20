@@ -416,6 +416,8 @@ class GroundZeroConfig
         Enable3DMarkers = DeutschZEventSettings.Markers.Enabled == 1 && DeutschZEventSettings.Markers.Use3DMarker == 1;
         EnableGlobalNotifications = DeutschZEventSettings.Notifications.Enabled == 1;
         EnableDebugLogs = DeutschZEventSettings.Event.DebugLogs == 1;
+        CarrierMarkerUpdateSeconds = DeutschZEventSettings.Markers.UpdateIntervalSeconds;
+        CarrierDropMarkerUpdateSeconds = DeutschZEventSettings.Markers.UpdateIntervalSeconds;
         FinalDefenseSeconds = DeutschZEventSettings.Testing.FinalDefenseSeconds;
         ExtractionDurationSeconds = DeutschZEventSettings.Testing.ExtractionDurationSeconds;
 
@@ -450,6 +452,54 @@ class GroundZeroConfig
     {
         EnsureDeutschZEventSettings();
         return DeutschZEventSettings.Markers.Enabled == 1 && DeutschZEventSettings.Markers.Use3DMarker == 1;
+    }
+
+    bool UseDynamicMarkerUpdates()
+    {
+        EnsureDeutschZEventSettings();
+        return DeutschZEventSettings.Markers.Enabled == 1 && DeutschZEventSettings.Markers.UseDynamicPositionUpdates == 1;
+    }
+
+    bool ShowCarrierMarker()
+    {
+        EnsureDeutschZEventSettings();
+        return DeutschZEventSettings.Markers.Enabled == 1 && DeutschZEventSettings.Markers.ShowCarrierMarker == 1;
+    }
+
+    bool ShowDroppedItemMarker()
+    {
+        EnsureDeutschZEventSettings();
+        return DeutschZEventSettings.Markers.Enabled == 1 && DeutschZEventSettings.Markers.ShowDroppedItemMarker == 1;
+    }
+
+    bool ShowFinalMarker()
+    {
+        EnsureDeutschZEventSettings();
+        return DeutschZEventSettings.Markers.Enabled == 1 && DeutschZEventSettings.Markers.ShowFinalMarker == 1;
+    }
+
+    bool ShowExtractionMarker()
+    {
+        EnsureDeutschZEventSettings();
+        return DeutschZEventSettings.Markers.Enabled == 1 && DeutschZEventSettings.Markers.ShowExtractionMarker == 1;
+    }
+
+    bool UseExpansionNotifications()
+    {
+        EnsureDeutschZEventSettings();
+        return DeutschZEventSettings.Notifications.Enabled == 1 && DeutschZEventSettings.Notifications.UseExpansionNotifications == 1;
+    }
+
+    bool UseVanillaNotifications()
+    {
+        EnsureDeutschZEventSettings();
+        return DeutschZEventSettings.Notifications.Enabled == 1 && DeutschZEventSettings.Notifications.UseVanillaNotifications == 1;
+    }
+
+    bool UseChatMessages()
+    {
+        EnsureDeutschZEventSettings();
+        return DeutschZEventSettings.Notifications.Enabled == 1 && DeutschZEventSettings.Notifications.UseChatMessages == 1;
     }
 
     void GroundZeroConfig()
@@ -639,8 +689,8 @@ class GroundZeroConfig
         if (RetryLimitPerEvent < 0) RetryLimitPerEvent = 0;
         if (RetrySpawnBackDistanceMin < 50) RetrySpawnBackDistanceMin = 300;
         if (RetrySpawnBackDistanceMax < RetrySpawnBackDistanceMin) RetrySpawnBackDistanceMax = RetrySpawnBackDistanceMin + 200;
-        if (CarrierMarkerUpdateSeconds < 10) CarrierMarkerUpdateSeconds = 60;
-        if (CarrierDropMarkerUpdateSeconds < 10) CarrierDropMarkerUpdateSeconds = 60;
+        if (CarrierMarkerUpdateSeconds < 1) CarrierMarkerUpdateSeconds = 1;
+        if (CarrierDropMarkerUpdateSeconds < 1) CarrierDropMarkerUpdateSeconds = 1;
         if (RequiredCampaignItemCount != 5) RequiredCampaignItemCount = 5;
         if (RetryMinimalLoadout.Count() < 1) RetryMinimalLoadout.Insert("BandageDressing");
         if (Stages.Count() < 5) BuildDefaultStages();

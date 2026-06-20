@@ -41,6 +41,10 @@ Diese Version ist fuer den ersten Dedicated-Server-Test vorbereitet. Es wurde ke
 Compliance:
 Eigenstaendige DeutschZ-Implementierung. Keine kopierten Fremdmod-Dateien, keine alten LB/SFKOTH/BasicMap/VPP/COT/MarkerBridge-Reste als aktive Source.
 
+[b]Aktueller Patch 0.2.3[/b]
+- Routed konfigurierte Notifications und 3D-Marker ueber DeutschZ_Core/ExpansionBridge.
+- Startup-Cleanup loggt geloeschte Runtime-Objekte jetzt als Anzahl statt pro Objekt.
+
 
 [b]Aktueller Hotfix 0.2.2[/b]
 - Behebt World-Script-Compile-Fehler in Runtime-Flagpole/FogEmitter.

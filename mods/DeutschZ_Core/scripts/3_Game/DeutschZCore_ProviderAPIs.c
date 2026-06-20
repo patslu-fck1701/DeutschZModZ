@@ -29,6 +29,14 @@ class DeutschZCore_MarkerProviderAPI
     }
 }
 
+class DeutschZCore_NotificationProviderAPI
+{
+    bool SendEventNotification(string eventName, string channel, string title, string message, vector position)
+    {
+        return false;
+    }
+}
+
 class DeutschZCore_AIProviderAPI
 {
     bool SpawnGuard(string eventId, string loadoutId, vector position)

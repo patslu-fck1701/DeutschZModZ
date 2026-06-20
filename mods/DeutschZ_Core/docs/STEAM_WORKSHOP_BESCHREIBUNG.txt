@@ -5,6 +5,7 @@ Zentrale Basis-Mod fuer DeutschZ-ModZ. DeutschZ_Core stellt gemeinsame Grundfunk
 
 
 Aktueller Hotfix:
+- Version 0.1.4-notification-provider ergaenzt eine optionale NotificationProviderAPI fuer Core/Bridge-gesteuerte Event-Nachrichten.
 - Version 0.1.3-serverprofile-hotfix behebt einen World-Script-Compile-Fehler in DeutschZCore_ServerProfile.
 - ConfigPath, StatePath und BackupPath erzeugen Systemordner jetzt direkt ohne internen privaten Helper-Aufruf.
 - Enthält weiterhin den 0.1.2 EventState-Fix fuer DeutschZCore_EventBase.

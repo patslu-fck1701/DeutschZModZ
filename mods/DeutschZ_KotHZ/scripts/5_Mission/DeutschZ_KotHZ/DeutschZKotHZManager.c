@@ -101,23 +101,24 @@ class DeutschZKotHZManager
             return;
 
         Print("[DeutschZ_KotHZ] Startup cleanup pass started.");
+        int removedTotal = 0;
         foreach (DeutschZKotHZZone zone : m_Config.Zones)
         {
-            CleanupZoneKOTHObjects(zone, "startup");
+            removedTotal += CleanupZoneKOTHObjects(zone, "startup");
         }
-        Print("[DeutschZ_KotHZ] Startup cleanup pass finished.");
+        Print("[DeutschZ_KotHZ] Startup cleanup pass finished. Removed runtime objects=" + removedTotal.ToString());
     }
 
-    protected void CleanupZoneKOTHObjects(DeutschZKotHZZone zone, string reason)
+    protected int CleanupZoneKOTHObjects(DeutschZKotHZZone zone, string reason)
     {
         if (!zone)
-            return;
+            return 0;
 
         vector pos = zone.FlagpolePosition;
         if (pos == vector.Zero)
             pos = zone.Position;
         if (pos == vector.Zero)
-            return;
+            return 0;
 
         pos[1] = GetGame().SurfaceY(pos[0], pos[2]);
         float cleanupRadius = Math.Max(zone.Radius + 75.0, 150.0);
@@ -126,6 +127,7 @@ class DeutschZKotHZManager
         ref array<CargoBase> cargos = new array<CargoBase>;
         GetGame().GetObjectsAtPosition(pos, cleanupRadius, objects, cargos);
 
+        int removed = 0;
         foreach (Object obj : objects)
         {
             if (!obj)
@@ -134,10 +136,12 @@ class DeutschZKotHZManager
             string objType = obj.GetType();
             if (IsKOTHCleanupObjectType(objType))
             {
-                Print("[DeutschZ_KotHZ] " + reason + " cleanup removed KOTH object: " + objType + " at " + obj.GetPosition().ToString());
                 GetGame().ObjectDelete(obj);
+                removed++;
             }
         }
+
+        return removed;
     }
 
     protected bool IsKOTHCleanupObjectType(string objType)
@@ -2632,6 +2636,8 @@ class DeutschZKotHZManager
         if (DeutschZKotHZCoreBridge.CreateEventMarker(m_DeutschZKotHZMarkerId, "KotH - " + GetShortKOTHLocationName(), markerPos))
         {
             Print("[DeutschZ_KotHZ] Core marker created for " + m_ActiveZone.ZoneName);
+            if (m_Config.EnableExpansion3DMarker == 1)
+                DeutschZKotHZCoreBridge.CreateEvent3DMarker(m_DeutschZKotHZMarkerId, "KotH - " + GetShortKOTHLocationName(), markerPos);
             return true;
         }
 
@@ -2645,6 +2651,8 @@ class DeutschZKotHZManager
             return;
 
         DeutschZKotHZCoreBridge.CreateEventMarker(m_DeutschZKotHZMarkerId, "KotH - " + GetShortKOTHLocationName(), m_ActiveZone.Position);
+        if (m_Config && m_Config.EnableExpansion3DMarker == 1)
+            DeutschZKotHZCoreBridge.CreateEvent3DMarker(m_DeutschZKotHZMarkerId, "KotH - " + GetShortKOTHLocationName(), m_ActiveZone.Position);
     }
 
     protected void DeleteCoreMarker()
@@ -2690,6 +2698,14 @@ class DeutschZKotHZManager
 
         if (m_Config)
         {
+            if (m_Config.EnableExpansionNotifications == 1)
+            {
+                vector notifyPos = "0 0 0";
+                if (m_ActiveZone)
+                    notifyPos = m_ActiveZone.Position;
+                DeutschZKotHZCoreBridge.SendNotification("status", "DeutschZ KotHZ", message, notifyPos);
+            }
+
             sendVanillaNotification = m_Config.EnableVanillaNotifications == 1;
             sendVanillaChatMessage = m_Config.EnableVanillaChatMessages == 1;
         }

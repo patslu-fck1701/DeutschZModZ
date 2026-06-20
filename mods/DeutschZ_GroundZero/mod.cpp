@@ -7,4 +7,4 @@ tooltip = "DeutschZ GroundZero";
 overview = "DeutschZ GroundZero: staged PvE/PvP-ready event foundation with components, checkpoints, extraction flow and Core/Bridge routing.";
 action = "";
 author = "Patrick Sluzalek / fck1701";
-version = "0.4.5-eventsettings-standard-test";
+version = "0.4.6-event-bridge-config-polish";

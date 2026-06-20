@@ -1,5 +1,13 @@
 # CHANGELOG
 
+## 2026-06-20 - 0.2.3 Event Bridge Config Polish
+
+- Routes configured Expansion-style notifications through the DeutschZ Core/ExpansionBridge provider.
+- Creates matching Core 3D marker intents when `DeutschZEventSettings.Markers.Use3DMarker` is enabled.
+- Reduces startup runtime-object cleanup spam to count-only logging.
+- Adds visible `DeutschZEventSettings` fast-test block to READY_COPY configs.
+- No foreign mod code, classes, configs, UI or assets added.
+
 ## 2026-06-20 - 0.2.2 KotHZ StoreLoad Compile Hotfix
 
 - Fixed World-script compile crash in `DeutschZKotHZ_RuntimeFlagpole`: `SetPartsAfterStoreLoad` was marked as `override`, but the current DayZ base class has no matching method.

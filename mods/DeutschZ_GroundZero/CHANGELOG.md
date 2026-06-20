@@ -1,3 +1,11 @@
+## 2026-06-20 - 0.4.6 Event Bridge Config Polish
+
+- Wires Carrier, DroppedItem, Final and Extraction markers to the shared `DeutschZEventSettings.Markers.*` switches.
+- Syncs dynamic marker update interval from `DeutschZEventSettings.Markers.UpdateIntervalSeconds`.
+- Routes configured Expansion-style notifications through the DeutschZ Core/ExpansionBridge provider.
+- Adds GroundZero READY_COPY fast-test config and IDLE state files.
+- No foreign mod code, classes, configs, UI or assets added.
+
 ## 2026-06-20 - 0.4.5 EventSettings Standard Test
 
 - Added unified `DeutschZEventSettings` config block with the same setting names as KotHZ and ConvoyZ.

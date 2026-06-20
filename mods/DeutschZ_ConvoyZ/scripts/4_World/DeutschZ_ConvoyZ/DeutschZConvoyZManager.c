@@ -70,7 +70,7 @@ class DeutschZConvoyZManager
             return false;
         }
         SetSmoke(DeutschZConvoyZConstants.SMOKE_RED);
-        DeutschZConvoyZ_ExpansionNotify("DeutschZ ConvoyZ", "Top Secret Crash Convoy gestartet.", GetEventPosition());
+        DeutschZConvoyZ_SendConfiguredNotify("DeutschZ ConvoyZ", "Top Secret Crash Convoy gestartet.", GetEventPosition());
         ChangeState(DeutschZConvoyZConstants.STATE_SECURE_AREA, "spawn ok");
         AI.StartWaves(Config, State);
         if (Config.Settings.UseEventMarker == 1) DeutschZConvoyZ_RegisterMarker(State.EventId, GetEventPosition(), Config.EventData.EventName);
@@ -99,7 +99,7 @@ class DeutschZConvoyZManager
         if (!State || State.CurrentState != DeutschZConvoyZConstants.STATE_SECURE_AREA) return;
         ChangeState(DeutschZConvoyZConstants.STATE_BLACKBOX_READY, "required AI killed");
         SetSmoke(DeutschZConvoyZConstants.SMOKE_YELLOW);
-        DeutschZConvoyZ_ExpansionNotify("DeutschZ ConvoyZ", "Blackbox ist bereit. Hack starten.", GetBlackboxPosition());
+        DeutschZConvoyZ_SendConfiguredNotify("DeutschZ ConvoyZ", "Blackbox ist bereit. Hack starten.", GetBlackboxPosition());
         DeutschZConvoyZLogger.Log("BlackboxReady", State.EventId, "BLACKBOX_READY", "", GetBlackboxPosition(), "OK", "");
         SyncStatusNow();
     }
@@ -179,7 +179,7 @@ class DeutschZConvoyZManager
         if (!State) return;
         ChangeState(DeutschZConvoyZConstants.STATE_FAILED, reason);
         SetSmoke(DeutschZConvoyZConstants.SMOKE_WHITE);
-        DeutschZConvoyZ_ExpansionNotify("DeutschZ ConvoyZ", "Convoy Event fehlgeschlagen.", GetEventPosition());
+        DeutschZConvoyZ_SendConfiguredNotify("DeutschZ ConvoyZ", "Convoy Event fehlgeschlagen.", GetEventPosition());
         DeutschZConvoyZLogger.Log("EventFailed", State.EventId, "FAILED", "", GetEventPosition(), "FAILED", reason);
         ScheduleCleanup();
     }
@@ -471,6 +471,12 @@ void DeutschZConvoyZ_RegisterEventMarker(string eventId, vector pos, string name
         Print("[DeutschZ_ConvoyZ] Core marker registered id=" + eventId + " pos=" + markerPos.ToString());
     else
         Print("[DeutschZ_ConvoyZ] Core marker provider unavailable id=" + eventId);
+
+    if (mgr && mgr.Config && mgr.Config.Settings && mgr.Config.Settings.UseEvent3DMarker == 1)
+    {
+        if (DeutschZConvoyZCoreBridge.CreateEvent3DMarker(eventId, markerName, markerPos))
+            Print("[DeutschZ_ConvoyZ] Core 3D marker registered id=" + eventId + " pos=" + markerPos.ToString());
+    }
 }
 
 void DeutschZConvoyZ_RemoveEventMarker(string eventId)
@@ -492,8 +498,22 @@ void DeutschZConvoyZ_RemoveMarker(string eventId)
     DeutschZConvoyZ_RemoveEventMarker(eventId);
 }
 
-void DeutschZConvoyZ_ExpansionNotify(string title, string text, vector pos)
+void DeutschZConvoyZ_SendConfiguredNotify(string title, string text, vector pos)
 {
     if (!GetGame() || !GetGame().IsServer()) return;
+    DeutschZConvoyZManager mgr = g_DeutschZConvoyZManager;
+    if (mgr && mgr.Config && mgr.Config.Settings && mgr.Config.Settings.DeutschZEventSettings)
+    {
+        DeutschZConvoyZEventNotificationSettings notify = mgr.Config.Settings.DeutschZEventSettings.Notifications;
+        if (notify && notify.Enabled == 0)
+            return;
+
+        if (notify && notify.UseExpansionNotifications == 1)
+            DeutschZConvoyZCoreBridge.SendNotification("status", title, text, pos);
+
+        if (notify && notify.UseVanillaNotifications == 0 && notify.UseChatMessages == 0)
+            return;
+    }
+
     Print("[DeutschZ_ConvoyZ] Notify: " + title + " - " + text + " pos=" + pos.ToString());
 }

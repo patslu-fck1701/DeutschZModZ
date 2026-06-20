@@ -32,6 +32,22 @@ class DeutschZKotHZCoreBridge
         return provider.CreateMarker("KotHZ_" + id, label, position, 0xFFFF0000);
     }
 
+    static bool CreateEvent3DMarker(string id, string label, vector position)
+    {
+        DeutschZCore_MarkerProviderAPI provider = DeutschZCore_ServiceLocator.GetMarkerProvider();
+        if (!provider)
+            return false;
+        return provider.CreateMarker("KotHZ_3D_" + id, label, position, 0xFFFF0000);
+    }
+
+    static bool SendNotification(string channel, string title, string message, vector position)
+    {
+        DeutschZCore_NotificationProviderAPI provider = DeutschZCore_ServiceLocator.GetNotificationProvider();
+        if (!provider)
+            return false;
+        return provider.SendEventNotification(SystemName(), channel, title, message, position);
+    }
+
     static void CleanupMarkers()
     {
         DeutschZCore_MarkerProviderAPI provider = DeutschZCore_ServiceLocator.GetMarkerProvider();
@@ -44,7 +60,9 @@ class DeutschZKotHZCoreBridge
         DeutschZCore_MarkerProviderAPI provider = DeutschZCore_ServiceLocator.GetMarkerProvider();
         if (!provider)
             return false;
-        return provider.DeleteMarker("KotHZ_" + id);
+        bool removed = provider.DeleteMarker("KotHZ_" + id);
+        removed = provider.DeleteMarker("KotHZ_3D_" + id) || removed;
+        return removed;
     }
 
     static bool SpawnInfected(string eventId, string className, vector position)

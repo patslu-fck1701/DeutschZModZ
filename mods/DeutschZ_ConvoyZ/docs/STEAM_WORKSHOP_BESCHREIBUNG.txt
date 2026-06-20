@@ -10,6 +10,7 @@ Features:
 - Cleanup- und Fail-Safe-Logik vorbereitet
 - Lokale Fallback-Gegner begrenzt und loggbar
 - Expansion-Funktionen nur optional ueber DeutschZ_ExpansionBridge
+- DeutschZEventSettings steuert Marker, 3D-Marker, Notifications und Fast-Test-Werte.
 
 Konfiguration:
 - Core/Framework: $profile:DeutschZ/

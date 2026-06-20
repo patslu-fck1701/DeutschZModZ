@@ -21,10 +21,16 @@ class GroundZeroNotificationManager
         if (!m_Config || !m_Config.EnableGlobalNotifications) return;
 
         GroundZeroLogging.Info("Notify", message);
-        // ASSUMPTION: Compile-safe fallback for v0.3.0.
-        // Real client UI/Expansion notifications are wired after target API verification.
+        if (m_Config.UseExpansionNotifications())
+            GroundZeroCoreBridge.SendNotification("status", "DeutschZ GroundZero", message, "0 0 0");
+
         array<Man> players = new array<Man>();
         GetGame().GetPlayers(players);
         GroundZeroLogging.Debug("Notify", "Recipients=" + players.Count().ToString());
+
+        if (m_Config.UseVanillaNotifications())
+            GroundZeroLogging.Debug("Notify", "Vanilla notification fallback requested for " + players.Count().ToString() + " players");
+        if (m_Config.UseChatMessages())
+            GroundZeroLogging.Debug("Notify", "Chat fallback requested for " + players.Count().ToString() + " players");
     }
 }

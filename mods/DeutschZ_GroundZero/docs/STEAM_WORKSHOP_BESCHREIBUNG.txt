@@ -5,6 +5,7 @@ DeutschZ Ground-Zero-Eventbasis fuer intensive PvE-/PvP-Hotspots mit serverseiti
 
 
 Aktueller Teststand 2026-06-20:
+- Patch 0.4.6: DeutschZEventSettings steuert Stage-, Carrier-, Drop-, Final- und Extraction-Marker sowie Notifications ueber Core/Bridge.
 - Hotfix v7: Mission-Compilefehler durch PlayerBase-Hooks im falschen Scriptmodul behoben.
 - PlayerBase RPC-/Death-Hooks liegen jetzt in 4_World; 5_Mission bleibt reines MissionServer-Wiring ohne PlayerBase-Parameter.
 - Hotfix v6: World-Compilefehler in GroundZeroZombieManager behoben.

@@ -1,5 +1,12 @@
 # CHANGELOG
 
+## 2026-06-20 - 0.3.2 Event Bridge Config Polish
+
+- Creates matching Core 3D marker intents when `DeutschZEventSettings.Markers.Use3DMarker` is enabled.
+- Routes configured Expansion-style notifications through the DeutschZ Core/ExpansionBridge provider.
+- Adds visible `DeutschZEventSettings` fast-test block to the shipped Settings.json.
+- No foreign mod code, classes, configs, UI or assets added.
+
 ## 2026-06-20 - 0.3.1 EventSettings Standard Test
 
 - Added unified `DeutschZEventSettings` config block with the same setting names as KotHZ and GroundZero.

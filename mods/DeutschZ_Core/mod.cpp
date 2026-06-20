@@ -7,4 +7,4 @@ tooltip = "DeutschZ Core";
 overview = "Shared DeutschZ base for profile folders, logging, rate-limits, provider APIs and event state and safe profile paths used by DeutschZ events.";
 action = "";
 author = "Patrick Sluzalek / fck1701";
-version = "0.1.3-serverprofile-hotfix";
+version = "0.1.4-notification-provider";

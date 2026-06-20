@@ -57,7 +57,7 @@ class GroundZeroCarrierManager
 
         float now = GetGame().GetTime() * 0.001;
         float radius = m_Config.GetCarrierRadius(count);
-        if (radius >= 0 && now - runtime.LastMarkerUpdate >= m_Config.CarrierMarkerUpdateSeconds)
+        if (m_Config.UseDynamicMarkerUpdates() && radius >= 0 && now - runtime.LastMarkerUpdate >= m_Config.CarrierMarkerUpdateSeconds)
         {
             m_Markers.UpdateCarrierMarker(id, runtime.LastKnownPosition, radius);
             runtime.LastMarkerUpdate = now;

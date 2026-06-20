@@ -58,6 +58,18 @@ class DeutschZExpansionBridge_MarkerProvider: DeutschZCore_MarkerProviderAPI
     }
 }
 
+class DeutschZExpansionBridge_NotificationProvider: DeutschZCore_NotificationProviderAPI
+{
+    override bool SendEventNotification(string eventName, string channel, string title, string message, vector position)
+    {
+        if (message == string.Empty)
+            return false;
+
+        DeutschZCore_Log.Info("ExpansionBridge", "notification request event=" + eventName + " channel=" + channel + " title=" + title + " message=" + message + " pos=" + position.ToString());
+        return true;
+    }
+}
+
 class DeutschZExpansionBridge_AIProvider: DeutschZCore_AIProviderAPI
 {
     protected ref map<string, ref array<Object>> m_RuntimeObjects;

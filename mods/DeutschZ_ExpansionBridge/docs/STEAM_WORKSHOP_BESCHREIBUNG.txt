@@ -6,6 +6,7 @@ Zentrale DeutschZ-Bruecke fuer optionale Expansion-Anbindungen. Diese Mod ist di
 Features:
 - Gekapselte Bridge-Struktur fuer Expansion-Funktionen
 - MarkerProviderAPI vorbereitet
+- NotificationProviderAPI vorbereitet
 - AIProviderAPI vorbereitet
 - Safe-Fallbacks fuer deaktivierte/fehlende Funktionen
 - Keine direkte Expansion-Anbindung in den Event-ModZ erforderlich

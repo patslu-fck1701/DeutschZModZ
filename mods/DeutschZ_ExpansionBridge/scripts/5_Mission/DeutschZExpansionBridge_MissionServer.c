@@ -13,6 +13,7 @@ modded class MissionServer
     {
         super.OnInit();
         DeutschZCore_ServiceLocator.RegisterMarkerProvider(new DeutschZExpansionBridge_MarkerProvider);
+        DeutschZCore_ServiceLocator.RegisterNotificationProvider(new DeutschZExpansionBridge_NotificationProvider);
         DeutschZCore_ServiceLocator.RegisterAIProvider(new DeutschZExpansionBridge_AIProvider);
         DeutschZCore_Log.Info("ExpansionBridge", "providers registered");
     }

@@ -29,6 +29,7 @@ class GroundZeroMarkerManager
     void UpdateCarrierMarker(string playerId, vector position, float radius)
     {
         if (!m_Config.MarkersEnabled()) return;
+        if (!m_Config.ShowCarrierMarker()) return;
 
         if (radius <= 0)
             GroundZeroLogging.Info("Markers", "Carrier exact marker player=" + playerId + " pos=" + position.ToString());
@@ -42,6 +43,7 @@ class GroundZeroMarkerManager
     void UpdateFinalMarker(vector position)
     {
         if (!m_Config.MarkersEnabled()) return;
+        if (!m_Config.ShowFinalMarker()) return;
         GroundZeroLogging.Info("Markers", "Final facility marker pos=" + position.ToString());
         if (m_Config.UseMapMarker()) GroundZeroCoreBridge.CreateEventMarker("final", "GroundZero Final Facility", position);
         if (m_Config.Use3DMarker()) GroundZeroCoreBridge.CreateEvent3DMarker("final", "GroundZero Final Facility", position);
@@ -50,6 +52,7 @@ class GroundZeroMarkerManager
     void UpdateExtractionMarker(vector position)
     {
         if (!m_Config.MarkersEnabled()) return;
+        if (!m_Config.ShowExtractionMarker()) return;
         GroundZeroLogging.Info("Markers", "Extraction marker pos=" + position.ToString());
         if (m_Config.UseMapMarker()) GroundZeroCoreBridge.CreateEventMarker("extraction", "GroundZero Extraction", position);
         if (m_Config.Use3DMarker()) GroundZeroCoreBridge.CreateEvent3DMarker("extraction", "GroundZero Extraction", position);
@@ -58,15 +61,21 @@ class GroundZeroMarkerManager
     void UpdateDroppedItemMarker(GroundZeroDroppedItemRuntime drop)
     {
         if (!m_Config.MarkersEnabled()) return;
+        if (!m_Config.ShowDroppedItemMarker()) return;
         if (!drop || drop.Resolved) return;
 
         float age = GetGame().GetTime() * 0.001 - drop.DroppedAt;
+        string markerId = "drop_" + drop.ItemClass + "_" + drop.DroppedAt.ToString();
+        string markerLabel = "GroundZero Drop";
         if (age < m_Config.DroppedItemMarkerLargeSeconds)
             GroundZeroLogging.Debug("Markers", "Large dropped-item marker " + drop.ItemClass + " radius=" + m_Config.DroppedItemLargeRadius.ToString() + " pos=" + drop.Position.ToString());
         else if (age < m_Config.DroppedItemMarkerSmallSeconds)
             GroundZeroLogging.Debug("Markers", "Small dropped-item marker " + drop.ItemClass + " radius=" + m_Config.DroppedItemSmallRadius.ToString() + " pos=" + drop.Position.ToString());
         else
             GroundZeroLogging.Debug("Markers", "Exact dropped-item marker " + drop.ItemClass + " pos=" + drop.Position.ToString());
+
+        if (m_Config.UseMapMarker()) GroundZeroCoreBridge.CreateEventMarker(markerId, markerLabel, drop.Position);
+        if (m_Config.Use3DMarker()) GroundZeroCoreBridge.CreateEvent3DMarker(markerId, markerLabel, drop.Position);
     }
 
     void TickDroppedItems()

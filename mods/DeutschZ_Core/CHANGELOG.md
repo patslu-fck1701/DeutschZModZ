@@ -1,5 +1,12 @@
 # CHANGELOG
 
+## 2026-06-20 - 0.1.4 Notification Provider
+
+- Added optional `DeutschZCore_NotificationProviderAPI` and ServiceLocator registration/getter.
+- Keeps notification routing behind Core/Bridge, so event mods do not call Expansion directly.
+- No gameplay feature changes.
+- No foreign mod code, classes, configs, UI or assets added.
+
 ## 2026-06-20 - 0.1.3 ServerProfile Hotfix
 
 - Fixed `DeutschZCore_ServerProfile` World-script compile crash by removing internal `SystemPath()` helper calls from `ConfigPath`, `StatePath` and `BackupPath`.

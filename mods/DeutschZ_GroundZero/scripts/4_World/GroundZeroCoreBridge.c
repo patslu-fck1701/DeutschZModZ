@@ -41,6 +41,14 @@ class GroundZeroCoreBridge
         return provider.CreateMarker("GroundZero_3D_" + id, label, position, 0xFFFF0000);
     }
 
+    static bool SendNotification(string channel, string title, string message, vector position)
+    {
+        DeutschZCore_NotificationProviderAPI provider = DeutschZCore_ServiceLocator.GetNotificationProvider();
+        if (!provider)
+            return false;
+        return provider.SendEventNotification(SystemName(), channel, title, message, position);
+    }
+
     static void CleanupMarkers()
     {
         DeutschZCore_MarkerProviderAPI provider = DeutschZCore_ServiceLocator.GetMarkerProvider();
@@ -53,7 +61,9 @@ class GroundZeroCoreBridge
         DeutschZCore_MarkerProviderAPI provider = DeutschZCore_ServiceLocator.GetMarkerProvider();
         if (!provider)
             return false;
-        return provider.DeleteMarker("GroundZero_" + id);
+        bool removed = provider.DeleteMarker("GroundZero_" + id);
+        removed = provider.DeleteMarker("GroundZero_3D_" + id) || removed;
+        return removed;
     }
 
     static bool SpawnInfected(string eventId, string className, vector position)
