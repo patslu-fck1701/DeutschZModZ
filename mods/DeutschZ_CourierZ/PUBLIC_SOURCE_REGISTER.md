@@ -7,8 +7,7 @@ DeutschZ Server: 193.135.10.128:20076
 
 ## Idee / Konzeptanstoß
 
-- Playername: Einarvargr
-- Server: Konfliktzone
+- Einarvargr / Konfliktzone
 - Konfliktzone Discord: https://discord.gg/tRtSbWtrsm
 - Konfliktzone|Chernarus (PVE) - Main Server: 217.146.80.188:2302
 - Konfliktzone|Napf (PVE/PVP): 46.4.112.91:2680

@@ -35,12 +35,12 @@ class DeutschZKotHZZombieConfig
         MaxTotalZombies = 30;
         SecondsBetweenZombieWaves = 45;
         EnableZombieClassFallback = 1;
-        ZombieFallbackClassName = "ZmbM_CitizenASkinny_Brown";
+        ZombieFallbackClassName = "ZmbM_usSoldier_Officer_Desert";
         ZombieFallbackClassNames = new array<string>;
-        ZombieFallbackClassNames.Insert("ZmbM_CitizenASkinny_Brown");
+        ZombieFallbackClassNames.Insert("ZmbM_usSoldier_Officer_Desert");
         ZombieFallbackClassNames.Insert("ZmbM_CitizenASkinny_Blue");
-        ZombieFallbackClassNames.Insert("ZmbM_PatrolNormal_Autumn");
-        ZombieFallbackClassNames.Insert("ZmbM_SoldierNormal_Beige");
+        ZombieFallbackClassNames.Insert("ZmbM_usSoldier_Officer_Desert");
+        ZombieFallbackClassNames.Insert("ZmbM_usSoldier_Officer_Desert");
         ZombieSpawnMinDistance = 18.0;
         ZombieSpawnMaxDistance = 42.0;
         ValidateClassBeforeSpawn = 1;
@@ -48,10 +48,10 @@ class DeutschZKotHZZombieConfig
 
         ZombieTypes = new array<string>;
         // Safe vanilla military/NBC infected set, aligned with DeutschZ wave-pool preset logic.
-        ZombieTypes.Insert("ZmbM_PatrolNormal_Autumn");
+        ZombieTypes.Insert("ZmbM_usSoldier_Officer_Desert");
         ZombieTypes.Insert("ZmbM_PatrolNormal_Summer");
-        ZombieTypes.Insert("ZmbM_SoldierNormal_Beige");
-        ZombieTypes.Insert("ZmbM_CitizenASkinny_Brown");
+        ZombieTypes.Insert("ZmbM_usSoldier_Officer_Desert");
+        ZombieTypes.Insert("ZmbM_usSoldier_Officer_Desert");
         ZombieTypes.Insert("ZmbM_CitizenASkinny_Blue");
         ZombieTypes.Insert("ZmbM_NBC_Grey");
         ZombieTypes.Insert("ZmbM_NBC_Yellow");

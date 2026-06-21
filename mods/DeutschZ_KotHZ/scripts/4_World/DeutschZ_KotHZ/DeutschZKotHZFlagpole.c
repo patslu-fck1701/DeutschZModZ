@@ -41,32 +41,20 @@ class DeutschZKotHZFlagpole
         m_TopHeightOffset = Math.Max(2.0, zone.FlagVisualHeightOffset);
         m_DeleteOnEventEnd = zone.DeleteFlagpoleOnEventEnd;
 
-        string poleClass = zone.FlagpoleClassName;
-        if (poleClass == "")
-            poleClass = "DeutschZKotHZ_RuntimeFlagpole";
-
-        // v1.0.18: use one stable visible active class. Compatibility class names are only aliases for cleanup.
-        if (poleClass == "DeutschZKotHZ_EventFlagpole" || poleClass == "DeutschZKotHZ_RuntimeFlagpole" || poleClass == "DeutschZKotHZ_LegacyFlagpoleCleanupAlias")
-        {
-            Print("[DeutschZ_KotHZ] Compatibility flagpole class configured, forcing active DeutschZKotHZ_RuntimeFlagpole: " + poleClass);
-            poleClass = "DeutschZKotHZ_RuntimeFlagpole";
-        }
-
+        // FIX25: do not spawn the custom runtime flagpole during live tests.
+        // The previous custom flag attachment path could show a white/invisible flag and was suspect for native crashes.
+        // Use stable vanilla world objects only: a red barrel as capture mast and a separate vanilla/custom flag object above it.
+        string poleClass = "Barrel_Red";
         if (!GetGame().ConfigIsExisting("CfgVehicles " + poleClass))
-        {
-            Print("[DeutschZ_KotHZ] Configured flagpole class missing, using DeutschZKotHZ_RuntimeFlagpole: " + poleClass);
-            poleClass = "DeutschZKotHZ_RuntimeFlagpole";
-        }
+            poleClass = "M18SmokeGrenade_Red";
 
-        // DeutschZ visible event-flagpole spawn path: keep physics creation, then clean up event objects on start/end.
-        // Do not use ECE_NOPERSISTENCY_WORLD here; on this build it made the pole not appear reliably.
-        m_PoleObject = GetGame().CreateObjectEx(poleClass, m_Position, ECE_PLACE_ON_SURFACE | ECE_CREATEPHYSICS);
+        m_PoleObject = GetGame().CreateObjectEx(poleClass, m_Position, ECE_PLACE_ON_SURFACE);
         if (!m_PoleObject)
             m_PoleObject = GetGame().CreateObject(poleClass, m_Position);
 
         if (!m_PoleObject)
         {
-            Print("[DeutschZ_KotHZ] Could not spawn flagpole class: " + poleClass);
+            Print("[DeutschZ_KotHZ] Could not spawn safe KOTH marker object: " + poleClass);
             return false;
         }
 
@@ -77,23 +65,39 @@ class DeutschZKotHZFlagpole
         if (poleEntity)
             poleEntity.PlaceOnSurface();
 
-        bool attachedFlag = false;
-        DeutschZKotHZ_RuntimeFlagpole customPole = DeutschZKotHZ_RuntimeFlagpole.Cast(m_PoleObject);
-        if (customPole)
+        string flagClass = zone.FlagClassName;
+        if (flagClass == "" || !GetGame().ConfigIsExisting("CfgVehicles " + flagClass))
+            flagClass = "Flag_Chernarus";
+        if (!GetGame().ConfigIsExisting("CfgVehicles " + flagClass))
+            flagClass = "Flag_White";
+
+        if (GetGame().ConfigIsExisting("CfgVehicles " + flagClass))
         {
-            attachedFlag = customPole.SetupKOTHFlag(zone.FlagClassName);
-            customPole.SetCaptureVisual(0.0);
+            vector flagPos = GetFallbackFlagPositionForFraction(1.0);
+            m_FallbackFlagObject = GetGame().CreateObjectEx(flagClass, flagPos, ECE_PLACE_ON_SURFACE);
+            if (m_FallbackFlagObject)
+            {
+                m_FallbackFlagObject.SetPosition(flagPos);
+                m_FallbackFlagObject.SetOrientation(m_Orientation);
+                string texturePath = DeutschZKotHZ_GetSafeFlagTexture(flagClass);
+                if (texturePath != "")
+                    m_FallbackFlagObject.SetObjectTexture(0, texturePath);
+            }
         }
 
-        // v1.0.21: no free-floating fallback flag anymore.
-        // If attachment fails, log it and keep the mast clean instead of spawning a giant detached flag.
-        if (!attachedFlag)
-            Print("[DeutschZ_KotHZ] WARNING: KOTH flag attachment failed. No fallback plane spawned, to avoid floating/off-scale flag visual.");
-
-        SetCaptureVisual(0.0);
-
-        Print("[DeutschZ_KotHZ] Flagpole spawned visible DeutschZ KotHZ path: " + poleClass + " at " + m_Position.ToString() + " ori=" + m_Orientation.ToString() + " attachedFlag=" + attachedFlag.ToString());
+        Print("[DeutschZ_KotHZ] FIX25 safe KOTH beacon spawned: pole=" + poleClass + " flag=" + flagClass + " pos=" + m_Position.ToString());
         return true;
+    }
+
+    protected string DeutschZKotHZ_GetSafeFlagTexture(string flagClassName)
+    {
+        if (flagClassName == "DeutschZKotHZ_NWAF_Flag") return "/DeutschZ_KotHZ/data/flags/DeutschZ_KotH_NWAF.paa";
+        if (flagClassName == "DeutschZKotHZ_Tisy_Flag") return "/DeutschZ_KotHZ/data/flags/DeutschZ_KotH_Tisy.paa";
+        if (flagClassName == "DeutschZKotHZ_LOPA_Flag") return "/DeutschZ_KotHZ/data/flags/DeutschZ_KotH_LOPA.paa";
+        if (flagClassName == "DeutschZKotHZ_YRAP_Flag") return "/DeutschZ_KotHZ/data/flags/DeutschZ_KotH_YRAP.paa";
+        if (flagClassName == "DeutschZKotHZ_Basebuild_Flag") return "/DeutschZ_KotHZ/data/flags/DeutschZ_KotH_Basebuild.paa";
+        if (flagClassName == "DeutschZKotHZ_DeutschZ_KotHZ_Flag") return "/DeutschZ_KotHZ/data/flags/DeutschZ_KotHZ_Flag.paa";
+        return "";
     }
 
     protected void SpawnFallbackMovableFlag(string flagClass)

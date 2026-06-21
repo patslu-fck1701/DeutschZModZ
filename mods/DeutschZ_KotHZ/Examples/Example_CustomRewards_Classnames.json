@@ -1,10 +1,14 @@
 {
-  "Info": "Example only. Add these classnames to Loot_Pools.json if you want more custom drops.",
-  "Items": [
-    "DeutschZKotHZ_BiohazardReader",
-    "DeutschZKotHZ_AccessCard",
-    "DeutschZKotHZ_ResearchDocument",
-    "DeutschZKotHZ_CommanderInsignia",
-    "DeutschZKotHZ_RewardCrate"
-  ]
+    "Info": "Example only. Add these classnames to Loot_Pools.json if you want more custom drops.",
+    "Items": [
+        "DeutschZKotHZ_BiohazardReader",
+        "DeutschZKotHZ_AccessCard",
+        "DeutschZKotHZ_ResearchDocument",
+        "DeutschZKotHZ_CommanderInsignia",
+        "DeutschZKotHZ_RewardCrate"
+    ],
+    "MinStartDelayMinutes": 5,
+    "MaxStartDelayMinutes": 5,
+    "RestartDelayMinutes": 20,
+    "StatusNotifyIntervalSeconds": 60
 }

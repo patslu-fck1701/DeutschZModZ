@@ -4,8 +4,7 @@
 
 Der Ideen-Credit ist aktuell dokumentiert als:
 
-- Playername: Einarvargr
-- Server: Konfliktzone
+- Einarvargr / Konfliktzone
 
 Auf Wunsch des Ideengebers wird kein Vorname und kein Realname genannt.
 
@@ -31,9 +30,9 @@ Konfliktzone World ist eine verbundene DayZ-Multimap-Spielwelt, in der mehrere K
 
 ## CourierZ Credit
 
-- Idee / Konzeptanstoß: Playername Einarvargr, Server Konfliktzone
+- Idee / Konzeptanstoß: Einarvargr / Konfliktzone
 - Entwicklung / Implementierung: Patrick Sluzalek / fck1701, DeutschZ DayZ Server
-- Hinweis: Es werden kein Vorname und kein Realname des Ideengebers genannt. Der Credit erfolgt bewusst nur mit Playername und Server.
+- Hinweis: Es werden kein Vorname und kein Realname des Ideengebers genannt. Der Credit erfolgt bewusst nur als Einarvargr / Konfliktzone.
 
 
 ## Technische Annahmen

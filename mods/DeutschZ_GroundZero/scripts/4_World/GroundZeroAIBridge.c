@@ -23,7 +23,7 @@ class GroundZeroAIBridge
         if (count <= 0) return;
         if (!m_Config.EnableMilitaryFaction) return;
         GroundZeroLogging.Info("AI", "Military patrol requested count=" + count.ToString() + " pos=" + center.ToString());
-        SpawnFallbackIfNeeded(center, count, "ZmbM_SoldierNormal_Beige", 90);
+        SpawnFallbackIfNeeded(center, count, "ZmbM_usSoldier_Officer_Desert", 90);
         // ASSUMPTION: Replace this adapter body with verified Expansion AI patrol/group calls for the installed Expansion version.
     }
 
@@ -32,7 +32,7 @@ class GroundZeroAIBridge
         if (count <= 0) return;
         if (!m_Config.EnableRogueFaction) return;
         GroundZeroLogging.Info("AI", "Rogue patrol requested count=" + count.ToString() + " pos=" + center.ToString());
-        SpawnFallbackIfNeeded(center, count, "ZmbM_SoldierHeavy_Green", 90);
+        SpawnFallbackIfNeeded(center, count, "ZmbM_usSoldier_Officer_Desert", 90);
         // ASSUMPTION: Replace this adapter body with verified Expansion AI faction/group calls for the installed Expansion version.
     }
 

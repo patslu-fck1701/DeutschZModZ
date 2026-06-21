@@ -8,6 +8,38 @@
 
 class DeutschZExpansionBridge_NotificationProvider: DeutschZCore_NotificationProviderAPI
 {
+    protected ref map<string, int> m_LastSentAt;
+
+    void DeutschZExpansionBridge_NotificationProvider()
+    {
+        m_LastSentAt = new map<string, int>;
+    }
+
+    protected bool IsMutedChannel(string channel)
+    {
+        if (channel == "marker") return true;
+        if (channel == "debug") return true;
+        return false;
+    }
+
+    protected bool MaySend(string eventName, string channel)
+    {
+        if (IsMutedChannel(channel))
+            return false;
+
+        string key = eventName + "|" + channel;
+        int now = GetGame().GetTime();
+        int last = 0;
+        if (m_LastSentAt && m_LastSentAt.Find(key, last))
+        {
+            // FIX25: hard notification throttle so fast test events do not flood Discord/chat/popup.
+            if ((now - last) < 60000)
+                return false;
+        }
+        m_LastSentAt.Set(key, now);
+        return true;
+    }
+
     protected void SendChatFallback(PlayerBase player, string text)
     {
         if (!player || !player.GetIdentity())
@@ -29,6 +61,12 @@ class DeutschZExpansionBridge_NotificationProvider: DeutschZCore_NotificationPro
     {
         if (message == "")
             return false;
+
+        if (!MaySend(eventName, channel))
+        {
+            DeutschZCore_Log.Info("ExpansionBridge", "notification throttled event=" + eventName + " channel=" + channel);
+            return true;
+        }
 
         string finalTitle = title;
         if (finalTitle == "")

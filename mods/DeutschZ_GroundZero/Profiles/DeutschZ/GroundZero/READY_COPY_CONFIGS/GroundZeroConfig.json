@@ -15,11 +15,11 @@
         },
         "Scheduling": {
             "AutoStartAfterRestart": 1,
-            "StartDelayMinSeconds": 60,
-            "StartDelayMaxSeconds": 60,
+            "StartDelayMinSeconds": 900,
+            "StartDelayMaxSeconds": 900,
             "RestartAfterFinish": 1,
-            "RestartDelayMinSeconds": 60,
-            "RestartDelayMaxSeconds": 60,
+            "RestartDelayMinSeconds": 1800,
+            "RestartDelayMaxSeconds": 1800,
             "NoPlayerRetryDelaySeconds": 60
         },
         "Markers": {
@@ -44,11 +44,11 @@
             "UseVanillaNotifications": 1,
             "UseChatMessages": 1,
             "StatusNotifications": 1,
-            "StatusIntervalSeconds": 10,
+            "StatusIntervalSeconds": 60,
             "NotifyOnScheduled": 1,
             "NotifyOnStart": 1,
             "NotifyOnStageChange": 1,
-            "NotifyOnMarkerUpdate": 1,
+            "NotifyOnMarkerUpdate": 0,
             "NotifyOnComplete": 1,
             "NotifyOnFail": 1
         },
@@ -71,8 +71,8 @@
     },
     "EnableGroundZero": true,
     "AutoStartEnabled": true,
-    "AutoStartMinDelaySeconds": 60,
-    "AutoStartMaxDelaySeconds": 60,
+    "AutoStartMinDelaySeconds": 900,
+    "AutoStartMaxDelaySeconds": 900,
     "MinOnlinePlayersToAutoStart": 1,
     "EventCleanupDelaySeconds": 60,
     "CarrierMarkerUpdateSeconds": 10,
@@ -187,5 +187,7 @@
             "RogueAICount": 0,
             "DelaySeconds": 60
         }
-    ]
+    ],
+    "RestartDelaySeconds": 1800,
+    "StatusNotificationIntervalSeconds": 60
 }

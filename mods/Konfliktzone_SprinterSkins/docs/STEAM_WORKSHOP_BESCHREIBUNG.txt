@@ -1,0 +1,45 @@
+[h1]Konfliktzone Sprinter Skins[/h1]
+
+[b]Status:[/b] Admin Cargo Retexture
+[b]GitHub / technische Hilfe:[/b] https://github.com/patslu-fck1701/DeutschZModZ
+[b]Konfliktzone Discord:[/b] https://discord.gg/tRtSbWtrsm
+[b]DeutschZ Discord:[/b] https://discord.gg/FHzZ7BykFk
+
+[h2]Beschreibung[/h2]
+Konfliktzone Sprinter Skins fuegt eigene Konfliktzone Admin Cargo Varianten fuer den MBM Mercedes Sprinter hinzu.
+
+[h2]Neue Fahrzeuge[/h2]
+[list]
+[*]KZ_Sprinter_Admin_Cargo_KA01
+[*]KZ_Sprinter_Admin_Cargo_KA02
+[/list]
+
+[h2]Technik[/h2]
+[list]
+[*]Basis: MBM_Sprinter_BlackCargo
+[*]Abhaengigkeit: MBM Mercedes Sprinter / CfgPatches MBM_Sprinter
+[*]Roter Body wird nur als Original-MBM-Referenz genutzt.
+[*]Konfliktzone Side-/Rear-Decals sind eigene PAA-Dateien.
+[*]Keine MBM-PBO-Inhalte werden kopiert.
+[/list]
+
+[h2]Wichtiger Hinweis[/h2]
+Die MBM-Referenz bestaetigt keine separate Roof-Decal-Selection. Deshalb sind KA/01 und KA/02 getrennte Classnames, nutzen aber dieselbe bestaetigte Texturbelegung. Roof-Decals werden nicht blind eingetragen.
+
+Die Tuerklassen bestaetigen ebenfalls keine separate Door-Decal-Selection. Deshalb werden Tuer-Decals nicht als falsche zweite Textur eingetragen.
+
+[h2]Credit[/h2]
+[list]
+[*]Retexture-Idee / Erlaubnis: Einarvargr / Konfliktzone
+[*]Technische Umsetzung: Patrick Sluzalek / fck1701 / DeutschZ
+[/list]
+
+[h2]DeutschZ Workshop Links[/h2]
+[list]
+[*]DeutschZ Core: https://steamcommunity.com/sharedfiles/filedetails/?id=3748421029
+[*]DeutschZ ExpansionBridge: https://steamcommunity.com/sharedfiles/filedetails/?id=3748421850
+[*]DeutschZ KotHZ / Infected Siege: https://steamcommunity.com/sharedfiles/filedetails/?id=3746385283
+[*]DeutschZ ConvoyZ: https://steamcommunity.com/sharedfiles/filedetails/?id=3745946832
+[*]DeutschZ GroundZero: https://steamcommunity.com/sharedfiles/filedetails/?id=3748422786
+[*]DeutschZ CourierZ / Operation Aktenkoffer: https://steamcommunity.com/sharedfiles/filedetails/?id=3748646981
+[/list]

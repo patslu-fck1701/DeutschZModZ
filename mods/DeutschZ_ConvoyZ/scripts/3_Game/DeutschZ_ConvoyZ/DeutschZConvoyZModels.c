@@ -210,11 +210,11 @@ class DeutschZConvoyZEventSchedulingSettings
     void DeutschZConvoyZEventSchedulingSettings()
     {
         AutoStartAfterRestart = 1;
-        StartDelayMinSeconds = 60;
-        StartDelayMaxSeconds = 60;
+        StartDelayMinSeconds = 600;
+        StartDelayMaxSeconds = 600;
         RestartAfterFinish = 1;
-        RestartDelayMinSeconds = 60;
-        RestartDelayMaxSeconds = 60;
+        RestartDelayMinSeconds = 1500;
+        RestartDelayMaxSeconds = 1500;
         NoPlayerRetryDelaySeconds = 60;
     }
 
@@ -306,7 +306,7 @@ class DeutschZConvoyZEventNotificationSettings
         UseVanillaNotifications = 1;
         UseChatMessages = 1;
         StatusNotifications = 1;
-        StatusIntervalSeconds = 10;
+        StatusIntervalSeconds = 60;
         NotifyOnScheduled = 1;
         NotifyOnStart = 1;
         NotifyOnStageChange = 1;
@@ -534,14 +534,14 @@ class DeutschZConvoyZSettings
         EnableDebugLogs = 1;
         StatusBarUpdateIntervalSeconds = 1;
         EnableStatusNotifications = 1;
-        StatusNotifyIntervalSeconds = 8;
+        StatusNotifyIntervalSeconds = 60;
         StatusSyncRadius = 750.0;
         AutoStartOnMissionInit = 1;
-        InitialStartDelayMinSeconds = 1500;
-        InitialStartDelayMaxSeconds = 4200;
+        InitialStartDelayMinSeconds = 600;
+        InitialStartDelayMaxSeconds = 600;
         RestartEventAfterCleanup = 1;
-        RestartDelayMinSeconds = 5400;
-        RestartDelayMaxSeconds = 7200;
+        RestartDelayMinSeconds = 1500;
+        RestartDelayMaxSeconds = 1500;
         MaxSimultaneousEvents = 1;
         MaxEventsPerRestart = 3;
         MinOnlinePlayersToStart = 1;

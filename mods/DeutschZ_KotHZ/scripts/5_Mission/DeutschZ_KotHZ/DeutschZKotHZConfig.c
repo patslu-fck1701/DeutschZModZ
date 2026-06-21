@@ -55,11 +55,11 @@ class DeutschZKotHZEventSchedulingSettings
     void DeutschZKotHZEventSchedulingSettings()
     {
         AutoStartAfterRestart = 1;
-        StartDelayMinSeconds = 60;
-        StartDelayMaxSeconds = 60;
+        StartDelayMinSeconds = 300;
+        StartDelayMaxSeconds = 300;
         RestartAfterFinish = 1;
-        RestartDelayMinSeconds = 60;
-        RestartDelayMaxSeconds = 60;
+        RestartDelayMinSeconds = 1200;
+        RestartDelayMaxSeconds = 1200;
         NoPlayerRetryDelaySeconds = 60;
     }
 
@@ -151,7 +151,7 @@ class DeutschZKotHZEventNotificationSettings
         UseVanillaNotifications = 1;
         UseChatMessages = 1;
         StatusNotifications = 1;
-        StatusIntervalSeconds = 10;
+        StatusIntervalSeconds = 60;
         NotifyOnScheduled = 1;
         NotifyOnStart = 1;
         NotifyOnStageChange = 1;
@@ -219,7 +219,7 @@ class DeutschZKotHZEventTestingSettings
         RequiredKillsToWin = 3;
         HackDurationSeconds = 30;
         WaveDelaySeconds = 30;
-        StageAutoCompleteSeconds = 180;
+        StageAutoCompleteSeconds = 0;
         FinalDefenseSeconds = 120;
         ExtractionDurationSeconds = 30;
     }
@@ -231,7 +231,7 @@ class DeutschZKotHZEventTestingSettings
         if (RequiredKillsToWin < 0) RequiredKillsToWin = 0;
         if (HackDurationSeconds < 5) HackDurationSeconds = 5;
         if (WaveDelaySeconds < 0) WaveDelaySeconds = 0;
-        if (StageAutoCompleteSeconds < 5) StageAutoCompleteSeconds = 5;
+        if (StageAutoCompleteSeconds < 0) StageAutoCompleteSeconds = 0;
         if (FinalDefenseSeconds < 30) FinalDefenseSeconds = 30;
         if (ExtractionDurationSeconds < 5) ExtractionDurationSeconds = 5;
     }

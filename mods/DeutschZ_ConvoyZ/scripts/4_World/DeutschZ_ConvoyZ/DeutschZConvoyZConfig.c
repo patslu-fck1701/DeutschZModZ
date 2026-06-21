@@ -203,9 +203,7 @@ class DeutschZConvoyZConfig
             wave.WaveId = "wave_" + (i + 1).ToString();
             wave.DelaySeconds = i * 30;
             wave.Count = 4;
-            if (i == 0) wave.AIClassName = "ZmbM_SoldierNormal_Beige";
-            else if (i == 1) wave.AIClassName = "ZmbM_SoldierHeavy_Green";
-            else wave.AIClassName = "ZmbM_usSoldier_Officer_Desert";
+            wave.AIClassName = "ZmbM_usSoldier_Officer_Desert";
             wave.DeutschZAIProfileId = "";
             wave.LoadoutName = "PoliceLoadout";
 

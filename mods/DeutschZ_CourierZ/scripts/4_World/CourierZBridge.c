@@ -51,7 +51,7 @@ class CourierZBridge
 
         string spawnClass = className;
         if (!GetGame().ConfigIsExisting("CfgVehicles " + spawnClass))
-            spawnClass = "ZmbM_SoldierNormal_Beige";
+            spawnClass = "ZmbM_usSoldier_Officer_Desert";
 
         vector p = position;
         p[1] = GetGame().SurfaceY(p[0], p[2]);

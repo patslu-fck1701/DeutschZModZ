@@ -1,9 +1,17 @@
 # CHANGELOG
 
+## 2026-06-21 - FIX30 Workshop Links / Credit Audit
+
+- Re-verified and kept the final CourierZ Steam Workshop link: https://steamcommunity.com/sharedfiles/filedetails/?id=3748646981
+- Re-verified GitHub, DeutschZ Discord, DeutschZ server and Konfliktzone Discord/server links in the Workshop description.
+- Normalized CourierZ idea credit to exactly: Einarvargr / Konfliktzone.
+- Removed stale placeholder wording from public Workshop link documentation.
+- No gameplay or script changes.
+
 ## 2026-06-20 - FIX26 Credit/Discord/Serverlinks
 
 - Removed the first-name reference from CourierZ idea credit on request of the ideator.
-- CourierZ idea credit now shows only: Playername Einarvargr / Server Konfliktzone.
+- CourierZ idea credit now shows only: Einarvargr / Konfliktzone.
 - Added DeutschZ Discord link: https://discord.gg/FHzZ7BykFk
 - Added DeutschZ server connection: 193.135.10.128:20076
 - Added Konfliktzone Discord link: https://discord.gg/tRtSbWtrsm
@@ -42,4 +50,3 @@
 - Added final Steam Workshop link for DeutschZ_CourierZ: https://steamcommunity.com/sharedfiles/filedetails/?id=3748646981
 - Replaced temporary workshop-link placeholders in CourierZ documentation and Workshop descriptions.
 - No gameplay or script changes.
-

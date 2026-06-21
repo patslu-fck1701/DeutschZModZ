@@ -54,7 +54,7 @@ class DeutschZConvoyZAIManager
             if (!GetGame().ConfigIsExisting("CfgVehicles " + aiClass))
             {
                 DeutschZConvoyZLogger.Log("AIClassFallback", state.EventId, DeutschZConvoyZ_StateName(state.CurrentState), "", p, "WARN", aiClass + " missing, using vanilla infected fallback");
-                aiClass = "ZmbM_SoldierNormal_Beige";
+                aiClass = "ZmbM_usSoldier_Officer_Desert";
             }
             Object ai = GetGame().CreateObjectEx(aiClass, p, ECE_SETUP | ECE_CREATEPHYSICS | ECE_UPDATEPATHGRAPH);
             if (ai)
@@ -83,10 +83,10 @@ class DeutschZConvoyZAIManager
         // FIX21 test stability: do not auto-convert Survivor/eAI classes here.
         // Expansion AI API is intentionally isolated behind DeutschZ_ExpansionBridge after verification.
         // ConvoyZ test mode uses killable vanilla infected fallback so events stay stable.
-        if (className == "") return "ZmbM_SoldierNormal_Beige";
-        if (className.IndexOf("eAI_") == 0) return "ZmbM_SoldierNormal_Beige";
-        if (className.IndexOf("SurvivorM_") == 0) return "ZmbM_SoldierNormal_Beige";
-        if (className.IndexOf("SurvivorF_") == 0) return "ZmbM_SoldierNormal_Beige";
+        if (className == "") return "ZmbM_usSoldier_Officer_Desert";
+        if (className.IndexOf("eAI_") == 0) return "ZmbM_usSoldier_Officer_Desert";
+        if (className.IndexOf("SurvivorM_") == 0) return "ZmbM_usSoldier_Officer_Desert";
+        if (className.IndexOf("SurvivorF_") == 0) return "ZmbM_usSoldier_Officer_Desert";
         return className;
     }
 

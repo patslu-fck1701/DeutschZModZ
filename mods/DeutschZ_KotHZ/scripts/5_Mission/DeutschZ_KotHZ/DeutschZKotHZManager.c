@@ -246,6 +246,7 @@ class DeutschZKotHZManager
         // v1.0.25: zombie/infected waves are started on first player entry, DeutschZ wave-system style.
         TryPlayEventMusic("Start");
         Announce("KOTH gestartet: " + m_ActiveZone.ZoneName + ". Erobere und halte die Zone!");
+        SpawnNearFlagTestZombies();
         SendHUDToAll(true, m_ActiveZone.ZoneName, 0, 0, m_ActiveZone.CaptureTimeSeconds, CountPlayersInZone(), "KOTH ready");
         GetGame().GetCallQueue(CALL_CATEGORY_SYSTEM).CallLater(TickEvent, 1000, true);
     }
@@ -1722,12 +1723,12 @@ class DeutschZKotHZManager
             }
         }
 
-        if (GetGame().ConfigIsExisting("CfgVehicles ZmbM_CitizenASkinny_Brown"))
-            return "ZmbM_CitizenASkinny_Brown";
-        if (GetGame().ConfigIsExisting("CfgVehicles ZmbM_PatrolNormal_Autumn"))
-            return "ZmbM_PatrolNormal_Autumn";
-        if (GetGame().ConfigIsExisting("CfgVehicles ZmbM_SoldierNormal_Beige"))
-            return "ZmbM_SoldierNormal_Beige";
+        if (GetGame().ConfigIsExisting("CfgVehicles ZmbM_usSoldier_Officer_Desert"))
+            return "ZmbM_usSoldier_Officer_Desert";
+        if (GetGame().ConfigIsExisting("CfgVehicles ZmbM_usSoldier_Officer_Desert"))
+            return "ZmbM_usSoldier_Officer_Desert";
+        if (GetGame().ConfigIsExisting("CfgVehicles ZmbM_usSoldier_Officer_Desert"))
+            return "ZmbM_usSoldier_Officer_Desert";
 
         return "";
     }
@@ -1973,7 +1974,7 @@ class DeutschZKotHZManager
     protected ref array<string> GetCivilianInfectedClasses()
     {
         ref array<string> classes = new array<string>;
-        classes.Insert("ZmbM_CitizenASkinny_Brown");
+        classes.Insert("ZmbM_usSoldier_Officer_Desert");
         classes.Insert("ZmbM_CitizenASkinny_Blue");
         classes.Insert("ZmbM_FarmerFat_Brown");
         classes.Insert("ZmbM_VillagerOld_Blue");
@@ -1984,19 +1985,19 @@ class DeutschZKotHZManager
     protected ref array<string> GetHunterInfectedClasses()
     {
         ref array<string> classes = new array<string>;
-        classes.Insert("ZmbM_HunterOld_Autumn");
+        classes.Insert("ZmbM_usSoldier_Officer_Desert");
         classes.Insert("ZmbM_HunterOld_Summer");
         classes.Insert("ZmbM_HunterOld_Winter");
-        classes.Insert("ZmbM_PatrolNormal_Autumn");
+        classes.Insert("ZmbM_usSoldier_Officer_Desert");
         return classes;
     }
 
     protected ref array<string> GetMilitaryInfectedClasses()
     {
         ref array<string> classes = new array<string>;
-        classes.Insert("ZmbM_SoldierNormal_Beige");
+        classes.Insert("ZmbM_usSoldier_Officer_Desert");
         classes.Insert("ZmbM_SoldierNormal_Green");
-        classes.Insert("ZmbM_SoldierHeavy_Green");
+        classes.Insert("ZmbM_usSoldier_Officer_Desert");
         classes.Insert("ZmbM_NBC_Grey");
         classes.Insert("ZmbM_NBC_Yellow");
         return classes;
@@ -2015,7 +2016,7 @@ class DeutschZKotHZManager
         wave.SpawnOutdoorOnly = 1;
         wave.ValidateClassBeforeSpawn = 1;
         wave.EnableClassFallback = 1;
-        wave.FallbackClassName = "ZmbM_CitizenASkinny_Brown";
+        wave.FallbackClassName = "ZmbM_usSoldier_Officer_Desert";
         wave.EnemyClassNames.Clear();
         foreach (string className : classNames)
             wave.EnemyClassNames.Insert(className);
@@ -2031,7 +2032,7 @@ class DeutschZKotHZManager
         vector pos = GetRandomZombiePosition();
         string bossClass = "ZmbM_Mummy";
         if (!IsValidZombieGuardClass(bossClass))
-            bossClass = ResolveZombieFallbackClass("ZmbM_SoldierNormal_Beige");
+            bossClass = ResolveZombieFallbackClass("ZmbM_usSoldier_Officer_Desert");
 
         Object boss = null;
         if (bossClass != "")
@@ -2040,7 +2041,7 @@ class DeutschZKotHZManager
         if (!boss)
         {
             Print("[DeutschZ_KotHZ] Boss spawn failed, falling back to military infected.");
-            boss = SpawnFallbackZombie(pos, "ZmbM_Mummy", "ZmbM_SoldierNormal_Beige");
+            boss = SpawnFallbackZombie(pos, "ZmbM_Mummy", "ZmbM_usSoldier_Officer_Desert");
         }
 
         if (boss)

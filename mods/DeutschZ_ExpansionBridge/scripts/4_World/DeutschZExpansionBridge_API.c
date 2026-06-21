@@ -20,54 +20,39 @@ class DeutschZExpansionBridge_MarkerProvider: DeutschZCore_MarkerProviderAPI
 
     protected string VisibleMarkerClassName(string id)
     {
-        // FIX23: visible, stable vanilla fallback object.
-        // This is not a guessed Expansion-map API call; it guarantees an in-world beacon for testing.
-        if (id.IndexOf("_3D_") >= 0)
-            return "Roadflare";
-
-        return "Barrel_Red";
+        // FIX28: physical marker fallback objects are disabled for regression testing.
+        // Keep this helper API-stable, but do not select/spawn world objects here.
+        return "";
     }
+
 
     protected void CreateOrMoveVisibleFallback(string id, vector position)
     {
-        if (!GetGame() || !GetGame().IsServer())
+        // FIX28 regression hardening:
+        // The previous physical marker fallback spawned barrels/smoke grenades on marker requests.
+        // In the last crash timeline the server crashed immediately after repeated KotHZ marker requests.
+        // Until the real Expansion marker API is verified, marker requests are stored/logged only.
+        // This keeps events functional and prevents marker fallback objects from becoming a native-crash variable.
+        return;
+    }
+
+
+    protected void SwitchOnSmokeMarker(Object markerObject)
+    {
+        SmokeGrenadeBase smoke = SmokeGrenadeBase.Cast(markerObject);
+        if (!smoke)
             return;
 
-        string className = VisibleMarkerClassName(id);
-        if (!GetGame().ConfigIsExisting("CfgVehicles " + className))
-        {
-            className = "M18SmokeGrenade_Red";
-            if (!GetGame().ConfigIsExisting("CfgVehicles " + className))
-                className = "Roadflare";
-        }
-
-        Object obj;
-        if (m_VisualObjects.Find(id, obj) && obj)
-        {
-            vector movePos = position;
-            movePos[1] = GetGame().SurfaceY(movePos[0], movePos[2]) + 0.15;
-            obj.SetPosition(movePos);
-            return;
-        }
-
-        vector p = position;
-        p[1] = GetGame().SurfaceY(p[0], p[2]) + 0.15;
-        obj = GetGame().CreateObjectEx(className, p, ECE_PLACE_ON_SURFACE);
-        if (obj)
-        {
-            obj.SetOrientation(Vector(0, 0, 0));
-            m_VisualObjects.Set(id, obj);
-        }
+        if (smoke.GetCompEM() && smoke.GetCompEM().CanWork() && !smoke.GetCompEM().IsWorking())
+            smoke.GetCompEM().SwitchOn();
     }
 
     protected void NotifyMarkerCreated(string id, string label, vector position)
     {
-        DeutschZCore_NotificationProviderAPI notify = DeutschZCore_ServiceLocator.GetNotificationProvider();
-        if (!notify)
-            return;
-
-        string msg = label + " | Position " + position.ToString();
-        notify.SendEventNotification("DeutschZ Marker", "marker", "DeutschZ Event Marker", msg, position);
+        // FIX25: Marker requests must not spam chat/popup.
+        // Map/3D marker creation is logged and represented by a safe world fallback object.
+        // Real Expansion map markers stay behind the Bridge provider and can be added here after API verification.
+        return;
     }
 
     override bool CreateMarker(string id, string label, vector position, int colorARGB)
@@ -172,7 +157,7 @@ class DeutschZExpansionBridge_AIProvider: DeutschZCore_AIProviderAPI
     override bool SpawnGuard(string eventId, string loadoutId, vector position)
     {
         // Safe test fallback: spawn a vanilla military infected instead of guessing Expansion AI constructors.
-        return SpawnInfected(eventId, "ZmbM_SoldierNormal_Beige", position);
+        return SpawnInfected(eventId, "ZmbM_usSoldier_Officer_Desert", position);
     }
 
     override bool SpawnInfected(string eventId, string className, vector position)
@@ -182,12 +167,12 @@ class DeutschZExpansionBridge_AIProvider: DeutschZCore_AIProviderAPI
 
         string spawnClass = className;
         if (!GetGame().ConfigIsExisting("CfgVehicles " + spawnClass))
-            spawnClass = "ZmbM_SoldierNormal_Beige";
+            spawnClass = "ZmbM_usSoldier_Officer_Desert";
 
         vector p = position;
         p[1] = GetGame().SurfaceY(p[0], p[2]);
 
-        Object obj = GetGame().CreateObjectEx(spawnClass, p, ECE_PLACE_ON_SURFACE);
+        Object obj = GetGame().CreateObjectEx(spawnClass, p, ECE_PLACE_ON_SURFACE | ECE_INITAI);
         if (!obj)
         {
             DeutschZCore_Log.Warn("ExpansionBridge", "infected spawn failed class=" + spawnClass + " pos=" + p.ToString());

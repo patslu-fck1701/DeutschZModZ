@@ -16,5 +16,9 @@
     "Stages": [],
     "Carriers": [],
     "Checkpoints": [],
-    "DroppedItems": []
+    "DroppedItems": [],
+    "AutoStartMinDelaySeconds": 900,
+    "AutoStartMaxDelaySeconds": 900,
+    "RestartDelaySeconds": 1800,
+    "StatusNotificationIntervalSeconds": 60
 }

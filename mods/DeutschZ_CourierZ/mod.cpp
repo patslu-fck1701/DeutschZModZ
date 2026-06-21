@@ -7,4 +7,4 @@ tooltip = "DeutschZ CourierZ";
 overview = "Server-authoritative DeutschZ courier transport event with case carrier, delivery target, marker, notification and safe fallback flow.";
 action = "";
 author = "Patrick Sluzalek / fck1701";
-version = "0.1.0-safe-boot-event-skeleton";
+version = "0.1.2 FIX30 LinkCreditAudit";

@@ -45,7 +45,7 @@
             "WaveId": "test_wave_1",
             "DelaySeconds": 0,
             "Count": 3,
-            "AIClassName": "ZmbM_SoldierNormal_Beige",
+            "AIClassName": "ZmbM_usSoldier_Officer_Desert",
             "DeutschZAIProfileId": "",
             "LoadoutName": "",
             "SpawnPoints": [

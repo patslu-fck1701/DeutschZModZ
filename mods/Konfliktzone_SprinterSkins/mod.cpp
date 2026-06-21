@@ -1,0 +1,11 @@
+name = "Konfliktzone Sprinter Skins";
+picture = "";
+logo = "";
+logoSmall = "";
+logoOver = "";
+tooltip = "Konfliktzone Sprinter Skins";
+overview = "Adds Konfliktzone Admin KA/01 and KA/02 Sprinter Cargo variants as a clean retexture addon for MBM Mercedes Sprinter.";
+action = "https://discord.gg/tRtSbWtrsm";
+author = "Einarvargr / Konfliktzone; technical assistance by Patrick Sluzalek / fck1701";
+authorID = "";
+version = "0.1.0-admin-cargo";

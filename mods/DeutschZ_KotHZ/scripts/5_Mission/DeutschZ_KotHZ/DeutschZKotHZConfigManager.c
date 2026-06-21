@@ -262,8 +262,8 @@ class DeutschZKotHZConfigManager
             config.OwnershipNotice = "DeutschZ_KotHZ is the custom KOTH framework owned and maintained by Patrick Sluzalek / fck1701 for the DeutschZ server.";
 
         // FIX17 TESTVERSION: force quick event start and active high-value test loot even when an older profile JSON already exists.
-        config.MinStartDelayMinutes = 1;
-        config.MaxStartDelayMinutes = 1;
+        config.MinStartDelayMinutes = 5;
+        config.MaxStartDelayMinutes = 5;
         config.MinPlayersToStart = 1;
         config.DebugMode = 1;
 
@@ -469,15 +469,15 @@ class DeutschZKotHZConfigManager
         if (config.Zombies)
         {
             if (config.Zombies.ZombieFallbackClassName == "")
-                config.Zombies.ZombieFallbackClassName = "ZmbM_CitizenASkinny_Brown";
+                config.Zombies.ZombieFallbackClassName = "ZmbM_usSoldier_Officer_Desert";
             if (!config.Zombies.ZombieFallbackClassNames)
                 config.Zombies.ZombieFallbackClassNames = new array<string>;
             if (config.Zombies.ZombieFallbackClassNames.Count() == 0)
             {
-                config.Zombies.ZombieFallbackClassNames.Insert("ZmbM_CitizenASkinny_Brown");
+                config.Zombies.ZombieFallbackClassNames.Insert("ZmbM_usSoldier_Officer_Desert");
                 config.Zombies.ZombieFallbackClassNames.Insert("ZmbM_CitizenASkinny_Blue");
-                config.Zombies.ZombieFallbackClassNames.Insert("ZmbM_PatrolNormal_Autumn");
-                config.Zombies.ZombieFallbackClassNames.Insert("ZmbM_SoldierNormal_Beige");
+                config.Zombies.ZombieFallbackClassNames.Insert("ZmbM_usSoldier_Officer_Desert");
+                config.Zombies.ZombieFallbackClassNames.Insert("ZmbM_usSoldier_Officer_Desert");
             }
         }
 
@@ -545,10 +545,10 @@ class DeutschZKotHZConfigManager
 
             if (zone.ZombieTypes.Count() == 0)
             {
-                zone.ZombieTypes.Insert("ZmbM_PatrolNormal_Autumn");
+                zone.ZombieTypes.Insert("ZmbM_usSoldier_Officer_Desert");
                 zone.ZombieTypes.Insert("ZmbM_PatrolNormal_Summer");
-                zone.ZombieTypes.Insert("ZmbM_SoldierNormal_Beige");
-                zone.ZombieTypes.Insert("ZmbM_CitizenASkinny_Brown");
+                zone.ZombieTypes.Insert("ZmbM_usSoldier_Officer_Desert");
+                zone.ZombieTypes.Insert("ZmbM_usSoldier_Officer_Desert");
                 zone.ZombieTypes.Insert("ZmbM_CitizenASkinny_Blue");
                 zone.ZombieTypes.Insert("ZmbM_NBC_Yellow");
             }

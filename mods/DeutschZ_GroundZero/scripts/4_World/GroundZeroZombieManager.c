@@ -21,22 +21,22 @@ class GroundZeroZombieManager
     {
         if (threat <= 1)
         {
-            return "ZmbM_CitizenASkinny_Brown";
+            return "ZmbM_usSoldier_Officer_Desert";
         }
 
         if (threat == 2)
         {
-            return "ZmbM_SoldierNormal_Beige";
+            return "ZmbM_usSoldier_Officer_Desert";
         }
 
         if (threat == 3)
         {
-            return "ZmbM_HunterOld_Autumn";
+            return "ZmbM_usSoldier_Officer_Desert";
         }
 
         if (threat == 4)
         {
-            return "ZmbM_SoldierHeavy_Green";
+            return "ZmbM_usSoldier_Officer_Desert";
         }
 
         return "ZmbM_usSoldier_Officer_Desert";

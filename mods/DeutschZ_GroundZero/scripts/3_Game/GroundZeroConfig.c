@@ -82,11 +82,11 @@ class GroundZeroEventSchedulingSettings
     void GroundZeroEventSchedulingSettings()
     {
         AutoStartAfterRestart = 1;
-        StartDelayMinSeconds = 60;
-        StartDelayMaxSeconds = 60;
+        StartDelayMinSeconds = 900;
+        StartDelayMaxSeconds = 900;
         RestartAfterFinish = 1;
-        RestartDelayMinSeconds = 60;
-        RestartDelayMaxSeconds = 60;
+        RestartDelayMinSeconds = 1800;
+        RestartDelayMaxSeconds = 1800;
         NoPlayerRetryDelaySeconds = 60;
     }
 
@@ -178,7 +178,7 @@ class GroundZeroEventNotificationSettings
         UseVanillaNotifications = 1;
         UseChatMessages = 1;
         StatusNotifications = 1;
-        StatusIntervalSeconds = 10;
+        StatusIntervalSeconds = 60;
         NotifyOnScheduled = 1;
         NotifyOnStart = 1;
         NotifyOnStageChange = 1;
@@ -526,14 +526,14 @@ class GroundZeroConfig
     {
         ConfigVersion = 6;
         EnableGroundZero = true;
-        AutoStartEnabled = false;
-        AutoStartMinDelaySeconds = 1800;
-        AutoStartMaxDelaySeconds = 5400;
+        AutoStartEnabled = true;
+        AutoStartMinDelaySeconds = 900;
+        AutoStartMaxDelaySeconds = 900;
         MinOnlinePlayersToAutoStart = 1;
 
         EventMinDurationSeconds = 2700;
         EventMaxDurationSeconds = 5400;
-        EventCleanupDelaySeconds = 300;
+        EventCleanupDelaySeconds = 60;
 
         AllowTimedObjectiveFallback = false;
         RetryLimitPerEvent = 3;

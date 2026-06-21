@@ -49,11 +49,11 @@ class CourierZEventSchedulingSettings
     void CourierZEventSchedulingSettings()
     {
         AutoStartAfterRestart = 1;
-        StartDelayMinSeconds = 60;
-        StartDelayMaxSeconds = 60;
+        StartDelayMinSeconds = 1200;
+        StartDelayMaxSeconds = 1200;
         RestartAfterFinish = 1;
-        RestartDelayMinSeconds = 60;
-        RestartDelayMaxSeconds = 60;
+        RestartDelayMinSeconds = 2100;
+        RestartDelayMaxSeconds = 2100;
         NoPlayerRetryDelaySeconds = 60;
     }
 
@@ -139,7 +139,7 @@ class CourierZEventNotificationSettings
         UseVanillaNotifications = 1;
         UseChatMessages = 1;
         StatusNotifications = 1;
-        StatusIntervalSeconds = 15;
+        StatusIntervalSeconds = 60;
     }
 
     void Repair()
@@ -307,7 +307,7 @@ class CourierZConfig
     void SetDefaults()
     {
         ConfigVersion = 1;
-        PresetName = "FAST_TEST_COURIERZ_0_1_0";
+        PresetName = "STAGGERED_TEST_FIX25_COURIERZ";
         DeutschZEventSettings = new CourierZUnifiedEventSettings;
         Courier = new CourierZSpecificSettings;
         ContactPosition = "7500 0 7500";
@@ -316,7 +316,7 @@ class CourierZConfig
         DeliveryOrientation = "0 0 0";
         CaseClassName = "DZCR_Aktenkoffer";
         RewardChestClassName = "DZCR_RewardChest";
-        EnemyClassName = "ZmbM_SoldierNormal_Beige";
+        EnemyClassName = "ZmbM_usSoldier_Officer_Desert";
         StartEnemyCount = 3;
         DeliveryEnemyCount = 3;
         RewardItems = new array<string>;
@@ -333,10 +333,10 @@ class CourierZConfig
         DeutschZEventSettings.Repair();
         Courier.Repair();
         if (ConfigVersion < 1) ConfigVersion = 1;
-        if (PresetName == "") PresetName = "FAST_TEST_COURIERZ_0_1_0";
+        if (PresetName == "") PresetName = "STAGGERED_TEST_FIX25_COURIERZ";
         if (CaseClassName == "") CaseClassName = "DZCR_Aktenkoffer";
         if (RewardChestClassName == "") RewardChestClassName = "DZCR_RewardChest";
-        if (EnemyClassName == "") EnemyClassName = "ZmbM_SoldierNormal_Beige";
+        if (EnemyClassName == "") EnemyClassName = "ZmbM_usSoldier_Officer_Desert";
         if (StartEnemyCount < 0) StartEnemyCount = 0;
         if (DeliveryEnemyCount < 0) DeliveryEnemyCount = 0;
         if (RewardItems.Count() < 1) RewardItems.Insert("BandageDressing");

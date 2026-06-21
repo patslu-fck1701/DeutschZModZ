@@ -2,8 +2,7 @@
 
 ## Idee / Konzeptanstoß
 
-- Playername: Einarvargr
-- Server: Konfliktzone
+- Einarvargr / Konfliktzone
 
 Auf Wunsch des Ideengebers wird kein Vorname und kein Realname genannt.
 
@@ -17,7 +16,7 @@ Auf Wunsch des Ideengebers wird kein Vorname und kein Realname genannt.
 
 ## Konfliktzone Verbindung
 
-Die Idee zu Operation Aktenkoffer / CourierZ wurde transparent dem Playernamen Einarvargr vom Server Konfliktzone zugeordnet.
+Die Idee zu Operation Aktenkoffer / CourierZ wurde transparent Einarvargr / Konfliktzone zugeordnet.
 
 # Community / Serverlinks
 
@@ -37,9 +36,9 @@ Konfliktzone World ist eine verbundene DayZ-Multimap-Spielwelt, in der mehrere K
 
 ## CourierZ Credit
 
-- Idee / Konzeptanstoß: Playername Einarvargr, Server Konfliktzone
+- Idee / Konzeptanstoß: Einarvargr / Konfliktzone
 - Entwicklung / Implementierung: Patrick Sluzalek / fck1701, DeutschZ DayZ Server
-- Hinweis: Es werden kein Vorname und kein Realname des Ideengebers genannt. Der Credit erfolgt bewusst nur mit Playername und Server.
+- Hinweis: Es werden kein Vorname und kein Realname des Ideengebers genannt. Der Credit erfolgt bewusst nur als Einarvargr / Konfliktzone.
 
 
 ## Abgrenzung
