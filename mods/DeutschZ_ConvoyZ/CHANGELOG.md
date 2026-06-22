@@ -1,3 +1,10 @@
+## FIX41 - EventFlow Progress, AI Loadout, Reward Chest (2026-06-22)
+- ConvoyZ bekommt einen eigenen sichtbaren Client-HUD/Progressbar-Flow fuer Sichern, Hacken und Reward-Freigabe.
+- Server sendet Status nicht mehr nur ins Log, sondern an Spieler im Eventradius.
+- AI-/eAI-Wachen bekommen ein defensives Standard-Loadout, wenn ihr Entity-Inventar dies erlaubt. Infected-Fallbacks werden sauber geloggt und nicht fake-bestueckt.
+- Default-Reward nutzt jetzt die DeutschZ ConvoyZ Rewardchest `DZCV_SealedRewardChest` statt ProtectedCase/Fass-Eindruck.
+- M249-Blocker bleibt bestehen; keine vanilla M249 wird wieder eingefuegt.
+
 ﻿## Publishing Cleanup - Workshop/Types/Config Guides (2026-06-22)
 - Workshop description refreshed to German, English and Russian only.
 - Added `DeutschZ_ConvoyZ_types.xml` with event classes at `nominal=0` for adminspawn/trader/event rewards, not random mapspawn.

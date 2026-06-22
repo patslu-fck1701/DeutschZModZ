@@ -7,4 +7,4 @@ tooltip = "DeutschZ ConvoyZ";
 overview = "DeutschZ ConvoyZ: server-authoritative convoy/blackbox event with hack action, waves, fallback enemies, rewards, cleanup and Core/Bridge routing.";
 action = "";
 author = "Patrick Sluzalek / fck1701";
-version = "0.1.3-fix39-baseline";
+version = "0.1.4-fix41-eventflow-progress";

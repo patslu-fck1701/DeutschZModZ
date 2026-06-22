@@ -30,7 +30,7 @@ class CfgMods
         credits = "Owner: Patrick Sluzalek / Player: fck1701 / Server: DeutschZ";
         author = "Patrick Sluzalek / fck1701";
         authorID = "0";
-        version = "2.3.3-fix39-reward-flag-compile";
+        version = "2.3.1-fix41-eventflow-boss";
         extra = 0;
         type = "mod";
         defines[] = {"DEUTSCHZ_KotHZ"};

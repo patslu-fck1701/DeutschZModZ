@@ -32,7 +32,7 @@ class CfgMods
         credits = "Owner: Patrick Sluzalek / Player: fck1701 / Server: DeutschZ";
         author = "Patrick Sluzalek / fck1701";
         authorID = "0";
-        version = "0.1.4-fix39-baseline";
+        version = "0.1.5-fix41-eventflow-aktenkoffer";
         extra = 0;
         type = "mod";
         dependencies[] = {"Game", "World", "Mission"};
@@ -105,8 +105,11 @@ class CfgVehicles
     class DZCR_Aktenkoffer: SmallProtectorCase
     {
         scope = 2;
-        displayName = "Versiegelter Aktenkoffer";
-        descriptionShort = "DeutschZ CourierZ Eventkoffer. Serverautoritaer verwaltet.";
+        displayName = "DeutschZ Aktenkoffer";
+        descriptionShort = "Versiegelter DeutschZ CourierZ Eventkoffer. Zum Ziel bringen, nicht einlagern.";
+        model = "DeutschZ_CourierZ/Assets/Case/protector_case.p3d";
+        hiddenSelections[] = {"camo"};
+        hiddenSelectionsTextures[] = {"DeutschZ_CourierZ/Assets/Case/Case.paa"};
         itemSize[] = {4, 3};
         weight = 2500;
         canBeSplit = 0;
@@ -117,7 +120,9 @@ class CfgVehicles
     {
         scope = 2;
         displayName = "DeutschZ CourierZ Belohnungskiste";
-        descriptionShort = "Belohnung fuer eine erfolgreiche Kurierlieferung.";
+        descriptionShort = "DeutschZ Rewardchest fuer eine erfolgreiche Operation Aktenkoffer.";
+        hiddenSelections[] = {"camoGround"};
+        hiddenSelectionsTextures[] = {"DeutschZ_CourierZ/Assets/Case/Seachest.paa"};
         itemSize[] = {10, 10};
         weight = 15000;
     };

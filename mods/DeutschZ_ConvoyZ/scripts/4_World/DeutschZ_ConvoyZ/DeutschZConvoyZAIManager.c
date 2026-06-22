@@ -75,7 +75,37 @@ class DeutschZConvoyZAIManager
 
         string loadoutName = wave.LoadoutName;
         if (loadoutName == "") loadoutName = "PoliceLoadout";
-        DeutschZConvoyZLogger.Log("AILoadoutDeferred", "", "", "", aiObject.GetPosition(), "OK", "Loadout '" + loadoutName + "' must be applied by DeutschZ_ExpansionBridge after target API verification");
+
+        if (GetGame().IsKindOf(aiObject.GetType(), "ZombieBase") || GetGame().IsKindOf(aiObject.GetType(), "DayZInfected"))
+        {
+            DeutschZConvoyZLogger.Log("AILoadoutSkipped", "", "", "", aiObject.GetPosition(), "OK", "Infected fallback has no inventory loadout: " + aiObject.GetType());
+            return;
+        }
+
+        EntityAI ai = EntityAI.Cast(aiObject);
+        if (!ai || !ai.GetInventory())
+        {
+            DeutschZConvoyZLogger.Log("AILoadoutSkipped", "", "", "", aiObject.GetPosition(), "WARN", "No EntityAI inventory for " + aiObject.GetType());
+            return;
+        }
+
+        SpawnLoadoutItem(ai, "PoliceJacket");
+        SpawnLoadoutItem(ai, "PolicePants");
+        SpawnLoadoutItem(ai, "CombatBoots_Black");
+        SpawnLoadoutItem(ai, "PlateCarrierVest");
+        SpawnLoadoutItem(ai, "AK74");
+        SpawnLoadoutItem(ai, "Mag_AK74_30Rnd");
+        SpawnLoadoutItem(ai, "Mag_AK74_30Rnd");
+        SpawnLoadoutItem(ai, "Ammo_545x39");
+        DeutschZConvoyZLogger.Log("AILoadoutApplied", "", "", "", aiObject.GetPosition(), "OK", "Loadout '" + loadoutName + "' applied if classes existed");
+    }
+
+    void SpawnLoadoutItem(EntityAI ai, string className)
+    {
+        if (!ai || className == "") return;
+        if (DeutschZCore_UnsafeClassGuard.IsBlockedClass(className)) return;
+        if (!GetGame().ConfigIsExisting("CfgVehicles " + className)) return;
+        ai.GetInventory().CreateInInventory(className);
     }
 
     string NormalizeAIClassName(string className)

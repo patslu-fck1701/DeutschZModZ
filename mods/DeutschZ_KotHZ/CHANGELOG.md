@@ -1,3 +1,13 @@
+## FIX41 - EventFlow Bossphase, Signalstation, Flagge (2026-06-22)
+- Capture bleibt radiusbasiert: Signalstation betreten, Bereich halten, keine versteckte Interaktion noetig.
+- KotHZ endet nicht mehr direkt bei 100% Capture: Danach erscheint ein Spezial-Boss.
+- Finaler Mummy-Boss spawnt nach Capture, wird visuell vergroessert und mit 5000 HP gesetzt.
+- KotHZ-HUD nutzt in der Bossphase die Statusbar als verbleibende Boss-HP-Anzeige.
+- Reward-Crate wird erst nach Bosskill freigegeben; bei Boss-Spawn-Fallback wird Reward sicher freigegeben.
+- Drei Wellen bleiben nach Capture-Prozent: zivil, Hunter/Patrol, Military.
+- DeutschZ Flagtextur wird auf dem angehaengten Flaggenobjekt zusaetzlich erzwungen, damit keine weisse Fahne angezeigt wird.
+- Musik/Smoke/Fog bleiben weiter vorsichtig ausgeschaltet bzw. config-gated; keine riskanten Loops reaktiviert.
+
 ﻿## Publishing Cleanup + Stage-0 Atmosphere Defaults (2026-06-22)
 - Workshop description refreshed to German, English and Russian only.
 - Added `DeutschZ_KotHZ_types.xml` with event classes at `nominal=0` for adminspawn/trader/event rewards, not random mapspawn.

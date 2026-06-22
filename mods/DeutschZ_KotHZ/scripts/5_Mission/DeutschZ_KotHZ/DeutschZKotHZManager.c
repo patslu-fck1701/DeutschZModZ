@@ -35,6 +35,9 @@ class DeutschZKotHZManager
     protected bool m_DZKZ_BossKilled;
     protected bool m_DZKZ_WaitingBossKillAnnounced;
     protected Object m_DZKZ_BossZombie;
+    protected bool m_DZKZ_BossPhaseActive;
+    protected float m_DZKZ_BossMaxHealth;
+    protected PlayerBase m_DZKZ_CaptureWinner;
     protected ref map<Object, string> m_DZKZ_EventInfectedRegistry;
     protected ref array<string> m_DZKZ_EventLog;
     protected ref array<Object> m_FogEmitters;
@@ -77,6 +80,9 @@ class DeutschZKotHZManager
         m_DZKZ_BossKilled = false;
         m_DZKZ_WaitingBossKillAnnounced = false;
         m_DZKZ_BossZombie = null;
+        m_DZKZ_BossPhaseActive = false;
+        m_DZKZ_BossMaxHealth = 5000.0;
+        m_DZKZ_CaptureWinner = null;
         m_DZKZ_EventInfectedRegistry = new map<Object, string>;
         m_DZKZ_EventLog = new array<string>;
         m_DZKZ_PlayersInSignalRadius = new map<string, bool>;
@@ -391,22 +397,9 @@ class DeutschZKotHZManager
         if (m_EventCompleting)
             return;
 
-        m_EventCompleting = true;
-
-        string winnerName = GetPlayerName(winner);
-        string zoneName = "KOTH";
-        if (m_ActiveZone)
-            zoneName = m_ActiveZone.ZoneName;
-
-        Announce("KotHZ gesichert. Belohnung wurde freigegeben. " + zoneName + " wurde von " + winnerName + " erobert.");
-        // FIX35: Hide capture/statusbar immediately on completion. No second post-completion bar/boss phase.
-        SendHUDToAll(false, "", 0, 0, 0, 0, "KotHZ gesichert - Belohnung freigegeben");
-
-        DeutschZKotHZLootPool pool = GetActiveLootPool();
-        ref array<ref DeutschZKotHZReward> rewards = GetActiveRewardList();
-        SpawnRewardCrate(winner, pool, rewards);
-
-        StopEvent();
+        // FIX41 EventFlow: Capture no longer ends the event immediately.
+        // After 100% capture the final Mummy boss appears; reward is released after the boss kill.
+        BeginBossPhase(winner);
     }
 
     protected void StopEvent()
@@ -431,6 +424,8 @@ class DeutschZKotHZManager
         m_CurrentCaptureSeconds = 0;
         m_CurrentSmokeState = "";
         m_ZombieWavesStarted = false;
+        m_DZKZ_BossPhaseActive = false;
+        m_DZKZ_CaptureWinner = null;
         ResetInfectedSiegeRuntime();
 
         if (m_ProgressHUDPlayers)
@@ -557,6 +552,12 @@ class DeutschZKotHZManager
     {
         if (!m_EventActive || m_EventCompleting || !m_ActiveZone)
             return;
+
+        if (m_DZKZ_BossPhaseActive)
+        {
+            TickBossPhase();
+            return;
+        }
 
         int playersInZone = CountPlayersInZone();
         PlayerBase holder = FindSingleHolderInZone(playersInZone);
@@ -1879,6 +1880,9 @@ class DeutschZKotHZManager
         m_DZKZ_BossKilled = false;
         m_DZKZ_WaitingBossKillAnnounced = false;
         m_DZKZ_BossZombie = null;
+        m_DZKZ_BossPhaseActive = false;
+        m_DZKZ_BossMaxHealth = 5000.0;
+        m_DZKZ_CaptureWinner = null;
         if (m_DZKZ_EventInfectedRegistry)
             m_DZKZ_EventInfectedRegistry.Clear();
     }
@@ -1914,13 +1918,8 @@ class DeutschZKotHZManager
             DZKZ_Log("WaveTriggered", "75 Military");
         }
 
-        if (percent >= 90 && !m_DZKZ_BossSpawned)
-        {
-            m_DZKZ_BossSpawned = true;
-            Announce("KotHZ Infected Siege: 90% - Mummy-Boss ist erschienen!");
-            SpawnInfectedSiegeBoss();
-            DZKZ_Log("BossSpawned", "ZmbM_Mummy");
-        }
+        // FIX41: Boss spawns after completed capture, not at 90%.
+        // This keeps the flow clear: hold signal station -> 100% capture -> warning -> boss HP bar -> reward.
     }
 
     protected int GetInfectedSiegeWaveCount(int fallbackCount)
@@ -1983,6 +1982,93 @@ class DeutschZKotHZManager
         SpawnZombieBatchFromWave(wave);
     }
 
+    protected void BeginBossPhase(PlayerBase winner)
+    {
+        m_DZKZ_CaptureWinner = winner;
+        m_DZKZ_BossPhaseActive = true;
+        m_DZKZ_BossSpawned = true;
+        m_DZKZ_BossKilled = false;
+        m_DZKZ_WaitingBossKillAnnounced = false;
+        m_CurrentHolder = null;
+
+        SetStatusSmoke("Red");
+        Announce("WARNUNG: Die Signalstation ist gesichert, aber ein Spezial-Boss wurde angelockt. Mummy-Boss eliminieren, um die Belohnung freizugeben!");
+        SpawnInfectedSiegeBoss();
+
+        if (!m_DZKZ_BossZombie)
+        {
+            Announce("KotHZ Boss konnte nicht gespawnt werden. Belohnung wird als Fallback freigegeben.");
+            CompleteEventAfterBoss();
+            return;
+        }
+
+        SyncBossHUD();
+        DZKZ_Log("BossPhaseStarted", "capture complete");
+    }
+
+    protected void TickBossPhase()
+    {
+        if (!m_DZKZ_BossPhaseActive)
+            return;
+
+        if (!m_DZKZ_BossZombie || m_DZKZ_BossKilled || m_DZKZ_BossZombie.IsDamageDestroyed())
+        {
+            CompleteEventAfterBoss();
+            return;
+        }
+
+        SyncBossHUD();
+    }
+
+    protected void CompleteEventAfterBoss()
+    {
+        if (m_EventCompleting)
+            return;
+
+        m_EventCompleting = true;
+        m_DZKZ_BossPhaseActive = false;
+        m_DZKZ_BossKilled = true;
+
+        string winnerName = GetPlayerName(m_DZKZ_CaptureWinner);
+        string zoneName = "KOTH";
+        if (m_ActiveZone)
+            zoneName = m_ActiveZone.ZoneName;
+
+        Announce("KotHZ abgeschlossen: Mummy-Boss eliminiert. Belohnung wurde freigegeben. " + zoneName + " wurde von " + winnerName + " gesichert.");
+        SendHUDToAll(false, "", 0, 0, 0, 0, "KotHZ abgeschlossen - Belohnung freigegeben");
+
+        DeutschZKotHZLootPool pool = GetActiveLootPool();
+        ref array<ref DeutschZKotHZReward> rewards = GetActiveRewardList();
+        SpawnRewardCrate(m_DZKZ_CaptureWinner, pool, rewards);
+
+        StopEvent();
+    }
+
+    protected void SyncBossHUD()
+    {
+        if (!m_ActiveZone || !m_DZKZ_BossZombie)
+            return;
+
+        float hp = GetBossHealth();
+        int hpInt = Math.Round(hp);
+        int maxHpInt = Math.Round(m_DZKZ_BossMaxHealth);
+        if (maxHpInt <= 0)
+            maxHpInt = 5000;
+        int percent = Math.Clamp((hpInt * 100) / maxHpInt, 0, 100);
+        SendHUDToAll(true, m_ActiveZone.ZoneName, percent, hpInt, -maxHpInt, CountPlayersInZone(), "Bossphase - Mummy HP verbleibend");
+    }
+
+    protected float GetBossHealth()
+    {
+        if (!m_DZKZ_BossZombie)
+            return 0.0;
+
+        float hp = m_DZKZ_BossZombie.GetHealth("", "");
+        if (hp <= 0)
+            hp = m_DZKZ_BossZombie.GetHealth("GlobalHealth", "Health");
+        return Math.Max(0.0, hp);
+    }
+
     protected void SpawnInfectedSiegeBoss()
     {
         if (!m_ActiveZone)
@@ -1991,7 +2077,7 @@ class DeutschZKotHZManager
         vector pos = GetRandomZombiePosition();
         string bossClass = "ZmbM_Mummy";
         if (!IsValidZombieGuardClass(bossClass))
-            bossClass = ResolveZombieFallbackClass("ZmbM_SoldierNormal_Beige");
+            bossClass = ResolveZombieFallbackClass("ZmbM_usSoldier_Officer_Desert");
 
         Object boss = null;
         if (bossClass != "")
@@ -2000,19 +2086,26 @@ class DeutschZKotHZManager
         if (!boss)
         {
             Print("[DeutschZ_KotHZ] Boss spawn failed, falling back to military infected.");
-            boss = SpawnFallbackZombie(pos, "ZmbM_Mummy", "ZmbM_SoldierNormal_Beige");
+            boss = SpawnFallbackZombie(pos, "ZmbM_Mummy", "ZmbM_usSoldier_Officer_Desert");
         }
 
         if (boss)
         {
             m_DZKZ_BossZombie = boss;
+            m_DZKZ_BossMaxHealth = 5000.0;
+            // FIX41: high-HP special boss. Scale is visual only; class default movement remains stable.
+            boss.SetScale(3.0);
+            boss.SetHealth("", "", m_DZKZ_BossMaxHealth);
+            boss.SetHealth("GlobalHealth", "Health", m_DZKZ_BossMaxHealth);
             m_SpawnedZombies.Insert(boss);
-            RegisterEventInfected(boss, "90 Mummy Boss");
+            RegisterEventInfected(boss, "Final Mummy Boss");
+            Announce("Mummy-Boss erschienen: 5000 HP. Statusbar zeigt verbleibende HP.");
+            DZKZ_Log("BossSpawned", boss.GetType());
         }
         else
         {
             m_DZKZ_BossKilled = true;
-            DZKZ_Log("BossSpawnFailed", "fallback failed, reward block disabled");
+            DZKZ_Log("BossSpawnFailed", "fallback failed, reward fallback enabled");
         }
     }
 
@@ -2043,6 +2136,7 @@ class DeutschZKotHZManager
             m_DZKZ_BossZombie = null;
             Announce("KotHZ Infected Siege: Mummy-Boss eliminiert!");
             DZKZ_Log("BossKilled", waveName);
+            CompleteEventAfterBoss();
         }
         else
         {

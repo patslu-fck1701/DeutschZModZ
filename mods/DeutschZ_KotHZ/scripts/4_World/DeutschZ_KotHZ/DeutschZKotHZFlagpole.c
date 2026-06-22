@@ -119,6 +119,7 @@ class DeutschZKotHZFlagpole
             return false;
         }
 
+        ApplyDeutschZFlagTexture(flag);
         flag.SetLifetimeMax(7200);
         flag.SetLifetime(7200);
         m_PoleObject = pole;
@@ -146,6 +147,16 @@ class DeutschZKotHZFlagpole
             m_FallbackFlagObject.SetPosition(GetFallbackFlagPositionForFraction(fraction));
             m_FallbackFlagObject.SetOrientation(m_Orientation);
         }
+    }
+
+    protected void ApplyDeutschZFlagTexture(Object flag)
+    {
+        if (!flag)
+            return;
+
+        // FIX41: force the active DeutschZ flag texture as a safety net.
+        // Some TerritoryFlag attachment paths can otherwise show a plain white flag.
+        flag.SetObjectTexture(0, "DeutschZ_KotHZ/data/flags/DeutschZ_KotHZ_Flag.paa");
     }
 
     protected void ApplyMastAnimation(Object pole, float fraction)

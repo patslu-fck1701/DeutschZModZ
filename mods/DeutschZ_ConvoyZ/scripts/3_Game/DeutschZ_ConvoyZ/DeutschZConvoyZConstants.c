@@ -51,3 +51,36 @@ string DeutschZConvoyZ_StateName(int state)
     if (state == DeutschZConvoyZConstants.STATE_FAILED) return "FAILED";
     return "NONE";
 }
+
+
+class DeutschZConvoyZRPC
+{
+    static const string TOKEN = "DeutschZ_ConvoyZ_RPC_V1";
+}
+
+class DeutschZConvoyZClientHUDState
+{
+    protected static bool s_Active;
+    protected static string s_Title;
+    protected static string s_Status;
+    protected static int s_Percent;
+    protected static string s_Detail;
+    protected static int s_LastUpdateMs;
+
+    static void Set(bool active, string title, string status, int percent, string detail)
+    {
+        s_Active = active;
+        s_Title = title;
+        s_Status = status;
+        s_Percent = percent;
+        s_Detail = detail;
+        s_LastUpdateMs = GetGame().GetTime();
+    }
+
+    static bool IsActive() { return s_Active; }
+    static string GetTitle() { return s_Title; }
+    static string GetStatus() { return s_Status; }
+    static int GetPercent() { return s_Percent; }
+    static string GetDetail() { return s_Detail; }
+    static int GetLastUpdateMs() { return s_LastUpdateMs; }
+}

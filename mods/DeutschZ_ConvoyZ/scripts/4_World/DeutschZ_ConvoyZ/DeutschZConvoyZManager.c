@@ -339,6 +339,7 @@ class DeutschZConvoyZManager
         if (status == "") return;
 
         SendStatusToNearbyPlayers(status);
+        SyncStatusNow();
     }
 
 
@@ -393,10 +394,12 @@ class DeutschZConvoyZManager
             float dist = vector.Distance(pb.GetPosition(), center);
             if (dist > radius) continue;
 
+            Param1<string> data = new Param1<string>(text);
+            GetGame().RPCSingleParam(pb, ERPCs.RPC_USER_ACTION_MESSAGE, data, true, pb.GetIdentity());
             sent++;
         }
 
-        Print("[DeutschZ_ConvoyZ] Status available for " + sent.ToString() + " nearby players: " + text);
+        Print("[DeutschZ_ConvoyZ] Status sent to " + sent.ToString() + " nearby players: " + text);
     }
 
 
@@ -432,10 +435,53 @@ class DeutschZConvoyZManager
 
     void SyncStatusNow()
     {
-        // Client status RPC intentionally disabled.
-        // Visible status is handled by Expansion notifications to avoid MissionGameplay.OnRPC compile issues.
-        if (!State) return;
+        if (!State || !Config) return;
         State.LastStatusSyncAt = GetGame().GetTime();
+
+        string title = "DeutschZ ConvoyZ";
+        string status = BuildStatusText();
+        string detail = "";
+        int percent = 0;
+
+        if (State.CurrentState == DeutschZConvoyZConstants.STATE_SECURE_AREA)
+        {
+            int required = State.RequiredKills;
+            if (required <= 0) required = 1;
+            percent = Math.Clamp((State.CurrentKills * 100) / required, 0, 100);
+            detail = "Wachen: " + State.CurrentKills.ToString() + " / " + required.ToString();
+        }
+        else if (State.CurrentState == DeutschZConvoyZConstants.STATE_BLACKBOX_READY)
+        {
+            percent = 0;
+            detail = "Blackbox am Objekt entschluesseln";
+        }
+        else if (State.CurrentState == DeutschZConvoyZConstants.STATE_HACKING)
+        {
+            int duration = GetHackDuration();
+            if (duration <= 0) duration = 1;
+            percent = Math.Clamp((State.HackProgressSeconds * 100) / duration, 0, 100);
+            detail = "Hack: " + State.HackProgressSeconds.ToString() + " / " + duration.ToString() + " Sekunden";
+        }
+        else if (State.CurrentState == DeutschZConvoyZConstants.STATE_REWARD_UNLOCKED)
+        {
+            percent = 100;
+            detail = "Reward freigegeben";
+        }
+
+        vector center = GetEventPosition();
+        float radius = Config.Settings.StatusSyncRadius;
+        if (radius <= 0) radius = 1000.0;
+        array<Man> players = new array<Man>;
+        GetGame().GetPlayers(players);
+        foreach (Man man: players)
+        {
+            PlayerBase pb = PlayerBase.Cast(man);
+            if (!pb || !pb.GetIdentity()) continue;
+            bool active = true;
+            if (vector.Distance(pb.GetPosition(), center) > radius) active = false;
+            Param6<string, bool, string, string, int, string> data = new Param6<string, bool, string, string, int, string>(DeutschZConvoyZRPC.TOKEN, active, title, status, percent, detail);
+            GetGame().RPCSingleParam(pb, DeutschZConvoyZConstants.RPC_STATUS_SYNC, data, true, pb.GetIdentity());
+        }
     }
 
 }

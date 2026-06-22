@@ -74,8 +74,16 @@ class DeutschZKotHZHUD
 
         if (m_PlayerCount)
         {
-            string timeText = FormatTime(seconds) + " / " + FormatTime(totalSeconds);
-            m_PlayerCount.SetText("Spieler: " + playersInZone.ToString() + " | Zeit: " + timeText);
+            if (totalSeconds < 0)
+            {
+                int maxHp = totalSeconds * -1;
+                m_PlayerCount.SetText("Spieler: " + playersInZone.ToString() + " | Boss-HP: " + seconds.ToString() + " / " + maxHp.ToString());
+            }
+            else
+            {
+                string timeText = FormatTime(seconds) + " / " + FormatTime(totalSeconds);
+                m_PlayerCount.SetText("Spieler: " + playersInZone.ToString() + " | Zeit: " + timeText);
+            }
         }
     }
 

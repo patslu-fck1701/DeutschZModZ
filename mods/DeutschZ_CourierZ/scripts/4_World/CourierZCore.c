@@ -21,11 +21,13 @@ class CourierZCore
     protected ref array<Object> m_Enemies;
     protected float m_LastTick;
     protected float m_LastStatus;
+    protected int m_DeliveryProgressSeconds;
     protected int m_Initialized;
 
     void CourierZCore()
     {
         m_Enemies = new array<Object>;
+        m_DeliveryProgressSeconds = 0;
     }
 
     void InitServer()
@@ -147,6 +149,7 @@ class CourierZCore
         m_State.EndsAt = m_State.StartedAt + m_Config.Courier.DeliveryTimeLimitSeconds;
         m_State.RequiredKills = m_Config.DeutschZEventSettings.Testing.RequiredKillsToWin;
         m_State.CurrentKills = 0;
+        m_DeliveryProgressSeconds = 0;
         m_State.EventsStartedThisRestart++;
 
         m_CaseObject = CourierZItems.SpawnObject(m_Config.CaseClassName, m_State.CasePosition);
@@ -206,6 +209,8 @@ class CourierZCore
             m_State.CurrentCarrierName = nearby.GetIdentity().GetName();
             m_State.CarrierLastPosition = nearby.GetPosition();
             m_State.State = CourierZConstants.STATE_IN_TRANSIT;
+            m_DeliveryProgressSeconds = 0;
+            SendPlayerMessage(nearby, "Aktenkoffer gesichert. Bringe ihn zur markierten Abgabestelle.");
             if (m_CaseObject)
             {
                 GetGame().ObjectDelete(m_CaseObject);
@@ -238,8 +243,20 @@ class CourierZCore
 
         if (vector.Distance(carrier.GetPosition(), m_State.DeliveryPosition) <= m_Config.Courier.DeliveryRadius)
         {
-            CompleteEvent(carrier);
+            m_DeliveryProgressSeconds++;
+            int requiredHold = m_Config.DeutschZEventSettings.Testing.ExtractionDurationSeconds;
+            if (requiredHold < 5) requiredHold = 5;
+            if (m_DeliveryProgressSeconds == 1)
+                SendPlayerMessage(carrier, "Abgabestelle erreicht. Uebergabe laeuft - bleib im Radius.");
+            SendStatus(now, "Uebergabe laeuft: " + m_DeliveryProgressSeconds.ToString() + "/" + requiredHold.ToString() + " Sekunden.", m_State.DeliveryPosition);
+            if (m_DeliveryProgressSeconds >= requiredHold)
+                CompleteEvent(carrier);
             return;
+        }
+        else if (m_DeliveryProgressSeconds > 0)
+        {
+            m_DeliveryProgressSeconds = 0;
+            SendPlayerMessage(carrier, "Abgabestelle verlassen. Uebergabe wurde pausiert.");
         }
 
         if (m_Config.DeutschZEventSettings.Markers.UseDynamicPositionUpdates == 1)
@@ -328,6 +345,7 @@ class CourierZCore
         m_State.CurrentCarrierName = "";
         m_State.CasePosition = Grounded(position);
         m_State.State = CourierZConstants.STATE_WAITING_FOR_CARRIER;
+        m_DeliveryProgressSeconds = 0;
         m_CaseObject = CourierZItems.SpawnObject(m_Config.CaseClassName, m_State.CasePosition);
         CreateStartMarkers();
         CourierZBridge.Notify("drop", "Aktenkoffer verloren", reason, m_State.CasePosition);
@@ -337,7 +355,8 @@ class CourierZCore
     protected void CompleteEvent(PlayerBase carrier)
     {
         m_State.State = CourierZConstants.STATE_DELIVERED;
-        CourierZBridge.Notify("complete", "Lieferung abgeschlossen", "Operation Aktenkoffer erfolgreich abgeschlossen.", m_State.DeliveryPosition);
+        SendPlayerMessage(carrier, "CourierZ abgeschlossen. DeutschZ Belohnungskiste wurde freigegeben.");
+        CourierZBridge.Notify("complete", "Lieferung abgeschlossen", "Operation Aktenkoffer erfolgreich abgeschlossen. DeutschZ Rewardchest freigegeben.", m_State.DeliveryPosition);
         SpawnReward(m_State.DeliveryPosition);
         StartCleanup();
     }
@@ -401,10 +420,22 @@ class CourierZCore
         }
     }
 
+    protected void SendPlayerMessage(PlayerBase player, string message)
+    {
+        if (!player || !player.GetIdentity() || message == "")
+            return;
+
+        Param1<string> data = new Param1<string>(message);
+        GetGame().RPCSingleParam(player, ERPCs.RPC_USER_ACTION_MESSAGE, data, true, player.GetIdentity());
+    }
+
     protected void SpawnReward(vector position)
     {
         if (m_Config.Courier.RewardOnDelivery == 0)
             return;
+
+        if (m_Config.RewardChestClassName == "" || m_Config.RewardChestClassName == "SeaChest" || m_Config.RewardChestClassName == "WoodenCrate" || m_Config.RewardChestClassName == "Barrel_ColorBase")
+            m_Config.RewardChestClassName = "DZCR_RewardChest";
 
         m_RewardObject = CourierZItems.SpawnObject(m_Config.RewardChestClassName, position);
         EntityAI container = EntityAI.Cast(m_RewardObject);

@@ -184,7 +184,7 @@ class DeutschZConvoyZConfig
         EventData.Blackbox.ClassName = "Land_HACKEDCRATE";
         EventData.Smoke.Position = EventData.EventCenter;
 
-        EventData.Reward.RewardContainerClassName = "DZCV_ProtectedCase";
+        EventData.Reward.RewardContainerClassName = "DZCV_SealedRewardChest";
         EventData.Reward.RewardPosition = "7507 0 7505";
 
         DeutschZConvoyZRewardItemDef item = new DeutschZConvoyZRewardItemDef();

@@ -173,7 +173,7 @@ class CourierZEventTestingSettings
         WaveDelaySeconds = 30;
         StageAutoCompleteSeconds = 0;
         FinalDefenseSeconds = 120;
-        ExtractionDurationSeconds = 30;
+        ExtractionDurationSeconds = 15;
     }
 
     void Repair()

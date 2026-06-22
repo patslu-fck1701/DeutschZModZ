@@ -1,3 +1,10 @@
+## FIX41 - EventFlow Aktenkoffer und Delivery Hold (2026-06-22)
+- CourierZ Aktenkoffer nutzt eine eigene sichtbare DeutschZ-Kofferklasse mit lokal mitgelieferten DeutschZ-Assets, ohne Abhaengigkeit zu ConvoyZ.
+- CourierZ Reward verwendet weiter eine eigene DeutschZ Rewardchest mit eigener Textur.
+- Abgabe ist jetzt nicht mehr sofort fertig: Spieler muss kurz im Zielradius bleiben, die Uebergabe laeuft sichtbar per Statusmeldungen.
+- Spieler erhalten klare Meldungen fuer Kofferaufnahme, Zielradius, pausierte Uebergabe und Reward-Freigabe.
+- Alte generische Barrel-/SeaChest-Fallbacks werden fuer den Hauptreward auf `DZCR_RewardChest` normalisiert.
+
 ﻿## Publishing Cleanup - Workshop/Types/Config Guides (2026-06-22)
 - Workshop description refreshed to German, English and Russian only.
 - Added `DeutschZ_CourierZ_types.xml` with courier/event classes at `nominal=0` for adminspawn/trader/event rewards, not random mapspawn.
