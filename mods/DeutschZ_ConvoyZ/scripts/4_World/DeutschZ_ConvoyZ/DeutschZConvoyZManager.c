@@ -72,7 +72,17 @@ class DeutschZConvoyZManager
         SetSmoke(DeutschZConvoyZConstants.SMOKE_RED);
         DeutschZConvoyZ_ExpansionNotify("DeutschZ ConvoyZ", "Top Secret Crash Convoy gestartet.", GetEventPosition());
         ChangeState(DeutschZConvoyZConstants.STATE_SECURE_AREA, "spawn ok");
-        AI.StartWaves(Config, State);
+        if (Config.Settings.EnableAiWaves == 1 && State.RequiredKills > 0)
+        {
+            AI.StartWaves(Config, State);
+        }
+        else
+        {
+            State.RequiredKills = 0;
+            State.CurrentKills = 0;
+            DeutschZConvoyZLogger.Log("AISafeBootSkipped", State.EventId, "SECURE_AREA", "", GetEventPosition(), "OK", "EnableAiWaves=0");
+            SetBlackboxReady();
+        }
         if (Config.Settings.UseEventMarker == 1) DeutschZConvoyZ_RegisterMarker(State.EventId, GetEventPosition(), Config.EventData.EventName);
         GetGame().GetCallQueue(CALL_CATEGORY_SYSTEM).Remove(this.Tick);
         GetGame().GetCallQueue(CALL_CATEGORY_SYSTEM).CallLater(this.Tick, 1000, true);
@@ -89,7 +99,7 @@ class DeutschZConvoyZManager
         if (!State) return;
         Spawn.RefreshSmoke(Config, State);
         SendStatusNotification();
-        AI.Tick(Config, State);
+        if (Config.Settings.EnableAiWaves == 1 && State.RequiredKills > 0) AI.Tick(Config, State);
         if (State.CurrentState == DeutschZConvoyZConstants.STATE_SECURE_AREA && State.CurrentKills >= State.RequiredKills) SetBlackboxReady();
         SyncStatusThrottled();
     }

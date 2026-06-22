@@ -145,7 +145,15 @@ class DeutschZConvoyZConfig
             if (wave.DeutschZAIProfileId == "convoy_guard") wave.DeutschZAIProfileId = "";
             waveIndex++;
         }
-        if (EventData.RequiredAiKills <= 0) EventData.RequiredAiKills = Settings.RequiredAiKills;
+        if (Settings.EnableAiWaves == 0)
+        {
+            Settings.RequiredAiKills = 0;
+            EventData.RequiredAiKills = 0;
+        }
+        else if (EventData.RequiredAiKills <= 0)
+        {
+            EventData.RequiredAiKills = Settings.RequiredAiKills;
+        }
         if (EventData.HackDurationSeconds <= 0) EventData.HackDurationSeconds = Settings.HackDurationSeconds;
 
         if (EventData.Smoke)
@@ -199,7 +207,7 @@ class DeutschZConvoyZConfig
     {
         EventData = new DeutschZConvoyZEventDef();
         EventData.EventCenter = "10120 0 5410";
-        EventData.RequiredAiKills = 4;
+        EventData.RequiredAiKills = 0;
         EventData.HackDurationSeconds = 30;
 
         // FIX44: static military convoy scene. No drivable vehicles; use raised vanilla wreck objects.

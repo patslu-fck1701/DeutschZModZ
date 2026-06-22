@@ -160,7 +160,7 @@ class DeutschZConvoyZEventDef
         Blackbox = new DeutschZConvoyZBlackboxDef();
         Smoke = new DeutschZConvoyZSmokeDef();
         AIWaves = new array<ref DeutschZConvoyZAIWaveDef>;
-        RequiredAiKills = 4;
+        RequiredAiKills = 0;
         HackDurationSeconds = 30;
         Reward = new DeutschZConvoyZRewardDef();
     }
@@ -207,11 +207,11 @@ class DeutschZConvoyZSettings
     {
         EnableConvoyZEvent = 1;
         EventConfigPath = DeutschZConvoyZConstants.EVENTS_FILE;
-        RequiredAiKills = 4;
+        RequiredAiKills = 0;
         HackDurationSeconds = 30;
         BlackboxMaxHackDistance = 3.0;
         AllowHackProgressResetOnAbort = 1;
-        EnableAiWaves = 1;
+        EnableAiWaves = 0;
         WaveDelaySeconds = 180;
         UseEventMarker = 1;
         UseEvent3DMarker = 1;

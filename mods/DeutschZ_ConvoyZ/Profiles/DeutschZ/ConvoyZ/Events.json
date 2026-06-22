@@ -103,7 +103,7 @@
             ]
         }
     ],
-    "RequiredAiKills": 4,
+    "RequiredAiKills": 0,
     "HackDurationSeconds": 30,
     "Reward": {
         "RewardContainerClassName": "DZCV_SealedRewardChest",
