@@ -871,6 +871,12 @@ class DeutschZKotHZManager
         if (className == "")
             return null;
 
+        if (IsBannedRewardClass(className))
+        {
+            Print("[DeutschZ_KotHZ] Reward classname is blocked by FIX38 crash guard and was skipped: " + className);
+            return null;
+        }
+
         if (!IsRewardClassConfigured(className))
         {
             Print("[DeutschZ_KotHZ] Reward classname not found in config, skipped: " + className);
@@ -906,22 +912,51 @@ class DeutschZKotHZManager
         return false;
     }
 
+    protected bool IsBannedRewardClass(string className)
+    {
+        if (className == "")
+            return false;
+
+        // FIX38: Vanilla M249 currently triggers Weapon.SaveCurrentFSMState without initialized FSM
+        // when created directly inside reward crate inventory on this server stack.
+        // Keep GCGN_M249 allowed; only block the exact unsafe vanilla class and its vanilla box mag.
+        if (className == "M249")
+            return true;
+        if (className == "Mag_M249_Box200Rnd")
+            return true;
+
+        return false;
+    }
+
     protected string ResolveRewardClassName(DeutschZKotHZReward reward)
     {
         if (!reward)
             return "";
 
         // FIX16: primary reward first, but fall back safely when optional weapon mods are not loaded.
-        if (reward.ClassName != "" && IsRewardClassConfigured(reward.ClassName))
+        // FIX38: Skip exact unsafe vanilla M249 reward entries even when they still exist in old profile configs.
+        if (reward.ClassName != "" && IsBannedRewardClass(reward.ClassName))
+        {
+            Print("[DeutschZ_KotHZ] Primary reward classname blocked by FIX38 crash guard, checking alternatives: " + reward.ClassName);
+        }
+        else if (reward.ClassName != "" && IsRewardClassConfigured(reward.ClassName))
+        {
             return reward.ClassName;
+        }
 
-        if (reward.ClassName != "")
+        if (reward.ClassName != "" && !IsBannedRewardClass(reward.ClassName))
             Print("[DeutschZ_KotHZ] Primary reward classname missing, checking alternatives: " + reward.ClassName);
 
         if (reward.AlternativeClassNames && reward.AlternativeClassNames.Count() > 0)
         {
             foreach (string alternativeClassName : reward.AlternativeClassNames)
             {
+                if (alternativeClassName != "" && IsBannedRewardClass(alternativeClassName))
+                {
+                    Print("[DeutschZ_KotHZ] Reward fallback classname blocked by FIX38 crash guard: " + alternativeClassName);
+                    continue;
+                }
+
                 if (alternativeClassName != "" && IsRewardClassConfigured(alternativeClassName))
                 {
                     Print("[DeutschZ_KotHZ] Reward fallback selected: " + alternativeClassName);
@@ -940,7 +975,11 @@ class DeutschZKotHZManager
 
         if (reward.MagazineClassName != "")
         {
-            if (!IsRewardClassConfigured(reward.MagazineClassName))
+            if (IsBannedRewardClass(reward.MagazineClassName))
+            {
+                Print("[DeutschZ_KotHZ] Reward magazine classname is blocked by FIX38 crash guard and was skipped: " + reward.MagazineClassName);
+            }
+            else if (!IsRewardClassConfigured(reward.MagazineClassName))
             {
                 Print("[DeutschZ_KotHZ] Reward magazine classname not found in config, skipped: " + reward.MagazineClassName);
             }

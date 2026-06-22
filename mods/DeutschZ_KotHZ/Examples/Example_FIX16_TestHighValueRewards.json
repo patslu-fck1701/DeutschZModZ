@@ -46,8 +46,8 @@
             ]
         },
         {
-            "ClassName": "M249",
-            "Magazine": "Mag_M249_Box200Rnd",
+            "ClassName": "GCGN_M249",
+            "Magazine": "GCGN_M249_Mag",
             "Fallbacks": [
                 "M4A1"
             ]

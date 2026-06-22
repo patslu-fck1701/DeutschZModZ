@@ -153,11 +153,17 @@ class DeutschZKotHZFlagpole
         if (!pole)
             return;
 
-        pole.SetAnimationPhase("Deployed", 0.0);
-        pole.SetAnimationPhase("Base", 0.0);
-        pole.SetAnimationPhase("Support", 0.0);
-        pole.SetAnimationPhase("Pole", 0.0);
-        pole.SetAnimationPhase("flag_mast", 1.0 - fraction);
+        // FIX39: SetAnimationPhase is not available on generic Object in DayZ script.
+        // Cast to EntityAI before touching animation phases so World module compiles.
+        EntityAI poleEntity = EntityAI.Cast(pole);
+        if (!poleEntity)
+            return;
+
+        poleEntity.SetAnimationPhase("Deployed", 0.0);
+        poleEntity.SetAnimationPhase("Base", 0.0);
+        poleEntity.SetAnimationPhase("Support", 0.0);
+        poleEntity.SetAnimationPhase("Pole", 0.0);
+        poleEntity.SetAnimationPhase("flag_mast", 1.0 - fraction);
     }
 
     protected vector GetFallbackFlagPositionForFraction(float fraction)

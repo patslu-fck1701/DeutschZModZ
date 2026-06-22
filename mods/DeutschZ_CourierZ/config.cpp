@@ -32,7 +32,7 @@ class CfgMods
         credits = "Owner: Patrick Sluzalek / Player: fck1701 / Server: DeutschZ";
         author = "Patrick Sluzalek / fck1701";
         authorID = "0";
-        version = "0.1.3-fix36-event-ausbau-stage1";
+        version = "0.1.4-fix39-baseline";
         extra = 0;
         type = "mod";
         dependencies[] = {"Game", "World", "Mission"};

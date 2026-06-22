@@ -1,3 +1,14 @@
+## FIX39 - Full DeutschZ Baseline / Changelog Refresh (2026-06-22)
+- Included in the full DeutschZ source replacement package after KotHZ live-test regression fixes.
+- No CourierZ code changes in this pass.
+- FIX32 strong-ref persistence/config compile guard remains active.
+
+## FIX37 - Repo Clean / Changelog Baseline (2026-06-22)
+- Repository-Basis auf aktuellen CourierZ-FIX36-Stand abgeglichen.
+- Behaelt FIX32 Compile-Audit fuer starke ref-Locals in Config/Persistence bei.
+- Behaelt naeheren Start, Courier-Flow, Credits und Workshoplink bei.
+- Changelog fuer kuenftige Full-Source-Pakete aktualisiert.
+
 ## FIX36 - Event Ausbau Stage 1 / closer staged starts
 - Adjusted staged test-start order: KotHZ 1 min, ConvoyZ 3 min, GroundZero 5 min, CourierZ 7 min.
 - Keeps crash-risk features off: KotHZ music, physical smoke/fog cannons and heavy marker fallback objects remain disabled.

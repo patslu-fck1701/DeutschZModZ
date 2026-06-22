@@ -1,3 +1,14 @@
+## FIX39 - Full DeutschZ Baseline / Changelog Refresh (2026-06-22)
+- Included in the full DeutschZ source replacement package after KotHZ live-test regression fixes.
+- No Core gameplay/API changes in this pass.
+- Provider boundaries remain unchanged: events continue to route markers, notifications and AI through Core/ExpansionBridge.
+
+## FIX37 - Repo Clean / Changelog Baseline (2026-06-22)
+- Repository-Basis auf aktuellen DeutschZ-Source-Stand abgeglichen.
+- Keine Gameplay-Aenderung an Core.
+- Behaelt EventState-, ProfilePath-, ProviderRegistry- und ServiceLocator-Safe-Boot-Fixes bei.
+- Changelog fuer kuenftige Full-Source-Pakete aktualisiert.
+
 # CHANGELOG
 
 ## 2026-06-20 - FIX25 Staggered Event Test / Marker Notify Stabilization

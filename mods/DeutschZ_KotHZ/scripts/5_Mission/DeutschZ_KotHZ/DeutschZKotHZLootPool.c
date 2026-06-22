@@ -109,13 +109,13 @@ class DeutschZKotHZLootPoolsConfig
         AddCargo(scar, "Snafu_ScarH_25RND_Mag_BK", 4, 100.0, 4);
         AddCargo(scar, "AmmoBox_308Win_20Rnd", 4, 100.0, 4);
 
-        DeutschZKotHZReward m249 = AddReward(pool, "M249", -1, 100.0, 1, "Mag_M249_Box200Rnd");
-        AddAlternative(m249, "GCGN_M249");
-        AddAlternative(m249, "M4A1");
-        AddAttachment(m249, "SNAFU_EOTech_EXPS3", -1, 80.0, 1);
-        AddCargo(m249, "Mag_M249_Box200Rnd", 2, 100.0, 2);
-        AddCargo(m249, "GCGN_M249_Mag", 2, 80.0, 2);
-        AddCargo(m249, "AmmoBox_556x45_20Rnd", 6, 100.0, 6);
+        // FIX38: Vanilla M249/Mag_M249_Box200Rnd removed from KotHZ default rewards because it can crash on CreateInInventory.
+        // GCGN_M249 stays allowed as requested.
+        DeutschZKotHZReward gcgnM249 = AddReward(pool, "GCGN_M249", -1, 100.0, 1, "GCGN_M249_Mag");
+        AddAlternative(gcgnM249, "M4A1");
+        AddAttachment(gcgnM249, "SNAFU_EOTech_EXPS3", -1, 80.0, 1);
+        AddCargo(gcgnM249, "GCGN_M249_Mag", 2, 80.0, 2);
+        AddCargo(gcgnM249, "AmmoBox_556x45_20Rnd", 6, 100.0, 6);
 
         DeutschZKotHZReward m4 = AddReward(pool, "M4A1", -1, 100.0, 1, "Mag_STANAG_60Rnd");
         AddAttachment(m4, "M4_PlasticHndgrd", -1, 100.0, 1);

@@ -1,3 +1,15 @@
+## FIX39 - KotHZ Reward Crash Guard + Flag Compile Fix (2026-06-22)
+- Fixed World compile error in `DeutschZKotHZFlagpole.c`: `SetAnimationPhase` is no longer called on generic `Object`; the pole is cast to `EntityAI` first.
+- Added/kept runtime reward crash guard for exact unsafe vanilla `M249` and `Mag_M249_Box200Rnd` entries even if old server profile loot configs still contain them.
+- Default/example KotHZ loot pools keep `GCGN_M249` and `GCGN_M249_Mag` allowed, as requested.
+- KotHZ music, particle smoke, heavy physical marker fallbacks and risky RuntimeFlagpole paths remain disabled for crash isolation.
+
+## FIX37 - Repo Clean / Changelog Baseline (2026-06-22)
+- Repository-Basis auf aktuellen KotHZ-FIX36-Stand abgeglichen.
+- Behaelt sichtbaren Mast/Fahne, einen eindeutigen Marker, Capture-HUD, Zombies/Waves und Rewardflow bei.
+- KotHZ-Musik, Smoke/Fog und riskante RuntimeFlagpole-Pfade bleiben deaktiviert.
+- Changelog fuer kuenftige Full-Source-Pakete aktualisiert.
+
 ## FIX36 - Event Ausbau Stage 1 / closer staged starts
 - Adjusted staged test-start order: KotHZ 1 min, ConvoyZ 3 min, GroundZero 5 min, CourierZ 7 min.
 - Keeps crash-risk features off: KotHZ music, physical smoke/fog cannons and heavy marker fallback objects remain disabled.

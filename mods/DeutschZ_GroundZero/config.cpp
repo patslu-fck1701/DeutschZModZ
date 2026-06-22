@@ -32,7 +32,7 @@ class CfgMods
         name = "DeutschZ GroundZero";
         type = "mod";
         author = "Patrick Sluzalek / fck1701";
-        version = "0.4.9-fix36-event-ausbau-stage1";
+        version = "0.4.10-fix39-baseline";
         dependencies[] = {"Game", "World", "Mission"};
 
         class defs

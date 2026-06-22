@@ -1,3 +1,14 @@
+## FIX39 - Full DeutschZ Baseline / Changelog Refresh (2026-06-22)
+- Included in the full DeutschZ source replacement package after KotHZ live-test regression fixes.
+- No GroundZero code changes in this pass.
+- Stage-rush protection and kill-gated test progression remain active.
+
+## FIX37 - Repo Clean / Changelog Baseline (2026-06-22)
+- Repository-Basis auf aktuellen GroundZero-FIX36-Stand abgeglichen.
+- Behaelt naeheren Start, Kill-/Objective-Gating und Stage-Rush-Schutz bei.
+- Keine neue Gameplay-Aenderung.
+- Changelog fuer kuenftige Full-Source-Pakete aktualisiert.
+
 ## FIX36 - Event Ausbau Stage 1 / closer staged starts
 - Adjusted staged test-start order: KotHZ 1 min, ConvoyZ 3 min, GroundZero 5 min, CourierZ 7 min.
 - Keeps crash-risk features off: KotHZ music, physical smoke/fog cannons and heavy marker fallback objects remain disabled.

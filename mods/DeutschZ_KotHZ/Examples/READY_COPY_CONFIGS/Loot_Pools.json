@@ -408,13 +408,12 @@
                 },
                 {
                     "EditHint": "FIX17 reward entry. Quantity -1 = normal item. SpawnChance is percent.",
-                    "ClassName": "M249",
+                    "ClassName": "GCGN_M249",
                     "Quantity": -1,
                     "SpawnChance": 100,
                     "MaxSpawnable": 1,
-                    "MagazineClassName": "Mag_M249_Box200Rnd",
+                    "MagazineClassName": "GCGN_M249_Mag",
                     "AlternativeClassNames": [
-                        "GCGN_M249",
                         "M4A1"
                     ],
                     "AttachmentItems": [
@@ -432,18 +431,6 @@
                         }
                     ],
                     "CargoItems": [
-                        {
-                            "EditHint": "FIX17 reward entry. Quantity -1 = normal item. SpawnChance is percent.",
-                            "ClassName": "Mag_M249_Box200Rnd",
-                            "Quantity": 2,
-                            "SpawnChance": 100.0,
-                            "MaxSpawnable": 2,
-                            "MagazineClassName": "",
-                            "AlternativeClassNames": [],
-                            "AttachmentItems": [],
-                            "CargoItems": [],
-                            "ExtraRewardItems": []
-                        },
                         {
                             "EditHint": "FIX17 reward entry. Quantity -1 = normal item. SpawnChance is percent.",
                             "ClassName": "GCGN_M249_Mag",
@@ -999,11 +986,11 @@
                 },
                 {
                     "EditHint": "FIX17 reward entry. Quantity -1 = normal item. SpawnChance is percent.",
-                    "ClassName": "M249",
+                    "ClassName": "GCGN_M249",
                     "Quantity": -1,
                     "SpawnChance": 25,
                     "MaxSpawnable": 1,
-                    "MagazineClassName": "Mag_M249_Box200Rnd",
+                    "MagazineClassName": "GCGN_M249_Mag",
                     "AlternativeClassNames": [
                         "M4A1"
                     ],
@@ -1022,18 +1009,6 @@
                         }
                     ],
                     "CargoItems": [
-                        {
-                            "EditHint": "FIX17 reward entry. Quantity -1 = normal item. SpawnChance is percent.",
-                            "ClassName": "Mag_M249_Box200Rnd",
-                            "Quantity": 1,
-                            "SpawnChance": 100.0,
-                            "MaxSpawnable": 1,
-                            "MagazineClassName": "",
-                            "AlternativeClassNames": [],
-                            "AttachmentItems": [],
-                            "CargoItems": [],
-                            "ExtraRewardItems": []
-                        },
                         {
                             "EditHint": "FIX17 reward entry. Quantity -1 = normal item. SpawnChance is percent.",
                             "ClassName": "AmmoBox_556x45_20Rnd",

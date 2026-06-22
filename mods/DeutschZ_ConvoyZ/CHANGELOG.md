@@ -1,3 +1,14 @@
+## FIX39 - Full DeutschZ Baseline / Changelog Refresh (2026-06-22)
+- Included in the full DeutschZ source replacement package after KotHZ live-test regression fixes.
+- No ConvoyZ code changes in this pass.
+- Staggered event start and smoke no-op compatibility remain active.
+
+## FIX37 - Repo Clean / Changelog Baseline (2026-06-22)
+- Repository-Basis auf aktuellen ConvoyZ-FIX36-Stand abgeglichen.
+- Behaelt naeheren Eventstart, 3D-Marker-Request ueber Core/Bridge, zweite kleine Wave und Smoke-No-Op-Kompatibilitaet bei.
+- Physische Smoke-/Crashobjekt-Risikopfade bleiben deaktiviert.
+- Changelog fuer kuenftige Full-Source-Pakete aktualisiert.
+
 ## FIX36 - Event Ausbau Stage 1 / closer staged starts
 - Adjusted staged test-start order: KotHZ 1 min, ConvoyZ 3 min, GroundZero 5 min, CourierZ 7 min.
 - Keeps crash-risk features off: KotHZ music, physical smoke/fog cannons and heavy marker fallback objects remain disabled.

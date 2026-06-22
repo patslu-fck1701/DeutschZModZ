@@ -1,3 +1,14 @@
+## FIX39 - Full DeutschZ Baseline / Changelog Refresh (2026-06-22)
+- Included in the full DeutschZ source replacement package after KotHZ live-test regression fixes.
+- No Bridge code changes in this pass.
+- Existing real ExpansionMarkerModule/CreateServerMarker route remains the marker path; no physical fallback objects were re-enabled.
+
+## FIX37 - Repo Clean / Changelog Baseline (2026-06-22)
+- Repository-Basis auf aktuellen DeutschZ-Source-Stand abgeglichen.
+- Behaelt echten DayZ-Expansion-Servermarker-Pfad ueber ExpansionMarkerModule/CreateServerMarker bei.
+- Keine direkten Expansion Calls in Event-Mods; Bridge bleibt zentrale optionale Expansion-Schicht.
+- Changelog fuer kuenftige Full-Source-Pakete aktualisiert.
+
 
 ## FIX31 - KotHZ Crash/Marker/Flag Regression (2026-06-22)
 - KotHZ crash isolation: music hard-disabled and risky RuntimeFlagpole attachment path removed from active use.
