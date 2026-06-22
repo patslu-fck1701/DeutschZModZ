@@ -110,11 +110,11 @@ class CfgVehicles
     {
         scope = 2;
         displayName = "DeutschZ KotHZ Civil Infected";
-        class DamageSystem: DamageSystem
+        class DamageSystem
         {
-            class GlobalHealth: GlobalHealth
+            class GlobalHealth
             {
-                class Health: Health { hitpoints = 1400; };
+                class Health { hitpoints = 1400; };
             };
         };
     };
@@ -123,11 +123,11 @@ class CfgVehicles
     {
         scope = 2;
         displayName = "DeutschZ KotHZ Hunter Infected";
-        class DamageSystem: DamageSystem
+        class DamageSystem
         {
-            class GlobalHealth: GlobalHealth
+            class GlobalHealth
             {
-                class Health: Health { hitpoints = 1800; };
+                class Health { hitpoints = 1800; };
             };
         };
     };
@@ -136,11 +136,11 @@ class CfgVehicles
     {
         scope = 2;
         displayName = "DeutschZ KotHZ Military Infected";
-        class DamageSystem: DamageSystem
+        class DamageSystem
         {
-            class GlobalHealth: GlobalHealth
+            class GlobalHealth
             {
-                class Health: Health { hitpoints = 2500; };
+                class Health { hitpoints = 2500; };
             };
         };
     };
@@ -149,22 +149,22 @@ class CfgVehicles
     {
         scope = 2;
         displayName = "DeutschZ KotHZ Mummy Boss";
-        class DamageSystem: DamageSystem
+        class DamageSystem
         {
-            class GlobalHealth: GlobalHealth
+            class GlobalHealth
             {
-                class Health: Health { hitpoints = 7500; };
+                class Health { hitpoints = 7500; };
             };
-            class DamageZones: DamageZones
+            class DamageZones
             {
-                class Head: Head { class Health: Health { hitpoints = 3750; }; };
-                class Torso: Torso { class Health: Health { hitpoints = 7500; }; };
-                class LeftArm: LeftArm { class Health: Health { hitpoints = 7500; }; };
-                class RightArm: RightArm { class Health: Health { hitpoints = 7500; }; };
-                class LeftLeg: LeftLeg { class Health: Health { hitpoints = 7500; }; };
-                class RightLeg: RightLeg { class Health: Health { hitpoints = 7500; }; };
-                class LeftFoot: LeftFoot { class Health: Health { hitpoints = 7500; }; };
-                class RightFoot: RightFoot { class Health: Health { hitpoints = 7500; }; };
+                class Head { class Health { hitpoints = 3750; }; };
+                class Torso { class Health { hitpoints = 7500; }; };
+                class LeftArm { class Health { hitpoints = 7500; }; };
+                class RightArm { class Health { hitpoints = 7500; }; };
+                class LeftLeg { class Health { hitpoints = 7500; }; };
+                class RightLeg { class Health { hitpoints = 7500; }; };
+                class LeftFoot { class Health { hitpoints = 7500; }; };
+                class RightFoot { class Health { hitpoints = 7500; }; };
             };
         };
     };

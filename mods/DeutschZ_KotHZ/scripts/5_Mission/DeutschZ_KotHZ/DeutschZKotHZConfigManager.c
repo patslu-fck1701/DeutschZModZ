@@ -555,7 +555,7 @@ class DeutschZKotHZConfigManager
         }
     }
 
-    protected bool IsBasebuildingZone(DeutschZKotHZZone zone)
+    protected static bool IsBasebuildingZone(DeutschZKotHZZone zone)
     {
         if (!zone)
             return false;
