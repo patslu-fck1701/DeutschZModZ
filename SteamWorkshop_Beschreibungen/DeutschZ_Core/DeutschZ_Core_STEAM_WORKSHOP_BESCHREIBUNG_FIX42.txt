@@ -1,38 +1,40 @@
-﻿[h1]DEUTSCHZ CORE[/h1]
+[h1]DEUTSCHZ CORE[/h1]
 [i]Das technische Fundament des DeutschZ-Modsystems.[/i]
 
 [h2]Deutsch[/h2]
 [list]
-[*]Pflichtbasis fÃ¼r alle aktiven DeutschZ-Systeme.
-[*]BÃ¼ndelt Profilpfade, Logging, JSON-Speicherung, Backups, Recovery und interne Providerstrukturen.
-[*]Stellt die Grundlage fÃ¼r Marker, Nachrichten, Eventlogik, Config-PrÃ¼fung und spÃ¤tere Systeme bereit.
-[*]EnthÃ¤lt selbst keine normalen Mapspawn-Lootobjekte und ist als stabile Serverbasis gedacht.
+[*]Pflichtbasis für alle aktiven DeutschZ-Systeme und Events.
+[*]Bündelt Profilpfade, Logging, JSON-Speicherung, Backups, Recovery und interne Grunddienste.
+[*]Stellt EventBus, ServiceLocator, ProviderRegistry, RateLimiter, ConfigValidation und gemeinsame ProfilePaths bereit.
+[*]Profilpfad: $profile:DeutschZ/
+[*]Fügt selbst keine normalen Mapspawn-Lootobjekte hinzu und ist als stabile Serverbasis gedacht.
 [/list]
 
 [h2]English[/h2]
 [i]The technical foundation of the DeutschZ mod system.[/i]
 [list]
-[*]Required base module for all active DeutschZ systems.
-[*]Provides profile paths, logging, JSON persistence, backups, recovery and internal provider structures.
-[*]Forms the base for markers, notifications, event logic, config validation and future systems.
+[*]Required base module for all active DeutschZ systems and events.
+[*]Provides profile paths, logging, JSON persistence, backups, recovery and shared internal services.
+[*]Includes EventBus, ServiceLocator, ProviderRegistry, RateLimiter, ConfigValidation and common ProfilePaths.
+[*]Profile path: $profile:DeutschZ/
 [*]Does not add regular map-spawn loot items by itself and is designed as a stable server foundation.
 [/list]
 
-[h2]Ð ÑƒÑÑÐºÐ¸Ð¹[/h2]
-[i]Ð¢ÐµÑ…Ð½Ð¸Ñ‡ÐµÑÐºÐ°Ñ Ð¾ÑÐ½Ð¾Ð²Ð° Ð¼Ð¾Ð´ÑƒÐ»ÑŒÐ½Ð¾Ð¹ ÑÐ¸ÑÑ‚ÐµÐ¼Ñ‹ DeutschZ.[/i]
+[h2]Русский[/h2]
+[i]Техническая основа модульной системы DeutschZ.[/i]
 [list]
-[*]ÐžÐ±ÑÐ·Ð°Ñ‚ÐµÐ»ÑŒÐ½Ð°Ñ Ð±Ð°Ð·Ð¾Ð²Ð°Ñ Ð¼Ð¾Ð´Ð¸Ñ„Ð¸ÐºÐ°Ñ†Ð¸Ñ Ð´Ð»Ñ Ð°ÐºÑ‚Ð¸Ð²Ð½Ñ‹Ñ… ÑÐ¸ÑÑ‚ÐµÐ¼ DeutschZ.
-[*]ÐžÑ‚Ð²ÐµÑ‡Ð°ÐµÑ‚ Ð·Ð° Ð¿ÑƒÑ‚Ð¸ Ð¿Ñ€Ð¾Ñ„Ð¸Ð»Ñ, Ð»Ð¾Ð³Ð¸Ñ€Ð¾Ð²Ð°Ð½Ð¸Ðµ, JSON-ÑÐ¾Ñ…Ñ€Ð°Ð½ÐµÐ½Ð¸Ñ, Ð±ÑÐºÐ°Ð¿Ñ‹, Ð²Ð¾ÑÑÑ‚Ð°Ð½Ð¾Ð²Ð»ÐµÐ½Ð¸Ðµ Ð¸ provider-ÑÑ‚Ñ€ÑƒÐºÑ‚ÑƒÑ€Ñ‹.
-[*]Ð”Ð°ÐµÑ‚ Ð¾ÑÐ½Ð¾Ð²Ñƒ Ð´Ð»Ñ Ð¼Ð°Ñ€ÐºÐµÑ€Ð¾Ð², ÑƒÐ²ÐµÐ´Ð¾Ð¼Ð»ÐµÐ½Ð¸Ð¹, event-Ð»Ð¾Ð³Ð¸ÐºÐ¸, Ð¿Ñ€Ð¾Ð²ÐµÑ€ÐºÐ¸ ÐºÐ¾Ð½Ñ„Ð¸Ð³Ð¾Ð² Ð¸ Ð±ÑƒÐ´ÑƒÑ‰Ð¸Ñ… ÑÐ¸ÑÑ‚ÐµÐ¼.
-[*]Ð¡Ð°Ð¼ Ð¿Ð¾ ÑÐµÐ±Ðµ Ð½Ðµ Ð´Ð¾Ð±Ð°Ð²Ð»ÑÐµÑ‚ Ð¾Ð±Ñ‹Ñ‡Ð½Ñ‹Ð¹ Ð»ÑƒÑ‚ Ð´Ð»Ñ ÑÐ»ÑƒÑ‡Ð°Ð¹Ð½Ð¾Ð³Ð¾ ÑÐ¿Ð°Ð²Ð½Ð° Ð½Ð° ÐºÐ°Ñ€Ñ‚Ðµ.
+[*]Обязательная базовая модификация для всех активных систем и событий DeutschZ.
+[*]Содержит пути профиля, логирование, JSON-сохранения, резервные копии, восстановление и общие внутренние службы.
+[*]Предоставляет EventBus, ServiceLocator, ProviderRegistry, RateLimiter, ConfigValidation и общие ProfilePaths.
+[*]Путь профиля: $profile:DeutschZ/
+[*]Сам по себе не добавляет обычный лут для случайного спавна на карте и служит стабильной серверной основой.
 [/list]
 
 [h2]Aktueller Status[/h2]
 [list]
-[*]Aktueller Gesamtstand: FIX43 / 22.06.2026.
-[*]Die DeutschZ-Mods befinden sich weiter im aktiven Aufbau und Testbetrieb.
-[*]Hauptbeschreibungen bleiben stabil; kleine technische Fixes stehen im Changelog.
-[*]Musik, Smoke, Fog und riskante Spezialeffekte werden bewusst langsam und config-gated wieder aktiviert.
+[*]DeutschZModZ befindet sich im technischen Test- und Stabilisierungsbetrieb.
+[*]Die Hauptbeschreibungen bleiben bewusst stabil; konkrete Fixstände stehen im jeweiligen Changelog.
+[*]Riskante Spezialeffekte wie harte Musik-/Smoke-/Fog-Loops bleiben nur vorbereitet, config-gated oder deaktiviert, bis sie einzeln stabil getestet sind.
 [/list]
 
 [h2]Links[/h2]
@@ -55,12 +57,12 @@
 [/list]
 
 [h2]Fehler melden[/h2]
-Bitte Fehler direkt im Support melden und mÃ¶glichst diese Dateien mitschicken:
+Bitte Fehler direkt im Support melden und möglichst diese Dateien mitschicken:
 [list]
 [*]crash_*.log
 [*]script_*.log
 [*]DayZServer_x64_*.RPT
 [*]server_console.log
-[*]vollstÃ¤ndige Modlist / Loadorder
+[*]vollständige Modlist / Loadorder
 [*]kurze Beschreibung, was direkt vor dem Fehler passiert ist
 [/list]

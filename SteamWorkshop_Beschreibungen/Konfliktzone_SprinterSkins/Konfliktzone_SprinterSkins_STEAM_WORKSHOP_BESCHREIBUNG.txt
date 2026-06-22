@@ -1,0 +1,46 @@
+[h1]Konfliktzone Sprinter Skins[/h1]
+[i]Eigene Admin-Cargo-Retexturen für den MBM Mercedes Sprinter.[/i]
+
+[b]Status:[/b] Admin Cargo Retexture / Testbetrieb
+[b]GitHub / technische Hilfe:[/b] https://github.com/patslu-fck1701/DeutschZModZ
+[b]Konfliktzone Discord:[/b] https://discord.gg/tRtSbWtrsm
+[b]DeutschZ Discord:[/b] https://discord.gg/FHzZ7BykFk
+
+[h2]Beschreibung[/h2]
+Konfliktzone Sprinter Skins ergänzt eigene Konfliktzone-Varianten für den MBM Mercedes Sprinter Admin Cargo. Die Fahrzeuge bleiben technisch nah an der MBM-Basis und nutzen nur bestätigte Texture-Selections.
+
+[h2]Enthaltene Fahrzeuge[/h2]
+[list]
+[*]KZ_Sprinter_Admin_Cargo_KA01
+[*]KZ_Sprinter_Admin_Cargo_KA02
+[/list]
+
+[h2]Technik[/h2]
+[list]
+[*]Basisfahrzeug: MBM_Sprinter_BlackCargo
+[*]Benötigte Abhängigkeit: MBM Mercedes Sprinter / CfgPatches MBM_Sprinter
+[*]Roter Body wird nur als Original-MBM-Referenz verwendet.
+[*]Konfliktzone Side-/Rear-Decals sind eigene PAA-Dateien.
+[*]Es werden keine MBM-PBO-Inhalte, Modelle, Scripts, Sounds, RVMATs oder fremden Texturen kopiert.
+[/list]
+
+[h2]Wichtiger Hinweis zu Roof-/Door-Decals[/h2]
+Die geprüfte MBM-Referenz bestätigt keine separate Roof-Decal-Selection und keine separate Door-Decal-Selection für die relevanten Cargo-Klassen. Deshalb werden Roof- und Door-Decals nicht blind oder als Fake-Selection eingetragen.
+
+KA01 und KA02 bleiben getrennte Classnames, nutzen aber dieselbe bestätigte Texturbelegung, bis echte zusätzliche Selections sauber nachgewiesen sind.
+
+[h2]Credits[/h2]
+[list]
+[*]Retexture-Idee / Erlaubnis: Einarvargr / Konfliktzone
+[*]Technische Umsetzung: Patrick Sluzalek / fck1701 / DeutschZ
+[/list]
+
+[h2]DeutschZ Workshop Links[/h2]
+[list]
+[*]DeutschZ Core: https://steamcommunity.com/sharedfiles/filedetails/?id=3748421029
+[*]DeutschZ ExpansionBridge: https://steamcommunity.com/sharedfiles/filedetails/?id=3748421850
+[*]DeutschZ KotHZ / Infected Siege: https://steamcommunity.com/sharedfiles/filedetails/?id=3746385283
+[*]DeutschZ ConvoyZ: https://steamcommunity.com/sharedfiles/filedetails/?id=3745946832
+[*]DeutschZ GroundZero: https://steamcommunity.com/sharedfiles/filedetails/?id=3748422786
+[*]DeutschZ CourierZ / Operation Aktenkoffer: https://steamcommunity.com/sharedfiles/filedetails/?id=3748646981
+[/list]

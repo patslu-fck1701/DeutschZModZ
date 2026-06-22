@@ -1,41 +1,51 @@
-﻿[h1]DEUTSCHZ KOTHZ - INFECTED SIEGE[/h1]
-[i]Erobere die Signalstation. Ãœberlebe die Wellen. Stelle dich dem Boss.[/i]
+[h1]DEUTSCHZ KOTHZ - INFECTED SIEGE[/h1]
+[i]Halte die KotHZ-Zone. Überlebe die Wellen. Bezwinge den Boss.[/i]
 
 [h2]Deutsch[/h2]
 [list]
-[*]KOTH-artiges PvE-Event mit Signalstation, Fahne, Capture-Zone und Infected-Waves.
-[*]Zum Marker laufen, im Bereich bleiben, keine versteckte Aktionstaste nÃ¶tig.
-[*]WÃ¤hrend des Captures steigt der Druck durch zivile, Jagd-/Patrol- und Military-Zombies.
-[*]Nach erfolgreichem Capture erscheint ein Mummy-Boss; die Statusbar zeigt seine verbleibenden HP.
-[*]Die Belohnung wird erst nach Abschluss der Bossphase freigegeben.
+[*]Eigenes PvE-Capture-Event mit KotHZ-Zonen, Flagge, Capture-Radius und kontrollierten Infected-Waves.
+[*]Spieler laufen zum KotHZ-Marker, bleiben im Bereich und bauen Capture-Fortschritt auf; keine versteckte Aktionstaste nötig.
+[*]Während des Captures steigt der Druck durch zivile, Jagd-/Patrol- und Military-Infected.
+[*]Nach 100 Prozent Capture startet die Bossphase mit Mummy-Boss und Boss-HP-Statusbar.
+[*]Die Belohnung wird erst nach dem Bosskill freigegeben.
+[*]Signalstation/Sendestation ist ein getrenntes Event und kein Bestandteil von KotHZ.
 [/list]
 
 [h2]English[/h2]
-[i]Capture the signal station. Survive the waves. Face the boss.[/i]
+[i]Hold the KotHZ zone. Survive the waves. Defeat the boss.[/i]
 [list]
-[*]KOTH-style PvE event with signal station, flag, capture zone and infected waves.
-[*]Move to the marker, stay inside the area, no hidden action key required.
+[*]Standalone PvE capture event with KotHZ zones, flag, capture radius and controlled infected waves.
+[*]Players move to the KotHZ marker, stay inside the area and build capture progress; no hidden action key is required.
 [*]During capture, pressure increases through civilian, hunting/patrol and military infected waves.
-[*]After capture, a mummy boss appears and the status bar tracks its remaining HP.
-[*]The reward is released only after the boss phase is completed.
+[*]After 100 percent capture, the boss phase starts with a mummy boss and boss HP status bar.
+[*]The reward is released only after the boss is killed.
+[*]Signal Station is a separate event and not part of KotHZ.
 [/list]
 
-[h2]Ð ÑƒÑÑÐºÐ¸Ð¹[/h2]
-[i]Ð—Ð°Ñ…Ð²Ð°Ñ‚Ð¸ ÑÐ¸Ð³Ð½Ð°Ð»ÑŒÐ½ÑƒÑŽ ÑÑ‚Ð°Ð½Ñ†Ð¸ÑŽ. ÐŸÐµÑ€ÐµÐ¶Ð¸Ð²Ð¸ Ð²Ð¾Ð»Ð½Ñ‹. ÐŸÐ¾Ð±ÐµÐ´Ð¸ Ð±Ð¾ÑÑÐ°.[/i]
+[h2]Русский[/h2]
+[i]Удержи зону KotHZ. Переживи волны. Победи босса.[/i]
 [list]
-[*]PvE-ÑÐ¾Ð±Ñ‹Ñ‚Ð¸Ðµ Ð² ÑÑ‚Ð¸Ð»Ðµ KOTH Ñ ÑÐ¸Ð³Ð½Ð°Ð»ÑŒÐ½Ð¾Ð¹ ÑÑ‚Ð°Ð½Ñ†Ð¸ÐµÐ¹, Ñ„Ð»Ð°Ð³Ð¾Ð¼, Ð·Ð¾Ð½Ð¾Ð¹ Ð·Ð°Ñ…Ð²Ð°Ñ‚Ð° Ð¸ Ð²Ð¾Ð»Ð½Ð°Ð¼Ð¸ Ð·Ð°Ñ€Ð°Ð¶ÐµÐ½Ð½Ñ‹Ñ….
-[*]Ð˜Ð´Ð¸ Ðº Ð¼Ð°Ñ€ÐºÐµÑ€Ñƒ, Ð¾ÑÑ‚Ð°Ð²Ð°Ð¹ÑÑ Ð² Ð·Ð¾Ð½Ðµ, ÑÐºÑ€Ñ‹Ñ‚Ð°Ñ ÐºÐ½Ð¾Ð¿ÐºÐ° Ð´ÐµÐ¹ÑÑ‚Ð²Ð¸Ñ Ð½Ðµ Ð½ÑƒÐ¶Ð½Ð°.
-[*]Ð’Ð¾ Ð²Ñ€ÐµÐ¼Ñ Ð·Ð°Ñ…Ð²Ð°Ñ‚Ð° Ð´Ð°Ð²Ð»ÐµÐ½Ð¸Ðµ Ñ€Ð°ÑÑ‚ÐµÑ‚ Ñ‡ÐµÑ€ÐµÐ· Ð³Ñ€Ð°Ð¶Ð´Ð°Ð½ÑÐºÐ¸Ðµ, hunting/patrol Ð¸ military Ð²Ð¾Ð»Ð½Ñ‹ Ð·Ð°Ñ€Ð°Ð¶ÐµÐ½Ð½Ñ‹Ñ….
-[*]ÐŸÐ¾ÑÐ»Ðµ Ð·Ð°Ñ…Ð²Ð°Ñ‚Ð° Ð¿Ð¾ÑÐ²Ð»ÑÐµÑ‚ÑÑ mummy-Ð±Ð¾ÑÑ, Ð° ÑÑ‚Ð°Ñ‚ÑƒÑÐ±Ð°Ñ€ Ð¿Ð¾ÐºÐ°Ð·Ñ‹Ð²Ð°ÐµÑ‚ Ð¾ÑÑ‚Ð°Ð²ÑˆÐ¸ÐµÑÑ HP.
-[*]ÐÐ°Ð³Ñ€Ð°Ð´Ð° Ð¾Ñ‚ÐºÑ€Ñ‹Ð²Ð°ÐµÑ‚ÑÑ Ñ‚Ð¾Ð»ÑŒÐºÐ¾ Ð¿Ð¾ÑÐ»Ðµ Ð·Ð°Ð²ÐµÑ€ÑˆÐµÐ½Ð¸Ñ boss-Ñ„Ð°Ð·Ñ‹.
+[*]Отдельное PvE-событие захвата с зонами KotHZ, флагом, радиусом захвата и контролируемыми волнами зараженных.
+[*]Игроки идут к маркеру KotHZ, остаются в зоне и накапливают прогресс захвата; скрытая кнопка действия не нужна.
+[*]Во время захвата давление растет за счет гражданских, охотничьих/патрульных и военных зараженных.
+[*]После 100 процентов захвата начинается фаза босса с mummy-боссом и полосой HP босса.
+[*]Награда открывается только после убийства босса.
+[*]Signal Station является отдельным событием и не входит в KotHZ.
+[/list]
+
+[h2]Technische Abgrenzung[/h2]
+[list]
+[*]KotHZ nutzt eigene Marker- und Statusbar-Logik.
+[*]Es soll genau ein sichtbarer KotHZ-Marker aktiv sein.
+[*]Alte KotHZ-eigene Marker werden sauber entfernt, fremde Eventmarker aber nicht blind gelöscht.
+[*]Musik, Smoke, Fog und ähnliche Effekte bleiben vorsichtig/config-gated und sind nicht hart aktiv.
 [/list]
 
 [h2]Aktueller Status[/h2]
 [list]
-[*]Aktueller Gesamtstand: FIX43 / 22.06.2026.
-[*]Die DeutschZ-Mods befinden sich weiter im aktiven Aufbau und Testbetrieb.
-[*]Hauptbeschreibungen bleiben stabil; kleine technische Fixes stehen im Changelog.
-[*]Musik, Smoke, Fog und riskante Spezialeffekte werden bewusst langsam und config-gated wieder aktiviert.
+[*]DeutschZModZ befindet sich im technischen Test- und Stabilisierungsbetrieb.
+[*]Die Hauptbeschreibungen bleiben bewusst stabil; konkrete Fixstände stehen im jeweiligen Changelog.
+[*]Riskante Spezialeffekte wie harte Musik-/Smoke-/Fog-Loops bleiben nur vorbereitet, config-gated oder deaktiviert, bis sie einzeln stabil getestet sind.
 [/list]
 
 [h2]Links[/h2]
@@ -58,12 +68,12 @@
 [/list]
 
 [h2]Fehler melden[/h2]
-Bitte Fehler direkt im Support melden und mÃ¶glichst diese Dateien mitschicken:
+Bitte Fehler direkt im Support melden und möglichst diese Dateien mitschicken:
 [list]
 [*]crash_*.log
 [*]script_*.log
 [*]DayZServer_x64_*.RPT
 [*]server_console.log
-[*]vollstÃ¤ndige Modlist / Loadorder
+[*]vollständige Modlist / Loadorder
 [*]kurze Beschreibung, was direkt vor dem Fehler passiert ist
 [/list]
