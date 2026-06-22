@@ -69,8 +69,8 @@ class DeutschZKotHZConfig
 
     void DeutschZKotHZConfig()
     {
-        ConfigInfo = "DeutschZ_KotHZ FIX36. Stable Ausbau-Stufe: visible mast/flag, one Expansion marker, HUD/progress and infected waves active; music/physical smoke/fog/heavy effects remain disabled.";
-        EditHint = "FIX36 TESTVERSION: starts first after 1 minute. Stable features active: mast/flag, marker, HUD, waves and rewards. Risk features stay off: music, physical smoke grenades, fog and helicopter delivery.";
+        ConfigInfo = "DeutschZ_KotHZ FIX45. Event item expansion with safe-gated music, smoke and fog defaults.";
+        EditHint = "FIX45 TESTVERSION: starts first after 1 minute. Stable features active: mast/flag, marker, HUD, waves, 7500 HP boss and reward crate. Music, smoke, fog and helicopter remain config-gated and default off.";
         OwnerName = "Patrick Sluzalek";
         OwnerPlayerName = "fck1701";
         ServerName = "DeutschZ";
@@ -95,7 +95,7 @@ class DeutschZKotHZConfig
         EnableMarkerFallbackNotifications = 0;
         MarkerMode = "Expansion";
         MarkerEditHint = "DeutschZ KotHZ default: MarkerMode=Expansion only. Third-party marker modes are intentionally not supported in this build. Expansion map marker and 3D marker enabled; vanilla popup/chat disabled by default to avoid duplicates.";
-        ExpansionMarkerColorARGB = ARGB(255, 255, 0, 0);
+        ExpansionMarkerColorARGB = ARGB(255, 255, 32, 32);
         ExpansionMarkerIcon = "Territory";
         RewardCrateMinimumLifetimeSeconds = 1800;
         EnableRewardCrateDespawnWarning = 1;
@@ -119,7 +119,7 @@ class DeutschZKotHZConfig
         EventMusicPlayOnReady = 0;
         EventMusicPlayOnStart = 0;
         EventMusicPlayOnCaptured = 0;
-        EventMusicRadius = 120.0;
+        EventMusicRadius = 180.0;
         EventMusicVolume = 1.0;
 
         Zones = new array<ref DeutschZKotHZZone>;

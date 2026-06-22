@@ -81,7 +81,7 @@ class DeutschZKotHZManager
         m_DZKZ_WaitingBossKillAnnounced = false;
         m_DZKZ_BossZombie = null;
         m_DZKZ_BossPhaseActive = false;
-        m_DZKZ_BossMaxHealth = 5000.0;
+        m_DZKZ_BossMaxHealth = 7500.0;
         m_DZKZ_CaptureWinner = null;
         m_DZKZ_EventInfectedRegistry = new map<Object, string>;
         m_DZKZ_EventLog = new array<string>;
@@ -256,8 +256,8 @@ class DeutschZKotHZManager
         MaybeStartFogHazard("Ready");
         // v1.0.25: zombie/infected waves are started on first player entry, DeutschZ wave-system style.
         TryPlayEventMusic("Start");
-        Announce("KotHZ gestartet: Begib dich zur Signalstation und halte den Bereich. Keine Interaktion noetig.");
-        SendHUDToAll(true, m_ActiveZone.ZoneName, 0, 0, m_ActiveZone.CaptureTimeSeconds, CountPlayersInZone(), "Zone aktiv - Signalstation halten. Keine Interaktion noetig.");
+        Announce("KotHZ gestartet: Begib dich zur KotHZ-Zone und halte den Bereich. Keine Interaktion noetig.");
+        SendHUDToAll(true, m_ActiveZone.ZoneName, 0, 0, m_ActiveZone.CaptureTimeSeconds, CountPlayersInZone(), "Zone aktiv - KotHZ-Bereich halten. Keine Interaktion noetig.");
         GetGame().GetCallQueue(CALL_CATEGORY_SYSTEM).CallLater(TickEvent, 1000, true);
     }
 
@@ -466,7 +466,7 @@ class DeutschZKotHZManager
                 if (!m_DZKZ_PlayersInSignalRadius.Contains(playerId))
                 {
                     m_DZKZ_PlayersInSignalRadius.Set(playerId, true);
-                    NotifyKotHZPlayer(player, "Signalstation erreicht. Halte den Bereich, um KotHZ zu erobern. Keine Interaktion noetig.");
+                    NotifyKotHZPlayer(player, "KotHZ-Zone erreicht. Halte den Bereich, um KotHZ zu erobern. Keine Interaktion noetig.");
                 }
             }
             else if (m_DZKZ_PlayersInSignalRadius.Contains(playerId))
@@ -583,7 +583,7 @@ class DeutschZKotHZManager
             }
             else
             {
-                state = "Zone aktiv - Halte den Bereich an der Signalstation. Keine Interaktion noetig.";
+                state = "Zone aktiv - Halte den KotHZ-Bereich. Keine Interaktion noetig.";
                 m_CurrentHolder = null;
                 m_CurrentCaptureSeconds = 0;
                 m_DZKZ_ContestedAnnounced = false;
@@ -599,10 +599,10 @@ class DeutschZKotHZManager
             m_CurrentHolder = holder;
             m_CurrentCaptureSeconds = 0;
             m_DZKZ_ContestedAnnounced = false;
-            Announce("Signalstation erreicht. " + GetPlayerName(holder) + " haelt den Bereich, KotHZ-Capture laeuft automatisch.");
+            Announce("KotHZ-Zone erreicht. " + GetPlayerName(holder) + " haelt den Bereich, KotHZ-Capture laeuft automatisch.");
         }
 
-        state = "Signalstation gehalten - Capture laeuft automatisch";
+        state = "KotHZ-Bereich gehalten - Capture laeuft automatisch";
         SetStatusSmoke("Yellow");
         MaybeStartFogHazard("Progress");
         m_CurrentCaptureSeconds++;
@@ -1794,7 +1794,7 @@ class DeutschZKotHZManager
             return;
 
         m_ZombieWavesStarted = true;
-        Print("[DeutschZ_KotHZ] Infected Siege armed. Waves trigger by capture percent: 25/50/75. Boss: 90.");
+        Print("[DeutschZ_KotHZ] Infected Siege armed. Waves trigger by capture percent: 25/50/75. Boss: 100 capture / 7500 HP.");
         DZKZ_Log("InfectedSiegeArmed", "percent triggers active");
     }
 
@@ -1902,6 +1902,7 @@ class DeutschZKotHZManager
             }
 
             m_SpawnedZombies.Insert(zed);
+            ApplyKotHZInfectedHealth(zed, wave.WaveName);
             RegisterEventInfected(zed, wave.WaveName);
             spawnedThisBatch++;
         }
@@ -1920,7 +1921,7 @@ class DeutschZKotHZManager
         m_DZKZ_WaitingBossKillAnnounced = false;
         m_DZKZ_BossZombie = null;
         m_DZKZ_BossPhaseActive = false;
-        m_DZKZ_BossMaxHealth = 5000.0;
+        m_DZKZ_BossMaxHealth = 7500.0;
         m_DZKZ_CaptureWinner = null;
         if (m_DZKZ_EventInfectedRegistry)
             m_DZKZ_EventInfectedRegistry.Clear();
@@ -2031,7 +2032,7 @@ class DeutschZKotHZManager
         m_CurrentHolder = null;
 
         SetStatusSmoke("Red");
-        Announce("WARNUNG: Die Signalstation ist gesichert, aber ein Spezial-Boss wurde angelockt. Mummy-Boss eliminieren, um die Belohnung freizugeben!");
+        Announce("WARNUNG: Die KotHZ-Zone ist gesichert, aber ein Spezial-Boss wurde angelockt. Mummy-Boss eliminieren, um die Belohnung freizugeben!");
         SpawnInfectedSiegeBoss();
 
         if (!m_DZKZ_BossZombie)
@@ -2093,7 +2094,7 @@ class DeutschZKotHZManager
         int hpInt = Math.Round(hp);
         int maxHpInt = Math.Round(m_DZKZ_BossMaxHealth);
         if (maxHpInt <= 0)
-            maxHpInt = 5000;
+            maxHpInt = 7500;
         int percent = Math.Clamp((hpInt * 100) / maxHpInt, 0, 100);
         SendHUDToAll(true, m_ActiveZone.ZoneName, percent, hpInt, -maxHpInt, CountPlayersInZone(), "Bossphase - Mummy HP verbleibend");
     }
@@ -2132,14 +2133,14 @@ class DeutschZKotHZManager
         if (boss)
         {
             m_DZKZ_BossZombie = boss;
-            m_DZKZ_BossMaxHealth = 5000.0;
+            m_DZKZ_BossMaxHealth = 7500.0;
             // FIX41: high-HP special boss. Scale is visual only; class default movement remains stable.
             boss.SetScale(3.0);
             boss.SetHealth("", "", m_DZKZ_BossMaxHealth);
             boss.SetHealth("GlobalHealth", "Health", m_DZKZ_BossMaxHealth);
             m_SpawnedZombies.Insert(boss);
             RegisterEventInfected(boss, "Final Mummy Boss");
-            Announce("Mummy-Boss erschienen: 5000 HP. Statusbar zeigt verbleibende HP.");
+            Announce("Mummy-Boss erschienen: 7500 HP. Statusbar zeigt verbleibende HP.");
             DZKZ_Log("BossSpawned", boss.GetType());
         }
         else
@@ -2147,6 +2148,22 @@ class DeutschZKotHZManager
             m_DZKZ_BossKilled = true;
             DZKZ_Log("BossSpawnFailed", "fallback failed, reward fallback enabled");
         }
+    }
+
+    protected void ApplyKotHZInfectedHealth(Object infected, string waveName)
+    {
+        if (!infected)
+            return;
+
+        float hp = 1250.0;
+        string t = infected.GetType();
+        if (t.IndexOf("Hunter") >= 0 || waveName.IndexOf("Hunter") >= 0) hp = 1600.0;
+        if (t.IndexOf("Soldier") >= 0 || t.IndexOf("usSoldier") >= 0 || t.IndexOf("NBC") >= 0 || waveName.IndexOf("Military") >= 0) hp = 2200.0;
+        if (t.IndexOf("Mummy") >= 0) hp = 7500.0;
+
+        infected.SetHealth("", "", hp);
+        infected.SetHealth("GlobalHealth", "Health", hp);
+        DZKZ_Log("InfectedHealthSet", t + " hp=" + hp.ToString() + " wave=" + waveName);
     }
 
     protected void RegisterEventInfected(Object infected, string waveName)
@@ -2780,7 +2797,6 @@ class DeutschZKotHZManager
         {
             DeutschZKotHZCoreBridge.DeleteRawMarker("KotHZ_" + suffix);
             DeutschZKotHZCoreBridge.DeleteRawMarker("KotHZ_3D_" + suffix);
-            DeutschZKotHZCoreBridge.DeleteRawMarker("Signalstation_" + suffix);
             DeutschZKotHZCoreBridge.DeleteRawMarker("DeutschZ_KotHZ_" + suffix);
         }
     }

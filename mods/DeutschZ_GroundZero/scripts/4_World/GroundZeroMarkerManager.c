@@ -22,10 +22,23 @@ class GroundZeroMarkerManager
         m_LastMarkerUpdate = new map<string, float>();
     }
 
+    protected vector ResolveMarkerPosition(vector position)
+    {
+        vector p = position;
+        if (p == vector.Zero)
+            return p;
+
+        float surfaceY = GetGame().SurfaceY(p[0], p[2]);
+        if (p[1] < surfaceY + 1.5)
+            p[1] = surfaceY + 2.0;
+        return p;
+    }
+
     protected void UpsertMarker(string markerId, string label, vector position)
     {
         if (!m_Config.MarkersEnabled()) return;
         if (markerId == "") return;
+        position = ResolveMarkerPosition(position);
 
         float now = GetGame().GetTime() * 0.001;
         float last = 0;

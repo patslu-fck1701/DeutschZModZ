@@ -35,7 +35,7 @@
             "ShowExtractionMarker": 1,
             "MarkerName": "DeutschZ GroundZero",
             "MarkerIcon": "ContaminatedArea",
-            "MarkerColorARGB": -65536,
+            "MarkerColorARGB": -16711834,
             "MarkerPrefix": "GroundZero_"
         },
         "Notifications": {

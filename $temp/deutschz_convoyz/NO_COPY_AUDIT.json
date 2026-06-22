@@ -1,0 +1,311 @@
+{
+    "module": "DeutschZ_ConvoyZ",
+    "date": "2026-06-18",
+    "active_high_risk_count": 0,
+    "rows": [
+        {
+            "file": "Assets/HackedCrate/model.cfg",
+            "line": 8,
+            "content": "Quellen-/Konzeptnachweis: Eigene DeutschZ-Implementierung; DayZ/CF/Expansion werden nur als Laufzeit-Abhaengigkeit/API genutzt.",
+            "possible_origin": "DayZ/CF/Expansion API- oder Klassenreferenz",
+            "risk": "niedrig / dokumentiert",
+            "recommendation": "Als Laufzeit-API/Dependency dokumentieren; keinen Quellcode kopieren."
+        },
+        {
+            "file": "Profiles/DeutschZ/ConvoyZ/Events.json",
+            "line": 48,
+            "content": "\"AIClassName\": \"eAI_SurvivorM_Denis\",",
+            "possible_origin": "DayZ/CF/Expansion API- oder Klassenreferenz",
+            "risk": "niedrig / dokumentiert",
+            "recommendation": "Als Laufzeit-API/Dependency dokumentieren; keinen Quellcode kopieren."
+        },
+        {
+            "file": "config.cpp",
+            "line": 8,
+            "content": "Quellen-/Konzeptnachweis: Eigene DeutschZ-Implementierung; DayZ/CF/Expansion werden nur als Laufzeit-Abhaengigkeit/API genutzt.",
+            "possible_origin": "DayZ/CF/Expansion API- oder Klassenreferenz",
+            "risk": "niedrig / dokumentiert",
+            "recommendation": "Als Laufzeit-API/Dependency dokumentieren; keinen Quellcode kopieren."
+        },
+        {
+            "file": "config.cpp",
+            "line": 19,
+            "content": "requiredAddons[] = {\"DZ_Data\", \"DZ_Scripts\", \"DZ_Vehicles_Wheeled\", \"DayZExpansion_Core_Scripts\", \"DayZExpansion_Navigation_Scripts\", \"DayZExpansion_AI_Scripts\"};",
+            "possible_origin": "DayZ/CF/Expansion API- oder Klassenreferenz",
+            "risk": "niedrig / dokumentiert",
+            "recommendation": "Als Laufzeit-API/Dependency dokumentieren; keinen Quellcode kopieren."
+        },
+        {
+            "file": "scripts/3_Game/DeutschZ_ConvoyZ/DeutschZConvoyZConstants.c",
+            "line": 8,
+            "content": "Quellen-/Konzeptnachweis: Eigene DeutschZ-Implementierung; DayZ/CF/Expansion werden nur als Laufzeit-Abhaengigkeit/API genutzt.",
+            "possible_origin": "DayZ/CF/Expansion API- oder Klassenreferenz",
+            "risk": "niedrig / dokumentiert",
+            "recommendation": "Als Laufzeit-API/Dependency dokumentieren; keinen Quellcode kopieren."
+        },
+        {
+            "file": "scripts/3_Game/DeutschZ_ConvoyZ/DeutschZConvoyZModels.c",
+            "line": 8,
+            "content": "Quellen-/Konzeptnachweis: Eigene DeutschZ-Implementierung; DayZ/CF/Expansion werden nur als Laufzeit-Abhaengigkeit/API genutzt.",
+            "possible_origin": "DayZ/CF/Expansion API- oder Klassenreferenz",
+            "risk": "niedrig / dokumentiert",
+            "recommendation": "Als Laufzeit-API/Dependency dokumentieren; keinen Quellcode kopieren."
+        },
+        {
+            "file": "scripts/3_Game/DeutschZ_ConvoyZ/DeutschZConvoyZModels.c",
+            "line": 100,
+            "content": "AIClassName = DeutschZConvoyZConstants.DEFAULT_EXPANSION_AI_CLASS;",
+            "possible_origin": "DayZ/CF/Expansion API- oder Klassenreferenz",
+            "risk": "niedrig / dokumentiert",
+            "recommendation": "Als Laufzeit-API/Dependency dokumentieren; keinen Quellcode kopieren."
+        },
+        {
+            "file": "scripts/4_World/DeutschZ_ConvoyZ/DeutschZConvoyZAIManager.c",
+            "line": 8,
+            "content": "Quellen-/Konzeptnachweis: Eigene DeutschZ-Implementierung; DayZ/CF/Expansion werden nur als Laufzeit-Abhaengigkeit/API genutzt.",
+            "possible_origin": "DayZ/CF/Expansion API- oder Klassenreferenz",
+            "risk": "niedrig / dokumentiert",
+            "recommendation": "Als Laufzeit-API/Dependency dokumentieren; keinen Quellcode kopieren."
+        },
+        {
+            "file": "scripts/4_World/DeutschZ_ConvoyZ/DeutschZConvoyZAIManager.c",
+            "line": 74,
+            "content": "eAIBase eai = eAIBase.Cast(aiObject);",
+            "possible_origin": "DayZ/CF/Expansion API- oder Klassenreferenz",
+            "risk": "niedrig / dokumentiert",
+            "recommendation": "Als Laufzeit-API/Dependency dokumentieren; keinen Quellcode kopieren."
+        },
+        {
+            "file": "scripts/4_World/DeutschZ_ConvoyZ/DeutschZConvoyZAIManager.c",
+            "line": 77,
+            "content": "DeutschZConvoyZLogger.Log(\"AILoadoutSkipped\", \"\", \"\", \"\", aiObject.GetPosition(), \"FAILED\", \"Object is not eAIBase\");",
+            "possible_origin": "DayZ/CF/Expansion API- oder Klassenreferenz",
+            "risk": "niedrig / dokumentiert",
+            "recommendation": "Als Laufzeit-API/Dependency dokumentieren; keinen Quellcode kopieren."
+        },
+        {
+            "file": "scripts/4_World/DeutschZ_ConvoyZ/DeutschZConvoyZAIManager.c",
+            "line": 81,
+            "content": "ExpansionHumanLoadout.Apply(eai, loadoutName, false);",
+            "possible_origin": "DayZ/CF/Expansion API- oder Klassenreferenz",
+            "risk": "niedrig / dokumentiert",
+            "recommendation": "Als Laufzeit-API/Dependency dokumentieren; keinen Quellcode kopieren."
+        },
+        {
+            "file": "scripts/4_World/DeutschZ_ConvoyZ/DeutschZConvoyZAIManager.c",
+            "line": 83,
+            "content": "eai.eAI_SetUnlimitedReload(true);",
+            "possible_origin": "DayZ/CF/Expansion API- oder Klassenreferenz",
+            "risk": "niedrig / dokumentiert",
+            "recommendation": "Als Laufzeit-API/Dependency dokumentieren; keinen Quellcode kopieren."
+        },
+        {
+            "file": "scripts/4_World/DeutschZ_ConvoyZ/DeutschZConvoyZAIManager.c",
+            "line": 90,
+            "content": "if (className == \"\") return DeutschZConvoyZConstants.DEFAULT_EXPANSION_AI_CLASS;",
+            "possible_origin": "DayZ/CF/Expansion API- oder Klassenreferenz",
+            "risk": "niedrig / dokumentiert",
+            "recommendation": "Als Laufzeit-API/Dependency dokumentieren; keinen Quellcode kopieren."
+        },
+        {
+            "file": "scripts/4_World/DeutschZ_ConvoyZ/DeutschZConvoyZAIManager.c",
+            "line": 91,
+            "content": "if (className.IndexOf(\"eAI_\") == 0) return className;",
+            "possible_origin": "DayZ/CF/Expansion API- oder Klassenreferenz",
+            "risk": "niedrig / dokumentiert",
+            "recommendation": "Als Laufzeit-API/Dependency dokumentieren; keinen Quellcode kopieren."
+        },
+        {
+            "file": "scripts/4_World/DeutschZ_ConvoyZ/DeutschZConvoyZAIManager.c",
+            "line": 92,
+            "content": "if (className.IndexOf(\"SurvivorM_\") == 0) return \"eAI_\" + className;",
+            "possible_origin": "DayZ/CF/Expansion API- oder Klassenreferenz",
+            "risk": "niedrig / dokumentiert",
+            "recommendation": "Als Laufzeit-API/Dependency dokumentieren; keinen Quellcode kopieren."
+        },
+        {
+            "file": "scripts/4_World/DeutschZ_ConvoyZ/DeutschZConvoyZAIManager.c",
+            "line": 93,
+            "content": "if (className.IndexOf(\"SurvivorF_\") == 0) return \"eAI_\" + className;",
+            "possible_origin": "DayZ/CF/Expansion API- oder Klassenreferenz",
+            "risk": "niedrig / dokumentiert",
+            "recommendation": "Als Laufzeit-API/Dependency dokumentieren; keinen Quellcode kopieren."
+        },
+        {
+            "file": "scripts/4_World/DeutschZ_ConvoyZ/DeutschZConvoyZActionHackBlackbox.c",
+            "line": 8,
+            "content": "Quellen-/Konzeptnachweis: Eigene DeutschZ-Implementierung; DayZ/CF/Expansion werden nur als Laufzeit-Abhaengigkeit/API genutzt.",
+            "possible_origin": "DayZ/CF/Expansion API- oder Klassenreferenz",
+            "risk": "niedrig / dokumentiert",
+            "recommendation": "Als Laufzeit-API/Dependency dokumentieren; keinen Quellcode kopieren."
+        },
+        {
+            "file": "scripts/4_World/DeutschZ_ConvoyZ/DeutschZConvoyZCleanupManager.c",
+            "line": 8,
+            "content": "Quellen-/Konzeptnachweis: Eigene DeutschZ-Implementierung; DayZ/CF/Expansion werden nur als Laufzeit-Abhaengigkeit/API genutzt.",
+            "possible_origin": "DayZ/CF/Expansion API- oder Klassenreferenz",
+            "risk": "niedrig / dokumentiert",
+            "recommendation": "Als Laufzeit-API/Dependency dokumentieren; keinen Quellcode kopieren."
+        },
+        {
+            "file": "scripts/4_World/DeutschZ_ConvoyZ/DeutschZConvoyZConfig.c",
+            "line": 8,
+            "content": "Quellen-/Konzeptnachweis: Eigene DeutschZ-Implementierung; DayZ/CF/Expansion werden nur als Laufzeit-Abhaengigkeit/API genutzt.",
+            "possible_origin": "DayZ/CF/Expansion API- oder Klassenreferenz",
+            "risk": "niedrig / dokumentiert",
+            "recommendation": "Als Laufzeit-API/Dependency dokumentieren; keinen Quellcode kopieren."
+        },
+        {
+            "file": "scripts/4_World/DeutschZ_ConvoyZ/DeutschZConvoyZConfig.c",
+            "line": 194,
+            "content": "if (i == 0) wave.AIClassName = DeutschZConvoyZConstants.DEFAULT_EXPANSION_AI_CLASS;",
+            "possible_origin": "DayZ/CF/Expansion API- oder Klassenreferenz",
+            "risk": "niedrig / dokumentiert",
+            "recommendation": "Als Laufzeit-API/Dependency dokumentieren; keinen Quellcode kopieren."
+        },
+        {
+            "file": "scripts/4_World/DeutschZ_ConvoyZ/DeutschZConvoyZConfig.c",
+            "line": 195,
+            "content": "else if (i == 1) wave.AIClassName = \"eAI_SurvivorM_Denis\";",
+            "possible_origin": "DayZ/CF/Expansion API- oder Klassenreferenz",
+            "risk": "niedrig / dokumentiert",
+            "recommendation": "Als Laufzeit-API/Dependency dokumentieren; keinen Quellcode kopieren."
+        },
+        {
+            "file": "scripts/4_World/DeutschZ_ConvoyZ/DeutschZConvoyZConfig.c",
+            "line": 196,
+            "content": "else wave.AIClassName = \"eAI_SurvivorM_Boris\";",
+            "possible_origin": "DayZ/CF/Expansion API- oder Klassenreferenz",
+            "risk": "niedrig / dokumentiert",
+            "recommendation": "Als Laufzeit-API/Dependency dokumentieren; keinen Quellcode kopieren."
+        },
+        {
+            "file": "scripts/4_World/DeutschZ_ConvoyZ/DeutschZConvoyZEntityKillHook.c",
+            "line": 8,
+            "content": "Quellen-/Konzeptnachweis: Eigene DeutschZ-Implementierung; DayZ/CF/Expansion werden nur als Laufzeit-Abhaengigkeit/API genutzt.",
+            "possible_origin": "DayZ/CF/Expansion API- oder Klassenreferenz",
+            "risk": "niedrig / dokumentiert",
+            "recommendation": "Als Laufzeit-API/Dependency dokumentieren; keinen Quellcode kopieren."
+        },
+        {
+            "file": "scripts/4_World/DeutschZ_ConvoyZ/DeutschZConvoyZHackManager.c",
+            "line": 8,
+            "content": "Quellen-/Konzeptnachweis: Eigene DeutschZ-Implementierung; DayZ/CF/Expansion werden nur als Laufzeit-Abhaengigkeit/API genutzt.",
+            "possible_origin": "DayZ/CF/Expansion API- oder Klassenreferenz",
+            "risk": "niedrig / dokumentiert",
+            "recommendation": "Als Laufzeit-API/Dependency dokumentieren; keinen Quellcode kopieren."
+        },
+        {
+            "file": "scripts/4_World/DeutschZ_ConvoyZ/DeutschZConvoyZLogger.c",
+            "line": 8,
+            "content": "Quellen-/Konzeptnachweis: Eigene DeutschZ-Implementierung; DayZ/CF/Expansion werden nur als Laufzeit-Abhaengigkeit/API genutzt.",
+            "possible_origin": "DayZ/CF/Expansion API- oder Klassenreferenz",
+            "risk": "niedrig / dokumentiert",
+            "recommendation": "Als Laufzeit-API/Dependency dokumentieren; keinen Quellcode kopieren."
+        },
+        {
+            "file": "scripts/4_World/DeutschZ_ConvoyZ/DeutschZConvoyZManager.c",
+            "line": 8,
+            "content": "Quellen-/Konzeptnachweis: Eigene DeutschZ-Implementierung; DayZ/CF/Expansion werden nur als Laufzeit-Abhaengigkeit/API genutzt.",
+            "possible_origin": "DayZ/CF/Expansion API- oder Klassenreferenz",
+            "risk": "niedrig / dokumentiert",
+            "recommendation": "Als Laufzeit-API/Dependency dokumentieren; keinen Quellcode kopieren."
+        },
+        {
+            "file": "scripts/4_World/DeutschZ_ConvoyZ/DeutschZConvoyZManager.c",
+            "line": 396,
+            "content": "ExpansionNotification(\"DeutschZ ConvoyZ\", text, \"Info\", ARGB(255, 190, 0, 0), 6).Create(pb.GetIdentity());",
+            "possible_origin": "DayZ/CF/Expansion API- oder Klassenreferenz",
+            "risk": "niedrig / dokumentiert",
+            "recommendation": "Als Laufzeit-API/Dependency dokumentieren; keinen Quellcode kopieren."
+        },
+        {
+            "file": "scripts/4_World/DeutschZ_ConvoyZ/DeutschZConvoyZManager.c",
+            "line": 459,
+            "content": "ExpansionMarkerModule markerModule = ExpansionMarkerModule.GetModuleInstance();",
+            "possible_origin": "DayZ/CF/Expansion API- oder Klassenreferenz",
+            "risk": "niedrig / dokumentiert",
+            "recommendation": "Als Laufzeit-API/Dependency dokumentieren; keinen Quellcode kopieren."
+        },
+        {
+            "file": "scripts/4_World/DeutschZ_ConvoyZ/DeutschZConvoyZManager.c",
+            "line": 462,
+            "content": "Print(\"[DeutschZ_ConvoyZ] Expansion marker FAILED: ExpansionMarkerModule is NULL\");",
+            "possible_origin": "DayZ/CF/Expansion API- oder Klassenreferenz",
+            "risk": "niedrig / dokumentiert",
+            "recommendation": "Als Laufzeit-API/Dependency dokumentieren; keinen Quellcode kopieren."
+        },
+        {
+            "file": "scripts/4_World/DeutschZ_ConvoyZ/DeutschZConvoyZManager.c",
+            "line": 495,
+            "content": "ExpansionMarkerModule markerModule = ExpansionMarkerModule.GetModuleInstance();",
+            "possible_origin": "DayZ/CF/Expansion API- oder Klassenreferenz",
+            "risk": "niedrig / dokumentiert",
+            "recommendation": "Als Laufzeit-API/Dependency dokumentieren; keinen Quellcode kopieren."
+        },
+        {
+            "file": "scripts/4_World/DeutschZ_ConvoyZ/DeutschZConvoyZManager.c",
+            "line": 524,
+            "content": "ExpansionNotification(title, text, \"Info\", ARGB(255, 190, 0, 0), 8).Create(pb.GetIdentity());",
+            "possible_origin": "DayZ/CF/Expansion API- oder Klassenreferenz",
+            "risk": "niedrig / dokumentiert",
+            "recommendation": "Als Laufzeit-API/Dependency dokumentieren; keinen Quellcode kopieren."
+        },
+        {
+            "file": "scripts/4_World/DeutschZ_ConvoyZ/DeutschZConvoyZRewardManager.c",
+            "line": 8,
+            "content": "Quellen-/Konzeptnachweis: Eigene DeutschZ-Implementierung; DayZ/CF/Expansion werden nur als Laufzeit-Abhaengigkeit/API genutzt.",
+            "possible_origin": "DayZ/CF/Expansion API- oder Klassenreferenz",
+            "risk": "niedrig / dokumentiert",
+            "recommendation": "Als Laufzeit-API/Dependency dokumentieren; keinen Quellcode kopieren."
+        },
+        {
+            "file": "scripts/4_World/DeutschZ_ConvoyZ/DeutschZConvoyZRuntimeState.c",
+            "line": 8,
+            "content": "Quellen-/Konzeptnachweis: Eigene DeutschZ-Implementierung; DayZ/CF/Expansion werden nur als Laufzeit-Abhaengigkeit/API genutzt.",
+            "possible_origin": "DayZ/CF/Expansion API- oder Klassenreferenz",
+            "risk": "niedrig / dokumentiert",
+            "recommendation": "Als Laufzeit-API/Dependency dokumentieren; keinen Quellcode kopieren."
+        },
+        {
+            "file": "scripts/4_World/DeutschZ_ConvoyZ/DeutschZConvoyZSpawnManager.c",
+            "line": 8,
+            "content": "Quellen-/Konzeptnachweis: Eigene DeutschZ-Implementierung; DayZ/CF/Expansion werden nur als Laufzeit-Abhaengigkeit/API genutzt.",
+            "possible_origin": "DayZ/CF/Expansion API- oder Klassenreferenz",
+            "risk": "niedrig / dokumentiert",
+            "recommendation": "Als Laufzeit-API/Dependency dokumentieren; keinen Quellcode kopieren."
+        },
+        {
+            "file": "scripts/4_World/DeutschZ_ConvoyZ/DeutschZConvoyZValidator.c",
+            "line": 8,
+            "content": "Quellen-/Konzeptnachweis: Eigene DeutschZ-Implementierung; DayZ/CF/Expansion werden nur als Laufzeit-Abhaengigkeit/API genutzt.",
+            "possible_origin": "DayZ/CF/Expansion API- oder Klassenreferenz",
+            "risk": "niedrig / dokumentiert",
+            "recommendation": "Als Laufzeit-API/Dependency dokumentieren; keinen Quellcode kopieren."
+        },
+        {
+            "file": "scripts/5_Mission/DeutschZ_ConvoyZ/DeutschZConvoyZClientStatus.c",
+            "line": 8,
+            "content": "Quellen-/Konzeptnachweis: Eigene DeutschZ-Implementierung; DayZ/CF/Expansion werden nur als Laufzeit-Abhaengigkeit/API genutzt.",
+            "possible_origin": "DayZ/CF/Expansion API- oder Klassenreferenz",
+            "risk": "niedrig / dokumentiert",
+            "recommendation": "Als Laufzeit-API/Dependency dokumentieren; keinen Quellcode kopieren."
+        },
+        {
+            "file": "scripts/5_Mission/DeutschZ_ConvoyZ/DeutschZConvoyZMissionServer.c",
+            "line": 8,
+            "content": "Quellen-/Konzeptnachweis: Eigene DeutschZ-Implementierung; DayZ/CF/Expansion werden nur als Laufzeit-Abhaengigkeit/API genutzt.",
+            "possible_origin": "DayZ/CF/Expansion API- oder Klassenreferenz",
+            "risk": "niedrig / dokumentiert",
+            "recommendation": "Als Laufzeit-API/Dependency dokumentieren; keinen Quellcode kopieren."
+        },
+        {
+            "file": "scripts/5_Mission/DeutschZ_ConvoyZ/DeutschZConvoyZRpcHandler.c",
+            "line": 8,
+            "content": "Quellen-/Konzeptnachweis: Eigene DeutschZ-Implementierung; DayZ/CF/Expansion werden nur als Laufzeit-Abhaengigkeit/API genutzt.",
+            "possible_origin": "DayZ/CF/Expansion API- oder Klassenreferenz",
+            "risk": "niedrig / dokumentiert",
+            "recommendation": "Als Laufzeit-API/Dependency dokumentieren; keinen Quellcode kopieren."
+        }
+    ]
+}

@@ -61,11 +61,12 @@ class DeutschZKotHZFlagpole
             flagClass = "DeutschZKotHZ_DeutschZ_KotHZ_Flag";
         }
 
-        // FIX35: Real visible mast first. The old loose Flag_Base object looked like a folded flag on the ground.
-        if (!SpawnMastWithAttachedFlag("TerritoryFlag", flagClass))
+        // FIX44: Use the own runtime mast first. Vanilla TerritoryFlag can show its default green flag
+        // underneath the attachment on some servers, which made the KotHZ flag look green/wrongly scaled.
+        if (!SpawnMastWithAttachedFlag("DeutschZKotHZ_RuntimeFlagpole", flagClass))
         {
-            // Fallback to our non-persistent runtime mast if vanilla TerritoryFlag is not available on this setup.
-            SpawnMastWithAttachedFlag("DeutschZKotHZ_RuntimeFlagpole", flagClass);
+            // Last mast fallback only; custom texture is still applied to the attached flag.
+            SpawnMastWithAttachedFlag("TerritoryFlag", flagClass);
         }
 
         if (m_PoleObject)
@@ -119,6 +120,8 @@ class DeutschZKotHZFlagpole
             return false;
         }
 
+        pole.SetScale(1.0);
+        flag.SetScale(1.0);
         ApplyDeutschZFlagTexture(flag);
         flag.SetLifetimeMax(7200);
         flag.SetLifetime(7200);
@@ -154,10 +157,19 @@ class DeutschZKotHZFlagpole
         if (!flag)
             return;
 
-        // FIX42: SetObjectTexture is not available on generic Object in DayZ script.
-        // This method only accepts EntityAI so the World module compiles and the flag texture
-        // is applied only on valid item/entity attachments.
-        flag.SetObjectTexture(0, "DeutschZ_KotHZ/data/flags/DeutschZ_KotHZ_Flag.paa");
+        // FIX42/FIX44: SetObjectTexture is only called on EntityAI. Resolve zone-specific flag skins
+        // so attached flags do not fall back to the vanilla green visual.
+        string texture = "DeutschZ_KotHZ/data/flags/DeutschZ_KotHZ_Flag.paa";
+        string type = flag.GetType();
+        if (type == "DeutschZKotHZ_NWAF_Flag") texture = "DeutschZ_KotHZ/data/flags/DeutschZ_KotH_NWAF.paa";
+        else if (type == "DeutschZKotHZ_Tisy_Flag") texture = "DeutschZ_KotHZ/data/flags/DeutschZ_KotH_Tisy.paa";
+        else if (type == "DeutschZKotHZ_LOPA_Flag") texture = "DeutschZ_KotHZ/data/flags/DeutschZ_KotH_LOPA.paa";
+        else if (type == "DeutschZKotHZ_YRAP_Flag") texture = "DeutschZ_KotHZ/data/flags/DeutschZ_KotH_YRAP.paa";
+        else if (type == "DeutschZKotHZ_Basebuild_Flag") texture = "DeutschZ_KotHZ/data/flags/DeutschZ_KotH_Basebuild.paa";
+        else if (type == "DeutschZKotHZ_Alt_One_Flag") texture = "DeutschZ_KotHZ/data/flags/DeutschZ_Alt_One_Flag.paa";
+        else if (type == "DeutschZKotHZ_Alt_Two_Flag") texture = "DeutschZ_KotHZ/data/flags/DeutschZ_Alt_Two_Flag.paa";
+        else if (type == "DeutschZKotHZ_Alt_Three_Flag") texture = "DeutschZ_KotHZ/data/flags/DeutschZ_Alt_Three_Flag.paa";
+        flag.SetObjectTexture(0, texture);
     }
 
     protected void ApplyMastAnimation(Object pole, float fraction)

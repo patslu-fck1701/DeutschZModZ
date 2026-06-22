@@ -13,10 +13,10 @@ class CfgPatches
 {
     class DeutschZ_ConvoyZ
     {
-        units[] = {"Land_HACKEDCRATE", "DZCV_ProtectedCase", "DZCV_AccessCard", "DZCV_CardReader", "DZCV_BlackboxCore", "DZCV_EncryptedDataDrive", "DZCV_ClassifiedIntel", "DZCV_SealedRewardChest"};
+        units[] = {"Land_HACKEDCRATE", "DZCV_ProtectedCase", "DZCV_AccessCard", "DZCV_CardReader", "DZCV_BlackboxCore", "DZCV_EncryptedDataDrive", "DZCV_ClassifiedIntel", "DZCV_SealedRewardChest", "DZ_ConvoyZ_Blackbox", "DZ_ConvoyZ_EncryptedDataModule", "DZ_ConvoyZ_SealedWeaponCase", "DZ_ConvoyZ_DieselManifest", "DZ_ConvoyZ_RadioKey", "DZ_ConvoyZ_ArmorPlateBundle"};
         weapons[] = {};
         requiredVersion = 0.1;
-        requiredAddons[] = {"DZ_Data", "DZ_Scripts", "DZ_Vehicles_Wheeled", "DeutschZ_Core", "DeutschZ_ExpansionBridge"};
+        requiredAddons[] = {"DZ_Data", "DZ_Scripts", "DZ_Vehicles_Wheeled", "DZ_Gear_Containers", "DZ_Gear_Navigation", "DZ_Gear_Consumables", "DZ_Gear_Tools", "DeutschZ_Core", "DeutschZ_ExpansionBridge"};
     };
 };
 
@@ -32,7 +32,7 @@ class CfgMods
         name = "DeutschZ_ConvoyZ";
         credits = "DeutschZ";
         author = "DeutschZ";
-        version = "0.1.6-fix43-safe-locations-smokeoff-loadouts";
+        version = "0.1.7-fix45-event-items";
         type = "mod";
         dependencies[] = {"Game", "World", "Mission"};
         class defs
@@ -145,10 +145,87 @@ class CfgVehicles
     class DZCV_SealedRewardChest: SeaChest
     {
         scope = 2;
-        displayName = "DeutschZ Sealed Military Reward Chest";
-        descriptionShort = "Sealed DeutschZ convoy reward chest.";
+        displayName = "DeutschZ ConvoyZ Rewardkiste";
+        descriptionShort = "Versiegelte DeutschZ ConvoyZ Rewardkiste mit 500 Cargo-Slots.";
         hiddenSelections[] = {"camoGround"};
         hiddenSelectionsTextures[] = {"DeutschZ_ConvoyZ/Assets/Case/Seachest.paa"};
+        itemSize[] = {10, 10};
+        itemsCargoSize[] = {10, 50};
+        weight = 15000;
+        class Cargo
+        {
+            itemsCargoSize[] = {10, 50};
+            openable = 0;
+            allowOwnedCargoManipulation = 1;
+        };
+    };
+
+    class DZ_ConvoyZ_Blackbox: GPSReceiver
+    {
+        scope = 2;
+        displayName = "DeutschZ ConvoyZ Blackbox";
+        descriptionShort = "Geborgene Blackbox eines DeutschZ Convoys. Event-only Reward-, Hack- oder Traderitem.";
+        hiddenSelections[] = {"camo"};
+        hiddenSelectionsTextures[] = {"DeutschZ_ConvoyZ/Assets/Case/CardReader.paa"};
+        itemSize[] = {2, 2};
+        weight = 900;
+    };
+
+    class DZ_ConvoyZ_EncryptedDataModule: GPSReceiver
+    {
+        scope = 2;
+        displayName = "DeutschZ ConvoyZ Datenmodul";
+        descriptionShort = "Verschluesseltes Datenmodul aus einem ConvoyZ-Fahrzeug. Fuer Quest- und Rewardlogik vorbereitet.";
+        hiddenSelections[] = {"camo"};
+        hiddenSelectionsTextures[] = {"DeutschZ_ConvoyZ/Assets/Case/CardReader.paa"};
+        itemSize[] = {1, 2};
+        weight = 180;
+    };
+
+    class DZ_ConvoyZ_SealedWeaponCase: SmallProtectorCase
+    {
+        scope = 2;
+        displayName = "DeutschZ ConvoyZ versiegelter Waffenkoffer";
+        descriptionShort = "Versiegelter Eventkoffer aus einem Convoy. Darf nur ueber Event, Adminspawn, Trader oder Reward ausgegeben werden.";
+        model = "DeutschZ_ConvoyZ/Assets/Case/protector_case.p3d";
+        hiddenSelections[] = {"camo"};
+        hiddenSelectionsTextures[] = {"DeutschZ_ConvoyZ/Assets/Case/Case.paa"};
+        itemSize[] = {4, 3};
+        weight = 3200;
+        canBeSplit = 0;
+    };
+
+    class DZ_ConvoyZ_DieselManifest: Paper
+    {
+        scope = 2;
+        displayName = "DeutschZ ConvoyZ Dieselmanifest";
+        descriptionShort = "Transportmanifest mit Routen-, Diesel- und Ladungsdaten eines ConvoyZ-Events.";
+        itemSize[] = {1, 2};
+        weight = 25;
+    };
+
+    class DZ_ConvoyZ_RadioKey: PunchedCard
+    {
+        scope = 2;
+        displayName = "DeutschZ ConvoyZ Funkschluessel";
+        descriptionShort = "Verschluesselter Funkschluessel fuer ConvoyZ-Signale und spaetere Eventtrigger.";
+        hiddenSelections[] = {"camo"};
+        hiddenSelectionsTextures[] = {"DeutschZ_ConvoyZ/Assets/Case/AccesCard.paa"};
+        itemSize[] = {1, 1};
+        weight = 35;
+    };
+
+    class DZ_ConvoyZ_ArmorPlateBundle: SmallProtectorCase
+    {
+        scope = 2;
+        displayName = "DeutschZ ConvoyZ Panzerplatten-Buendel";
+        descriptionShort = "Schweres Buendel geborgener Schutzplatten aus einem ConvoyZ-Event. Reward- und Traderitem, kein normaler Mapspawn.";
+        model = "DeutschZ_ConvoyZ/Assets/Case/protector_case.p3d";
+        hiddenSelections[] = {"camo"};
+        hiddenSelectionsTextures[] = {"DeutschZ_ConvoyZ/Assets/Case/Case.paa"};
+        itemSize[] = {3, 3};
+        weight = 6500;
+        canBeSplit = 0;
     };
 
 };

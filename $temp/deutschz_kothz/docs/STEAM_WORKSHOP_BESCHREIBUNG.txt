@@ -1,0 +1,66 @@
+﻿[h1]DEUTSCHZ KOTHZ - INFECTED SIEGE[/h1]
+[i]Erobere die Zone. Halte die Stellung. Ueberlebe die Wellen.[/i]
+
+[h2]Beschreibung[/h2]
+[list]
+[*]KOTH-artiges PvE-Event mit Signalstation, Fahne und Capture-Zone
+[*]Zum Marker laufen, Bereich halten, keine Aktionstaste noetig
+[*]Capture laeuft automatisch im Radius der Signalstation
+[*]Zombies und Waves erzeugen Druck bis zum Abschluss
+[*]Reward wird nach erfolgreicher Sicherung freigegeben
+[*]Marker und HUD sollen jederzeit klar zeigen, was passiert
+[/list]
+
+[h1]DEUTSCHZ KOTHZ - INFECTED SIEGE[/h1]
+[i]Take the zone. Hold the line. Survive the waves.[/i]
+
+[h2]Description[/h2]
+[list]
+[*]KOTH-style PvE event with signal station, flag and capture zone
+[*]Move to the marker, hold the area, no action key required
+[*]Capture runs automatically inside the signal-station radius
+[*]Zombies and waves pressure players until completion
+[*]Reward is released after a successful capture
+[*]Marker and HUD clearly explain the current state
+[/list]
+
+[h1]DEUTSCHZ KOTHZ - INFECTED SIEGE[/h1]
+[i]Захвати зону. Удержи позицию. Переживи волны.[/i]
+
+[h2]Описание[/h2]
+[list]
+[*]PvE-событие в стиле KOTH с сигнальной станцией, флагом и зоной захвата
+[*]Иди к маркеру, удерживай область, кнопка действия не нужна
+[*]Захват идет автоматически в радиусе сигнальной станции
+[*]Зомби и волны создают давление до завершения
+[*]Награда появляется после успешного захвата
+[*]Маркер и HUD понятно показывают состояние события
+[/list]
+
+[h2]Links / Support[/h2]
+Workshop: https://steamcommunity.com/sharedfiles/filedetails/?id=3746385283
+GitHub: https://github.com/patslu-fck1701/DeutschZModZ
+DeutschZModZ Support: https://discord.gg/WM5GkDbw7C
+
+[h2]Loadorder[/h2]
+[list]
+[*]@CF, falls von deiner Server-Modliste benoetigt
+[*]@DayZ-Expansion, falls Expansion-Funktionen aktiv genutzt werden
+[*]@DeutschZ_Core
+[*]@DeutschZ_ExpansionBridge
+[*]@DeutschZ_KotHZ
+[*]@DeutschZ_ConvoyZ
+[*]@DeutschZ_GroundZero
+[*]@DeutschZ_CourierZ
+[/list]
+
+[h2]Support-Hinweis[/h2]
+Bei Fehlern bitte direkt im DeutschZModZ-Support melden und folgende Dateien mitsenden:
+[list]
+[*]crash_*.log
+[*]script_*.log
+[*]DayZServer_x64_*.RPT
+[*]server_console.log
+[*]vollstaendige Modlist / Loadorder
+[*]kurze Beschreibung, was direkt vor dem Fehler passiert ist
+[/list]

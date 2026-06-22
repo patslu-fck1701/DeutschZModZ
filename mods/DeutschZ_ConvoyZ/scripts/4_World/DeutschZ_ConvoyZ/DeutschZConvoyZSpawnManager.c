@@ -11,20 +11,25 @@ Keine direkte Codeuebernahme aus Drittquellen.
 
 class DeutschZConvoyZSpawnManager
 {
-    Object SpawnObject(string className, vector pos, vector ori, string eventId, string label)
+    Object SpawnObject(string className, vector pos, vector ori, string eventId, string label, float heightOffset = 0.0)
     {
         if (!GetGame() || !GetGame().IsServer()) return null;
         if (!DeutschZConvoyZValidator.IsClassNameUsable(className)) return null;
         vector p = pos;
-        p[1] = GetGame().SurfaceY(p[0], p[2]);
-        Object obj = GetGame().CreateObjectEx(className, p, ECE_PLACE_ON_SURFACE | ECE_NOLIFETIME);
+        if (label == "blackbox" && heightOffset < 1.35)
+            heightOffset = 1.35;
+        if (label == "crash_object" && heightOffset < 1.0)
+            heightOffset = 1.0;
+        p[1] = GetGame().SurfaceY(p[0], p[2]) + heightOffset;
+        Object obj = GetGame().CreateObjectEx(className, p, ECE_NOLIFETIME | ECE_CREATEPHYSICS | ECE_SETUP);
         if (!obj)
         {
             DeutschZConvoyZLogger.Log("SpawnFailed", eventId, "SPAWNING", "", p, "FAILED", label + " " + className);
             return null;
         }
+        obj.SetPosition(p);
         obj.SetOrientation(ori);
-        DeutschZConvoyZLogger.Log("SpawnSuccess", eventId, "SPAWNING", "", p, "OK", label + " " + className);
+        DeutschZConvoyZLogger.Log("SpawnSuccess", eventId, "SPAWNING", "", p, "OK", label + " " + className + " heightOffset=" + heightOffset.ToString());
         return obj;
     }
 
@@ -38,11 +43,11 @@ class DeutschZConvoyZSpawnManager
         foreach (DeutschZConvoyZObjectDef def: cfg.EventData.CrashObjects)
         {
             if (!def) continue;
-            Object obj = SpawnObject(def.ClassName, def.Position, def.Orientation, state.EventId, "crash_object");
+            Object obj = SpawnObject(def.ClassName, def.Position, def.Orientation, state.EventId, "crash_object", def.HeightOffset);
             if (!obj && def.Critical == 1) return false;
             if (obj) state.SpawnedObjects.Insert(obj);
         }
-        Object blackbox = SpawnObject(cfg.EventData.Blackbox.ClassName, cfg.EventData.Blackbox.Position, cfg.EventData.Blackbox.Orientation, state.EventId, "blackbox");
+        Object blackbox = SpawnObject(cfg.EventData.Blackbox.ClassName, cfg.EventData.Blackbox.Position, cfg.EventData.Blackbox.Orientation, state.EventId, "blackbox", cfg.EventData.Blackbox.HeightOffset);
         if (!blackbox && cfg.EventData.Blackbox.Critical == 1) return false;
         state.BlackboxEntity = blackbox;
         if (blackbox) state.SpawnedObjects.Insert(blackbox);

@@ -84,13 +84,13 @@ class DeutschZConvoyZConfig
         if (className == "Land_HACKEDCRATE") return "Land_HACKEDCRATE";
         if (className == "DZCV_ProtectedCase") return "DZCV_ProtectedCase";
 
-        if (className == "Truck_01_Covered") return "Land_Wreck_Volha_Police";
-        if (className == "Truck_01_Chassis") return "Land_Wreck_Volha_Police";
-        if (className == "Truck_01_Box") return "Land_Wreck_Volha_Police";
-        if (className == "Truck_01_Cargo") return "Land_Wreck_Volha_Police";
-        if (className == "OffroadHatchback") return "Land_Wreck_Volha_Police";
-        if (className == "Land_Wreck_UH1Y") return "Land_Wreck_Volha_Police";
-        if (className == "Land_Wreck_Volha_Police") return "Land_Wreck_Volha_Police";
+        if (className == "Truck_01_Covered") return "Land_Wreck_V3S";
+        if (className == "Truck_01_Chassis") return "Land_Wreck_V3S";
+        if (className == "Truck_01_Box") return "Land_Wreck_V3S";
+        if (className == "Truck_01_Cargo") return "Land_Wreck_V3S";
+        if (className == "OffroadHatchback") return "Land_Wreck_Uaz";
+        if (className == "Land_Wreck_UH1Y") return "Land_Wreck_Mi8";
+        if (className.IndexOf("Land_Wreck_") == 0) return className;
 
         return className;
     }
@@ -115,6 +115,7 @@ class DeutschZConvoyZConfig
                 oldVehicleAsStatic.Position = veh.Position;
                 oldVehicleAsStatic.Orientation = veh.Orientation;
                 oldVehicleAsStatic.Critical = veh.Critical;
+                oldVehicleAsStatic.HeightOffset = Math.Max(1.0, veh.HeightOffset);
                 EventData.CrashObjects.Insert(oldVehicleAsStatic);
             }
             EventData.Vehicles.Clear();
@@ -125,7 +126,11 @@ class DeutschZConvoyZConfig
         {
             if (!crashObj) continue;
             crashObj.ClassName = NormalizeCrashClassName(crashObj.ClassName);
+            if (crashObj.HeightOffset < 1.0)
+                crashObj.HeightOffset = 1.0;
         }
+        if (EventData.Blackbox.HeightOffset < 1.35)
+            EventData.Blackbox.HeightOffset = 1.35;
 
         int waveIndex = 0;
         foreach (DeutschZConvoyZAIWaveDef wave: EventData.AIWaves)
@@ -179,6 +184,17 @@ class DeutschZConvoyZConfig
         if (Settings.BlackboxReadyTimeoutSeconds < 0) Settings.BlackboxReadyTimeoutSeconds = 0;
     }
 
+    void InsertCrashObject(string className, vector position, vector orientation, int critical, float heightOffset)
+    {
+        DeutschZConvoyZObjectDef wreck = new DeutschZConvoyZObjectDef();
+        wreck.ClassName = className;
+        wreck.Position = position;
+        wreck.Orientation = orientation;
+        wreck.Critical = critical;
+        wreck.HeightOffset = heightOffset;
+        EventData.CrashObjects.Insert(wreck);
+    }
+
     void CreateDefaultEvent()
     {
         EventData = new DeutschZConvoyZEventDef();
@@ -186,28 +202,12 @@ class DeutschZConvoyZConfig
         EventData.RequiredAiKills = 4;
         EventData.HackDurationSeconds = 30;
 
-        // FIX26 static-only: Do not spawn drivable trucks here.
-        // Convoy visuals use real vanilla static Land_Wreck_* objects only.
-        DeutschZConvoyZObjectDef wreck1 = new DeutschZConvoyZObjectDef();
-        wreck1.ClassName = "Land_Wreck_Volha_Police";
-        wreck1.Position = "10120 0 5410";
-        wreck1.Orientation = "35 0 0";
-        wreck1.Critical = 1;
-        EventData.CrashObjects.Insert(wreck1);
-
-        DeutschZConvoyZObjectDef wreck2 = new DeutschZConvoyZObjectDef();
-        wreck2.ClassName = "Land_Wreck_Volha_Police";
-        wreck2.Position = "10110 0 5420";
-        wreck2.Orientation = "120 0 0";
-        wreck2.Critical = 0;
-        EventData.CrashObjects.Insert(wreck2);
-
-        DeutschZConvoyZObjectDef wreck3 = new DeutschZConvoyZObjectDef();
-        wreck3.ClassName = "Land_Wreck_Volha_Police";
-        wreck3.Position = "10135 0 5400";
-        wreck3.Orientation = "260 0 0";
-        wreck3.Critical = 0;
-        EventData.CrashObjects.Insert(wreck3);
+        // FIX44: static military convoy scene. No drivable vehicles; use raised vanilla wreck objects.
+        InsertCrashObject("Land_Wreck_V3S", "10120 0 5410", "35 0 0", 1, 1.0);
+        InsertCrashObject("Land_Wreck_BMP2", "10110 0 5421", "120 0 0", 0, 1.0);
+        InsertCrashObject("Land_Wreck_BRDM2", "10136 0 5400", "260 0 0", 0, 1.0);
+        InsertCrashObject("Land_Wreck_Uaz", "10102 0 5404", "310 0 0", 0, 1.0);
+        InsertCrashObject("Land_Wreck_HMMWV", "10143 0 5422", "80 0 0", 0, 1.0);
 
         EventData.Blackbox.Position = "10124 0 5414";
         EventData.Blackbox.ClassName = "Land_HACKEDCRATE";

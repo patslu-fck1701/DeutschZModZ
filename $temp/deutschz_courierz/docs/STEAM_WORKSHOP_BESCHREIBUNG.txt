@@ -1,0 +1,66 @@
+﻿[h1]DEUTSCHZ COURIERZ - OPERATION AKTENKOFFER[/h1]
+[i]Nimm den Koffer. Erreiche das Ziel. Ueberlebe den Transport.[/i]
+
+[h2]Beschreibung[/h2]
+[list]
+[*]Transport- und Kurier-Event fuer DeutschZ
+[*]Aktenkoffer aufnehmen und zum Ziel bringen
+[*]Traegerstatus und Marker erzeugen Risiko
+[*]Belohnung bei erfolgreicher Lieferung
+[*]Idee/Konzept: Einarvargr / Konfliktzone
+[*]Entwicklung/Integration: Patrick Sluzalek / fck1701 / DeutschZ
+[/list]
+
+[h1]DEUTSCHZ COURIERZ - OPERATION AKTENKOFFER[/h1]
+[i]Take the case. Reach the target. Survive the delivery.[/i]
+
+[h2]Description[/h2]
+[list]
+[*]Transport and courier event for DeutschZ
+[*]Pick up the case and deliver it to the target
+[*]Carrier status and markers create risk
+[*]Reward after successful delivery
+[*]Idea/concept: Einarvargr / Konfliktzone
+[*]Development/integration: Patrick Sluzalek / fck1701 / DeutschZ
+[/list]
+
+[h1]DEUTSCHZ COURIERZ - OPERATION AKTENKOFFER[/h1]
+[i]Возьми кейс. Доберись до цели. Переживи доставку.[/i]
+
+[h2]Описание[/h2]
+[list]
+[*]Транспортное и курьерское событие для DeutschZ
+[*]Подбери кейс и доставь его к цели
+[*]Статус носителя и маркеры создают риск
+[*]Награда за успешную доставку
+[*]Идея/концепт: Einarvargr / Konfliktzone
+[*]Разработка/интеграция: Patrick Sluzalek / fck1701 / DeutschZ
+[/list]
+
+[h2]Links / Support[/h2]
+Workshop: https://steamcommunity.com/sharedfiles/filedetails/?id=3748646981
+GitHub: https://github.com/patslu-fck1701/DeutschZModZ
+DeutschZModZ Support: https://discord.gg/WM5GkDbw7C
+
+[h2]Loadorder[/h2]
+[list]
+[*]@CF, falls von deiner Server-Modliste benoetigt
+[*]@DayZ-Expansion, falls Expansion-Funktionen aktiv genutzt werden
+[*]@DeutschZ_Core
+[*]@DeutschZ_ExpansionBridge
+[*]@DeutschZ_KotHZ
+[*]@DeutschZ_ConvoyZ
+[*]@DeutschZ_GroundZero
+[*]@DeutschZ_CourierZ
+[/list]
+
+[h2]Support-Hinweis[/h2]
+Bei Fehlern bitte direkt im DeutschZModZ-Support melden und folgende Dateien mitsenden:
+[list]
+[*]crash_*.log
+[*]script_*.log
+[*]DayZServer_x64_*.RPT
+[*]server_console.log
+[*]vollstaendige Modlist / Loadorder
+[*]kurze Beschreibung, was direkt vor dem Fehler passiert ist
+[/list]

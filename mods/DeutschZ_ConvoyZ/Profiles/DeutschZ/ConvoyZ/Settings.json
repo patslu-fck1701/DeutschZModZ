@@ -29,7 +29,7 @@
     "StatusBarUpdateIntervalSeconds": 1,
     "StatusSyncRadius": 1200.0,
     "UseEvent3DMarker": 1,
-    "EventMarkerIcon": "Vehicle Crash",
+    "EventMarkerIcon": "Vehicle",
     "EventMarkerName": "DeutschZ ConvoyZ",
     "EnableStatusNotifications": 1,
     "StatusNotifyIntervalSeconds": 30,

@@ -16,11 +16,15 @@ class DeutschZExpansionBridge_MarkerProvider: DeutschZCore_MarkerProviderAPI
 {
     protected ref map<string, vector> m_Markers;
     protected ref map<string, int> m_MarkerIs3D;
+    protected ref map<string, string> m_MarkerLabels;
+    protected ref map<string, int> m_MarkerColors;
 
     void DeutschZExpansionBridge_MarkerProvider()
     {
         m_Markers = new map<string, vector>;
         m_MarkerIs3D = new map<string, int>;
+        m_MarkerLabels = new map<string, string>;
+        m_MarkerColors = new map<string, int>;
     }
 
     protected ExpansionMarkerModule GetExpansionMarkerModuleSafe()
@@ -30,8 +34,11 @@ class DeutschZExpansionBridge_MarkerProvider: DeutschZCore_MarkerProviderAPI
 
     protected string GetIconName(string id)
     {
-        // Use a known Expansion map icon for all event markers.
-        // Event-specific visual differentiation remains in label/color to avoid missing-icon invisibility.
+        // FIX44: event-specific marker symbols. Keep conservative names and fall back to Territory.
+        if (id.IndexOf("KotHZ_") == 0) return "Territory";
+        if (id.IndexOf("ConvoyZ_") == 0) return "Vehicle";
+        if (id.IndexOf("GroundZero_") == 0) return "ContaminatedArea";
+        if (id.IndexOf("CourierZ_") == 0) return "Deliver";
         return "Territory";
     }
 
@@ -66,6 +73,8 @@ class DeutschZExpansionBridge_MarkerProvider: DeutschZCore_MarkerProviderAPI
 
         m_Markers.Set(id, position);
         m_MarkerIs3D.Set(id, 0);
+        m_MarkerLabels.Set(id, label);
+        m_MarkerColors.Set(id, colorARGB);
         return CreateOrReplaceExpansionMarker(id, label, position, colorARGB, false);
     }
 
@@ -76,6 +85,8 @@ class DeutschZExpansionBridge_MarkerProvider: DeutschZCore_MarkerProviderAPI
 
         m_Markers.Set(id, position);
         m_MarkerIs3D.Set(id, 1);
+        m_MarkerLabels.Set(id, label);
+        m_MarkerColors.Set(id, colorARGB);
         return CreateOrReplaceExpansionMarker(id, label, position, colorARGB, true);
     }
 
@@ -87,7 +98,11 @@ class DeutschZExpansionBridge_MarkerProvider: DeutschZCore_MarkerProviderAPI
         m_Markers.Set(id, position);
         int is3D = 0;
         m_MarkerIs3D.Find(id, is3D);
-        return CreateOrReplaceExpansionMarker(id, id, position, 0xFFFF0000, is3D == 1);
+        string label = id;
+        int color = 0xFFFF0000;
+        if (m_MarkerLabels.Contains(id)) m_MarkerLabels.Find(id, label);
+        if (m_MarkerColors.Contains(id)) m_MarkerColors.Find(id, color);
+        return CreateOrReplaceExpansionMarker(id, label, position, color, is3D == 1);
     }
 
     override bool DeleteMarker(string id)
@@ -97,6 +112,10 @@ class DeutschZExpansionBridge_MarkerProvider: DeutschZCore_MarkerProviderAPI
             m_Markers.Remove(id);
         if (m_MarkerIs3D.Contains(id))
             m_MarkerIs3D.Remove(id);
+        if (m_MarkerLabels.Contains(id))
+            m_MarkerLabels.Remove(id);
+        if (m_MarkerColors.Contains(id))
+            m_MarkerColors.Remove(id);
 
         ExpansionMarkerModule module = GetExpansionMarkerModuleSafe();
         if (module)

@@ -50,7 +50,7 @@ class DeutschZConvoyZRewardManager
         if (reward.RewardContainerClassName != "")
         {
             vector p = reward.RewardPosition;
-            p[1] = GetGame().SurfaceY(p[0], p[2]);
+            p[1] = GetGame().SurfaceY(p[0], p[2]) + 0.75;
             container = GetGame().CreateObjectEx(reward.RewardContainerClassName, p, ECE_SETUP | ECE_CREATEPHYSICS | ECE_UPDATEPATHGRAPH);
             if (container)
             {
@@ -126,7 +126,7 @@ class DeutschZConvoyZRewardManager
                 vector p = fallbackPos;
                 p[0] = p[0] + dx;
                 p[2] = p[2] + dz;
-                p[1] = GetGame().SurfaceY(p[0], p[2]);
+                p[1] = GetGame().SurfaceY(p[0], p[2]) + 0.75;
                 item = EntityAI.Cast(GetGame().CreateObjectEx(className, p, ECE_PLACE_ON_SURFACE | ECE_SETUP));
             }
 

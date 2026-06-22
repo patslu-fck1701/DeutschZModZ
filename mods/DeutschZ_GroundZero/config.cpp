@@ -9,7 +9,13 @@ class CfgPatches
             "GroundZero_BioSample",
             "GroundZero_AuthChip",
             "GroundZero_ContainmentKey",
-            "GroundZero_ResearchCore"
+            "GroundZero_ResearchCore",
+            "DZ_GroundZero_ContaminatedDataCore",
+            "DZ_GroundZero_Sample",
+            "DZ_GroundZero_ReactorCode",
+            "DZ_GroundZero_EvacuationOrder",
+            "DZ_GroundZero_MilitaryAccessCard",
+            "DZ_GroundZero_ZoneArtifact"
         };
         weapons[] = {};
         requiredVersion = 0.1;
@@ -32,7 +38,7 @@ class CfgMods
         name = "DeutschZ GroundZero";
         type = "mod";
         author = "Patrick Sluzalek / fck1701";
-        version = "0.4.12-fix43-safezone-location-hud-radius";
+        version = "0.4.13-fix45-event-items";
         dependencies[] = {"Game", "World", "Mission"};
 
         class defs
@@ -122,5 +128,59 @@ class CfgVehicles
         displayName = "Forschungskern";
         itemSize[] = {3, 3};
         weight = 3000;
+    };
+
+    class DZ_GroundZero_ContaminatedDataCore: GroundZero_ComponentBase
+    {
+        scope = 2;
+        displayName = "DeutschZ GroundZero kontaminierter Datenkern";
+        descriptionShort = "Kontaminierter Datenkern aus der GroundZero-Zone. Event-only Reward- und Questitem.";
+        itemSize[] = {2, 2};
+        weight = 1400;
+    };
+
+    class DZ_GroundZero_Sample: GroundZero_ComponentBase
+    {
+        scope = 2;
+        displayName = "DeutschZ GroundZero Probe";
+        descriptionShort = "Gesicherte Probe aus einer GroundZero-Zone. Nur fuer Event-, Admin- und Traderlogik vorgesehen.";
+        itemSize[] = {1, 2};
+        weight = 350;
+    };
+
+    class DZ_GroundZero_ReactorCode: GroundZero_ComponentBase
+    {
+        scope = 2;
+        displayName = "DeutschZ GroundZero Reaktorcode";
+        descriptionShort = "Verschluesselter Reaktorcode fuer GroundZero-Trigger und spaetere Missionslogik.";
+        itemSize[] = {1, 1};
+        weight = 60;
+    };
+
+    class DZ_GroundZero_EvacuationOrder: GroundZero_ComponentBase
+    {
+        scope = 2;
+        displayName = "DeutschZ GroundZero Evakuierungsbefehl";
+        descriptionShort = "Befehl zur Evakuierung einer kontaminierten Zone. Event-only Dokument.";
+        itemSize[] = {1, 2};
+        weight = 35;
+    };
+
+    class DZ_GroundZero_MilitaryAccessCard: GroundZero_ComponentBase
+    {
+        scope = 2;
+        displayName = "DeutschZ GroundZero Militaer-Zugangskarte";
+        descriptionShort = "Militaerische Zugangskarte fuer GroundZero-Sperrzonen und Rewardlogik.";
+        itemSize[] = {1, 1};
+        weight = 25;
+    };
+
+    class DZ_GroundZero_ZoneArtifact: GroundZero_ComponentBase
+    {
+        scope = 2;
+        displayName = "DeutschZ GroundZero Zonenartefakt";
+        descriptionShort = "Seltenes Artefakt aus einer GroundZero-Zone. Hochwertiges Event-only Rewarditem.";
+        itemSize[] = {2, 2};
+        weight = 900;
     };
 };

@@ -1,5 +1,5 @@
 {
-    "ConfigInfo": "DeutschZ_KotHZ FIX31. Music disabled; safe visible flag object; real Expansion markers via DeutschZ_ExpansionBridge.",
+    "ConfigInfo": "DeutschZ_KotHZ FIX44. Event polish: corrected flag path, radius music, stronger infected and 7500 HP Mummy boss.",
     "EditHint": "Copy this to profiles/DeutschZ/KotHZ/Config/KotH_Config_Chernarus.json for immediate fast test. Existing profile configs are also normalized by FIX17.",
     "OwnerName": "Patrick Sluzalek",
     "OwnerPlayerName": "fck1701",
@@ -25,7 +25,7 @@
     "EnableVanillaChatMessages": 0,
     "EnableMarkerFallbackNotifications": 0,
     "MarkerMode": "Expansion",
-    "ExpansionMarkerColorARGB": 4294901760,
+    "ExpansionMarkerColorARGB": 4294909984,
     "ExpansionMarkerIcon": "Territory",
     "RewardCrateMinimumLifetimeSeconds": 1800,
     "EnableRewardCrateDespawnWarning": 1,
@@ -49,11 +49,11 @@
     "EventMusicPlayOnReady": 0,
     "EventMusicPlayOnStart": 0,
     "EventMusicPlayOnCaptured": 0,
-    "EventMusicRadius": 120.0,
+    "EventMusicRadius": 180.0,
     "EventMusicVolume": 1.0,
     "Zones": [
         {
-            "EditHint": "FIX17 fast test zone. Uses DeutschZ_Test_HighValue, 90 second capture, 4 zombies per 25/50/75 wave, Mummy boss at 90%.",
+            "EditHint": "FIX17 fast test zone. Uses DeutschZ_Test_HighValue, 90 second capture, 4 zombies per 25/50/75 wave, Mummy boss after 100% capture / 7500 HP.",
             "Radius": 25.0,
             "CaptureTimeSeconds": 90,
             "RewardPoolName": "DeutschZ_Test_HighValue",
@@ -103,7 +103,7 @@
             "FlagClassName": "DeutschZKotHZ_NWAF_Flag"
         },
         {
-            "EditHint": "FIX17 fast test zone. Uses DeutschZ_Test_HighValue, 90 second capture, 4 zombies per 25/50/75 wave, Mummy boss at 90%.",
+            "EditHint": "FIX17 fast test zone. Uses DeutschZ_Test_HighValue, 90 second capture, 4 zombies per 25/50/75 wave, Mummy boss after 100% capture / 7500 HP.",
             "Radius": 25.0,
             "CaptureTimeSeconds": 90,
             "RewardPoolName": "DeutschZ_Test_HighValue",
@@ -153,7 +153,7 @@
             "FlagClassName": "DeutschZKotHZ_Tisy_Flag"
         },
         {
-            "EditHint": "FIX17 fast test zone. Uses DeutschZ_Test_HighValue, 90 second capture, 4 zombies per 25/50/75 wave, Mummy boss at 90%.",
+            "EditHint": "FIX17 fast test zone. Uses DeutschZ_Test_HighValue, 90 second capture, 4 zombies per 25/50/75 wave, Mummy boss after 100% capture / 7500 HP.",
             "Radius": 25.0,
             "CaptureTimeSeconds": 90,
             "RewardPoolName": "DeutschZ_Test_HighValue",
@@ -203,7 +203,7 @@
             "FlagClassName": "DeutschZKotHZ_LOPA_Flag"
         },
         {
-            "EditHint": "FIX17 fast test zone. Uses DeutschZ_Test_HighValue, 90 second capture, 4 zombies per 25/50/75 wave, Mummy boss at 90%.",
+            "EditHint": "FIX17 fast test zone. Uses DeutschZ_Test_HighValue, 90 second capture, 4 zombies per 25/50/75 wave, Mummy boss after 100% capture / 7500 HP.",
             "Radius": 25.0,
             "CaptureTimeSeconds": 90,
             "RewardPoolName": "DeutschZ_Test_HighValue",
@@ -253,7 +253,7 @@
             "FlagClassName": "DeutschZKotHZ_YRAP_Flag"
         },
         {
-            "EditHint": "FIX17 fast test zone. Uses DeutschZ_Test_HighValue, 90 second capture, 4 zombies per 25/50/75 wave, Mummy boss at 90%.",
+            "EditHint": "FIX17 fast test zone. Uses DeutschZ_Test_HighValue, 90 second capture, 4 zombies per 25/50/75 wave, Mummy boss after 100% capture / 7500 HP.",
             "Radius": 25.0,
             "CaptureTimeSeconds": 90,
             "RewardPoolName": "DeutschZ_Test_HighValue",
@@ -303,7 +303,7 @@
             "FlagClassName": "DeutschZKotHZ_Basebuild_Flag"
         },
         {
-            "EditHint": "FIX17 fast test zone. Uses DeutschZ_Test_HighValue, 90 second capture, 4 zombies per 25/50/75 wave, Mummy boss at 90%.",
+            "EditHint": "FIX17 fast test zone. Uses DeutschZ_Test_HighValue, 90 second capture, 4 zombies per 25/50/75 wave, Mummy boss after 100% capture / 7500 HP.",
             "Radius": 25.0,
             "CaptureTimeSeconds": 90,
             "RewardPoolName": "DeutschZ_Test_HighValue",
@@ -353,7 +353,7 @@
             "FlagClassName": "DeutschZKotHZ_Basebuild_Flag"
         },
         {
-            "EditHint": "FIX17 fast test zone. Uses DeutschZ_Test_HighValue, 90 second capture, 4 zombies per 25/50/75 wave, Mummy boss at 90%.",
+            "EditHint": "FIX17 fast test zone. Uses DeutschZ_Test_HighValue, 90 second capture, 4 zombies per 25/50/75 wave, Mummy boss after 100% capture / 7500 HP.",
             "Radius": 25.0,
             "CaptureTimeSeconds": 90,
             "RewardPoolName": "DeutschZ_Test_HighValue",

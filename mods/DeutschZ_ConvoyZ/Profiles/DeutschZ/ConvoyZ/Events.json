@@ -6,29 +6,47 @@
     "Vehicles": [],
     "CrashObjects": [
         {
-            "ClassName": "Land_Wreck_Volha_Police",
+            "ClassName": "Land_Wreck_V3S",
             "Position": "10120 0 5410",
             "Orientation": "35 0 0",
-            "Critical": 1
+            "Critical": 1,
+            "HeightOffset": 1.0
         },
         {
-            "ClassName": "Land_Wreck_Volha_Police",
-            "Position": "10110 0 5420",
+            "ClassName": "Land_Wreck_BMP2",
+            "Position": "10110 0 5421",
             "Orientation": "120 0 0",
-            "Critical": 0
+            "Critical": 0,
+            "HeightOffset": 1.0
         },
         {
-            "ClassName": "Land_Wreck_Volha_Police",
-            "Position": "10135 0 5400",
+            "ClassName": "Land_Wreck_BRDM2",
+            "Position": "10136 0 5400",
             "Orientation": "260 0 0",
-            "Critical": 0
+            "Critical": 0,
+            "HeightOffset": 1.0
+        },
+        {
+            "ClassName": "Land_Wreck_Uaz",
+            "Position": "10102 0 5404",
+            "Orientation": "310 0 0",
+            "Critical": 0,
+            "HeightOffset": 1.0
+        },
+        {
+            "ClassName": "Land_Wreck_HMMWV",
+            "Position": "10143 0 5422",
+            "Orientation": "80 0 0",
+            "Critical": 0,
+            "HeightOffset": 1.0
         }
     ],
     "Blackbox": {
         "ClassName": "Land_HACKEDCRATE",
-        "Position": "10124 0 5414",
-        "Orientation": "0 0 0",
-        "Critical": 1
+        "Position": "10125 0 5416",
+        "Orientation": "45 0 0",
+        "Critical": 1,
+        "HeightOffset": 1.35
     },
     "Smoke": {
         "Position": "10120 0 5410",
@@ -69,13 +87,27 @@
                     "Orientation": "0 0 0"
                 }
             ]
+        },
+        {
+            "WaveId": "test_wave_3",
+            "DelaySeconds": 180,
+            "Count": 3,
+            "AIClassName": "eAI_SurvivorM_Boris",
+            "DeutschZAIProfileId": "",
+            "LoadoutName": "DZCV_MilitaryHeavy",
+            "SpawnPoints": [
+                {
+                    "Position": "10135 0 5378",
+                    "Orientation": "0 0 0"
+                }
+            ]
         }
     ],
     "RequiredAiKills": 4,
     "HackDurationSeconds": 30,
     "Reward": {
         "RewardContainerClassName": "DZCV_SealedRewardChest",
-        "RewardPosition": "10128 0 5417",
+        "RewardPosition": "10131 0 5419",
         "RewardOrientation": "0 0 0",
         "Items": [
             {

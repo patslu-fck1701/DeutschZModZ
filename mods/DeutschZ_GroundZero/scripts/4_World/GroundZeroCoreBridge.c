@@ -29,7 +29,7 @@ class GroundZeroCoreBridge
         DeutschZCore_MarkerProviderAPI provider = DeutschZCore_ServiceLocator.GetMarkerProvider();
         if (!provider || id == "")
             return false;
-        return provider.CreateMarker("GroundZero_" + id, label, position, 0xFFFF0000);
+        return provider.CreateMarker("GroundZero_" + id, label, position, 0xFF00FF66);
     }
 
     static bool CreateEvent3DMarker(string id, string label, vector position)
@@ -40,7 +40,7 @@ class GroundZeroCoreBridge
 
         // FIX25: 3D and map marker must not use two visible ids.
         // Expansion can represent a server marker as 3D with the same logical id.
-        return provider.Create3DMarker("GroundZero_" + id, label, position, 0xFFFF0000);
+        return provider.Create3DMarker("GroundZero_" + id, label, position, 0xFF00FF66);
     }
 
     static bool CreateUnifiedEventMarker(string id, string label, vector position, bool prefer3D)

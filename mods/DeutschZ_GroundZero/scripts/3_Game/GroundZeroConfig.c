@@ -133,7 +133,7 @@ class GroundZeroEventMarkerSettings
         ShowExtractionMarker = 1;
         MarkerName = "DeutschZ GroundZero";
         MarkerIcon = "ContaminatedArea";
-        MarkerColorARGB = -65536;
+        MarkerColorARGB = -16711834;
         MarkerPrefix = "GroundZero_";
     }
 
@@ -152,7 +152,7 @@ class GroundZeroEventMarkerSettings
         if (MarkerName == "") MarkerName = fallbackName;
         if (MarkerIcon == "") MarkerIcon = fallbackIcon;
         if (MarkerPrefix == "") MarkerPrefix = fallbackPrefix;
-        if (MarkerColorARGB == 0) MarkerColorARGB = -65536;
+        if (MarkerColorARGB == 0) MarkerColorARGB = -16711834;
     }
 }
 

@@ -27,6 +27,7 @@ class DeutschZConvoyZObjectDef
     vector Position;
     vector Orientation;
     int Critical;
+    float HeightOffset;
 
     void DeutschZConvoyZObjectDef()
     {
@@ -34,6 +35,7 @@ class DeutschZConvoyZObjectDef
         Position = "0 0 0";
         Orientation = "0 0 0";
         Critical = 1;
+        HeightOffset = 0.0;
     }
 }
 
@@ -50,6 +52,7 @@ class DeutschZConvoyZBlackboxDef: DeutschZConvoyZObjectDef
     {
         ClassName = "Land_HACKEDCRATE";
         Critical = 1;
+        HeightOffset = 1.35;
     }
 }
 
@@ -212,7 +215,7 @@ class DeutschZConvoyZSettings
         WaveDelaySeconds = 180;
         UseEventMarker = 1;
         UseEvent3DMarker = 1;
-        EventMarkerIcon = "Vehicle Crash";
+        EventMarkerIcon = "Vehicle";
         EventMarkerName = "DeutschZ ConvoyZ Crash";
         CleanupDelaySeconds = 900;
         RewardClaimOnce = 1;

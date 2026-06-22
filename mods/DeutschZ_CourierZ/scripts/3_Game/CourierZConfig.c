@@ -100,7 +100,7 @@ class CourierZEventMarkerSettings
         ShowExtractionMarker = 1;
         MarkerName = "DeutschZ CourierZ";
         MarkerIcon = "Deliver";
-        MarkerColorARGB = -65536;
+        MarkerColorARGB = 0xFF33CCFF;
         MarkerPrefix = "CourierZ_";
     }
 
@@ -118,7 +118,7 @@ class CourierZEventMarkerSettings
         if (ShowExtractionMarker != 0) ShowExtractionMarker = 1;
         if (MarkerName == "") MarkerName = "DeutschZ CourierZ";
         if (MarkerIcon == "") MarkerIcon = "Deliver";
-        if (MarkerColorARGB == 0) MarkerColorARGB = -65536;
+        if (MarkerColorARGB == 0) MarkerColorARGB = 0xFF33CCFF;
         if (MarkerPrefix == "") MarkerPrefix = "CourierZ_";
     }
 }

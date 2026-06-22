@@ -391,19 +391,25 @@ class DeutschZKotHZConfigManager
         if (config.EventMusicSoundSetName == "")
             config.EventMusicSoundSetName = "DeutschZ_KotHZ_EventMusic_SoundSet";
 
-        config.EnableEventMusic = 0;
+        // FIX45: Musik bleibt verfuegbar, wird aber nicht mehr hart auf aktiv gesetzt.
+        // Serverbetreiber koennen EnableEventMusic und die Phasenflags bewusst in der Config aktivieren.
+        if (config.EnableEventMusic != 0)
+            config.EnableEventMusic = 1;
         config.EventMusicPlayOnReady = 0;
-        config.EventMusicPlayOnStart = 0;
-        config.EventMusicPlayOnCaptured = 0;
+        if (config.EnableEventMusic == 0)
+        {
+            config.EventMusicPlayOnStart = 0;
+            config.EventMusicPlayOnCaptured = 0;
+        }
 
         if (config.EventMusicRadius <= 0)
-            config.EventMusicRadius = 120.0;
+            config.EventMusicRadius = 180.0;
 
         if (config.EventMusicVolume <= 0)
             config.EventMusicVolume = 1.0;
 
-        // DeutschZ KotHZ marker stays red in memory for consistent event presentation.
-        config.ExpansionMarkerColorARGB = ARGB(255, 255, 0, 0);
+        // DeutschZ KotHZ marker: klares Rot, getrennt von ConvoyZ/CourierZ/GroundZero.
+        config.ExpansionMarkerColorARGB = ARGB(255, 255, 32, 32);
 
 
         // KOTH rewards spawn as a visible DeutschZ reward crate by default.

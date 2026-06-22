@@ -10,7 +10,7 @@ class CfgPatches
 {
     class DeutschZ_KotHZ
     {
-        units[] = {"DeutschZKotHZ_RuntimeFlagpole", "DeutschZKotHZ_EventFlagpole", "DeutschZKotHZ_RuntimeFogEmitter", "DeutschZKotHZ_RewardCrate", "DeutschZKotHZ_DropCrate", "DeutschZKotHZ_Flag", "DeutschZKotHZ_Alt_One_Flag", "DeutschZKotHZ_Alt_Two_Flag", "DeutschZKotHZ_Alt_Three_Flag", "DeutschZKotHZ_DeutschZ_KotHZ_Flag", "DeutschZKotHZ_NWAF_Flag", "DeutschZKotHZ_Tisy_Flag", "DeutschZKotHZ_LOPA_Flag", "DeutschZKotHZ_YRAP_Flag", "DeutschZKotHZ_Basebuild_Flag", "DeutschZKotHZ_BiohazardReader", "DeutschZKotHZ_AccessCard", "DeutschZKotHZ_ResearchDocument", "DeutschZKotHZ_CommanderInsignia"};
+        units[] = {"DeutschZKotHZ_RuntimeFlagpole", "DeutschZKotHZ_EventFlagpole", "DeutschZKotHZ_RuntimeFogEmitter", "DeutschZKotHZ_RewardCrate", "DeutschZKotHZ_DropCrate", "DeutschZKotHZ_Flag", "DeutschZKotHZ_Alt_One_Flag", "DeutschZKotHZ_Alt_Two_Flag", "DeutschZKotHZ_Alt_Three_Flag", "DeutschZKotHZ_DeutschZ_KotHZ_Flag", "DeutschZKotHZ_NWAF_Flag", "DeutschZKotHZ_Tisy_Flag", "DeutschZKotHZ_LOPA_Flag", "DeutschZKotHZ_YRAP_Flag", "DeutschZKotHZ_Basebuild_Flag", "DeutschZKotHZ_BiohazardReader", "DeutschZKotHZ_AccessCard", "DeutschZKotHZ_ResearchDocument", "DeutschZKotHZ_CommanderInsignia", "DZ_KotHZ_SiegeToken", "DZ_KotHZ_InfectedSample", "DZ_KotHZ_BossTrophy", "DZ_KotHZ_ControlChip", "DZ_KotHZ_BloodyZBadge"};
         weapons[] = {};
         requiredVersion = 0.1;
         requiredAddons[] = {"DZ_Data", "DZ_Scripts", "DZ_Sounds_Effects", "DZ_Gear_Camping", "DZ_Gear_Containers", "DZ_Gear_Navigation", "DZ_Gear_Consumables", "JM_CF_Scripts", "DeutschZ_Core", "DeutschZ_ExpansionBridge"};
@@ -30,7 +30,7 @@ class CfgMods
         credits = "Owner: Patrick Sluzalek / Player: fck1701 / Server: DeutschZ";
         author = "Patrick Sluzalek / fck1701";
         authorID = "0";
-        version = "2.3.3-fix43-music-rpc";
+        version = "2.3.5-fix45-event-items-safe-effects";
         extra = 0;
         type = "mod";
         defines[] = {"DEUTSCHZ_KotHZ"};
@@ -175,7 +175,7 @@ class CfgVehicles
         scope = 2;
         displayName = "DeutschZ KotHZ Infected Siege Reward Chest";
         descriptionShort = "DeutschZ KotHZ reward chest with custom SeaChest skin.";
-        hiddenSelections[] = {"camoground"};
+        hiddenSelections[] = {"camoGround"};
         hiddenSelectionsTextures[] = {"DeutschZ_KotHZ/data/textures/Seachest.paa"};
         itemsCargoSize[] = {10, 50};
         itemSize[] = {10, 10};
@@ -229,8 +229,8 @@ class CfgVehicles
         scope = 2;
         displayName = "DeutschZ KotHZ Access Card";
         descriptionShort = "PunchedCard based KotHZ access card.";
-        hiddenSelections[] = {"component01"};
-        hiddenSelectionsTextures[] = {"DeutschZ_KotHZ/data/textures/AccesCard.paa"};
+        hiddenSelections[] = {"component01", "camo", "zbytek"};
+        hiddenSelectionsTextures[] = {"DeutschZ_KotHZ/data/textures/AccesCard.paa", "DeutschZ_KotHZ/data/textures/AccesCard.paa", "DeutschZ_KotHZ/data/textures/AccesCard.paa"};
     };
 
     class DeutschZKotHZ_ResearchDocument: Paper
@@ -242,10 +242,69 @@ class CfgVehicles
         itemSize[] = {1,1};
     };
 
-    class DeutschZKotHZ_CommanderInsignia: DeutschZKotHZ_AccessCard
+    class DeutschZKotHZ_CommanderInsignia: GPSReceiver
     {
         scope = 2;
         displayName = "DeutschZ KotHZ Commander Insignia";
-        descriptionShort = "Insignia token dropped by the strongest infected encounter.";
+        descriptionShort = "Sichtbar ueberarbeitetes rotes DeutschZ Commander-Insignia fuer den Mummy-Boss und KotHZ Rewards. Nutzt bewusst nicht mehr die normale PunchedCard-Optik.";
+        hiddenSelections[] = {"gpsreceiver"};
+        hiddenSelectionsTextures[] = {"DeutschZ_KotHZ/data/textures/CardReader.paa"};
+        itemSize[] = {1, 1};
+        weight = 35;
+    };
+
+    class DZ_KotHZ_SiegeToken: PunchedCard
+    {
+        scope = 2;
+        displayName = "DeutschZ KotHZ Siege-Token";
+        descriptionShort = "Event-only Nachweis fuer eine abgeschlossene KotHZ-Belagerung. Fuer Rewards, Adminspawn oder Trader nutzbar; kein normaler Mapspawn.";
+        hiddenSelections[] = {"component01", "camo", "zbytek"};
+        hiddenSelectionsTextures[] = {"DeutschZ_KotHZ/data/textures/AccesCard.paa", "DeutschZ_KotHZ/data/textures/AccesCard.paa", "DeutschZ_KotHZ/data/textures/AccesCard.paa"};
+        itemSize[] = {1, 1};
+        weight = 20;
+    };
+
+    class DZ_KotHZ_InfectedSample: GPSReceiver
+    {
+        scope = 2;
+        displayName = "DeutschZ KotHZ Infiziertenprobe";
+        descriptionShort = "Versiegelte Probe aus einer KotHZ-Zone. Trigger- oder Questitem fuer Infected-Siege-Logik.";
+        hiddenSelections[] = {"gpsreceiver"};
+        hiddenSelectionsTextures[] = {"DeutschZ_KotHZ/data/textures/CardReader.paa"};
+        itemSize[] = {1, 2};
+        weight = 250;
+    };
+
+    class DZ_KotHZ_BossTrophy: GPSReceiver
+    {
+        scope = 2;
+        displayName = "DeutschZ KotHZ Boss-Trophaee";
+        descriptionShort = "Seltene Trophaee aus der Bossphase. Rewarditem fuer erfolgreiche KotHZ-Abschluesse.";
+        hiddenSelections[] = {"gpsreceiver"};
+        hiddenSelectionsTextures[] = {"DeutschZ_KotHZ/data/textures/CardReader.paa"};
+        itemSize[] = {2, 2};
+        weight = 650;
+    };
+
+    class DZ_KotHZ_ControlChip: GPSReceiver
+    {
+        scope = 2;
+        displayName = "DeutschZ KotHZ Kontrollchip";
+        descriptionShort = "Technischer Kontrollchip fuer KotHZ-Eventsignale und spaetere Quest-/Adminlogik.";
+        hiddenSelections[] = {"gpsreceiver"};
+        hiddenSelectionsTextures[] = {"DeutschZ_KotHZ/data/textures/CardReader.paa"};
+        itemSize[] = {1, 1};
+        weight = 80;
+    };
+
+    class DZ_KotHZ_BloodyZBadge: PunchedCard
+    {
+        scope = 2;
+        displayName = "DeutschZ KotHZ Blutiges Z-Abzeichen";
+        descriptionShort = "Blutiges rotes DeutschZ-Abzeichen aus einer KotHZ-Zone. Event-only Sammler- und Rewarditem.";
+        hiddenSelections[] = {"component01", "camo", "zbytek"};
+        hiddenSelectionsTextures[] = {"DeutschZ_KotHZ/data/textures/AccesCard.paa", "DeutschZ_KotHZ/data/textures/AccesCard.paa", "DeutschZ_KotHZ/data/textures/AccesCard.paa"};
+        itemSize[] = {1, 1};
+        weight = 35;
     };
 };

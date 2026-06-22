@@ -29,7 +29,7 @@ class DeutschZKotHZCoreBridge
         DeutschZCore_MarkerProviderAPI provider = DeutschZCore_ServiceLocator.GetMarkerProvider();
         if (!provider)
             return false;
-        return provider.CreateMarker("KotHZ_" + id, label, position, 0xFFFF0000);
+        return provider.CreateMarker("KotHZ_" + id, label, position, 0xFFFF2020);
     }
 
 
@@ -40,7 +40,7 @@ class DeutschZKotHZCoreBridge
             return false;
         // FIX35: Use the same server marker id as the map marker. Expansion server markers can be map+3D,
         // separate ids caused duplicate visible markers.
-        return provider.Create3DMarker("KotHZ_" + id, label, position, 0xFFFF0000);
+        return provider.Create3DMarker("KotHZ_" + id, label, position, 0xFFFF2020);
     }
 
     static bool DeleteEvent3DMarker(string id)

@@ -29,7 +29,7 @@ class DeutschZConvoyZCoreBridge
         DeutschZCore_MarkerProviderAPI provider = DeutschZCore_ServiceLocator.GetMarkerProvider();
         if (!provider)
             return false;
-        return provider.CreateMarker("ConvoyZ_" + id, label, position, 0xFFFF0000);
+        return provider.CreateMarker("ConvoyZ_" + id, label, position, 0xFFFF8C00);
     }
 
     static bool CreateEvent3DMarker(string id, string label, vector position)
@@ -38,7 +38,7 @@ class DeutschZConvoyZCoreBridge
         if (!provider)
             return false;
         // FIX36: use the same marker id and let ExpansionBridge create a 3D server marker.
-        return provider.Create3DMarker("ConvoyZ_" + id, label, position, 0xFFFF0000);
+        return provider.Create3DMarker("ConvoyZ_" + id, label, position, 0xFFFF8C00);
     }
 
     static void CleanupMarkers()
