@@ -37,7 +37,7 @@ class DeutschZConvoyZConstants
     static const string SMOKE_GREEN = "GREEN";
     static const string SMOKE_WHITE = "WHITE";
 
-    static const string DEFAULT_EXPANSION_AI_CLASS = "ZmbM_usSoldier_Officer_Desert";
+    static const string DEFAULT_EXPANSION_AI_CLASS = "eAI_SurvivorM_Denis";
 }
 
 string DeutschZConvoyZ_StateName(int state)

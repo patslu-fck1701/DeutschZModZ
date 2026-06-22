@@ -76,9 +76,5 @@
         {
             "ClassName": "DeutschZKotHZ_CommanderInsignia"
         }
-    ],
-    "MinStartDelayMinutes": 5,
-    "MaxStartDelayMinutes": 5,
-    "RestartDelayMinutes": 20,
-    "StatusNotifyIntervalSeconds": 60
+    ]
 }

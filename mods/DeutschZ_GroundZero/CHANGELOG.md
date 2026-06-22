@@ -1,3 +1,9 @@
+## FIX36 - Event Ausbau Stage 1 / closer staged starts
+- Adjusted staged test-start order: KotHZ 1 min, ConvoyZ 3 min, GroundZero 5 min, CourierZ 7 min.
+- Keeps crash-risk features off: KotHZ music, physical smoke/fog cannons and heavy marker fallback objects remain disabled.
+- Re-enables/keeps stable gameplay additions only: visible flags, Expansion markers, HUD/progress, infected/waves, rewards and reduced no-spam status messages.
+- ConvoyZ now routes its 3D marker request through Core/ExpansionBridge when enabled.
+
 # CHANGELOG
 
 ## 2026-06-20 - FIX25 Staggered Event Test / Marker Notify Stabilization

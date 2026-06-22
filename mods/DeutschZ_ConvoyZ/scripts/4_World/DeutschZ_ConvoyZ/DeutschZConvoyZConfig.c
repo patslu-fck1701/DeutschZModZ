@@ -84,12 +84,12 @@ class DeutschZConvoyZConfig
         if (className == "Land_HACKEDCRATE") return "Land_HACKEDCRATE";
         if (className == "DZCV_ProtectedCase") return "DZCV_ProtectedCase";
 
-        if (className == "Truck_01_Covered") return "Land_Wreck_UH1Y";
-        if (className == "Truck_01_Chassis") return "Land_Wreck_UH1Y";
-        if (className == "Truck_01_Box") return "Land_Wreck_UH1Y";
-        if (className == "Truck_01_Cargo") return "Land_Wreck_UH1Y";
+        if (className == "Truck_01_Covered") return "Land_Wreck_Volha_Police";
+        if (className == "Truck_01_Chassis") return "Land_Wreck_Volha_Police";
+        if (className == "Truck_01_Box") return "Land_Wreck_Volha_Police";
+        if (className == "Truck_01_Cargo") return "Land_Wreck_Volha_Police";
         if (className == "OffroadHatchback") return "Land_Wreck_Volha_Police";
-        if (className == "Land_Wreck_UH1Y") return "Land_Wreck_UH1Y";
+        if (className == "Land_Wreck_UH1Y") return "Land_Wreck_Volha_Police";
         if (className == "Land_Wreck_Volha_Police") return "Land_Wreck_Volha_Police";
 
         return className;
@@ -105,10 +105,6 @@ class DeutschZConvoyZConfig
         if (!EventData.AIWaves) EventData.AIWaves = new array<ref DeutschZConvoyZAIWaveDef>;
         if (!EventData.Reward) EventData.Reward = new DeutschZConvoyZRewardDef();
         if (!EventData.Reward.Items) EventData.Reward.Items = new array<ref DeutschZConvoyZRewardItemDef>;
-        if (!Settings) Settings = new DeutschZConvoyZSettings();
-        Settings.EnsureDeutschZEventSettings();
-        Settings.ApplyDeutschZEventSettings();
-
         if (EventData.Vehicles && EventData.Vehicles.Count() > 0)
         {
             foreach (DeutschZConvoyZVehicleDef veh: EventData.Vehicles)
@@ -137,8 +133,8 @@ class DeutschZConvoyZConfig
             if (wave.LoadoutName == "") wave.LoadoutName = "PoliceLoadout";
             if (wave.DeutschZAIProfileId == "convoy_guard") wave.DeutschZAIProfileId = "";
         }
-        EventData.RequiredAiKills = Settings.RequiredAiKills;
-        EventData.HackDurationSeconds = Settings.HackDurationSeconds;
+        if (EventData.RequiredAiKills <= 0) EventData.RequiredAiKills = Settings.RequiredAiKills;
+        if (EventData.HackDurationSeconds <= 0) EventData.HackDurationSeconds = Settings.HackDurationSeconds;
 
         if (Settings.InitialStartDelayMinSeconds < 0) Settings.InitialStartDelayMinSeconds = 0;
         if (Settings.InitialStartDelayMaxSeconds < Settings.InitialStartDelayMinSeconds) Settings.InitialStartDelayMaxSeconds = Settings.InitialStartDelayMinSeconds;
@@ -158,16 +154,16 @@ class DeutschZConvoyZConfig
     {
         EventData = new DeutschZConvoyZEventDef();
         EventData.EventCenter = "7500 0 7500";
-        EventData.RequiredAiKills = 3;
+        EventData.RequiredAiKills = 4;
         EventData.HackDurationSeconds = 30;
 
         // FIX26 static-only: Do not spawn drivable trucks here.
         // Convoy visuals use real vanilla static Land_Wreck_* objects only.
         DeutschZConvoyZObjectDef wreck1 = new DeutschZConvoyZObjectDef();
-        wreck1.ClassName = "Land_Wreck_UH1Y";
+        wreck1.ClassName = "Land_Wreck_Volha_Police";
         wreck1.Position = "7500 0 7500";
         wreck1.Orientation = "35 0 0";
-        wreck1.Critical = 0;
+        wreck1.Critical = 1;
         EventData.CrashObjects.Insert(wreck1);
 
         DeutschZConvoyZObjectDef wreck2 = new DeutschZConvoyZObjectDef();
@@ -178,7 +174,7 @@ class DeutschZConvoyZConfig
         EventData.CrashObjects.Insert(wreck2);
 
         DeutschZConvoyZObjectDef wreck3 = new DeutschZConvoyZObjectDef();
-        wreck3.ClassName = "Land_Wreck_HMMWV";
+        wreck3.ClassName = "Land_Wreck_Volha_Police";
         wreck3.Position = "7511 0 7493";
         wreck3.Orientation = "260 0 0";
         wreck3.Critical = 0;
@@ -201,9 +197,11 @@ class DeutschZConvoyZConfig
         {
             DeutschZConvoyZAIWaveDef wave = new DeutschZConvoyZAIWaveDef();
             wave.WaveId = "wave_" + (i + 1).ToString();
-            wave.DelaySeconds = i * 30;
+            wave.DelaySeconds = i * 90;
             wave.Count = 4;
-            wave.AIClassName = "ZmbM_usSoldier_Officer_Desert";
+            if (i == 0) wave.AIClassName = DeutschZConvoyZConstants.DEFAULT_EXPANSION_AI_CLASS;
+            else if (i == 1) wave.AIClassName = "eAI_SurvivorM_Denis";
+            else wave.AIClassName = "eAI_SurvivorM_Boris";
             wave.DeutschZAIProfileId = "";
             wave.LoadoutName = "PoliceLoadout";
 

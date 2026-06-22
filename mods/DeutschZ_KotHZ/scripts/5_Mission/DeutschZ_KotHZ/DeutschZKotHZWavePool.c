@@ -31,10 +31,10 @@ class DeutschZKotHZWaveEntry
         SpawnOutdoorOnly = 1;
         ValidateClassBeforeSpawn = 1;
         EnableClassFallback = 1;
-        FallbackClassName = "ZmbM_usSoldier_Officer_Desert";
+        FallbackClassName = "ZmbM_CitizenASkinny_Brown";
         EnemyClassNames = new array<string>;
-        EnemyClassNames.Insert("ZmbM_usSoldier_Officer_Desert");
-        EnemyClassNames.Insert("ZmbM_usSoldier_Officer_Desert");
+        EnemyClassNames.Insert("ZmbM_PatrolNormal_Autumn");
+        EnemyClassNames.Insert("ZmbM_SoldierNormal_Beige");
         EnemyClassNames.Insert("ZmbM_PatrolNormal_Summer");
     }
 }
@@ -64,10 +64,10 @@ class DeutschZKotHZWavePool
         initial.SpawnRadiusMin = 16.0;
         initial.SpawnRadiusMax = 40.0;
         initial.EnemyClassNames.Clear();
-        initial.EnemyClassNames.Insert("ZmbM_usSoldier_Officer_Desert");
+        initial.EnemyClassNames.Insert("ZmbM_PatrolNormal_Autumn");
         initial.EnemyClassNames.Insert("ZmbM_PatrolNormal_Summer");
-        initial.EnemyClassNames.Insert("ZmbM_usSoldier_Officer_Desert");
-        initial.EnemyClassNames.Insert("ZmbM_usSoldier_Officer_Desert");
+        initial.EnemyClassNames.Insert("ZmbM_SoldierNormal_Beige");
+        initial.EnemyClassNames.Insert("ZmbM_CitizenASkinny_Brown");
         Waves.Insert(initial);
 
         DeutschZKotHZWaveEntry wave1 = new DeutschZKotHZWaveEntry();
@@ -77,8 +77,8 @@ class DeutschZKotHZWavePool
         wave1.SpawnRadiusMin = 16.0;
         wave1.SpawnRadiusMax = 40.0;
         wave1.EnemyClassNames.Clear();
-        wave1.EnemyClassNames.Insert("ZmbM_usSoldier_Officer_Desert");
-        wave1.EnemyClassNames.Insert("ZmbM_usSoldier_Officer_Desert");
+        wave1.EnemyClassNames.Insert("ZmbM_PatrolNormal_Autumn");
+        wave1.EnemyClassNames.Insert("ZmbM_SoldierNormal_Beige");
         wave1.EnemyClassNames.Insert("ZmbM_PatrolNormal_Summer");
         Waves.Insert(wave1);
 
@@ -89,7 +89,7 @@ class DeutschZKotHZWavePool
         wave2.SpawnRadiusMin = 16.0;
         wave2.SpawnRadiusMax = 40.0;
         wave2.EnemyClassNames.Clear();
-        wave2.EnemyClassNames.Insert("ZmbM_usSoldier_Officer_Desert");
+        wave2.EnemyClassNames.Insert("ZmbM_SoldierNormal_Beige");
         wave2.EnemyClassNames.Insert("ZmbM_NBC_Grey");
         wave2.EnemyClassNames.Insert("ZmbM_NBC_Yellow");
         Waves.Insert(wave2);
@@ -101,7 +101,7 @@ class DeutschZKotHZWavePool
         wave3.SpawnRadiusMin = 16.0;
         wave3.SpawnRadiusMax = 40.0;
         wave3.EnemyClassNames.Clear();
-        wave3.EnemyClassNames.Insert("ZmbM_usSoldier_Officer_Desert");
+        wave3.EnemyClassNames.Insert("ZmbM_SoldierNormal_Beige");
         wave3.EnemyClassNames.Insert("ZmbM_NBC_Grey");
         wave3.EnemyClassNames.Insert("ZmbM_NBC_Yellow");
         Waves.Insert(wave3);
@@ -134,8 +134,8 @@ class DeutschZKotHZWavePoolsConfig
         light1.SpawnRadiusMin = 16.0;
         light1.SpawnRadiusMax = 40.0;
         light1.EnemyClassNames.Clear();
-        light1.EnemyClassNames.Insert("ZmbM_usSoldier_Officer_Desert");
-        light1.EnemyClassNames.Insert("ZmbM_usSoldier_Officer_Desert");
+        light1.EnemyClassNames.Insert("ZmbM_PatrolNormal_Autumn");
+        light1.EnemyClassNames.Insert("ZmbM_SoldierNormal_Beige");
         light.Waves.Insert(light1);
         DeutschZKotHZWaveEntry light2 = new DeutschZKotHZWaveEntry();
         light2.WaveName = "Light Reinforcement";
@@ -144,7 +144,7 @@ class DeutschZKotHZWavePoolsConfig
         light2.SpawnRadiusMin = 16.0;
         light2.SpawnRadiusMax = 40.0;
         light2.EnemyClassNames.Clear();
-        light2.EnemyClassNames.Insert("ZmbM_usSoldier_Officer_Desert");
+        light2.EnemyClassNames.Insert("ZmbM_SoldierNormal_Beige");
         light2.EnemyClassNames.Insert("ZmbM_NBC_Grey");
         light.Waves.Insert(light2);
         WavePools.Insert(light);
@@ -159,8 +159,8 @@ class DeutschZKotHZWavePoolsConfig
         b1.SpawnRadiusMin = 16.0;
         b1.SpawnRadiusMax = 40.0;
         b1.EnemyClassNames.Clear();
-        b1.EnemyClassNames.Insert("ZmbM_usSoldier_Officer_Desert");
-        b1.EnemyClassNames.Insert("ZmbM_usSoldier_Officer_Desert");
+        b1.EnemyClassNames.Insert("ZmbM_PatrolNormal_Autumn");
+        b1.EnemyClassNames.Insert("ZmbM_CitizenASkinny_Brown");
         base.Waves.Insert(b1);
         DeutschZKotHZWaveEntry b2 = new DeutschZKotHZWaveEntry();
         b2.WaveName = "Basebuilding Reinforcement";
@@ -169,7 +169,7 @@ class DeutschZKotHZWavePoolsConfig
         b2.SpawnRadiusMin = 16.0;
         b2.SpawnRadiusMax = 40.0;
         b2.EnemyClassNames.Clear();
-        b2.EnemyClassNames.Insert("ZmbM_usSoldier_Officer_Desert");
+        b2.EnemyClassNames.Insert("ZmbM_SoldierNormal_Beige");
         b2.EnemyClassNames.Insert("ZmbM_PatrolNormal_Summer");
         base.Waves.Insert(b2);
         WavePools.Insert(base);
@@ -206,12 +206,12 @@ class DeutschZKotHZWavePoolsConfig
         wave.SpawnOutdoorOnly = 1;
         wave.ValidateClassBeforeSpawn = 1;
         wave.EnableClassFallback = 1;
-        wave.FallbackClassName = "ZmbM_usSoldier_Officer_Desert";
+        wave.FallbackClassName = "ZmbM_CitizenASkinny_Brown";
         wave.EnemyClassNames.Clear();
-        wave.EnemyClassNames.Insert("ZmbM_usSoldier_Officer_Desert");
+        wave.EnemyClassNames.Insert("ZmbM_PatrolNormal_Autumn");
         wave.EnemyClassNames.Insert("ZmbM_PatrolNormal_Summer");
-        wave.EnemyClassNames.Insert("ZmbM_usSoldier_Officer_Desert");
-        wave.EnemyClassNames.Insert("ZmbM_usSoldier_Officer_Desert");
+        wave.EnemyClassNames.Insert("ZmbM_SoldierNormal_Beige");
+        wave.EnemyClassNames.Insert("ZmbM_CitizenASkinny_Brown");
         wave.EnemyClassNames.Insert("ZmbM_CitizenASkinny_Blue");
         pool.Waves.Insert(wave);
     }

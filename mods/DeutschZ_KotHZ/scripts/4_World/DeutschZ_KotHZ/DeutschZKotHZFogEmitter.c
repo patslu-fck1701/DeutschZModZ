@@ -30,12 +30,12 @@ class DeutschZKotHZ_RuntimeFogEmitter extends ItemBase
         // Runtime particle anchor only. No construction parts are restored.
     }
 
-    override void AfterStoreLoad()
+    void AfterStoreLoad()
     {
         // Runtime particle anchor only. Do not call BaseBuildingBase construction restore.
     }
 
-    override void EEOnAfterLoad()
+    void EEOnAfterLoad()
     {
         // Runtime particle anchor only. Startup cleanup removes stale KOTH objects.
     }

@@ -4,6 +4,12 @@ Eigenstaendige Implementierung fuer DeutschZ.
 Autor/Eigentuemer: Patrick Sluzalek / fck1701.
 Keine direkte Codeuebernahme aus Drittquellen.
 Oeffentliche Quellen werden nur zur Konzept- und API-Verifikation genutzt.
+
+FIX35:
+- Visible KOTH mast restored with a vanilla TerritoryFlag first, custom runtime fallback second.
+- No loose/folded flag as the primary visual anymore.
+- Flag is attached to the mast and raised by flag_mast animation according to capture progress.
+- No music and no particle smoke/net-sync path.
 */
 
 class DeutschZKotHZFlagpole
@@ -22,8 +28,8 @@ class DeutschZKotHZFlagpole
         m_FallbackFlagObject = null;
         m_Position = vector.Zero;
         m_Orientation = vector.Zero;
-        m_TopHeightOffset = 13.0;
-        m_BottomHeightOffset = 1.4;
+        m_TopHeightOffset = 8.0;
+        m_BottomHeightOffset = 2.0;
         m_DeleteOnEventEnd = 1;
     }
 
@@ -36,75 +42,88 @@ class DeutschZKotHZFlagpole
         if (m_Position == vector.Zero)
             m_Position = zone.Position;
 
+        if (m_Position == vector.Zero)
+            return false;
+
         m_Position[1] = GetGame().SurfaceY(m_Position[0], m_Position[2]);
         m_Orientation = zone.FlagpoleOrientation;
-        m_TopHeightOffset = Math.Max(2.0, zone.FlagVisualHeightOffset);
+        m_TopHeightOffset = Math.Max(4.0, zone.FlagVisualHeightOffset);
+        m_BottomHeightOffset = 2.0;
         m_DeleteOnEventEnd = zone.DeleteFlagpoleOnEventEnd;
 
-        // FIX25: do not spawn the custom runtime flagpole during live tests.
-        // The previous custom flag attachment path could show a white/invisible flag and was suspect for native crashes.
-        // Use stable vanilla world objects only: a red barrel as capture mast and a separate vanilla/custom flag object above it.
-        string poleClass = "Barrel_Red";
-        if (!GetGame().ConfigIsExisting("CfgVehicles " + poleClass))
-            poleClass = "M18SmokeGrenade_Red";
+        string flagClass = zone.FlagClassName;
+        if (flagClass == "")
+            flagClass = "DeutschZKotHZ_DeutschZ_KotHZ_Flag";
 
-        m_PoleObject = GetGame().CreateObjectEx(poleClass, m_Position, ECE_PLACE_ON_SURFACE);
-        if (!m_PoleObject)
-            m_PoleObject = GetGame().CreateObject(poleClass, m_Position);
-
-        if (!m_PoleObject)
+        if (!GetGame().ConfigIsExisting("CfgVehicles " + flagClass))
         {
-            Print("[DeutschZ_KotHZ] Could not spawn safe KOTH marker object: " + poleClass);
+            Print("[DeutschZ_KotHZ] Flag class missing, fallback to DeutschZKotHZ_DeutschZ_KotHZ_Flag: " + flagClass);
+            flagClass = "DeutschZKotHZ_DeutschZ_KotHZ_Flag";
+        }
+
+        // FIX35: Real visible mast first. The old loose Flag_Base object looked like a folded flag on the ground.
+        if (!SpawnMastWithAttachedFlag("TerritoryFlag", flagClass))
+        {
+            // Fallback to our non-persistent runtime mast if vanilla TerritoryFlag is not available on this setup.
+            SpawnMastWithAttachedFlag("DeutschZKotHZ_RuntimeFlagpole", flagClass);
+        }
+
+        if (m_PoleObject)
+        {
+            SetCaptureVisual(0.0);
+            Print("[DeutschZ_KotHZ] FIX35 visible KOTH mast spawned at " + m_Position.ToString() + " flag=" + flagClass + " pole=" + m_PoleObject.GetType());
+            return true;
+        }
+
+        // Last visual fallback only if a mast cannot be spawned. This should not be the normal path.
+        vector flagPos = GetFallbackFlagPositionForFraction(0.0);
+        m_FallbackFlagObject = GetGame().CreateObjectEx(flagClass, flagPos, ECE_NOLIFETIME | ECE_PLACE_ON_SURFACE);
+        if (!m_FallbackFlagObject)
+        {
+            Print("[DeutschZ_KotHZ] Could not spawn KOTH mast or fallback flag object: " + flagClass);
             return false;
         }
 
-        m_PoleObject.SetPosition(m_Position);
-        m_PoleObject.SetOrientation(m_Orientation);
-
-        EntityAI poleEntity = EntityAI.Cast(m_PoleObject);
-        if (poleEntity)
-            poleEntity.PlaceOnSurface();
-
-        string flagClass = zone.FlagClassName;
-        if (flagClass == "" || !GetGame().ConfigIsExisting("CfgVehicles " + flagClass))
-            flagClass = "Flag_Chernarus";
-        if (!GetGame().ConfigIsExisting("CfgVehicles " + flagClass))
-            flagClass = "Flag_White";
-
-        if (GetGame().ConfigIsExisting("CfgVehicles " + flagClass))
-        {
-            vector flagPos = GetFallbackFlagPositionForFraction(1.0);
-            m_FallbackFlagObject = GetGame().CreateObjectEx(flagClass, flagPos, ECE_PLACE_ON_SURFACE);
-            if (m_FallbackFlagObject)
-            {
-                m_FallbackFlagObject.SetPosition(flagPos);
-                m_FallbackFlagObject.SetOrientation(m_Orientation);
-                string texturePath = DeutschZKotHZ_GetSafeFlagTexture(flagClass);
-                if (texturePath != "")
-                    m_FallbackFlagObject.SetObjectTexture(0, texturePath);
-            }
-        }
-
-        Print("[DeutschZ_KotHZ] FIX25 safe KOTH beacon spawned: pole=" + poleClass + " flag=" + flagClass + " pos=" + m_Position.ToString());
+        m_FallbackFlagObject.SetPosition(flagPos);
+        m_FallbackFlagObject.SetOrientation(m_Orientation);
+        SetCaptureVisual(0.0);
+        Print("[DeutschZ_KotHZ] FIX35 fallback visible KOTH flag spawned without mast: " + flagClass + " at " + flagPos.ToString());
         return true;
     }
 
-    protected string DeutschZKotHZ_GetSafeFlagTexture(string flagClassName)
+    protected bool SpawnMastWithAttachedFlag(string poleClass, string flagClass)
     {
-        if (flagClassName == "DeutschZKotHZ_NWAF_Flag") return "/DeutschZ_KotHZ/data/flags/DeutschZ_KotH_NWAF.paa";
-        if (flagClassName == "DeutschZKotHZ_Tisy_Flag") return "/DeutschZ_KotHZ/data/flags/DeutschZ_KotH_Tisy.paa";
-        if (flagClassName == "DeutschZKotHZ_LOPA_Flag") return "/DeutschZ_KotHZ/data/flags/DeutschZ_KotH_LOPA.paa";
-        if (flagClassName == "DeutschZKotHZ_YRAP_Flag") return "/DeutschZ_KotHZ/data/flags/DeutschZ_KotH_YRAP.paa";
-        if (flagClassName == "DeutschZKotHZ_Basebuild_Flag") return "/DeutschZ_KotHZ/data/flags/DeutschZ_KotH_Basebuild.paa";
-        if (flagClassName == "DeutschZKotHZ_DeutschZ_KotHZ_Flag") return "/DeutschZ_KotHZ/data/flags/DeutschZ_KotHZ_Flag.paa";
-        return "";
-    }
+        if (poleClass == "" || !GetGame().ConfigIsExisting("CfgVehicles " + poleClass))
+            return false;
 
-    protected void SpawnFallbackMovableFlag(string flagClass)
-    {
-        // Disabled in v1.0.21. The floating rectangle seen in testing came from this fallback path.
-        // The correct path is inventory attachment on the flagpole via Material_FPole_Flag.
-        Print("[DeutschZ_KotHZ] Fallback movable flag spawn disabled; using attached flag only.");
+        Object pole = GetGame().CreateObjectEx(poleClass, m_Position, ECE_NOLIFETIME | ECE_PLACE_ON_SURFACE);
+        if (!pole)
+            return false;
+
+        pole.SetPosition(m_Position);
+        pole.SetOrientation(m_Orientation);
+        ApplyMastAnimation(pole, 0.0);
+
+        EntityAI poleEntity = EntityAI.Cast(pole);
+        if (!poleEntity)
+        {
+            GetGame().ObjectDelete(pole);
+            return false;
+        }
+
+        EntityAI flag = poleEntity.GetInventory().CreateAttachment(flagClass);
+        if (!flag)
+        {
+            Print("[DeutschZ_KotHZ] KOTH mast spawned but flag attachment failed. pole=" + poleClass + " flag=" + flagClass);
+            GetGame().ObjectDelete(pole);
+            return false;
+        }
+
+        flag.SetLifetimeMax(7200);
+        flag.SetLifetime(7200);
+        m_PoleObject = pole;
+        m_FallbackFlagObject = flag;
+        return true;
     }
 
     void SetCaptureVisual(float fraction)
@@ -114,9 +133,13 @@ class DeutschZKotHZFlagpole
         if (fraction > 1.0)
             fraction = 1.0;
 
-        DeutschZKotHZ_RuntimeFlagpole customPole = DeutschZKotHZ_RuntimeFlagpole.Cast(m_PoleObject);
-        if (customPole)
-            customPole.SetCaptureVisual(fraction);
+        if (m_PoleObject)
+        {
+            ApplyMastAnimation(m_PoleObject, fraction);
+            m_PoleObject.SetPosition(m_Position);
+            m_PoleObject.SetOrientation(m_Orientation);
+            return;
+        }
 
         if (m_FallbackFlagObject)
         {
@@ -125,18 +148,26 @@ class DeutschZKotHZFlagpole
         }
     }
 
+    protected void ApplyMastAnimation(Object pole, float fraction)
+    {
+        if (!pole)
+            return;
+
+        pole.SetAnimationPhase("Deployed", 0.0);
+        pole.SetAnimationPhase("Base", 0.0);
+        pole.SetAnimationPhase("Support", 0.0);
+        pole.SetAnimationPhase("Pole", 0.0);
+        pole.SetAnimationPhase("flag_mast", 1.0 - fraction);
+    }
+
     protected vector GetFallbackFlagPositionForFraction(float fraction)
     {
         vector pos = m_Position;
-        if (pos == vector.Zero && m_PoleObject)
-            pos = m_PoleObject.GetPosition();
-
         if (pos != vector.Zero)
         {
             float height = m_BottomHeightOffset + ((m_TopHeightOffset - m_BottomHeightOffset) * fraction);
             pos[1] = GetGame().SurfaceY(pos[0], pos[2]) + height;
         }
-
         return pos;
     }
 
@@ -148,12 +179,8 @@ class DeutschZKotHZFlagpole
     vector GetTopPosition()
     {
         vector pos = m_Position;
-        if (pos == vector.Zero && m_PoleObject)
-            pos = m_PoleObject.GetPosition();
-
         if (pos != vector.Zero)
             pos[1] = GetGame().SurfaceY(pos[0], pos[2]) + m_TopHeightOffset;
-
         return pos;
     }
 
@@ -169,14 +196,12 @@ class DeutschZKotHZFlagpole
 
     void SetSmokeVisual(int smokeState, float smokeHeight)
     {
-        DeutschZKotHZ_RuntimeFlagpole customPole = DeutschZKotHZ_RuntimeFlagpole.Cast(m_PoleObject);
-        if (customPole)
-            customPole.SetKOTHSmokeState(smokeState, smokeHeight);
+        // Disabled for crash isolation. Visual event state is marker + HUD + mast animation only.
     }
 
     bool TriggerEventMusic(string soundSetName)
     {
-        // FIX21 Safe-Boot: KOTH music is disabled. Keep API stable but do not trigger sound sync.
+        // Music remains disabled for KotHZ crash isolation.
         return false;
     }
 

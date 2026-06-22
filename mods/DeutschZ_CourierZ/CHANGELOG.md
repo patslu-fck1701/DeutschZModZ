@@ -1,17 +1,23 @@
+## FIX36 - Event Ausbau Stage 1 / closer staged starts
+- Adjusted staged test-start order: KotHZ 1 min, ConvoyZ 3 min, GroundZero 5 min, CourierZ 7 min.
+- Keeps crash-risk features off: KotHZ music, physical smoke/fog cannons and heavy marker fallback objects remain disabled.
+- Re-enables/keeps stable gameplay additions only: visible flags, Expansion markers, HUD/progress, infected/waves, rewards and reduced no-spam status messages.
+- ConvoyZ now routes its 3D marker request through Core/ExpansionBridge when enabled.
+
 # CHANGELOG
 
-## 2026-06-21 - FIX30 Workshop Links / Credit Audit
+## 2026-06-22 - FIX32 CourierZ Compile Audit
 
-- Re-verified and kept the final CourierZ Steam Workshop link: https://steamcommunity.com/sharedfiles/filedetails/?id=3748646981
-- Re-verified GitHub, DeutschZ Discord, DeutschZ server and Konfliktzone Discord/server links in the Workshop description.
-- Normalized CourierZ idea credit to exactly: Einarvargr / Konfliktzone.
-- Removed stale placeholder wording from public Workshop link documentation.
-- No gameplay or script changes.
+- Fixed Game module compile error in `CourierZPersistence.c`: weak/temporary state parameter was no longer assigned a newly created object.
+- Changed persistence load path to use strong `ref CourierZState` locals before JSON load/save.
+- Changed config load path to use a strong `ref CourierZConfig` local before JSON load/save.
+- Checked CourierZ against the current DeutschZ regression list: PlayerBase remains only in 4_World, MissionServer remains only in 5_Mission, no direct Expansion calls, no forbidden legacy names, staggered 1200-second start remains unchanged.
+- No gameplay feature changes. This is a compile/safe-boot hotfix only.
 
 ## 2026-06-20 - FIX26 Credit/Discord/Serverlinks
 
 - Removed the first-name reference from CourierZ idea credit on request of the ideator.
-- CourierZ idea credit now shows only: Einarvargr / Konfliktzone.
+- CourierZ idea credit now shows only: Playername Einarvargr / Server Konfliktzone.
 - Added DeutschZ Discord link: https://discord.gg/FHzZ7BykFk
 - Added DeutschZ server connection: 193.135.10.128:20076
 - Added Konfliktzone Discord link: https://discord.gg/tRtSbWtrsm
@@ -50,3 +56,4 @@
 - Added final Steam Workshop link for DeutschZ_CourierZ: https://steamcommunity.com/sharedfiles/filedetails/?id=3748646981
 - Replaced temporary workshop-link placeholders in CourierZ documentation and Workshop descriptions.
 - No gameplay or script changes.
+

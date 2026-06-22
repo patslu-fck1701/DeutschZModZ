@@ -11,7 +11,8 @@ class CourierZPersistence
     static CourierZState LoadState()
     {
         EnsureProfileDirs();
-        CourierZState state = new CourierZState;
+
+        ref CourierZState state = new CourierZState;
         if (!FileExist(CourierZConstants.STATE_PATH))
         {
             SaveState(state);
@@ -20,15 +21,26 @@ class CourierZPersistence
 
         JsonFileLoader<CourierZState>.JsonLoadFile(CourierZConstants.STATE_PATH, state);
         if (!state)
+        {
             state = new CourierZState;
+            SaveState(state);
+        }
+
         return state;
     }
 
     static void SaveState(CourierZState state)
     {
         EnsureProfileDirs();
+
         if (!state)
-            state = new CourierZState;
+        {
+            ref CourierZState emptyState = new CourierZState;
+            JsonFileLoader<CourierZState>.JsonSaveFile(CourierZConstants.STATE_PATH, emptyState);
+            JsonFileLoader<CourierZState>.JsonSaveFile(CourierZConstants.BACKUP_PATH, emptyState);
+            return;
+        }
+
         JsonFileLoader<CourierZState>.JsonSaveFile(CourierZConstants.STATE_PATH, state);
         JsonFileLoader<CourierZState>.JsonSaveFile(CourierZConstants.BACKUP_PATH, state);
     }

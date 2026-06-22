@@ -262,8 +262,8 @@ class DeutschZKotHZConfigManager
             config.OwnershipNotice = "DeutschZ_KotHZ is the custom KOTH framework owned and maintained by Patrick Sluzalek / fck1701 for the DeutschZ server.";
 
         // FIX17 TESTVERSION: force quick event start and active high-value test loot even when an older profile JSON already exists.
-        config.MinStartDelayMinutes = 5;
-        config.MaxStartDelayMinutes = 5;
+        config.MinStartDelayMinutes = 1;
+        config.MaxStartDelayMinutes = 1;
         config.MinPlayersToStart = 1;
         config.DebugMode = 1;
 
@@ -335,24 +335,15 @@ class DeutschZKotHZConfigManager
         if (config.MarkerMode != "Off" && config.MarkerMode != "VanillaNotifications" && config.MarkerMode != "Expansion")
             config.MarkerMode = "Expansion";
 
-        // DeutschZ KotHZ test build: markers stay routed through DeutschZ_ExpansionBridge,
-        // but visible player feedback must also work through vanilla popup/chat fallback.
-        config.EnsureDeutschZEventSettings();
-        config.DeutschZEventSettings.Notifications.UseExpansionNotifications = 1;
-        config.DeutschZEventSettings.Notifications.UseVanillaNotifications = 1;
-        config.DeutschZEventSettings.Notifications.UseChatMessages = 1;
-        config.DeutschZEventSettings.Markers.UseMapMarker = 1;
-        config.DeutschZEventSettings.Markers.Use3DMarker = 1;
-        config.ApplyDeutschZEventSettings();
-
+        // DeutschZ KotHZ Expansion marker build: force generated and existing profile JSON files to Expansion markers for this build.
         config.MarkerMode = "Expansion";
         config.EnableExpansionMarker = 1;
         config.EnableExpansion3DMarker = 1;
-        config.EnableVanillaNotifications = 1;
-        config.EnableVanillaChatMessages = 1;
-        config.EnableMarkerFallbackNotifications = 1;
+        config.EnableExpansionNotifications = 1;
+        config.EnableVanillaNotifications = 0;
+        config.EnableMarkerFallbackNotifications = 0;
 
-        config.MarkerEditHint = "DeutschZ KotHZ test default: map marker and 3D marker enabled through DeutschZ_ExpansionBridge; vanilla popup and chat fallback enabled for visible testing.";
+        config.MarkerEditHint = "DeutschZ KotHZ default: Expansion marker only. Third-party marker modes are intentionally disabled. Expansion notification only; vanilla popup disabled to avoid duplicates.";
 
         if (config.ExpansionMarkerIcon == "")
             config.ExpansionMarkerIcon = "Territory";
@@ -397,16 +388,19 @@ class DeutschZKotHZConfigManager
         if (config.DeliveryCrateLandingConfirmSeconds <= 0)
             config.DeliveryCrateLandingConfirmSeconds = 10.0;
 
-        // FIX21: Event music is disabled by default for Safe-Boot. The previous client-synced
-        // sound path could trigger native instability on some hosted servers. Re-enable only
-        // after the soundset is verified on a local test server.
+        if (config.EventMusicSoundSetName == "")
+            config.EventMusicSoundSetName = "DeutschZ_KotHZ_EventMusic_SoundSet";
+
         config.EnableEventMusic = 0;
-        config.EventMusicSoundSetName = "";
         config.EventMusicPlayOnReady = 0;
         config.EventMusicPlayOnStart = 0;
         config.EventMusicPlayOnCaptured = 0;
-        config.EventMusicRadius = 0.0;
-        config.EventMusicVolume = 0.0;
+
+        if (config.EventMusicRadius <= 0)
+            config.EventMusicRadius = 120.0;
+
+        if (config.EventMusicVolume <= 0)
+            config.EventMusicVolume = 1.0;
 
         // DeutschZ KotHZ marker stays red in memory for consistent event presentation.
         config.ExpansionMarkerColorARGB = ARGB(255, 255, 0, 0);
@@ -469,15 +463,15 @@ class DeutschZKotHZConfigManager
         if (config.Zombies)
         {
             if (config.Zombies.ZombieFallbackClassName == "")
-                config.Zombies.ZombieFallbackClassName = "ZmbM_usSoldier_Officer_Desert";
+                config.Zombies.ZombieFallbackClassName = "ZmbM_CitizenASkinny_Brown";
             if (!config.Zombies.ZombieFallbackClassNames)
                 config.Zombies.ZombieFallbackClassNames = new array<string>;
             if (config.Zombies.ZombieFallbackClassNames.Count() == 0)
             {
-                config.Zombies.ZombieFallbackClassNames.Insert("ZmbM_usSoldier_Officer_Desert");
+                config.Zombies.ZombieFallbackClassNames.Insert("ZmbM_CitizenASkinny_Brown");
                 config.Zombies.ZombieFallbackClassNames.Insert("ZmbM_CitizenASkinny_Blue");
-                config.Zombies.ZombieFallbackClassNames.Insert("ZmbM_usSoldier_Officer_Desert");
-                config.Zombies.ZombieFallbackClassNames.Insert("ZmbM_usSoldier_Officer_Desert");
+                config.Zombies.ZombieFallbackClassNames.Insert("ZmbM_PatrolNormal_Autumn");
+                config.Zombies.ZombieFallbackClassNames.Insert("ZmbM_SoldierNormal_Beige");
             }
         }
 
@@ -507,7 +501,7 @@ class DeutschZKotHZConfigManager
                 zone.SpawnOutdoorOnly = 1;
 
             zone.EnableFlagpole = 1;
-            zone.FlagpoleClassName = "DeutschZKotHZ_RuntimeFlagpole";
+            zone.FlagpoleClassName = "SAFE_VISIBLE_FLAG_ONLY";
             zone.EnableCrashedHeliDecoration = 0;
 
             if (zone.FlagClassName == "" || zone.FlagClassName == "DeutschZKotHZ_Alt_One_Flag" || zone.FlagClassName == "DeutschZKotHZ_Flag" || zone.FlagClassName == "DeutschZKotHZ_DeutschZ_KotHZ_Flag")
@@ -545,10 +539,10 @@ class DeutschZKotHZConfigManager
 
             if (zone.ZombieTypes.Count() == 0)
             {
-                zone.ZombieTypes.Insert("ZmbM_usSoldier_Officer_Desert");
+                zone.ZombieTypes.Insert("ZmbM_PatrolNormal_Autumn");
                 zone.ZombieTypes.Insert("ZmbM_PatrolNormal_Summer");
-                zone.ZombieTypes.Insert("ZmbM_usSoldier_Officer_Desert");
-                zone.ZombieTypes.Insert("ZmbM_usSoldier_Officer_Desert");
+                zone.ZombieTypes.Insert("ZmbM_SoldierNormal_Beige");
+                zone.ZombieTypes.Insert("ZmbM_CitizenASkinny_Brown");
                 zone.ZombieTypes.Insert("ZmbM_CitizenASkinny_Blue");
                 zone.ZombieTypes.Insert("ZmbM_NBC_Yellow");
             }

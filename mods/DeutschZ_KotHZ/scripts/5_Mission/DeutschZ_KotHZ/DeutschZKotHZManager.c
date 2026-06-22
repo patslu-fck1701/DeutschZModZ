@@ -101,24 +101,23 @@ class DeutschZKotHZManager
             return;
 
         Print("[DeutschZ_KotHZ] Startup cleanup pass started.");
-        int removedTotal = 0;
         foreach (DeutschZKotHZZone zone : m_Config.Zones)
         {
-            removedTotal += CleanupZoneKOTHObjects(zone, "startup");
+            CleanupZoneKOTHObjects(zone, "startup");
         }
-        Print("[DeutschZ_KotHZ] Startup cleanup pass finished. Removed runtime objects=" + removedTotal.ToString());
+        Print("[DeutschZ_KotHZ] Startup cleanup pass finished.");
     }
 
-    protected int CleanupZoneKOTHObjects(DeutschZKotHZZone zone, string reason)
+    protected void CleanupZoneKOTHObjects(DeutschZKotHZZone zone, string reason)
     {
         if (!zone)
-            return 0;
+            return;
 
         vector pos = zone.FlagpolePosition;
         if (pos == vector.Zero)
             pos = zone.Position;
         if (pos == vector.Zero)
-            return 0;
+            return;
 
         pos[1] = GetGame().SurfaceY(pos[0], pos[2]);
         float cleanupRadius = Math.Max(zone.Radius + 75.0, 150.0);
@@ -127,7 +126,6 @@ class DeutschZKotHZManager
         ref array<CargoBase> cargos = new array<CargoBase>;
         GetGame().GetObjectsAtPosition(pos, cleanupRadius, objects, cargos);
 
-        int removed = 0;
         foreach (Object obj : objects)
         {
             if (!obj)
@@ -136,12 +134,10 @@ class DeutschZKotHZManager
             string objType = obj.GetType();
             if (IsKOTHCleanupObjectType(objType))
             {
+                Print("[DeutschZ_KotHZ] " + reason + " cleanup removed KOTH object: " + objType + " at " + obj.GetPosition().ToString());
                 GetGame().ObjectDelete(obj);
-                removed++;
             }
         }
-
-        return removed;
     }
 
     protected bool IsKOTHCleanupObjectType(string objType)
@@ -232,7 +228,9 @@ class DeutschZKotHZManager
         MaybeStartFogHazard("Ready");
         TryPlayEventMusic("Ready");
         Announce("KOTH ready: " + m_ActiveZone.ZoneName + ". Event startet gleich!");
-        SendHUDToAll(true, m_ActiveZone.ZoneName, 0, 0, m_ActiveZone.CaptureTimeSeconds, 0, "KOTH ready");
+        // FIX35: Do not open the capture statusbar during the pre-start/signal phase.
+        // The HUD starts only when the active capture phase begins.
+        SendHUDToAll(false, "", 0, 0, 0, 0, "KOTH inactive");
         GetGame().GetCallQueue(CALL_CATEGORY_SYSTEM).CallLater(BeginActiveEvent, 10000, false);
     }
 
@@ -246,8 +244,7 @@ class DeutschZKotHZManager
         // v1.0.25: zombie/infected waves are started on first player entry, DeutschZ wave-system style.
         TryPlayEventMusic("Start");
         Announce("KOTH gestartet: " + m_ActiveZone.ZoneName + ". Erobere und halte die Zone!");
-        SpawnNearFlagTestZombies();
-        SendHUDToAll(true, m_ActiveZone.ZoneName, 0, 0, m_ActiveZone.CaptureTimeSeconds, CountPlayersInZone(), "KOTH ready");
+        SendHUDToAll(true, m_ActiveZone.ZoneName, 0, 0, m_ActiveZone.CaptureTimeSeconds, CountPlayersInZone(), "KOTH aktiv");
         GetGame().GetCallQueue(CALL_CATEGORY_SYSTEM).CallLater(TickEvent, 1000, true);
     }
 
@@ -284,6 +281,200 @@ class DeutschZKotHZManager
             m_ActiveZone.DespawnZombiesOnEventEnd = m_Config.Zombies.DespawnZombiesOnEventEnd;
             m_ActiveZone.ZombieTypes = m_Config.Zombies.ZombieTypes;
         }
+    }
+
+    // FIX35: One authoritative event center. Capture, HUD distance and marker position now use the visible mast/flag position.
+    // This avoids the old situation where the signal/flag was visible at one position while capture checked another zone center.
+    protected vector GetKotHZEventCenterPosition()
+    {
+        vector pos = vector.Zero;
+
+        if (m_ActiveZone)
+        {
+            pos = m_ActiveZone.FlagpolePosition;
+            if (pos == vector.Zero)
+                pos = m_ActiveZone.Position;
+        }
+
+        if (pos != vector.Zero)
+            pos[1] = GetGame().SurfaceY(pos[0], pos[2]);
+
+        return pos;
+    }
+
+    // FIX34: Compatibility/runtime helpers restored after crash-isolation cleanup.
+    // These are intentionally conservative: safe boot and stable event lifecycle first.
+    protected bool HasEnoughPlayers()
+    {
+        int required = 0;
+        if (m_Config)
+            required = Math.Max(0, m_Config.MinPlayersToStart);
+
+        if (required <= 0)
+            return true;
+
+        ref array<Man> players = new array<Man>;
+        GetGame().GetPlayers(players);
+
+        int online = 0;
+        foreach (Man man : players)
+        {
+            PlayerBase player = PlayerBase.Cast(man);
+            if (player && player.GetIdentity())
+                online++;
+        }
+
+        return online >= required;
+    }
+
+    protected int CountPlayersInZone()
+    {
+        if (!m_ActiveZone)
+            return 0;
+
+        ref array<Man> players = new array<Man>;
+        GetGame().GetPlayers(players);
+
+        int count = 0;
+        foreach (Man man : players)
+        {
+            PlayerBase player = PlayerBase.Cast(man);
+            if (!player || !player.GetIdentity() || !player.IsAlive())
+                continue;
+
+            vector center = GetKotHZEventCenterPosition();
+            if (center != vector.Zero && vector.Distance(player.GetPosition(), center) <= m_ActiveZone.Radius)
+                count++;
+        }
+
+        return count;
+    }
+
+    protected PlayerBase FindSingleHolderInZone(int playersInZone)
+    {
+        if (!m_ActiveZone || playersInZone != 1)
+            return null;
+
+        ref array<Man> players = new array<Man>;
+        GetGame().GetPlayers(players);
+
+        foreach (Man man : players)
+        {
+            PlayerBase player = PlayerBase.Cast(man);
+            if (!player || !player.GetIdentity() || !player.IsAlive())
+                continue;
+
+            vector center = GetKotHZEventCenterPosition();
+            if (center != vector.Zero && vector.Distance(player.GetPosition(), center) <= m_ActiveZone.Radius)
+                return player;
+        }
+
+        return null;
+    }
+
+    protected void SpawnZoneDecorations()
+    {
+        // Crash-isolation build: optional physical decorations stay disabled.
+        // Visible event presentation is handled by the safe flag object and Expansion markers.
+        return;
+    }
+
+    protected void FinishEvent(PlayerBase winner)
+    {
+        if (m_EventCompleting)
+            return;
+
+        m_EventCompleting = true;
+
+        string winnerName = GetPlayerName(winner);
+        string zoneName = "KOTH";
+        if (m_ActiveZone)
+            zoneName = m_ActiveZone.ZoneName;
+
+        Announce("KOTH abgeschlossen: " + zoneName + " wurde von " + winnerName + " erobert!");
+        // FIX35: Hide capture/statusbar immediately on completion. No second post-completion bar/boss phase.
+        SendHUDToAll(false, "", 0, 0, 0, 0, "KOTH abgeschlossen");
+
+        DeutschZKotHZLootPool pool = GetActiveLootPool();
+        ref array<ref DeutschZKotHZReward> rewards = GetActiveRewardList();
+        SpawnRewardCrate(winner, pool, rewards);
+
+        StopEvent();
+    }
+
+    protected void StopEvent()
+    {
+        GetGame().GetCallQueue(CALL_CATEGORY_SYSTEM).Remove(TickEvent);
+        GetGame().GetCallQueue(CALL_CATEGORY_SYSTEM).Remove(BeginActiveEvent);
+        CancelZombieWaveSchedule();
+
+        SendHUDToAll(false, "", 0, 0, 0, 0, "KOTH inactive");
+        DeleteAllMapMarkers();
+        CleanupSmoke();
+        CleanupFlagpole();
+        CleanupDeliveryObjects();
+        CleanupZombies();
+        CleanupOptionalNPCs();
+        CleanupFogHazard();
+
+        m_EventActive = false;
+        m_EventCompleting = false;
+        m_ActiveZone = null;
+        m_CurrentHolder = null;
+        m_CurrentCaptureSeconds = 0;
+        m_CurrentSmokeState = "";
+        m_ZombieWavesStarted = false;
+        ResetInfectedSiegeRuntime();
+
+        if (m_ProgressHUDPlayers)
+            m_ProgressHUDPlayers.Clear();
+
+        if (m_Config && m_Config.EnableKOTH)
+            ScheduleNextEvent();
+    }
+
+    protected void GiveRewardsDirect(PlayerBase winner, array<ref DeutschZKotHZReward> rewards)
+    {
+        if (!winner || !rewards)
+            return;
+
+        foreach (DeutschZKotHZReward reward : rewards)
+        {
+            if (!reward || reward.ClassName == "")
+                continue;
+
+            int amount = Math.Max(1, reward.Quantity);
+            for (int i = 0; i < amount; i++)
+            {
+                EntityAI item = winner.GetInventory().CreateInInventory(reward.ClassName);
+                if (!item)
+                {
+                    vector dropPos = winner.GetPosition();
+                    dropPos[1] = GetGame().SurfaceY(dropPos[0], dropPos[2]) + 0.15;
+                    Object obj = GetGame().CreateObjectEx(reward.ClassName, dropPos, ECE_PLACE_ON_SURFACE);
+                    item = EntityAI.Cast(obj);
+                }
+
+                if (item && reward.Quantity > 0 && item.HasQuantity())
+                    item.SetQuantity(reward.Quantity);
+            }
+        }
+    }
+
+    protected int GetRemainingZombieSlots()
+    {
+        if (!m_ActiveZone)
+            return 0;
+
+        int maxTotal = Math.Max(0, m_ActiveZone.MaxTotalZombies);
+        if (maxTotal <= 0)
+            return 0;
+
+        int current = 0;
+        if (m_SpawnedZombies)
+            current = m_SpawnedZombies.Count();
+
+        return Math.Max(0, maxTotal - current);
     }
 
     protected void TickEvent()
@@ -340,19 +531,8 @@ class DeutschZKotHZManager
 
         if (m_CurrentCaptureSeconds >= m_ActiveZone.CaptureTimeSeconds)
         {
-            if (m_DZKZ_BossSpawned && !m_DZKZ_BossKilled)
-            {
-                if (!m_DZKZ_WaitingBossKillAnnounced)
-                {
-                    m_DZKZ_WaitingBossKillAnnounced = true;
-                    Announce("KotHZ Infected Siege: Zone gesichert, aber der Mummy-Boss lebt noch!");
-                    DZKZ_Log("RewardBlocked", "Boss still alive");
-                }
-                m_CurrentCaptureSeconds = m_ActiveZone.CaptureTimeSeconds;
-                SyncHUD(playersInZone, "Boss lebt");
-                return;
-            }
-
+            // FIX35: The capture itself is the final objective. The previous boss-block created a confusing
+            // second 100% statusbar after players considered KotH finished. Existing infected are cleaned up by StopEvent.
             FinishEvent(holder);
         }
     }
@@ -494,293 +674,8 @@ class DeutschZKotHZManager
 
     protected void TryPlayEventMusic(string phase)
     {
-        // FIX21 Safe-Boot: KOTH music is intentionally disabled.
-        // Keep this as a no-op so config/profile leftovers cannot trigger client sound sync.
+        // FIX31: KOTH event music is hard-disabled until the native crash path is isolated.
         return;
-    }
-
-    protected int CountPlayersInZone()
-    {
-        int count = 0;
-        ref array<Man> players = new array<Man>;
-        GetGame().GetPlayers(players);
-
-        foreach (Man man : players)
-        {
-            PlayerBase player = PlayerBase.Cast(man);
-            if (!player || !player.IsAlive())
-                continue;
-
-            if (vector.Distance(player.GetPosition(), m_ActiveZone.Position) <= m_ActiveZone.Radius)
-                count++;
-        }
-
-        return count;
-    }
-
-    protected PlayerBase FindSingleHolderInZone(int playersInZone)
-    {
-        if (playersInZone != 1)
-            return null;
-
-        ref array<Man> players = new array<Man>;
-        GetGame().GetPlayers(players);
-
-        foreach (Man man : players)
-        {
-            PlayerBase player = PlayerBase.Cast(man);
-            if (!player || !player.IsAlive())
-                continue;
-
-            if (vector.Distance(player.GetPosition(), m_ActiveZone.Position) <= m_ActiveZone.Radius)
-                return player;
-        }
-
-        return null;
-    }
-
-    protected bool HasEnoughPlayers()
-    {
-        ref array<Man> players = new array<Man>;
-        GetGame().GetPlayers(players);
-        return players.Count() >= m_Config.MinPlayersToStart;
-    }
-
-    protected void FinishEvent(PlayerBase winner)
-    {
-        if (!winner || m_EventCompleting)
-            return;
-
-        m_EventCompleting = true;
-        GetGame().GetCallQueue(CALL_CATEGORY_SYSTEM).Remove(TickEvent);
-        GetGame().GetCallQueue(CALL_CATEGORY_SYSTEM).Remove(BeginActiveEvent);
-        GiveRewards(winner);
-        Announce("KOTH gewonnen von " + GetPlayerName(winner) + " bei " + m_ActiveZone.ZoneName + "!");
-        DoWinFireworks();
-        // v1.0.30: Keep mast and red captured smoke visible longer after capture.
-        // Cleanup happens together with StopEvent after Smoke.CompletedSmokeSeconds.
-        SetStatusSmoke("Red");
-        MaybeStartFogHazard("Completed");
-        TryPlayEventMusic("Captured");
-        SendHUDToAll(true, m_ActiveZone.ZoneName, 100, m_ActiveZone.CaptureTimeSeconds, m_ActiveZone.CaptureTimeSeconds, CountPlayersInZone(), "KOTH captured");
-
-        int completedSmokeMs = 180000;
-        if (m_Config && m_Config.Smoke)
-            completedSmokeMs = (int)(Math.Max(1.0, m_Config.Smoke.CompletedSmokeSeconds) * 1000);
-
-        GetGame().GetCallQueue(CALL_CATEGORY_SYSTEM).CallLater(StopEvent, completedSmokeMs, false);
-    }
-
-    protected void StopEvent()
-    {
-        GetGame().GetCallQueue(CALL_CATEGORY_SYSTEM).Remove(TickEvent);
-        GetGame().GetCallQueue(CALL_CATEGORY_SYSTEM).Remove(BeginActiveEvent);
-        CancelZombieWaveSchedule();
-        SendHUDToAll(false, "", 0, 0, 0, 0, "Beendet");
-        CleanupOptionalNPCs();
-        CleanupZombies();
-        CleanupRewardCrates(true);
-        CleanupDeliveryObjects();
-        CleanupZoneDecorations();
-        CleanupSmoke();
-        CleanupFogHazard();
-        DeleteAllMapMarkers();
-        CleanupFlagpole();
-        m_EventActive = false;
-        m_EventCompleting = false;
-        m_ActiveZone = null;
-        m_CurrentHolder = null;
-        m_CurrentCaptureSeconds = 0;
-        m_ZombieWavesStarted = false;
-        ResetInfectedSiegeRuntime();
-        if (m_ProgressHUDPlayers)
-            m_ProgressHUDPlayers.Clear();
-        ScheduleNextEvent();
-    }
-
-
-    protected void SpawnZoneDecorations()
-    {
-        if (!m_ActiveZone || !m_ActiveZone.EnableCrashedHeliDecoration)
-            return;
-
-        string decoClass = m_ActiveZone.CrashedHeliClassName;
-        if (decoClass == "")
-            decoClass = "Wreck_Mi8";
-
-        if (!GetGame().ConfigIsExisting("CfgVehicles " + decoClass))
-        {
-            Print("[DeutschZ_KotHZ] Decoration class not found, skipping: " + decoClass);
-            return;
-        }
-
-        vector basePos = m_ActiveZone.Position;
-        vector offset = m_ActiveZone.CrashedHeliOffset;
-        vector pos = basePos;
-        pos[0] = pos[0] + offset[0];
-        pos[2] = pos[2] + offset[2];
-        pos[1] = GetGame().SurfaceY(pos[0], pos[2]) + offset[1];
-
-        Object deco = GetGame().CreateObjectEx(decoClass, pos, ECE_PLACE_ON_SURFACE | ECE_CREATEPHYSICS | ECE_SETUP, RF_DEFAULT);
-        if (!deco)
-            deco = GetGame().CreateObject(decoClass, pos, false, true, true);
-
-        if (!deco)
-        {
-            Print("[DeutschZ_KotHZ] Decoration spawn failed: " + decoClass + " at " + pos.ToString());
-            return;
-        }
-
-        deco.SetOrientation(m_ActiveZone.CrashedHeliOrientation);
-        EntityAI decoEntity = EntityAI.Cast(deco);
-        if (decoEntity)
-            decoEntity.PlaceOnSurface();
-
-        if (m_StaticDecorations)
-            m_StaticDecorations.Insert(deco);
-
-        Print("[DeutschZ_KotHZ] Static decoration spawned: " + decoClass + " at " + deco.GetPosition().ToString());
-    }
-
-    protected void CleanupZoneDecorations()
-    {
-        if (!m_StaticDecorations)
-            return;
-
-        foreach (Object deco : m_StaticDecorations)
-        {
-            if (deco)
-                GetGame().ObjectDelete(deco);
-        }
-
-        m_StaticDecorations.Clear();
-    }
-
-    protected int GetRemainingZombieSlots()
-    {
-        int maxTotal = 18;
-        if (m_ActiveZone && m_ActiveZone.MaxTotalZombies > 0)
-            maxTotal = m_ActiveZone.MaxTotalZombies;
-
-        int current = 0;
-        if (m_SpawnedZombies)
-            current = m_SpawnedZombies.Count();
-
-        int remaining = maxTotal - current;
-        if (remaining < 0)
-            remaining = 0;
-
-        return remaining;
-    }
-
-    protected void DoWinFireworks()
-    {
-        if (!m_Config || !m_Config.EnableWinFireworks)
-            return;
-
-        string fireworkClass = m_Config.WinFireworkClassName;
-        if (fireworkClass == "")
-            fireworkClass = "FireworksLauncher";
-
-        if (!GetGame().ConfigIsExisting("CfgVehicles " + fireworkClass))
-        {
-            Print("[DeutschZ_KotHZ] Firework class not found, skipping fireworks: " + fireworkClass);
-            return;
-        }
-
-        int count = Math.Max(1, m_Config.WinFireworkCount);
-        float radius = Math.Max(0.0, m_Config.WinFireworkRadius);
-        vector basePos = GetFlagpoleBasePosition();
-        if (basePos == vector.Zero && m_ActiveZone)
-            basePos = m_ActiveZone.Position;
-
-        for (int i = 0; i < count; i++)
-        {
-            vector pos = basePos;
-            if (radius > 0.0)
-            {
-                float angle = Math.RandomFloatInclusive(0.0, 6.283185);
-                float dist = Math.RandomFloatInclusive(0.0, radius);
-                pos[0] = pos[0] + Math.Cos(angle) * dist;
-                pos[2] = pos[2] + Math.Sin(angle) * dist;
-            }
-            pos[1] = GetGame().SurfaceY(pos[0], pos[2]) + Math.Max(0.0, m_Config.WinFireworkHeightOffset);
-
-            FireworksLauncher firework = FireworksLauncher.Cast(GetGame().CreateObjectEx(fireworkClass, pos, ECE_PLACE_ON_SURFACE | ECE_CREATEPHYSICS, RF_DEFAULT));
-            if (!firework)
-            {
-                Print("[DeutschZ_KotHZ] Firework spawn failed: " + fireworkClass + " at " + pos.ToString());
-                continue;
-            }
-
-            firework.SetOrientation(Vector(Math.RandomFloatInclusive(0.0, 360.0), 0.0, 0.0));
-            EntityAI.Cast(firework).OnIgnitedThis(null);
-            firework.SetSynchDirty();
-            firework.SetLifetime(120);
-            Print("[DeutschZ_KotHZ] Win firework ignited: " + fireworkClass + " at " + pos.ToString());
-        }
-    }
-
-    protected void GiveRewards(PlayerBase player)
-    {
-        if (!player || !m_Config)
-            return;
-
-        DeutschZKotHZLootPool pool = GetActiveLootPool();
-        ref array<ref DeutschZKotHZReward> rewards = GetActiveRewardList();
-        if (!rewards)
-            rewards = new array<ref DeutschZKotHZReward>;
-
-        if (!pool)
-        {
-            pool = new DeutschZKotHZLootPool();
-            pool.PoolName = "RuntimeDefault";
-            pool.RewardMode = 1;
-            pool.CrateClassName = "DeutschZKotHZ_RewardCrate";
-            pool.CrateSpawnAtFlagpole = 1;
-            pool.CrateSpawnDistanceFromFlagpole = 6.0;
-            pool.CrateLifetimeSeconds = 1800;
-            pool.DeleteCrateOnEventEnd = 0;
-            Print("[DeutschZ_KotHZ] No active reward pool found, using runtime DeutschZKotHZ_RewardCrate fallback.");
-        }
-
-        // DeutschZ design: reward should be a visible crate, not only direct inventory payout.
-        pool.RewardMode = 1;
-
-        if (pool && pool.RewardMode == 1)
-        {
-            SpawnRewardCrate(player, pool, rewards);
-            return;
-        }
-
-        GiveRewardsDirect(player, rewards);
-    }
-
-    protected void GiveRewardsDirect(PlayerBase player, array<ref DeutschZKotHZReward> rewards)
-    {
-        if (!player || !rewards)
-            return;
-
-        foreach (DeutschZKotHZReward reward : rewards)
-        {
-            if (!reward || reward.ClassName == "")
-                continue;
-
-            if (!IsRewardClassConfigured(reward.ClassName))
-            {
-                Print("[DeutschZ_KotHZ] Direct reward classname not found in config, skipped: " + reward.ClassName);
-                continue;
-            }
-
-            int count = 1;
-            if (!HasNestedRewardData(reward) && reward.Quantity > 1)
-                count = reward.Quantity;
-            if (reward.MaxSpawnable > 0 && count > reward.MaxSpawnable)
-                count = reward.MaxSpawnable;
-
-            for (int i = 0; i < count; i++)
-                player.GetInventory().CreateInInventory(reward.ClassName);
-        }
     }
 
     protected void SpawnRewardCrate(PlayerBase winner, DeutschZKotHZLootPool pool, array<ref DeutschZKotHZReward> rewards)
@@ -1434,8 +1329,9 @@ class DeutschZKotHZManager
             // Players farther away receive an inactive HUD sync so stale bars are hidden immediately.
             if (active && useDistanceLimit && m_ActiveZone)
             {
-                float dist = vector.Distance(player.GetPosition(), m_ActiveZone.Position);
-                if (dist > maxHUDDistance)
+                vector center = GetKotHZEventCenterPosition();
+                float dist = vector.Distance(player.GetPosition(), center);
+                if (center != vector.Zero && dist > maxHUDDistance)
                     sendActive = false;
             }
 
@@ -1470,16 +1366,7 @@ class DeutschZKotHZManager
         if (m_Flagpole)
             return m_Flagpole.GetBasePosition();
 
-        vector pos = vector.Zero;
-        if (m_ActiveZone)
-        {
-            pos = m_ActiveZone.FlagpolePosition;
-            if (pos == vector.Zero)
-                pos = m_ActiveZone.Position;
-
-            pos[1] = GetGame().SurfaceY(pos[0], pos[2]);
-        }
-
+        vector pos = GetKotHZEventCenterPosition();
         return pos;
     }
 
@@ -1510,52 +1397,13 @@ class DeutschZKotHZManager
             return;
 
         UpdateAllMapMarkersForSmokeState(smokeState);
-
-        if (!m_Config || !m_Config.Smoke || !m_Config.Smoke.EnableSmoke || !m_ActiveZone)
-        {
-            m_CurrentSmokeState = smokeState;
-            return;
-        }
-
-        CleanupSmoke();
         m_CurrentSmokeState = smokeState;
 
-        SetFlagParticleSmoke(smokeState);
-
-        if (smokeState == "")
-            return;
-
-        if (m_Config.Smoke.UseParticleSmoke && m_Flagpole)
-        {
-            // Particle smoke is now attached/synced by the custom flagpole. No world particle needed.
-        }
-
-        vector smokePos = GetSmokePosition();
-
-        if (m_Config.Smoke.UseObjectSmoke)
-        {
-            string className = GetSmokeClassName(smokeState);
-            if (className != "")
-            {
-                m_ActiveSmoke = GetGame().CreateObject(className, smokePos, false, true, true);
-                if (m_ActiveSmoke)
-                {
-                    m_ActiveSmoke.SetPosition(smokePos);
-                    ActivateSmokeObject(m_ActiveSmoke);
-                }
-                else
-                {
-                    Print("[DeutschZ_KotHZ] Could not spawn smoke object: " + className);
-                }
-            }
-        }
-
-        if (m_Config.Smoke.UseObjectSmoke)
-        {
-            GetGame().GetCallQueue(CALL_CATEGORY_SYSTEM).Remove(RefreshStatusSmoke);
-            int refreshMs = (int)(Math.Max(10.0, m_Config.Smoke.SmokeRefreshSeconds) * 1000);
-            GetGame().GetCallQueue(CALL_CATEGORY_SYSTEM).CallLater(RefreshStatusSmoke, refreshMs, false, smokeState);
-        }
+        // FIX34: Physical smoke objects and particle smoke stay disabled while the KotHZ
+        // native-crash path is being isolated. The visible state is represented by
+        // Expansion markers and the safe flag object, not by spawned smoke grenades.
+        CleanupSmoke();
+        SetFlagParticleSmoke("");
     }
 
     protected void ActivateSmokeObject(Object smokeObject)
@@ -1725,10 +1573,10 @@ class DeutschZKotHZManager
 
         if (GetGame().ConfigIsExisting("CfgVehicles ZmbM_usSoldier_Officer_Desert"))
             return "ZmbM_usSoldier_Officer_Desert";
-        if (GetGame().ConfigIsExisting("CfgVehicles ZmbM_usSoldier_Officer_Desert"))
-            return "ZmbM_usSoldier_Officer_Desert";
-        if (GetGame().ConfigIsExisting("CfgVehicles ZmbM_usSoldier_Officer_Desert"))
-            return "ZmbM_usSoldier_Officer_Desert";
+        if (GetGame().ConfigIsExisting("CfgVehicles ZmbM_CitizenASkinny_Brown"))
+            return "ZmbM_CitizenASkinny_Brown";
+        if (GetGame().ConfigIsExisting("CfgVehicles ZmbM_PatrolNormal_Autumn"))
+            return "ZmbM_PatrolNormal_Autumn";
 
         return "";
     }
@@ -1974,7 +1822,7 @@ class DeutschZKotHZManager
     protected ref array<string> GetCivilianInfectedClasses()
     {
         ref array<string> classes = new array<string>;
-        classes.Insert("ZmbM_usSoldier_Officer_Desert");
+        classes.Insert("ZmbM_CitizenASkinny_Brown");
         classes.Insert("ZmbM_CitizenASkinny_Blue");
         classes.Insert("ZmbM_FarmerFat_Brown");
         classes.Insert("ZmbM_VillagerOld_Blue");
@@ -1985,10 +1833,10 @@ class DeutschZKotHZManager
     protected ref array<string> GetHunterInfectedClasses()
     {
         ref array<string> classes = new array<string>;
-        classes.Insert("ZmbM_usSoldier_Officer_Desert");
+        classes.Insert("ZmbM_HunterOld_Autumn");
         classes.Insert("ZmbM_HunterOld_Summer");
         classes.Insert("ZmbM_HunterOld_Winter");
-        classes.Insert("ZmbM_usSoldier_Officer_Desert");
+        classes.Insert("ZmbM_PatrolNormal_Autumn");
         return classes;
     }
 
@@ -1996,10 +1844,6 @@ class DeutschZKotHZManager
     {
         ref array<string> classes = new array<string>;
         classes.Insert("ZmbM_usSoldier_Officer_Desert");
-        classes.Insert("ZmbM_SoldierNormal_Green");
-        classes.Insert("ZmbM_usSoldier_Officer_Desert");
-        classes.Insert("ZmbM_NBC_Grey");
-        classes.Insert("ZmbM_NBC_Yellow");
         return classes;
     }
 
@@ -2016,7 +1860,7 @@ class DeutschZKotHZManager
         wave.SpawnOutdoorOnly = 1;
         wave.ValidateClassBeforeSpawn = 1;
         wave.EnableClassFallback = 1;
-        wave.FallbackClassName = "ZmbM_usSoldier_Officer_Desert";
+        wave.FallbackClassName = "ZmbM_CitizenASkinny_Brown";
         wave.EnemyClassNames.Clear();
         foreach (string className : classNames)
             wave.EnemyClassNames.Insert(className);
@@ -2032,7 +1876,7 @@ class DeutschZKotHZManager
         vector pos = GetRandomZombiePosition();
         string bossClass = "ZmbM_Mummy";
         if (!IsValidZombieGuardClass(bossClass))
-            bossClass = ResolveZombieFallbackClass("ZmbM_usSoldier_Officer_Desert");
+            bossClass = ResolveZombieFallbackClass("ZmbM_SoldierNormal_Beige");
 
         Object boss = null;
         if (bossClass != "")
@@ -2041,7 +1885,7 @@ class DeutschZKotHZManager
         if (!boss)
         {
             Print("[DeutschZ_KotHZ] Boss spawn failed, falling back to military infected.");
-            boss = SpawnFallbackZombie(pos, "ZmbM_Mummy", "ZmbM_usSoldier_Officer_Desert");
+            boss = SpawnFallbackZombie(pos, "ZmbM_Mummy", "ZmbM_SoldierNormal_Beige");
         }
 
         if (boss)
@@ -2599,14 +2443,23 @@ class DeutschZKotHZManager
         if (!m_Config || !m_Config.EnableExpansionMarker || !m_ActiveZone || backend != "Expansion")
             return false;
 
-        vector markerPos = m_ActiveZone.Position;
+        vector markerPos = GetKotHZEventCenterPosition();
+        if (markerPos == vector.Zero)
+            markerPos = m_ActiveZone.Position;
         markerPos[1] = GetGame().SurfaceY(markerPos[0], markerPos[2]) + 3.0;
         m_DeutschZKotHZMarkerId = GetShortKOTHLocationName();
-        if (DeutschZKotHZCoreBridge.CreateEventMarker(m_DeutschZKotHZMarkerId, "KotH - " + GetShortKOTHLocationName(), markerPos))
+
+        // FIX35: Create exactly one Expansion server marker. If 3D is enabled, the same marker is flagged as 3D
+        // and remains the single map/world marker instead of creating separate duplicate marker ids.
+        bool markerOk = false;
+        if (m_Config.EnableExpansion3DMarker)
+            markerOk = DeutschZKotHZCoreBridge.CreateEvent3DMarker(m_DeutschZKotHZMarkerId, "KotH - " + GetShortKOTHLocationName(), markerPos);
+        else
+            markerOk = DeutschZKotHZCoreBridge.CreateEventMarker(m_DeutschZKotHZMarkerId, "KotH - " + GetShortKOTHLocationName(), markerPos);
+
+        if (markerOk)
         {
-            Print("[DeutschZ_KotHZ] Core marker created for " + m_ActiveZone.ZoneName);
-            if (m_Config.EnableExpansion3DMarker == 1)
-                DeutschZKotHZCoreBridge.CreateEvent3DMarker(m_DeutschZKotHZMarkerId, "KotH - " + GetShortKOTHLocationName(), markerPos);
+            Print("[DeutschZ_KotHZ] Single Core/ExpansionBridge marker created for " + m_ActiveZone.ZoneName + " 3d=" + m_Config.EnableExpansion3DMarker.ToString());
             return true;
         }
 
@@ -2619,9 +2472,15 @@ class DeutschZKotHZManager
         if (m_DeutschZKotHZMarkerId == "" || !m_ActiveZone)
             return;
 
-        DeutschZKotHZCoreBridge.CreateEventMarker(m_DeutschZKotHZMarkerId, "KotH - " + GetShortKOTHLocationName(), m_ActiveZone.Position);
-        if (m_Config && m_Config.EnableExpansion3DMarker == 1)
-            DeutschZKotHZCoreBridge.CreateEvent3DMarker(m_DeutschZKotHZMarkerId, "KotH - " + GetShortKOTHLocationName(), m_ActiveZone.Position);
+        vector markerPos = GetKotHZEventCenterPosition();
+        if (markerPos == vector.Zero)
+            markerPos = m_ActiveZone.Position;
+        markerPos[1] = GetGame().SurfaceY(markerPos[0], markerPos[2]) + 3.0;
+
+        if (m_Config && m_Config.EnableExpansion3DMarker)
+            DeutschZKotHZCoreBridge.CreateEvent3DMarker(m_DeutschZKotHZMarkerId, "KotH - " + GetShortKOTHLocationName(), markerPos);
+        else
+            DeutschZKotHZCoreBridge.CreateEventMarker(m_DeutschZKotHZMarkerId, "KotH - " + GetShortKOTHLocationName(), markerPos);
     }
 
     protected void DeleteCoreMarker()
@@ -2629,6 +2488,7 @@ class DeutschZKotHZManager
         if (m_DeutschZKotHZMarkerId != "")
         {
             DeutschZKotHZCoreBridge.DeleteEventMarker(m_DeutschZKotHZMarkerId);
+            DeutschZKotHZCoreBridge.DeleteEvent3DMarker(m_DeutschZKotHZMarkerId);
             Print("[DeutschZ_KotHZ] Core marker removed.");
         }
         m_DeutschZKotHZMarkerId = "";
@@ -2667,14 +2527,6 @@ class DeutschZKotHZManager
 
         if (m_Config)
         {
-            if (m_Config.EnableExpansionNotifications == 1)
-            {
-                vector notifyPos = "0 0 0";
-                if (m_ActiveZone)
-                    notifyPos = m_ActiveZone.Position;
-                DeutschZKotHZCoreBridge.SendNotification("status", "DeutschZ KotHZ", message, notifyPos);
-            }
-
             sendVanillaNotification = m_Config.EnableVanillaNotifications == 1;
             sendVanillaChatMessage = m_Config.EnableVanillaChatMessages == 1;
         }

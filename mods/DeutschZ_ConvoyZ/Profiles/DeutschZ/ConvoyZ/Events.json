@@ -1,26 +1,14 @@
 {
-    "EventName": "DeutschZ ConvoyZ TEST Reward Crash",
+    "EventName": "DeutschZ ConvoyZ",
     "EventIdPrefix": "convoyz_static_crash",
     "EventCenter": "7500 0 7500",
     "EventRadius": 450.0,
     "Vehicles": [],
     "CrashObjects": [
         {
-            "ClassName": "Land_Wreck_UH1Y",
-            "Position": "7500 0 7500",
-            "Orientation": "35 0 0",
-            "Critical": 0
-        },
-        {
             "ClassName": "Land_Wreck_Volha_Police",
             "Position": "7492 0 7507",
             "Orientation": "120 0 0",
-            "Critical": 0
-        },
-        {
-            "ClassName": "Land_Wreck_HMMWV",
-            "Position": "7511 0 7493",
-            "Orientation": "260 0 0",
             "Critical": 0
         }
     ],
@@ -32,10 +20,10 @@
     },
     "Smoke": {
         "Position": "7500 0 7500",
-        "RedSmokeClassName": "M18SmokeGrenade_Red",
-        "YellowSmokeClassName": "M18SmokeGrenade_Yellow",
-        "GreenSmokeClassName": "M18SmokeGrenade_Green",
-        "WhiteSmokeClassName": "M18SmokeGrenade_White",
+        "RedSmokeClassName": "",
+        "YellowSmokeClassName": "",
+        "GreenSmokeClassName": "",
+        "WhiteSmokeClassName": "",
         "Count": 4,
         "Radius": 12.0,
         "RefreshSeconds": 90
@@ -44,10 +32,24 @@
         {
             "WaveId": "test_wave_1",
             "DelaySeconds": 0,
-            "Count": 3,
-            "AIClassName": "ZmbM_usSoldier_Officer_Desert",
+            "Count": 4,
+            "AIClassName": "eAI_SurvivorM_Denis",
             "DeutschZAIProfileId": "",
-            "LoadoutName": "",
+            "LoadoutName": "PoliceLoadout",
+            "SpawnPoints": [
+                {
+                    "Position": "7475 0 7490",
+                    "Orientation": "0 0 0"
+                }
+            ]
+        },
+        {
+            "WaveId": "test_wave_2",
+            "DelaySeconds": 90,
+            "Count": 3,
+            "AIClassName": "eAI_SurvivorM_Denis",
+            "DeutschZAIProfileId": "",
+            "LoadoutName": "PoliceLoadout",
             "SpawnPoints": [
                 {
                     "Position": "7475 0 7490",
@@ -56,7 +58,7 @@
             ]
         }
     ],
-    "RequiredAiKills": 3,
+    "RequiredAiKills": 4,
     "HackDurationSeconds": 30,
     "Reward": {
         "RewardContainerClassName": "DZCV_ProtectedCase",
@@ -180,6 +182,5 @@
             }
         ],
         "RewardMode": "SPAWN_CRATE"
-    },
-    "ConfigInfo": "DeutschZ_ConvoyZ FIX23 FAST TEST Events. Static crash point, stable infected waves, required kills=3."
+    }
 }

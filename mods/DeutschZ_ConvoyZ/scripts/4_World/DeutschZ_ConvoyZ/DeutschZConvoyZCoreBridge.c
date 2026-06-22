@@ -37,15 +37,8 @@ class DeutschZConvoyZCoreBridge
         DeutschZCore_MarkerProviderAPI provider = DeutschZCore_ServiceLocator.GetMarkerProvider();
         if (!provider)
             return false;
-        return provider.CreateMarker("ConvoyZ_3D_" + id, label, position, 0xFFFF0000);
-    }
-
-    static bool SendNotification(string channel, string title, string message, vector position)
-    {
-        DeutschZCore_NotificationProviderAPI provider = DeutschZCore_ServiceLocator.GetNotificationProvider();
-        if (!provider)
-            return false;
-        return provider.SendEventNotification(SystemName(), channel, title, message, position);
+        // FIX36: use the same marker id and let ExpansionBridge create a 3D server marker.
+        return provider.Create3DMarker("ConvoyZ_" + id, label, position, 0xFFFF0000);
     }
 
     static void CleanupMarkers()
@@ -60,9 +53,7 @@ class DeutschZConvoyZCoreBridge
         DeutschZCore_MarkerProviderAPI provider = DeutschZCore_ServiceLocator.GetMarkerProvider();
         if (!provider)
             return false;
-        bool removed = provider.DeleteMarker("ConvoyZ_" + id);
-        removed = provider.DeleteMarker("ConvoyZ_3D_" + id) || removed;
-        return removed;
+        return provider.DeleteMarker("ConvoyZ_" + id);
     }
 
     static bool SpawnLocalEnemy(string eventId, string className, vector position)

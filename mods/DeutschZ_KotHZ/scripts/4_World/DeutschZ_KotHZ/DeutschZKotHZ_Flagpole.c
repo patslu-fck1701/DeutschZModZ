@@ -63,20 +63,6 @@ class DeutschZKotHZ_RuntimeFlagpole extends ItemBase
         return attached;
     }
 
-
-    protected string DeutschZKotHZ_GetFlagTexture(string flagClassName)
-    {
-        if (flagClassName == "DeutschZKotHZ_NWAF_Flag") return "/DeutschZ_KotHZ/data/flags/DeutschZ_KotH_NWAF.paa";
-        if (flagClassName == "DeutschZKotHZ_Tisy_Flag") return "/DeutschZ_KotHZ/data/flags/DeutschZ_KotH_Tisy.paa";
-        if (flagClassName == "DeutschZKotHZ_LOPA_Flag") return "/DeutschZ_KotHZ/data/flags/DeutschZ_KotH_LOPA.paa";
-        if (flagClassName == "DeutschZKotHZ_YRAP_Flag") return "/DeutschZ_KotHZ/data/flags/DeutschZ_KotH_YRAP.paa";
-        if (flagClassName == "DeutschZKotHZ_Basebuild_Flag") return "/DeutschZ_KotHZ/data/flags/DeutschZ_KotH_Basebuild.paa";
-        if (flagClassName == "DeutschZKotHZ_Alt_One_Flag") return "/DeutschZ_KotHZ/data/flags/DeutschZ_Alt_One_Flag.paa";
-        if (flagClassName == "DeutschZKotHZ_Alt_Two_Flag") return "/DeutschZ_KotHZ/data/flags/DeutschZ_Alt_Two_Flag.paa";
-        if (flagClassName == "DeutschZKotHZ_Alt_Three_Flag") return "/DeutschZ_KotHZ/data/flags/DeutschZ_Alt_Three_Flag.paa";
-        return "/DeutschZ_KotHZ/data/flags/DeutschZ_KotHZ_Flag.paa";
-    }
-
     protected bool DeutschZKotHZ_AttachSingleFlag(string flagClassName)
     {
         if (flagClassName == "")
@@ -94,11 +80,7 @@ class DeutschZKotHZ_RuntimeFlagpole extends ItemBase
         m_DeutschZKotHZ_AttachedFlag = GetInventory().CreateAttachment(flagClassName);
         if (m_DeutschZKotHZ_AttachedFlag)
         {
-            string texturePath = DeutschZKotHZ_GetFlagTexture(flagClassName);
-            if (texturePath != "")
-                m_DeutschZKotHZ_AttachedFlag.SetObjectTexture(0, texturePath);
-
-            Print("[DeutschZ_KotHZ] Single logo flag attached to KOTH pole: " + flagClassName + " texture=" + texturePath);
+            Print("[DeutschZ_KotHZ] Single logo flag attached to KOTH pole: " + flagClassName);
             return true;
         }
 
@@ -131,13 +113,12 @@ class DeutschZKotHZ_RuntimeFlagpole extends ItemBase
 
     void TriggerKOTHMusic(string soundSetName)
     {
-        // FIX21 Safe-Boot: event music disabled. Do not net-sync sound triggers.
-        return;
+        // FIX31: hard-disabled compatibility method. Do not dirty net-sync variables for music.
     }
 
     protected void DeutschZKotHZ_PlayLocalEventMusic()
     {
-        return;
+        // FIX31: music is disabled for KotHZ crash isolation.
     }
 
     protected int DeutschZKotHZ_GetParticleForState(int state)
@@ -200,7 +181,6 @@ class DeutschZKotHZ_RuntimeFlagpole extends ItemBase
 
         if (smokeChanged)
             DeutschZKotHZ_UpdateParticleSmoke();
-
 
         if (m_DeutschZKotHZ_ClientCaptureFraction != m_DeutschZKotHZ_ServerCaptureFraction)
         {

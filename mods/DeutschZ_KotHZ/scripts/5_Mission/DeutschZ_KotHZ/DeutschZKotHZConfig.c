@@ -6,286 +6,8 @@ Keine direkte Codeuebernahme aus Drittquellen.
 Oeffentliche Quellen werden nur zur Konzept- und API-Verifikation genutzt.
 */
 
-
-// DeutschZ unified event config standard v1.
-// Same JSON block name in every event config: DeutschZEventSettings.
-class DeutschZKotHZEventCoreSettings
-{
-    int Enabled;
-    int MinOnlinePlayers;
-    int MaxSimultaneousEvents;
-    int MaxEventsPerRestart;
-    int MaxRuntimeSeconds;
-    int CleanupDelaySeconds;
-    int DebugLogs;
-
-    void DeutschZKotHZEventCoreSettings()
-    {
-        Enabled = 1;
-        MinOnlinePlayers = 1;
-        MaxSimultaneousEvents = 1;
-        MaxEventsPerRestart = 999;
-        MaxRuntimeSeconds = 1800;
-        CleanupDelaySeconds = 60;
-        DebugLogs = 1;
-    }
-
-    void Repair()
-    {
-        if (Enabled != 0) Enabled = 1;
-        if (MinOnlinePlayers < 0) MinOnlinePlayers = 0;
-        if (MaxSimultaneousEvents < 1) MaxSimultaneousEvents = 1;
-        if (MaxEventsPerRestart < 0) MaxEventsPerRestart = 0;
-        if (MaxRuntimeSeconds < 0) MaxRuntimeSeconds = 0;
-        if (CleanupDelaySeconds < 0) CleanupDelaySeconds = 0;
-        if (DebugLogs != 0) DebugLogs = 1;
-    }
-}
-
-class DeutschZKotHZEventSchedulingSettings
-{
-    int AutoStartAfterRestart;
-    int StartDelayMinSeconds;
-    int StartDelayMaxSeconds;
-    int RestartAfterFinish;
-    int RestartDelayMinSeconds;
-    int RestartDelayMaxSeconds;
-    int NoPlayerRetryDelaySeconds;
-
-    void DeutschZKotHZEventSchedulingSettings()
-    {
-        AutoStartAfterRestart = 1;
-        StartDelayMinSeconds = 300;
-        StartDelayMaxSeconds = 300;
-        RestartAfterFinish = 1;
-        RestartDelayMinSeconds = 1200;
-        RestartDelayMaxSeconds = 1200;
-        NoPlayerRetryDelaySeconds = 60;
-    }
-
-    void Repair()
-    {
-        if (AutoStartAfterRestart != 0) AutoStartAfterRestart = 1;
-        if (StartDelayMinSeconds < 0) StartDelayMinSeconds = 0;
-        if (StartDelayMaxSeconds < StartDelayMinSeconds) StartDelayMaxSeconds = StartDelayMinSeconds;
-        if (RestartAfterFinish != 0) RestartAfterFinish = 1;
-        if (RestartDelayMinSeconds < 0) RestartDelayMinSeconds = 0;
-        if (RestartDelayMaxSeconds < RestartDelayMinSeconds) RestartDelayMaxSeconds = RestartDelayMinSeconds;
-        if (NoPlayerRetryDelaySeconds < 0) NoPlayerRetryDelaySeconds = 0;
-    }
-}
-
-class DeutschZKotHZEventMarkerSettings
-{
-    int Enabled;
-    int UseMapMarker;
-    int Use3DMarker;
-    int UseDynamicPositionUpdates;
-    int UpdateIntervalSeconds;
-    int ShowEventRadius;
-    int ShowCarrierMarker;
-    int ShowDroppedItemMarker;
-    int ShowFinalMarker;
-    int ShowExtractionMarker;
-    string MarkerName;
-    string MarkerIcon;
-    int MarkerColorARGB;
-    string MarkerPrefix;
-
-    void DeutschZKotHZEventMarkerSettings()
-    {
-        Enabled = 1;
-        UseMapMarker = 1;
-        Use3DMarker = 1;
-        UseDynamicPositionUpdates = 1;
-        UpdateIntervalSeconds = 10;
-        ShowEventRadius = 1;
-        ShowCarrierMarker = 1;
-        ShowDroppedItemMarker = 1;
-        ShowFinalMarker = 1;
-        ShowExtractionMarker = 1;
-        MarkerName = "DeutschZ KotHZ";
-        MarkerIcon = "Territory";
-        MarkerColorARGB = -65536;
-        MarkerPrefix = "KotHZ_";
-    }
-
-    void Repair(string fallbackName, string fallbackIcon, string fallbackPrefix)
-    {
-        if (Enabled != 0) Enabled = 1;
-        if (UseMapMarker != 0) UseMapMarker = 1;
-        if (Use3DMarker != 0) Use3DMarker = 1;
-        if (UseDynamicPositionUpdates != 0) UseDynamicPositionUpdates = 1;
-        if (UpdateIntervalSeconds < 1) UpdateIntervalSeconds = 1;
-        if (ShowEventRadius != 0) ShowEventRadius = 1;
-        if (ShowCarrierMarker != 0) ShowCarrierMarker = 1;
-        if (ShowDroppedItemMarker != 0) ShowDroppedItemMarker = 1;
-        if (ShowFinalMarker != 0) ShowFinalMarker = 1;
-        if (ShowExtractionMarker != 0) ShowExtractionMarker = 1;
-        if (MarkerName == "") MarkerName = fallbackName;
-        if (MarkerIcon == "") MarkerIcon = fallbackIcon;
-        if (MarkerPrefix == "") MarkerPrefix = fallbackPrefix;
-        if (MarkerColorARGB == 0) MarkerColorARGB = -65536;
-    }
-}
-
-class DeutschZKotHZEventNotificationSettings
-{
-    int Enabled;
-    int UseExpansionNotifications;
-    int UseVanillaNotifications;
-    int UseChatMessages;
-    int StatusNotifications;
-    int StatusIntervalSeconds;
-    int NotifyOnScheduled;
-    int NotifyOnStart;
-    int NotifyOnStageChange;
-    int NotifyOnMarkerUpdate;
-    int NotifyOnComplete;
-    int NotifyOnFail;
-
-    void DeutschZKotHZEventNotificationSettings()
-    {
-        Enabled = 1;
-        UseExpansionNotifications = 1;
-        UseVanillaNotifications = 1;
-        UseChatMessages = 1;
-        StatusNotifications = 1;
-        StatusIntervalSeconds = 60;
-        NotifyOnScheduled = 1;
-        NotifyOnStart = 1;
-        NotifyOnStageChange = 1;
-        NotifyOnMarkerUpdate = 0;
-        NotifyOnComplete = 1;
-        NotifyOnFail = 1;
-    }
-
-    void Repair()
-    {
-        if (Enabled != 0) Enabled = 1;
-        if (UseExpansionNotifications != 0) UseExpansionNotifications = 1;
-        if (UseVanillaNotifications != 0) UseVanillaNotifications = 1;
-        if (UseChatMessages != 0) UseChatMessages = 1;
-        if (StatusNotifications != 0) StatusNotifications = 1;
-        if (StatusIntervalSeconds < 3) StatusIntervalSeconds = 3;
-        if (NotifyOnScheduled != 0) NotifyOnScheduled = 1;
-        if (NotifyOnStart != 0) NotifyOnStart = 1;
-        if (NotifyOnStageChange != 0) NotifyOnStageChange = 1;
-        if (NotifyOnMarkerUpdate != 0) NotifyOnMarkerUpdate = 1;
-        if (NotifyOnComplete != 0) NotifyOnComplete = 1;
-        if (NotifyOnFail != 0) NotifyOnFail = 1;
-    }
-}
-
-class DeutschZKotHZEventRewardSettings
-{
-    int Enabled;
-    int RewardLifetimeSeconds;
-    int DespawnWarningEnabled;
-    int DespawnWarningSeconds;
-
-    void DeutschZKotHZEventRewardSettings()
-    {
-        Enabled = 1;
-        RewardLifetimeSeconds = 1800;
-        DespawnWarningEnabled = 1;
-        DespawnWarningSeconds = 300;
-    }
-
-    void Repair()
-    {
-        if (Enabled != 0) Enabled = 1;
-        if (RewardLifetimeSeconds < 60) RewardLifetimeSeconds = 60;
-        if (DespawnWarningEnabled != 0) DespawnWarningEnabled = 1;
-        if (DespawnWarningSeconds < 0) DespawnWarningSeconds = 0;
-    }
-}
-
-class DeutschZKotHZEventTestingSettings
-{
-    int FastTestMode;
-    int CaptureHoldSeconds;
-    int RequiredKillsToWin;
-    int HackDurationSeconds;
-    int WaveDelaySeconds;
-    int StageAutoCompleteSeconds;
-    int FinalDefenseSeconds;
-    int ExtractionDurationSeconds;
-
-    void DeutschZKotHZEventTestingSettings()
-    {
-        FastTestMode = 1;
-        CaptureHoldSeconds = 45;
-        RequiredKillsToWin = 3;
-        HackDurationSeconds = 30;
-        WaveDelaySeconds = 30;
-        StageAutoCompleteSeconds = 0;
-        FinalDefenseSeconds = 120;
-        ExtractionDurationSeconds = 30;
-    }
-
-    void Repair()
-    {
-        if (FastTestMode != 0) FastTestMode = 1;
-        if (CaptureHoldSeconds < 5) CaptureHoldSeconds = 5;
-        if (RequiredKillsToWin < 0) RequiredKillsToWin = 0;
-        if (HackDurationSeconds < 5) HackDurationSeconds = 5;
-        if (WaveDelaySeconds < 0) WaveDelaySeconds = 0;
-        if (StageAutoCompleteSeconds < 0) StageAutoCompleteSeconds = 0;
-        if (FinalDefenseSeconds < 30) FinalDefenseSeconds = 30;
-        if (ExtractionDurationSeconds < 5) ExtractionDurationSeconds = 5;
-    }
-}
-
-class DeutschZKotHZEventSettings
-{
-    int SchemaVersion;
-    string PresetName;
-    string ConfigMode;
-    ref DeutschZKotHZEventCoreSettings Event;
-    ref DeutschZKotHZEventSchedulingSettings Scheduling;
-    ref DeutschZKotHZEventMarkerSettings Markers;
-    ref DeutschZKotHZEventNotificationSettings Notifications;
-    ref DeutschZKotHZEventRewardSettings Rewards;
-    ref DeutschZKotHZEventTestingSettings Testing;
-
-    void DeutschZKotHZEventSettings()
-    {
-        SchemaVersion = 1;
-        PresetName = "FAST_TEST";
-        ConfigMode = "FastRestartTest";
-        Event = new DeutschZKotHZEventCoreSettings();
-        Scheduling = new DeutschZKotHZEventSchedulingSettings();
-        Markers = new DeutschZKotHZEventMarkerSettings();
-        Notifications = new DeutschZKotHZEventNotificationSettings();
-        Rewards = new DeutschZKotHZEventRewardSettings();
-        Testing = new DeutschZKotHZEventTestingSettings();
-        Repair("DeutschZ KotHZ", "Territory", "KotHZ_");
-    }
-
-    void Repair(string fallbackName, string fallbackIcon, string fallbackPrefix)
-    {
-        if (SchemaVersion < 1) SchemaVersion = 1;
-        if (PresetName == "") PresetName = "FAST_TEST";
-        if (ConfigMode == "") ConfigMode = "FastRestartTest";
-        if (!Event) Event = new DeutschZKotHZEventCoreSettings();
-        if (!Scheduling) Scheduling = new DeutschZKotHZEventSchedulingSettings();
-        if (!Markers) Markers = new DeutschZKotHZEventMarkerSettings();
-        if (!Notifications) Notifications = new DeutschZKotHZEventNotificationSettings();
-        if (!Rewards) Rewards = new DeutschZKotHZEventRewardSettings();
-        if (!Testing) Testing = new DeutschZKotHZEventTestingSettings();
-        Event.Repair();
-        Scheduling.Repair();
-        Markers.Repair(fallbackName, fallbackIcon, fallbackPrefix);
-        Notifications.Repair();
-        Rewards.Repair();
-        Testing.Repair();
-    }
-}
-
 class DeutschZKotHZConfig
 {
-    ref DeutschZKotHZEventSettings DeutschZEventSettings;
     string ConfigInfo;
     string EditHint;
     string OwnerName;
@@ -345,69 +67,10 @@ class DeutschZKotHZConfig
     ref DeutschZKotHZSmokeConfig Smoke;
     ref DeutschZKotHZZombieConfig Zombies;
 
-
-    void EnsureDeutschZEventSettings()
-    {
-        if (!DeutschZEventSettings)
-            DeutschZEventSettings = new DeutschZKotHZEventSettings();
-        DeutschZEventSettings.Repair("DeutschZ KotHZ", "Territory", "KotHZ_");
-    }
-
-    int DeutschZSecondsToMinutes(int seconds)
-    {
-        if (seconds <= 0) return 1;
-        int minutes = seconds / 60;
-        if (minutes < 1) minutes = 1;
-        if ((minutes * 60) < seconds) minutes = minutes + 1;
-        return minutes;
-    }
-
-    void ApplyDeutschZEventSettings()
-    {
-        EnsureDeutschZEventSettings();
-        EnableKOTH = DeutschZEventSettings.Event.Enabled;
-        MaxSimultaneousEvents = DeutschZEventSettings.Event.MaxSimultaneousEvents;
-        MinPlayersToStart = DeutschZEventSettings.Event.MinOnlinePlayers;
-        DebugMode = DeutschZEventSettings.Event.DebugLogs;
-        MinStartDelayMinutes = DeutschZSecondsToMinutes(DeutschZEventSettings.Scheduling.StartDelayMinSeconds);
-        MaxStartDelayMinutes = DeutschZSecondsToMinutes(DeutschZEventSettings.Scheduling.StartDelayMaxSeconds);
-        if (MaxStartDelayMinutes < MinStartDelayMinutes) MaxStartDelayMinutes = MinStartDelayMinutes;
-
-        if (DeutschZEventSettings.Markers.Enabled == 0)
-        {
-            MarkerMode = "Off";
-            EnableExpansionMarker = 0;
-            EnableExpansion3DMarker = 0;
-        }
-        else
-        {
-            MarkerMode = "Expansion";
-            EnableExpansionMarker = DeutschZEventSettings.Markers.UseMapMarker;
-            EnableExpansion3DMarker = DeutschZEventSettings.Markers.Use3DMarker;
-        }
-
-        EnableExpansionNotifications = DeutschZEventSettings.Notifications.Enabled * DeutschZEventSettings.Notifications.UseExpansionNotifications;
-        EnableVanillaNotifications = DeutschZEventSettings.Notifications.Enabled * DeutschZEventSettings.Notifications.UseVanillaNotifications;
-        EnableVanillaChatMessages = DeutschZEventSettings.Notifications.Enabled * DeutschZEventSettings.Notifications.UseChatMessages;
-        EnableMarkerFallbackNotifications = 0;
-        AnnounceEvent = DeutschZEventSettings.Notifications.Enabled;
-        RewardCrateMinimumLifetimeSeconds = DeutschZEventSettings.Rewards.RewardLifetimeSeconds;
-        EnableRewardCrateDespawnWarning = DeutschZEventSettings.Rewards.DespawnWarningEnabled;
-        RewardCrateDespawnWarningSeconds = DeutschZEventSettings.Rewards.DespawnWarningSeconds;
-
-        foreach (DeutschZKotHZZone zone: Zones)
-        {
-            if (!zone) continue;
-            if (DeutschZEventSettings.Testing.FastTestMode == 1)
-                zone.CaptureTimeSeconds = DeutschZEventSettings.Testing.CaptureHoldSeconds;
-        }
-    }
-
     void DeutschZKotHZConfig()
     {
-        DeutschZEventSettings = new DeutschZKotHZEventSettings();
-        ConfigInfo = "DeutschZ_KotHZ FIX23 fast-test config. Event music is disabled; marker/3D-marker intent and Bridge popup/chat fallbacks are enabled.";
-        EditHint = "TESTVERSION: starts after 1 minute, capture time is reduced, and all zones use DeutschZ_Test_HighValue reward pool for quick loot testing. Do not use these fast timings as final live balance.";
+        ConfigInfo = "DeutschZ_KotHZ FIX36. Stable Ausbau-Stufe: visible mast/flag, one Expansion marker, HUD/progress and infected waves active; music/physical smoke/fog/heavy effects remain disabled.";
+        EditHint = "FIX36 TESTVERSION: starts first after 1 minute. Stable features active: mast/flag, marker, HUD, waves and rewards. Risk features stay off: music, physical smoke grenades, fog and helicopter delivery.";
         OwnerName = "Patrick Sluzalek";
         OwnerPlayerName = "fck1701";
         ServerName = "DeutschZ";
@@ -427,11 +90,11 @@ class DeutschZKotHZConfig
         EnableExpansionNotifications = 1;
         EnableExpansionMarker = 1;
         EnableExpansion3DMarker = 1;
-        EnableVanillaNotifications = 1;
-        EnableVanillaChatMessages = 1;
-        EnableMarkerFallbackNotifications = 1;
+        EnableVanillaNotifications = 0;
+        EnableVanillaChatMessages = 0;
+        EnableMarkerFallbackNotifications = 0;
         MarkerMode = "Expansion";
-        MarkerEditHint = "DeutschZ KotHZ test default: map marker and 3D marker enabled through DeutschZ_ExpansionBridge; vanilla popup and chat fallback enabled so players always see event messages.";
+        MarkerEditHint = "DeutschZ KotHZ default: MarkerMode=Expansion only. Third-party marker modes are intentionally not supported in this build. Expansion map marker and 3D marker enabled; vanilla popup/chat disabled by default to avoid duplicates.";
         ExpansionMarkerColorARGB = ARGB(255, 255, 0, 0);
         ExpansionMarkerIcon = "Territory";
         RewardCrateMinimumLifetimeSeconds = 1800;
@@ -452,18 +115,29 @@ class DeutschZKotHZConfig
         DeliveryHelicopterCleanupSeconds = 25.0;
         DeliveryCrateLandingConfirmSeconds = 10.0;
         EnableEventMusic = 0;
-        EventMusicSoundSetName = "";
+        EventMusicSoundSetName = "DeutschZ_KotHZ_EventMusic_SoundSet";
         EventMusicPlayOnReady = 0;
         EventMusicPlayOnStart = 0;
         EventMusicPlayOnCaptured = 0;
-        EventMusicRadius = 0.0;
-        EventMusicVolume = 0.0;
+        EventMusicRadius = 120.0;
+        EventMusicVolume = 1.0;
 
         Zones = new array<ref DeutschZKotHZZone>;
         Rewards = new array<ref DeutschZKotHZReward>;
         WavePools = new array<ref DeutschZKotHZWavePool>;
         NPC = new DeutschZKotHZNPCConfig();
         Smoke = new DeutschZKotHZSmokeConfig();
+        // FIX36: keep visual smoke/fog systems disabled until KotHZ has survived repeated tests with markers/flag/waves.
+        if (Smoke)
+        {
+            Smoke.EnableSmoke = 0;
+            Smoke.UseObjectSmoke = 0;
+            Smoke.UseParticleSmoke = 0;
+            Smoke.AutoActivateSmokeGrenade = 0;
+            Smoke.ForceSwitchOnSmokeGrenade = 0;
+            Smoke.EnableFogHazard = 0;
+            Smoke.EnableSmokeCannons = 0;
+        }
         Zombies = new DeutschZKotHZZombieConfig();
 
         DeutschZKotHZZone nwaf = new DeutschZKotHZZone();

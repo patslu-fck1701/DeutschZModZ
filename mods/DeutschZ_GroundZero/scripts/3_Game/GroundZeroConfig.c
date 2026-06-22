@@ -82,11 +82,11 @@ class GroundZeroEventSchedulingSettings
     void GroundZeroEventSchedulingSettings()
     {
         AutoStartAfterRestart = 1;
-        StartDelayMinSeconds = 900;
-        StartDelayMaxSeconds = 900;
+        StartDelayMinSeconds = 300;
+        StartDelayMaxSeconds = 300;
         RestartAfterFinish = 1;
-        RestartDelayMinSeconds = 1800;
-        RestartDelayMaxSeconds = 1800;
+        RestartDelayMinSeconds = 1200;
+        RestartDelayMaxSeconds = 1200;
         NoPlayerRetryDelaySeconds = 60;
     }
 
@@ -243,11 +243,11 @@ class GroundZeroEventTestingSettings
     {
         FastTestMode = 1;
         CaptureHoldSeconds = 45;
-        RequiredKillsToWin = 3;
+        RequiredKillsToWin = 4;
         HackDurationSeconds = 30;
         WaveDelaySeconds = 30;
         StageAutoCompleteSeconds = 0;
-        FinalDefenseSeconds = 120;
+        FinalDefenseSeconds = 180;
         ExtractionDurationSeconds = 30;
     }
 
@@ -527,8 +527,8 @@ class GroundZeroConfig
         ConfigVersion = 6;
         EnableGroundZero = true;
         AutoStartEnabled = true;
-        AutoStartMinDelaySeconds = 900;
-        AutoStartMaxDelaySeconds = 900;
+        AutoStartMinDelaySeconds = 300;
+        AutoStartMaxDelaySeconds = 300;
         MinOnlinePlayersToAutoStart = 1;
 
         EventMinDurationSeconds = 2700;

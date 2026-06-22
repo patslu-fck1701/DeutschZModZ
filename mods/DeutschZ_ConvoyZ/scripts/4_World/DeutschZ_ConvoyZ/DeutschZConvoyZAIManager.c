@@ -80,13 +80,10 @@ class DeutschZConvoyZAIManager
 
     string NormalizeAIClassName(string className)
     {
-        // FIX21 test stability: do not auto-convert Survivor/eAI classes here.
-        // Expansion AI API is intentionally isolated behind DeutschZ_ExpansionBridge after verification.
-        // ConvoyZ test mode uses killable vanilla infected fallback so events stay stable.
-        if (className == "") return "ZmbM_usSoldier_Officer_Desert";
-        if (className.IndexOf("eAI_") == 0) return "ZmbM_usSoldier_Officer_Desert";
-        if (className.IndexOf("SurvivorM_") == 0) return "ZmbM_usSoldier_Officer_Desert";
-        if (className.IndexOf("SurvivorF_") == 0) return "ZmbM_usSoldier_Officer_Desert";
+        if (className == "") return DeutschZConvoyZConstants.DEFAULT_EXPANSION_AI_CLASS;
+        if (className.IndexOf("eAI_") == 0) return className;
+        if (className.IndexOf("SurvivorM_") == 0) return "eAI_" + className;
+        if (className.IndexOf("SurvivorF_") == 0) return "eAI_" + className;
         return className;
     }
 

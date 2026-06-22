@@ -1,6 +1,6 @@
 # README_COMPLIANCE - DeutschZ_CourierZ
 
-CourierZ basiert auf einer Idee bzw. einem Konzeptanstoß von Einarvargr / Konfliktzone. Auf Wunsch des Ideengebers werden kein Vorname und kein Realname genannt.
+CourierZ basiert auf einer Idee bzw. einem Konzeptanstoß von Playername Einarvargr vom Server Konfliktzone. Auf Wunsch des Ideengebers werden kein Vorname und kein Realname genannt.
 
 Entwicklung und Implementierung erfolgen durch Patrick Sluzalek / fck1701 fuer DeutschZ.
 
@@ -26,9 +26,9 @@ Konfliktzone World ist eine verbundene DayZ-Multimap-Spielwelt, in der mehrere K
 
 ## CourierZ Credit
 
-- Idee / Konzeptanstoß: Einarvargr / Konfliktzone
+- Idee / Konzeptanstoß: Playername Einarvargr, Server Konfliktzone
 - Entwicklung / Implementierung: Patrick Sluzalek / fck1701, DeutschZ DayZ Server
-- Hinweis: Es werden kein Vorname und kein Realname des Ideengebers genannt. Der Credit erfolgt bewusst nur als Einarvargr / Konfliktzone.
+- Hinweis: Es werden kein Vorname und kein Realname des Ideengebers genannt. Der Credit erfolgt bewusst nur mit Playername und Server.
 
 
 ## Projektlinks

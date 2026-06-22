@@ -115,10 +115,10 @@ class DeutschZKotHZZone
         DespawnZombiesOnEventEnd = 1;
 
         ZombieTypes = new array<string>;
-        ZombieTypes.Insert("ZmbM_usSoldier_Officer_Desert");
+        ZombieTypes.Insert("ZmbM_PatrolNormal_Autumn");
         ZombieTypes.Insert("ZmbM_PatrolNormal_Summer");
-        ZombieTypes.Insert("ZmbM_usSoldier_Officer_Desert");
-        ZombieTypes.Insert("ZmbM_usSoldier_Officer_Desert");
+        ZombieTypes.Insert("ZmbM_SoldierNormal_Beige");
+        ZombieTypes.Insert("ZmbM_CitizenASkinny_Brown");
         ZombieTypes.Insert("ZmbM_CitizenASkinny_Blue");
         ZombieTypes.Insert("ZmbM_NBC_Yellow");
     }

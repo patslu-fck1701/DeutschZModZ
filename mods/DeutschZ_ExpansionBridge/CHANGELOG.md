@@ -1,3 +1,10 @@
+
+## FIX31 - KotHZ Crash/Marker/Flag Regression (2026-06-22)
+- KotHZ crash isolation: music hard-disabled and risky RuntimeFlagpole attachment path removed from active use.
+- KOTH flag now uses a safe visible Flag_Base-derived DeutschZ flag object.
+- ExpansionBridge now creates real DayZ Expansion server markers via ExpansionMarkerModule/CreateServerMarker.
+- ConvoyZ physical smoke and failing wreck classes reduced for crash isolation.
+
 # CHANGELOG
 
 ## 2026-06-20 - FIX25 Staggered Event Test / Marker Notify Stabilization

@@ -17,7 +17,7 @@ class DeutschZConvoyZSpawnManager
         if (!DeutschZConvoyZValidator.IsClassNameUsable(className)) return null;
         vector p = pos;
         p[1] = GetGame().SurfaceY(p[0], p[2]);
-        Object obj = GetGame().CreateObjectEx(className, p, ECE_SETUP | ECE_CREATEPHYSICS | ECE_UPDATEPATHGRAPH);
+        Object obj = GetGame().CreateObjectEx(className, p, ECE_PLACE_ON_SURFACE | ECE_NOLIFETIME);
         if (!obj)
         {
             DeutschZConvoyZLogger.Log("SpawnFailed", eventId, "SPAWNING", "", p, "FAILED", label + " " + className);
@@ -39,11 +39,7 @@ class DeutschZConvoyZSpawnManager
         {
             if (!def) continue;
             Object obj = SpawnObject(def.ClassName, def.Position, def.Orientation, state.EventId, "crash_object");
-            if (!obj && def.Critical == 1)
-            {
-                DeutschZConvoyZLogger.Log("CrashObjectNonFatal", state.EventId, "SPAWNING", "", def.Position, "WARN", def.ClassName + " failed but event continues for test readiness");
-                continue;
-            }
+            if (!obj && def.Critical == 1) return false;
             if (obj) state.SpawnedObjects.Insert(obj);
         }
         Object blackbox = SpawnObject(cfg.EventData.Blackbox.ClassName, cfg.EventData.Blackbox.Position, cfg.EventData.Blackbox.Orientation, state.EventId, "blackbox");
@@ -55,33 +51,23 @@ class DeutschZConvoyZSpawnManager
 
     void SetSmoke(DeutschZConvoyZConfig cfg, DeutschZConvoyZRuntimeState state, string smokeState)
     {
-        if (!cfg || !cfg.EventData || !cfg.EventData.Smoke || !state) return;
-        CleanupSmoke(state);
-        string className = GetSmokeClass(cfg.EventData.Smoke, smokeState);
-        for (int i = 0; i < cfg.EventData.Smoke.Count; i++)
-        {
-            float radius = cfg.EventData.Smoke.Radius;
-            float offsetX = Math.RandomFloat(-radius, radius);
-            float offsetZ = Math.RandomFloat(-radius, radius);
-            vector basePos = cfg.EventData.Smoke.Position;
-            vector offset = Vector(offsetX, 0, offsetZ);
-            vector p = basePos + offset;
-            Object smoke = SpawnObject(className, p, "0 0 0", state.EventId, "smoke");
-            if (smoke) state.SmokeObjects.Insert(smoke);
-        }
-        state.SmokeState = smokeState;
-        state.LastSmokeRefreshAt = GetGame().GetTime();
+        // FIX31: disabled physical smoke grenade spawning during crash isolation.
+        // ConvoyZ visibility must come from real Expansion markers through DeutschZ_ExpansionBridge.
+        if (state)
+            state.SmokeState = smokeState;
     }
+
 
     void RefreshSmoke(DeutschZConvoyZConfig cfg, DeutschZConvoyZRuntimeState state)
     {
-        if (!cfg || !state || state.SmokeState == "") return;
-        int refresh = cfg.EventData.Smoke.RefreshSeconds;
-        if (refresh <= 0) refresh = 90;
-        if (GetGame().GetTime() - state.LastSmokeRefreshAt < refresh * 1000) return;
-        string oldState = state.SmokeState;
-        state.SmokeState = "";
-        SetSmoke(cfg, state, oldState);
+        // FIX33: compatibility no-op.
+        // Physical smoke refresh remains disabled during crash isolation.
+        // Visibility is handled by DeutschZ_ExpansionBridge real Expansion markers.
+        if (!state)
+            return;
+
+        if (state.SmokeState == "")
+            state.SmokeState = DeutschZConvoyZConstants.SMOKE_RED;
     }
 
     string GetSmokeClass(DeutschZConvoyZSmokeDef smoke, string smokeState)

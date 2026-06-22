@@ -5,54 +5,58 @@
     Zweck: Eigene DeutschZ-Implementierung fuer Core, ExpansionBridge und Event-Module.
     Quellen-/Konzeptnachweis: Eigenentwickelte Struktur; DayZ, CF und Expansion nur als Laufzeit-API/Abhaengigkeit.
     No-Copy-Bestaetigung: Kein Code, keine Assets und keine Configs aus fremden Mods kopiert.
+
+    FIX31:
+    - MarkerProvider nutzt die vorhandene DayZ Expansion Navigation Marker API.
+    - Event-Mods rufen weiterhin nur DeutschZ Core/Bridge auf.
+    - Keine physischen Marker-Fallbackobjekte.
 */
 
 class DeutschZExpansionBridge_MarkerProvider: DeutschZCore_MarkerProviderAPI
 {
     protected ref map<string, vector> m_Markers;
-    protected ref map<string, Object> m_VisualObjects;
+    protected ref map<string, int> m_MarkerIs3D;
 
     void DeutschZExpansionBridge_MarkerProvider()
     {
         m_Markers = new map<string, vector>;
-        m_VisualObjects = new map<string, Object>;
+        m_MarkerIs3D = new map<string, int>;
     }
 
-    protected string VisibleMarkerClassName(string id)
+    protected ExpansionMarkerModule GetExpansionMarkerModuleSafe()
     {
-        // FIX28: physical marker fallback objects are disabled for regression testing.
-        // Keep this helper API-stable, but do not select/spawn world objects here.
-        return "";
+        return ExpansionMarkerModule.GetModuleInstance();
     }
 
-
-    protected void CreateOrMoveVisibleFallback(string id, vector position)
+    protected string GetIconName(string id)
     {
-        // FIX28 regression hardening:
-        // The previous physical marker fallback spawned barrels/smoke grenades on marker requests.
-        // In the last crash timeline the server crashed immediately after repeated KotHZ marker requests.
-        // Until the real Expansion marker API is verified, marker requests are stored/logged only.
-        // This keeps events functional and prevents marker fallback objects from becoming a native-crash variable.
-        return;
+        // Use a known Expansion map icon for all event markers.
+        // Event-specific visual differentiation remains in label/color to avoid missing-icon invisibility.
+        return "Territory";
     }
 
-
-    protected void SwitchOnSmokeMarker(Object markerObject)
+    protected bool CreateOrReplaceExpansionMarker(string id, string label, vector position, int colorARGB, bool marker3D)
     {
-        SmokeGrenadeBase smoke = SmokeGrenadeBase.Cast(markerObject);
-        if (!smoke)
-            return;
+        if (!GetGame() || !GetGame().IsClient() && !GetGame().IsServer())
+            return false;
 
-        if (smoke.GetCompEM() && smoke.GetCompEM().CanWork() && !smoke.GetCompEM().IsWorking())
-            smoke.GetCompEM().SwitchOn();
-    }
+        ExpansionMarkerModule module = GetExpansionMarkerModuleSafe();
+        if (!module)
+        {
+            DeutschZCore_Log.Warn("ExpansionBridge", "ExpansionMarkerModule unavailable for id=" + id);
+            return false;
+        }
 
-    protected void NotifyMarkerCreated(string id, string label, vector position)
-    {
-        // FIX25: Marker requests must not spam chat/popup.
-        // Map/3D marker creation is logged and represented by a safe world fallback object.
-        // Real Expansion map markers stay behind the Bridge provider and can be added here after API verification.
-        return;
+        module.RemoveServerMarker(id);
+        ExpansionMarkerData marker = module.CreateServerMarker(label, GetIconName(id), position, colorARGB, marker3D, id);
+        if (!marker)
+        {
+            DeutschZCore_Log.Warn("ExpansionBridge", "Expansion server marker create failed id=" + id + " label=" + label);
+            return false;
+        }
+
+        DeutschZCore_Log.Info("ExpansionBridge", "Expansion server marker created id=" + id + " label=" + label + " 3d=" + marker3D.ToString() + " pos=" + position.ToString());
+        return true;
     }
 
     override bool CreateMarker(string id, string label, vector position, int colorARGB)
@@ -61,20 +65,18 @@ class DeutschZExpansionBridge_MarkerProvider: DeutschZCore_MarkerProviderAPI
             return false;
 
         m_Markers.Set(id, position);
-        CreateOrMoveVisibleFallback(id, position);
-        NotifyMarkerCreated(id, label, position);
-        DeutschZCore_Log.Info("ExpansionBridge", "marker create request id=" + id + " label=" + label + " pos=" + position.ToString());
-        return true;
+        m_MarkerIs3D.Set(id, 0);
+        return CreateOrReplaceExpansionMarker(id, label, position, colorARGB, false);
     }
-
 
     override bool Create3DMarker(string id, string label, vector position, int colorARGB)
     {
-        string markerId = id;
-        if (markerId.IndexOf("_3D_") < 0 && markerId.IndexOf("3D_") < 0)
-            markerId = id + "_3D_";
+        if (id == "")
+            return false;
 
-        return CreateMarker(markerId, label, position, colorARGB);
+        m_Markers.Set(id, position);
+        m_MarkerIs3D.Set(id, 1);
+        return CreateOrReplaceExpansionMarker(id, label, position, colorARGB, true);
     }
 
     override bool UpdateMarker(string id, vector position)
@@ -83,29 +85,25 @@ class DeutschZExpansionBridge_MarkerProvider: DeutschZCore_MarkerProviderAPI
             return false;
 
         m_Markers.Set(id, position);
-        CreateOrMoveVisibleFallback(id, position);
-        DeutschZCore_Log.Info("ExpansionBridge", "marker update request id=" + id);
-        return true;
+        int is3D = 0;
+        m_MarkerIs3D.Find(id, is3D);
+        return CreateOrReplaceExpansionMarker(id, id, position, 0xFFFF0000, is3D == 1);
     }
 
     override bool DeleteMarker(string id)
     {
-        if (!m_Markers.Contains(id) && !m_VisualObjects.Contains(id))
-            return false;
-
-        if (m_Markers.Contains(id))
+        bool known = m_Markers.Contains(id);
+        if (known)
             m_Markers.Remove(id);
+        if (m_MarkerIs3D.Contains(id))
+            m_MarkerIs3D.Remove(id);
 
-        Object obj;
-        if (m_VisualObjects.Find(id, obj))
-        {
-            if (obj)
-                GetGame().ObjectDelete(obj);
-            m_VisualObjects.Remove(id);
-        }
+        ExpansionMarkerModule module = GetExpansionMarkerModuleSafe();
+        if (module)
+            module.RemoveServerMarker(id);
 
-        DeutschZCore_Log.Info("ExpansionBridge", "marker delete request id=" + id);
-        return true;
+        DeutschZCore_Log.Info("ExpansionBridge", "Expansion server marker delete request id=" + id);
+        return known;
     }
 
     override void DeleteMarkersByPrefix(string prefix)
@@ -115,12 +113,6 @@ class DeutschZExpansionBridge_MarkerProvider: DeutschZCore_MarkerProviderAPI
         {
             if (id.IndexOf(prefix) == 0)
                 remove.Insert(id);
-        }
-
-        foreach (string visualId, Object visualObj: m_VisualObjects)
-        {
-            if (visualId.IndexOf(prefix) == 0 && remove.Find(visualId) < 0)
-                remove.Insert(visualId);
         }
 
         foreach (string removeId: remove)
@@ -156,7 +148,6 @@ class DeutschZExpansionBridge_AIProvider: DeutschZCore_AIProviderAPI
 
     override bool SpawnGuard(string eventId, string loadoutId, vector position)
     {
-        // Safe test fallback: spawn a vanilla military infected instead of guessing Expansion AI constructors.
         return SpawnInfected(eventId, "ZmbM_usSoldier_Officer_Desert", position);
     }
 
@@ -188,7 +179,7 @@ class DeutschZExpansionBridge_AIProvider: DeutschZCore_AIProviderAPI
     {
         array<Object> list;
         if (!m_RuntimeObjects.Find(eventId, list))
-            return true;
+            return false;
 
         foreach (Object obj: list)
         {
@@ -196,8 +187,8 @@ class DeutschZExpansionBridge_AIProvider: DeutschZCore_AIProviderAPI
                 GetGame().ObjectDelete(obj);
         }
 
-        list.Clear();
         m_RuntimeObjects.Remove(eventId);
+        DeutschZCore_Log.Info("ExpansionBridge", "cleaned fallback enemies event=" + eventId);
         return true;
     }
 }

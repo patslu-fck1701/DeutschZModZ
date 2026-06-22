@@ -11,7 +11,8 @@ No foreign mod code, classes, configs, UI or assets were copied.
 Die Grundidee fuer DeutschZ_CourierZ / Operation Aktenkoffer stammt nicht von mir allein.
 
 Idee / Konzeptanstoß:
-- Einarvargr / Konfliktzone
+- Playername: Einarvargr
+- Server: Konfliktzone
 
 Entwicklung, Implementierung, Code, Configs, Persistenz und DeutschZ-Integration:
 - Patrick Sluzalek / fck1701
@@ -37,6 +38,6 @@ Konfliktzone World ist eine verbundene DayZ-Multimap-Spielwelt, in der mehrere K
 
 ## CourierZ Credit
 
-- Idee / Konzeptanstoß: Einarvargr / Konfliktzone
+- Idee / Konzeptanstoß: Playername Einarvargr, Server Konfliktzone
 - Entwicklung / Implementierung: Patrick Sluzalek / fck1701, DeutschZ DayZ Server
-- Hinweis: Es werden kein Vorname und kein Realname des Ideengebers genannt. Der Credit erfolgt bewusst nur als Einarvargr / Konfliktzone.
+- Hinweis: Es werden kein Vorname und kein Realname des Ideengebers genannt. Der Credit erfolgt bewusst nur mit Playername und Server.

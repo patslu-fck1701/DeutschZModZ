@@ -49,11 +49,11 @@ class CourierZEventSchedulingSettings
     void CourierZEventSchedulingSettings()
     {
         AutoStartAfterRestart = 1;
-        StartDelayMinSeconds = 1200;
-        StartDelayMaxSeconds = 1200;
+        StartDelayMinSeconds = 420;
+        StartDelayMaxSeconds = 420;
         RestartAfterFinish = 1;
-        RestartDelayMinSeconds = 2100;
-        RestartDelayMaxSeconds = 2100;
+        RestartDelayMinSeconds = 1200;
+        RestartDelayMaxSeconds = 1200;
         NoPlayerRetryDelaySeconds = 60;
     }
 
@@ -139,7 +139,7 @@ class CourierZEventNotificationSettings
         UseVanillaNotifications = 1;
         UseChatMessages = 1;
         StatusNotifications = 1;
-        StatusIntervalSeconds = 60;
+        StatusIntervalSeconds = 45;
     }
 
     void Repair()
@@ -250,7 +250,7 @@ class CourierZSpecificSettings
         DropCaseOnDeath = 1;
         DropCaseOnLogout = 1;
         PreventStorageTransfer = 1;
-        DeliveryTimeLimitSeconds = 1800;
+        DeliveryTimeLimitSeconds = 2400;
         AllowPickupByOtherPlayers = 1;
         RewardOnDelivery = 1;
         FailOnTimeExpired = 1;
@@ -345,7 +345,7 @@ class CourierZConfig
     static CourierZConfig Load()
     {
         CourierZPersistence.EnsureProfileDirs();
-        CourierZConfig cfg = new CourierZConfig;
+        ref CourierZConfig cfg = new CourierZConfig;
         if (!FileExist(CourierZConstants.CONFIG_PATH))
         {
             cfg.Save();

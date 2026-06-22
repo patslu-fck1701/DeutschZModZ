@@ -155,292 +155,14 @@ class DeutschZConvoyZEventDef
         Blackbox = new DeutschZConvoyZBlackboxDef();
         Smoke = new DeutschZConvoyZSmokeDef();
         AIWaves = new array<ref DeutschZConvoyZAIWaveDef>;
-        RequiredAiKills = 15;
-        HackDurationSeconds = 120;
-        Reward = new DeutschZConvoyZRewardDef();
-    }
-}
-
-
-// DeutschZ unified event config standard v1.
-// Same JSON block name in every event config: DeutschZEventSettings.
-class DeutschZConvoyZEventCoreSettings
-{
-    int Enabled;
-    int MinOnlinePlayers;
-    int MaxSimultaneousEvents;
-    int MaxEventsPerRestart;
-    int MaxRuntimeSeconds;
-    int CleanupDelaySeconds;
-    int DebugLogs;
-
-    void DeutschZConvoyZEventCoreSettings()
-    {
-        Enabled = 1;
-        MinOnlinePlayers = 1;
-        MaxSimultaneousEvents = 1;
-        MaxEventsPerRestart = 999;
-        MaxRuntimeSeconds = 1800;
-        CleanupDelaySeconds = 60;
-        DebugLogs = 1;
-    }
-
-    void Repair()
-    {
-        if (Enabled != 0) Enabled = 1;
-        if (MinOnlinePlayers < 0) MinOnlinePlayers = 0;
-        if (MaxSimultaneousEvents < 1) MaxSimultaneousEvents = 1;
-        if (MaxEventsPerRestart < 0) MaxEventsPerRestart = 0;
-        if (MaxRuntimeSeconds < 0) MaxRuntimeSeconds = 0;
-        if (CleanupDelaySeconds < 0) CleanupDelaySeconds = 0;
-        if (DebugLogs != 0) DebugLogs = 1;
-    }
-}
-
-class DeutschZConvoyZEventSchedulingSettings
-{
-    int AutoStartAfterRestart;
-    int StartDelayMinSeconds;
-    int StartDelayMaxSeconds;
-    int RestartAfterFinish;
-    int RestartDelayMinSeconds;
-    int RestartDelayMaxSeconds;
-    int NoPlayerRetryDelaySeconds;
-
-    void DeutschZConvoyZEventSchedulingSettings()
-    {
-        AutoStartAfterRestart = 1;
-        StartDelayMinSeconds = 600;
-        StartDelayMaxSeconds = 600;
-        RestartAfterFinish = 1;
-        RestartDelayMinSeconds = 1500;
-        RestartDelayMaxSeconds = 1500;
-        NoPlayerRetryDelaySeconds = 60;
-    }
-
-    void Repair()
-    {
-        if (AutoStartAfterRestart != 0) AutoStartAfterRestart = 1;
-        if (StartDelayMinSeconds < 0) StartDelayMinSeconds = 0;
-        if (StartDelayMaxSeconds < StartDelayMinSeconds) StartDelayMaxSeconds = StartDelayMinSeconds;
-        if (RestartAfterFinish != 0) RestartAfterFinish = 1;
-        if (RestartDelayMinSeconds < 0) RestartDelayMinSeconds = 0;
-        if (RestartDelayMaxSeconds < RestartDelayMinSeconds) RestartDelayMaxSeconds = RestartDelayMinSeconds;
-        if (NoPlayerRetryDelaySeconds < 0) NoPlayerRetryDelaySeconds = 0;
-    }
-}
-
-class DeutschZConvoyZEventMarkerSettings
-{
-    int Enabled;
-    int UseMapMarker;
-    int Use3DMarker;
-    int UseDynamicPositionUpdates;
-    int UpdateIntervalSeconds;
-    int ShowEventRadius;
-    int ShowCarrierMarker;
-    int ShowDroppedItemMarker;
-    int ShowFinalMarker;
-    int ShowExtractionMarker;
-    string MarkerName;
-    string MarkerIcon;
-    int MarkerColorARGB;
-    string MarkerPrefix;
-
-    void DeutschZConvoyZEventMarkerSettings()
-    {
-        Enabled = 1;
-        UseMapMarker = 1;
-        Use3DMarker = 1;
-        UseDynamicPositionUpdates = 1;
-        UpdateIntervalSeconds = 10;
-        ShowEventRadius = 1;
-        ShowCarrierMarker = 1;
-        ShowDroppedItemMarker = 1;
-        ShowFinalMarker = 1;
-        ShowExtractionMarker = 1;
-        MarkerName = "DeutschZ ConvoyZ Crash";
-        MarkerIcon = "Vehicle Crash";
-        MarkerColorARGB = -65536;
-        MarkerPrefix = "ConvoyZ_";
-    }
-
-    void Repair(string fallbackName, string fallbackIcon, string fallbackPrefix)
-    {
-        if (Enabled != 0) Enabled = 1;
-        if (UseMapMarker != 0) UseMapMarker = 1;
-        if (Use3DMarker != 0) Use3DMarker = 1;
-        if (UseDynamicPositionUpdates != 0) UseDynamicPositionUpdates = 1;
-        if (UpdateIntervalSeconds < 1) UpdateIntervalSeconds = 1;
-        if (ShowEventRadius != 0) ShowEventRadius = 1;
-        if (ShowCarrierMarker != 0) ShowCarrierMarker = 1;
-        if (ShowDroppedItemMarker != 0) ShowDroppedItemMarker = 1;
-        if (ShowFinalMarker != 0) ShowFinalMarker = 1;
-        if (ShowExtractionMarker != 0) ShowExtractionMarker = 1;
-        if (MarkerName == "") MarkerName = fallbackName;
-        if (MarkerIcon == "") MarkerIcon = fallbackIcon;
-        if (MarkerPrefix == "") MarkerPrefix = fallbackPrefix;
-        if (MarkerColorARGB == 0) MarkerColorARGB = -65536;
-    }
-}
-
-class DeutschZConvoyZEventNotificationSettings
-{
-    int Enabled;
-    int UseExpansionNotifications;
-    int UseVanillaNotifications;
-    int UseChatMessages;
-    int StatusNotifications;
-    int StatusIntervalSeconds;
-    int NotifyOnScheduled;
-    int NotifyOnStart;
-    int NotifyOnStageChange;
-    int NotifyOnMarkerUpdate;
-    int NotifyOnComplete;
-    int NotifyOnFail;
-
-    void DeutschZConvoyZEventNotificationSettings()
-    {
-        Enabled = 1;
-        UseExpansionNotifications = 1;
-        UseVanillaNotifications = 1;
-        UseChatMessages = 1;
-        StatusNotifications = 1;
-        StatusIntervalSeconds = 60;
-        NotifyOnScheduled = 1;
-        NotifyOnStart = 1;
-        NotifyOnStageChange = 1;
-        NotifyOnMarkerUpdate = 0;
-        NotifyOnComplete = 1;
-        NotifyOnFail = 1;
-    }
-
-    void Repair()
-    {
-        if (Enabled != 0) Enabled = 1;
-        if (UseExpansionNotifications != 0) UseExpansionNotifications = 1;
-        if (UseVanillaNotifications != 0) UseVanillaNotifications = 1;
-        if (UseChatMessages != 0) UseChatMessages = 1;
-        if (StatusNotifications != 0) StatusNotifications = 1;
-        if (StatusIntervalSeconds < 3) StatusIntervalSeconds = 3;
-        if (NotifyOnScheduled != 0) NotifyOnScheduled = 1;
-        if (NotifyOnStart != 0) NotifyOnStart = 1;
-        if (NotifyOnStageChange != 0) NotifyOnStageChange = 1;
-        if (NotifyOnMarkerUpdate != 0) NotifyOnMarkerUpdate = 1;
-        if (NotifyOnComplete != 0) NotifyOnComplete = 1;
-        if (NotifyOnFail != 0) NotifyOnFail = 1;
-    }
-}
-
-class DeutschZConvoyZEventRewardSettings
-{
-    int Enabled;
-    int RewardLifetimeSeconds;
-    int DespawnWarningEnabled;
-    int DespawnWarningSeconds;
-
-    void DeutschZConvoyZEventRewardSettings()
-    {
-        Enabled = 1;
-        RewardLifetimeSeconds = 1800;
-        DespawnWarningEnabled = 1;
-        DespawnWarningSeconds = 300;
-    }
-
-    void Repair()
-    {
-        if (Enabled != 0) Enabled = 1;
-        if (RewardLifetimeSeconds < 60) RewardLifetimeSeconds = 60;
-        if (DespawnWarningEnabled != 0) DespawnWarningEnabled = 1;
-        if (DespawnWarningSeconds < 0) DespawnWarningSeconds = 0;
-    }
-}
-
-class DeutschZConvoyZEventTestingSettings
-{
-    int FastTestMode;
-    int CaptureHoldSeconds;
-    int RequiredKillsToWin;
-    int HackDurationSeconds;
-    int WaveDelaySeconds;
-    int StageAutoCompleteSeconds;
-    int FinalDefenseSeconds;
-    int ExtractionDurationSeconds;
-
-    void DeutschZConvoyZEventTestingSettings()
-    {
-        FastTestMode = 1;
-        CaptureHoldSeconds = 45;
-        RequiredKillsToWin = 3;
+        RequiredAiKills = 4;
         HackDurationSeconds = 30;
-        WaveDelaySeconds = 30;
-        StageAutoCompleteSeconds = 180;
-        FinalDefenseSeconds = 120;
-        ExtractionDurationSeconds = 30;
-    }
-
-    void Repair()
-    {
-        if (FastTestMode != 0) FastTestMode = 1;
-        if (CaptureHoldSeconds < 5) CaptureHoldSeconds = 5;
-        if (RequiredKillsToWin < 0) RequiredKillsToWin = 0;
-        if (HackDurationSeconds < 5) HackDurationSeconds = 5;
-        if (WaveDelaySeconds < 0) WaveDelaySeconds = 0;
-        if (StageAutoCompleteSeconds < 5) StageAutoCompleteSeconds = 5;
-        if (FinalDefenseSeconds < 30) FinalDefenseSeconds = 30;
-        if (ExtractionDurationSeconds < 5) ExtractionDurationSeconds = 5;
-    }
-}
-
-class DeutschZConvoyZEventSettings
-{
-    int SchemaVersion;
-    string PresetName;
-    string ConfigMode;
-    ref DeutschZConvoyZEventCoreSettings Event;
-    ref DeutschZConvoyZEventSchedulingSettings Scheduling;
-    ref DeutschZConvoyZEventMarkerSettings Markers;
-    ref DeutschZConvoyZEventNotificationSettings Notifications;
-    ref DeutschZConvoyZEventRewardSettings Rewards;
-    ref DeutschZConvoyZEventTestingSettings Testing;
-
-    void DeutschZConvoyZEventSettings()
-    {
-        SchemaVersion = 1;
-        PresetName = "FAST_TEST";
-        ConfigMode = "FastRestartTest";
-        Event = new DeutschZConvoyZEventCoreSettings();
-        Scheduling = new DeutschZConvoyZEventSchedulingSettings();
-        Markers = new DeutschZConvoyZEventMarkerSettings();
-        Notifications = new DeutschZConvoyZEventNotificationSettings();
-        Rewards = new DeutschZConvoyZEventRewardSettings();
-        Testing = new DeutschZConvoyZEventTestingSettings();
-        Repair("DeutschZ ConvoyZ Crash", "Vehicle Crash", "ConvoyZ_");
-    }
-
-    void Repair(string fallbackName, string fallbackIcon, string fallbackPrefix)
-    {
-        if (SchemaVersion < 1) SchemaVersion = 1;
-        if (PresetName == "") PresetName = "FAST_TEST";
-        if (ConfigMode == "") ConfigMode = "FastRestartTest";
-        if (!Event) Event = new DeutschZConvoyZEventCoreSettings();
-        if (!Scheduling) Scheduling = new DeutschZConvoyZEventSchedulingSettings();
-        if (!Markers) Markers = new DeutschZConvoyZEventMarkerSettings();
-        if (!Notifications) Notifications = new DeutschZConvoyZEventNotificationSettings();
-        if (!Rewards) Rewards = new DeutschZConvoyZEventRewardSettings();
-        if (!Testing) Testing = new DeutschZConvoyZEventTestingSettings();
-        Event.Repair();
-        Scheduling.Repair();
-        Markers.Repair(fallbackName, fallbackIcon, fallbackPrefix);
-        Notifications.Repair();
-        Rewards.Repair();
-        Testing.Repair();
+        Reward = new DeutschZConvoyZRewardDef();
     }
 }
 
 class DeutschZConvoyZSettings
 {
-    ref DeutschZConvoyZEventSettings DeutschZEventSettings;
     int EnableConvoyZEvent;
     string EventConfigPath;
     int RequiredAiKills;
@@ -476,49 +198,12 @@ class DeutschZConvoyZSettings
     int BlackboxReadyTimeoutSeconds;
     int AutoFailStuckEvent;
 
-
-    void EnsureDeutschZEventSettings()
-    {
-        if (!DeutschZEventSettings)
-            DeutschZEventSettings = new DeutschZConvoyZEventSettings();
-        DeutschZEventSettings.Repair("DeutschZ ConvoyZ Crash", "Vehicle Crash", "ConvoyZ_");
-    }
-
-    void ApplyDeutschZEventSettings()
-    {
-        EnsureDeutschZEventSettings();
-        EnableConvoyZEvent = DeutschZEventSettings.Event.Enabled;
-        MinOnlinePlayersToStart = DeutschZEventSettings.Event.MinOnlinePlayers;
-        MaxSimultaneousEvents = DeutschZEventSettings.Event.MaxSimultaneousEvents;
-        MaxEventsPerRestart = DeutschZEventSettings.Event.MaxEventsPerRestart;
-        MaxEventRuntimeSeconds = DeutschZEventSettings.Event.MaxRuntimeSeconds;
-        CleanupDelaySeconds = DeutschZEventSettings.Event.CleanupDelaySeconds;
-        EnableDebugLogs = DeutschZEventSettings.Event.DebugLogs;
-        AutoStartOnMissionInit = DeutschZEventSettings.Scheduling.AutoStartAfterRestart;
-        InitialStartDelayMinSeconds = DeutschZEventSettings.Scheduling.StartDelayMinSeconds;
-        InitialStartDelayMaxSeconds = DeutschZEventSettings.Scheduling.StartDelayMaxSeconds;
-        RestartEventAfterCleanup = DeutschZEventSettings.Scheduling.RestartAfterFinish;
-        RestartDelayMinSeconds = DeutschZEventSettings.Scheduling.RestartDelayMinSeconds;
-        RestartDelayMaxSeconds = DeutschZEventSettings.Scheduling.RestartDelayMaxSeconds;
-        NoPlayerRetryDelaySeconds = DeutschZEventSettings.Scheduling.NoPlayerRetryDelaySeconds;
-        UseEventMarker = DeutschZEventSettings.Markers.Enabled * DeutschZEventSettings.Markers.UseMapMarker;
-        UseEvent3DMarker = DeutschZEventSettings.Markers.Enabled * DeutschZEventSettings.Markers.Use3DMarker;
-        EventMarkerName = DeutschZEventSettings.Markers.MarkerName;
-        EventMarkerIcon = DeutschZEventSettings.Markers.MarkerIcon;
-        EnableStatusNotifications = DeutschZEventSettings.Notifications.Enabled * DeutschZEventSettings.Notifications.StatusNotifications;
-        StatusNotifyIntervalSeconds = DeutschZEventSettings.Notifications.StatusIntervalSeconds;
-        RequiredAiKills = DeutschZEventSettings.Testing.RequiredKillsToWin;
-        HackDurationSeconds = DeutschZEventSettings.Testing.HackDurationSeconds;
-        WaveDelaySeconds = DeutschZEventSettings.Testing.WaveDelaySeconds;
-    }
-
     void DeutschZConvoyZSettings()
     {
-        DeutschZEventSettings = new DeutschZConvoyZEventSettings();
         EnableConvoyZEvent = 1;
         EventConfigPath = DeutschZConvoyZConstants.EVENTS_FILE;
-        RequiredAiKills = 15;
-        HackDurationSeconds = 120;
+        RequiredAiKills = 4;
+        HackDurationSeconds = 30;
         BlackboxMaxHackDistance = 3.0;
         AllowHackProgressResetOnAbort = 1;
         EnableAiWaves = 1;
@@ -534,14 +219,14 @@ class DeutschZConvoyZSettings
         EnableDebugLogs = 1;
         StatusBarUpdateIntervalSeconds = 1;
         EnableStatusNotifications = 1;
-        StatusNotifyIntervalSeconds = 60;
+        StatusNotifyIntervalSeconds = 30;
         StatusSyncRadius = 750.0;
         AutoStartOnMissionInit = 1;
-        InitialStartDelayMinSeconds = 600;
-        InitialStartDelayMaxSeconds = 600;
+        InitialStartDelayMinSeconds = 180;
+        InitialStartDelayMaxSeconds = 180;
         RestartEventAfterCleanup = 1;
-        RestartDelayMinSeconds = 1500;
-        RestartDelayMaxSeconds = 1500;
+        RestartDelayMinSeconds = 900;
+        RestartDelayMaxSeconds = 900;
         MaxSimultaneousEvents = 1;
         MaxEventsPerRestart = 3;
         MinOnlinePlayersToStart = 1;

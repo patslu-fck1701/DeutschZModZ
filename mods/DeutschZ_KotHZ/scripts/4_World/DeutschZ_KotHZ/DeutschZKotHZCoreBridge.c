@@ -32,20 +32,23 @@ class DeutschZKotHZCoreBridge
         return provider.CreateMarker("KotHZ_" + id, label, position, 0xFFFF0000);
     }
 
+
     static bool CreateEvent3DMarker(string id, string label, vector position)
     {
         DeutschZCore_MarkerProviderAPI provider = DeutschZCore_ServiceLocator.GetMarkerProvider();
         if (!provider)
             return false;
-        return provider.CreateMarker("KotHZ_3D_" + id, label, position, 0xFFFF0000);
+        // FIX35: Use the same server marker id as the map marker. Expansion server markers can be map+3D,
+        // separate ids caused duplicate visible markers.
+        return provider.Create3DMarker("KotHZ_" + id, label, position, 0xFFFF0000);
     }
 
-    static bool SendNotification(string channel, string title, string message, vector position)
+    static bool DeleteEvent3DMarker(string id)
     {
-        DeutschZCore_NotificationProviderAPI provider = DeutschZCore_ServiceLocator.GetNotificationProvider();
+        DeutschZCore_MarkerProviderAPI provider = DeutschZCore_ServiceLocator.GetMarkerProvider();
         if (!provider)
             return false;
-        return provider.SendEventNotification(SystemName(), channel, title, message, position);
+        return provider.DeleteMarker("KotHZ_" + id);
     }
 
     static void CleanupMarkers()
@@ -60,9 +63,7 @@ class DeutschZKotHZCoreBridge
         DeutschZCore_MarkerProviderAPI provider = DeutschZCore_ServiceLocator.GetMarkerProvider();
         if (!provider)
             return false;
-        bool removed = provider.DeleteMarker("KotHZ_" + id);
-        removed = provider.DeleteMarker("KotHZ_3D_" + id) || removed;
-        return removed;
+        return provider.DeleteMarker("KotHZ_" + id);
     }
 
     static bool SpawnInfected(string eventId, string className, vector position)

@@ -30,7 +30,7 @@ class CfgMods
         credits = "Owner: Patrick Sluzalek / Player: fck1701 / Server: DeutschZ";
         author = "Patrick Sluzalek / fck1701";
         authorID = "0";
-        version = "2.2.9 FIX23 NoMusic MarkerNotify TestReady";
+        version = "2.3.0-fix36-event-ausbau-stage1";
         extra = 0;
         type = "mod";
         defines[] = {"DEUTSCHZ_KotHZ"};
@@ -58,7 +58,40 @@ class CfgMods
     };
 };
 
-// FIX21: KOTH event music disabled for Safe-Boot. SoundShader/SoundSet registration intentionally removed.
+class CfgSoundShaders
+{
+    class DeutschZ_KotHZ_EventMusic_SoundShader
+    {
+        samples[] =
+        {
+            {"DeutschZ_KotHZ/data/sounds/DeutschZ_KotHZ_RoterRauch", 1}
+        };
+        volume = 0.55;
+        range = 180;
+        rangeCurve[] =
+        {
+            {0, 1},
+            {0.35, 0.75},
+            {0.7, 0.35},
+            {1, 0}
+        };
+    };
+};
+
+class CfgSoundSets
+{
+    class DeutschZ_KotHZ_EventMusic_SoundSet
+    {
+        soundShaders[] = {"DeutschZ_KotHZ_EventMusic_SoundShader"};
+        volumeFactor = 1.0;
+        frequencyFactor = 1.0;
+        spatial = 1;
+        loop = 0;
+        sound3DProcessingType = "default3DProcessingType";
+        distanceFilter = "defaultDistanceFilter";
+        volumeCurve = "defaultAttenuationCurve";
+    };
+};
 
 class CfgVehicles
 {
@@ -112,7 +145,6 @@ class CfgVehicles
                 class Melee { class Health { damage = 0; }; class Blood { damage = 0; }; class Shock { damage = 0; }; };
                 class FragGrenade { class Health { damage = 0; }; class Blood { damage = 0; }; class Shock { damage = 0; }; };
             };
-            class DamageZones {};
         };
 
         class AnimationSources
@@ -124,14 +156,6 @@ class CfgVehicles
             class Base: AnimSourceShown {};
             class Support: AnimSourceShown {};
             class Pole: AnimSourceShown {};
-            class Material_FPole_WoodenLog: AnimSourceHidden {};
-            class Material_FPole_Stones: AnimSourceHidden {};
-            class Material_FPole_WoodenLog2: AnimSourceHidden {};
-            class Material_FPole_MetalWire: AnimSourceHidden {};
-            class Material_FPole_Rope: AnimSourceHidden {};
-            class Material_FPole_Nails: AnimSourceHidden {};
-            class Material_FPole_MagicStick: AnimSourceHidden {};
-            class Material_FPole_Flag: AnimSourceShown {};
         };
     };
 
@@ -152,7 +176,7 @@ class CfgVehicles
         displayName = "DeutschZ KotHZ Infected Siege Reward Chest";
         descriptionShort = "DeutschZ KotHZ reward chest with custom SeaChest skin.";
         hiddenSelections[] = {"camoground"};
-        hiddenSelectionsTextures[] = {"/DeutschZ_KotHZ/data/textures/Seachest.paa"};
+        hiddenSelectionsTextures[] = {"DeutschZ_KotHZ/data/textures/Seachest.paa"};
         itemsCargoSize[] = {10, 50};
         itemSize[] = {10, 10};
         weight = 15000;
@@ -177,19 +201,19 @@ class CfgVehicles
         scope = 1;
         displayName = "DeutschZ KotHZ Flag";
         hiddenSelections[] = {"camo"};
-        hiddenSelectionsTextures[] = {"/DeutschZ_KotHZ/data/flags/DeutschZ_KotHZ_Flag.paa"};
+        hiddenSelectionsTextures[] = {"DeutschZ_KotHZ/data/flags/DeutschZ_KotHZ_Flag.paa"};
         inventorySlot[] = {"Material_FPole_Flag"};
     };
 
-    class DeutschZKotHZ_DeutschZ_KotHZ_Flag: DeutschZKotHZ_Flag { scope = 2; hiddenSelectionsTextures[] = {"/DeutschZ_KotHZ/data/flags/DeutschZ_KotHZ_Flag.paa"}; };
-    class DeutschZKotHZ_NWAF_Flag: DeutschZKotHZ_Flag { scope = 2; hiddenSelectionsTextures[] = {"/DeutschZ_KotHZ/data/flags/DeutschZ_KotH_NWAF.paa"}; };
-    class DeutschZKotHZ_Tisy_Flag: DeutschZKotHZ_Flag { scope = 2; hiddenSelectionsTextures[] = {"/DeutschZ_KotHZ/data/flags/DeutschZ_KotH_Tisy.paa"}; };
-    class DeutschZKotHZ_LOPA_Flag: DeutschZKotHZ_Flag { scope = 2; hiddenSelectionsTextures[] = {"/DeutschZ_KotHZ/data/flags/DeutschZ_KotH_LOPA.paa"}; };
-    class DeutschZKotHZ_YRAP_Flag: DeutschZKotHZ_Flag { scope = 2; hiddenSelectionsTextures[] = {"/DeutschZ_KotHZ/data/flags/DeutschZ_KotH_YRAP.paa"}; };
-    class DeutschZKotHZ_Basebuild_Flag: DeutschZKotHZ_Flag { scope = 2; hiddenSelectionsTextures[] = {"/DeutschZ_KotHZ/data/flags/DeutschZ_KotH_Basebuild.paa"}; };
-    class DeutschZKotHZ_Alt_One_Flag: DeutschZKotHZ_Flag { scope = 2; hiddenSelectionsTextures[] = {"/DeutschZ_KotHZ/data/flags/DeutschZ_Alt_One_Flag.paa"}; };
-    class DeutschZKotHZ_Alt_Two_Flag: DeutschZKotHZ_Flag { scope = 2; hiddenSelectionsTextures[] = {"/DeutschZ_KotHZ/data/flags/DeutschZ_Alt_Two_Flag.paa"}; };
-    class DeutschZKotHZ_Alt_Three_Flag: DeutschZKotHZ_Flag { scope = 2; hiddenSelectionsTextures[] = {"/DeutschZ_KotHZ/data/flags/DeutschZ_Alt_Three_Flag.paa"}; };
+    class DeutschZKotHZ_DeutschZ_KotHZ_Flag: DeutschZKotHZ_Flag { scope = 2; hiddenSelectionsTextures[] = {"DeutschZ_KotHZ/data/flags/DeutschZ_KotHZ_Flag.paa"}; };
+    class DeutschZKotHZ_NWAF_Flag: DeutschZKotHZ_Flag { scope = 2; hiddenSelectionsTextures[] = {"DeutschZ_KotHZ/data/flags/DeutschZ_KotH_NWAF.paa"}; };
+    class DeutschZKotHZ_Tisy_Flag: DeutschZKotHZ_Flag { scope = 2; hiddenSelectionsTextures[] = {"DeutschZ_KotHZ/data/flags/DeutschZ_KotH_Tisy.paa"}; };
+    class DeutschZKotHZ_LOPA_Flag: DeutschZKotHZ_Flag { scope = 2; hiddenSelectionsTextures[] = {"DeutschZ_KotHZ/data/flags/DeutschZ_KotH_LOPA.paa"}; };
+    class DeutschZKotHZ_YRAP_Flag: DeutschZKotHZ_Flag { scope = 2; hiddenSelectionsTextures[] = {"DeutschZ_KotHZ/data/flags/DeutschZ_KotH_YRAP.paa"}; };
+    class DeutschZKotHZ_Basebuild_Flag: DeutschZKotHZ_Flag { scope = 2; hiddenSelectionsTextures[] = {"DeutschZ_KotHZ/data/flags/DeutschZ_KotH_Basebuild.paa"}; };
+    class DeutschZKotHZ_Alt_One_Flag: DeutschZKotHZ_Flag { scope = 2; hiddenSelectionsTextures[] = {"DeutschZ_KotHZ/data/flags/DeutschZ_Alt_One_Flag.paa"}; };
+    class DeutschZKotHZ_Alt_Two_Flag: DeutschZKotHZ_Flag { scope = 2; hiddenSelectionsTextures[] = {"DeutschZ_KotHZ/data/flags/DeutschZ_Alt_Two_Flag.paa"}; };
+    class DeutschZKotHZ_Alt_Three_Flag: DeutschZKotHZ_Flag { scope = 2; hiddenSelectionsTextures[] = {"DeutschZ_KotHZ/data/flags/DeutschZ_Alt_Three_Flag.paa"}; };
 
     class DeutschZKotHZ_BiohazardReader: GPSReceiver
     {
@@ -197,7 +221,7 @@ class CfgVehicles
         displayName = "DeutschZ KotHZ Biohazard Reader";
         descriptionShort = "GPSReceiver based KotHZ card reader.";
         hiddenSelections[] = {"gpsreceiver"};
-        hiddenSelectionsTextures[] = {"/DeutschZ_KotHZ/data/textures/CardReader.paa"};
+        hiddenSelectionsTextures[] = {"DeutschZ_KotHZ/data/textures/CardReader.paa"};
     };
 
     class DeutschZKotHZ_AccessCard: PunchedCard
@@ -206,7 +230,7 @@ class CfgVehicles
         displayName = "DeutschZ KotHZ Access Card";
         descriptionShort = "PunchedCard based KotHZ access card.";
         hiddenSelections[] = {"component01"};
-        hiddenSelectionsTextures[] = {"/DeutschZ_KotHZ/data/textures/AccesCard.paa"};
+        hiddenSelectionsTextures[] = {"DeutschZ_KotHZ/data/textures/AccesCard.paa"};
     };
 
     class DeutschZKotHZ_ResearchDocument: Paper
