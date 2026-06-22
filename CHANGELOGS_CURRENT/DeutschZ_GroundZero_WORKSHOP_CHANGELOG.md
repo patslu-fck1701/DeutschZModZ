@@ -1,5 +1,6 @@
-﻿Aktueller Stand: FIX41
+Aktueller Stand: FIX43
 
+- SafeZone/Green-Mountain-Default entfernt, Positionen eindeutiger verteilt und HUD auf Stage-Radius begrenzt.
 - Workshopbeschreibung auf Deutsch, Englisch und Russisch gekuerzt.
 - Neuer DeutschZModZ-Supportlink eingetragen.
 - Hauptbeschreibung bleibt dauerhaft; kleine Fixes stehen nur im Changelog.

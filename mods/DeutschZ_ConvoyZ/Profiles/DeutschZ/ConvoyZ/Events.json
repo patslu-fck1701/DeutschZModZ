@@ -1,32 +1,45 @@
 {
     "EventName": "DeutschZ ConvoyZ",
     "EventIdPrefix": "convoyz_static_crash",
-    "EventCenter": "7500 0 7500",
+    "EventCenter": "10120 0 5410",
     "EventRadius": 450.0,
     "Vehicles": [],
     "CrashObjects": [
         {
             "ClassName": "Land_Wreck_Volha_Police",
-            "Position": "7492 0 7507",
+            "Position": "10120 0 5410",
+            "Orientation": "35 0 0",
+            "Critical": 1
+        },
+        {
+            "ClassName": "Land_Wreck_Volha_Police",
+            "Position": "10110 0 5420",
             "Orientation": "120 0 0",
+            "Critical": 0
+        },
+        {
+            "ClassName": "Land_Wreck_Volha_Police",
+            "Position": "10135 0 5400",
+            "Orientation": "260 0 0",
             "Critical": 0
         }
     ],
     "Blackbox": {
         "ClassName": "Land_HACKEDCRATE",
-        "Position": "7504 0 7502",
+        "Position": "10124 0 5414",
         "Orientation": "0 0 0",
         "Critical": 1
     },
     "Smoke": {
-        "Position": "7500 0 7500",
-        "RedSmokeClassName": "",
-        "YellowSmokeClassName": "",
-        "GreenSmokeClassName": "",
-        "WhiteSmokeClassName": "",
-        "Count": 4,
+        "Position": "10120 0 5410",
+        "RedSmokeClassName": "M18SmokeGrenade_Red",
+        "YellowSmokeClassName": "M18SmokeGrenade_Yellow",
+        "GreenSmokeClassName": "M18SmokeGrenade_Green",
+        "WhiteSmokeClassName": "M18SmokeGrenade_White",
+        "Count": 0,
         "Radius": 12.0,
-        "RefreshSeconds": 90
+        "RefreshSeconds": 180,
+        "Enabled": 0
     },
     "AIWaves": [
         {
@@ -35,10 +48,10 @@
             "Count": 4,
             "AIClassName": "eAI_SurvivorM_Denis",
             "DeutschZAIProfileId": "",
-            "LoadoutName": "PoliceLoadout",
+            "LoadoutName": "DZCV_MilitaryLight",
             "SpawnPoints": [
                 {
-                    "Position": "7475 0 7490",
+                    "Position": "10090 0 5385",
                     "Orientation": "0 0 0"
                 }
             ]
@@ -49,10 +62,10 @@
             "Count": 3,
             "AIClassName": "eAI_SurvivorM_Denis",
             "DeutschZAIProfileId": "",
-            "LoadoutName": "PoliceLoadout",
+            "LoadoutName": "DZCV_MilitaryRifleman",
             "SpawnPoints": [
                 {
-                    "Position": "7475 0 7490",
+                    "Position": "10155 0 5435",
                     "Orientation": "0 0 0"
                 }
             ]
@@ -61,8 +74,8 @@
     "RequiredAiKills": 4,
     "HackDurationSeconds": 30,
     "Reward": {
-        "RewardContainerClassName": "DZCV_ProtectedCase",
-        "RewardPosition": "7507 0 7505",
+        "RewardContainerClassName": "DZCV_SealedRewardChest",
+        "RewardPosition": "10128 0 5417",
         "RewardOrientation": "0 0 0",
         "Items": [
             {

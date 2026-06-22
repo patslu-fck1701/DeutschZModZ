@@ -759,8 +759,47 @@ class DeutschZKotHZManager
 
     protected void TryPlayEventMusic(string phase)
     {
-        // FIX31: KOTH event music is hard-disabled until the native crash path is isolated.
-        return;
+        if (!m_Config || m_Config.EnableEventMusic == 0)
+            return;
+
+        if (m_Config.EventMusicSoundSetName == "")
+            m_Config.EventMusicSoundSetName = "DeutschZ_KotHZ_EventMusic_SoundSet";
+
+        bool shouldPlay = false;
+        if (phase == "Ready" && m_Config.EventMusicPlayOnReady != 0)
+            shouldPlay = true;
+        if (phase == "Start" && m_Config.EventMusicPlayOnStart != 0)
+            shouldPlay = true;
+        if (phase == "Captured" && m_Config.EventMusicPlayOnCaptured != 0)
+            shouldPlay = true;
+
+        if (!shouldPlay)
+            return;
+
+        vector pos = GetKotHZEventCenterPosition();
+        if (m_Flagpole)
+            pos = m_Flagpole.GetTopPosition();
+
+        float radius = m_Config.EventMusicRadius;
+        if (radius <= 0)
+            radius = 120.0;
+
+        array<Man> players = new array<Man>();
+        GetGame().GetPlayers(players);
+        foreach (Man man : players)
+        {
+            PlayerBase player = PlayerBase.Cast(man);
+            if (!player || !player.GetIdentity())
+                continue;
+
+            if (vector.Distance(player.GetPosition(), pos) > radius)
+                continue;
+
+            Param4<string, string, vector, float> data = new Param4<string, string, vector, float>(DeutschZKotHZRPC.TOKEN, m_Config.EventMusicSoundSetName, pos, m_Config.EventMusicVolume);
+            GetGame().RPCSingleParam(player, DeutschZKotHZRPC.PLAY_MUSIC, data, true, player.GetIdentity());
+        }
+
+        Print("[DeutschZ_KotHZ] Event music RPC sent phase=" + phase + " soundSet=" + m_Config.EventMusicSoundSetName + " pos=" + pos.ToString());
     }
 
     protected void SpawnRewardCrate(PlayerBase winner, DeutschZKotHZLootPool pool, array<ref DeutschZKotHZReward> rewards)
@@ -2035,6 +2074,7 @@ class DeutschZKotHZManager
             zoneName = m_ActiveZone.ZoneName;
 
         Announce("KotHZ abgeschlossen: Mummy-Boss eliminiert. Belohnung wurde freigegeben. " + zoneName + " wurde von " + winnerName + " gesichert.");
+        TryPlayEventMusic("Captured");
         SendHUDToAll(false, "", 0, 0, 0, 0, "KotHZ abgeschlossen - Belohnung freigegeben");
 
         DeutschZKotHZLootPool pool = GetActiveLootPool();

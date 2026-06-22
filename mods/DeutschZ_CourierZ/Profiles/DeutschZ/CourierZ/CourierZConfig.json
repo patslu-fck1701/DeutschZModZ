@@ -1,6 +1,6 @@
 {
     "ConfigVersion": 1,
-    "PresetName": "FAST_TEST_COURIERZ_0_1_0",
+    "PresetName": "FIX43_DISTINCT_ROUTE_COURIERZ",
     "DeutschZEventSettings": {
         "Event": {
             "Enabled": 1,
@@ -73,15 +73,15 @@
         "DeliveryRadius": 10.0,
         "EnemySpawnRadius": 35.0
     },
-    "ContactPosition": "7500 0 7500",
-    "DeliveryPosition": "7800 0 7800",
+    "ContactPosition": "3120 0 9280",
+    "DeliveryPosition": "12140 0 12640",
     "ContactOrientation": "0 0 0",
     "DeliveryOrientation": "0 0 0",
     "CaseClassName": "DZCR_Aktenkoffer",
     "RewardChestClassName": "DZCR_RewardChest",
     "EnemyClassName": "ZmbM_usSoldier_Officer_Desert",
     "StartEnemyCount": 3,
-    "DeliveryEnemyCount": 3,
+    "DeliveryEnemyCount": 4,
     "RewardItems": [
         "BandageDressing",
         "TacticalBaconCan",

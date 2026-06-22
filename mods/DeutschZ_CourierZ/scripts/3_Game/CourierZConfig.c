@@ -307,11 +307,11 @@ class CourierZConfig
     void SetDefaults()
     {
         ConfigVersion = 1;
-        PresetName = "STAGGERED_TEST_FIX25_COURIERZ";
+        PresetName = "FIX43_DISTINCT_ROUTE_COURIERZ";
         DeutschZEventSettings = new CourierZUnifiedEventSettings;
         Courier = new CourierZSpecificSettings;
-        ContactPosition = "7500 0 7500";
-        DeliveryPosition = "7800 0 7800";
+        ContactPosition = "3120 0 9280";
+        DeliveryPosition = "12140 0 12640";
         ContactOrientation = "0 0 0";
         DeliveryOrientation = "0 0 0";
         CaseClassName = "DZCR_Aktenkoffer";
@@ -333,7 +333,7 @@ class CourierZConfig
         DeutschZEventSettings.Repair();
         Courier.Repair();
         if (ConfigVersion < 1) ConfigVersion = 1;
-        if (PresetName == "") PresetName = "STAGGERED_TEST_FIX25_COURIERZ";
+        if (PresetName == "") PresetName = "FIX43_DISTINCT_ROUTE_COURIERZ";
         if (CaseClassName == "") CaseClassName = "DZCR_Aktenkoffer";
         if (RewardChestClassName == "") RewardChestClassName = "DZCR_RewardChest";
         if (EnemyClassName == "") EnemyClassName = "ZmbM_usSoldier_Officer_Desert";

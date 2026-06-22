@@ -1,3 +1,15 @@
+## FIX42 - KotHZ Flag Texture Compile Hotfix (2026-06-22)
+## 2.3.3-fix43-music-rpc - 2026-06-22
+- KotHZ event music is no longer hard-disabled in config repair. Default: play on event start and completion, not on ready phase.
+- Added client-side music RPC using `SEffectManager.PlaySound` so nearby players receive the configured `DeutschZ_KotHZ_EventMusic_SoundSet`.
+- Updated ready configs and config guide to keep music enabled by default while leaving risky smoke/fog paths disabled.
+- Updated mod.cpp/config.cpp version to `2.3.3-fix43-music-rpc`.
+
+- Fixed World compile error in `DeutschZKotHZFlagpole.c`: `SetObjectTexture` was called on generic `Object`.
+- Changed the DeutschZ flag texture safety path to accept/call `EntityAI` only.
+- Keeps FIX41 EventFlow behavior intact: capture waves, boss phase, M249 block, one-marker target and safe audio/smoke defaults.
+- No Core, Bridge, ConvoyZ, GroundZero or CourierZ source changes in this hotfix.
+
 ## FIX41 - EventFlow Bossphase, Signalstation, Flagge (2026-06-22)
 - Capture bleibt radiusbasiert: Signalstation betreten, Bereich halten, keine versteckte Interaktion noetig.
 - KotHZ endet nicht mehr direkt bei 100% Capture: Danach erscheint ein Spezial-Boss.

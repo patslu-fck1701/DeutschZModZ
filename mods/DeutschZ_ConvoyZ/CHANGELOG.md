@@ -1,4 +1,18 @@
+## FIX43 - Safe Location Split, Smoke-Off Crash Isolation, Military Loadouts (2026-06-22)
+- Moved default ConvoyZ crashsite away from shared 7500/7500 test position and away from Green Mountain Trader/SafeZone.
+- Updated ready-copy ConvoyZ event JSON to the new crashsite, blackbox, reward and AI spawn positions.
+- Added explicit DeutschZ military loadout names for ConvoyZ AI waves: DZCV_MilitaryLight, DZCV_MilitaryRifleman and DZCV_MilitaryHeavy.
+- Kept M249 unsafe-class guard active and did not add vanilla M249 or Mag_M249_Box200Rnd.
+- Disabled physical M18 smoke by default after reported possible Convoy crash; smoke remains config-gated and logs SmokeDisabled instead of spawning/unpinning grenades.
+- Reward default stays on DZCV_SealedRewardChest.
+
 ## FIX41 - EventFlow Progress, AI Loadout, Reward Chest (2026-06-22)
+## 0.1.5-fix42-smoke-activation - 2026-06-22
+- Re-enabled real ConvoyZ smoke as controlled event visual: smoke objects are spawned, tracked, cleaned and refreshed with throttling.
+- Smoke grenades are now activated via `SmokeGrenadeBase.Unpin()` with EnergyManager fallback, instead of lying on the ground as inactive loot.
+- Normalization repairs blank smoke class names back to vanilla M18 smoke classes and caps count/radius for stability.
+- Updated ready Events.json smoke class names and mod.cpp/config.cpp version to `0.1.5-fix42-smoke-activation`.
+
 - ConvoyZ bekommt einen eigenen sichtbaren Client-HUD/Progressbar-Flow fuer Sichern, Hacken und Reward-Freigabe.
 - Server sendet Status nicht mehr nur ins Log, sondern an Spieler im Eventradius.
 - AI-/eAI-Wachen bekommen ein defensives Standard-Loadout, wenn ihr Entity-Inventar dies erlaubt. Infected-Fallbacks werden sauber geloggt und nicht fake-bestueckt.

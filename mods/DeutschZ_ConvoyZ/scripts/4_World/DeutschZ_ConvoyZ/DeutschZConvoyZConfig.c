@@ -127,14 +127,43 @@ class DeutschZConvoyZConfig
             crashObj.ClassName = NormalizeCrashClassName(crashObj.ClassName);
         }
 
+        int waveIndex = 0;
         foreach (DeutschZConvoyZAIWaveDef wave: EventData.AIWaves)
         {
             if (!wave) continue;
-            if (wave.LoadoutName == "") wave.LoadoutName = "PoliceLoadout";
+            if (wave.LoadoutName == "")
+            {
+                if (waveIndex == 0) wave.LoadoutName = "DZCV_MilitaryLight";
+                else if (waveIndex == 1) wave.LoadoutName = "DZCV_MilitaryRifleman";
+                else wave.LoadoutName = "DZCV_MilitaryHeavy";
+            }
             if (wave.DeutschZAIProfileId == "convoy_guard") wave.DeutschZAIProfileId = "";
+            waveIndex++;
         }
         if (EventData.RequiredAiKills <= 0) EventData.RequiredAiKills = Settings.RequiredAiKills;
         if (EventData.HackDurationSeconds <= 0) EventData.HackDurationSeconds = Settings.HackDurationSeconds;
+
+        if (EventData.Smoke)
+        {
+            if (EventData.Smoke.Enabled != 0) EventData.Smoke.Enabled = 1;
+            if (EventData.Smoke.Position == vector.Zero) EventData.Smoke.Position = EventData.EventCenter;
+            if (EventData.Smoke.RedSmokeClassName == "") EventData.Smoke.RedSmokeClassName = "M18SmokeGrenade_Red";
+            if (EventData.Smoke.YellowSmokeClassName == "") EventData.Smoke.YellowSmokeClassName = "M18SmokeGrenade_Yellow";
+            if (EventData.Smoke.GreenSmokeClassName == "") EventData.Smoke.GreenSmokeClassName = "M18SmokeGrenade_Green";
+            if (EventData.Smoke.WhiteSmokeClassName == "") EventData.Smoke.WhiteSmokeClassName = "M18SmokeGrenade_White";
+            if (EventData.Smoke.Enabled == 0)
+            {
+                EventData.Smoke.Count = 0;
+            }
+            else
+            {
+                if (EventData.Smoke.Count < 1) EventData.Smoke.Count = 1;
+                if (EventData.Smoke.Count > 3) EventData.Smoke.Count = 3;
+            }
+            if (EventData.Smoke.Radius < 0) EventData.Smoke.Radius = 0;
+            if (EventData.Smoke.Radius > 25.0) EventData.Smoke.Radius = 25.0;
+            if (EventData.Smoke.RefreshSeconds < 90) EventData.Smoke.RefreshSeconds = 90;
+        }
 
         if (Settings.InitialStartDelayMinSeconds < 0) Settings.InitialStartDelayMinSeconds = 0;
         if (Settings.InitialStartDelayMaxSeconds < Settings.InitialStartDelayMinSeconds) Settings.InitialStartDelayMaxSeconds = Settings.InitialStartDelayMinSeconds;
@@ -153,7 +182,7 @@ class DeutschZConvoyZConfig
     void CreateDefaultEvent()
     {
         EventData = new DeutschZConvoyZEventDef();
-        EventData.EventCenter = "7500 0 7500";
+        EventData.EventCenter = "10120 0 5410";
         EventData.RequiredAiKills = 4;
         EventData.HackDurationSeconds = 30;
 
@@ -161,31 +190,31 @@ class DeutschZConvoyZConfig
         // Convoy visuals use real vanilla static Land_Wreck_* objects only.
         DeutschZConvoyZObjectDef wreck1 = new DeutschZConvoyZObjectDef();
         wreck1.ClassName = "Land_Wreck_Volha_Police";
-        wreck1.Position = "7500 0 7500";
+        wreck1.Position = "10120 0 5410";
         wreck1.Orientation = "35 0 0";
         wreck1.Critical = 1;
         EventData.CrashObjects.Insert(wreck1);
 
         DeutschZConvoyZObjectDef wreck2 = new DeutschZConvoyZObjectDef();
         wreck2.ClassName = "Land_Wreck_Volha_Police";
-        wreck2.Position = "7492 0 7507";
+        wreck2.Position = "10110 0 5420";
         wreck2.Orientation = "120 0 0";
         wreck2.Critical = 0;
         EventData.CrashObjects.Insert(wreck2);
 
         DeutschZConvoyZObjectDef wreck3 = new DeutschZConvoyZObjectDef();
         wreck3.ClassName = "Land_Wreck_Volha_Police";
-        wreck3.Position = "7511 0 7493";
+        wreck3.Position = "10135 0 5400";
         wreck3.Orientation = "260 0 0";
         wreck3.Critical = 0;
         EventData.CrashObjects.Insert(wreck3);
 
-        EventData.Blackbox.Position = "7504 0 7502";
+        EventData.Blackbox.Position = "10124 0 5414";
         EventData.Blackbox.ClassName = "Land_HACKEDCRATE";
         EventData.Smoke.Position = EventData.EventCenter;
 
         EventData.Reward.RewardContainerClassName = "DZCV_SealedRewardChest";
-        EventData.Reward.RewardPosition = "7507 0 7505";
+        EventData.Reward.RewardPosition = "10128 0 5417";
 
         DeutschZConvoyZRewardItemDef item = new DeutschZConvoyZRewardItemDef();
         item.ClassName = "PunchedCard";
@@ -203,7 +232,9 @@ class DeutschZConvoyZConfig
             else if (i == 1) wave.AIClassName = "eAI_SurvivorM_Denis";
             else wave.AIClassName = "eAI_SurvivorM_Boris";
             wave.DeutschZAIProfileId = "";
-            wave.LoadoutName = "PoliceLoadout";
+            if (i == 0) wave.LoadoutName = "DZCV_MilitaryLight";
+            else if (i == 1) wave.LoadoutName = "DZCV_MilitaryRifleman";
+            else wave.LoadoutName = "DZCV_MilitaryHeavy";
 
             DeutschZConvoyZSpawnPoint sp = new DeutschZConvoyZSpawnPoint();
             sp.Position = EventData.EventCenter;

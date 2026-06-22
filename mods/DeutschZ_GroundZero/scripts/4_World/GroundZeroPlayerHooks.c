@@ -11,6 +11,16 @@ modded class PlayerBase
 {
     override void OnRPC(PlayerIdentity sender, int rpc_type, ParamsReadContext ctx)
     {
+        if (rpc_type == GroundZeroConstants.RPC_SYNC_HUD)
+        {
+            Param8<string, bool, string, int, int, int, int, string> hud = new Param8<string, bool, string, int, int, int, int, string>("", false, "", 0, 0, 0, 0, "");
+            if (ctx.Read(hud) && hud.param1 == GroundZeroRPC.TOKEN)
+            {
+                GroundZeroClientHUDState.Set(hud.param2, hud.param3, hud.param4, hud.param5, hud.param6, hud.param7, hud.param8);
+                return;
+            }
+        }
+
         if (rpc_type == GroundZeroConstants.RPC_RETRY_REQUEST)
         {
             if (GetGame() && GetGame().IsServer() && sender)

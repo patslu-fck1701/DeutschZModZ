@@ -1,3 +1,10 @@
+## FIX43 - SafeZone Exclusion, Unique Stage Positions, Radius HUD (2026-06-22)
+- Removed Green Mountain from default GroundZero stage positions because it is Trader/SafeZone and must not host events.
+- Changed default stage builder to use unique staged positions instead of random duplicate positions per stage.
+- Updated final facility and extraction defaults so GroundZero no longer overlaps the ConvoyZ/CourierZ test center.
+- Limited GroundZero progress HUD/statusbar to the surrounding stage radius instead of syncing an active HUD across the whole map.
+- Far players now receive inactive HUD state so old progress bars are hidden when they leave the event area.
+
 # CHANGELOG
 
 ## 0.4.0-source

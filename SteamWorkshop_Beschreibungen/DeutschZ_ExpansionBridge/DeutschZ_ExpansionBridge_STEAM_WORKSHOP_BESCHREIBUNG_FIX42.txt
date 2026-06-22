@@ -1,0 +1,66 @@
+﻿[h1]DEUTSCHZ EXPANSION BRIDGE[/h1]
+[i]Die saubere BrÃ¼cke zwischen DeutschZ und optionalen Expansion-Funktionen.[/i]
+
+[h2]Deutsch[/h2]
+[list]
+[*]Zentrale optionale Verbindung zu DayZ Expansion-Funktionen.
+[*]Event-Mods bleiben frei von direkten Expansion-Aufrufen.
+[*]Marker, 3D-Marker, Benachrichtigungen und optionale AI-Anbindungen laufen gebÃ¼ndelt Ã¼ber diese Bridge.
+[*]Wenn Expansion nicht verfÃ¼gbar ist, sollen DeutschZ-Events weiterhin kontrolliert und crashfrei laufen.
+[/list]
+
+[h2]English[/h2]
+[i]The clean bridge between DeutschZ and optional Expansion features.[/i]
+[list]
+[*]Central optional connection to DayZ Expansion features.
+[*]Event mods stay free of direct Expansion calls.
+[*]Markers, 3D markers, notifications and optional AI hooks are routed through this bridge.
+[*]If Expansion is not available, DeutschZ events are expected to continue in a controlled and crash-safe way.
+[/list]
+
+[h2]Ð ÑƒÑÑÐºÐ¸Ð¹[/h2]
+[i]ÐÐºÐºÑƒÑ€Ð°Ñ‚Ð½Ñ‹Ð¹ Ð¼Ð¾ÑÑ‚ Ð¼ÐµÐ¶Ð´Ñƒ DeutschZ Ð¸ Ð¾Ð¿Ñ†Ð¸Ð¾Ð½Ð°Ð»ÑŒÐ½Ñ‹Ð¼Ð¸ Ñ„ÑƒÐ½ÐºÑ†Ð¸ÑÐ¼Ð¸ Expansion.[/i]
+[list]
+[*]Ð¦ÐµÐ½Ñ‚Ñ€Ð°Ð»ÑŒÐ½Ð¾Ðµ Ð¾Ð¿Ñ†Ð¸Ð¾Ð½Ð°Ð»ÑŒÐ½Ð¾Ðµ Ð¿Ð¾Ð´ÐºÐ»ÑŽÑ‡ÐµÐ½Ð¸Ðµ Ðº Ñ„ÑƒÐ½ÐºÑ†Ð¸ÑÐ¼ DayZ Expansion.
+[*]Event-Ð¼Ð¾Ð´Ñ‹ Ð½Ðµ Ð²Ñ‹Ð·Ñ‹Ð²Ð°ÑŽÑ‚ Expansion Ð½Ð°Ð¿Ñ€ÑÐ¼ÑƒÑŽ.
+[*]ÐœÐ°Ñ€ÐºÐµÑ€Ñ‹, 3D-Ð¼Ð°Ñ€ÐºÐµÑ€Ñ‹, ÑƒÐ²ÐµÐ´Ð¾Ð¼Ð»ÐµÐ½Ð¸Ñ Ð¸ Ð¾Ð¿Ñ†Ð¸Ð¾Ð½Ð°Ð»ÑŒÐ½Ñ‹Ðµ AI-ÑÐ²ÑÐ·Ð¸ Ð¿Ñ€Ð¾Ñ…Ð¾Ð´ÑÑ‚ Ñ‡ÐµÑ€ÐµÐ· Bridge.
+[*]Ð•ÑÐ»Ð¸ Expansion Ð¾Ñ‚ÑÑƒÑ‚ÑÑ‚Ð²ÑƒÐµÑ‚, ÑÐ¾Ð±Ñ‹Ñ‚Ð¸Ñ DeutschZ Ð´Ð¾Ð»Ð¶Ð½Ñ‹ Ð¿Ñ€Ð¾Ð´Ð¾Ð»Ð¶Ð°Ñ‚ÑŒ Ñ€Ð°Ð±Ð¾Ñ‚Ð°Ñ‚ÑŒ ÐºÐ¾Ð½Ñ‚Ñ€Ð¾Ð»Ð¸Ñ€ÑƒÐµÐ¼Ð¾ Ð¸ Ð±ÐµÐ· ÐºÑ€Ð°ÑˆÐ°.
+[/list]
+
+[h2]Aktueller Status[/h2]
+[list]
+[*]Aktueller Gesamtstand: FIX43 / 22.06.2026.
+[*]Die DeutschZ-Mods befinden sich weiter im aktiven Aufbau und Testbetrieb.
+[*]Hauptbeschreibungen bleiben stabil; kleine technische Fixes stehen im Changelog.
+[*]Musik, Smoke, Fog und riskante Spezialeffekte werden bewusst langsam und config-gated wieder aktiviert.
+[/list]
+
+[h2]Links[/h2]
+[list]
+[*]Workshop: https://steamcommunity.com/sharedfiles/filedetails/?id=3748421850
+[*]GitHub: https://github.com/patslu-fck1701/DeutschZModZ
+[*]DeutschZModZ Support: https://discord.gg/WM5GkDbw7C
+[/list]
+
+[h2]Empfohlene Loadorder[/h2]
+[list]
+[*]@CF / Community Framework, falls dein Server es nutzt
+[*]@DayZ-Expansion-Bundle / Licensed, falls Expansion-Funktionen aktiv genutzt werden
+[*]@DeutschZ_Core
+[*]@DeutschZ_ExpansionBridge
+[*]@DeutschZ_KotHZ
+[*]@DeutschZ_ConvoyZ
+[*]@DeutschZ_GroundZero
+[*]@DeutschZ_CourierZ
+[/list]
+
+[h2]Fehler melden[/h2]
+Bitte Fehler direkt im Support melden und mÃ¶glichst diese Dateien mitschicken:
+[list]
+[*]crash_*.log
+[*]script_*.log
+[*]DayZServer_x64_*.RPT
+[*]server_console.log
+[*]vollstÃ¤ndige Modlist / Loadorder
+[*]kurze Beschreibung, was direkt vor dem Fehler passiert ist
+[/list]

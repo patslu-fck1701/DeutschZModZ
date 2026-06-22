@@ -1,4 +1,6 @@
-﻿Aktueller Stand: FIX41
+﻿Aktueller Stand: FIX43
+
+- Getrennte Convoy-Testpositionen, defensive Militaer-Loadouts und Smoke standardmaessig aus.
 
 - Workshopbeschreibung auf Deutsch, Englisch und Russisch gekuerzt.
 - Neuer DeutschZModZ-Supportlink eingetragen.

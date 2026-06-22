@@ -51,23 +51,108 @@ class DeutschZConvoyZSpawnManager
 
     void SetSmoke(DeutschZConvoyZConfig cfg, DeutschZConvoyZRuntimeState state, string smokeState)
     {
-        // FIX31: disabled physical smoke grenade spawning during crash isolation.
-        // ConvoyZ visibility must come from real Expansion markers through DeutschZ_ExpansionBridge.
-        if (state)
-            state.SmokeState = smokeState;
-    }
-
-
-    void RefreshSmoke(DeutschZConvoyZConfig cfg, DeutschZConvoyZRuntimeState state)
-    {
-        // FIX33: compatibility no-op.
-        // Physical smoke refresh remains disabled during crash isolation.
-        // Visibility is handled by DeutschZ_ExpansionBridge real Expansion markers.
         if (!state)
             return;
 
+        state.SmokeState = smokeState;
+        RefreshSmoke(cfg, state, true);
+    }
+
+
+    void RefreshSmoke(DeutschZConvoyZConfig cfg, DeutschZConvoyZRuntimeState state, bool force = false)
+    {
+        if (!cfg || !cfg.EventData || !cfg.EventData.Smoke || !state)
+            return;
+
+        if (cfg.EventData.Smoke.Enabled == 0)
+        {
+            CleanupSmoke(state);
+            if (force)
+                DeutschZConvoyZLogger.Log("SmokeDisabled", state.EventId, "SMOKE", state.SmokeState, cfg.EventData.EventCenter, "OK", "Physical smoke is disabled by FIX43 safe default");
+            state.LastSmokeRefreshAt = GetGame().GetTime();
+            return;
+        }
+
         if (state.SmokeState == "")
             state.SmokeState = DeutschZConvoyZConstants.SMOKE_RED;
+
+        int refreshSeconds = cfg.EventData.Smoke.RefreshSeconds;
+        if (refreshSeconds < 45)
+            refreshSeconds = 45;
+        int nowMs = GetGame().GetTime();
+        if (!force && state.LastSmokeRefreshAt > 0 && nowMs - state.LastSmokeRefreshAt < refreshSeconds * 1000)
+            return;
+
+        CleanupSmoke(state);
+
+        string smokeClass = GetSmokeClass(cfg.EventData.Smoke, state.SmokeState);
+        if (smokeClass == "")
+            smokeClass = "M18SmokeGrenade_Red";
+
+        int count = cfg.EventData.Smoke.Count;
+        if (count < 1)
+            count = 1;
+        if (count > 3)
+            count = 3;
+
+        float radius = cfg.EventData.Smoke.Radius;
+        if (radius < 0)
+            radius = 0;
+        if (radius > 25.0)
+            radius = 25.0;
+
+        vector center = cfg.EventData.Smoke.Position;
+        if (center == vector.Zero)
+            center = cfg.EventData.EventCenter;
+
+        for (int i = 0; i < count; i++)
+        {
+            vector p = center;
+            if (radius > 0)
+            {
+                p[0] = p[0] + Math.RandomFloat(-radius, radius);
+                p[2] = p[2] + Math.RandomFloat(-radius, radius);
+            }
+            p[1] = GetGame().SurfaceY(p[0], p[2]) + 0.05;
+
+            Object smokeObj = GetGame().CreateObjectEx(smokeClass, p, ECE_PLACE_ON_SURFACE | ECE_NOLIFETIME);
+            if (!smokeObj)
+            {
+                DeutschZConvoyZLogger.Log("SmokeSpawnFailed", state.EventId, "SMOKE", state.SmokeState, p, "FAILED", smokeClass);
+                continue;
+            }
+
+            smokeObj.SetPosition(p);
+            state.SmokeObjects.Insert(smokeObj);
+            ActivateSmokeGrenade(smokeObj, state);
+            DeutschZConvoyZLogger.Log("SmokeSpawned", state.EventId, "SMOKE", state.SmokeState, p, "OK", smokeClass);
+        }
+
+        state.LastSmokeRefreshAt = GetGame().GetTime();
+    }
+
+    protected void ActivateSmokeGrenade(Object smokeObj, DeutschZConvoyZRuntimeState state)
+    {
+        if (!smokeObj)
+            return;
+
+        SmokeGrenadeBase smoke = SmokeGrenadeBase.Cast(smokeObj);
+        if (smoke)
+        {
+            smoke.Unpin();
+            DeutschZConvoyZLogger.Log("SmokeActivated", state.EventId, "SMOKE", state.SmokeState, smokeObj.GetPosition(), "OK", smokeObj.GetType() + " Unpin");
+            return;
+        }
+
+        ItemBase item = ItemBase.Cast(smokeObj);
+        if (item && item.GetCompEM())
+        {
+            item.GetCompEM().SwitchOn();
+            DeutschZConvoyZLogger.Log("SmokeActivated", state.EventId, "SMOKE", state.SmokeState, smokeObj.GetPosition(), "OK", smokeObj.GetType() + " EM");
+            return;
+        }
+
+        DeutschZConvoyZLogger.Log("SmokeActivationSkipped", state.EventId, "SMOKE", state.SmokeState, smokeObj.GetPosition(), "WARN", smokeObj.GetType());
     }
 
     string GetSmokeClass(DeutschZConvoyZSmokeDef smoke, string smokeState)

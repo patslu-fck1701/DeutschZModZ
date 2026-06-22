@@ -55,6 +55,7 @@ class DeutschZConvoyZBlackboxDef: DeutschZConvoyZObjectDef
 
 class DeutschZConvoyZSmokeDef
 {
+    int Enabled;
     vector Position;
     string RedSmokeClassName;
     string YellowSmokeClassName;
@@ -66,12 +67,13 @@ class DeutschZConvoyZSmokeDef
 
     void DeutschZConvoyZSmokeDef()
     {
+        Enabled = 0;
         Position = "0 0 0";
         RedSmokeClassName = "M18SmokeGrenade_Red";
         YellowSmokeClassName = "M18SmokeGrenade_Yellow";
         GreenSmokeClassName = "M18SmokeGrenade_Green";
         WhiteSmokeClassName = "M18SmokeGrenade_White";
-        Count = 4;
+        Count = 0;
         Radius = 12.0;
         RefreshSeconds = 90;
     }
@@ -122,7 +124,7 @@ class DeutschZConvoyZRewardDef
 
     void DeutschZConvoyZRewardDef()
     {
-        RewardContainerClassName = "DZCV_ProtectedCase";
+        RewardContainerClassName = "DZCV_SealedRewardChest";
         RewardPosition = "0 0 0";
         RewardOrientation = "0 0 0";
         Items = new array<ref DeutschZConvoyZRewardItemDef>;
@@ -148,7 +150,7 @@ class DeutschZConvoyZEventDef
     {
         EventName = "DeutschZ_ConvoyZ Static Crash Event";
         EventIdPrefix = "convoyz_static_crash";
-        EventCenter = "7500 0 7500";
+        EventCenter = "10120 0 5410";
         EventRadius = 450.0;
         Vehicles = new array<ref DeutschZConvoyZVehicleDef>;
         CrashObjects = new array<ref DeutschZConvoyZObjectDef>;

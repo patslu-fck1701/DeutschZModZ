@@ -1,0 +1,69 @@
+﻿[h1]DEUTSCHZ KOTHZ - INFECTED SIEGE[/h1]
+[i]Erobere die Signalstation. Ãœberlebe die Wellen. Stelle dich dem Boss.[/i]
+
+[h2]Deutsch[/h2]
+[list]
+[*]KOTH-artiges PvE-Event mit Signalstation, Fahne, Capture-Zone und Infected-Waves.
+[*]Zum Marker laufen, im Bereich bleiben, keine versteckte Aktionstaste nÃ¶tig.
+[*]WÃ¤hrend des Captures steigt der Druck durch zivile, Jagd-/Patrol- und Military-Zombies.
+[*]Nach erfolgreichem Capture erscheint ein Mummy-Boss; die Statusbar zeigt seine verbleibenden HP.
+[*]Die Belohnung wird erst nach Abschluss der Bossphase freigegeben.
+[/list]
+
+[h2]English[/h2]
+[i]Capture the signal station. Survive the waves. Face the boss.[/i]
+[list]
+[*]KOTH-style PvE event with signal station, flag, capture zone and infected waves.
+[*]Move to the marker, stay inside the area, no hidden action key required.
+[*]During capture, pressure increases through civilian, hunting/patrol and military infected waves.
+[*]After capture, a mummy boss appears and the status bar tracks its remaining HP.
+[*]The reward is released only after the boss phase is completed.
+[/list]
+
+[h2]Ð ÑƒÑÑÐºÐ¸Ð¹[/h2]
+[i]Ð—Ð°Ñ…Ð²Ð°Ñ‚Ð¸ ÑÐ¸Ð³Ð½Ð°Ð»ÑŒÐ½ÑƒÑŽ ÑÑ‚Ð°Ð½Ñ†Ð¸ÑŽ. ÐŸÐµÑ€ÐµÐ¶Ð¸Ð²Ð¸ Ð²Ð¾Ð»Ð½Ñ‹. ÐŸÐ¾Ð±ÐµÐ´Ð¸ Ð±Ð¾ÑÑÐ°.[/i]
+[list]
+[*]PvE-ÑÐ¾Ð±Ñ‹Ñ‚Ð¸Ðµ Ð² ÑÑ‚Ð¸Ð»Ðµ KOTH Ñ ÑÐ¸Ð³Ð½Ð°Ð»ÑŒÐ½Ð¾Ð¹ ÑÑ‚Ð°Ð½Ñ†Ð¸ÐµÐ¹, Ñ„Ð»Ð°Ð³Ð¾Ð¼, Ð·Ð¾Ð½Ð¾Ð¹ Ð·Ð°Ñ…Ð²Ð°Ñ‚Ð° Ð¸ Ð²Ð¾Ð»Ð½Ð°Ð¼Ð¸ Ð·Ð°Ñ€Ð°Ð¶ÐµÐ½Ð½Ñ‹Ñ….
+[*]Ð˜Ð´Ð¸ Ðº Ð¼Ð°Ñ€ÐºÐµÑ€Ñƒ, Ð¾ÑÑ‚Ð°Ð²Ð°Ð¹ÑÑ Ð² Ð·Ð¾Ð½Ðµ, ÑÐºÑ€Ñ‹Ñ‚Ð°Ñ ÐºÐ½Ð¾Ð¿ÐºÐ° Ð´ÐµÐ¹ÑÑ‚Ð²Ð¸Ñ Ð½Ðµ Ð½ÑƒÐ¶Ð½Ð°.
+[*]Ð’Ð¾ Ð²Ñ€ÐµÐ¼Ñ Ð·Ð°Ñ…Ð²Ð°Ñ‚Ð° Ð´Ð°Ð²Ð»ÐµÐ½Ð¸Ðµ Ñ€Ð°ÑÑ‚ÐµÑ‚ Ñ‡ÐµÑ€ÐµÐ· Ð³Ñ€Ð°Ð¶Ð´Ð°Ð½ÑÐºÐ¸Ðµ, hunting/patrol Ð¸ military Ð²Ð¾Ð»Ð½Ñ‹ Ð·Ð°Ñ€Ð°Ð¶ÐµÐ½Ð½Ñ‹Ñ….
+[*]ÐŸÐ¾ÑÐ»Ðµ Ð·Ð°Ñ…Ð²Ð°Ñ‚Ð° Ð¿Ð¾ÑÐ²Ð»ÑÐµÑ‚ÑÑ mummy-Ð±Ð¾ÑÑ, Ð° ÑÑ‚Ð°Ñ‚ÑƒÑÐ±Ð°Ñ€ Ð¿Ð¾ÐºÐ°Ð·Ñ‹Ð²Ð°ÐµÑ‚ Ð¾ÑÑ‚Ð°Ð²ÑˆÐ¸ÐµÑÑ HP.
+[*]ÐÐ°Ð³Ñ€Ð°Ð´Ð° Ð¾Ñ‚ÐºÑ€Ñ‹Ð²Ð°ÐµÑ‚ÑÑ Ñ‚Ð¾Ð»ÑŒÐºÐ¾ Ð¿Ð¾ÑÐ»Ðµ Ð·Ð°Ð²ÐµÑ€ÑˆÐµÐ½Ð¸Ñ boss-Ñ„Ð°Ð·Ñ‹.
+[/list]
+
+[h2]Aktueller Status[/h2]
+[list]
+[*]Aktueller Gesamtstand: FIX43 / 22.06.2026.
+[*]Die DeutschZ-Mods befinden sich weiter im aktiven Aufbau und Testbetrieb.
+[*]Hauptbeschreibungen bleiben stabil; kleine technische Fixes stehen im Changelog.
+[*]Musik, Smoke, Fog und riskante Spezialeffekte werden bewusst langsam und config-gated wieder aktiviert.
+[/list]
+
+[h2]Links[/h2]
+[list]
+[*]Workshop: https://steamcommunity.com/sharedfiles/filedetails/?id=3746385283
+[*]GitHub: https://github.com/patslu-fck1701/DeutschZModZ
+[*]DeutschZModZ Support: https://discord.gg/WM5GkDbw7C
+[/list]
+
+[h2]Empfohlene Loadorder[/h2]
+[list]
+[*]@CF / Community Framework, falls dein Server es nutzt
+[*]@DayZ-Expansion-Bundle / Licensed, falls Expansion-Funktionen aktiv genutzt werden
+[*]@DeutschZ_Core
+[*]@DeutschZ_ExpansionBridge
+[*]@DeutschZ_KotHZ
+[*]@DeutschZ_ConvoyZ
+[*]@DeutschZ_GroundZero
+[*]@DeutschZ_CourierZ
+[/list]
+
+[h2]Fehler melden[/h2]
+Bitte Fehler direkt im Support melden und mÃ¶glichst diese Dateien mitschicken:
+[list]
+[*]crash_*.log
+[*]script_*.log
+[*]DayZServer_x64_*.RPT
+[*]server_console.log
+[*]vollstÃ¤ndige Modlist / Loadorder
+[*]kurze Beschreibung, was direkt vor dem Fehler passiert ist
+[/list]

@@ -10,6 +10,16 @@ modded class PlayerBase
 {
     override void OnRPC(PlayerIdentity sender, int rpc_type, ParamsReadContext ctx)
     {
+        if (rpc_type == DeutschZKotHZRPC.PLAY_MUSIC)
+        {
+            Param4<string, string, vector, float> music = new Param4<string, string, vector, float>("", "", vector.Zero, 0.0);
+            if (ctx.Read(music) && music.param1 == DeutschZKotHZRPC.TOKEN)
+            {
+                DeutschZKotHZClientSound.PlayEventMusic(music.param2, music.param3);
+                return;
+            }
+        }
+
         if (rpc_type == DeutschZKotHZRPC.SYNC_HUD)
         {
             Param8<string, bool, string, int, int, int, int, string> data = new Param8<string, bool, string, int, int, int, int, string>("", false, "", 0, 0, 0, 0, "");

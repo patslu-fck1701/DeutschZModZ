@@ -32,7 +32,7 @@ class CfgMods
         name = "DeutschZ GroundZero";
         type = "mod";
         author = "Patrick Sluzalek / fck1701";
-        version = "0.4.10-fix39-baseline";
+        version = "0.4.12-fix43-safezone-location-hud-radius";
         dependencies[] = {"Game", "World", "Mission"};
 
         class defs

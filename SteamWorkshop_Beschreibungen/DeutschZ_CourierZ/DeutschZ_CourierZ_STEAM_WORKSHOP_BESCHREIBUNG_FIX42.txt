@@ -1,0 +1,69 @@
+﻿[h1]DEUTSCHZ COURIERZ - OPERATION AKTENKOFFER[/h1]
+[i]Nimm den Koffer. Erreiche das Ziel. Ãœberlebe die Lieferung.[/i]
+
+[h2]Deutsch[/h2]
+[list]
+[*]Transport- und Kurier-Event mit Aktenkoffer, TrÃ¤gerstatus, Zielpunkt und Reward.
+[*]Spieler sichern den Koffer, werden zum Risiko und bringen ihn zur Abgabestelle.
+[*]Die Ãœbergabe lÃ¤uft Ã¼ber Zielradius/Hold und wird mit klaren Statusmeldungen begleitet.
+[*]Nach erfolgreicher Lieferung erscheint eine DeutschZ CourierZ Rewardchest.
+[*]Idee/Konzept: Einarvargr / Konfliktzone. Entwicklung/Integration: Patrick Sluzalek / fck1701 / DeutschZ.
+[/list]
+
+[h2]English[/h2]
+[i]Take the case. Reach the target. Survive the delivery.[/i]
+[list]
+[*]Transport and courier event with case, carrier state, delivery point and reward.
+[*]Players secure the case, become the risk objective and deliver it to the target.
+[*]Delivery uses a target-radius hold and clear status messages.
+[*]After successful delivery, a DeutschZ CourierZ reward chest appears.
+[*]Idea/concept: Einarvargr / Konfliktzone. Development/integration: Patrick Sluzalek / fck1701 / DeutschZ.
+[/list]
+
+[h2]Ð ÑƒÑÑÐºÐ¸Ð¹[/h2]
+[i]Ð’Ð¾Ð·ÑŒÐ¼Ð¸ ÐºÐµÐ¹Ñ. Ð”Ð¾Ð±ÐµÑ€Ð¸ÑÑŒ Ð´Ð¾ Ñ†ÐµÐ»Ð¸. ÐŸÐµÑ€ÐµÐ¶Ð¸Ð²Ð¸ Ð´Ð¾ÑÑ‚Ð°Ð²ÐºÑƒ.[/i]
+[list]
+[*]Ð¢Ñ€Ð°Ð½ÑÐ¿Ð¾Ñ€Ñ‚Ð½Ð¾Ðµ/ÐºÑƒÑ€ÑŒÐµÑ€ÑÐºÐ¾Ðµ ÑÐ¾Ð±Ñ‹Ñ‚Ð¸Ðµ Ñ ÐºÐµÐ¹ÑÐ¾Ð¼, ÑÑ‚Ð°Ñ‚ÑƒÑÐ¾Ð¼ Ð½Ð¾ÑÐ¸Ñ‚ÐµÐ»Ñ, Ñ‚Ð¾Ñ‡ÐºÐ¾Ð¹ Ð´Ð¾ÑÑ‚Ð°Ð²ÐºÐ¸ Ð¸ Ð½Ð°Ð³Ñ€Ð°Ð´Ð¾Ð¹.
+[*]Ð˜Ð³Ñ€Ð¾ÐºÐ¸ Ð·Ð°Ð±Ð¸Ñ€Ð°ÑŽÑ‚ ÐºÐµÐ¹Ñ, ÑÑ‚Ð°Ð½Ð¾Ð²ÑÑ‚ÑÑ Ñ€Ð¸ÑÐº-Ñ†ÐµÐ»ÑŒÑŽ Ð¸ Ð´Ð¾ÑÑ‚Ð°Ð²Ð»ÑÑŽÑ‚ ÐµÐ³Ð¾ Ðº Ñ‚Ð¾Ñ‡ÐºÐµ.
+[*]Ð”Ð¾ÑÑ‚Ð°Ð²ÐºÐ° Ð¸ÑÐ¿Ð¾Ð»ÑŒÐ·ÑƒÐµÑ‚ ÑƒÐ´ÐµÑ€Ð¶Ð°Ð½Ð¸Ðµ Ð² Ñ†ÐµÐ»ÐµÐ²Ð¾Ð¼ Ñ€Ð°Ð´Ð¸ÑƒÑÐµ Ð¸ Ð¿Ð¾Ð½ÑÑ‚Ð½Ñ‹Ðµ ÑÑ‚Ð°Ñ‚ÑƒÑÑ‹.
+[*]ÐŸÐ¾ÑÐ»Ðµ ÑƒÑÐ¿ÐµÑˆÐ½Ð¾Ð¹ Ð´Ð¾ÑÑ‚Ð°Ð²ÐºÐ¸ Ð¿Ð¾ÑÐ²Ð»ÑÐµÑ‚ÑÑ DeutschZ CourierZ reward chest.
+[*]Ð˜Ð´ÐµÑ/ÐºÐ¾Ð½Ñ†ÐµÐ¿Ñ‚: Einarvargr / Konfliktzone. Ð Ð°Ð·Ñ€Ð°Ð±Ð¾Ñ‚ÐºÐ°/Ð¸Ð½Ñ‚ÐµÐ³Ñ€Ð°Ñ†Ð¸Ñ: Patrick Sluzalek / fck1701 / DeutschZ.
+[/list]
+
+[h2]Aktueller Status[/h2]
+[list]
+[*]Aktueller Gesamtstand: FIX43 / 22.06.2026.
+[*]Die DeutschZ-Mods befinden sich weiter im aktiven Aufbau und Testbetrieb.
+[*]Hauptbeschreibungen bleiben stabil; kleine technische Fixes stehen im Changelog.
+[*]Musik, Smoke, Fog und riskante Spezialeffekte werden bewusst langsam und config-gated wieder aktiviert.
+[/list]
+
+[h2]Links[/h2]
+[list]
+[*]Workshop: https://steamcommunity.com/sharedfiles/filedetails/?id=3748646981
+[*]GitHub: https://github.com/patslu-fck1701/DeutschZModZ
+[*]DeutschZModZ Support: https://discord.gg/WM5GkDbw7C
+[/list]
+
+[h2]Empfohlene Loadorder[/h2]
+[list]
+[*]@CF / Community Framework, falls dein Server es nutzt
+[*]@DayZ-Expansion-Bundle / Licensed, falls Expansion-Funktionen aktiv genutzt werden
+[*]@DeutschZ_Core
+[*]@DeutschZ_ExpansionBridge
+[*]@DeutschZ_KotHZ
+[*]@DeutschZ_ConvoyZ
+[*]@DeutschZ_GroundZero
+[*]@DeutschZ_CourierZ
+[/list]
+
+[h2]Fehler melden[/h2]
+Bitte Fehler direkt im Support melden und mÃ¶glichst diese Dateien mitschicken:
+[list]
+[*]crash_*.log
+[*]script_*.log
+[*]DayZServer_x64_*.RPT
+[*]server_console.log
+[*]vollstÃ¤ndige Modlist / Loadorder
+[*]kurze Beschreibung, was direkt vor dem Fehler passiert ist
+[/list]

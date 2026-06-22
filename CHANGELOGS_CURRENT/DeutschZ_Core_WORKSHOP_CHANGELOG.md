@@ -1,7 +1,5 @@
-﻿Aktueller Stand: FIX41
+﻿Aktueller Stand: FIX43
 
-- Workshopbeschreibung auf Deutsch, Englisch und Russisch gekuerzt.
-- Neuer DeutschZModZ-Supportlink eingetragen.
-- Hauptbeschreibung bleibt dauerhaft; kleine Fixes stehen nur im Changelog.
-- Aktueller Stabilitaetsstand: gestaffelte Events, sichere Marker-/Bridge-Pfade, riskante Musik/Smoke/Fog-Systeme bleiben aus.
-- Types-Dateien sind als Modname_types.xml mit nominal 0 fuer Adminspawn, Trader, Eventloot und Rewards vorbereitet.
+- Core unveraendert; bleibt technische Pflichtbasis fuer Logging, JSON, Save, Backup, Recovery, EventBus, ServiceLocator, ProviderRegistry, RateLimiter, ConfigValidation und ProfilePaths.
+- Workshopbeschreibung bleibt auf Deutsch, Englisch und Russisch gekuerzt.
+- Neuer DeutschZModZ-Supportlink bleibt eingetragen.

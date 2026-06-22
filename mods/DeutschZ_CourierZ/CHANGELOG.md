@@ -1,3 +1,9 @@
+## FIX43 - Distinct Courier Route Locations (2026-06-22)
+- Moved Operation Aktenkoffer pickup and delivery away from the ConvoyZ crashsite and away from Green Mountain Trader/SafeZone.
+- Updated code defaults and ready-copy CourierZConfig.json to use a separated west-to-north courier route.
+- Kept CourierZ self-contained with its own Aktenkoffer and reward chest classes; no dependency on ConvoyZ or other event mods.
+- Increased delivery-side enemy count slightly for a clearer second stage without changing Core or ExpansionBridge.
+
 ## FIX41 - EventFlow Aktenkoffer und Delivery Hold (2026-06-22)
 - CourierZ Aktenkoffer nutzt eine eigene sichtbare DeutschZ-Kofferklasse mit lokal mitgelieferten DeutschZ-Assets, ohne Abhaengigkeit zu ConvoyZ.
 - CourierZ Reward verwendet weiter eine eigene DeutschZ Rewardchest mit eigener Textur.

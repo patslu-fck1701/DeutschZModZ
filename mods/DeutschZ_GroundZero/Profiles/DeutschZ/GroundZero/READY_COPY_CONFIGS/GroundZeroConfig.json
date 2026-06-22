@@ -189,5 +189,27 @@
         }
     ],
     "RestartDelaySeconds": 1200,
-    "StatusNotificationIntervalSeconds": 60
+    "StatusNotificationIntervalSeconds": 60,
+    "MarkerUpdateIntervalSeconds": 10,
+    "MaxActiveInfected": 25,
+    "MaxSpawnPerBatch": 5,
+    "SpawnBatchDelaySeconds": 8,
+    "WaveDelaySeconds": 90,
+    "PossibleStagePositions": [
+        "4510 0 8280",
+        "6570 0 6020",
+        "8250 0 10820",
+        "1660 0 14230",
+        "12070 0 12600"
+    ],
+    "PossibleFinalFacilityPositions": [
+        "1680 0 14240",
+        "12070 0 12600",
+        "10450 0 9800"
+    ],
+    "PossibleExtractionPositions": [
+        "10500 0 9800",
+        "3200 0 6800",
+        "11950 0 3480"
+    ]
 }

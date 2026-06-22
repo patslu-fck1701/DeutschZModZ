@@ -27,18 +27,43 @@ class GroundZeroCoreBridge
     static bool CreateEventMarker(string id, string label, vector position)
     {
         DeutschZCore_MarkerProviderAPI provider = DeutschZCore_ServiceLocator.GetMarkerProvider();
-        if (!provider)
+        if (!provider || id == "")
             return false;
         return provider.CreateMarker("GroundZero_" + id, label, position, 0xFFFF0000);
     }
 
-
     static bool CreateEvent3DMarker(string id, string label, vector position)
     {
         DeutschZCore_MarkerProviderAPI provider = DeutschZCore_ServiceLocator.GetMarkerProvider();
-        if (!provider)
+        if (!provider || id == "")
             return false;
-        return provider.CreateMarker("GroundZero_3D_" + id, label, position, 0xFFFF0000);
+
+        // FIX25: 3D and map marker must not use two visible ids.
+        // Expansion can represent a server marker as 3D with the same logical id.
+        return provider.Create3DMarker("GroundZero_" + id, label, position, 0xFFFF0000);
+    }
+
+    static bool CreateUnifiedEventMarker(string id, string label, vector position, bool prefer3D)
+    {
+        if (id == "")
+            return false;
+
+        // Remove old map/3D variants before first create. This fixes stale double markers
+        // from earlier builds that used GroundZero_ and GroundZero_3D_ prefixes in parallel.
+        DeleteEventMarker(id);
+
+        if (prefer3D)
+            return CreateEvent3DMarker(id, label, position);
+        return CreateEventMarker(id, label, position);
+    }
+
+    static bool UpdateUnifiedEventMarker(string id, vector position, bool prefer3D)
+    {
+        DeutschZCore_MarkerProviderAPI provider = DeutschZCore_ServiceLocator.GetMarkerProvider();
+        if (!provider || id == "")
+            return false;
+
+        return provider.UpdateMarker("GroundZero_" + id, position);
     }
 
     static bool SendNotification(string channel, string title, string message, vector position)
@@ -56,13 +81,25 @@ class GroundZeroCoreBridge
             provider.DeleteMarkersByPrefix("GroundZero_");
     }
 
+    static bool DeleteRawMarker(string markerId)
+    {
+        DeutschZCore_MarkerProviderAPI provider = DeutschZCore_ServiceLocator.GetMarkerProvider();
+        if (!provider || markerId == "")
+            return false;
+        return provider.DeleteMarker(markerId);
+    }
+
     static bool DeleteEventMarker(string id)
     {
         DeutschZCore_MarkerProviderAPI provider = DeutschZCore_ServiceLocator.GetMarkerProvider();
         if (!provider)
             return false;
+
         bool removed = provider.DeleteMarker("GroundZero_" + id);
+        // Legacy cleanup for FIX24 and older marker ids.
         removed = provider.DeleteMarker("GroundZero_3D_" + id) || removed;
+        removed = provider.DeleteMarker("Signalstation_" + id) || removed;
+        removed = provider.DeleteMarker("Sendestation_" + id) || removed;
         return removed;
     }
 

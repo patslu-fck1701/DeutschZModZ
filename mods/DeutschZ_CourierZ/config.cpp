@@ -32,7 +32,7 @@ class CfgMods
         credits = "Owner: Patrick Sluzalek / Player: fck1701 / Server: DeutschZ";
         author = "Patrick Sluzalek / fck1701";
         authorID = "0";
-        version = "0.1.5-fix41-eventflow-aktenkoffer";
+        version = "0.1.6-fix43-distinct-route-locations";
         extra = 0;
         type = "mod";
         dependencies[] = {"Game", "World", "Mission"};

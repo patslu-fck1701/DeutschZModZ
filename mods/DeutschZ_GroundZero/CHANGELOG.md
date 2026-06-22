@@ -1,3 +1,25 @@
+## FIX43 - SafeZone Exclusion, Unique Stage Positions, Radius HUD (2026-06-22)
+- Removed Green Mountain from default GroundZero stage positions because it is Trader/SafeZone and must not host events.
+- Changed default stage builder to use unique staged positions instead of random duplicate positions per stage.
+- Updated final facility and extraction defaults so GroundZero no longer overlaps the ConvoyZ/CourierZ test center.
+- Limited GroundZero progress HUD/statusbar to the surrounding stage radius instead of syncing an active HUD across the whole map.
+- Far players now receive inactive HUD state so old progress bars are hidden when they leave the event area.
+
+# 0.4.7-fix24-marker-dedupe-staggered
+
+## 0.4.11-fix40-marker-hud-stability - 2026-06-22
+- Signalstation/Sendestation marker dedupe corrected without disabling markers. 3D and map marker now use one stable logical id and legacy `GroundZero_3D_*`, `Signalstation_*`, `Sendestation_*` ids are cleaned.
+- Added GroundZero client HUD/statusbar RPC for active stage progress. Signalstation now shows progress, nearby player count and state text.
+- Kept staggered wave handling active: delayed stage threat spawn, infected batch limits and marker update throttling remain enabled.
+- Updated mod.cpp/config.cpp version to `0.4.11-fix40-marker-hud-stability`.
+
+- Fixed GroundZero/Signalstation duplicate marker path without disabling markers by default.
+- Marker handling now uses one stable logical marker ID per target and create/update dedupe instead of creating map + 3D marker pairs.
+- Added marker update throttling and cleanup reset for known marker IDs.
+- Staggered GroundZero stage enemy activation: marker/notification first, threats delayed, infected spawned in capped batches.
+- Added runtime limits: MaxActiveInfected, MaxSpawnPerBatch, SpawnBatchDelaySeconds, WaveDelaySeconds and MarkerUpdateIntervalSeconds.
+- Added visible stage progress status messages for Signalstation and later stages while the objective is active.
+
 ﻿## Publishing Cleanup - Workshop/Types/Config Guides (2026-06-22)
 - Workshop description refreshed to German, English and Russian only.
 - Added `DeutschZ_GroundZero_types.xml` with campaign/event classes at `nominal=0` for adminspawn/trader/event rewards, not random mapspawn.

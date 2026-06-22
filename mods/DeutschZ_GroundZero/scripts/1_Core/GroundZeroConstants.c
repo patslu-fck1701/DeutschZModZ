@@ -10,7 +10,7 @@
 class GroundZeroConstants
 {
     static const string MOD_NAME = "DeutschZ_GroundZero";
-    static const string VERSION = "0.4.6-fix23-killgated-testready";
+    static const string VERSION = "0.4.11-fix40-marker-hud-stability";
 
     static const string PROFILE_ROOT = "$profile:DeutschZ/";
     static const string PROFILE_DIR = "$profile:DeutschZ/GroundZero/";
@@ -24,6 +24,7 @@ class GroundZeroConstants
     static const int RPC_ABORT_REQUEST = 7303102;
     static const int RPC_DEATH_MENU = 7303103;
     static const int RPC_ADMIN_START_REQUEST = 7303104;
+    static const int RPC_SYNC_HUD = 7303105;
 
     static const string MSG_COMPONENT_DISCOVERED = "Kritische Komponente entdeckt";
     static const string MSG_COMPONENTS_MERGED = "Mehrere Komponenten wurden vereint";

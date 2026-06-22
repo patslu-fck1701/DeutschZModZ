@@ -335,6 +335,11 @@ class GroundZeroConfig
 
     float CarrierMarkerUpdateSeconds;
     float CarrierDropMarkerUpdateSeconds;
+    float MarkerUpdateIntervalSeconds;
+    int MaxActiveInfected;
+    int MaxSpawnPerBatch;
+    int SpawnBatchDelaySeconds;
+    int WaveDelaySeconds;
     float CarrierRadiusTwoItems;
     float CarrierRadiusThreeItems;
     float CarrierRadiusFourItems;
@@ -418,6 +423,8 @@ class GroundZeroConfig
         EnableDebugLogs = DeutschZEventSettings.Event.DebugLogs == 1;
         CarrierMarkerUpdateSeconds = DeutschZEventSettings.Markers.UpdateIntervalSeconds;
         CarrierDropMarkerUpdateSeconds = DeutschZEventSettings.Markers.UpdateIntervalSeconds;
+        MarkerUpdateIntervalSeconds = DeutschZEventSettings.Markers.UpdateIntervalSeconds;
+        if (MarkerUpdateIntervalSeconds < 3) MarkerUpdateIntervalSeconds = 3;
         FinalDefenseSeconds = DeutschZEventSettings.Testing.FinalDefenseSeconds;
         ExtractionDurationSeconds = DeutschZEventSettings.Testing.ExtractionDurationSeconds;
 
@@ -548,6 +555,11 @@ class GroundZeroConfig
 
         CarrierMarkerUpdateSeconds = 60;
         CarrierDropMarkerUpdateSeconds = 60;
+        MarkerUpdateIntervalSeconds = 10;
+        MaxActiveInfected = 25;
+        MaxSpawnPerBatch = 5;
+        SpawnBatchDelaySeconds = 8;
+        WaveDelaySeconds = 90;
         CarrierRadiusTwoItems = 500;
         CarrierRadiusThreeItems = 350;
         CarrierRadiusFourItems = 250;
@@ -660,19 +672,21 @@ class GroundZeroConfig
         PossibleExtractionPositions.Clear();
 
         // ASSUMPTION: Default ChernarusPlus positions. Server owners should tune these in JSON.
-        PossibleStagePositions.Insert("3700 0 5980");
+        // FIX43: Green Mountain is Trader/SafeZone and must never be used for GroundZero.
+        // Stage positions are intentionally different so the campaign does not stack every task on one spot.
         PossibleStagePositions.Insert("4510 0 8280");
         PossibleStagePositions.Insert("6570 0 6020");
         PossibleStagePositions.Insert("8250 0 10820");
         PossibleStagePositions.Insert("1660 0 14230");
+        PossibleStagePositions.Insert("12070 0 12600");
 
         PossibleFinalFacilityPositions.Insert("1680 0 14240");
-        PossibleFinalFacilityPositions.Insert("4500 0 8280");
         PossibleFinalFacilityPositions.Insert("12070 0 12600");
+        PossibleFinalFacilityPositions.Insert("10450 0 9800");
 
-        PossibleExtractionPositions.Insert("7500 0 7500");
         PossibleExtractionPositions.Insert("10500 0 9800");
         PossibleExtractionPositions.Insert("3200 0 6800");
+        PossibleExtractionPositions.Insert("11950 0 3480");
     }
 
     void Repair()

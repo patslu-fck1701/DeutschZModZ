@@ -32,7 +32,7 @@ class CfgMods
         name = "DeutschZ_ConvoyZ";
         credits = "DeutschZ";
         author = "DeutschZ";
-        version = "0.1.4-fix41-eventflow-progress";
+        version = "0.1.6-fix43-safe-locations-smokeoff-loadouts";
         type = "mod";
         dependencies[] = {"Game", "World", "Mission"};
         class defs

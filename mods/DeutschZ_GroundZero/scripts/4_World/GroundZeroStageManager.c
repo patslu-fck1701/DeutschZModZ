@@ -17,6 +17,8 @@ class GroundZeroStageManager
     protected GroundZeroNotificationManager m_Notifications;
     protected GroundZeroCheckpointManager m_Checkpoints;
     protected GroundZeroMarkerManager m_Markers;
+    protected float m_LastProgressBroadcast;
+    protected float m_LastHUDBroadcast;
 
     void GroundZeroStageManager(GroundZeroConfig cfg, GroundZeroPersistentState state, GroundZeroItemManager items, GroundZeroZombieManager zombies, GroundZeroAIBridge ai, GroundZeroNotificationManager notifications, GroundZeroCheckpointManager checkpoints, GroundZeroMarkerManager markers)
     {
@@ -38,7 +40,8 @@ class GroundZeroStageManager
             GroundZeroStageConfig cfg = m_Config.Stages.Get(i);
             GroundZeroStageRuntime runtime = new GroundZeroStageRuntime();
             runtime.StageId = cfg.StageId;
-            runtime.Position = m_Config.PossibleStagePositions.Get(Math.RandomInt(0, m_Config.PossibleStagePositions.Count()));
+            int posIndex = i % m_Config.PossibleStagePositions.Count();
+            runtime.Position = m_Config.PossibleStagePositions.Get(posIndex);
             runtime.ObjectiveKillCount = 0;
             runtime.ObjectiveKillRequired = m_Config.GetStageRequiredKills();
             m_State.Stages.Insert(runtime);
@@ -59,12 +62,27 @@ class GroundZeroStageManager
         m_State.CurrentStageId = id;
 
         m_Markers.UpdateStageMarker(runtime.Position, cfg.StageName, cfg.StageRadius);
-        m_Zombies.SpawnWave(runtime.Position, cfg.ZombieThreatLevel, cfg.ZombieCount, cfg.StageRadius);
-        m_AI.SpawnMilitaryPatrol(runtime.Position, cfg.MilitaryAICount);
-        m_AI.SpawnRoguePatrol(runtime.Position, cfg.RogueAICount);
         m_Notifications.Broadcast(cfg.StageName + ": " + cfg.ObjectiveText);
+        m_LastProgressBroadcast = 0;
+        m_LastHUDBroadcast = 0;
+        SendStageHUD(runtime, cfg, "Signalstation aktiv - Gegner sichern und Fortschritt halten");
+
+        int delayMs = m_Config.WaveDelaySeconds * 1000;
+        if (delayMs < 1000) delayMs = 1000;
+        GetGame().GetCallQueue(CALL_CATEGORY_SYSTEM).CallLater(SpawnStageThreats, delayMs, false, runtime.Position, cfg.ZombieThreatLevel, cfg.ZombieCount, cfg.StageRadius, cfg.MilitaryAICount, cfg.RogueAICount);
 
         GroundZeroLogging.Info("Stage", "Entered stage=" + id.ToString() + " pos=" + runtime.Position.ToString());
+    }
+
+    protected void SpawnStageThreats(vector position, int zombieThreat, int zombieCount, float radius, int militaryCount, int rogueCount)
+    {
+        GroundZeroStageRuntime runtime = GetStage(m_State.CurrentStageId);
+        if (!runtime || runtime.State != GroundZeroStageState.GZ_STAGE_OBJECTIVE_ACTIVE) return;
+
+        if (m_Zombies) m_Zombies.SpawnWave(position, zombieThreat, zombieCount, radius);
+        if (m_AI) m_AI.SpawnMilitaryPatrol(position, militaryCount);
+        if (m_AI) m_AI.SpawnRoguePatrol(position, rogueCount);
+        GroundZeroLogging.Info("Stage", "Delayed threats spawned stage=" + runtime.StageId.ToString());
     }
 
     void Tick()
@@ -77,6 +95,22 @@ class GroundZeroStageManager
 
         if (runtime.State == GroundZeroStageState.GZ_STAGE_OBJECTIVE_ACTIVE)
         {
+            if (now - m_LastProgressBroadcast >= 10)
+            {
+                m_LastProgressBroadcast = now;
+                int percent = 0;
+                if (runtime.ObjectiveKillRequired > 0)
+                    percent = (runtime.ObjectiveKillCount * 100) / runtime.ObjectiveKillRequired;
+                if (percent > 100) percent = 100;
+                m_Notifications.Broadcast(cfg.StageName + " Fortschritt: " + percent.ToString() + "% (" + runtime.ObjectiveKillCount.ToString() + "/" + runtime.ObjectiveKillRequired.ToString() + ")");
+            }
+
+            if (now - m_LastHUDBroadcast >= 1.0)
+            {
+                m_LastHUDBroadcast = now;
+                SendStageHUD(runtime, cfg, cfg.StageName + " aktiv - Fortschritt laeuft");
+            }
+
             bool timedFallbackAllowed = m_Config.AllowTimedObjectiveFallback && !cfg.RequireManualObjectiveCompletion;
             if (timedFallbackAllowed && cfg.CompletionHoldSeconds > 0 && now - runtime.ObjectiveStartedAt >= cfg.CompletionHoldSeconds)
             {
@@ -127,6 +161,95 @@ class GroundZeroStageManager
             PlayerBase playerKiller = PlayerBase.Cast(killer);
             CompleteStage(runtime, cfg, playerKiller);
         }
+        else
+        {
+            SendStageHUD(runtime, cfg, cfg.StageName + ": Gegner eliminiert");
+        }
+    }
+
+    protected int CountPlayersNear(vector position, float radius)
+    {
+        int count = 0;
+        array<Man> players = new array<Man>();
+        GetGame().GetPlayers(players);
+        foreach (Man man : players)
+        {
+            PlayerBase player = PlayerBase.Cast(man);
+            if (player && player.IsAlive() && vector.Distance(player.GetPosition(), position) <= radius)
+                count++;
+        }
+        return count;
+    }
+
+    protected void SendStageHUD(GroundZeroStageRuntime runtime, GroundZeroStageConfig cfg, string stateText)
+    {
+        if (!runtime || !cfg)
+            return;
+
+        int percent = 0;
+        if (runtime.ObjectiveKillRequired > 0)
+            percent = (runtime.ObjectiveKillCount * 100) / runtime.ObjectiveKillRequired;
+        percent = Math.Clamp(percent, 0, 100);
+
+        float hudRadius = GetStageHUDRadius(cfg);
+        int playersNear = CountPlayersNear(runtime.Position, hudRadius);
+        array<Man> players = new array<Man>();
+        GetGame().GetPlayers(players);
+        foreach (Man man : players)
+        {
+            PlayerBase player = PlayerBase.Cast(man);
+            if (!player || !player.GetIdentity())
+                continue;
+
+            bool visible = vector.Distance(player.GetPosition(), runtime.Position) <= hudRadius;
+            string title = "";
+            string text = "";
+            int current = 0;
+            int required = 0;
+            int shownPercent = 0;
+            int shownPlayers = 0;
+
+            if (visible)
+            {
+                title = cfg.StageName;
+                text = stateText;
+                current = runtime.ObjectiveKillCount;
+                required = runtime.ObjectiveKillRequired;
+                shownPercent = percent;
+                shownPlayers = playersNear;
+            }
+
+            Param8<string, bool, string, int, int, int, int, string> data = new Param8<string, bool, string, int, int, int, int, string>(GroundZeroRPC.TOKEN, visible, title, shownPercent, current, required, shownPlayers, text);
+            GetGame().RPCSingleParam(player, GroundZeroConstants.RPC_SYNC_HUD, data, true, player.GetIdentity());
+        }
+    }
+
+    protected float GetStageHUDRadius(GroundZeroStageConfig cfg)
+    {
+        if (!cfg)
+            return 150.0;
+
+        float radius = cfg.StageRadius + 50.0;
+        if (radius < 75.0)
+            radius = 75.0;
+        if (radius > 250.0)
+            radius = 250.0;
+        return radius;
+    }
+
+    protected void HideStageHUDToAll()
+    {
+        array<Man> players = new array<Man>();
+        GetGame().GetPlayers(players);
+        foreach (Man man : players)
+        {
+            PlayerBase player = PlayerBase.Cast(man);
+            if (!player || !player.GetIdentity())
+                continue;
+
+            Param8<string, bool, string, int, int, int, int, string> data = new Param8<string, bool, string, int, int, int, int, string>(GroundZeroRPC.TOKEN, false, "", 0, 0, 0, 0, "");
+            GetGame().RPCSingleParam(player, GroundZeroConstants.RPC_SYNC_HUD, data, true, player.GetIdentity());
+        }
     }
 
     bool CompleteCurrentStageByPlayer(PlayerBase player)
@@ -163,6 +286,7 @@ class GroundZeroStageManager
                 m_Checkpoints.SaveCheckpoint(player, runtime.Position, runtime.StageId);
         }
 
+        SendStageHUD(runtime, cfg, cfg.StageName + " abgeschlossen");
         GroundZeroLogging.Info("Stage", "Completed stage=" + runtime.StageId.ToString());
 
         if (m_Zombies) m_Zombies.Cleanup();
@@ -171,6 +295,8 @@ class GroundZeroStageManager
         int nextId = runtime.StageId + 1;
         if (nextId <= 5)
             EnterStage(nextId);
+        else
+            HideStageHUDToAll();
     }
 
     bool AllStagesComplete()

@@ -1,0 +1,69 @@
+﻿[h1]DEUTSCHZ CONVOYZ[/h1]
+[i]Finde die Crashsite. Sichere die Blackbox. Hol dir die Belohnung.[/i]
+
+[h2]Deutsch[/h2]
+[list]
+[*]ServerautoritÃ¤res Convoy-, Crashsite- und Blackbox-Event fÃ¼r DeutschZ.
+[*]Spieler finden den Zielbereich, sichern die Crashsite und starten den Blackbox-/Hack-Flow.
+[*]Wachen oder Fallback-Gegner erzeugen Druck, wÃ¤hrend der Fortschritt sichtbar verfolgt wird.
+[*]Nach erfolgreicher Sicherung wird eine DeutschZ-Rewardchest freigegeben.
+[*]Der Ablauf wird Schritt fÃ¼r Schritt weiter stabilisiert und getestet.
+[/list]
+
+[h2]English[/h2]
+[i]Find the crash site. Secure the black box. Claim the reward.[/i]
+[list]
+[*]Server-authoritative convoy, crash-site and black-box event for DeutschZ.
+[*]Players locate the target area, secure the crash site and start the black-box/hack flow.
+[*]Guards or fallback enemies create pressure while progress is shown to players.
+[*]After successful completion, a DeutschZ reward chest is released.
+[*]The flow is being stabilized and tested step by step.
+[/list]
+
+[h2]Ð ÑƒÑÑÐºÐ¸Ð¹[/h2]
+[i]ÐÐ°Ð¹Ð´Ð¸ Ð¼ÐµÑÑ‚Ð¾ ÐºÑ€ÑƒÑˆÐµÐ½Ð¸Ñ. Ð—Ð°Ð±ÐµÑ€Ð¸ Ñ‡ÐµÑ€Ð½Ñ‹Ð¹ ÑÑ‰Ð¸Ðº. ÐŸÐ¾Ð»ÑƒÑ‡Ð¸ Ð½Ð°Ð³Ñ€Ð°Ð´Ñƒ.[/i]
+[list]
+[*]Ð¡ÐµÑ€Ð²ÐµÑ€-Ð°Ð²Ñ‚Ð¾Ñ€Ð¸Ñ‚ÐµÑ‚Ð½Ð¾Ðµ ÑÐ¾Ð±Ñ‹Ñ‚Ð¸Ðµ DeutschZ Ñ ÐºÐ¾Ð½Ð²Ð¾ÐµÐ¼, Ð¼ÐµÑÑ‚Ð¾Ð¼ ÐºÑ€ÑƒÑˆÐµÐ½Ð¸Ñ Ð¸ Ñ‡ÐµÑ€Ð½Ñ‹Ð¼ ÑÑ‰Ð¸ÐºÐ¾Ð¼.
+[*]Ð˜Ð³Ñ€Ð¾ÐºÐ¸ Ð½Ð°Ñ…Ð¾Ð´ÑÑ‚ Ñ†ÐµÐ»ÑŒ, ÑƒÐ´ÐµÑ€Ð¶Ð¸Ð²Ð°ÑŽÑ‚ crashsite Ð¸ Ð·Ð°Ð¿ÑƒÑÐºÐ°ÑŽÑ‚ blackbox/hack-Ð¿Ñ€Ð¾Ñ†ÐµÑÑ.
+[*]ÐžÑ…Ñ€Ð°Ð½Ð° Ð¸Ð»Ð¸ fallback-Ð²Ñ€Ð°Ð³Ð¸ ÑÐ¾Ð·Ð´Ð°ÑŽÑ‚ Ð´Ð°Ð²Ð»ÐµÐ½Ð¸Ðµ, Ð¿Ð¾ÐºÐ° Ð¿Ñ€Ð¾Ð³Ñ€ÐµÑÑ Ð¾Ñ‚Ð¾Ð±Ñ€Ð°Ð¶Ð°ÐµÑ‚ÑÑ Ð¸Ð³Ñ€Ð¾ÐºÐ°Ð¼.
+[*]ÐŸÐ¾ÑÐ»Ðµ ÑƒÑÐ¿ÐµÑˆÐ½Ð¾Ð³Ð¾ Ð·Ð°Ð²ÐµÑ€ÑˆÐµÐ½Ð¸Ñ Ð¿Ð¾ÑÐ²Ð»ÑÐµÑ‚ÑÑ DeutschZ reward chest.
+[*]Ð›Ð¾Ð³Ð¸ÐºÐ° ÑÐ¾Ð±Ñ‹Ñ‚Ð¸Ñ ÑÑ‚Ð°Ð±Ð¸Ð»Ð¸Ð·Ð¸Ñ€ÑƒÐµÑ‚ÑÑ Ð¸ Ñ‚ÐµÑÑ‚Ð¸Ñ€ÑƒÐµÑ‚ÑÑ Ð¿Ð¾ÑÑ‚Ð°Ð¿Ð½Ð¾.
+[/list]
+
+[h2]Aktueller Status[/h2]
+[list]
+[*]Aktueller Gesamtstand: FIX43 / 22.06.2026.
+[*]Die DeutschZ-Mods befinden sich weiter im aktiven Aufbau und Testbetrieb.
+[*]Hauptbeschreibungen bleiben stabil; kleine technische Fixes stehen im Changelog.
+[*]Musik, Smoke, Fog und riskante Spezialeffekte werden bewusst langsam und config-gated wieder aktiviert.
+[/list]
+
+[h2]Links[/h2]
+[list]
+[*]Workshop: https://steamcommunity.com/sharedfiles/filedetails/?id=3745946832
+[*]GitHub: https://github.com/patslu-fck1701/DeutschZModZ
+[*]DeutschZModZ Support: https://discord.gg/WM5GkDbw7C
+[/list]
+
+[h2]Empfohlene Loadorder[/h2]
+[list]
+[*]@CF / Community Framework, falls dein Server es nutzt
+[*]@DayZ-Expansion-Bundle / Licensed, falls Expansion-Funktionen aktiv genutzt werden
+[*]@DeutschZ_Core
+[*]@DeutschZ_ExpansionBridge
+[*]@DeutschZ_KotHZ
+[*]@DeutschZ_ConvoyZ
+[*]@DeutschZ_GroundZero
+[*]@DeutschZ_CourierZ
+[/list]
+
+[h2]Fehler melden[/h2]
+Bitte Fehler direkt im Support melden und mÃ¶glichst diese Dateien mitschicken:
+[list]
+[*]crash_*.log
+[*]script_*.log
+[*]DayZServer_x64_*.RPT
+[*]server_console.log
+[*]vollstÃ¤ndige Modlist / Loadorder
+[*]kurze Beschreibung, was direkt vor dem Fehler passiert ist
+[/list]

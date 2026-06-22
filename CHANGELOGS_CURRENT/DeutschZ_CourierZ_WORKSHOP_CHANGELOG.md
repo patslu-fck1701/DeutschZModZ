@@ -1,4 +1,6 @@
-﻿Aktueller Stand: FIX41
+﻿Aktueller Stand: FIX43
+
+- Eigene CourierZ-Route abseits von ConvoyZ-Crashsite und Trader/SafeZone.
 
 - Workshopbeschreibung auf Deutsch, Englisch und Russisch gekuerzt.
 - Neuer DeutschZModZ-Supportlink eingetragen.

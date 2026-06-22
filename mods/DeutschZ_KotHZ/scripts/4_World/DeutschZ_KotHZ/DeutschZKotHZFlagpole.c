@@ -149,13 +149,14 @@ class DeutschZKotHZFlagpole
         }
     }
 
-    protected void ApplyDeutschZFlagTexture(Object flag)
+    protected void ApplyDeutschZFlagTexture(EntityAI flag)
     {
         if (!flag)
             return;
 
-        // FIX41: force the active DeutschZ flag texture as a safety net.
-        // Some TerritoryFlag attachment paths can otherwise show a plain white flag.
+        // FIX42: SetObjectTexture is not available on generic Object in DayZ script.
+        // This method only accepts EntityAI so the World module compiles and the flag texture
+        // is applied only on valid item/entity attachments.
         flag.SetObjectTexture(0, "DeutschZ_KotHZ/data/flags/DeutschZ_KotHZ_Flag.paa");
     }
 

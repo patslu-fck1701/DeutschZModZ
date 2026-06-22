@@ -1,5 +1,6 @@
-﻿Aktueller Stand: FIX41
+Aktueller Stand: FIX43
 
+- Musik bleibt vorbereitet, aber in Defaults und Ready-Copy-Config wieder deaktiviert.
 - Workshopbeschreibung auf Deutsch, Englisch und Russisch gekuerzt.
 - Neuer DeutschZModZ-Supportlink eingetragen.
 - Hauptbeschreibung bleibt dauerhaft; kleine Fixes stehen nur im Changelog.

@@ -89,15 +89,52 @@ class DeutschZConvoyZAIManager
             return;
         }
 
-        SpawnLoadoutItem(ai, "PoliceJacket");
-        SpawnLoadoutItem(ai, "PolicePants");
+        ApplyDeutschZMilitaryLoadout(ai, loadoutName);
+        DeutschZConvoyZLogger.Log("AILoadoutApplied", "", "", "", aiObject.GetPosition(), "OK", "DeutschZ loadout '" + loadoutName + "' applied where classes existed");
+    }
+
+    void ApplyDeutschZMilitaryLoadout(EntityAI ai, string loadoutName)
+    {
+        if (!ai) return;
+
+        if (loadoutName == "DZCV_MilitaryLight")
+        {
+            SpawnLoadoutItem(ai, "TacticalShirt_Olive");
+            SpawnLoadoutItem(ai, "CargoPants_Green");
+            SpawnLoadoutItem(ai, "CombatBoots_Green");
+            SpawnLoadoutItem(ai, "UKAssVest_Olive");
+            SpawnLoadoutItem(ai, "Mich2001Helmet");
+            SpawnLoadoutItem(ai, "AK74");
+            SpawnLoadoutItem(ai, "Mag_AK74_30Rnd");
+            SpawnLoadoutItem(ai, "Mag_AK74_30Rnd");
+            SpawnLoadoutItem(ai, "Ammo_545x39");
+            return;
+        }
+
+        if (loadoutName == "DZCV_MilitaryHeavy")
+        {
+            SpawnLoadoutItem(ai, "GorkaEJacket_Flat");
+            SpawnLoadoutItem(ai, "GorkaPants_Flat");
+            SpawnLoadoutItem(ai, "CombatBoots_Black");
+            SpawnLoadoutItem(ai, "PlateCarrierVest");
+            SpawnLoadoutItem(ai, "BallisticHelmet_Green");
+            SpawnLoadoutItem(ai, "M4A1");
+            SpawnLoadoutItem(ai, "Mag_STANAG_30Rnd");
+            SpawnLoadoutItem(ai, "Mag_STANAG_30Rnd");
+            SpawnLoadoutItem(ai, "Ammo_556x45");
+            return;
+        }
+
+        // Default rifleman / legacy PoliceLoadout compatibility.
+        SpawnLoadoutItem(ai, "BDUJacket");
+        SpawnLoadoutItem(ai, "BDUPants");
         SpawnLoadoutItem(ai, "CombatBoots_Black");
         SpawnLoadoutItem(ai, "PlateCarrierVest");
-        SpawnLoadoutItem(ai, "AK74");
-        SpawnLoadoutItem(ai, "Mag_AK74_30Rnd");
-        SpawnLoadoutItem(ai, "Mag_AK74_30Rnd");
-        SpawnLoadoutItem(ai, "Ammo_545x39");
-        DeutschZConvoyZLogger.Log("AILoadoutApplied", "", "", "", aiObject.GetPosition(), "OK", "Loadout '" + loadoutName + "' applied if classes existed");
+        SpawnLoadoutItem(ai, "Mich2001Helmet");
+        SpawnLoadoutItem(ai, "AKM");
+        SpawnLoadoutItem(ai, "Mag_AKM_30Rnd");
+        SpawnLoadoutItem(ai, "Mag_AKM_30Rnd");
+        SpawnLoadoutItem(ai, "Ammo_762x39");
     }
 
     void SpawnLoadoutItem(EntityAI ai, string className)
