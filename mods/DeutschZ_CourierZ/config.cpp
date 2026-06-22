@@ -32,7 +32,7 @@ class CfgMods
         credits = "Owner: Patrick Sluzalek / Player: fck1701 / Server: DeutschZ";
         author = "Patrick Sluzalek / fck1701";
         authorID = "0";
-        version = "0.1.7-fix45-event-items";
+        version = "0.1.8-fix46-route-checkpoints";
         extra = 0;
         type = "mod";
         dependencies[] = {"Game", "World", "Mission"};
@@ -107,9 +107,9 @@ class CfgVehicles
         scope = 2;
         displayName = "DeutschZ Aktenkoffer";
         descriptionShort = "Versiegelter DeutschZ CourierZ Eventkoffer. Zum Ziel bringen, nicht einlagern.";
-        model = "DeutschZ_CourierZ/Assets/Case/protector_case.p3d";
+        model = "\DeutschZ_CourierZ\Assets\Case\protector_case.p3d";
         hiddenSelections[] = {"camo"};
-        hiddenSelectionsTextures[] = {"DeutschZ_CourierZ/Assets/Case/Case.paa"};
+        hiddenSelectionsTextures[] = {"\DeutschZ_CourierZ\Assets\Case\Case.paa"};
         itemSize[] = {4, 3};
         weight = 2500;
         canBeSplit = 0;
@@ -122,7 +122,7 @@ class CfgVehicles
         displayName = "DeutschZ CourierZ Rewardkiste";
         descriptionShort = "DeutschZ CourierZ Rewardkiste mit 500 Cargo-Slots fuer erfolgreiche Lieferungen.";
         hiddenSelections[] = {"camoGround"};
-        hiddenSelectionsTextures[] = {"DeutschZ_CourierZ/Assets/Case/Seachest.paa"};
+        hiddenSelectionsTextures[] = {"\DeutschZ_CourierZ\Assets\Case\Seachest.paa"};
         itemSize[] = {10, 10};
         itemsCargoSize[] = {10, 50};
         weight = 15000;
@@ -140,9 +140,9 @@ class CfgVehicles
         scope = 2;
         displayName = "DeutschZ CourierZ Aktenkoffer";
         descriptionShort = "Event-only Aktenkoffer fuer CourierZ-Lieferungen. Zielobjekt fuer Liefer-, Reward- und Adminlogik.";
-        model = "DeutschZ_CourierZ/Assets/Case/protector_case.p3d";
+        model = "\DeutschZ_CourierZ\Assets\Case\protector_case.p3d";
         hiddenSelections[] = {"camo"};
-        hiddenSelectionsTextures[] = {"DeutschZ_CourierZ/Assets/Case/Case.paa"};
+        hiddenSelectionsTextures[] = {"\DeutschZ_CourierZ\Assets\Case\Case.paa"};
         itemSize[] = {4, 3};
         weight = 2500;
         canBeSplit = 0;

@@ -1,6 +1,6 @@
 {
     "ConfigVersion": 1,
-    "PresetName": "FIX43_DISTINCT_ROUTE_COURIERZ",
+    "PresetName": "FIX46_ROUTE_CHECKPOINT_COURIERZ",
     "DeutschZEventSettings": {
         "Event": {
             "Enabled": 1,
@@ -82,6 +82,32 @@
     "EnemyClassName": "ZmbM_usSoldier_Officer_Desert",
     "StartEnemyCount": 3,
     "DeliveryEnemyCount": 4,
+    "RouteCheckpoints": [
+        {
+            "Name": "Checkpoint 1 - Waldkontakt",
+            "Position": "4780 0 10480",
+            "EnemyCount": 4,
+            "RequiredKills": 3,
+            "HoldSeconds": 8,
+            "Radius": 18.0
+        },
+        {
+            "Name": "Checkpoint 2 - Militaerblockade",
+            "Position": "7470 0 11220",
+            "EnemyCount": 5,
+            "RequiredKills": 4,
+            "HoldSeconds": 10,
+            "Radius": 20.0
+        },
+        {
+            "Name": "Checkpoint 3 - Letzte Sperre",
+            "Position": "10160 0 11880",
+            "EnemyCount": 6,
+            "RequiredKills": 4,
+            "HoldSeconds": 12,
+            "Radius": 22.0
+        }
+    ],
     "RewardItems": [
         "BandageDressing",
         "TacticalBaconCan",

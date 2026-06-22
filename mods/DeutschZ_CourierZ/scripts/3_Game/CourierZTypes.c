@@ -16,6 +16,12 @@ class CourierZState
     int EventsStartedThisRestart;
     int RequiredKills;
     int CurrentKills;
+    int CurrentRouteIndex;
+    string CurrentRouteName;
+    vector CurrentRoutePosition;
+    int RouteKills;
+    int RouteKillsRequired;
+    int RouteHoldProgressSeconds;
 
     void CourierZState()
     {
@@ -37,5 +43,11 @@ class CourierZState
         CleanupAt = 0;
         RequiredKills = 0;
         CurrentKills = 0;
+        CurrentRouteIndex = -1;
+        CurrentRouteName = "";
+        CurrentRoutePosition = "0 0 0";
+        RouteKills = 0;
+        RouteKillsRequired = 0;
+        RouteHoldProgressSeconds = 0;
     }
 }

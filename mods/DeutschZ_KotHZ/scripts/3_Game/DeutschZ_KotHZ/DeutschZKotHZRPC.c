@@ -69,12 +69,14 @@ class DeutschZKotHZClientHUDState
 
 class DeutschZKotHZClientSound
 {
-    static void PlayEventMusic(string soundSetName, vector position)
+    static void PlayEventMusic(string soundSetName, vector position, float volume)
     {
         if (soundSetName == "")
             return;
+        if (volume <= 0)
+            volume = 1.0;
 
-        EffectSound sound = SEffectManager.PlaySound(soundSetName, position, 0.2, 0.2, false);
+        EffectSound sound = SEffectManager.PlaySound(soundSetName, position, 0.0, 0.0, false);
         if (sound)
             sound.SetAutodestroy(true);
     }

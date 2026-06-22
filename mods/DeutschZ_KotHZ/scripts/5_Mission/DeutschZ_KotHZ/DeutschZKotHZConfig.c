@@ -69,8 +69,8 @@ class DeutschZKotHZConfig
 
     void DeutschZKotHZConfig()
     {
-        ConfigInfo = "DeutschZ_KotHZ FIX45. Event item expansion with safe-gated music, smoke and fog defaults.";
-        EditHint = "FIX45 TESTVERSION: starts first after 1 minute. Stable features active: mast/flag, marker, HUD, waves, 7500 HP boss and reward crate. Music, smoke, fog and helicopter remain config-gated and default off.";
+        ConfigInfo = "DeutschZ_KotHZ FIX46. Boss near mast, 7500 HP boss class, active event music, stronger infected and expanded rewards.";
+        EditHint = "FIX46 TESTVERSION: starts first after 1 minute. Active: mast/flag, marker, HUD, waves, Mummy boss at mast, 7500 HP boss bar, music on start/captured and visible reward crate.";
         OwnerName = "Patrick Sluzalek";
         OwnerPlayerName = "fck1701";
         ServerName = "DeutschZ";
@@ -114,11 +114,11 @@ class DeutschZKotHZConfig
         DeliveryCrateDropDelaySeconds = 2.0;
         DeliveryHelicopterCleanupSeconds = 25.0;
         DeliveryCrateLandingConfirmSeconds = 10.0;
-        EnableEventMusic = 0;
+        EnableEventMusic = 1;
         EventMusicSoundSetName = "DeutschZ_KotHZ_EventMusic_SoundSet";
         EventMusicPlayOnReady = 0;
-        EventMusicPlayOnStart = 0;
-        EventMusicPlayOnCaptured = 0;
+        EventMusicPlayOnStart = 1;
+        EventMusicPlayOnCaptured = 1;
         EventMusicRadius = 180.0;
         EventMusicVolume = 1.0;
 
@@ -273,7 +273,7 @@ class DeutschZKotHZConfig
         Zones.Insert(yrap);
 
         DeutschZKotHZZone zeleno = new DeutschZKotHZZone();
-        zeleno.EditHint = "Zeleno Basebuilding test zone. Uses vanilla test loot and KVM1 5x6 infected waves.";
+        zeleno.EditHint = "Zeleno Basebuilding test zone. Uses the Basebuilding reward pool and KVM1 5x6 infected waves.";
         zeleno.ZoneName = "Zeleno Bau KotH Bauloot";
         zeleno.Position = "2282.993896 185.358643 5235.256836";
         zeleno.FlagpolePosition = "2282.993896 185.358643 5235.256836";
@@ -283,7 +283,7 @@ class DeutschZKotHZConfig
         zeleno.RewardCrateOrientation = "18.000002 0 0";
         zeleno.Radius = 25.0;
         zeleno.CaptureTimeSeconds = 90;
-        zeleno.RewardPoolName = "DeutschZ_Test_HighValue";
+        zeleno.RewardPoolName = "Basebuilding";
         zeleno.FlagpoleClassName = "DeutschZKotHZ_RuntimeFlagpole";
         zeleno.FlagClassName = "DeutschZKotHZ_Basebuild_Flag";
         zeleno.FlagVisualHeightOffset = 13.0;
@@ -306,7 +306,7 @@ class DeutschZKotHZConfig
         Zones.Insert(zeleno);
 
         DeutschZKotHZZone topolniki = new DeutschZKotHZZone();
-        topolniki.EditHint = "Topolniki Basebuilding test zone. Uses vanilla test loot and KVM1 5x6 infected waves.";
+        topolniki.EditHint = "Topolniki Basebuilding test zone. Uses the Basebuilding reward pool and KVM1 5x6 infected waves.";
         topolniki.ZoneName = "Topolniki Basebuilding KotH";
         topolniki.Position = "2875.519531 214.763733 12652.452148";
         topolniki.FlagpolePosition = "2875.519531 214.763733 12652.452148";
@@ -316,7 +316,7 @@ class DeutschZKotHZConfig
         topolniki.RewardCrateOrientation = "0 0 0";
         topolniki.Radius = 25.0;
         topolniki.CaptureTimeSeconds = 90;
-        topolniki.RewardPoolName = "DeutschZ_Test_HighValue";
+        topolniki.RewardPoolName = "Basebuilding";
         topolniki.FlagpoleClassName = "DeutschZKotHZ_RuntimeFlagpole";
         topolniki.FlagClassName = "DeutschZKotHZ_Basebuild_Flag";
         topolniki.FlagVisualHeightOffset = 13.0;
@@ -339,7 +339,7 @@ class DeutschZKotHZConfig
         Zones.Insert(topolniki);
 
         DeutschZKotHZZone berenzinho = new DeutschZKotHZZone();
-        berenzinho.EditHint = "Berenzinho Basebuilding test zone. Uses vanilla test loot and KVM1 5x6 infected waves.";
+        berenzinho.EditHint = "Berenzinho Basebuilding test zone. Uses the Basebuilding reward pool and KVM1 5x6 infected waves.";
         berenzinho.ZoneName = "Berenzinho Basebuilding KotH";
         berenzinho.Position = "12802.842773 6.008640 9668.188477";
         berenzinho.FlagpolePosition = "12802.842773 6.008640 9668.188477";
@@ -349,7 +349,7 @@ class DeutschZKotHZConfig
         berenzinho.RewardCrateOrientation = "36.000004 0 0";
         berenzinho.Radius = 25.0;
         berenzinho.CaptureTimeSeconds = 90;
-        berenzinho.RewardPoolName = "DeutschZ_Test_HighValue";
+        berenzinho.RewardPoolName = "Basebuilding";
         berenzinho.FlagpoleClassName = "DeutschZKotHZ_RuntimeFlagpole";
         berenzinho.FlagClassName = "DeutschZKotHZ_Basebuild_Flag";
         berenzinho.FlagVisualHeightOffset = 13.0;

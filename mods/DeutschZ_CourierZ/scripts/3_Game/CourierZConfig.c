@@ -281,6 +281,36 @@ class CourierZSpecificSettings
     }
 }
 
+class CourierZRouteCheckpoint: Managed
+{
+    string Name;
+    vector Position;
+    int EnemyCount;
+    int RequiredKills;
+    int HoldSeconds;
+    float Radius;
+
+    void CourierZRouteCheckpoint()
+    {
+        Name = "CourierZ Zwischenpunkt";
+        Position = "0 0 0";
+        EnemyCount = 4;
+        RequiredKills = 3;
+        HoldSeconds = 8;
+        Radius = 18.0;
+    }
+
+    void Repair()
+    {
+        if (Name == "") Name = "CourierZ Zwischenpunkt";
+        if (EnemyCount < 0) EnemyCount = 0;
+        if (RequiredKills < 0) RequiredKills = 0;
+        if (RequiredKills > EnemyCount && EnemyCount > 0) RequiredKills = EnemyCount;
+        if (HoldSeconds < 0) HoldSeconds = 0;
+        if (Radius < 4.0) Radius = 4.0;
+    }
+}
+
 class CourierZConfig
 {
     int ConfigVersion;
@@ -297,6 +327,7 @@ class CourierZConfig
     string EnemyClassName;
     int StartEnemyCount;
     int DeliveryEnemyCount;
+    ref array<ref CourierZRouteCheckpoint> RouteCheckpoints;
     ref array<string> RewardItems;
 
     void CourierZConfig()
@@ -307,7 +338,7 @@ class CourierZConfig
     void SetDefaults()
     {
         ConfigVersion = 1;
-        PresetName = "FIX43_DISTINCT_ROUTE_COURIERZ";
+        PresetName = "FIX46_ROUTE_CHECKPOINT_COURIERZ";
         DeutschZEventSettings = new CourierZUnifiedEventSettings;
         Courier = new CourierZSpecificSettings;
         ContactPosition = "3120 0 9280";
@@ -319,6 +350,10 @@ class CourierZConfig
         EnemyClassName = "ZmbM_usSoldier_Officer_Desert";
         StartEnemyCount = 3;
         DeliveryEnemyCount = 3;
+        RouteCheckpoints = new array<ref CourierZRouteCheckpoint>;
+        AddRouteCheckpoint("Checkpoint 1 - Waldkontakt", "4780 0 10480", 4, 3, 8, 18.0);
+        AddRouteCheckpoint("Checkpoint 2 - Militaerblockade", "7470 0 11220", 5, 4, 10, 20.0);
+        AddRouteCheckpoint("Checkpoint 3 - Letzte Sperre", "10160 0 11880", 6, 4, 12, 22.0);
         RewardItems = new array<string>;
         RewardItems.Insert("BandageDressing");
         RewardItems.Insert("TacticalBaconCan");
@@ -329,17 +364,40 @@ class CourierZConfig
     {
         if (!DeutschZEventSettings) DeutschZEventSettings = new CourierZUnifiedEventSettings;
         if (!Courier) Courier = new CourierZSpecificSettings;
+        if (!RouteCheckpoints) RouteCheckpoints = new array<ref CourierZRouteCheckpoint>;
         if (!RewardItems) RewardItems = new array<string>;
         DeutschZEventSettings.Repair();
         Courier.Repair();
         if (ConfigVersion < 1) ConfigVersion = 1;
-        if (PresetName == "") PresetName = "FIX43_DISTINCT_ROUTE_COURIERZ";
+        if (PresetName == "") PresetName = "FIX46_ROUTE_CHECKPOINT_COURIERZ";
         if (CaseClassName == "") CaseClassName = "DZCR_Aktenkoffer";
         if (RewardChestClassName == "") RewardChestClassName = "DZCR_RewardChest";
         if (EnemyClassName == "") EnemyClassName = "ZmbM_usSoldier_Officer_Desert";
         if (StartEnemyCount < 0) StartEnemyCount = 0;
         if (DeliveryEnemyCount < 0) DeliveryEnemyCount = 0;
+        if (RouteCheckpoints.Count() < 1)
+        {
+            AddRouteCheckpoint("Checkpoint 1 - Waldkontakt", "4780 0 10480", 4, 3, 8, 18.0);
+            AddRouteCheckpoint("Checkpoint 2 - Militaerblockade", "7470 0 11220", 5, 4, 10, 20.0);
+            AddRouteCheckpoint("Checkpoint 3 - Letzte Sperre", "10160 0 11880", 6, 4, 12, 22.0);
+        }
+        foreach (CourierZRouteCheckpoint checkpoint: RouteCheckpoints)
+        {
+            if (checkpoint) checkpoint.Repair();
+        }
         if (RewardItems.Count() < 1) RewardItems.Insert("BandageDressing");
+    }
+
+    protected void AddRouteCheckpoint(string name, vector position, int enemyCount, int requiredKills, int holdSeconds, float radius)
+    {
+        CourierZRouteCheckpoint checkpoint = new CourierZRouteCheckpoint();
+        checkpoint.Name = name;
+        checkpoint.Position = position;
+        checkpoint.EnemyCount = enemyCount;
+        checkpoint.RequiredKills = requiredKills;
+        checkpoint.HoldSeconds = holdSeconds;
+        checkpoint.Radius = radius;
+        RouteCheckpoints.Insert(checkpoint);
     }
 
     static CourierZConfig Load()

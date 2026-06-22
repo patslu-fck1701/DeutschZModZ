@@ -161,6 +161,10 @@ class DeutschZKotHZLootPoolsConfig
         AddReward(pool, "DeutschZKotHZ_AccessCard", -1, 100.0, 2, "");
         AddReward(pool, "DeutschZKotHZ_ResearchDocument", -1, 100.0, 2, "");
         AddReward(pool, "DeutschZKotHZ_CommanderInsignia", -1, 100.0, 1, "");
+        AddReward(pool, "DeutschZKotHZ_MummyHeart", -1, 100.0, 1, "");
+        AddReward(pool, "DeutschZKotHZ_RedMistCore", -1, 100.0, 1, "");
+        AddReward(pool, "DeutschZKotHZ_BunkerOverrideKey", -1, 100.0, 1, "");
+        AddReward(pool, "DeutschZKotHZ_ContaminatedDogtag", -1, 100.0, 2, "");
 
         LootPools.Insert(pool);
     }
@@ -251,6 +255,8 @@ class DeutschZKotHZLootPoolsConfig
         AddReward(pool, "LeatherSewingKit", -1, 45.0, 2, "");
         AddReward(pool, "DeutschZKotHZ_CommanderInsignia", -1, 15.0, 1, "");
         AddReward(pool, "DeutschZKotHZ_ResearchDocument", -1, 55.0, 2, "");
+        AddReward(pool, "DeutschZKotHZ_BunkerOverrideKey", -1, 25.0, 1, "");
+        AddReward(pool, "DeutschZKotHZ_ContaminatedDogtag", -1, 35.0, 2, "");
 
         LootPools.Insert(pool);
     }
@@ -273,6 +279,15 @@ class DeutschZKotHZLootPoolsConfig
         AddReward(pool, "MetalWire", -1, 60.0, 2, "");
         AddReward(pool, "CombinationLock", -1, 45.0, 1, "");
         AddReward(pool, "BarbedWire", -1, 45.0, 2, "");
+        AddReward(pool, "FenceKit", -1, 65.0, 2, "");
+        AddReward(pool, "WatchtowerKit", -1, 55.0, 1, "");
+        AddReward(pool, "TerritoryFlagKit", -1, 35.0, 1, "");
+        AddReward(pool, "CamoNet", -1, 35.0, 1, "");
+        AddReward(pool, "WoodAxe", -1, 55.0, 1, "");
+        AddReward(pool, "SledgeHammer", -1, 45.0, 1, "");
+        AddReward(pool, "DuctTape", -1, 70.0, 3, "");
+        AddReward(pool, "EpoxyPutty", -1, 55.0, 2, "");
+        AddReward(pool, "DeutschZKotHZ_RedMistCore", -1, 12.0, 1, "");
 
         LootPools.Insert(pool);
     }

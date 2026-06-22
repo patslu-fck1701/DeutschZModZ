@@ -95,20 +95,10 @@ class GroundZeroStageManager
 
         if (runtime.State == GroundZeroStageState.GZ_STAGE_OBJECTIVE_ACTIVE)
         {
-            if (now - m_LastProgressBroadcast >= 10)
-            {
-                m_LastProgressBroadcast = now;
-                int percent = 0;
-                if (runtime.ObjectiveKillRequired > 0)
-                    percent = (runtime.ObjectiveKillCount * 100) / runtime.ObjectiveKillRequired;
-                if (percent > 100) percent = 100;
-                m_Notifications.Broadcast(cfg.StageName + " Fortschritt: " + percent.ToString() + "% (" + runtime.ObjectiveKillCount.ToString() + "/" + runtime.ObjectiveKillRequired.ToString() + ")");
-            }
-
             if (now - m_LastHUDBroadcast >= 1.0)
             {
                 m_LastHUDBroadcast = now;
-                SendStageHUD(runtime, cfg, cfg.StageName + " aktiv - Fortschritt laeuft");
+                SendStageHUD(runtime, cfg, "Signalstation aktiv");
             }
 
             bool timedFallbackAllowed = m_Config.AllowTimedObjectiveFallback && !cfg.RequireManualObjectiveCompletion;
@@ -153,7 +143,6 @@ class GroundZeroStageManager
         if (dist > cfg.StageRadius + 80.0) return;
 
         runtime.ObjectiveKillCount++;
-        m_Notifications.Broadcast(cfg.StageName + ": Gegner eliminiert " + runtime.ObjectiveKillCount.ToString() + "/" + runtime.ObjectiveKillRequired.ToString());
         GroundZeroLogging.Info("Stage", "Enemy kill progress stage=" + runtime.StageId.ToString() + " kills=" + runtime.ObjectiveKillCount.ToString() + "/" + runtime.ObjectiveKillRequired.ToString());
 
         if (runtime.ObjectiveKillCount >= runtime.ObjectiveKillRequired)
@@ -163,7 +152,7 @@ class GroundZeroStageManager
         }
         else
         {
-            SendStageHUD(runtime, cfg, cfg.StageName + ": Gegner eliminiert");
+            SendStageHUD(runtime, cfg, "Gegner eliminiert");
         }
     }
 
@@ -212,7 +201,7 @@ class GroundZeroStageManager
             if (visible)
             {
                 title = cfg.StageName;
-                text = stateText;
+                text = BuildProgressStateText(cfg, runtime, stateText);
                 current = runtime.ObjectiveKillCount;
                 required = runtime.ObjectiveKillRequired;
                 shownPercent = percent;
@@ -230,11 +219,28 @@ class GroundZeroStageManager
             return 150.0;
 
         float radius = cfg.StageRadius + 50.0;
-        if (radius < 75.0)
-            radius = 75.0;
-        if (radius > 250.0)
-            radius = 250.0;
+        if (radius < 150.0)
+            radius = 150.0;
+        if (radius > 1200.0)
+            radius = 1200.0;
         return radius;
+    }
+
+    protected string BuildProgressStateText(GroundZeroStageConfig cfg, GroundZeroStageRuntime runtime, string prefix)
+    {
+        if (!runtime)
+            return prefix;
+
+        int required = runtime.ObjectiveKillRequired;
+        if (required < 1)
+            required = 1;
+
+        int current = runtime.ObjectiveKillCount;
+        if (current > required)
+            current = required;
+
+        int percent = Math.Clamp((current * 100) / required, 0, 100);
+        return prefix + " - " + percent.ToString() + "% (" + current.ToString() + "/" + required.ToString() + " Gegner)";
     }
 
     protected void HideStageHUDToAll()

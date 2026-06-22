@@ -391,16 +391,11 @@ class DeutschZKotHZConfigManager
         if (config.EventMusicSoundSetName == "")
             config.EventMusicSoundSetName = "DeutschZ_KotHZ_EventMusic_SoundSet";
 
-        // FIX45: Musik bleibt verfuegbar, wird aber nicht mehr hart auf aktiv gesetzt.
-        // Serverbetreiber koennen EnableEventMusic und die Phasenflags bewusst in der Config aktivieren.
-        if (config.EnableEventMusic != 0)
-            config.EnableEventMusic = 1;
+        // FIX46: user-facing default is active music. Repair old profile configs into the new behavior.
+        config.EnableEventMusic = 1;
         config.EventMusicPlayOnReady = 0;
-        if (config.EnableEventMusic == 0)
-        {
-            config.EventMusicPlayOnStart = 0;
-            config.EventMusicPlayOnCaptured = 0;
-        }
+        config.EventMusicPlayOnStart = 1;
+        config.EventMusicPlayOnCaptured = 1;
 
         if (config.EventMusicRadius <= 0)
             config.EventMusicRadius = 180.0;
@@ -488,8 +483,11 @@ class DeutschZKotHZConfigManager
             if (!zone)
                 continue;
 
-            // FIX17 TESTVERSION: all zones use the high-value loot pool and reduced capture time.
-            zone.RewardPoolName = "DeutschZ_Test_HighValue";
+            // FIX46: basebuilding KOTH zones must keep the Bauloot pool instead of the global high-value pool.
+            if (IsBasebuildingZone(zone))
+                zone.RewardPoolName = "Basebuilding";
+            else
+                zone.RewardPoolName = "DeutschZ_Test_HighValue";
             zone.CaptureTimeSeconds = 90;
             zone.ZombieWaveCount = 3;
             zone.ZombiesPerWave = 4;
@@ -522,7 +520,7 @@ class DeutschZKotHZConfigManager
                     zone.FlagClassName = "DeutschZKotHZ_LOPA_Flag";
                 else if (zone.ZoneName == "YRAP" || zone.ZoneName == "Yrap" || zone.ZoneName == "YRAP KOTH")
                     zone.FlagClassName = "DeutschZKotHZ_YRAP_Flag";
-                else if (zone.ZoneName == "Basebuilding" || zone.ZoneName == "BaseBuilding" || zone.ZoneName == "Basebuilding KOTH")
+                else if (IsBasebuildingZone(zone))
                     zone.FlagClassName = "DeutschZKotHZ_Basebuild_Flag";
                 else
                     zone.FlagClassName = "DeutschZKotHZ_DeutschZ_KotHZ_Flag";
@@ -555,5 +553,14 @@ class DeutschZKotHZConfigManager
                 zone.ZombieTypes.Insert("ZmbM_NBC_Yellow");
             }
         }
+    }
+
+    protected bool IsBasebuildingZone(DeutschZKotHZZone zone)
+    {
+        if (!zone)
+            return false;
+
+        string name = zone.ZoneName;
+        return name == "Basebuilding" || name == "BaseBuilding" || name == "Basebuilding KOTH" || name.IndexOf("Basebuilding") >= 0 || name.IndexOf("Bauloot") >= 0 || name.IndexOf("Bau KotH") >= 0;
     }
 }

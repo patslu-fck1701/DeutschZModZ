@@ -149,6 +149,12 @@ class CourierZCore
         m_State.EndsAt = m_State.StartedAt + m_Config.Courier.DeliveryTimeLimitSeconds;
         m_State.RequiredKills = m_Config.DeutschZEventSettings.Testing.RequiredKillsToWin;
         m_State.CurrentKills = 0;
+        m_State.CurrentRouteIndex = -1;
+        m_State.CurrentRouteName = "";
+        m_State.CurrentRoutePosition = "0 0 0";
+        m_State.RouteKills = 0;
+        m_State.RouteKillsRequired = 0;
+        m_State.RouteHoldProgressSeconds = 0;
         m_DeliveryProgressSeconds = 0;
         m_State.EventsStartedThisRestart++;
 
@@ -172,10 +178,7 @@ class CourierZCore
             return;
 
         string prefix = m_Config.DeutschZEventSettings.Markers.MarkerPrefix;
-        if (m_Config.DeutschZEventSettings.Markers.UseMapMarker == 1)
-            CourierZBridge.Marker(prefix + "case", "CourierZ Aktenkoffer", m_State.CasePosition, m_Config.DeutschZEventSettings.Markers.MarkerColorARGB);
-        if (m_Config.DeutschZEventSettings.Markers.Use3DMarker == 1)
-            CourierZBridge.Marker3D(prefix + "3D_case", "CourierZ Aktenkoffer 3D", m_State.CasePosition, m_Config.DeutschZEventSettings.Markers.MarkerColorARGB);
+        CreateTargetMarker(prefix + "case", "CourierZ Aktenkoffer", m_State.CasePosition);
     }
 
     protected void CreateTransitMarkers()
@@ -190,14 +193,28 @@ class CourierZCore
         {
             if (m_Config.DeutschZEventSettings.Markers.ShowCarrierMarker == 1)
                 CourierZBridge.Marker(prefix + "carrier", "CourierZ Traeger", m_State.CarrierLastPosition, m_Config.DeutschZEventSettings.Markers.MarkerColorARGB);
-            if (m_Config.DeutschZEventSettings.Markers.ShowExtractionMarker == 1)
-                CourierZBridge.Marker(prefix + "delivery", "CourierZ Uebergabe", m_State.DeliveryPosition, m_Config.DeutschZEventSettings.Markers.MarkerColorARGB);
         }
 
+        if (HasActiveRouteCheckpoint())
+        {
+            CreateTargetMarker(prefix + "route", m_State.CurrentRouteName, m_State.CurrentRoutePosition);
+        }
+        else if (m_Config.DeutschZEventSettings.Markers.ShowExtractionMarker == 1)
+        {
+            CreateTargetMarker(prefix + "delivery", "CourierZ Uebergabe", m_State.DeliveryPosition);
+        }
+    }
+
+    protected void CreateTargetMarker(string id, string label, vector position)
+    {
         if (m_Config.DeutschZEventSettings.Markers.Use3DMarker == 1)
         {
-            CourierZBridge.Marker3D(prefix + "3D_delivery", "CourierZ Uebergabe 3D", m_State.DeliveryPosition, m_Config.DeutschZEventSettings.Markers.MarkerColorARGB);
+            CourierZBridge.Marker3D(id, label, position, m_Config.DeutschZEventSettings.Markers.MarkerColorARGB);
+            return;
         }
+
+        if (m_Config.DeutschZEventSettings.Markers.UseMapMarker == 1)
+            CourierZBridge.Marker(id, label, position, m_Config.DeutschZEventSettings.Markers.MarkerColorARGB);
     }
 
     protected void TickWaitingForCarrier(float now)
@@ -216,9 +233,12 @@ class CourierZCore
                 GetGame().ObjectDelete(m_CaseObject);
                 m_CaseObject = null;
             }
-            SpawnEnemies(m_Config.DeliveryEnemyCount, m_State.DeliveryPosition);
-            CreateTransitMarkers();
-            CourierZBridge.Notify("carrier", "Kurier unterwegs", m_State.CurrentCarrierName + " hat den Aktenkoffer aufgenommen. Lieferung zum Zielpunkt starten.", m_State.CarrierLastPosition);
+            if (m_Config.RouteCheckpoints && m_Config.RouteCheckpoints.Count() > 0)
+                BeginRouteCheckpoint(0, nearby);
+            else
+                BeginFinalDelivery(nearby);
+
+            CourierZBridge.Notify("carrier", "Kurier unterwegs", m_State.CurrentCarrierName + " hat den Aktenkoffer aufgenommen. Route sichern und Zwischenpunkte freikaempfen.", m_State.CarrierLastPosition);
             CourierZPersistence.SaveState(m_State);
             return;
         }
@@ -241,6 +261,24 @@ class CourierZCore
 
         m_State.CarrierLastPosition = carrier.GetPosition();
 
+        if (HasActiveRouteCheckpoint())
+            TickRouteCheckpoint(carrier, now);
+        else
+            TickFinalDelivery(carrier, now);
+
+        if (m_Config.DeutschZEventSettings.Markers.UseDynamicPositionUpdates == 1)
+        {
+            string prefix = m_Config.DeutschZEventSettings.Markers.MarkerPrefix;
+            DeutschZCore_MarkerProviderAPI markers = DeutschZCore_ServiceLocator.GetMarkerProvider();
+            if (markers)
+                markers.UpdateMarker(prefix + "carrier", m_State.CarrierLastPosition);
+        }
+
+        CheckTimeout(now);
+    }
+
+    protected void TickFinalDelivery(PlayerBase carrier, float now)
+    {
         if (vector.Distance(carrier.GetPosition(), m_State.DeliveryPosition) <= m_Config.Courier.DeliveryRadius)
         {
             m_DeliveryProgressSeconds++;
@@ -259,16 +297,119 @@ class CourierZCore
             SendPlayerMessage(carrier, "Abgabestelle verlassen. Uebergabe wurde pausiert.");
         }
 
-        if (m_Config.DeutschZEventSettings.Markers.UseDynamicPositionUpdates == 1)
+        SendStatus(now, "Finale Uebergabe offen. Zielpunkt sichern und Aktenkoffer abliefern.", m_State.CarrierLastPosition);
+    }
+
+    protected void TickRouteCheckpoint(PlayerBase carrier, float now)
+    {
+        CourierZRouteCheckpoint checkpoint = GetCurrentRouteCheckpoint();
+        if (!checkpoint)
         {
-            string prefix = m_Config.DeutschZEventSettings.Markers.MarkerPrefix;
-            DeutschZCore_MarkerProviderAPI markers = DeutschZCore_ServiceLocator.GetMarkerProvider();
-            if (markers)
-                markers.UpdateMarker(prefix + "carrier", m_State.CarrierLastPosition);
+            BeginFinalDelivery(carrier);
+            return;
         }
 
-        SendStatus(now, "Kurier ist unterwegs. Zielpunkt sichern und Aktenkoffer abliefern.", m_State.CarrierLastPosition);
-        CheckTimeout(now);
+        float distance = vector.Distance(carrier.GetPosition(), m_State.CurrentRoutePosition);
+        if (distance > checkpoint.Radius)
+        {
+            if (m_State.RouteHoldProgressSeconds > 0)
+            {
+                m_State.RouteHoldProgressSeconds = 0;
+                SendPlayerMessage(carrier, "Zwischenpunkt verlassen. Sicherung pausiert.");
+                CourierZPersistence.SaveState(m_State);
+            }
+
+            SendStatus(now, m_State.CurrentRouteName + ": anruecken und Bereich freikaempfen. Kills " + m_State.RouteKills.ToString() + "/" + m_State.RouteKillsRequired.ToString() + ".", m_State.CurrentRoutePosition);
+            return;
+        }
+
+        if (m_State.RouteKills < m_State.RouteKillsRequired)
+        {
+            SendStatus(now, m_State.CurrentRouteName + ": Gegner ausschalten " + m_State.RouteKills.ToString() + "/" + m_State.RouteKillsRequired.ToString() + ".", m_State.CurrentRoutePosition);
+            return;
+        }
+
+        m_State.RouteHoldProgressSeconds++;
+        if (m_State.RouteHoldProgressSeconds == 1)
+            SendPlayerMessage(carrier, m_State.CurrentRouteName + " gesichert. Kurz im Radius halten.");
+
+        SendStatus(now, m_State.CurrentRouteName + ": Sicherung " + m_State.RouteHoldProgressSeconds.ToString() + "/" + checkpoint.HoldSeconds.ToString() + " Sekunden.", m_State.CurrentRoutePosition);
+        if (m_State.RouteHoldProgressSeconds >= checkpoint.HoldSeconds)
+            CompleteRouteCheckpoint(carrier);
+    }
+
+    protected bool HasActiveRouteCheckpoint()
+    {
+        if (!m_Config || !m_Config.RouteCheckpoints)
+            return false;
+        return m_State.CurrentRouteIndex >= 0 && m_State.CurrentRouteIndex < m_Config.RouteCheckpoints.Count();
+    }
+
+    protected CourierZRouteCheckpoint GetCurrentRouteCheckpoint()
+    {
+        if (!HasActiveRouteCheckpoint())
+            return null;
+        return m_Config.RouteCheckpoints.Get(m_State.CurrentRouteIndex);
+    }
+
+    protected void BeginRouteCheckpoint(int index, PlayerBase carrier)
+    {
+        if (!m_Config.RouteCheckpoints || index < 0 || index >= m_Config.RouteCheckpoints.Count())
+        {
+            BeginFinalDelivery(carrier);
+            return;
+        }
+
+        CourierZRouteCheckpoint checkpoint = m_Config.RouteCheckpoints.Get(index);
+        if (!checkpoint)
+        {
+            BeginFinalDelivery(carrier);
+            return;
+        }
+
+        m_State.CurrentRouteIndex = index;
+        m_State.CurrentRouteName = checkpoint.Name;
+        m_State.CurrentRoutePosition = Grounded(checkpoint.Position);
+        m_State.RouteKills = 0;
+        m_State.RouteKillsRequired = checkpoint.RequiredKills;
+        m_State.RouteHoldProgressSeconds = 0;
+        m_DeliveryProgressSeconds = 0;
+
+        SpawnEnemies(checkpoint.EnemyCount, m_State.CurrentRoutePosition);
+        CreateTransitMarkers();
+        SendPlayerMessage(carrier, m_State.CurrentRouteName + " markiert. Laufe den Zwischenpunkt an und kaempfe ihn frei.");
+        CourierZBridge.Notify("checkpoint", "CourierZ Zwischenpunkt", m_State.CurrentRouteName + " ist aktiv. Gegner ausschalten und Bereich halten.", m_State.CurrentRoutePosition);
+    }
+
+    protected void CompleteRouteCheckpoint(PlayerBase carrier)
+    {
+        int nextIndex = m_State.CurrentRouteIndex + 1;
+        SendPlayerMessage(carrier, m_State.CurrentRouteName + " abgeschlossen. Naechster Abschnitt wird markiert.");
+        CourierZBridge.Notify("checkpoint_done", "CourierZ Zwischenpunkt gesichert", m_State.CurrentRouteName + " wurde freigekaempft.", m_State.CurrentRoutePosition);
+
+        if (m_Config.RouteCheckpoints && nextIndex < m_Config.RouteCheckpoints.Count())
+            BeginRouteCheckpoint(nextIndex, carrier);
+        else
+            BeginFinalDelivery(carrier);
+
+        CourierZPersistence.SaveState(m_State);
+    }
+
+    protected void BeginFinalDelivery(PlayerBase carrier)
+    {
+        m_State.CurrentRouteIndex = -1;
+        m_State.CurrentRouteName = "";
+        m_State.CurrentRoutePosition = "0 0 0";
+        m_State.RouteKills = 0;
+        m_State.RouteKillsRequired = 0;
+        m_State.RouteHoldProgressSeconds = 0;
+        m_DeliveryProgressSeconds = 0;
+
+        SpawnEnemies(m_Config.DeliveryEnemyCount, m_State.DeliveryPosition);
+        CreateTransitMarkers();
+        if (carrier)
+            SendPlayerMessage(carrier, "Route frei. Finale Uebergabe ist markiert.");
+        CourierZBridge.Notify("final", "CourierZ Finale Uebergabe", "Die Zwischenroute ist frei. Finale Abgabestelle sichern.", m_State.DeliveryPosition);
     }
 
     protected void SendStatus(float now, string message, vector pos)
@@ -339,12 +480,42 @@ class CourierZCore
             FailEvent("Kurier gefallen.");
     }
 
+    void OnEnemyKilled(Object victim)
+    {
+        if (!m_State || m_State.State != CourierZConstants.STATE_IN_TRANSIT)
+            return;
+        if (!victim || !HasActiveRouteCheckpoint())
+            return;
+        if (m_State.RouteKills >= m_State.RouteKillsRequired)
+            return;
+
+        CourierZRouteCheckpoint checkpoint = GetCurrentRouteCheckpoint();
+        if (!checkpoint)
+            return;
+
+        if (vector.Distance(victim.GetPosition(), m_State.CurrentRoutePosition) > checkpoint.Radius + 80.0)
+            return;
+
+        m_State.RouteKills++;
+        if (m_State.RouteKills > m_State.RouteKillsRequired)
+            m_State.RouteKills = m_State.RouteKillsRequired;
+
+        CourierZBridge.Notify("checkpoint_kill", "CourierZ Zwischenpunkt", m_State.CurrentRouteName + ": Gegner eliminiert " + m_State.RouteKills.ToString() + "/" + m_State.RouteKillsRequired.ToString() + ".", m_State.CurrentRoutePosition);
+        CourierZPersistence.SaveState(m_State);
+    }
+
     protected void DropCase(vector position, string reason)
     {
         m_State.CurrentCarrierID = "";
         m_State.CurrentCarrierName = "";
         m_State.CasePosition = Grounded(position);
         m_State.State = CourierZConstants.STATE_WAITING_FOR_CARRIER;
+        m_State.CurrentRouteIndex = -1;
+        m_State.CurrentRouteName = "";
+        m_State.CurrentRoutePosition = "0 0 0";
+        m_State.RouteKills = 0;
+        m_State.RouteKillsRequired = 0;
+        m_State.RouteHoldProgressSeconds = 0;
         m_DeliveryProgressSeconds = 0;
         m_CaseObject = CourierZItems.SpawnObject(m_Config.CaseClassName, m_State.CasePosition);
         CreateStartMarkers();

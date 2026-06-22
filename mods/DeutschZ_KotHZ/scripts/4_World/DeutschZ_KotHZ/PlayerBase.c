@@ -15,7 +15,7 @@ modded class PlayerBase
             Param4<string, string, vector, float> music = new Param4<string, string, vector, float>("", "", vector.Zero, 0.0);
             if (ctx.Read(music) && music.param1 == DeutschZKotHZRPC.TOKEN)
             {
-                DeutschZKotHZClientSound.PlayEventMusic(music.param2, music.param3);
+                DeutschZKotHZClientSound.PlayEventMusic(music.param2, music.param3, music.param4);
                 return;
             }
         }

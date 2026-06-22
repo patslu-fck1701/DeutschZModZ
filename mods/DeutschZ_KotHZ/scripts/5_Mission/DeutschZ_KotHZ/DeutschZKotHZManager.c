@@ -1976,6 +1976,7 @@ class DeutschZKotHZManager
     protected ref array<string> GetCivilianInfectedClasses()
     {
         ref array<string> classes = new array<string>;
+        classes.Insert("DeutschZKotHZ_CivilInfected");
         classes.Insert("ZmbM_CitizenASkinny_Brown");
         classes.Insert("ZmbM_CitizenASkinny_Blue");
         classes.Insert("ZmbM_FarmerFat_Brown");
@@ -1987,6 +1988,7 @@ class DeutschZKotHZManager
     protected ref array<string> GetHunterInfectedClasses()
     {
         ref array<string> classes = new array<string>;
+        classes.Insert("DeutschZKotHZ_HunterInfected");
         classes.Insert("ZmbM_HunterOld_Autumn");
         classes.Insert("ZmbM_HunterOld_Summer");
         classes.Insert("ZmbM_HunterOld_Winter");
@@ -1997,6 +1999,7 @@ class DeutschZKotHZManager
     protected ref array<string> GetMilitaryInfectedClasses()
     {
         ref array<string> classes = new array<string>;
+        classes.Insert("DeutschZKotHZ_MilitaryInfected");
         classes.Insert("ZmbM_usSoldier_Officer_Desert");
         return classes;
     }
@@ -2115,8 +2118,10 @@ class DeutschZKotHZManager
         if (!m_ActiveZone)
             return;
 
-        vector pos = GetRandomZombiePosition();
-        string bossClass = "ZmbM_Mummy";
+        vector pos = GetBossSpawnPositionNearMast();
+        string bossClass = "DeutschZKotHZ_MummyBoss";
+        if (!IsValidZombieGuardClass(bossClass))
+            bossClass = "ZmbM_Mummy";
         if (!IsValidZombieGuardClass(bossClass))
             bossClass = ResolveZombieFallbackClass("ZmbM_usSoldier_Officer_Desert");
 
@@ -2155,10 +2160,10 @@ class DeutschZKotHZManager
         if (!infected)
             return;
 
-        float hp = 1250.0;
+        float hp = 1400.0;
         string t = infected.GetType();
-        if (t.IndexOf("Hunter") >= 0 || waveName.IndexOf("Hunter") >= 0) hp = 1600.0;
-        if (t.IndexOf("Soldier") >= 0 || t.IndexOf("usSoldier") >= 0 || t.IndexOf("NBC") >= 0 || waveName.IndexOf("Military") >= 0) hp = 2200.0;
+        if (t.IndexOf("Hunter") >= 0 || waveName.IndexOf("Hunter") >= 0) hp = 1800.0;
+        if (t.IndexOf("Soldier") >= 0 || t.IndexOf("usSoldier") >= 0 || t.IndexOf("NBC") >= 0 || t.IndexOf("Military") >= 0 || waveName.IndexOf("Military") >= 0) hp = 2500.0;
         if (t.IndexOf("Mummy") >= 0) hp = 7500.0;
 
         infected.SetHealth("", "", hp);
@@ -2303,6 +2308,21 @@ class DeutschZKotHZManager
         float angle = Math.RandomFloatInclusive(0.0, Math.PI * 2.0);
         float dist = Math.RandomFloatInclusive(minDist, maxDist);
         vector pos = m_ActiveZone.Position;
+        pos[0] = pos[0] + Math.Cos(angle) * dist;
+        pos[2] = pos[2] + Math.Sin(angle) * dist;
+        pos[1] = GetGame().SurfaceY(pos[0], pos[2]);
+        return pos;
+    }
+
+    protected vector GetBossSpawnPositionNearMast()
+    {
+        vector center = GetFlagpoleBasePosition();
+        if (center == vector.Zero && m_ActiveZone)
+            center = m_ActiveZone.Position;
+
+        float angle = Math.RandomFloatInclusive(0.0, Math.PI * 2.0);
+        float dist = Math.RandomFloatInclusive(6.0, 12.0);
+        vector pos = center;
         pos[0] = pos[0] + Math.Cos(angle) * dist;
         pos[2] = pos[2] + Math.Sin(angle) * dist;
         pos[1] = GetGame().SurfaceY(pos[0], pos[2]);
