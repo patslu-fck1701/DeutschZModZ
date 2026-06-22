@@ -96,7 +96,7 @@ class GroundZeroCheckpointManager
         if (!player || !player.GetInventory()) return;
         foreach (string itemClass : m_Config.RetryMinimalLoadout)
         {
-            if (itemClass != "") player.GetInventory().CreateInInventory(itemClass);
+            if (itemClass != "" && !DeutschZCore_UnsafeClassGuard.IsBlockedClass(itemClass)) player.GetInventory().CreateInInventory(itemClass);
         }
     }
 

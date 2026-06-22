@@ -1,3 +1,13 @@
+﻿## Publishing Cleanup - Workshop/Types/Config Guides (2026-06-22)
+- Workshop description refreshed to German, English and Russian only.
+- Added `DeutschZ_CourierZ_types.xml` with courier/event classes at `nominal=0` for adminspawn/trader/event rewards, not random mapspawn.
+- Added admin-friendly config guide under `docs/config/`.
+- Credit remains: idea/concept Einarvargr / Konfliktzone; development/integration Patrick Sluzalek / fck1701 / DeutschZ.
+## FIX41 - Reward Unsafe-Class Guard (2026-06-22)
+- CourierZ delivery reward item insertion now blocks exact unsafe vanilla `M249` and `Mag_M249_Box200Rnd`.
+- `GCGN_M249` remains allowed by the shared Core guard.
+- Courier flow, credits and existing compile guards remain unchanged.
+
 ## FIX39 - Full DeutschZ Baseline / Changelog Refresh (2026-06-22)
 - Included in the full DeutschZ source replacement package after KotHZ live-test regression fixes.
 - No CourierZ code changes in this pass.

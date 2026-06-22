@@ -1,3 +1,13 @@
+﻿## Publishing Cleanup - Workshop/Types/Config Guides (2026-06-22)
+- Workshop description refreshed to German, English and Russian only.
+- Added `DeutschZ_GroundZero_types.xml` with campaign/event classes at `nominal=0` for adminspawn/trader/event rewards, not random mapspawn.
+- Added admin-friendly config guide under `docs/config/`.
+- Existing staged campaign flow and marker/status guidance remain unchanged.
+## FIX41 - Retry/Reward Unsafe-Class Guard (2026-06-22)
+- GroundZero retry minimal loadout and campaign reward item spawn now block exact unsafe vanilla `M249` and `Mag_M249_Box200Rnd`.
+- `GCGN_M249` remains allowed by the shared Core guard.
+- Existing stage-rush protection and kill/objective gating remain unchanged.
+
 ## FIX39 - Full DeutschZ Baseline / Changelog Refresh (2026-06-22)
 - Included in the full DeutschZ source replacement package after KotHZ live-test regression fixes.
 - No GroundZero code changes in this pass.
@@ -128,3 +138,4 @@
 - Fixed Game module compile issue in `scripts/3_Game/GroundZeroCore.c`.
 - Renamed member variable `EventManager` to `m_EventManager` to avoid collision with existing DayZ/global type name `EventManager`.
 - No PBO built and no server test performed.
+

@@ -413,7 +413,7 @@ class CourierZCore
 
         foreach (string itemClass: m_Config.RewardItems)
         {
-            if (itemClass != "" && GetGame().ConfigIsExisting("CfgVehicles " + itemClass))
+            if (itemClass != "" && !DeutschZCore_UnsafeClassGuard.IsBlockedClass(itemClass) && GetGame().ConfigIsExisting("CfgVehicles " + itemClass))
                 container.GetInventory().CreateInInventory(itemClass);
         }
     }

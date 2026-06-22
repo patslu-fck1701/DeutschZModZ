@@ -1,3 +1,17 @@
+﻿## Publishing Cleanup + Stage-0 Atmosphere Defaults (2026-06-22)
+- Workshop description refreshed to German, English and Russian only.
+- Added `DeutschZ_KotHZ_types.xml` with event classes at `nominal=0` for adminspawn/trader/event rewards, not random mapspawn.
+- Added admin-friendly config guide under `docs/config/`.
+- Repair/migration now keeps risky atmosphere defaults off: music, object smoke, particle smoke, fog hazard and smoke cannons remain disabled until separate tests.
+- KotHZ signalstation/marker documentation now matches the auto-capture flow.
+## FIX41 - Signalstation Auto-Capture + Single Marker + M249 Guard (2026-06-22)
+- KotHZ now communicates the intended flow clearly: go to the signal station, hold the radius, no action-menu interaction required.
+- Added player entry/leave messages for the signal-station radius and a contested message when progress is blocked.
+- Marker cleanup now removes legacy IDs (`KotHZ_*`, `KotHZ_3D_*`, `Signalstation_*`, `DeutschZ_KotHZ_*`) before creating one visible `KotHZ_<ZoneName>` marker.
+- Marker/capture/HUD center continues to prefer `FlagpolePosition`, with `Position` as fallback.
+- Reward and optional NPC loadout paths use the shared unsafe-class guard; vanilla `M249` and `Mag_M249_Box200Rnd` are blocked, `GCGN_M249` stays allowed.
+- Risky music, smoke/fog, particle smoke and RuntimeFlagpole attachment paths remain disabled.
+
 ## FIX39 - KotHZ Reward Crash Guard + Flag Compile Fix (2026-06-22)
 - Fixed World compile error in `DeutschZKotHZFlagpole.c`: `SetAnimationPhase` is no longer called on generic `Object`; the pole is cast to `EntityAI` first.
 - Added/kept runtime reward crash guard for exact unsafe vanilla `M249` and `Mag_M249_Box200Rnd` entries even if old server profile loot configs still contain them.
@@ -46,9 +60,9 @@
 - Alte interne OGG-Zieldatei `data/sounds/koth-laut-timer.ogg` entfernt, damit keine Namens-/Pfadverwechslung bleibt.
 - SoundSet-Name bleibt `DeutschZ_KotHZ_EventMusic_SoundSet`, damit vorhandene Configs/Scripts weiter funktionieren.
 
-# Changelog – DeutschZ_KotHZ
+# Changelog â€“ DeutschZ_KotHZ
 
-## FIX20 – Custom Event Music OGG
+## FIX20 â€“ Custom Event Music OGG
 
 - Event-Musikdatei ersetzt.
 - Neue Benutzerdatei `KotHZ im roten Rauch.ogg` wurde als `data/sounds/DeutschZ_KotHZ_RoterRauch.ogg` eingebunden.
@@ -56,7 +70,7 @@
 - Mod-Version auf `2.2.7 Infected Siege FIX20 Sound Path Aligned` gesetzt.
 - FIX18 Compliance-/No-Copy-Dokumentation bleibt erhalten.
 
-## FIX18 – Compliance Audit / No-Copy Cleanup
+## FIX18 â€“ Compliance Audit / No-Copy Cleanup
 
 - Compliance-Dokumentation hinzugefuegt.
 - Standard-Kopfkommentar in Code-Dateien eingefuegt.
@@ -69,13 +83,13 @@
 - Root/Prefix bleibt `DeutschZ_KotHZ`.
 - Configpfad bleibt `$profile:DeutschZ/KotHZ/Config/`.
 
-## FIX17 – Proper Test Loot
+## FIX17 â€“ Proper Test Loot
 
 - Schnellstart-Testversion.
 - High-Value-Testloot aus serverseitigen Classname-Referenzen.
 - Ready-copy Configs beigelegt.
 
-## FIX15/FIX14 – Safe Recheck
+## FIX15/FIX14 â€“ Safe Recheck
 
 - Statusbar 500m.
 - Duplicate Notify Schutz.
@@ -90,3 +104,4 @@
 - Aligned capture detection, HUD distance and marker position to the visible mast/flag position.
 - Removed the confusing post-capture boss/statusbar block; capture completion now ends KotHZ directly.
 - Kept music, smoke objects and particle/net-sync smoke disabled for crash isolation.
+

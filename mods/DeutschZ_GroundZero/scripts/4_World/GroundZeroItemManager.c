@@ -21,6 +21,7 @@ class GroundZeroItemManager
     EntityAI SpawnCampaignItem(string className, vector position)
     {
         if (!GetGame() || !GetGame().IsServer()) return null;
+        if (DeutschZCore_UnsafeClassGuard.IsBlockedClass(className)) return null;
         if (!m_Config.IsCampaignItemClass(className) && className != m_Config.ItemFinalResearchCore) return null;
 
         EntityAI entity = EntityAI.Cast(GetGame().CreateObjectEx(className, position, ECE_PLACE_ON_SURFACE));

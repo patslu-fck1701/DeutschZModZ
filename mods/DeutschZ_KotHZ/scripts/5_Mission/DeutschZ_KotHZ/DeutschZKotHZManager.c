@@ -41,6 +41,8 @@ class DeutschZKotHZManager
     protected ref array<Object> m_SmokeCannons;
     protected string m_LastAnnounceMessage;
     protected int m_LastAnnounceTimeMs;
+    protected ref map<string, bool> m_DZKZ_PlayersInSignalRadius;
+    protected bool m_DZKZ_ContestedAnnounced;
 
     protected string m_DeutschZKotHZMarkerId;
 
@@ -77,6 +79,8 @@ class DeutschZKotHZManager
         m_DZKZ_BossZombie = null;
         m_DZKZ_EventInfectedRegistry = new map<Object, string>;
         m_DZKZ_EventLog = new array<string>;
+        m_DZKZ_PlayersInSignalRadius = new map<string, bool>;
+        m_DZKZ_ContestedAnnounced = false;
         m_DeutschZKotHZMarkerId = "";
     }
 
@@ -213,10 +217,13 @@ class DeutschZKotHZManager
         m_LastHUDSyncMs = 0;
         m_CurrentSmokeState = "";
         m_ZombieWavesStarted = false;
+        m_DZKZ_ContestedAnnounced = false;
         ResetInfectedSiegeRuntime();
         CancelZombieWaveSchedule();
         if (m_ProgressHUDPlayers)
             m_ProgressHUDPlayers.Clear();
+        if (m_DZKZ_PlayersInSignalRadius)
+            m_DZKZ_PlayersInSignalRadius.Clear();
 
         // DeutschZ KotHZ pre-start cleanup: remove previous event flags/smoke/fireworks near the selected zone before spawning fresh event objects.
         CleanupZoneKOTHObjects(m_ActiveZone, "pre-start");
@@ -243,8 +250,8 @@ class DeutschZKotHZManager
         MaybeStartFogHazard("Ready");
         // v1.0.25: zombie/infected waves are started on first player entry, DeutschZ wave-system style.
         TryPlayEventMusic("Start");
-        Announce("KOTH gestartet: " + m_ActiveZone.ZoneName + ". Erobere und halte die Zone!");
-        SendHUDToAll(true, m_ActiveZone.ZoneName, 0, 0, m_ActiveZone.CaptureTimeSeconds, CountPlayersInZone(), "KOTH aktiv");
+        Announce("KotHZ gestartet: Begib dich zur Signalstation und halte den Bereich. Keine Interaktion noetig.");
+        SendHUDToAll(true, m_ActiveZone.ZoneName, 0, 0, m_ActiveZone.CaptureTimeSeconds, CountPlayersInZone(), "Zone aktiv - Signalstation halten. Keine Interaktion noetig.");
         GetGame().GetCallQueue(CALL_CATEGORY_SYSTEM).CallLater(TickEvent, 1000, true);
     }
 
@@ -391,9 +398,9 @@ class DeutschZKotHZManager
         if (m_ActiveZone)
             zoneName = m_ActiveZone.ZoneName;
 
-        Announce("KOTH abgeschlossen: " + zoneName + " wurde von " + winnerName + " erobert!");
+        Announce("KotHZ gesichert. Belohnung wurde freigegeben. " + zoneName + " wurde von " + winnerName + " erobert.");
         // FIX35: Hide capture/statusbar immediately on completion. No second post-completion bar/boss phase.
-        SendHUDToAll(false, "", 0, 0, 0, 0, "KOTH abgeschlossen");
+        SendHUDToAll(false, "", 0, 0, 0, 0, "KotHZ gesichert - Belohnung freigegeben");
 
         DeutschZKotHZLootPool pool = GetActiveLootPool();
         ref array<ref DeutschZKotHZReward> rewards = GetActiveRewardList();
@@ -428,9 +435,73 @@ class DeutschZKotHZManager
 
         if (m_ProgressHUDPlayers)
             m_ProgressHUDPlayers.Clear();
+        if (m_DZKZ_PlayersInSignalRadius)
+            m_DZKZ_PlayersInSignalRadius.Clear();
+        m_DZKZ_ContestedAnnounced = false;
 
         if (m_Config && m_Config.EnableKOTH)
             ScheduleNextEvent();
+    }
+
+    protected void UpdateSignalStationPlayerMessages()
+    {
+        if (!m_ActiveZone || !m_DZKZ_PlayersInSignalRadius)
+            return;
+
+        ref array<Man> players = new array<Man>;
+        GetGame().GetPlayers(players);
+
+        ref array<string> currentIds = new array<string>;
+        vector center = GetKotHZEventCenterPosition();
+        if (center == vector.Zero)
+            return;
+
+        foreach (Man man : players)
+        {
+            PlayerBase player = PlayerBase.Cast(man);
+            if (!player || !player.GetIdentity())
+                continue;
+
+            string playerId = player.GetIdentity().GetPlainId();
+            bool inRadius = player.IsAlive() && vector.Distance(player.GetPosition(), center) <= m_ActiveZone.Radius;
+
+            if (inRadius)
+            {
+                currentIds.Insert(playerId);
+                if (!m_DZKZ_PlayersInSignalRadius.Contains(playerId))
+                {
+                    m_DZKZ_PlayersInSignalRadius.Set(playerId, true);
+                    NotifyKotHZPlayer(player, "Signalstation erreicht. Halte den Bereich, um KotHZ zu erobern. Keine Interaktion noetig.");
+                }
+            }
+            else if (m_DZKZ_PlayersInSignalRadius.Contains(playerId))
+            {
+                m_DZKZ_PlayersInSignalRadius.Remove(playerId);
+                NotifyKotHZPlayer(player, "Du hast den KotHZ-Bereich verlassen. Der Fortschritt pausiert.");
+            }
+        }
+
+        ref array<string> staleIds = new array<string>;
+        foreach (string trackedId, bool tracked : m_DZKZ_PlayersInSignalRadius)
+        {
+            if (currentIds.Find(trackedId) == -1)
+                staleIds.Insert(trackedId);
+        }
+
+        foreach (string staleId : staleIds)
+        {
+            m_DZKZ_PlayersInSignalRadius.Remove(staleId);
+        }
+    }
+
+    protected void NotifyKotHZPlayer(PlayerBase player, string message)
+    {
+        if (!player || !player.GetIdentity() || message == "")
+            return;
+
+        NotificationSystem.SendNotificationToPlayerExtended(player, 8.0, "DeutschZ KotHZ", message, "set:dayz_inventory image:tf_flag");
+        Param1<string> data = new Param1<string>(message);
+        GetGame().RPCSingleParam(player, ERPCs.RPC_USER_ACTION_MESSAGE, data, true, player.GetIdentity());
     }
 
     protected void GiveRewardsDirect(PlayerBase winner, array<ref DeutschZKotHZReward> rewards)
@@ -442,6 +513,11 @@ class DeutschZKotHZManager
         {
             if (!reward || reward.ClassName == "")
                 continue;
+            if (IsBannedRewardClass(reward.ClassName))
+            {
+                Print("[DeutschZ_KotHZ] Direct reward classname is blocked by FIX41 crash guard and was skipped: " + reward.ClassName);
+                continue;
+            }
 
             int amount = Math.Max(1, reward.Quantity);
             for (int i = 0; i < amount; i++)
@@ -485,6 +561,7 @@ class DeutschZKotHZManager
         int playersInZone = CountPlayersInZone();
         PlayerBase holder = FindSingleHolderInZone(playersInZone);
         string state = "Neutral";
+        UpdateSignalStationPlayerMessages();
 
         if (playersInZone > 0 && !m_ZombieWavesStarted)
             StartZombieWaves();
@@ -494,15 +571,21 @@ class DeutschZKotHZManager
             if (playersInZone > 0)
             {
                 // Multiple players / contested presence: KOTH is active, but no single holder can capture.
-                state = "KOTH in progress";
+                state = "KotHZ umkaempft - Fortschritt blockiert";
+                if (!m_DZKZ_ContestedAnnounced)
+                {
+                    Announce("KotHZ ist umkaempft. Der Fortschritt ist blockiert.");
+                    m_DZKZ_ContestedAnnounced = true;
+                }
                 SetStatusSmoke("Yellow");
                 MaybeStartFogHazard("Progress");
             }
             else
             {
-                state = "KOTH ready";
+                state = "Zone aktiv - Halte den Bereich an der Signalstation. Keine Interaktion noetig.";
                 m_CurrentHolder = null;
                 m_CurrentCaptureSeconds = 0;
+                m_DZKZ_ContestedAnnounced = false;
                 SetStatusSmoke("Green");
             }
 
@@ -514,10 +597,11 @@ class DeutschZKotHZManager
         {
             m_CurrentHolder = holder;
             m_CurrentCaptureSeconds = 0;
-            Announce(GetPlayerName(holder) + " kontrolliert jetzt KOTH: " + m_ActiveZone.ZoneName);
+            m_DZKZ_ContestedAnnounced = false;
+            Announce("Signalstation erreicht. " + GetPlayerName(holder) + " haelt den Bereich, KotHZ-Capture laeuft automatisch.");
         }
 
-        state = "KOTH in progress";
+        state = "Signalstation gehalten - Capture laeuft automatisch";
         SetStatusSmoke("Yellow");
         MaybeStartFogHazard("Progress");
         m_CurrentCaptureSeconds++;
@@ -917,15 +1001,7 @@ class DeutschZKotHZManager
         if (className == "")
             return false;
 
-        // FIX38: Vanilla M249 currently triggers Weapon.SaveCurrentFSMState without initialized FSM
-        // when created directly inside reward crate inventory on this server stack.
-        // Keep GCGN_M249 allowed; only block the exact unsafe vanilla class and its vanilla box mag.
-        if (className == "M249")
-            return true;
-        if (className == "Mag_M249_Box200Rnd")
-            return true;
-
-        return false;
+        return DeutschZCore_UnsafeClassGuard.IsBlockedClass(className);
     }
 
     protected string ResolveRewardClassName(DeutschZKotHZReward reward)
@@ -2210,7 +2286,7 @@ class DeutschZKotHZManager
 
         foreach (string itemName : m_ActiveZone.NPCLoadoutClassNames)
         {
-            if (itemName != "")
+            if (itemName != "" && !DeutschZCore_UnsafeClassGuard.IsBlockedClass(itemName))
                 entity.GetInventory().CreateInInventory(itemName);
         }
     }
@@ -2435,6 +2511,7 @@ class DeutschZKotHZManager
     protected void CreateAllMapMarkers()
     {
         string backend = GetMarkerMode();
+        CleanupLegacyKotHZMarkerIds();
 
         if (backend == "Off" || backend == "VanillaNotifications")
         {
@@ -2486,7 +2563,7 @@ class DeutschZKotHZManager
         if (markerPos == vector.Zero)
             markerPos = m_ActiveZone.Position;
         markerPos[1] = GetGame().SurfaceY(markerPos[0], markerPos[2]) + 3.0;
-        m_DeutschZKotHZMarkerId = GetShortKOTHLocationName();
+        m_DeutschZKotHZMarkerId = GetKotHZMarkerSuffix();
 
         // FIX35: Create exactly one Expansion server marker. If 3D is enabled, the same marker is flagged as 3D
         // and remains the single map/world marker instead of creating separate duplicate marker ids.
@@ -2508,22 +2585,14 @@ class DeutschZKotHZManager
 
     protected void UpdateCoreMarkerForSmokeState(string smokeState)
     {
-        if (m_DeutschZKotHZMarkerId == "" || !m_ActiveZone)
-            return;
-
-        vector markerPos = GetKotHZEventCenterPosition();
-        if (markerPos == vector.Zero)
-            markerPos = m_ActiveZone.Position;
-        markerPos[1] = GetGame().SurfaceY(markerPos[0], markerPos[2]) + 3.0;
-
-        if (m_Config && m_Config.EnableExpansion3DMarker)
-            DeutschZKotHZCoreBridge.CreateEvent3DMarker(m_DeutschZKotHZMarkerId, "KotH - " + GetShortKOTHLocationName(), markerPos);
-        else
-            DeutschZKotHZCoreBridge.CreateEventMarker(m_DeutschZKotHZMarkerId, "KotH - " + GetShortKOTHLocationName(), markerPos);
+        // Marker position is static during an event. Recreating the marker on every status update can leave
+        // duplicate Expansion map entries on some servers, so FIX41 keeps exactly one marker for the event.
     }
 
     protected void DeleteCoreMarker()
     {
+        CleanupLegacyKotHZMarkerIds();
+
         if (m_DeutschZKotHZMarkerId != "")
         {
             DeutschZKotHZCoreBridge.DeleteEventMarker(m_DeutschZKotHZMarkerId);
@@ -2542,6 +2611,44 @@ class DeutschZKotHZManager
             return ARGB(255, 255, 255, 0);
 
         return ARGB(255, 255, 0, 0);
+    }
+
+    protected string GetKotHZMarkerSuffix()
+    {
+        string suffix = "";
+        if (m_ActiveZone && m_ActiveZone.ZoneName != "")
+            suffix = m_ActiveZone.ZoneName;
+
+        if (suffix == "")
+            suffix = GetShortKOTHLocationName();
+
+        suffix.Replace(" ", "_");
+        suffix.Replace("/", "_");
+        suffix.Replace("\\", "_");
+        suffix.Replace(":", "_");
+        return suffix;
+    }
+
+    protected void CleanupLegacyKotHZMarkerIds()
+    {
+        ref array<string> suffixes = new array<string>;
+        string currentSuffix = GetKotHZMarkerSuffix();
+        string shortSuffix = GetShortKOTHLocationName();
+
+        if (currentSuffix != "")
+            suffixes.Insert(currentSuffix);
+        if (shortSuffix != "" && suffixes.Find(shortSuffix) == -1)
+            suffixes.Insert(shortSuffix);
+        if (m_DeutschZKotHZMarkerId != "" && suffixes.Find(m_DeutschZKotHZMarkerId) == -1)
+            suffixes.Insert(m_DeutschZKotHZMarkerId);
+
+        foreach (string suffix : suffixes)
+        {
+            DeutschZKotHZCoreBridge.DeleteRawMarker("KotHZ_" + suffix);
+            DeutschZKotHZCoreBridge.DeleteRawMarker("KotHZ_3D_" + suffix);
+            DeutschZKotHZCoreBridge.DeleteRawMarker("Signalstation_" + suffix);
+            DeutschZKotHZCoreBridge.DeleteRawMarker("DeutschZ_KotHZ_" + suffix);
+        }
     }
 
     protected void Announce(string message)

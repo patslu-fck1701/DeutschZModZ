@@ -1,7 +1,7 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+﻿<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <types>
-    <!-- DeutschZ generated event-item template. Default nominal=0: event rewards only, no random map spawn. -->
-    <type name="GroundZero_AlphaDataModule">
+    <!-- DeutschZ event/economy template. nominal=0 keeps these classes out of random map spawns. Use for admin spawn, trader, event loot and rewards. -->
+    <type name="DZCR_SealedLetter">
         <nominal>0</nominal>
         <lifetime>3888000</lifetime>
         <restock>0</restock>
@@ -12,7 +12,7 @@
         <flags count_in_cargo="0" count_in_hoarder="0" count_in_map="0" count_in_player="0" crafted="0" deloot="0"/>
         <category name="tools"/>
     </type>
-    <type name="GroundZero_EnergyCell">
+    <type name="DZCR_ClassifiedDocument">
         <nominal>0</nominal>
         <lifetime>3888000</lifetime>
         <restock>0</restock>
@@ -23,7 +23,7 @@
         <flags count_in_cargo="0" count_in_hoarder="0" count_in_map="0" count_in_player="0" crafted="0" deloot="0"/>
         <category name="tools"/>
     </type>
-    <type name="GroundZero_BioSample">
+    <type name="DZCR_SecretOrder">
         <nominal>0</nominal>
         <lifetime>3888000</lifetime>
         <restock>0</restock>
@@ -34,7 +34,7 @@
         <flags count_in_cargo="0" count_in_hoarder="0" count_in_map="0" count_in_player="0" crafted="0" deloot="0"/>
         <category name="tools"/>
     </type>
-    <type name="GroundZero_AuthChip">
+    <type name="DZCR_EncryptedDataDrive">
         <nominal>0</nominal>
         <lifetime>3888000</lifetime>
         <restock>0</restock>
@@ -45,7 +45,7 @@
         <flags count_in_cargo="0" count_in_hoarder="0" count_in_map="0" count_in_player="0" crafted="0" deloot="0"/>
         <category name="tools"/>
     </type>
-    <type name="GroundZero_ContainmentKey">
+    <type name="DZCR_Aktenkoffer">
         <nominal>0</nominal>
         <lifetime>3888000</lifetime>
         <restock>0</restock>
@@ -56,7 +56,7 @@
         <flags count_in_cargo="0" count_in_hoarder="0" count_in_map="0" count_in_player="0" crafted="0" deloot="0"/>
         <category name="tools"/>
     </type>
-    <type name="GroundZero_ResearchCore">
+    <type name="DZCR_RewardChest">
         <nominal>0</nominal>
         <lifetime>3888000</lifetime>
         <restock>0</restock>

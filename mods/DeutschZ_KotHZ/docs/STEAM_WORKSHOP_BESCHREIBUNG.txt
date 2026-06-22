@@ -1,42 +1,66 @@
-DeutschZ_KotHZ - Infected Siege
+﻿[h1]DEUTSCHZ KOTHZ - INFECTED SIEGE[/h1]
+[i]Erobere die Zone. Halte die Stellung. Ueberlebe die Wellen.[/i]
 
-Kurzbeschreibung:
-PvE-King-of-the-Hill-Event mit Zombie-Wellen, Capture-Zonen, Reward-Crate, roten Event-Effekten und PvP-tauglichem Hotspot-Design.
+[h2]Beschreibung[/h2]
+[list]
+[*]KOTH-artiges PvE-Event mit Signalstation, Fahne und Capture-Zone
+[*]Zum Marker laufen, Bereich halten, keine Aktionstaste noetig
+[*]Capture laeuft automatisch im Radius der Signalstation
+[*]Zombies und Waves erzeugen Druck bis zum Abschluss
+[*]Reward wird nach erfolgreicher Sicherung freigegeben
+[*]Marker und HUD sollen jederzeit klar zeigen, was passiert
+[/list]
 
-Features:
-- Server-autoritativ vorbereitet
-- Capture-Zonen und Event-State-Grundlage
-- Zombie-/Infected-Wellen vorbereitet
-- Reward-Crate-/Reward-Struktur vorbereitet
-- Marker-/Expansion-Funktionen nur ueber DeutschZ_ExpansionBridge
-- Logging/Status fuer Admin-Analyse vorbereitet
-- Safe-Boot-Grundlage ohne Release-/PBO-Artefakte
+[h1]DEUTSCHZ KOTHZ - INFECTED SIEGE[/h1]
+[i]Take the zone. Hold the line. Survive the waves.[/i]
 
-Konfiguration:
-- Core/Framework: $profile:DeutschZ/
-- Event-Pfad: $profile:DeutschZ/KotHZ/ bzw. $profile:DeutschZ/KotHZ/Config/
-- Mitgelieferte Beispiel-/Template-Dateien sind Startpunkte und muessen nach Server-Setup geprueft werden.
+[h2]Description[/h2]
+[list]
+[*]KOTH-style PvE event with signal station, flag and capture zone
+[*]Move to the marker, hold the area, no action key required
+[*]Capture runs automatically inside the signal-station radius
+[*]Zombies and waves pressure players until completion
+[*]Reward is released after a successful capture
+[*]Marker and HUD clearly explain the current state
+[/list]
 
-Types.xml:
-types.xml ist nur als Template mit nominal=0 enthalten. Event-Items sollen nicht zufaellig auf der Map spawnen, sondern gezielt ueber Event, Reward, Trader oder Admin-Tools kommen.
+[h1]DEUTSCHZ KOTHZ - INFECTED SIEGE[/h1]
+[i]Захвати зону. Удержи позицию. Переживи волны.[/i]
 
-Abhaengigkeiten / Lade-Reihenfolge:
-1. CF [WORKSHOP_LINK_CF] - falls von deiner Server-Modliste benoetigt
-2. DayZ Expansion [WORKSHOP_LINK_DAYZ_EXPANSION] - nur falls Expansion-Funktionen aktiv genutzt werden
-3. DeutschZ_Core [WORKSHOP_LINK_DEUTSCHZ_CORE]
-4. DeutschZ_ExpansionBridge [WORKSHOP_LINK_DEUTSCHZ_EXPANSIONBRIDGE] - fuer Expansion-Marker/Expansion-Funktionen
-5. DeutschZ_KotHZ [WORKSHOP_LINK_DEUTSCHZ_KOTHZ]
+[h2]Описание[/h2]
+[list]
+[*]PvE-событие в стиле KOTH с сигнальной станцией, флагом и зоной захвата
+[*]Иди к маркеру, удерживай область, кнопка действия не нужна
+[*]Захват идет автоматически в радиусе сигнальной станции
+[*]Зомби и волны создают давление до завершения
+[*]Награда появляется после успешного захвата
+[*]Маркер и HUD понятно показывают состояние события
+[/list]
 
-Empfohlene DeutschZ-Event-Kombi:
-- DeutschZ_ConvoyZ [WORKSHOP_LINK_DEUTSCHZ_CONVOYZ]
-- DeutschZ_GroundZero [WORKSHOP_LINK_DEUTSCHZ_GROUNDZERO]
+[h2]Links / Support[/h2]
+Workshop: https://steamcommunity.com/sharedfiles/filedetails/?id=3746385283
+GitHub: https://github.com/patslu-fck1701/DeutschZModZ
+DeutschZModZ Support: https://discord.gg/WM5GkDbw7C
 
-GitHub / Source / Transparenz:
-GitHub Repository: https://github.com/DEIN_GITHUB_ACCOUNT/DeutschZModZ
-Der Link wird vor Workshop-Release durch den echten Repository-Link ersetzt.
+[h2]Loadorder[/h2]
+[list]
+[*]@CF, falls von deiner Server-Modliste benoetigt
+[*]@DayZ-Expansion, falls Expansion-Funktionen aktiv genutzt werden
+[*]@DeutschZ_Core
+[*]@DeutschZ_ExpansionBridge
+[*]@DeutschZ_KotHZ
+[*]@DeutschZ_ConvoyZ
+[*]@DeutschZ_GroundZero
+[*]@DeutschZ_CourierZ
+[/list]
 
-Server-Admin-Hinweis:
-Diese Version ist fuer den ersten Dedicated-Server-Test vorbereitet. Es wurde kein PBO gebaut und kein lokaler Server-Test durchgefuehrt. Nach dem ersten Start unbedingt Script-Log, RPT, Profil-Configs und Event-Start pruefen.
-
-Compliance:
-Eigenstaendige DeutschZ-Implementierung. Keine kopierten Fremdmod-Dateien, keine alten LB/SFKOTH/BasicMap/VPP/COT/MarkerBridge-Reste als aktive Source.
+[h2]Support-Hinweis[/h2]
+Bei Fehlern bitte direkt im DeutschZModZ-Support melden und folgende Dateien mitsenden:
+[list]
+[*]crash_*.log
+[*]script_*.log
+[*]DayZServer_x64_*.RPT
+[*]server_console.log
+[*]vollstaendige Modlist / Loadorder
+[*]kurze Beschreibung, was direkt vor dem Fehler passiert ist
+[/list]

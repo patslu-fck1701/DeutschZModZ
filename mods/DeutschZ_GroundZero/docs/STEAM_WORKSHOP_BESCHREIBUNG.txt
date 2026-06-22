@@ -1,71 +1,63 @@
-[h1]DeutschZ GroundZero[/h1]
+﻿[h1]DEUTSCHZ GROUND ZERO[/h1]
+[i]Ein mehrstufiges Kampagnen-Event fuer gefaehrliche Zonen.[/i]
 
-GroundZero ist ein mehrstufiges DeutschZ-Kampagnen-Event mit Stage-Zielen, Gegnern, Sammel-/Fortschrittssystem, Finalphase, Extraction und Marker-/Notify-Anbindung ueber Core/Bridge.
+[h2]Beschreibung[/h2]
+[list]
+[*]Mehrstufiges PvE-Kampagnen- und Eventsystem
+[*]PvE-Fokus mit moeglichem PvP-Einfluss durch Hotspots
+[*]Aufgaben, Stufen und Finale fuehren durch den Ablauf
+[*]Marker und Statusmeldungen zeigen den naechsten Schritt
+[*]Belohnung nach erfolgreichem Abschluss
+[/list]
 
-[h1]Aktueller Stand - FIX23[/h1]
-Version: 0.4.6-fix23-killgated-testready
+[h1]DEUTSCHZ GROUND ZERO[/h1]
+[i]A staged campaign event for dangerous zones.[/i]
 
-- Autostart-Schleife gestoppt.
-- Kein Durchrauschen durch alle Stages mehr.
-- Stage-Fortschritt ist jetzt kill-gated: Testconfig verlangt 3 Gegnerkills pro Stage.
-- Timed Objective Fallback ist in Testconfigs deaktiviert.
-- Gegnerwellen reduziert und stabilisiert.
-- Military/Rogue-AI standardmaessig aus, Vanilla-Infected-Testfallback aktiv.
-- Stage-, Carrier-, Drop-, Final- und Extraction-Marker-Intent ueber Core/Bridge.
-- Chat-/Popup-Fallbacks aktiv.
+[h2]Description[/h2]
+[list]
+[*]Staged PvE campaign and event system
+[*]PvE focus with possible PvP pressure around hotspots
+[*]Objectives, stages and finale guide the flow
+[*]Markers and status messages show the next step
+[*]Reward after successful completion
+[/list]
 
-[h1]Gameplay-Test[/h1]
-Nach einem Profilreset startet GroundZero schnell. Spieler sollen Meldungen, sichtbare Beacons/Marker-Intent, Gegner und klaren Stage-Fortschritt sehen. Eine Stage soll erst weitergehen, wenn genug Gegner getoetet wurden.
+[h1]DEUTSCHZ GROUND ZERO[/h1]
+[i]Многоэтапное кампанийное событие для опасных зон.[/i]
 
+[h2]Описание[/h2]
+[list]
+[*]Многоэтапная PvE-кампания и event-система
+[*]PvE-фокус с возможным PvP-давлением в горячих точках
+[*]Задачи, этапы и финал ведут игрока по событию
+[*]Маркеры и статусы показывают следующий шаг
+[*]Награда после успешного завершения
+[/list]
 
-[h1]Links[/h1]
-GitHub / Source / Audit:
-https://github.com/patslu-fck1701/DeutschZModZ
+[h2]Links / Support[/h2]
+Workshop: https://steamcommunity.com/sharedfiles/filedetails/?id=3748422786
+GitHub: https://github.com/patslu-fck1701/DeutschZModZ
+DeutschZModZ Support: https://discord.gg/WM5GkDbw7C
 
-DeutschZ Core:
-https://steamcommunity.com/sharedfiles/filedetails/?id=3748421029
+[h2]Loadorder[/h2]
+[list]
+[*]@CF, falls von deiner Server-Modliste benoetigt
+[*]@DayZ-Expansion, falls Expansion-Funktionen aktiv genutzt werden
+[*]@DeutschZ_Core
+[*]@DeutschZ_ExpansionBridge
+[*]@DeutschZ_KotHZ
+[*]@DeutschZ_ConvoyZ
+[*]@DeutschZ_GroundZero
+[*]@DeutschZ_CourierZ
+[/list]
 
-DeutschZ ExpansionBridge:
-https://steamcommunity.com/sharedfiles/filedetails/?id=3748421850
-
-DeutschZ KotHZ / Infected Siege:
-https://steamcommunity.com/sharedfiles/filedetails/?id=3746385283
-
-DeutschZ ConvoyZ:
-https://steamcommunity.com/sharedfiles/filedetails/?id=3745946832
-
-DeutschZ GroundZero:
-https://steamcommunity.com/sharedfiles/filedetails/?id=3748422786
-
-[h1]Community / Serverlinks[/h1]
-DeutschZ Discord:
-https://discord.gg/FHzZ7BykFk
-
-DeutschZ Server:
-193.135.10.128:20076
-
-Konfliktzone Discord:
-https://discord.gg/tRtSbWtrsm
-
-Konfliktzone|Chernarus (PVE) - Main Server:
-217.146.80.188:2302
-
-Konfliktzone|Napf (PVE/PVP):
-46.4.112.91:2680
-
-Konfliktzone|Banov (PVE):
-168.119.79.147:2680
-
-[h1]Transparenz[/h1]
-Dieses Projekt wird als eigenes DeutschZ-Mod-Oekosystem entwickelt. Keine fremden PBOs werden geoeffnet oder kopiert. Der aktuelle Stand enthaelt Dokumentationsdateien wie README, CHANGELOG, NO_COPY_AUDIT, SOURCE_PROVENANCE, PUBLIC_SOURCE_REGISTER, OPEN_ASSUMPTIONS und README_COMPLIANCE.
-
-[h1]Loadorder[/h1]
-1. DeutschZ_Core
-2. DeutschZ_ExpansionBridge
-9. DeutschZ_KotHZ
-10. DeutschZ_ConvoyZ
-11. DeutschZ_GroundZero
-
-
-Neue/kommende DeutschZ Erweiterung:
-DeutschZ CourierZ - Operation Aktenkoffer: https://steamcommunity.com/sharedfiles/filedetails/?id=3748646981
+[h2]Support-Hinweis[/h2]
+Bei Fehlern bitte direkt im DeutschZModZ-Support melden und folgende Dateien mitsenden:
+[list]
+[*]crash_*.log
+[*]script_*.log
+[*]DayZServer_x64_*.RPT
+[*]server_console.log
+[*]vollstaendige Modlist / Loadorder
+[*]kurze Beschreibung, was direkt vor dem Fehler passiert ist
+[/list]

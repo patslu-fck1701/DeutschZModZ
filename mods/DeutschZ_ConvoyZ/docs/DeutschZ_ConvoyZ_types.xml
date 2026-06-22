@@ -1,6 +1,28 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+﻿<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <types>
-    <!-- DeutschZ generated event-item template. Default nominal=0: event rewards only, no random map spawn. -->
+    <!-- DeutschZ event/economy template. nominal=0 keeps these classes out of random map spawns. Use for admin spawn, trader, event loot and rewards. -->
+    <type name="Land_HACKEDCRATE">
+        <nominal>0</nominal>
+        <lifetime>3888000</lifetime>
+        <restock>0</restock>
+        <min>0</min>
+        <quantmin>-1</quantmin>
+        <quantmax>-1</quantmax>
+        <cost>100</cost>
+        <flags count_in_cargo="0" count_in_hoarder="0" count_in_map="0" count_in_player="0" crafted="0" deloot="0"/>
+        <category name="tools"/>
+    </type>
+    <type name="DZCV_ProtectedCase">
+        <nominal>0</nominal>
+        <lifetime>3888000</lifetime>
+        <restock>0</restock>
+        <min>0</min>
+        <quantmin>-1</quantmin>
+        <quantmax>-1</quantmax>
+        <cost>100</cost>
+        <flags count_in_cargo="0" count_in_hoarder="0" count_in_map="0" count_in_player="0" crafted="0" deloot="0"/>
+        <category name="tools"/>
+    </type>
     <type name="DZCV_AccessCard">
         <nominal>0</nominal>
         <lifetime>3888000</lifetime>

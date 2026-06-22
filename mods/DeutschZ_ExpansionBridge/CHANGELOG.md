@@ -1,3 +1,13 @@
+﻿## Publishing Cleanup - Workshop/Types/Config Guides (2026-06-22)
+- Workshop description refreshed to German, English and Russian only.
+- Confirmed no economy `types.xml` is required for this bridge/script module.
+- Added admin-friendly config guide under `docs/config/`.
+- Bridge remains the central optional Expansion marker/notification path.
+## FIX41 - Marker Provider Baseline (2026-06-22)
+- No Bridge API behavior change required for FIX41.
+- KotHZ now performs exact legacy marker cleanup through the bridge before creating its single active marker.
+- Existing ExpansionMarkerModule/CreateServerMarker route remains active.
+
 ## FIX39 - Full DeutschZ Baseline / Changelog Refresh (2026-06-22)
 - Included in the full DeutschZ source replacement package after KotHZ live-test regression fixes.
 - No Bridge code changes in this pass.
@@ -70,3 +80,4 @@
 ## 0.1.0
 
 - Initiale Source-Struktur angelegt.
+

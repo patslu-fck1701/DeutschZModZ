@@ -1,6 +1,7 @@
 # DeutschZ Workshop Links und Loadorder
 
 GitHub: https://github.com/patslu-fck1701/DeutschZModZ
+DeutschZModZ Support: https://discord.gg/WM5GkDbw7C
 
 ## Steam Workshop
 
@@ -20,4 +21,4 @@ GitHub: https://github.com/patslu-fck1701/DeutschZModZ
 5. DeutschZ_GroundZero
 6. DeutschZ_CourierZ
 
-Nach erstem CourierZ Upload den Platzhalter-Link ersetzen.
+Bei Fehlern bitte crash_*.log, script_*.log, DayZServer_x64_*.RPT, server_console.log, vollstaendige Modlist/Loadorder und eine kurze Fehlerbeschreibung mitsenden.

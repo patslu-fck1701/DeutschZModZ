@@ -424,16 +424,18 @@ class DeutschZKotHZConfigManager
 
         if (config.Smoke)
         {
-            // v1.0.30: keep red captured smoke and the mast visible longer after win.
+            // FIX42: Stage-0 safe default. Risky visual systems stay off until tested separately.
             if (config.Smoke.CompletedSmokeSeconds < 120.0)
                 config.Smoke.CompletedSmokeSeconds = 180.0;
 
-            config.Smoke.UseObjectSmoke = 1;
+            config.Smoke.UseObjectSmoke = 0;
             config.Smoke.UseParticleSmoke = 0;
-            config.Smoke.EnableSmoke = 1;
+            config.Smoke.EnableSmoke = 0;
             config.Smoke.EnableFogHazard = 0;
+            config.Smoke.EnableSmokeCannons = 0;
             config.Smoke.FogStartOnReady = 0;
             config.Smoke.FogStartOnProgress = 0;
+            config.Smoke.FogStartOnCompleted = 0;
             config.Smoke.FogEmitterCount = 0;
             config.Smoke.SmokeObjectClassNameGreen = "M18SmokeGrenade_Green";
             config.Smoke.SmokeObjectClassNameYellow = "M18SmokeGrenade_Yellow";

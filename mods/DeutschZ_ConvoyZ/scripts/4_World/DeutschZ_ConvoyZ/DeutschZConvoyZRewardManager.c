@@ -81,6 +81,11 @@ class DeutschZConvoyZRewardManager
         foreach (DeutschZConvoyZRewardItemDef item: reward.Items)
         {
             if (!item || item.ClassName == "" || item.Quantity <= 0) continue;
+            if (DeutschZCore_UnsafeClassGuard.IsBlockedClass(item.ClassName))
+            {
+                DeutschZConvoyZLogger.Log("RewardItemBlocked", eventId, "REWARD_UNLOCKED", "", reward.RewardPosition, "BLOCKED", item.ClassName);
+                continue;
+            }
             if (item.Chance < 1.0 && Math.RandomFloat01() > item.Chance) continue;
             for (int i = 0; i < item.Quantity; i++)
             {
@@ -102,6 +107,7 @@ class DeutschZConvoyZRewardManager
     void SpawnRewardItemSafe(EntityAI container, string className, int quantity, vector fallbackPos)
     {
         if (className == "") return;
+        if (DeutschZCore_UnsafeClassGuard.IsBlockedClass(className)) return;
         if (quantity <= 0) quantity = 1;
 
         for (int i = 0; i < quantity; i++)

@@ -1,67 +1,60 @@
-[h1]DeutschZ ExpansionBridge[/h1]
+﻿[h1]DEUTSCHZ EXPANSION BRIDGE[/h1]
+[i]Markers, Notifications und AI-Anbindungen ueber eine saubere Bruecke.[/i]
 
-DeutschZ ExpansionBridge ist die einzige direkte Erweiterungsschicht fuer Expansion-nahe Funktionen im DeutschZ-System. Eventmods duerfen keine direkten Expansion-Calls verwenden, sondern gehen ueber Core/Bridge.
+[h2]Beschreibung[/h2]
+[list]
+[*]Zentrale optionale Verbindung zu DayZ Expansion Funktionen
+[*]Eventmods bleiben frei von direkten Expansion Calls
+[*]Marker- und 3D-Marker-Anfragen laufen gebuendelt ueber die Bridge
+[*]Core/Bridge Architektur bleibt sauber trennbar
+[/list]
 
-[h1]Aktueller Stand - FIX23[/h1]
-Version: 0.1.2-fix23-marker-notify-fallback
+[h1]DEUTSCHZ EXPANSION BRIDGE[/h1]
+[i]Markers, notifications and AI integration through one clean bridge.[/i]
 
-- Sichtbare Chat- und Popup-Fallbacks fuer Eventmeldungen.
-- Marker- und 3D-Marker-Requests erzeugen zusaetzlich sichtbare Vanilla-Testbeacons am Eventort.
-- AI-Testfallback spawnt stabile Vanilla-Infected, wenn keine echte Expansion-AI verwendet wird.
-- Keine geratenen Direktaufrufe in Eventmods.
+[h2]Description[/h2]
+[list]
+[*]Central optional connection to DayZ Expansion features
+[*]Event mods stay free of direct Expansion calls
+[*]Marker and 3D marker requests are routed through the bridge
+[*]Core/Bridge architecture stays cleanly separated
+[/list]
 
-[h1]Hinweis[/h1]
-Wenn echte Expansion-Kartenmarker spaeter erweitert werden, bleibt diese Bridge der einzige Ort fuer die Integration.
+[h1]DEUTSCHZ EXPANSION BRIDGE[/h1]
+[i]Маркеры, уведомления и AI-интеграции через аккуратный мост.[/i]
 
+[h2]Описание[/h2]
+[list]
+[*]Центральное опциональное подключение к функциям DayZ Expansion
+[*]Event-моды не вызывают Expansion напрямую
+[*]Запросы маркеров и 3D-маркеров проходят через Bridge
+[*]Архитектура Core/Bridge остается разделенной
+[/list]
 
-[h1]Links[/h1]
-GitHub / Source / Audit:
-https://github.com/patslu-fck1701/DeutschZModZ
+[h2]Links / Support[/h2]
+Workshop: https://steamcommunity.com/sharedfiles/filedetails/?id=3748421850
+GitHub: https://github.com/patslu-fck1701/DeutschZModZ
+DeutschZModZ Support: https://discord.gg/WM5GkDbw7C
 
-DeutschZ Core:
-https://steamcommunity.com/sharedfiles/filedetails/?id=3748421029
+[h2]Loadorder[/h2]
+[list]
+[*]@CF, falls von deiner Server-Modliste benoetigt
+[*]@DayZ-Expansion, falls Expansion-Funktionen aktiv genutzt werden
+[*]@DeutschZ_Core
+[*]@DeutschZ_ExpansionBridge
+[*]@DeutschZ_KotHZ
+[*]@DeutschZ_ConvoyZ
+[*]@DeutschZ_GroundZero
+[*]@DeutschZ_CourierZ
+[/list]
 
-DeutschZ ExpansionBridge:
-https://steamcommunity.com/sharedfiles/filedetails/?id=3748421850
-
-DeutschZ KotHZ / Infected Siege:
-https://steamcommunity.com/sharedfiles/filedetails/?id=3746385283
-
-DeutschZ ConvoyZ:
-https://steamcommunity.com/sharedfiles/filedetails/?id=3745946832
-
-DeutschZ GroundZero:
-https://steamcommunity.com/sharedfiles/filedetails/?id=3748422786
-
-[h1]Community / Serverlinks[/h1]
-DeutschZ Discord:
-https://discord.gg/FHzZ7BykFk
-
-DeutschZ Server:
-193.135.10.128:20076
-
-Konfliktzone Discord:
-https://discord.gg/tRtSbWtrsm
-
-Konfliktzone|Chernarus (PVE) - Main Server:
-217.146.80.188:2302
-
-Konfliktzone|Napf (PVE/PVP):
-46.4.112.91:2680
-
-Konfliktzone|Banov (PVE):
-168.119.79.147:2680
-
-[h1]Transparenz[/h1]
-Dieses Projekt wird als eigenes DeutschZ-Mod-Oekosystem entwickelt. Keine fremden PBOs werden geoeffnet oder kopiert. Der aktuelle Stand enthaelt Dokumentationsdateien wie README, CHANGELOG, NO_COPY_AUDIT, SOURCE_PROVENANCE, PUBLIC_SOURCE_REGISTER, OPEN_ASSUMPTIONS und README_COMPLIANCE.
-
-[h1]Loadorder[/h1]
-1. DeutschZ_Core
-2. DeutschZ_ExpansionBridge
-9. DeutschZ_KotHZ
-10. DeutschZ_ConvoyZ
-11. DeutschZ_GroundZero
-
-
-Neue/kommende DeutschZ Erweiterung:
-DeutschZ CourierZ - Operation Aktenkoffer: https://steamcommunity.com/sharedfiles/filedetails/?id=3748646981
+[h2]Support-Hinweis[/h2]
+Bei Fehlern bitte direkt im DeutschZModZ-Support melden und folgende Dateien mitsenden:
+[list]
+[*]crash_*.log
+[*]script_*.log
+[*]DayZServer_x64_*.RPT
+[*]server_console.log
+[*]vollstaendige Modlist / Loadorder
+[*]kurze Beschreibung, was direkt vor dem Fehler passiert ist
+[/list]

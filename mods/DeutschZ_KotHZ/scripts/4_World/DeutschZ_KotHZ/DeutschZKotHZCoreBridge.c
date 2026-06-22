@@ -51,6 +51,14 @@ class DeutschZKotHZCoreBridge
         return provider.DeleteMarker("KotHZ_" + id);
     }
 
+    static bool DeleteRawMarker(string markerId)
+    {
+        DeutschZCore_MarkerProviderAPI provider = DeutschZCore_ServiceLocator.GetMarkerProvider();
+        if (!provider || markerId == "")
+            return false;
+        return provider.DeleteMarker(markerId);
+    }
+
     static void CleanupMarkers()
     {
         DeutschZCore_MarkerProviderAPI provider = DeutschZCore_ServiceLocator.GetMarkerProvider();

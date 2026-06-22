@@ -1,3 +1,13 @@
+﻿## Publishing Cleanup - Workshop/Types/Config Guides (2026-06-22)
+- Workshop description refreshed to German, English and Russian only.
+- Added `DeutschZ_ConvoyZ_types.xml` with event classes at `nominal=0` for adminspawn/trader/event rewards, not random mapspawn.
+- Added admin-friendly config guide under `docs/config/`.
+- Physical smoke remains disabled/no-op; visibility stays on marker/Bridge flow.
+## FIX41 - Reward Unsafe-Class Guard (2026-06-22)
+- ConvoyZ reward spawn paths now block exact unsafe vanilla `M249` and `Mag_M249_Box200Rnd` through the shared Core guard.
+- `GCGN_M249` remains allowed.
+- Event order remains KotHZ 1 min, ConvoyZ 3 min, GroundZero 5 min, CourierZ 7 min.
+
 ## FIX39 - Full DeutschZ Baseline / Changelog Refresh (2026-06-22)
 - Included in the full DeutschZ source replacement package after KotHZ live-test regression fixes.
 - No ConvoyZ code changes in this pass.

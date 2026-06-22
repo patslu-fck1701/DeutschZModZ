@@ -12,7 +12,7 @@ Auf Wunsch des Ideengebers wird kein Vorname und kein Realname genannt.
 - Patrick Sluzalek / fck1701
 - DeutschZ DayZ Server
 - GitHub: https://github.com/patslu-fck1701/DeutschZModZ
-- DeutschZ Discord: https://discord.gg/FHzZ7BykFk
+- DeutschZModZ Support: https://discord.gg/WM5GkDbw7C
 - DeutschZ Server: 193.135.10.128:20076
 
 ## Konfliktzone Verbindung
@@ -23,7 +23,7 @@ Die Idee zu Operation Aktenkoffer / CourierZ wurde transparent dem Playernamen E
 
 ## DeutschZ
 
-- Discord: https://discord.gg/FHzZ7BykFk
+- Discord: https://discord.gg/WM5GkDbw7C
 - Server: 193.135.10.128:20076
 
 ## Konfliktzone World

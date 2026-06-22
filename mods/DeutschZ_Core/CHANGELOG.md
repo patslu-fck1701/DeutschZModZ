@@ -1,3 +1,13 @@
+﻿## Publishing Cleanup - Workshop/Types/Config Guides (2026-06-22)
+- Workshop description refreshed to German, English and Russian only.
+- Confirmed no economy `types.xml` is required for this script/framework module.
+- Added admin-friendly config guide under `docs/config/`.
+- Repository cleanup moved old handoff docs to `docs/archive` where applicable.
+## FIX41 - Shared M249 Crash Guard (2026-06-22)
+- Added shared `DeutschZCore_UnsafeClassGuard` for exact unsafe vanilla `M249` and `Mag_M249_Box200Rnd`.
+- Explicitly keeps `GCGN_M249`, `GCGNM249` and `GCGN_M249_Mag` allowed.
+- No event order or provider API changes.
+
 ## FIX39 - Full DeutschZ Baseline / Changelog Refresh (2026-06-22)
 - Included in the full DeutschZ source replacement package after KotHZ live-test regression fixes.
 - No Core gameplay/API changes in this pass.
@@ -69,3 +79,4 @@
 ## 0.1.0
 
 - Initiale Source-Struktur angelegt.
+

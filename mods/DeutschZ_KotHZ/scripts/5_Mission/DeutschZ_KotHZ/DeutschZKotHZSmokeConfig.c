@@ -55,8 +55,8 @@ class DeutschZKotHZSmokeConfig
     void DeutschZKotHZSmokeConfig()
     {
         EditHint = "Smoke config. DeutschZ states: green=ready, yellow=in progress, red=captured.";
-        EnableSmoke = 1;
-        UseObjectSmoke = 1;
+        EnableSmoke = 0;
+        UseObjectSmoke = 0;
         UseParticleSmoke = 0;
         AutoActivateSmokeGrenade = 1;
         ForceSwitchOnSmokeGrenade = 1;
