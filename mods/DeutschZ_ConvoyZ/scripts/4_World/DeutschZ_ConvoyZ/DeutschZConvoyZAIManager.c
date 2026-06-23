@@ -108,6 +108,17 @@ class DeutschZConvoyZAIManager
         SpawnLoadoutItem(ai, "BandageDressing");
         SpawnLoadoutItem(ai, "Morphine");
 
+        if (loadoutName == "DZCV_SNAFU_Recon")
+        {
+            SpawnLoadoutItemOrFallback(ai, "CoyoteBag_Green", "AssaultBag_Green");
+            SpawnLoadoutItemOrFallback(ai, "SNAFU_MK18_Black", "M4A1");
+            SpawnLoadoutItemOrFallback(ai, "SNAFU_MK18_Mag", "Mag_STANAG_30Rnd");
+            SpawnLoadoutItemOrFallback(ai, "SNAFU_MK18_Mag", "Mag_STANAG_30Rnd");
+            SpawnLoadoutItemOrFallback(ai, "SNAFU_EOTech_EXPS3", "M68Optic");
+            SpawnLoadoutItem(ai, "AmmoBox_556x45_20Rnd");
+            return;
+        }
+
         if (loadoutName == "DZCV_SNAFU_Heavy" || loadoutName == "DZCV_MilitaryHeavy")
         {
             SpawnLoadoutItemOrFallback(ai, "Snafu_ScarH_Black_GUN", "M4A1");

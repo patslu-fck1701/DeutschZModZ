@@ -202,6 +202,17 @@ class DeutschZConvoyZSettings
     int MaxEventRuntimeSeconds;
     int BlackboxReadyTimeoutSeconds;
     int AutoFailStuckEvent;
+    int MinCrashSiteDistanceMeters;
+    int EnableBlackboxDelivery;
+    int CarrierMarkerUpdateSeconds;
+    float DeliveryRadius;
+    string DeliveryNpcName;
+    vector DeliveryNpcPosition;
+    string DeliveryHintText;
+    string CarryItemClassName;
+    string DeliveryRewardItemClassName;
+    string DeliveryMapFragmentClassName;
+    string DeliveryNoteItemClassName;
 
     void DeutschZConvoyZSettings()
     {
@@ -239,6 +250,17 @@ class DeutschZConvoyZSettings
         MaxEventRuntimeSeconds = 5400;
         BlackboxReadyTimeoutSeconds = 1800;
         AutoFailStuckEvent = 1;
+        MinCrashSiteDistanceMeters = 500;
+        EnableBlackboxDelivery = 1;
+        CarrierMarkerUpdateSeconds = 25;
+        DeliveryRadius = 6.0;
+        DeliveryNpcName = "DeutschZ Kontaktmann";
+        DeliveryNpcPosition = "10620 0 5410";
+        DeliveryHintText = "Behalte das mal. Das kann spaeter noch wichtig sein.";
+        CarryItemClassName = "DZCV_ConvoyBlackBox";
+        DeliveryRewardItemClassName = "DZOP_Keycard_ConvoyAlpha";
+        DeliveryMapFragmentClassName = "DZOP_TreasureMapFragment_A";
+        DeliveryNoteItemClassName = "DZOP_ConvoyLeadNote";
     }
 }
 

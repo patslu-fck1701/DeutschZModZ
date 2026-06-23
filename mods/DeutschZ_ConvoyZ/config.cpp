@@ -13,7 +13,7 @@ class CfgPatches
 {
     class DeutschZ_ConvoyZ
     {
-        units[] = {"Land_HACKEDCRATE", "DZCV_ProtectedCase", "DZCV_AccessCard", "DZCV_CardReader", "DZCV_BlackboxCore", "DZCV_EncryptedDataDrive", "DZCV_ClassifiedIntel", "DZCV_SealedRewardChest", "DZ_ConvoyZ_Blackbox", "DZ_ConvoyZ_EncryptedDataModule", "DZ_ConvoyZ_SealedWeaponCase", "DZ_ConvoyZ_DieselManifest", "DZ_ConvoyZ_RadioKey", "DZ_ConvoyZ_ArmorPlateBundle"};
+        units[] = {"Land_HACKEDCRATE", "DZCV_ProtectedCase", "DZCV_AccessCard", "DZCV_CardReader", "DZCV_BlackboxCore", "DZCV_EncryptedDataDrive", "DZCV_ClassifiedIntel", "DZCV_SealedRewardChest", "DZ_ConvoyZ_Blackbox", "DZ_ConvoyZ_EncryptedDataModule", "DZ_ConvoyZ_SealedWeaponCase", "DZ_ConvoyZ_DieselManifest", "DZ_ConvoyZ_RadioKey", "DZ_ConvoyZ_ArmorPlateBundle", "DZCV_ConvoyBlackBox", "DZCV_BlackboxDeliveryNote", "DZCV_OperationLead", "DZCV_CrashSiteKeyFragment"};
         weapons[] = {};
         requiredVersion = 0.1;
         requiredAddons[] = {"DZ_Data", "DZ_Scripts", "DZ_Vehicles_Wheeled", "DZ_Gear_Containers", "DZ_Gear_Navigation", "DZ_Gear_Consumables", "DZ_Gear_Tools", "DeutschZ_Core", "DeutschZ_ExpansionBridge"};
@@ -226,6 +226,49 @@ class CfgVehicles
         itemSize[] = {3, 3};
         weight = 6500;
         canBeSplit = 0;
+    };
+
+
+    class DZCV_ConvoyBlackBox: GPSReceiver
+    {
+        scope = 2;
+        displayName = "DeutschZ ConvoyZ Blackbox";
+        descriptionShort = "Geborgene Blackbox. Bringe sie zum Kontaktmann, bevor andere Spieler dich finden.";
+        hiddenSelections[] = {"camo"};
+        hiddenSelectionsTextures[] = {"DeutschZ_ConvoyZ/Assets/Case/CardReader.paa"};
+        itemSize[] = {2, 2};
+        weight = 900;
+    };
+
+    class DZCV_BlackboxDeliveryNote: Paper
+    {
+        scope = 2;
+        displayName = "DeutschZ Blackbox-Uebergabenotiz";
+        descriptionShort = "Notiz zur Blackbox-Uebergabe. Der Kontaktmann sagt: Behalte das mal, kann noch wichtig sein.";
+        itemSize[] = {1, 1};
+        weight = 10;
+    };
+
+    class DZCV_OperationLead: PunchedCard
+    {
+        scope = 2;
+        displayName = "DeutschZ Operation Lead";
+        descriptionShort = "OperationDeutschZ-Hinweis aus ConvoyZ. Dient spaeter als Verkettungsitem.";
+        hiddenSelections[] = {"camo"};
+        hiddenSelectionsTextures[] = {"DeutschZ_ConvoyZ/Assets/Case/AccesCard.paa"};
+        itemSize[] = {1, 1};
+        weight = 35;
+    };
+
+    class DZCV_CrashSiteKeyFragment: PunchedCard
+    {
+        scope = 2;
+        displayName = "DeutschZ Crashsite Keyfragment";
+        descriptionShort = "Fragment eines Zugangsschluessels aus einer ConvoyZ-Crashsite.";
+        hiddenSelections[] = {"camo"};
+        hiddenSelectionsTextures[] = {"DeutschZ_ConvoyZ/Assets/Case/AccesCard.paa"};
+        itemSize[] = {1, 1};
+        weight = 25;
     };
 
 };

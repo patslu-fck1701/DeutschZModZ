@@ -121,7 +121,7 @@ class DeutschZConvoyZConfig
     {
         if (!Settings) Settings = new DeutschZConvoyZSettings();
         Settings.EnableConvoyZEvent = 1;
-        Settings.RequiredAiKills = 6;
+        Settings.RequiredAiKills = 9;
         Settings.HackDurationSeconds = 90;
         Settings.BlackboxMaxHackDistance = 3.5;
         Settings.EnableAiWaves = 1;
@@ -135,11 +135,11 @@ class DeutschZConvoyZConfig
         Settings.StatusNotifyIntervalSeconds = 20;
         Settings.StatusSyncRadius = 650.0;
         Settings.AutoStartOnMissionInit = 1;
-        Settings.InitialStartDelayMinSeconds = 2100;
-        Settings.InitialStartDelayMaxSeconds = 3300;
+        Settings.InitialStartDelayMinSeconds = 2700;
+        Settings.InitialStartDelayMaxSeconds = 3900;
         Settings.RestartEventAfterCleanup = 1;
-        Settings.RestartDelayMinSeconds = 2100;
-        Settings.RestartDelayMaxSeconds = 3300;
+        Settings.RestartDelayMinSeconds = 2700;
+        Settings.RestartDelayMaxSeconds = 3900;
         Settings.MaxSimultaneousEvents = 1;
         Settings.MaxEventsPerRestart = 0;
         Settings.MinOnlinePlayersToStart = 1;
@@ -148,6 +148,17 @@ class DeutschZConvoyZConfig
         Settings.BlackboxReadyTimeoutSeconds = 1800;
         Settings.AutoFailStuckEvent = 1;
         Settings.EnableDebugLogs = 0;
+        Settings.MinCrashSiteDistanceMeters = 500;
+        Settings.EnableBlackboxDelivery = 1;
+        Settings.CarrierMarkerUpdateSeconds = 25;
+        Settings.DeliveryRadius = 6.0;
+        Settings.DeliveryNpcName = "DeutschZ Kontaktmann";
+        Settings.DeliveryNpcPosition = "10620 0 5410";
+        Settings.DeliveryHintText = "Behalte das mal. Das kann spaeter noch wichtig sein.";
+        Settings.CarryItemClassName = "DZCV_ConvoyBlackBox";
+        Settings.DeliveryRewardItemClassName = "DZOP_Keycard_ConvoyAlpha";
+        Settings.DeliveryMapFragmentClassName = "DZOP_TreasureMapFragment_A";
+        Settings.DeliveryNoteItemClassName = "DZOP_ConvoyLeadNote";
     }
 
     void EnsureNormalRewardItems()
@@ -158,6 +169,13 @@ class DeutschZConvoyZConfig
         AddOrRefreshRewardItem("DZCV_BlackboxCore", 1, 1.0);
         AddOrRefreshRewardItem("DZCV_EncryptedDataDrive", 1, 1.0);
         AddOrRefreshRewardItem("DZCV_ClassifiedIntel", 2, 1.0);
+        AddOrRefreshRewardItem("DZCV_ConvoyBlackBox", 1, 1.0);
+        AddOrRefreshRewardItem("DZCV_BlackboxDeliveryNote", 1, 1.0);
+        AddOrRefreshRewardItem("DZCV_OperationLead", 1, 1.0);
+        AddOrRefreshRewardItem("DZCV_CrashSiteKeyFragment", 1, 0.9);
+        AddOrRefreshRewardItem("DZOP_Keycard_ConvoyAlpha", 1, 1.0);
+        AddOrRefreshRewardItem("DZOP_TreasureMapFragment_A", 1, 0.8);
+        AddOrRefreshRewardItem("DZOP_ConvoyLeadNote", 1, 1.0);
         AddOrRefreshRewardItem("DZCV_AccessCard", 1, 1.0);
         AddOrRefreshRewardItem("DZCV_CardReader", 1, 0.8);
         AddOrRefreshRewardItem("DZ_ConvoyZ_Blackbox", 1, 1.0);
@@ -179,9 +197,9 @@ class DeutschZConvoyZConfig
         if (!EventData.AIWaves) EventData.AIWaves = new array<ref DeutschZConvoyZAIWaveDef>;
         EventData.AIWaves.Clear();
 
-        InsertNormalAIWave("wave_1", 0, 3, "eAI_SurvivorM_Denis", "DZCV_SNAFU_Rifleman", 32.0);
-        InsertNormalAIWave("wave_2", 150, 3, "eAI_SurvivorM_Boris", "DZCV_SNAFU_Assault", 38.0);
-        InsertNormalAIWave("wave_3", 300, 3, "eAI_SurvivorM_Elias", "DZCV_SNAFU_Heavy", 44.0);
+        InsertNormalAIWave("team_alpha_crash_security", 0, 3, "eAI_SurvivorM_Denis", "DZCV_SNAFU_Recon", 42.0);
+        InsertNormalAIWave("team_bravo_flank_patrol", 150, 3, "eAI_SurvivorM_Boris", "DZCV_SNAFU_Assault", 68.0);
+        InsertNormalAIWave("team_charlie_response", 300, 3, "eAI_SurvivorM_Elias", "DZCV_SNAFU_Heavy", 96.0);
     }
 
     void InsertNormalAIWave(string waveId, int delaySeconds, int count, string aiClass, string loadoutName, float radius)
@@ -220,8 +238,9 @@ class DeutschZConvoyZConfig
         if (!EventData.Reward.Items) EventData.Reward.Items = new array<ref DeutschZConvoyZRewardItemDef>;
 
         ApplyNormalOnlineSettings();
-        EventData.EventRadius = 450.0;
-        EventData.RequiredAiKills = 6;
+        RebuildConvoyBlackboxChainScene();
+        EventData.EventRadius = 500.0;
+        EventData.RequiredAiKills = 9;
         EventData.HackDurationSeconds = 90;
         EventData.Blackbox.ClassName = "Land_HACKEDCRATE";
         if (EventData.Blackbox.Position == vector.Zero) EventData.Blackbox.Position = "10124 0 5414";
@@ -294,9 +313,9 @@ class DeutschZConvoyZConfig
             if (EventData.Smoke.RefreshSeconds < 90) EventData.Smoke.RefreshSeconds = 90;
         }
 
-        if (Settings.InitialStartDelayMinSeconds < 0) Settings.InitialStartDelayMinSeconds = 0;
+        if (Settings.InitialStartDelayMinSeconds < 0) Settings.InitialStartDelayMinSeconds = 2700;
         if (Settings.InitialStartDelayMaxSeconds < Settings.InitialStartDelayMinSeconds) Settings.InitialStartDelayMaxSeconds = Settings.InitialStartDelayMinSeconds;
-        if (Settings.RestartDelayMinSeconds < 0) Settings.RestartDelayMinSeconds = 0;
+        if (Settings.RestartDelayMinSeconds < 0) Settings.RestartDelayMinSeconds = 2700;
         if (Settings.RestartDelayMaxSeconds < Settings.RestartDelayMinSeconds) Settings.RestartDelayMaxSeconds = Settings.RestartDelayMinSeconds;
         if (Settings.MaxSimultaneousEvents < 1) Settings.MaxSimultaneousEvents = 1;
         if (Settings.MaxEventsPerRestart < 0) Settings.MaxEventsPerRestart = 0;
@@ -306,6 +325,51 @@ class DeutschZConvoyZConfig
         if (Settings.StatusNotifyIntervalSeconds < 3) Settings.StatusNotifyIntervalSeconds = 3;
         if (Settings.MaxEventRuntimeSeconds < 0) Settings.MaxEventRuntimeSeconds = 0;
         if (Settings.BlackboxReadyTimeoutSeconds < 0) Settings.BlackboxReadyTimeoutSeconds = 0;
+        if (Settings.MinCrashSiteDistanceMeters < 500) Settings.MinCrashSiteDistanceMeters = 500;
+        if (Settings.CarrierMarkerUpdateSeconds < 10) Settings.CarrierMarkerUpdateSeconds = 10;
+        if (Settings.DeliveryRadius < 2.0) Settings.DeliveryRadius = 2.0;
+        if (Settings.DeliveryNpcPosition == vector.Zero) Settings.DeliveryNpcPosition = "10620 0 5410";
+        if (Settings.DeliveryNpcName == "") Settings.DeliveryNpcName = "DeutschZ Kontaktmann";
+        if (Settings.DeliveryHintText == "") Settings.DeliveryHintText = "Behalte das mal. Das kann spaeter noch wichtig sein.";
+        if (Settings.CarryItemClassName == "") Settings.CarryItemClassName = "DZCV_ConvoyBlackBox";
+        if (Settings.DeliveryRewardItemClassName == "") Settings.DeliveryRewardItemClassName = "DZOP_Keycard_ConvoyAlpha";
+        if (Settings.DeliveryMapFragmentClassName == "") Settings.DeliveryMapFragmentClassName = "DZOP_TreasureMapFragment_A";
+        if (Settings.DeliveryNoteItemClassName == "") Settings.DeliveryNoteItemClassName = "DZOP_ConvoyLeadNote";
+    }
+
+    void RebuildConvoyBlackboxChainScene()
+    {
+        if (!EventData) EventData = new DeutschZConvoyZEventDef();
+        if (!EventData.CrashObjects) EventData.CrashObjects = new array<ref DeutschZConvoyZObjectDef>;
+        EventData.CrashObjects.Clear();
+
+        EventData.EventName = "DeutschZ ConvoyZ - Blackbox Operation";
+        EventData.EventIdPrefix = "convoyz_blackbox_operation";
+        EventData.EventCenter = "10120 0 5410";
+        EventData.EventRadius = 500.0;
+        EventData.RequiredAiKills = 9;
+        EventData.HackDurationSeconds = 90;
+
+        InsertCrashObject("Land_Wreck_V3S", "10120 0 5410", "35 0 0", 1, 1.0);
+        InsertCrashObject("Land_Wreck_BMP2", "10110 0 5421", "120 0 0", 0, 1.0);
+        InsertCrashObject("Land_Wreck_BRDM2", "10136 0 5400", "260 0 0", 0, 1.0);
+        InsertCrashObject("Land_Wreck_Uaz", "10102 0 5404", "310 0 0", 0, 1.0);
+        InsertCrashObject("Land_Wreck_HMMWV", "10143 0 5422", "80 0 0", 0, 1.0);
+        InsertCrashObject("DZCV_ProtectedCase", "10133 0 5435", "15 0 0", 0, 0.85);
+
+        if (!EventData.Blackbox) EventData.Blackbox = new DeutschZConvoyZBlackboxDef();
+        EventData.Blackbox.Position = "10124 0 5414";
+        EventData.Blackbox.Orientation = "30 0 0";
+        EventData.Blackbox.ClassName = "Land_HACKEDCRATE";
+        EventData.Blackbox.HeightOffset = 1.35;
+
+        if (!EventData.Smoke) EventData.Smoke = new DeutschZConvoyZSmokeDef();
+        EventData.Smoke.Position = EventData.EventCenter;
+
+        if (!EventData.Reward) EventData.Reward = new DeutschZConvoyZRewardDef();
+        EventData.Reward.RewardContainerClassName = "DZCV_SealedRewardChest";
+        EventData.Reward.RewardPosition = "10620 0 5410";
+        EventData.Reward.RewardOrientation = "90 0 0";
     }
 
     void InsertCrashObject(string className, vector position, vector orientation, int critical, float heightOffset)
@@ -322,23 +386,7 @@ class DeutschZConvoyZConfig
     void CreateDefaultEvent()
     {
         EventData = new DeutschZConvoyZEventDef();
-        EventData.EventCenter = "10120 0 5410";
-        EventData.RequiredAiKills = 6;
-        EventData.HackDurationSeconds = 90;
-
-        // FIX44: static military convoy scene. No drivable vehicles; use raised vanilla wreck objects.
-        InsertCrashObject("Land_Wreck_V3S", "10120 0 5410", "35 0 0", 1, 1.0);
-        InsertCrashObject("Land_Wreck_BMP2", "10110 0 5421", "120 0 0", 0, 1.0);
-        InsertCrashObject("Land_Wreck_BRDM2", "10136 0 5400", "260 0 0", 0, 1.0);
-        InsertCrashObject("Land_Wreck_Uaz", "10102 0 5404", "310 0 0", 0, 1.0);
-        InsertCrashObject("Land_Wreck_HMMWV", "10143 0 5422", "80 0 0", 0, 1.0);
-
-        EventData.Blackbox.Position = "10124 0 5414";
-        EventData.Blackbox.ClassName = "Land_HACKEDCRATE";
-        EventData.Smoke.Position = EventData.EventCenter;
-
-        EventData.Reward.RewardContainerClassName = "DZCV_SealedRewardChest";
-        EventData.Reward.RewardPosition = "10128 0 5417";
+        RebuildConvoyBlackboxChainScene();
 
         DeutschZConvoyZRewardItemDef item = new DeutschZConvoyZRewardItemDef();
         item.ClassName = "PunchedCard";

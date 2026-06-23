@@ -90,6 +90,8 @@ class DeutschZConvoyZManager
         Spawn.RefreshSmoke(Config, State);
         SendStatusNotification();
         AI.Tick(Config, State);
+        UpdateCarrierMarker();
+        CheckDeliveryProgress();
         if (State.CurrentState == DeutschZConvoyZConstants.STATE_SECURE_AREA && State.CurrentKills >= State.RequiredKills) SetBlackboxReady();
         SyncStatusThrottled();
     }
@@ -154,6 +156,136 @@ class DeutschZConvoyZManager
     void UnlockReward()
     {
         Reward.Unlock(Config, State);
+    }
+
+    void StartDeliveryStage(PlayerBase player, string hackerId)
+    {
+        if (!State || !Config || !Config.Settings || !player || !player.GetIdentity()) return;
+
+        State.CarrierPlayerId = hackerId;
+        State.DeliveryActive = 1;
+        State.DeliveryComplete = 0;
+        State.LastCarrierMarkerAt = 0;
+
+        GiveItemToPlayer(player, Config.Settings.CarryItemClassName, GetBlackboxPosition());
+        GiveItemToPlayer(player, "DZCV_BlackboxDeliveryNote", GetBlackboxPosition());
+
+        ChangeState(DeutschZConvoyZConstants.STATE_DELIVERY_ACTIVE, "blackbox recovered; delivery active");
+        SetSmoke(DeutschZConvoyZConstants.SMOKE_GREEN);
+        RegisterDeliveryMarker();
+        UpdateCarrierMarker(true);
+        SendPlayerMessage(player, "DeutschZ ConvoyZ: Blackbox gesichert. Bring sie zum Kontaktmann. Deine Position pingt unregelmaessig.");
+        DeutschZConvoyZ_ExpansionNotify("DeutschZ ConvoyZ", "Blackbox geborgen. Traeger wurde markiert.", player.GetPosition());
+        DeutschZConvoyZLogger.Log("DeliveryActive", State.EventId, "DELIVERY_ACTIVE", hackerId, player.GetPosition(), "OK", Config.Settings.DeliveryNpcName);
+        SyncStatusNow();
+    }
+
+    bool GiveItemToPlayer(PlayerBase player, string className, vector fallbackPos)
+    {
+        if (!player || className == "") return false;
+        if (DeutschZCore_UnsafeClassGuard.IsBlockedClass(className)) return false;
+        EntityAI created = EntityAI.Cast(player.GetInventory().CreateInInventory(className));
+        if (!created)
+        {
+            vector p = fallbackPos;
+            p[1] = GetGame().SurfaceY(p[0], p[2]) + 0.75;
+            created = EntityAI.Cast(GetGame().CreateObjectEx(className, p, ECE_PLACE_ON_SURFACE | ECE_SETUP));
+        }
+        if (created)
+        {
+            DeutschZConvoyZLogger.Log("GiveItem", State.EventId, DeutschZConvoyZ_StateName(State.CurrentState), "", created.GetPosition(), "OK", className);
+            return true;
+        }
+        DeutschZConvoyZLogger.Log("GiveItemFailed", State.EventId, DeutschZConvoyZ_StateName(State.CurrentState), "", fallbackPos, "FAILED", className);
+        return false;
+    }
+
+    PlayerBase FindCarrierPlayer()
+    {
+        if (!State || State.CarrierPlayerId == "") return null;
+        array<Man> players = new array<Man>;
+        GetGame().GetPlayers(players);
+        foreach (Man man: players)
+        {
+            PlayerBase pb = PlayerBase.Cast(man);
+            if (pb && pb.GetIdentity() && pb.GetIdentity().GetPlainId() == State.CarrierPlayerId) return pb;
+        }
+        return null;
+    }
+
+    void RegisterDeliveryMarker()
+    {
+        if (!State || !Config || !Config.Settings) return;
+        vector p = Config.Settings.DeliveryNpcPosition;
+        p[1] = GetGame().SurfaceY(p[0], p[2]) + 2.0;
+        DeutschZConvoyZCoreBridge.CreateEventMarker(State.EventId + "_delivery", Config.Settings.DeliveryNpcName, p);
+        DeutschZConvoyZCoreBridge.CreateEvent3DMarker(State.EventId + "_delivery", Config.Settings.DeliveryNpcName, p);
+    }
+
+    void UpdateCarrierMarker(bool force = false)
+    {
+        if (!State || !Config || !Config.Settings) return;
+        if (State.CurrentState != DeutschZConvoyZConstants.STATE_DELIVERY_ACTIVE) return;
+        if (State.CarrierPlayerId == "") return;
+
+        int interval = Config.Settings.CarrierMarkerUpdateSeconds;
+        if (interval < 10) interval = 10;
+        int now = GetGame().GetTime();
+        if (!force && State.LastCarrierMarkerAt > 0 && now - State.LastCarrierMarkerAt < interval * 1000) return;
+
+        PlayerBase carrier = FindCarrierPlayer();
+        if (!carrier) return;
+        State.LastCarrierMarkerAt = now;
+        string markerId = State.EventId + "_carrier";
+        DeutschZConvoyZCoreBridge.DeleteEventMarker(markerId);
+        DeutschZConvoyZCoreBridge.CreateEventMarker(markerId, "ConvoyZ Blackbox-Traeger", carrier.GetPosition());
+        DeutschZConvoyZCoreBridge.CreateEvent3DMarker(markerId, "ConvoyZ Blackbox-Traeger", carrier.GetPosition());
+        DeutschZConvoyZLogger.Log("CarrierMarkerPing", State.EventId, "DELIVERY_ACTIVE", State.CarrierPlayerId, carrier.GetPosition(), "OK", "short ping");
+    }
+
+    void CheckDeliveryProgress()
+    {
+        if (!State || !Config || !Config.Settings) return;
+        if (State.CurrentState != DeutschZConvoyZConstants.STATE_DELIVERY_ACTIVE) return;
+        if (State.DeliveryComplete == 1) return;
+
+        PlayerBase carrier = FindCarrierPlayer();
+        if (!carrier) return;
+        float radius = Config.Settings.DeliveryRadius;
+        if (radius < 2.0) radius = 2.0;
+        if (vector.Distance(carrier.GetPosition(), Config.Settings.DeliveryNpcPosition) <= radius)
+        {
+            CompleteDelivery(carrier);
+        }
+    }
+
+    void CompleteDelivery(PlayerBase player)
+    {
+        if (!State || !Config || !Config.Settings || !player) return;
+        State.DeliveryComplete = 1;
+        State.DeliveryActive = 0;
+        ChangeState(DeutschZConvoyZConstants.STATE_DELIVERED, "blackbox delivered to npc");
+
+        GiveItemToPlayer(player, Config.Settings.DeliveryRewardItemClassName, Config.Settings.DeliveryNpcPosition);
+        GiveItemToPlayer(player, Config.Settings.DeliveryMapFragmentClassName, Config.Settings.DeliveryNpcPosition);
+        GiveItemToPlayer(player, Config.Settings.DeliveryNoteItemClassName, Config.Settings.DeliveryNpcPosition);
+        GiveItemToPlayer(player, "DZCV_OperationLead", Config.Settings.DeliveryNpcPosition);
+
+        SendPlayerMessage(player, "Kontaktmann: " + Config.Settings.DeliveryHintText);
+        DeutschZConvoyZ_ExpansionNotify("DeutschZ ConvoyZ", "Blackbox beim Kontaktmann abgegeben. Operation-Spur freigeschaltet.", player.GetPosition());
+        DeutschZConvoyZLogger.Log("DeliveryComplete", State.EventId, "DELIVERED", State.CarrierPlayerId, player.GetPosition(), "OK", Config.Settings.DeliveryRewardItemClassName);
+
+        Reward.Unlock(Config, State);
+        ChangeState(DeutschZConvoyZConstants.STATE_REWARD_UNLOCKED, "delivery complete reward unlocked");
+        ScheduleCleanup();
+        SyncStatusNow();
+    }
+
+    void SendPlayerMessage(PlayerBase player, string text)
+    {
+        if (!player || !player.GetIdentity() || text == "") return;
+        Param1<string> data = new Param1<string>(text);
+        GetGame().RPCSingleParam(player, ERPCs.RPC_USER_ACTION_MESSAGE, data, true, player.GetIdentity());
     }
 
     void ScheduleCleanup()
@@ -362,6 +494,16 @@ class DeutschZConvoyZManager
             return "Blackbox entschluesseln: " + State.HackProgressSeconds.ToString() + "/" + GetHackDuration().ToString() + " Sekunden";
         }
 
+        if (State.CurrentState == DeutschZConvoyZConstants.STATE_DELIVERY_ACTIVE)
+        {
+            return "Blackbox tragen: bringe sie zum Kontaktmann";
+        }
+
+        if (State.CurrentState == DeutschZConvoyZConstants.STATE_DELIVERED)
+        {
+            return "Blackbox abgegeben: Operation-Spur erhalten";
+        }
+
         if (State.CurrentState == DeutschZConvoyZConstants.STATE_REWARD_UNLOCKED)
         {
             return "Blackbox entschluesselt: Reward freigegeben";
@@ -461,6 +603,16 @@ class DeutschZConvoyZManager
             if (duration <= 0) duration = 1;
             percent = Math.Clamp((State.HackProgressSeconds * 100) / duration, 0, 100);
             detail = "Hack: " + State.HackProgressSeconds.ToString() + " / " + duration.ToString() + " Sekunden";
+        }
+        else if (State.CurrentState == DeutschZConvoyZConstants.STATE_DELIVERY_ACTIVE)
+        {
+            percent = 80;
+            detail = "Zum Kontaktmann bringen: " + Config.Settings.DeliveryNpcName;
+        }
+        else if (State.CurrentState == DeutschZConvoyZConstants.STATE_DELIVERED)
+        {
+            percent = 95;
+            detail = "OperationDeutschZ-Verbindung vorbereitet";
         }
         else if (State.CurrentState == DeutschZConvoyZConstants.STATE_REWARD_UNLOCKED)
         {
