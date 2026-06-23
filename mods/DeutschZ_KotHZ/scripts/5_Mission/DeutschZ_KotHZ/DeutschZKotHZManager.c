@@ -46,6 +46,7 @@ class DeutschZKotHZManager
     protected int m_LastAnnounceTimeMs;
     protected ref map<string, bool> m_DZKZ_PlayersInSignalRadius;
     protected bool m_DZKZ_ContestedAnnounced;
+    protected bool m_DZKZ_FirstAIWaveSpawned;
 
     protected string m_DeutschZKotHZMarkerId;
 
@@ -73,6 +74,7 @@ class DeutschZKotHZManager
         m_ActiveParticleSmoke = null;
         m_CurrentSmokeState = "";
         m_ZombieWavesStarted = false;
+        m_DZKZ_FirstAIWaveSpawned = false;
         m_DZKZ_Wave25Triggered = false;
         m_DZKZ_Wave50Triggered = false;
         m_DZKZ_Wave75Triggered = false;
@@ -87,6 +89,7 @@ class DeutschZKotHZManager
         m_DZKZ_EventLog = new array<string>;
         m_DZKZ_PlayersInSignalRadius = new map<string, bool>;
         m_DZKZ_ContestedAnnounced = false;
+        m_DZKZ_FirstAIWaveSpawned = false;
         m_DeutschZKotHZMarkerId = "";
     }
 
@@ -224,6 +227,7 @@ class DeutschZKotHZManager
         m_CurrentSmokeState = "";
         m_ZombieWavesStarted = false;
         m_DZKZ_ContestedAnnounced = false;
+        m_DZKZ_FirstAIWaveSpawned = false;
         ResetInfectedSiegeRuntime();
         CancelZombieWaveSchedule();
         if (m_ProgressHUDPlayers)
@@ -415,6 +419,7 @@ class DeutschZKotHZManager
         CleanupDeliveryObjects();
         CleanupZombies();
         CleanupOptionalNPCs();
+        CleanupKotHZBridgeAI();
         CleanupFogHazard();
 
         m_EventActive = false;
@@ -1794,8 +1799,35 @@ class DeutschZKotHZManager
             return;
 
         m_ZombieWavesStarted = true;
-        Print("[DeutschZ_KotHZ] Infected Siege armed. Waves trigger by capture percent: 25/50/75. Boss: 100 capture / 7500 HP.");
-        DZKZ_Log("InfectedSiegeArmed", "percent triggers active");
+        Print("[DeutschZ_KotHZ] Infected Siege armed. First contact is 3 Expansion AI guards; infected waves trigger by capture percent: 25/50/75. Boss: 100 capture / 7500 HP.");
+        DZKZ_Log("InfectedSiegeArmed", "first AI wave plus percent triggers active");
+        SpawnFirstAIContactWave();
+    }
+
+    protected void SpawnFirstAIContactWave()
+    {
+        if (!m_EventActive || !m_ActiveZone || m_DZKZ_FirstAIWaveSpawned)
+            return;
+
+        m_DZKZ_FirstAIWaveSpawned = true;
+        int spawned = 0;
+        for (int i = 0; i < 3; i++)
+        {
+            vector pos = GetRandomZombiePosition();
+            bool ok = DeutschZKotHZCoreBridge.SpawnGuard(GetKotHZMarkerSuffix(), "DeutschZ_KotHZ_SNAFU_Military_AI", pos);
+            if (ok)
+                spawned++;
+        }
+
+        Print("[DeutschZ_KotHZ] First contact AI wave requested: spawned/accepted=" + spawned.ToString() + "/3 loadout=DeutschZ_KotHZ_SNAFU_Military_AI");
+        DZKZ_Log("FirstAIWave", "requested=" + spawned.ToString() + "/3");
+    }
+
+    protected void CleanupKotHZBridgeAI()
+    {
+        string suffix = GetKotHZMarkerSuffix();
+        if (suffix != "")
+            DeutschZKotHZCoreBridge.CleanupAI(suffix);
     }
 
     protected void CancelZombieWaveSchedule()
@@ -1837,6 +1869,12 @@ class DeutschZKotHZManager
         if (!m_EventActive || !m_ActiveZone || !m_ActiveZone.EnableZombieSpawns || !wave)
             return;
 
+        if (wave.UseExpansionAI == 1)
+        {
+            SpawnAIWaveFromWave(wave);
+            return;
+        }
+
         Print("[DeutschZ_KotHZ] Spawning configured zombie wave: " + wave.WaveName + " count=" + wave.EnemyCount.ToString());
         SpawnZombieBatchFromWave(wave);
     }
@@ -1848,6 +1886,27 @@ class DeutschZKotHZManager
 
         SpawnZombieBatch(m_ActiveZone.ZombiesPerWave);
         Print("[DeutschZ_KotHZ] Spawned zone zombie wave " + waveIndex.ToString() + ". Total tracked zombies: " + m_SpawnedZombies.Count().ToString());
+    }
+
+    protected void SpawnAIWaveFromWave(DeutschZKotHZWaveEntry wave)
+    {
+        if (!wave || wave.AIEnemyCount <= 0 || !m_ActiveZone)
+            return;
+
+        int spawned = 0;
+        for (int i = 0; i < wave.AIEnemyCount; i++)
+        {
+            vector pos = GetRandomZombiePositionForWave(wave);
+            string loadoutId = wave.AILoadoutId;
+            if (loadoutId == "")
+                loadoutId = "DeutschZ_KotHZ_SNAFU_Military_AI";
+
+            bool ok = DeutschZKotHZCoreBridge.SpawnGuard(GetKotHZMarkerSuffix(), loadoutId, pos);
+            if (ok)
+                spawned++;
+        }
+
+        Print("[DeutschZ_KotHZ] Configured AI wave requested: " + wave.WaveName + " spawned/accepted=" + spawned.ToString() + "/" + wave.AIEnemyCount.ToString());
     }
 
     protected void SpawnZombieBatchFromWave(DeutschZKotHZWaveEntry wave)

@@ -314,9 +314,9 @@ class DeutschZKotHZConfigManager
         if (!config.Zombies)
             config.Zombies = new DeutschZKotHZZombieConfig();
 
-        // V0.9.3 KotHZ live-test: force HUD/statusbar on for existing and newly generated profile JSON files.
-        config.EnableHUD = 1;
-        config.EnableProgressHUD = 1;
+        // Backfill missing settings for existing profile JSON files.
+        if (config.EnableHUD && !config.EnableProgressHUD)
+            config.EnableProgressHUD = 1;
 
         // FIX13: statusbar distance limiter. Existing JSONs are backfilled to 500m.
         config.EnableHUDDistanceLimit = 1;
@@ -391,7 +391,7 @@ class DeutschZKotHZConfigManager
         if (config.EventMusicSoundSetName == "")
             config.EventMusicSoundSetName = "DeutschZ_KotHZ_EventMusic_SoundSet";
 
-        // V0.9.3 KotHZ live-test: Patrick requested music ON. Keep ready silent, play on start and completion.
+        // V093 gameplay test: music is enabled for KotHZ start/captured phases. Ready phase stays quiet.
         config.EnableEventMusic = 1;
         config.EventMusicPlayOnReady = 0;
         config.EventMusicPlayOnStart = 1;
@@ -483,22 +483,19 @@ class DeutschZKotHZConfigManager
             if (!zone)
                 continue;
 
-            // V0.9.3 KotHZ live-test: all zones use high-value loot, fast capture and stronger infected waves.
+            // FIX17 TESTVERSION: all zones use the high-value loot pool and reduced capture time.
             zone.RewardPoolName = "DeutschZ_Test_HighValue";
             zone.CaptureTimeSeconds = 90;
-            zone.EnableZombieSpawns = 1;
             zone.ZombieWaveCount = 5;
             zone.ZombiesPerWave = 6;
             zone.MaxTotalZombies = 30;
-            zone.SecondsBetweenZombieWaves = 45;
-            zone.ValidateZombieClassBeforeSpawn = 1;
-            zone.DespawnZombiesOnEventEnd = 1;
 
             // v1.0.30: Reward crates should always spawn slightly offset from the KOTH mast.
             // Exact reward positions stay disabled by default because the crate should spawn offset from the mast.
             zone.UseExactRewardCratePosition = 0;
 
-            zone.WavePoolName = "KVM1_Test_5x6_Zombies";
+            if (zone.WavePoolName == "")
+                zone.WavePoolName = "KVM1_Test_5x6_Zombies";
 
             if (!zone.StartWavesOnlyWhenPlayerInside)
                 zone.StartWavesOnlyWhenPlayerInside = 1;

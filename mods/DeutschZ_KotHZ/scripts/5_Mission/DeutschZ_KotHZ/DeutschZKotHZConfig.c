@@ -69,8 +69,8 @@ class DeutschZKotHZConfig
 
     void DeutschZKotHZConfig()
     {
-        ConfigInfo = "DeutschZ_KotHZ V0.9.3 KotHZ gameplay check: music ON, waves ON, HUD/statusbar ON, 7500 HP Mummy boss, 500-slot reward chest.";
-        EditHint = "V0.9.3 TESTVERSION: starts first after 1 minute. Active: mast/flag, marker, HUD/statusbar, infected waves, raised infected HP, 7500 HP Mummy boss, 500-slot reward chest and start/completion music. Smoke/fog/helicopter remain off.";
+        ConfigInfo = "DeutschZ_KotHZ FIX45. Event item expansion with safe-gated music, smoke and fog defaults.";
+        EditHint = "FIX45 TESTVERSION: starts first after 1 minute. Stable features active: mast/flag, marker, HUD, first contact 3 Expansion AI guards, waves, 7500 HP boss and reward crate. Music, smoke, fog and helicopter remain config-gated and default off.";
         OwnerName = "Patrick Sluzalek";
         OwnerPlayerName = "fck1701";
         ServerName = "DeutschZ";
