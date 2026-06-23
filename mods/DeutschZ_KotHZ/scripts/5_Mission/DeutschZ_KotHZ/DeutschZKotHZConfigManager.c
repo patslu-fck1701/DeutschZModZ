@@ -314,9 +314,9 @@ class DeutschZKotHZConfigManager
         if (!config.Zombies)
             config.Zombies = new DeutschZKotHZZombieConfig();
 
-        // Backfill missing settings for existing profile JSON files.
-        if (config.EnableHUD && !config.EnableProgressHUD)
-            config.EnableProgressHUD = 1;
+        // V0.9.3 KotHZ live-test: force HUD/statusbar on for existing and newly generated profile JSON files.
+        config.EnableHUD = 1;
+        config.EnableProgressHUD = 1;
 
         // FIX13: statusbar distance limiter. Existing JSONs are backfilled to 500m.
         config.EnableHUDDistanceLimit = 1;
@@ -391,16 +391,11 @@ class DeutschZKotHZConfigManager
         if (config.EventMusicSoundSetName == "")
             config.EventMusicSoundSetName = "DeutschZ_KotHZ_EventMusic_SoundSet";
 
-        // FIX45: Musik bleibt verfuegbar, wird aber nicht mehr hart auf aktiv gesetzt.
-        // Serverbetreiber koennen EnableEventMusic und die Phasenflags bewusst in der Config aktivieren.
-        if (config.EnableEventMusic != 0)
-            config.EnableEventMusic = 1;
+        // V0.9.3 KotHZ live-test: Patrick requested music ON. Keep ready silent, play on start and completion.
+        config.EnableEventMusic = 1;
         config.EventMusicPlayOnReady = 0;
-        if (config.EnableEventMusic == 0)
-        {
-            config.EventMusicPlayOnStart = 0;
-            config.EventMusicPlayOnCaptured = 0;
-        }
+        config.EventMusicPlayOnStart = 1;
+        config.EventMusicPlayOnCaptured = 1;
 
         if (config.EventMusicRadius <= 0)
             config.EventMusicRadius = 180.0;
@@ -488,19 +483,22 @@ class DeutschZKotHZConfigManager
             if (!zone)
                 continue;
 
-            // FIX17 TESTVERSION: all zones use the high-value loot pool and reduced capture time.
+            // V0.9.3 KotHZ live-test: all zones use high-value loot, fast capture and stronger infected waves.
             zone.RewardPoolName = "DeutschZ_Test_HighValue";
             zone.CaptureTimeSeconds = 90;
-            zone.ZombieWaveCount = 3;
-            zone.ZombiesPerWave = 4;
-            zone.MaxTotalZombies = 18;
+            zone.EnableZombieSpawns = 1;
+            zone.ZombieWaveCount = 5;
+            zone.ZombiesPerWave = 6;
+            zone.MaxTotalZombies = 30;
+            zone.SecondsBetweenZombieWaves = 45;
+            zone.ValidateZombieClassBeforeSpawn = 1;
+            zone.DespawnZombiesOnEventEnd = 1;
 
             // v1.0.30: Reward crates should always spawn slightly offset from the KOTH mast.
             // Exact reward positions stay disabled by default because the crate should spawn offset from the mast.
             zone.UseExactRewardCratePosition = 0;
 
-            if (zone.WavePoolName == "")
-                zone.WavePoolName = "KVM1_Test_5x6_Zombies";
+            zone.WavePoolName = "KVM1_Test_5x6_Zombies";
 
             if (!zone.StartWavesOnlyWhenPlayerInside)
                 zone.StartWavesOnlyWhenPlayerInside = 1;
