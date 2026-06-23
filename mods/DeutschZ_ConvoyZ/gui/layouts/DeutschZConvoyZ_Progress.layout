@@ -31,7 +31,7 @@ FrameWidgetClass rootFrame {
      vexactpos 1
      hexactsize 1
      vexactsize 1
-     text "DeutschZ ConvoyZ"
+     text "#STR_DZCONVOYZ_LAYOUT_DZ_CONVOYZ"
      font "gui/fonts/sdf_MetronLight16"
      "text halign" center
      "text valign" center
@@ -45,7 +45,7 @@ FrameWidgetClass rootFrame {
      vexactpos 1
      hexactsize 1
      vexactsize 1
-     text "Convoy ready"
+     text "#STR_DZCONVOYZ_LAYOUT_CONVOY_READY"
      font "gui/fonts/sdf_MetronLight14"
      "text halign" center
      "text valign" center
@@ -92,7 +92,7 @@ FrameWidgetClass rootFrame {
      vexactpos 1
      hexactsize 1
      vexactsize 1
-     text "Bereich sichern"
+     text "#STR_DZCONVOYZ_LAYOUT_BEREICH_SICHERN"
      font "gui/fonts/sdf_MetronLight12"
      "text halign" center
      "text valign" center

@@ -31,7 +31,7 @@ FrameWidgetClass rootFrame {
      vexactpos 1
      hexactsize 1
      vexactsize 1
-     text "DeutschZ GroundZero"
+     text "#STR_DZGROUNDZERO_LAYOUT_DZ_GROUNDZERO"
      font "gui/fonts/sdf_MetronLight16"
      "text halign" center
      "text valign" center
@@ -45,7 +45,7 @@ FrameWidgetClass rootFrame {
      vexactpos 1
      hexactsize 1
      vexactsize 1
-     text "Signalstation aktiv"
+     text "#STR_DZGROUNDZERO_LAYOUT_SIGNALSTATION_AKTIV"
      font "gui/fonts/sdf_MetronLight14"
      "text halign" center
      "text valign" center
@@ -92,7 +92,7 @@ FrameWidgetClass rootFrame {
      vexactpos 1
      hexactsize 1
      vexactsize 1
-     text "Spieler im Bereich: 0 | Fortschritt: 0 / 0"
+     text "#STR_DZGROUNDZERO_LAYOUT_SPIELER_IM_BEREICH_0_FORTSCHRITT_0_0"
      font "gui/fonts/sdf_MetronLight12"
      "text halign" center
      "text valign" center

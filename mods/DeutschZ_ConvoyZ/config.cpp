@@ -71,8 +71,8 @@ class CfgVehicles
     class Land_HACKEDCRATE: HouseNoDestruct
     {
         scope = 2;
-        displayName = "Top Secret Blackbox Terminal";
-        descriptionShort = "DeutschZ_ConvoyZ hackable blackbox terminal.";
+        displayName = "$STR_DZCONVOYZ_LAND_HACKEDCRATE_NAME";
+        descriptionShort = "$STR_DZCONVOYZ_LAND_HACKEDCRATE_DESC";
         model = "DeutschZ_ConvoyZ/Assets/HackedCrate/Shed.p3d";
         hiddenSelections[] = {"camo"};
         hiddenSelectionsTextures[] = {"DeutschZ_ConvoyZ/Assets/Case/CardReader.paa"};
@@ -81,8 +81,8 @@ class CfgVehicles
     class DZCV_ProtectedCase: HouseNoDestruct
     {
         scope = 2;
-        displayName = "Classified Intelligence Case";
-        descriptionShort = "A protected military data case recovered from a classified convoy crash.";
+        displayName = "$STR_DZCONVOYZ_DZCV_PROTECTEDCASE_NAME";
+        descriptionShort = "$STR_DZCONVOYZ_DZCV_PROTECTEDCASE_DESC";
         model = "DeutschZ_ConvoyZ/Assets/Case/protector_case.p3d";
         hiddenSelections[] = {"camo"};
         hiddenSelectionsTextures[] = {"DeutschZ_ConvoyZ/Assets/Case/Case.paa"};
@@ -92,8 +92,8 @@ class CfgVehicles
     class DZCV_AccessCard: PunchedCard
     {
         scope = 2;
-        displayName = "DeutschZ Convoy Access Card";
-        descriptionShort = "Encrypted DeutschZ military convoy access card. Rare event key item.";
+        displayName = "$STR_DZCONVOYZ_DZCV_ACCESSCARD_NAME";
+        descriptionShort = "$STR_DZCONVOYZ_DZCV_ACCESSCARD_DESC";
         hiddenSelections[] = {"camo"};
         hiddenSelectionsTextures[] = {"DeutschZ_ConvoyZ/Assets/Case/AccesCard.paa"};
         itemSize[] = {1,1};
@@ -103,8 +103,8 @@ class CfgVehicles
     class DZCV_CardReader: ElectronicRepairKit
     {
         scope = 2;
-        displayName = "DeutschZ Blackbox Card Reader";
-        descriptionShort = "Portable card reader for recovered convoy blackbox data.";
+        displayName = "$STR_DZCONVOYZ_DZCV_CARDREADER_NAME";
+        descriptionShort = "$STR_DZCONVOYZ_DZCV_CARDREADER_DESC";
         hiddenSelections[] = {"camo"};
         hiddenSelectionsTextures[] = {"DeutschZ_ConvoyZ/Assets/Case/CardReader.paa"};
         itemSize[] = {2,2};
@@ -114,8 +114,8 @@ class CfgVehicles
     class DZCV_BlackboxCore: GPSReceiver
     {
         scope = 2;
-        displayName = "DeutschZ Blackbox Core";
-        descriptionShort = "Extremely valuable encrypted military blackbox core recovered from a top-secret convoy.";
+        displayName = "$STR_DZCONVOYZ_DZCV_BLACKBOXCORE_NAME";
+        descriptionShort = "$STR_DZCONVOYZ_DZCV_BLACKBOXCORE_DESC";
         hiddenSelections[] = {"camo"};
         hiddenSelectionsTextures[] = {"DeutschZ_ConvoyZ/Assets/Case/CardReader.paa"};
         itemSize[] = {2,2};
@@ -125,8 +125,8 @@ class CfgVehicles
     class DZCV_EncryptedDataDrive: GPSReceiver
     {
         scope = 2;
-        displayName = "DeutschZ Encrypted Data Drive";
-        descriptionShort = "Encrypted tactical data drive. Valuable to traders and future mission chains.";
+        displayName = "$STR_DZCONVOYZ_DZCV_ENCRYPTEDDATADRIVE_NAME";
+        descriptionShort = "$STR_DZCONVOYZ_DZCV_ENCRYPTEDDATADRIVE_DESC";
         hiddenSelections[] = {"camo"};
         hiddenSelectionsTextures[] = {"DeutschZ_ConvoyZ/Assets/Case/AccesCard.paa"};
         itemSize[] = {1,2};
@@ -136,8 +136,8 @@ class CfgVehicles
     class DZCV_ClassifiedIntel: Paper
     {
         scope = 2;
-        displayName = "DeutschZ Classified Convoy Intel";
-        descriptionShort = "Classified convoy intelligence documents. High-value event loot.";
+        displayName = "$STR_DZCONVOYZ_DZCV_CLASSIFIEDINTEL_NAME";
+        descriptionShort = "$STR_DZCONVOYZ_DZCV_CLASSIFIEDINTEL_DESC";
         itemSize[] = {1,2};
         weight = 30;
     };
@@ -145,8 +145,8 @@ class CfgVehicles
     class DZCV_SealedRewardChest: SeaChest
     {
         scope = 2;
-        displayName = "DeutschZ ConvoyZ Rewardkiste";
-        descriptionShort = "Versiegelte DeutschZ ConvoyZ Rewardkiste mit 500 Cargo-Slots.";
+        displayName = "$STR_DZCONVOYZ_DZCV_SEALEDREWARDCHEST_NAME";
+        descriptionShort = "$STR_DZCONVOYZ_DZCV_SEALEDREWARDCHEST_DESC";
         hiddenSelections[] = {"camoGround"};
         hiddenSelectionsTextures[] = {"DeutschZ_ConvoyZ/Assets/Case/Seachest.paa"};
         itemSize[] = {10, 10};
@@ -163,8 +163,8 @@ class CfgVehicles
     class DZ_ConvoyZ_Blackbox: GPSReceiver
     {
         scope = 2;
-        displayName = "DeutschZ ConvoyZ Blackbox";
-        descriptionShort = "Geborgene Blackbox eines DeutschZ Convoys. Event-only Reward-, Hack- oder Traderitem.";
+        displayName = "$STR_DZCONVOYZ_DZ_CONVOYZ_BLACKBOX_NAME";
+        descriptionShort = "$STR_DZCONVOYZ_DZ_CONVOYZ_BLACKBOX_DESC";
         hiddenSelections[] = {"camo"};
         hiddenSelectionsTextures[] = {"DeutschZ_ConvoyZ/Assets/Case/CardReader.paa"};
         itemSize[] = {2, 2};
@@ -174,8 +174,8 @@ class CfgVehicles
     class DZ_ConvoyZ_EncryptedDataModule: GPSReceiver
     {
         scope = 2;
-        displayName = "DeutschZ ConvoyZ Datenmodul";
-        descriptionShort = "Verschluesseltes Datenmodul aus einem ConvoyZ-Fahrzeug. Fuer Quest- und Rewardlogik vorbereitet.";
+        displayName = "$STR_DZCONVOYZ_DZ_CONVOYZ_ENCRYPTEDDATAMODULE_NAME";
+        descriptionShort = "$STR_DZCONVOYZ_DZ_CONVOYZ_ENCRYPTEDDATAMODULE_DESC";
         hiddenSelections[] = {"camo"};
         hiddenSelectionsTextures[] = {"DeutschZ_ConvoyZ/Assets/Case/CardReader.paa"};
         itemSize[] = {1, 2};
@@ -185,8 +185,8 @@ class CfgVehicles
     class DZ_ConvoyZ_SealedWeaponCase: SmallProtectorCase
     {
         scope = 2;
-        displayName = "DeutschZ ConvoyZ versiegelter Waffenkoffer";
-        descriptionShort = "Versiegelter Eventkoffer aus einem Convoy. Darf nur ueber Event, Adminspawn, Trader oder Reward ausgegeben werden.";
+        displayName = "$STR_DZCONVOYZ_DZ_CONVOYZ_SEALEDWEAPONCASE_NAME";
+        descriptionShort = "$STR_DZCONVOYZ_DZ_CONVOYZ_SEALEDWEAPONCASE_DESC";
         model = "DeutschZ_ConvoyZ/Assets/Case/protector_case.p3d";
         hiddenSelections[] = {"camo"};
         hiddenSelectionsTextures[] = {"DeutschZ_ConvoyZ/Assets/Case/Case.paa"};
@@ -198,8 +198,8 @@ class CfgVehicles
     class DZ_ConvoyZ_DieselManifest: Paper
     {
         scope = 2;
-        displayName = "DeutschZ ConvoyZ Dieselmanifest";
-        descriptionShort = "Transportmanifest mit Routen-, Diesel- und Ladungsdaten eines ConvoyZ-Events.";
+        displayName = "$STR_DZCONVOYZ_DZ_CONVOYZ_DIESELMANIFEST_NAME";
+        descriptionShort = "$STR_DZCONVOYZ_DZ_CONVOYZ_DIESELMANIFEST_DESC";
         itemSize[] = {1, 2};
         weight = 25;
     };
@@ -207,8 +207,8 @@ class CfgVehicles
     class DZ_ConvoyZ_RadioKey: PunchedCard
     {
         scope = 2;
-        displayName = "DeutschZ ConvoyZ Funkschluessel";
-        descriptionShort = "Verschluesselter Funkschluessel fuer ConvoyZ-Signale und spaetere Eventtrigger.";
+        displayName = "$STR_DZCONVOYZ_DZ_CONVOYZ_RADIOKEY_NAME";
+        descriptionShort = "$STR_DZCONVOYZ_DZ_CONVOYZ_RADIOKEY_DESC";
         hiddenSelections[] = {"camo"};
         hiddenSelectionsTextures[] = {"DeutschZ_ConvoyZ/Assets/Case/AccesCard.paa"};
         itemSize[] = {1, 1};
@@ -218,8 +218,8 @@ class CfgVehicles
     class DZ_ConvoyZ_ArmorPlateBundle: SmallProtectorCase
     {
         scope = 2;
-        displayName = "DeutschZ ConvoyZ Panzerplatten-Buendel";
-        descriptionShort = "Schweres Buendel geborgener Schutzplatten aus einem ConvoyZ-Event. Reward- und Traderitem, kein normaler Mapspawn.";
+        displayName = "$STR_DZCONVOYZ_DZ_CONVOYZ_ARMORPLATEBUNDLE_NAME";
+        descriptionShort = "$STR_DZCONVOYZ_DZ_CONVOYZ_ARMORPLATEBUNDLE_DESC";
         model = "DeutschZ_ConvoyZ/Assets/Case/protector_case.p3d";
         hiddenSelections[] = {"camo"};
         hiddenSelectionsTextures[] = {"DeutschZ_ConvoyZ/Assets/Case/Case.paa"};
@@ -232,8 +232,8 @@ class CfgVehicles
     class DZCV_ConvoyBlackBox: GPSReceiver
     {
         scope = 2;
-        displayName = "DeutschZ ConvoyZ Blackbox";
-        descriptionShort = "Geborgene Blackbox. Bringe sie zum Kontaktmann, bevor andere Spieler dich finden.";
+        displayName = "$STR_DZCONVOYZ_DZCV_CONVOYBLACKBOX_NAME";
+        descriptionShort = "$STR_DZCONVOYZ_DZCV_CONVOYBLACKBOX_DESC";
         hiddenSelections[] = {"camo"};
         hiddenSelectionsTextures[] = {"DeutschZ_ConvoyZ/Assets/Case/CardReader.paa"};
         itemSize[] = {2, 2};
@@ -243,8 +243,8 @@ class CfgVehicles
     class DZCV_BlackboxDeliveryNote: Paper
     {
         scope = 2;
-        displayName = "DeutschZ Blackbox-Uebergabenotiz";
-        descriptionShort = "Notiz zur Blackbox-Uebergabe. Der Kontaktmann sagt: Behalte das mal, kann noch wichtig sein.";
+        displayName = "$STR_DZCONVOYZ_DZCV_BLACKBOXDELIVERYNOTE_NAME";
+        descriptionShort = "$STR_DZCONVOYZ_DZCV_BLACKBOXDELIVERYNOTE_DESC";
         itemSize[] = {1, 1};
         weight = 10;
     };
@@ -252,8 +252,8 @@ class CfgVehicles
     class DZCV_OperationLead: PunchedCard
     {
         scope = 2;
-        displayName = "DeutschZ Operation Lead";
-        descriptionShort = "OperationDeutschZ-Hinweis aus ConvoyZ. Dient spaeter als Verkettungsitem.";
+        displayName = "$STR_DZCONVOYZ_DZCV_OPERATIONLEAD_NAME";
+        descriptionShort = "$STR_DZCONVOYZ_DZCV_OPERATIONLEAD_DESC";
         hiddenSelections[] = {"camo"};
         hiddenSelectionsTextures[] = {"DeutschZ_ConvoyZ/Assets/Case/AccesCard.paa"};
         itemSize[] = {1, 1};
@@ -263,8 +263,8 @@ class CfgVehicles
     class DZCV_CrashSiteKeyFragment: PunchedCard
     {
         scope = 2;
-        displayName = "DeutschZ Crashsite Keyfragment";
-        descriptionShort = "Fragment eines Zugangsschluessels aus einer ConvoyZ-Crashsite.";
+        displayName = "$STR_DZCONVOYZ_DZCV_CRASHSITEKEYFRAGMENT_NAME";
+        descriptionShort = "$STR_DZCONVOYZ_DZCV_CRASHSITEKEYFRAGMENT_DESC";
         hiddenSelections[] = {"camo"};
         hiddenSelectionsTextures[] = {"DeutschZ_ConvoyZ/Assets/Case/AccesCard.paa"};
         itemSize[] = {1, 1};

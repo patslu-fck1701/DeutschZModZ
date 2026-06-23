@@ -42,11 +42,7 @@ class CfgMods
         name = "DeutschZ GroundZero";
         type = "mod";
         author = "Patrick Sluzalek / fck1701";
-<<<<<<< HEAD
         version = "0.9.4-campaign-chain-test";
-=======
-        version = "0.9.3-online-test";
->>>>>>> 39fa93c734f52a69c045816aa7b5632b5a10d772
         dependencies[] = {"Game", "World", "Mission"};
 
         class defs
@@ -87,8 +83,8 @@ class CfgVehicles
     class GroundZero_ComponentBase: Inventory_Base
     {
         scope = 0;
-        displayName = "Ground Zero Component";
-        descriptionShort = "Kritische Ground-Zero-Komponente.";
+        displayName = "$STR_DZGROUNDZERO_GROUNDZERO_COMPONENTBASE_NAME";
+        descriptionShort = "$STR_DZGROUNDZERO_GROUNDZERO_COMPONENTBASE_DESC";
         weight = 1200;
         itemSize[] = {2, 2};
         quantityBar = 0;
@@ -103,43 +99,43 @@ class CfgVehicles
     class GroundZero_AlphaDataModule: GroundZero_ComponentBase
     {
         scope = 2;
-        displayName = "GroundZero Alpha-Datenmodul";
-        descriptionShort = "Gesichertes Datenmodul aus der Signalquelle. Event-only Bauteil fuer GroundZero und OperationDeutschZ.";
+        displayName = "$STR_DZGROUNDZERO_GROUNDZERO_ALPHADATAMODULE_NAME";
+        descriptionShort = "$STR_DZGROUNDZERO_GROUNDZERO_ALPHADATAMODULE_DESC";
     };
 
     class GroundZero_EnergyCell: GroundZero_ComponentBase
     {
         scope = 2;
-        displayName = "GroundZero Energiezelle";
-        descriptionShort = "Instabile Energiezelle aus der Generatorstation. Nicht fuer normalen Mapspawn vorgesehen.";
+        displayName = "$STR_DZGROUNDZERO_GROUNDZERO_ENERGYCELL_NAME";
+        descriptionShort = "$STR_DZGROUNDZERO_GROUNDZERO_ENERGYCELL_DESC";
     };
 
     class GroundZero_BioSample: GroundZero_ComponentBase
     {
         scope = 2;
-        displayName = "GroundZero biologische Probe";
-        descriptionShort = "Versiegelte Probe aus einer kontaminierten GroundZero-Zone.";
+        displayName = "$STR_DZGROUNDZERO_GROUNDZERO_BIOSAMPLE_NAME";
+        descriptionShort = "$STR_DZGROUNDZERO_GROUNDZERO_BIOSAMPLE_DESC";
     };
 
     class GroundZero_AuthChip: GroundZero_ComponentBase
     {
         scope = 2;
-        displayName = "GroundZero Authentifizierungschip";
-        descriptionShort = "Authentifizierungschip fuer Terminal-, Cache- und Kampagnenlogik.";
+        displayName = "$STR_DZGROUNDZERO_GROUNDZERO_AUTHCHIP_NAME";
+        descriptionShort = "$STR_DZGROUNDZERO_GROUNDZERO_AUTHCHIP_DESC";
     };
 
     class GroundZero_ContainmentKey: GroundZero_ComponentBase
     {
         scope = 2;
-        displayName = "GroundZero Containment-Schluessel";
-        descriptionShort = "Schluessel fuer den finalen Containment-Cache.";
+        displayName = "$STR_DZGROUNDZERO_GROUNDZERO_CONTAINMENTKEY_NAME";
+        descriptionShort = "$STR_DZGROUNDZERO_GROUNDZERO_CONTAINMENTKEY_DESC";
     };
 
     class GroundZero_ResearchCore: GroundZero_ComponentBase
     {
         scope = 2;
-        displayName = "GroundZero Forschungskern";
-        descriptionShort = "Schwerer Forschungskern aus dem Final Cache. Seltenes Event- und Kampagnenitem.";
+        displayName = "$STR_DZGROUNDZERO_GROUNDZERO_RESEARCHCORE_NAME";
+        descriptionShort = "$STR_DZGROUNDZERO_GROUNDZERO_RESEARCHCORE_DESC";
         itemSize[] = {3, 3};
         weight = 3000;
     };
@@ -147,8 +143,8 @@ class CfgVehicles
     class DZGZ_GeneratorSparkPlug: GroundZero_ComponentBase
     {
         scope = 2;
-        displayName = "GroundZero Generator-Zuendmodul";
-        descriptionShort = "Spezialteil fuer die GroundZero-Generatorreparatur. Wird durch die Hold-Zone freigeschaltet und soll nicht normal spawnen.";
+        displayName = "$STR_DZGROUNDZERO_DZGZ_GENERATORSPARKPLUG_NAME";
+        descriptionShort = "$STR_DZGROUNDZERO_DZGZ_GENERATORSPARKPLUG_DESC";
         itemSize[] = {1, 2};
         weight = 260;
     };
@@ -156,8 +152,8 @@ class CfgVehicles
     class DZGZ_EncryptedResearchData: GroundZero_ComponentBase
     {
         scope = 2;
-        displayName = "GroundZero verschluesselte Forschungsdaten";
-        descriptionShort = "Extrahierte Terminaldaten aus GroundZero. Kann spaeter OperationDeutschZ-Hinweise freischalten.";
+        displayName = "$STR_DZGROUNDZERO_DZGZ_ENCRYPTEDRESEARCHDATA_NAME";
+        descriptionShort = "$STR_DZGROUNDZERO_DZGZ_ENCRYPTEDRESEARCHDATA_DESC";
         itemSize[] = {1, 1};
         weight = 90;
     };
@@ -165,8 +161,8 @@ class CfgVehicles
     class DZGZ_ContaminatedSample: GroundZero_ComponentBase
     {
         scope = 2;
-        displayName = "GroundZero kontaminierte Probe";
-        descriptionShort = "Versiegelte kontaminierte Probe. Nur fuer Event-, Trader- und Kampagnenlogik gedacht.";
+        displayName = "$STR_DZGROUNDZERO_DZGZ_CONTAMINATEDSAMPLE_NAME";
+        descriptionShort = "$STR_DZGROUNDZERO_DZGZ_CONTAMINATEDSAMPLE_DESC";
         itemSize[] = {1, 2};
         weight = 360;
     };
@@ -174,8 +170,8 @@ class CfgVehicles
     class DZGZ_SignalCore: GroundZero_ComponentBase
     {
         scope = 2;
-        displayName = "GroundZero Signalkern";
-        descriptionShort = "Geborgener Signalkern aus einer GroundZero-Anlage. Hochwertiges OperationDeutschZ-Verbindungsitem.";
+        displayName = "$STR_DZGROUNDZERO_DZGZ_SIGNALCORE_NAME";
+        descriptionShort = "$STR_DZGROUNDZERO_DZGZ_SIGNALCORE_DESC";
         itemSize[] = {2, 2};
         weight = 950;
     };
@@ -183,8 +179,8 @@ class CfgVehicles
     class DZ_GroundZero_ContaminatedDataCore: GroundZero_ComponentBase
     {
         scope = 2;
-        displayName = "DeutschZ GroundZero kontaminierter Datenkern";
-        descriptionShort = "Kontaminierter Datenkern aus der GroundZero-Zone. Event-only Reward- und Questitem.";
+        displayName = "$STR_DZGROUNDZERO_DZ_GROUNDZERO_CONTAMINATEDDATACORE_NAME";
+        descriptionShort = "$STR_DZGROUNDZERO_DZ_GROUNDZERO_CONTAMINATEDDATACORE_DESC";
         itemSize[] = {2, 2};
         weight = 1400;
     };
@@ -192,8 +188,8 @@ class CfgVehicles
     class DZ_GroundZero_Sample: GroundZero_ComponentBase
     {
         scope = 2;
-        displayName = "DeutschZ GroundZero Probe";
-        descriptionShort = "Gesicherte Probe aus einer GroundZero-Zone. Nur fuer Event-, Admin- und Traderlogik vorgesehen.";
+        displayName = "$STR_DZGROUNDZERO_DZ_GROUNDZERO_SAMPLE_NAME";
+        descriptionShort = "$STR_DZGROUNDZERO_DZ_GROUNDZERO_SAMPLE_DESC";
         itemSize[] = {1, 2};
         weight = 350;
     };
@@ -201,8 +197,8 @@ class CfgVehicles
     class DZ_GroundZero_ReactorCode: GroundZero_ComponentBase
     {
         scope = 2;
-        displayName = "DeutschZ GroundZero Reaktorcode";
-        descriptionShort = "Verschluesselter Reaktorcode fuer GroundZero-Trigger und spaetere Missionslogik.";
+        displayName = "$STR_DZGROUNDZERO_DZ_GROUNDZERO_REACTORCODE_NAME";
+        descriptionShort = "$STR_DZGROUNDZERO_DZ_GROUNDZERO_REACTORCODE_DESC";
         itemSize[] = {1, 1};
         weight = 60;
     };
@@ -210,8 +206,8 @@ class CfgVehicles
     class DZ_GroundZero_EvacuationOrder: GroundZero_ComponentBase
     {
         scope = 2;
-        displayName = "DeutschZ GroundZero Evakuierungsbefehl";
-        descriptionShort = "Befehl zur Evakuierung einer kontaminierten Zone. Event-only Dokument.";
+        displayName = "$STR_DZGROUNDZERO_DZ_GROUNDZERO_EVACUATIONORDER_NAME";
+        descriptionShort = "$STR_DZGROUNDZERO_DZ_GROUNDZERO_EVACUATIONORDER_DESC";
         itemSize[] = {1, 2};
         weight = 35;
     };
@@ -219,8 +215,8 @@ class CfgVehicles
     class DZ_GroundZero_MilitaryAccessCard: GroundZero_ComponentBase
     {
         scope = 2;
-        displayName = "DeutschZ GroundZero Militaer-Zugangskarte";
-        descriptionShort = "Militaerische Zugangskarte fuer GroundZero-Sperrzonen und Rewardlogik.";
+        displayName = "$STR_DZGROUNDZERO_DZ_GROUNDZERO_MILITARYACCESSCARD_NAME";
+        descriptionShort = "$STR_DZGROUNDZERO_DZ_GROUNDZERO_MILITARYACCESSCARD_DESC";
         itemSize[] = {1, 1};
         weight = 25;
     };
@@ -228,8 +224,8 @@ class CfgVehicles
     class DZ_GroundZero_ZoneArtifact: GroundZero_ComponentBase
     {
         scope = 2;
-        displayName = "DeutschZ GroundZero Zonenartefakt";
-        descriptionShort = "Seltenes Artefakt aus einer GroundZero-Zone. Hochwertiges Event-only Rewarditem.";
+        displayName = "$STR_DZGROUNDZERO_DZ_GROUNDZERO_ZONEARTIFACT_NAME";
+        descriptionShort = "$STR_DZGROUNDZERO_DZ_GROUNDZERO_ZONEARTIFACT_DESC";
         itemSize[] = {2, 2};
         weight = 900;
     };

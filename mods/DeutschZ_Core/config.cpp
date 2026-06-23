@@ -55,8 +55,8 @@ class CfgVehicles
     class DZ_EventToken: PunchedCard
     {
         scope = 2;
-        displayName = "DeutschZ Event-Token";
-        descriptionShort = "Globaler DeutschZ Event-Token fuer Rewards, Adminspawn und Trader. Event-only, kein normaler Mapspawn.";
+        displayName = "$STR_DZCORE_DZ_EVENTTOKEN_NAME";
+        descriptionShort = "$STR_DZCORE_DZ_EVENTTOKEN_DESC";
         itemSize[] = {1, 1};
         weight = 20;
     };
@@ -64,8 +64,8 @@ class CfgVehicles
     class DZ_BossDogtag: PunchedCard
     {
         scope = 2;
-        displayName = "DeutschZ Boss-Erkennungsmarke";
-        descriptionShort = "Trophy-Token fuer Bosskills und besondere Eventabschluesse.";
+        displayName = "$STR_DZCORE_DZ_BOSSDOGTAG_NAME";
+        descriptionShort = "$STR_DZCORE_DZ_BOSSDOGTAG_DESC";
         itemSize[] = {1, 1};
         weight = 30;
     };
@@ -73,8 +73,8 @@ class CfgVehicles
     class DZ_RedZChip: GPSReceiver
     {
         scope = 2;
-        displayName = "DeutschZ Roter Z-Chip";
-        descriptionShort = "Technischer DeutschZ-Chip fuer Trigger, Questketten und Eventsignale.";
+        displayName = "$STR_DZCORE_DZ_REDZCHIP_NAME";
+        descriptionShort = "$STR_DZCORE_DZ_REDZCHIP_DESC";
         itemSize[] = {1, 1};
         weight = 60;
     };
@@ -82,8 +82,8 @@ class CfgVehicles
     class DZ_BrokenTransmitter: Inventory_Base
     {
         scope = 2;
-        displayName = "DeutschZ defekter Sender";
-        descriptionShort = "Beschaedigter Funksender aus einer Eventzone. Als Signal-, Quest- oder Traderitem nutzbar.";
+        displayName = "$STR_DZCORE_DZ_BROKENTRANSMITTER_NAME";
+        descriptionShort = "$STR_DZCORE_DZ_BROKENTRANSMITTER_DESC";
         itemSize[] = {2, 2};
         weight = 550;
     };
@@ -91,8 +91,8 @@ class CfgVehicles
     class DZ_BloodSample: BloodTestKit
     {
         scope = 2;
-        displayName = "DeutschZ Blutprobe";
-        descriptionShort = "Gesicherte Probe aus einem DeutschZ-Event. Event-only und fuer medizinische Questlogik vorbereitet.";
+        displayName = "$STR_DZCORE_DZ_BLOODSAMPLE_NAME";
+        descriptionShort = "$STR_DZCORE_DZ_BLOODSAMPLE_DESC";
         itemSize[] = {1, 1};
         weight = 120;
     };
@@ -100,8 +100,8 @@ class CfgVehicles
     class DZ_ContainmentSeal: GasMask_Filter
     {
         scope = 2;
-        displayName = "DeutschZ Containment-Siegel";
-        descriptionShort = "Versiegeltes Kontaminationsbauteil fuer GroundZero-, NBC- oder Triggerlogik.";
+        displayName = "$STR_DZCORE_DZ_CONTAINMENTSEAL_NAME";
+        descriptionShort = "$STR_DZCORE_DZ_CONTAINMENTSEAL_DESC";
         itemSize[] = {1, 2};
         weight = 180;
     };
@@ -109,8 +109,8 @@ class CfgVehicles
     class DZ_TacticalCase: SmallProtectorCase
     {
         scope = 2;
-        displayName = "DeutschZ taktischer Eventkoffer";
-        descriptionShort = "Robuster Eventkoffer fuer sichere Belohnungen, Zielobjekte und Adminspawn.";
+        displayName = "$STR_DZCORE_DZ_TACTICALCASE_NAME";
+        descriptionShort = "$STR_DZCORE_DZ_TACTICALCASE_DESC";
         itemSize[] = {4, 3};
         weight = 2600;
         canBeSplit = 0;
@@ -119,8 +119,8 @@ class CfgVehicles
     class DZ_RewardKey: PunchedCard
     {
         scope = 2;
-        displayName = "DeutschZ Reward-Schluessel";
-        descriptionShort = "Schluessel-/Tokenitem fuer Eventbelohnungen. Event-only, kein normaler Mapspawn.";
+        displayName = "$STR_DZCORE_DZ_REWARDKEY_NAME";
+        descriptionShort = "$STR_DZCORE_DZ_REWARDKEY_DESC";
         itemSize[] = {1, 1};
         weight = 15;
     };
@@ -128,8 +128,8 @@ class CfgVehicles
     class DZ_SupplyVoucher: Paper
     {
         scope = 2;
-        displayName = "DeutschZ Versorgungsgutschein";
-        descriptionShort = "Einloesbares Eventdokument fuer Versorgung, Trader oder Adminbelohnung.";
+        displayName = "$STR_DZCORE_DZ_SUPPLYVOUCHER_NAME";
+        descriptionShort = "$STR_DZCORE_DZ_SUPPLYVOUCHER_DESC";
         itemSize[] = {1, 2};
         weight = 20;
     };
@@ -137,8 +137,8 @@ class CfgVehicles
     class DZ_HazardCanister: GasMask_Filter
     {
         scope = 2;
-        displayName = "DeutschZ Gefahrstoffkanister";
-        descriptionShort = "Kleiner versiegelter Gefahrstoffbehaelter fuer kontaminierte Eventketten.";
+        displayName = "$STR_DZCORE_DZ_HAZARDCANISTER_NAME";
+        descriptionShort = "$STR_DZCORE_DZ_HAZARDCANISTER_DESC";
         itemSize[] = {2, 2};
         weight = 900;
     };
@@ -146,8 +146,8 @@ class CfgVehicles
     class DZ_MilitaryLedger: Paper
     {
         scope = 2;
-        displayName = "DeutschZ Militaer-Ledger";
-        descriptionShort = "Militaerisches Register mit Eventrouten, Ladungen und Zielcodes.";
+        displayName = "$STR_DZCORE_DZ_MILITARYLEDGER_NAME";
+        descriptionShort = "$STR_DZCORE_DZ_MILITARYLEDGER_DESC";
         itemSize[] = {1, 2};
         weight = 35;
     };
@@ -155,8 +155,8 @@ class CfgVehicles
     class DZ_SecureSSD: GPSReceiver
     {
         scope = 2;
-        displayName = "DeutschZ Secure SSD";
-        descriptionShort = "Verschluesselter Datentraeger fuer High-Value-Events und Missionsketten.";
+        displayName = "$STR_DZCORE_DZ_SECURESSD_NAME";
+        descriptionShort = "$STR_DZCORE_DZ_SECURESSD_DESC";
         itemSize[] = {1, 1};
         weight = 80;
     };
@@ -164,8 +164,8 @@ class CfgVehicles
     class DZ_FieldNote: Paper
     {
         scope = 2;
-        displayName = "DeutschZ Feldnotiz";
-        descriptionShort = "Kurze Feldnotiz aus einer Eventzone. Quest-, Lore- oder Traderitem.";
+        displayName = "$STR_DZCORE_DZ_FIELDNOTE_NAME";
+        descriptionShort = "$STR_DZCORE_DZ_FIELDNOTE_DESC";
         itemSize[] = {1, 1};
         weight = 10;
     };
@@ -173,8 +173,8 @@ class CfgVehicles
     class DZ_AccessFuse: ElectronicRepairKit
     {
         scope = 2;
-        displayName = "DeutschZ Zugangssicherung";
-        descriptionShort = "Elektronische Sicherung fuer Eventgeraete, Kisten und Triggerlogik.";
+        displayName = "$STR_DZCORE_DZ_ACCESSFUSE_NAME";
+        descriptionShort = "$STR_DZCORE_DZ_ACCESSFUSE_DESC";
         itemSize[] = {1, 2};
         weight = 180;
     };
@@ -182,8 +182,8 @@ class CfgVehicles
     class DZ_SignalBattery: Battery9V
     {
         scope = 2;
-        displayName = "DeutschZ Signalbatterie";
-        descriptionShort = "Spezielle Batterie fuer Signalstation, Beacons und Eventtechnik.";
+        displayName = "$STR_DZCORE_DZ_SIGNALBATTERY_NAME";
+        descriptionShort = "$STR_DZCORE_DZ_SIGNALBATTERY_DESC";
         itemSize[] = {1, 1};
         weight = 70;
     };
@@ -191,8 +191,8 @@ class CfgVehicles
     class DZ_RadioCrystal: GPSReceiver
     {
         scope = 2;
-        displayName = "DeutschZ Funkkristall";
-        descriptionShort = "Kalibrierter Kristall fuer Funk-, Signal- und Broadcast-Events.";
+        displayName = "$STR_DZCORE_DZ_RADIOCRYSTAL_NAME";
+        descriptionShort = "$STR_DZCORE_DZ_RADIOCRYSTAL_DESC";
         itemSize[] = {1, 1};
         weight = 45;
     };
@@ -200,8 +200,8 @@ class CfgVehicles
     class DZ_EventCore: GPSReceiver
     {
         scope = 2;
-        displayName = "DeutschZ Event-Core";
-        descriptionShort = "Zentrales technisches Kernmodul fuer hochwertige Eventketten.";
+        displayName = "$STR_DZCORE_DZ_EVENTCORE_NAME";
+        descriptionShort = "$STR_DZCORE_DZ_EVENTCORE_DESC";
         itemSize[] = {2, 2};
         weight = 800;
     };
@@ -209,8 +209,8 @@ class CfgVehicles
     class DZ_RedSmokeBeacon: Inventory_Base
     {
         scope = 2;
-        displayName = "DeutschZ roter Smoke-Beacon";
-        descriptionShort = "Event-only Signalgeraet fuer sichtbare, config-gated Eventmarkierung.";
+        displayName = "$STR_DZCORE_DZ_REDSMOKEBEACON_NAME";
+        descriptionShort = "$STR_DZCORE_DZ_REDSMOKEBEACON_DESC";
         itemSize[] = {2, 2};
         weight = 650;
     };
@@ -218,8 +218,8 @@ class CfgVehicles
     class DZOP_Keycard_ConvoyAlpha: PunchedCard
     {
         scope = 2;
-        displayName = "OperationDeutschZ Convoy-Alpha-Keycard";
-        descriptionShort = "Alpha-Keycard aus ConvoyZ. Hochwertiges OperationDeutschZ-Progressitem; behalten ist wahrscheinlich wertvoller als verkaufen.";
+        displayName = "$STR_DZCORE_DZOP_KEYCARD_CONVOYALPHA_NAME";
+        descriptionShort = "$STR_DZCORE_DZOP_KEYCARD_CONVOYALPHA_DESC";
         itemSize[] = {1, 1};
         weight = 35;
     };
@@ -227,8 +227,8 @@ class CfgVehicles
     class DZOP_ConvoyLeadNote: Paper
     {
         scope = 2;
-        displayName = "OperationDeutschZ Convoy-Leitnotiz";
-        descriptionShort = "Notiz aus ConvoyZ mit Verweisen auf eine groessere Operation.";
+        displayName = "$STR_DZCORE_DZOP_CONVOYLEADNOTE_NAME";
+        descriptionShort = "$STR_DZCORE_DZOP_CONVOYLEADNOTE_DESC";
         itemSize[] = {1, 1};
         weight = 10;
     };
@@ -236,8 +236,8 @@ class CfgVehicles
     class DZOP_TreasureMapFragment_A: Paper
     {
         scope = 2;
-        displayName = "OperationDeutschZ Kartenfragment A";
-        descriptionShort = "Verbranntes Kartenfragment aus einem unbekannten Signal. Behalten ist wahrscheinlich wertvoller als verkaufen.";
+        displayName = "$STR_DZCORE_DZOP_TREASUREMAPFRAGMENT_A_NAME";
+        descriptionShort = "$STR_DZCORE_DZOP_TREASUREMAPFRAGMENT_A_DESC";
         itemSize[] = {1, 2};
         weight = 20;
     };
@@ -245,8 +245,8 @@ class CfgVehicles
     class DZOP_DamagedCardReader: ElectronicRepairKit
     {
         scope = 2;
-        displayName = "OperationDeutschZ beschaedigter CardReader";
-        descriptionShort = "Beschaedigter Reader aus GroundZero. Zusammen mit der Convoy-Alpha-Keycard fuer die Kampagnenkette vorbereitet.";
+        displayName = "$STR_DZCORE_DZOP_DAMAGEDCARDREADER_NAME";
+        descriptionShort = "$STR_DZCORE_DZOP_DAMAGEDCARDREADER_DESC";
         itemSize[] = {2, 2};
         weight = 420;
     };
@@ -254,8 +254,8 @@ class CfgVehicles
     class DZOP_DecodedKeycard: PunchedCard
     {
         scope = 2;
-        displayName = "OperationDeutschZ dekodierte Keycard";
-        descriptionShort = "Dekodierte Keycard fuer spaetere OperationDeutschZ-Kombinationen und Finalfreigaben.";
+        displayName = "$STR_DZCORE_DZOP_DECODEDKEYCARD_NAME";
+        descriptionShort = "$STR_DZCORE_DZOP_DECODEDKEYCARD_DESC";
         itemSize[] = {1, 1};
         weight = 35;
     };
@@ -263,8 +263,8 @@ class CfgVehicles
     class DZOP_OperationTreasureMap: Paper
     {
         scope = 2;
-        displayName = "OperationDeutschZ Schatzkarte";
-        descriptionShort = "Finale Schatzkarte der OperationDeutschZ-Kette. Event-only, kein normaler Mapspawn.";
+        displayName = "$STR_DZCORE_DZOP_OPERATIONTREASUREMAP_NAME";
+        descriptionShort = "$STR_DZCORE_DZOP_OPERATIONTREASUREMAP_DESC";
         itemSize[] = {2, 2};
         weight = 30;
     };
@@ -272,8 +272,8 @@ class CfgVehicles
     class DZOP_TreasureMapFragment_B: Paper
     {
         scope = 2;
-        displayName = "OperationDeutschZ Kartenfragment B";
-        descriptionShort = "Zusammengesetztes Kartenfragment fuer den fortgeschrittenen Kampagnenfortschritt.";
+        displayName = "$STR_DZCORE_DZOP_TREASUREMAPFRAGMENT_B_NAME";
+        descriptionShort = "$STR_DZCORE_DZOP_TREASUREMAPFRAGMENT_B_DESC";
         itemSize[] = {1, 2};
         weight = 15;
     };
@@ -281,8 +281,8 @@ class CfgVehicles
     class DZOP_CipherFragment_Courier: Paper
     {
         scope = 2;
-        displayName = "OperationDeutschZ Courier-Chiffrefragment";
-        descriptionShort = "Chiffrefragment aus CourierZ. Teil der spaeteren OperationDeutschZ-Kombination.";
+        displayName = "$STR_DZCORE_DZOP_CIPHERFRAGMENT_COURIER_NAME";
+        descriptionShort = "$STR_DZCORE_DZOP_CIPHERFRAGMENT_COURIER_DESC";
         itemSize[] = {1, 1};
         weight = 10;
     };
@@ -290,8 +290,8 @@ class CfgVehicles
     class DZOP_RouteNote_Courier: Paper
     {
         scope = 2;
-        displayName = "OperationDeutschZ Courier-Routennotiz";
-        descriptionShort = "Routennotiz mit verschleierter Uebergabekette aus CourierZ.";
+        displayName = "$STR_DZCORE_DZOP_ROUTENOTE_COURIER_NAME";
+        descriptionShort = "$STR_DZCORE_DZOP_ROUTENOTE_COURIER_DESC";
         itemSize[] = {1, 1};
         weight = 10;
     };
@@ -299,8 +299,8 @@ class CfgVehicles
     class DZOP_TechnicalFragment_GroundZero: ElectronicRepairKit
     {
         scope = 2;
-        displayName = "OperationDeutschZ GroundZero-Technikfragment";
-        descriptionShort = "Technisches Fragment aus GroundZero. Kann als Generator- oder Decoderteil genutzt werden.";
+        displayName = "$STR_DZCORE_DZOP_TECHNICALFRAGMENT_GROUNDZERO_NAME";
+        descriptionShort = "$STR_DZCORE_DZOP_TECHNICALFRAGMENT_GROUNDZERO_DESC";
         itemSize[] = {1, 2};
         weight = 220;
     };
@@ -308,8 +308,8 @@ class CfgVehicles
     class DZOP_SignalFragment_KotHZ: GPSReceiver
     {
         scope = 2;
-        displayName = "OperationDeutschZ KotHZ-Signalfragment";
-        descriptionShort = "Signalfragment aus KotHZ. Fuehrt die roten Signale in die OperationDeutschZ-Kette.";
+        displayName = "$STR_DZCORE_DZOP_SIGNALFRAGMENT_KOTHZ_NAME";
+        descriptionShort = "$STR_DZCORE_DZOP_SIGNALFRAGMENT_KOTHZ_DESC";
         itemSize[] = {1, 1};
         weight = 80;
     };
@@ -317,8 +317,8 @@ class CfgVehicles
     class DZOP_BurnedNote: Paper
     {
         scope = 2;
-        displayName = "OperationDeutschZ verbrannte Notiz";
-        descriptionShort = "Angebrannte Notiz mit einem kaum lesbaren Hinweis: Wenn der Himmel schweigt, spricht der Boden.";
+        displayName = "$STR_DZCORE_DZOP_BURNEDNOTE_NAME";
+        descriptionShort = "$STR_DZCORE_DZOP_BURNEDNOTE_DESC";
         itemSize[] = {1, 1};
         weight = 5;
     };
@@ -326,8 +326,8 @@ class CfgVehicles
     class DZOP_DestroyedBlackBox: GPSReceiver
     {
         scope = 2;
-        displayName = "OperationDeutschZ zerstoerte Blackbox";
-        descriptionShort = "Zerstoerte Blackbox eines unbekannten Signals. Startfund fuer OperationDeutschZ.";
+        displayName = "$STR_DZCORE_DZOP_DESTROYEDBLACKBOX_NAME";
+        descriptionShort = "$STR_DZCORE_DZOP_DESTROYEDBLACKBOX_DESC";
         itemSize[] = {2, 2};
         weight = 900;
     };
@@ -335,8 +335,8 @@ class CfgVehicles
     class DZOP_EncryptedSignalCore: GPSReceiver
     {
         scope = 2;
-        displayName = "OperationDeutschZ verschluesselter Signalkern";
-        descriptionShort = "Verschluesselter Signalkern fuer spaetere Final- und Depotlogik.";
+        displayName = "$STR_DZCORE_DZOP_ENCRYPTEDSIGNALCORE_NAME";
+        descriptionShort = "$STR_DZCORE_DZOP_ENCRYPTEDSIGNALCORE_DESC";
         itemSize[] = {2, 2};
         weight = 700;
     };

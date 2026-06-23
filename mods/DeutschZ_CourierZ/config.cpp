@@ -32,11 +32,7 @@ class CfgMods
         credits = "Owner: Patrick Sluzalek / Player: fck1701 / Server: DeutschZ";
         author = "Patrick Sluzalek / fck1701";
         authorID = "0";
-<<<<<<< HEAD
         version = "0.9.4-campaign-chain-test";
-=======
-        version = "0.9.3-online-test";
->>>>>>> 39fa93c734f52a69c045816aa7b5632b5a10d772
         extra = 0;
         type = "mod";
         dependencies[] = {"Game", "World", "Mission"};
@@ -73,8 +69,8 @@ class CfgVehicles
     class DZCR_SealedLetter: Paper
     {
         scope = 2;
-        displayName = "Versiegelter Kurierbrief";
-        descriptionShort = "DeutschZ CourierZ Startdokument fuer Operation Aktenkoffer.";
+        displayName = "$STR_DZCOURIERZ_DZCR_SEALEDLETTER_NAME";
+        descriptionShort = "$STR_DZCOURIERZ_DZCR_SEALEDLETTER_DESC";
         itemSize[] = {1, 1};
         weight = 20;
     };
@@ -82,8 +78,8 @@ class CfgVehicles
     class DZCR_ClassifiedDocument: Paper
     {
         scope = 2;
-        displayName = "Geheimdokument";
-        descriptionShort = "Klassifiziertes DeutschZ Kurierdokument.";
+        displayName = "$STR_DZCOURIERZ_DZCR_CLASSIFIEDDOCUMENT_NAME";
+        descriptionShort = "$STR_DZCOURIERZ_DZCR_CLASSIFIEDDOCUMENT_DESC";
         itemSize[] = {1, 2};
         weight = 30;
     };
@@ -91,8 +87,8 @@ class CfgVehicles
     class DZCR_SecretOrder: Paper
     {
         scope = 2;
-        displayName = "Geheimauftrag";
-        descriptionShort = "Verschluesselter Auftrag fuer Operation Aktenkoffer.";
+        displayName = "$STR_DZCOURIERZ_DZCR_SECRETORDER_NAME";
+        descriptionShort = "$STR_DZCOURIERZ_DZCR_SECRETORDER_DESC";
         itemSize[] = {1, 2};
         weight = 30;
     };
@@ -100,8 +96,8 @@ class CfgVehicles
     class DZCR_EncryptedDataDrive: GPSReceiver
     {
         scope = 2;
-        displayName = "Verschluesselter Datentraeger";
-        descriptionShort = "Seltener DeutschZ Kurier-Datentraeger.";
+        displayName = "$STR_DZCOURIERZ_DZCR_ENCRYPTEDDATADRIVE_NAME";
+        descriptionShort = "$STR_DZCOURIERZ_DZCR_ENCRYPTEDDATADRIVE_DESC";
         itemSize[] = {1, 2};
         weight = 150;
     };
@@ -109,8 +105,8 @@ class CfgVehicles
     class DZCR_Aktenkoffer: SmallProtectorCase
     {
         scope = 2;
-        displayName = "DeutschZ Aktenkoffer";
-        descriptionShort = "Versiegelter DeutschZ CourierZ Eventkoffer. Zum Ziel bringen, nicht einlagern.";
+        displayName = "$STR_DZCOURIERZ_DZCR_AKTENKOFFER_NAME";
+        descriptionShort = "$STR_DZCOURIERZ_DZCR_AKTENKOFFER_DESC";
         model = "DeutschZ_CourierZ/Assets/Case/protector_case.p3d";
         hiddenSelections[] = {"camo"};
         hiddenSelectionsTextures[] = {"DeutschZ_CourierZ/Assets/Case/Case.paa"};
@@ -123,15 +119,15 @@ class CfgVehicles
     class DZCR_SealedCourierCase: DZCR_Aktenkoffer
     {
         scope = 2;
-        displayName = "DeutschZ versiegelter Kurierkoffer";
-        descriptionShort = "Versiegelter CourierZ-Koffer fuer mehrstufige NPC-Uebergaben. Zielobjekt, kein normaler Mapspawn.";
+        displayName = "$STR_DZCOURIERZ_DZCR_SEALEDCOURIERCASE_NAME";
+        descriptionShort = "$STR_DZCOURIERZ_DZCR_SEALEDCOURIERCASE_DESC";
     };
 
     class DZCR_CourierPackage: SmallProtectorCase
     {
         scope = 2;
-        displayName = "DeutschZ CourierZ Lieferpaket";
-        descriptionShort = "Versiegeltes Lieferpaket fuer CourierZ-Routen. Nur durch Eventlogik oder Adminspawn vorgesehen.";
+        displayName = "$STR_DZCOURIERZ_DZCR_COURIERPACKAGE_NAME";
+        descriptionShort = "$STR_DZCOURIERZ_DZCR_COURIERPACKAGE_DESC";
         model = "DeutschZ_CourierZ/Assets/Case/protector_case.p3d";
         hiddenSelections[] = {"camo"};
         hiddenSelectionsTextures[] = {"DeutschZ_CourierZ/Assets/Case/Case.paa"};
@@ -143,8 +139,8 @@ class CfgVehicles
     class DZCR_DeliveryStamp: Paper
     {
         scope = 2;
-        displayName = "DeutschZ CourierZ Lieferstempel";
-        descriptionShort = "Nachweis einer bestaetigten CourierZ-Uebergabe. Hochwertiges Event- und Traderitem.";
+        displayName = "$STR_DZCOURIERZ_DZCR_DELIVERYSTAMP_NAME";
+        descriptionShort = "$STR_DZCOURIERZ_DZCR_DELIVERYSTAMP_DESC";
         itemSize[] = {1, 1};
         weight = 10;
     };
@@ -152,8 +148,8 @@ class CfgVehicles
     class DZCR_CipherDocument: Paper
     {
         scope = 2;
-        displayName = "DeutschZ CourierZ Chiffredokument";
-        descriptionShort = "Verschluesseltes Kurierdokument mit OperationDeutschZ-Bezug. Behalten ist wahrscheinlich wertvoller als verkaufen.";
+        displayName = "$STR_DZCOURIERZ_DZCR_CIPHERDOCUMENT_NAME";
+        descriptionShort = "$STR_DZCOURIERZ_DZCR_CIPHERDOCUMENT_DESC";
         itemSize[] = {1, 2};
         weight = 25;
     };
@@ -161,8 +157,8 @@ class CfgVehicles
     class DZCR_RewardChest: SeaChest
     {
         scope = 2;
-        displayName = "DeutschZ CourierZ Rewardkiste";
-        descriptionShort = "DeutschZ CourierZ Rewardkiste mit 500 Cargo-Slots fuer erfolgreiche Lieferungen.";
+        displayName = "$STR_DZCOURIERZ_DZCR_REWARDCHEST_NAME";
+        descriptionShort = "$STR_DZCOURIERZ_DZCR_REWARDCHEST_DESC";
         hiddenSelections[] = {"camoGround"};
         hiddenSelectionsTextures[] = {"DeutschZ_CourierZ/Assets/Case/Seachest.paa"};
         itemSize[] = {10, 10};
@@ -180,8 +176,8 @@ class CfgVehicles
     class DZ_CourierZ_Briefcase: SmallProtectorCase
     {
         scope = 2;
-        displayName = "DeutschZ CourierZ Aktenkoffer";
-        descriptionShort = "Event-only Aktenkoffer fuer CourierZ-Lieferungen. Zielobjekt fuer Liefer-, Reward- und Adminlogik.";
+        displayName = "$STR_DZCOURIERZ_DZ_COURIERZ_BRIEFCASE_NAME";
+        descriptionShort = "$STR_DZCOURIERZ_DZ_COURIERZ_BRIEFCASE_DESC";
         model = "DeutschZ_CourierZ/Assets/Case/protector_case.p3d";
         hiddenSelections[] = {"camo"};
         hiddenSelectionsTextures[] = {"DeutschZ_CourierZ/Assets/Case/Case.paa"};
@@ -193,8 +189,8 @@ class CfgVehicles
     class DZ_CourierZ_SealedCourierFolder: Paper
     {
         scope = 2;
-        displayName = "DeutschZ CourierZ versiegelte Kuriermappe";
-        descriptionShort = "Versiegelte Mappe mit Kurierunterlagen. Event-only Dokument fuer CourierZ.";
+        displayName = "$STR_DZCOURIERZ_DZ_COURIERZ_SEALEDCOURIERFOLDER_NAME";
+        descriptionShort = "$STR_DZCOURIERZ_DZ_COURIERZ_SEALEDCOURIERFOLDER_DESC";
         itemSize[] = {1, 2};
         weight = 35;
     };
@@ -202,8 +198,8 @@ class CfgVehicles
     class DZ_CourierZ_SecretDeliveryContract: Paper
     {
         scope = 2;
-        displayName = "DeutschZ CourierZ geheimer Liefervertrag";
-        descriptionShort = "Geheimer Liefervertrag mit Route, Zielort und Empfaengerkennung.";
+        displayName = "$STR_DZCOURIERZ_DZ_COURIERZ_SECRETDELIVERYCONTRACT_NAME";
+        descriptionShort = "$STR_DZCOURIERZ_DZ_COURIERZ_SECRETDELIVERYCONTRACT_DESC";
         itemSize[] = {1, 2};
         weight = 30;
     };
@@ -211,8 +207,8 @@ class CfgVehicles
     class DZ_CourierZ_GPSTracker: GPSReceiver
     {
         scope = 2;
-        displayName = "DeutschZ CourierZ GPS-Tracker";
-        descriptionShort = "Tracker fuer Kurierkoffer und Zielmarker. Event-only Technikitem.";
+        displayName = "$STR_DZCOURIERZ_DZ_COURIERZ_GPSTRACKER_NAME";
+        descriptionShort = "$STR_DZCOURIERZ_DZ_COURIERZ_GPSTRACKER_DESC";
         itemSize[] = {1, 2};
         weight = 160;
     };
@@ -220,8 +216,8 @@ class CfgVehicles
     class DZ_CourierZ_CourierSeal: Paper
     {
         scope = 2;
-        displayName = "DeutschZ CourierZ Kuriersiegel";
-        descriptionShort = "Rotes DeutschZ-Kuriersiegel als Nachweis fuer eine erfolgreiche Lieferung.";
+        displayName = "$STR_DZCOURIERZ_DZ_COURIERZ_COURIERSEAL_NAME";
+        descriptionShort = "$STR_DZCOURIERZ_DZ_COURIERZ_COURIERSEAL_DESC";
         itemSize[] = {1, 1};
         weight = 15;
     };
@@ -229,8 +225,8 @@ class CfgVehicles
     class DZ_CourierZ_BlackMarketReceipt: Paper
     {
         scope = 2;
-        displayName = "DeutschZ CourierZ Schwarzmarktbeleg";
-        descriptionShort = "Verdeckter Beleg fuer eine CourierZ-Lieferung. Event-only Dokument fuer Rewards, Trader oder Folgeaufgaben.";
+        displayName = "$STR_DZCOURIERZ_DZ_COURIERZ_BLACKMARKETRECEIPT_NAME";
+        descriptionShort = "$STR_DZCOURIERZ_DZ_COURIERZ_BLACKMARKETRECEIPT_DESC";
         itemSize[] = {1, 2};
         weight = 20;
     };

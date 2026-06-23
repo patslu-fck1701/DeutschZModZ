@@ -37,6 +37,10 @@ class DeutschZConvoyZRuntimeState
     int RewardUnlockedAt;
     int BlackboxReadyAt;
     int EventStartedAt;
+    string CarrierPlayerId;
+    int DeliveryActive;
+    int DeliveryComplete;
+    int LastCarrierMarkerAt;
 
     void DeutschZConvoyZRuntimeState()
     {
@@ -66,5 +70,9 @@ class DeutschZConvoyZRuntimeState
         RewardUnlockedAt = 0;
         BlackboxReadyAt = 0;
         EventStartedAt = 0;
+        CarrierPlayerId = "";
+        DeliveryActive = 0;
+        DeliveryComplete = 0;
+        LastCarrierMarkerAt = 0;
     }
 }

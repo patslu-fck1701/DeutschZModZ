@@ -107,8 +107,8 @@ class CfgVehicles
     class DeutschZKotHZ_RuntimeFogEmitter: Inventory_Base
     {
         scope = 1;
-        displayName = "DeutschZ KotHZ Runtime Fog Emitter";
-        descriptionShort = "Runtime-only disabled safe emitter.";
+        displayName = "$STR_DZKOTHZ_DZKOTHZ_RUNTIMEFOGEMITTER_NAME";
+        descriptionShort = "$STR_DZKOTHZ_DZKOTHZ_RUNTIMEFOGEMITTER_DESC";
         model = "\DZ\gear\consumables\Stone.p3d";
         itemSize[] = {1,1};
         weight = 1;
@@ -118,8 +118,8 @@ class CfgVehicles
     class DeutschZKotHZ_RuntimeFlagpole: Inventory_Base
     {
         scope = 2;
-        displayName = "DeutschZ KotHZ Runtime Flagpole";
-        descriptionShort = "Runtime-only KOTH capture mast. Non-BaseBuilding to avoid old storage crashes.";
+        displayName = "$STR_DZKOTHZ_DZKOTHZ_RUNTIMEFLAGPOLE_NAME";
+        descriptionShort = "$STR_DZKOTHZ_DZKOTHZ_RUNTIMEFLAGPOLE_DESC";
         model = "\DZ\gear\camping\territory_flag.p3d";
         attachments[] = {"Material_FPole_Flag"};
         bounding = "BSphere";
@@ -173,8 +173,8 @@ class CfgVehicles
     class DeutschZKotHZ_RewardCrate: SeaChest
     {
         scope = 2;
-        displayName = "DeutschZ KotHZ Infected Siege Reward Chest";
-        descriptionShort = "DeutschZ KotHZ reward chest with custom SeaChest skin.";
+        displayName = "$STR_DZKOTHZ_DZKOTHZ_REWARDCRATE_NAME";
+        descriptionShort = "$STR_DZKOTHZ_DZKOTHZ_REWARDCRATE_DESC";
         hiddenSelections[] = {"camoGround"};
         hiddenSelectionsTextures[] = {"DeutschZ_KotHZ/data/textures/Seachest.paa"};
         itemsCargoSize[] = {10, 50};
@@ -192,14 +192,14 @@ class CfgVehicles
     class DeutschZKotHZ_DropCrate: DeutschZKotHZ_RewardCrate
     {
         scope = 2;
-        displayName = "DeutschZ KotHZ Drop Crate";
+        displayName = "$STR_DZKOTHZ_DZKOTHZ_DROPCRATE_NAME";
     };
 
     // Active KotHZ flags.
     class DeutschZKotHZ_Flag: Flag_Base
     {
         scope = 1;
-        displayName = "DeutschZ KotHZ Flag";
+        displayName = "$STR_DZKOTHZ_DZKOTHZ_FLAG_NAME";
         hiddenSelections[] = {"camo"};
         hiddenSelectionsTextures[] = {"DeutschZ_KotHZ/data/flags/DeutschZ_KotHZ_Flag.paa"};
         inventorySlot[] = {"Material_FPole_Flag"};
@@ -218,8 +218,8 @@ class CfgVehicles
     class DeutschZKotHZ_BiohazardReader: GPSReceiver
     {
         scope = 2;
-        displayName = "DeutschZ KotHZ Biohazard Reader";
-        descriptionShort = "GPSReceiver based KotHZ card reader.";
+        displayName = "$STR_DZKOTHZ_DZKOTHZ_BIOHAZARDREADER_NAME";
+        descriptionShort = "$STR_DZKOTHZ_DZKOTHZ_BIOHAZARDREADER_DESC";
         hiddenSelections[] = {"gpsreceiver"};
         hiddenSelectionsTextures[] = {"DeutschZ_KotHZ/data/textures/CardReader.paa"};
     };
@@ -227,8 +227,8 @@ class CfgVehicles
     class DeutschZKotHZ_AccessCard: PunchedCard
     {
         scope = 2;
-        displayName = "DeutschZ KotHZ Access Card";
-        descriptionShort = "PunchedCard based KotHZ access card.";
+        displayName = "$STR_DZKOTHZ_DZKOTHZ_ACCESSCARD_NAME";
+        descriptionShort = "$STR_DZKOTHZ_DZKOTHZ_ACCESSCARD_DESC";
         hiddenSelections[] = {"component01", "camo", "zbytek"};
         hiddenSelectionsTextures[] = {"DeutschZ_KotHZ/data/textures/AccesCard.paa", "DeutschZ_KotHZ/data/textures/AccesCard.paa", "DeutschZ_KotHZ/data/textures/AccesCard.paa"};
     };
@@ -236,8 +236,8 @@ class CfgVehicles
     class DeutschZKotHZ_ResearchDocument: Paper
     {
         scope = 2;
-        displayName = "DeutschZ KotHZ Research Document";
-        descriptionShort = "Classified research document from an Infected Siege zone.";
+        displayName = "$STR_DZKOTHZ_DZKOTHZ_RESEARCHDOCUMENT_NAME";
+        descriptionShort = "$STR_DZKOTHZ_DZKOTHZ_RESEARCHDOCUMENT_DESC";
         weight = 10;
         itemSize[] = {1,1};
     };
@@ -245,8 +245,8 @@ class CfgVehicles
     class DeutschZKotHZ_CommanderInsignia: GPSReceiver
     {
         scope = 2;
-        displayName = "DeutschZ KotHZ Commander Insignia";
-        descriptionShort = "Sichtbar ueberarbeitetes rotes DeutschZ Commander-Insignia fuer den Mummy-Boss und KotHZ Rewards. Nutzt bewusst nicht mehr die normale PunchedCard-Optik.";
+        displayName = "$STR_DZKOTHZ_DZKOTHZ_COMMANDERINSIGNIA_NAME";
+        descriptionShort = "$STR_DZKOTHZ_DZKOTHZ_COMMANDERINSIGNIA_DESC";
         hiddenSelections[] = {"gpsreceiver"};
         hiddenSelectionsTextures[] = {"DeutschZ_KotHZ/data/textures/CardReader.paa"};
         itemSize[] = {1, 1};
@@ -256,8 +256,8 @@ class CfgVehicles
     class DZ_KotHZ_SiegeToken: PunchedCard
     {
         scope = 2;
-        displayName = "DeutschZ KotHZ Siege-Token";
-        descriptionShort = "Event-only Nachweis fuer eine abgeschlossene KotHZ-Belagerung. Fuer Rewards, Adminspawn oder Trader nutzbar; kein normaler Mapspawn.";
+        displayName = "$STR_DZKOTHZ_DZ_KOTHZ_SIEGETOKEN_NAME";
+        descriptionShort = "$STR_DZKOTHZ_DZ_KOTHZ_SIEGETOKEN_DESC";
         hiddenSelections[] = {"component01", "camo", "zbytek"};
         hiddenSelectionsTextures[] = {"DeutschZ_KotHZ/data/textures/AccesCard.paa", "DeutschZ_KotHZ/data/textures/AccesCard.paa", "DeutschZ_KotHZ/data/textures/AccesCard.paa"};
         itemSize[] = {1, 1};
@@ -267,8 +267,8 @@ class CfgVehicles
     class DZ_KotHZ_InfectedSample: GPSReceiver
     {
         scope = 2;
-        displayName = "DeutschZ KotHZ Infiziertenprobe";
-        descriptionShort = "Versiegelte Probe aus einer KotHZ-Zone. Trigger- oder Questitem fuer Infected-Siege-Logik.";
+        displayName = "$STR_DZKOTHZ_DZ_KOTHZ_INFECTEDSAMPLE_NAME";
+        descriptionShort = "$STR_DZKOTHZ_DZ_KOTHZ_INFECTEDSAMPLE_DESC";
         hiddenSelections[] = {"gpsreceiver"};
         hiddenSelectionsTextures[] = {"DeutschZ_KotHZ/data/textures/CardReader.paa"};
         itemSize[] = {1, 2};
@@ -278,8 +278,8 @@ class CfgVehicles
     class DZ_KotHZ_BossTrophy: GPSReceiver
     {
         scope = 2;
-        displayName = "DeutschZ KotHZ Boss-Trophaee";
-        descriptionShort = "Seltene Trophaee aus der Bossphase. Rewarditem fuer erfolgreiche KotHZ-Abschluesse.";
+        displayName = "$STR_DZKOTHZ_DZ_KOTHZ_BOSSTROPHY_NAME";
+        descriptionShort = "$STR_DZKOTHZ_DZ_KOTHZ_BOSSTROPHY_DESC";
         hiddenSelections[] = {"gpsreceiver"};
         hiddenSelectionsTextures[] = {"DeutschZ_KotHZ/data/textures/CardReader.paa"};
         itemSize[] = {2, 2};
@@ -289,8 +289,8 @@ class CfgVehicles
     class DZ_KotHZ_ControlChip: GPSReceiver
     {
         scope = 2;
-        displayName = "DeutschZ KotHZ Kontrollchip";
-        descriptionShort = "Technischer Kontrollchip fuer KotHZ-Eventsignale und spaetere Quest-/Adminlogik.";
+        displayName = "$STR_DZKOTHZ_DZ_KOTHZ_CONTROLCHIP_NAME";
+        descriptionShort = "$STR_DZKOTHZ_DZ_KOTHZ_CONTROLCHIP_DESC";
         hiddenSelections[] = {"gpsreceiver"};
         hiddenSelectionsTextures[] = {"DeutschZ_KotHZ/data/textures/CardReader.paa"};
         itemSize[] = {1, 1};
@@ -300,8 +300,8 @@ class CfgVehicles
     class DZ_KotHZ_BloodyZBadge: PunchedCard
     {
         scope = 2;
-        displayName = "DeutschZ KotHZ Blutiges Z-Abzeichen";
-        descriptionShort = "Blutiges rotes DeutschZ-Abzeichen aus einer KotHZ-Zone. Event-only Sammler- und Rewarditem.";
+        displayName = "$STR_DZKOTHZ_DZ_KOTHZ_BLOODYZBADGE_NAME";
+        descriptionShort = "$STR_DZKOTHZ_DZ_KOTHZ_BLOODYZBADGE_DESC";
         hiddenSelections[] = {"component01", "camo", "zbytek"};
         hiddenSelectionsTextures[] = {"DeutschZ_KotHZ/data/textures/AccesCard.paa", "DeutschZ_KotHZ/data/textures/AccesCard.paa", "DeutschZ_KotHZ/data/textures/AccesCard.paa"};
         itemSize[] = {1, 1};
