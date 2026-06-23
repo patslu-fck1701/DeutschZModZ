@@ -1,8 +1,11 @@
+<<<<<<< HEAD
 ## 0.9.4-campaign-chain-test - 2026-06-23
 - Expanded safe orchestrator config with riddle start, short ping marker timing, start-find items, progression item list and staged combination plan.
 - Added OperationDeutschZ Config/Data profile folder creation while keeping the existing flat OperationDeutschZConfig.json path backward compatible.
 - Final location and final reward remain config-disabled for safe campaign-chain testing.
 
+=======
+>>>>>>> 39fa93c734f52a69c045816aa7b5632b5a10d772
 ## 0.9.3-online-test - 2026-06-23
 - Online-Testserver pack/test candidate; config.cpp/script module validation aligned.
 

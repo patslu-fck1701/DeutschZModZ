@@ -8,7 +8,11 @@ class DeutschZOperationDeutschZConstants
     static const string LOG_DIR = "$profile:DeutschZ/OperationDeutschZ/Logs/";
     static const string CONFIG_PATH = "$profile:DeutschZ/OperationDeutschZ/OperationDeutschZConfig.json";
     static const string STATE_PATH = "$profile:DeutschZ/OperationDeutschZ/OperationDeutschZState.json";
+<<<<<<< HEAD
     static const string VERSION = "0.9.4-campaign-chain-test";
+=======
+    static const string VERSION = "0.9.3-online-test";
+>>>>>>> 39fa93c734f52a69c045816aa7b5632b5a10d772
 }
 
 class DeutschZOperationDeutschZConfig

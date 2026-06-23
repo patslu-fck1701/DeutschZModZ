@@ -1,8 +1,11 @@
+<<<<<<< HEAD
 ## 0.9.4-campaign-chain-test - 2026-06-23
 - Added explicit CourierZ campaign item classes for sealed courier case, package, delivery stamp and cipher document.
 - Updated default profile config from fast-test timing to live-near CourierZ timing: 55-85 minute interval, NPC/quest requirements and stronger delivery pressure.
 - Added Config/Data/Logs profile folders while keeping the existing flat CourierZConfig.json path backward compatible.
 
+=======
+>>>>>>> 39fa93c734f52a69c045816aa7b5632b5a10d772
 ## 0.9.3-online-test - 2026-06-23
 - Online-Testserver pack/test candidate; config.cpp/script module validation aligned.
 

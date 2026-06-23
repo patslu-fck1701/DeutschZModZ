@@ -32,7 +32,11 @@ class CfgMods
         credits = "Owner: Patrick Sluzalek / Player: fck1701 / Server: DeutschZ";
         author = "Patrick Sluzalek / fck1701";
         authorID = "0";
+<<<<<<< HEAD
         version = "0.9.4-campaign-chain-test";
+=======
+        version = "0.9.3-online-test";
+>>>>>>> 39fa93c734f52a69c045816aa7b5632b5a10d772
         extra = 0;
         type = "mod";
         dependencies[] = {"Game", "World", "Mission"};
