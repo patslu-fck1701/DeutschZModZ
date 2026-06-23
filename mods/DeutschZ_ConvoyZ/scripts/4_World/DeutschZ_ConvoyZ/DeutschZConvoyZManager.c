@@ -183,7 +183,7 @@ class DeutschZConvoyZManager
     bool GiveItemToPlayer(PlayerBase player, string className, vector fallbackPos)
     {
         if (!player || className == "") return false;
-        if (DeutschZCore_UnsafeClassGuard.IsBlockedClass(className)) return false;
+        if (DeutschZConvoyZClassGuard.IsBlockedClass(className)) return false;
         if (!DeutschZConvoyZValidator.IsConfiguredInventoryClass(className))
         {
             DeutschZConvoyZLogger.Log("GiveItemClassMissing", State.EventId, DeutschZConvoyZ_StateName(State.CurrentState), "", fallbackPos, "SKIPPED", className);

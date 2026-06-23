@@ -23,49 +23,18 @@ class DeutschZKotHZConfigManager
     {
         EnsureProfileFolder();
 
-        DeutschZKotHZConfig config;
-
-        bool saveConsolidated = false;
-
-        if (!FileExist(KOTH_CONFIG))
-        {
-            config = new DeutschZKotHZConfig();
-            JsonFileLoader<DeutschZKotHZConfig>.JsonSaveFile(KOTH_CONFIG, config);
-            Print("[DeutschZ_KotHZ] CREATED DEFAULT MAIN CONFIG: " + KOTH_CONFIG);
-            saveConsolidated = true;
-        }
-        else
-        {
-            if (SanitizeMainConfigBeforeLoad())
-                saveConsolidated = true;
-
-            config = new DeutschZKotHZConfig();
-            JsonFileLoader<DeutschZKotHZConfig>.JsonLoadFile(KOTH_CONFIG, config);
-        }
-
-        if (!config)
-        {
-            Print("[DeutschZ_KotHZ] Main config invalid, loading defaults in memory only.");
-            config = new DeutschZKotHZConfig();
-        }
-
-        if (ImportLegacySplitConfigs(config))
-            saveConsolidated = true;
-
-        if (LoadOrCreateLootPools())
-            saveConsolidated = true;
+        // FIX FINAL: do not JsonLoadFile stale KotHZ profile JSON during server bootstrap.
+        // DayZ JsonFileLoader can crash natively before Validate() if old JSON shape/int ranges are bad.
+        // Generate a clean, validated server-start config and persist it.
+        DeutschZKotHZConfig config = new DeutschZKotHZConfig();
+        DeutschZKotHZLootPoolsConfig defaultLoot = new DeutschZKotHZLootPoolsConfig();
+        s_LootPools = defaultLoot.LootPools;
 
         Validate(config);
+        SaveAll(config);
 
-        // DeutschZ KotHZ Expansion marker build: persist marker mode changes even when an older profile JSON already exists.
-        saveConsolidated = true;
-
-        if (saveConsolidated)
-        {
-            SaveAll(config);
-            Print("[DeutschZ_KotHZ] Consolidated profile config saved: " + KOTH_CONFIG);
-        }
-
+        Print("[DeutschZ_KotHZ] FIX_FINAL generated safe server-start config: " + KOTH_CONFIG);
+        Print("[DeutschZ_KotHZ] FIX_FINAL generated safe loot config: " + LOOT_POOLS_CONFIG);
         return config;
     }
 
@@ -191,86 +160,17 @@ class DeutschZKotHZConfigManager
 
     protected static bool ImportLegacySplitConfigs(DeutschZKotHZConfig config)
     {
-        bool imported = false;
-
-        if ((!config.Zones || config.Zones.Count() == 0) && FileExist(KOTH_LEGACY_ZONES_CONFIG))
-        {
-            DeutschZKotHZZonesConfig zonesConfig = new DeutschZKotHZZonesConfig();
-            JsonFileLoader<DeutschZKotHZZonesConfig>.JsonLoadFile(KOTH_LEGACY_ZONES_CONFIG, zonesConfig);
-
-            if (zonesConfig && zonesConfig.Zones && zonesConfig.Zones.Count() > 0)
-            {
-                config.Zones = zonesConfig.Zones;
-                imported = true;
-                Print("[DeutschZ_KotHZ] Imported legacy zones into KotH_Config_Chernarus.json from: " + KOTH_LEGACY_ZONES_CONFIG);
-            }
-        }
-
-        if ((!s_LootPools || s_LootPools.Count() == 0) && FileExist(KOTH_LEGACY_LOOTPOOLS_CONFIG))
-        {
-            DeutschZKotHZLootPoolsConfig lootPoolsConfig = new DeutschZKotHZLootPoolsConfig();
-            JsonFileLoader<DeutschZKotHZLootPoolsConfig>.JsonLoadFile(KOTH_LEGACY_LOOTPOOLS_CONFIG, lootPoolsConfig);
-
-            if (lootPoolsConfig && lootPoolsConfig.LootPools && lootPoolsConfig.LootPools.Count() > 0)
-            {
-                s_LootPools = lootPoolsConfig.LootPools;
-                imported = true;
-                Print("[DeutschZ_KotHZ] Imported legacy loot pools into Loot_Pools.json from: " + KOTH_LEGACY_LOOTPOOLS_CONFIG);
-            }
-        }
-
-        if ((!config.WavePools || config.WavePools.Count() == 0) && FileExist(KOTH_LEGACY_WAVEPOOLS_CONFIG))
-        {
-            DeutschZKotHZWavePoolsConfig wavePoolsConfig = new DeutschZKotHZWavePoolsConfig();
-            JsonFileLoader<DeutschZKotHZWavePoolsConfig>.JsonLoadFile(KOTH_LEGACY_WAVEPOOLS_CONFIG, wavePoolsConfig);
-
-            if (wavePoolsConfig && wavePoolsConfig.WavePools && wavePoolsConfig.WavePools.Count() > 0)
-            {
-                config.WavePools = wavePoolsConfig.WavePools;
-                imported = true;
-                Print("[DeutschZ_KotHZ] Imported legacy wave pools into KotH_Config_Chernarus.json from: " + KOTH_LEGACY_WAVEPOOLS_CONFIG);
-            }
-        }
-
-        return imported;
+        // FIX_FINAL: legacy JSON import disabled during bootstrap to prevent native JsonLoadFile crashes.
+        return false;
     }
 
     protected static bool LoadOrCreateLootPools()
     {
-        DeutschZKotHZLootPoolsConfig lootPoolsConfig;
-        bool changed = false;
-
-        if (!FileExist(LOOT_POOLS_CONFIG))
-        {
-            lootPoolsConfig = new DeutschZKotHZLootPoolsConfig();
-
-            if (s_LootPools && s_LootPools.Count() > 0)
-                lootPoolsConfig.LootPools = s_LootPools;
-
-            JsonFileLoader<DeutschZKotHZLootPoolsConfig>.JsonSaveFile(LOOT_POOLS_CONFIG, lootPoolsConfig);
-            Print("[DeutschZ_KotHZ] CREATED DEFAULT LOOT CONFIG: " + LOOT_POOLS_CONFIG);
-            changed = true;
-        }
-        else
-        {
-            lootPoolsConfig = new DeutschZKotHZLootPoolsConfig();
-            JsonFileLoader<DeutschZKotHZLootPoolsConfig>.JsonLoadFile(LOOT_POOLS_CONFIG, lootPoolsConfig);
-        }
-
-        if (lootPoolsConfig && lootPoolsConfig.LootPools && lootPoolsConfig.LootPools.Count() > 0)
-            s_LootPools = lootPoolsConfig.LootPools;
-        else
-        {
-            DeutschZKotHZLootPoolsConfig defaultLoot = new DeutschZKotHZLootPoolsConfig();
-            s_LootPools = defaultLoot.LootPools;
-            changed = true;
-            Print("[DeutschZ_KotHZ] Loot pools config was empty or invalid, defaults loaded: " + LOOT_POOLS_CONFIG);
-        }
-
-        if (EnsureFix17TestLootPool())
-            changed = true;
-
-        return changed;
+        DeutschZKotHZLootPoolsConfig defaultLoot = new DeutschZKotHZLootPoolsConfig();
+        s_LootPools = defaultLoot.LootPools;
+        JsonFileLoader<DeutschZKotHZLootPoolsConfig>.JsonSaveFile(LOOT_POOLS_CONFIG, defaultLoot);
+        Print("[DeutschZ_KotHZ] FIX_FINAL generated default loot pools without unsafe JsonLoadFile: " + LOOT_POOLS_CONFIG);
+        return true;
     }
 
     protected static bool EnsureFix17TestLootPool()

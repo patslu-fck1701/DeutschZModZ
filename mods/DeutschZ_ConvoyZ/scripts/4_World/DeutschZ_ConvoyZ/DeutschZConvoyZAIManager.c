@@ -159,7 +159,7 @@ class DeutschZConvoyZAIManager
     bool TrySpawnLoadoutItem(EntityAI ai, string className)
     {
         if (!ai || className == "") return false;
-        if (DeutschZCore_UnsafeClassGuard.IsBlockedClass(className)) return false;
+        if (DeutschZConvoyZClassGuard.IsBlockedClass(className)) return false;
         if (!IsLoadoutClassConfigured(className)) return false;
         EntityAI item = ai.GetInventory().CreateInInventory(className);
         return item != null;

@@ -96,62 +96,24 @@ class DeutschZConvoyZConfig
     {
         EnsureFolders();
 
+        // FIX FINAL: server-start config generation must never call JsonLoadFile on stale or incompatible profile JSON.
+        // The previous runtime crash happened inside DayZ JsonFileLoader before validation could run.
+        // Therefore the active start config is generated from safe defaults and saved back every boot.
         Settings = new DeutschZConvoyZSettings();
         EventData = new DeutschZConvoyZEventDef();
-
-        if (IsSettingsFileSafe(DeutschZConvoyZConstants.SETTINGS_FILE))
-        {
-            JsonFileLoader<DeutschZConvoyZSettings>.JsonLoadFile(DeutschZConvoyZConstants.SETTINGS_FILE, Settings);
-            Print("[DeutschZ_ConvoyZ] Settings loaded: " + DeutschZConvoyZConstants.SETTINGS_FILE);
-        }
-        else
-        {
-            if (IsSettingsFileSafe(DeutschZConvoyZConstants.LEGACY_SETTINGS_FILE))
-            {
-                JsonFileLoader<DeutschZConvoyZSettings>.JsonLoadFile(DeutschZConvoyZConstants.LEGACY_SETTINGS_FILE, Settings);
-                Print("[DeutschZ_ConvoyZ] Legacy settings imported from: " + DeutschZConvoyZConstants.LEGACY_SETTINGS_FILE);
-            }
-            else
-            {
-                Settings = new DeutschZConvoyZSettings();
-                Print("[DeutschZ_ConvoyZ] Settings missing/unsafe, defaults used before JsonLoadFile: " + DeutschZConvoyZConstants.SETTINGS_FILE);
-            }
-
-            JsonFileLoader<DeutschZConvoyZSettings>.JsonSaveFile(DeutschZConvoyZConstants.SETTINGS_FILE, Settings);
-            Print("[DeutschZ_ConvoyZ] Settings CREATED/REPAIRED/MIGRATED: " + DeutschZConvoyZConstants.SETTINGS_FILE);
-        }
+        CreateDefaultEvent();
 
         if (!Settings) Settings = new DeutschZConvoyZSettings();
+        if (!EventData) EventData = new DeutschZConvoyZEventDef();
+
         Settings.EventConfigPath = DeutschZConvoyZConstants.EVENTS_FILE;
-
-        if (IsEventsFileSafe(DeutschZConvoyZConstants.EVENTS_FILE))
-        {
-            JsonFileLoader<DeutschZConvoyZEventDef>.JsonLoadFile(DeutschZConvoyZConstants.EVENTS_FILE, EventData);
-            Print("[DeutschZ_ConvoyZ] Events loaded: " + DeutschZConvoyZConstants.EVENTS_FILE);
-        }
-        else
-        {
-            if (IsEventsFileSafe(DeutschZConvoyZConstants.LEGACY_EVENTS_FILE))
-            {
-                JsonFileLoader<DeutschZConvoyZEventDef>.JsonLoadFile(DeutschZConvoyZConstants.LEGACY_EVENTS_FILE, EventData);
-                Print("[DeutschZ_ConvoyZ] Legacy events imported from: " + DeutschZConvoyZConstants.LEGACY_EVENTS_FILE);
-            }
-            else
-            {
-                CreateDefaultEvent();
-                Print("[DeutschZ_ConvoyZ] Events missing/unsafe, defaults used before JsonLoadFile: " + DeutschZConvoyZConstants.EVENTS_FILE);
-            }
-
-            JsonFileLoader<DeutschZConvoyZEventDef>.JsonSaveFile(DeutschZConvoyZConstants.EVENTS_FILE, EventData);
-            Print("[DeutschZ_ConvoyZ] Events CREATED/REPAIRED/MIGRATED: " + DeutschZConvoyZConstants.EVENTS_FILE);
-        }
-
         Normalize();
 
         JsonFileLoader<DeutschZConvoyZSettings>.JsonSaveFile(DeutschZConvoyZConstants.SETTINGS_FILE, Settings);
         JsonFileLoader<DeutschZConvoyZEventDef>.JsonSaveFile(DeutschZConvoyZConstants.EVENTS_FILE, EventData);
 
-        Print("[DeutschZ_ConvoyZ] Config final save OK");
+        Print("[DeutschZ_ConvoyZ] FIX_FINAL generated safe server-start config: " + DeutschZConvoyZConstants.SETTINGS_FILE);
+        Print("[DeutschZ_ConvoyZ] FIX_FINAL generated safe server-start events: " + DeutschZConvoyZConstants.EVENTS_FILE);
         Print("[DeutschZ_ConvoyZ] Runtime config folder: $profile:DeutschZ/ConvoyZ");
 
         DeutschZConvoyZLogger.SetDebug(Settings.EnableDebugLogs);

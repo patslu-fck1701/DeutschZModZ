@@ -1046,7 +1046,7 @@ class DeutschZKotHZManager
         if (className == "")
             return false;
 
-        return DeutschZCore_UnsafeClassGuard.IsBlockedClass(className);
+        return DeutschZKotHZClassGuard.IsBlockedClass(className);
     }
 
     protected string ResolveRewardClassName(DeutschZKotHZReward reward)
@@ -2496,7 +2496,7 @@ class DeutschZKotHZManager
 
         foreach (string itemName : m_ActiveZone.NPCLoadoutClassNames)
         {
-            if (itemName != "" && !DeutschZCore_UnsafeClassGuard.IsBlockedClass(itemName))
+            if (itemName != "" && !DeutschZKotHZClassGuard.IsBlockedClass(itemName))
                 entity.GetInventory().CreateInInventory(itemName);
         }
     }
