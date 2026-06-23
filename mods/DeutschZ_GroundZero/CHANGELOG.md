@@ -1,3 +1,6 @@
+## 0.9.3-online-test - 2026-06-23
+- Online-Testserver pack/test candidate; config.cpp/script module validation aligned.
+
 ## FIX43 - SafeZone Exclusion, Unique Stage Positions, Radius HUD (2026-06-22)
 - Removed Green Mountain from default GroundZero stage positions because it is Trader/SafeZone and must not host events.
 - Changed default stage builder to use unique staged positions instead of random duplicate positions per stage.

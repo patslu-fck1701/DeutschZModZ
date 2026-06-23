@@ -31,7 +31,11 @@ class CfgMods
         hidePicture = 0;
         type = "mod";
         author = "Patrick Sluzalek / fck1701 / DeutschZ";
+<<<<<<< Updated upstream
         version = "0.1.0-online-test-safe";
+=======
+        version = "0.9.3-online-test";
+>>>>>>> Stashed changes
         dependencies[] = {"Game", "World", "Mission"};
 
         class defs

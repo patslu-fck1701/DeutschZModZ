@@ -23,23 +23,52 @@ void GroundZero_RequestBootstrap(string source)
     Print("[DeutschZ_GroundZero] Bootstrap finished source=" + source);
 }
 
+<<<<<<< Updated upstream
+=======
+void GroundZero_DelayedBootstrap()
+{
+    GroundZero_RequestBootstrap("MissionServer delayed fallback");
+}
+
+void GroundZero_ScheduleDelayedBootstrap()
+{
+    if (!GetGame())
+        return;
+
+    GetGame().GetCallQueue(CALL_CATEGORY_SYSTEM).CallLater(GroundZero_DelayedBootstrap, 1000, false);
+    GetGame().GetCallQueue(CALL_CATEGORY_SYSTEM).CallLater(GroundZero_DelayedBootstrap, 5000, false);
+}
+
+>>>>>>> Stashed changes
 modded class MissionServer
 {
     void MissionServer()
     {
         GroundZero_RequestBootstrap("MissionServer constructor");
+<<<<<<< Updated upstream
+=======
+        GroundZero_ScheduleDelayedBootstrap();
+>>>>>>> Stashed changes
     }
 
     override void OnInit()
     {
         super.OnInit();
         GroundZero_RequestBootstrap("MissionServer OnInit");
+<<<<<<< Updated upstream
+=======
+        GroundZero_ScheduleDelayedBootstrap();
+>>>>>>> Stashed changes
     }
 
     override void OnMissionStart()
     {
         super.OnMissionStart();
         GroundZero_RequestBootstrap("MissionServer OnMissionStart");
+<<<<<<< Updated upstream
+=======
+        GroundZero_ScheduleDelayedBootstrap();
+>>>>>>> Stashed changes
     }
 
     override void OnUpdate(float timeslice)

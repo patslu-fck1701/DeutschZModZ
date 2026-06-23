@@ -7,4 +7,4 @@ tooltip = "DeutschZ Core";
 overview = "Shared DeutschZ base for profile folders, logging, provider APIs, safe profile paths and visible fallback event notifications.";
 action = "";
 author = "Patrick Sluzalek / fck1701";
-version = "0.1.7-fix39-baseline";
+version = "0.9.3-online-test";

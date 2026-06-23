@@ -1,3 +1,6 @@
+## 0.9.3-online-test - 2026-06-23
+- Online-Testserver pack/test candidate; config.cpp/script module validation aligned.
+
 ﻿## Publishing Cleanup - Workshop/Types/Config Guides (2026-06-22)
 - Workshop description refreshed to German, English and Russian only.
 - Confirmed no economy `types.xml` is required for this script/framework module.

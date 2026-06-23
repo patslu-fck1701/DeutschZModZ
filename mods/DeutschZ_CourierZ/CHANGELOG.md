@@ -1,3 +1,6 @@
+## 0.9.3-online-test - 2026-06-23
+- Online-Testserver pack/test candidate; config.cpp/script module validation aligned.
+
 ## FIX43 - Distinct Courier Route Locations (2026-06-22)
 - Moved Operation Aktenkoffer pickup and delivery away from the ConvoyZ crashsite and away from Green Mountain Trader/SafeZone.
 - Updated code defaults and ready-copy CourierZConfig.json to use a separated west-to-north courier route.

@@ -32,7 +32,7 @@ class CfgMods
         name = "DeutschZ_ConvoyZ";
         credits = "DeutschZ";
         author = "DeutschZ";
-        version = "0.1.7-fix45-event-items";
+        version = "0.9.3-online-test";
         type = "mod";
         dependencies[] = {"Game", "World", "Mission"};
         class defs

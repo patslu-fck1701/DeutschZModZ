@@ -38,7 +38,7 @@ class CfgMods
         name = "DeutschZ GroundZero";
         type = "mod";
         author = "Patrick Sluzalek / fck1701";
-        version = "0.4.13-fix45-event-items";
+        version = "0.9.3-online-test";
         dependencies[] = {"Game", "World", "Mission"};
 
         class defs

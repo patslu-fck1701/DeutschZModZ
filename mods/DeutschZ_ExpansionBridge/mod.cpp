@@ -7,4 +7,4 @@ tooltip = "DeutschZ ExpansionBridge";
 overview = "DeutschZ safe adapter boundary for optional Expansion-style markers, 3D marker intents, visible vanilla marker fallbacks, notifications and AI fallback spawning.";
 action = "";
 author = "Patrick Sluzalek / fck1701";
-version = "0.1.8-fix39-baseline";
+version = "0.9.3-online-test";

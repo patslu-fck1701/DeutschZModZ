@@ -22,6 +22,23 @@ void DeutschZCore_RequestBootstrap(string source)
     DeutschZCore_ServerProfile.EnsureRoot();
     DeutschZCore_Log.Info("Core", "MissionServer initialized source=" + source);
     Print("[DeutschZ_Core] Init done");
+<<<<<<< Updated upstream
+=======
+}
+
+void DeutschZCore_DelayedBootstrap()
+{
+    DeutschZCore_RequestBootstrap("MissionServer delayed fallback");
+}
+
+void DeutschZCore_ScheduleDelayedBootstrap()
+{
+    if (!GetGame())
+        return;
+
+    GetGame().GetCallQueue(CALL_CATEGORY_SYSTEM).CallLater(DeutschZCore_DelayedBootstrap, 1000, false);
+    GetGame().GetCallQueue(CALL_CATEGORY_SYSTEM).CallLater(DeutschZCore_DelayedBootstrap, 5000, false);
+>>>>>>> Stashed changes
 }
 
 modded class MissionServer
@@ -29,17 +46,20 @@ modded class MissionServer
     void MissionServer()
     {
         DeutschZCore_RequestBootstrap("MissionServer constructor");
+        DeutschZCore_ScheduleDelayedBootstrap();
     }
 
     override void OnInit()
     {
         super.OnInit();
         DeutschZCore_RequestBootstrap("MissionServer OnInit");
+        DeutschZCore_ScheduleDelayedBootstrap();
     }
 
     override void OnMissionStart()
     {
         super.OnMissionStart();
         DeutschZCore_RequestBootstrap("MissionServer OnMissionStart");
+        DeutschZCore_ScheduleDelayedBootstrap();
     }
 }
