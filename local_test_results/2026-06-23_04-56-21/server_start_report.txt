@@ -1,0 +1,137 @@
+﻿DeutschZ Server Start Report Runde 1 - 2026-06-23T04:56:21.6740329+02:00
+Server-Batch: F:\Programme\steamapps\common\DayZServer\start.bat
+Profile-Pfad: F:\Programme\steamapps\common\DayZServer\profiles
+Batch-Modline: @CF;@Dabs Framework;@DayZ-Expansion-Bundle;@DayZ-Expansion-Licensed;@SNAFU Weapons;@DeutschZ_Core;@DeutschZ_ExpansionBridge;@DeutschZ_KotHZ;@DeutschZ_ConvoyZ;@DeutschZ_GroundZero;@DeutschZ_CourierZ
+OperationDeutschZ in Batch-Modline: False
+Startzeit: 2026-06-23T04:56:50.6018687+02:00
+Batch-Prozess gestartet: PID 11164
+DayZServer-Prozess erkannt: PID 13052
+Alive nach 90 Sekunden: True
+
+Detected error/warning patterns:
+script_2026-06-23_04-57-05.log:229:known=False: SCRIPT    (E): Virtual Machine Exception
+crash_2026-06-23_04-57-05.log:8:known=False:Virtual Machine Exception
+DayZServer_x64_2026-06-23_04-56-50.RPT:942:known=True: 4:57:19.553 Warning Message: No entry 'bin\config.bin/CfgWorlds/DefaultWorld/Weather/Overcast/Weather1.farCloud'.
+DayZServer_x64_2026-06-23_04-56-50.RPT:944:known=True: 4:57:19.553 Warning Message: No entry 'bin\config.bin/CfgWorlds/DefaultWorld/Weather/Overcast/Weather1.cloud'.
+DayZServer_x64_2026-06-23_04-56-50.RPT:946:known=True: 4:57:19.553 Warning Message: No entry 'bin\config.bin/CfgWorlds/DefaultWorld/Weather/Overcast/Weather2.farCloud'.
+DayZServer_x64_2026-06-23_04-56-50.RPT:948:known=True: 4:57:19.553 Warning Message: No entry 'bin\config.bin/CfgWorlds/DefaultWorld/Weather/Overcast/Weather2.cloud'.
+DayZServer_x64_2026-06-23_04-56-50.RPT:950:known=True: 4:57:19.553 Warning Message: No entry 'bin\config.bin/CfgWorlds/DefaultWorld/Weather/Overcast/Weather3.farCloud'.
+DayZServer_x64_2026-06-23_04-56-50.RPT:952:known=True: 4:57:19.553 Warning Message: No entry 'bin\config.bin/CfgWorlds/DefaultWorld/Weather/Overcast/Weather3.cloud'.
+DayZServer_x64_2026-06-23_04-56-50.RPT:954:known=True: 4:57:19.553 Warning Message: No entry 'bin\config.bin/CfgWorlds/DefaultWorld/Weather/Overcast/Weather4.farCloud'.
+DayZServer_x64_2026-06-23_04-56-50.RPT:956:known=True: 4:57:19.553 Warning Message: No entry 'bin\config.bin/CfgWorlds/DefaultWorld/Weather/Overcast/Weather4.cloud'.
+DayZServer_x64_2026-06-23_04-56-50.RPT:958:known=True: 4:57:19.553 Warning Message: No entry 'bin\config.bin/CfgWorlds/DefaultWorld/Weather/Overcast/Weather5.farCloud'.
+DayZServer_x64_2026-06-23_04-56-50.RPT:960:known=True: 4:57:19.553 Warning Message: No entry 'bin\config.bin/CfgWorlds/DefaultWorld/Weather/Overcast/Weather5.cloud'.
+DayZServer_x64_2026-06-23_04-56-50.RPT:962:known=True: 4:57:19.553 Warning Message: No entry 'bin\config.bin/CfgWorlds/DefaultWorld/Weather/LightingNew/C_Day60.spaceIntensity'.
+DayZServer_x64_2026-06-23_04-56-50.RPT:964:known=True: 4:57:19.553 Warning Message: No entry 'bin\config.bin/CfgWorlds/DefaultWorld/Weather/LightingNew/C_Day60.starsIntensity'.
+DayZServer_x64_2026-06-23_04-56-50.RPT:966:known=True: 4:57:19.553 Warning Message: No entry 'bin\config.bin/CfgWorlds/DefaultWorld/Weather/LightingNew/C_Day60.atmosphereIntensity'.
+DayZServer_x64_2026-06-23_04-56-50.RPT:968:known=True: 4:57:19.553 Warning Message: No entry 'bin\config.bin/CfgWorlds/DefaultWorld/Weather/LightingNew/C_Day60.NearCloud'.
+DayZServer_x64_2026-06-23_04-56-50.RPT:969:known=True: 4:57:19.553 Warning Message: No entry 'bin\config.bin/CfgWorlds/DefaultWorld/Weather/Overcast/Weather1.farCloud'.
+DayZServer_x64_2026-06-23_04-56-50.RPT:971:known=True: 4:57:19.553 Warning Message: No entry 'bin\config.bin/CfgWorlds/DefaultWorld/Weather/Overcast/Weather1.cloud'.
+DayZServer_x64_2026-06-23_04-56-50.RPT:973:known=True: 4:57:19.553 Warning Message: No entry 'bin\config.bin/CfgWorlds/DefaultWorld/Weather/Overcast/Weather2.farCloud'.
+DayZServer_x64_2026-06-23_04-56-50.RPT:975:known=True: 4:57:19.553 Warning Message: No entry 'bin\config.bin/CfgWorlds/DefaultWorld/Weather/Overcast/Weather2.cloud'.
+DayZServer_x64_2026-06-23_04-56-50.RPT:977:known=True: 4:57:19.553 Warning Message: No entry 'bin\config.bin/CfgWorlds/DefaultWorld/Weather/Overcast/Weather3.farCloud'.
+DayZServer_x64_2026-06-23_04-56-50.RPT:979:known=True: 4:57:19.553 Warning Message: No entry 'bin\config.bin/CfgWorlds/DefaultWorld/Weather/Overcast/Weather3.cloud'.
+DayZServer_x64_2026-06-23_04-56-50.RPT:981:known=True: 4:57:19.553 Warning Message: No entry 'bin\config.bin/CfgWorlds/DefaultWorld/Weather/Overcast/Weather4.farCloud'.
+DayZServer_x64_2026-06-23_04-56-50.RPT:983:known=True: 4:57:19.553 Warning Message: No entry 'bin\config.bin/CfgWorlds/DefaultWorld/Weather/Overcast/Weather4.cloud'.
+DayZServer_x64_2026-06-23_04-56-50.RPT:985:known=True: 4:57:19.553 Warning Message: No entry 'bin\config.bin/CfgWorlds/DefaultWorld/Weather/Overcast/Weather5.farCloud'.
+DayZServer_x64_2026-06-23_04-56-50.RPT:987:known=True: 4:57:19.553 Warning Message: No entry 'bin\config.bin/CfgWorlds/DefaultWorld/Weather/Overcast/Weather5.cloud'.
+DayZServer_x64_2026-06-23_04-56-50.RPT:989:known=True: 4:57:19.553 Warning Message: No entry 'bin\config.bin/CfgWorlds/DefaultWorld/Weather/LightingNew/C_Day60.spaceIntensity'.
+DayZServer_x64_2026-06-23_04-56-50.RPT:991:known=True: 4:57:19.553 Warning Message: No entry 'bin\config.bin/CfgWorlds/DefaultWorld/Weather/LightingNew/C_Day60.starsIntensity'.
+DayZServer_x64_2026-06-23_04-56-50.RPT:993:known=True: 4:57:19.553 Warning Message: No entry 'bin\config.bin/CfgWorlds/DefaultWorld/Weather/LightingNew/C_Day60.atmosphereIntensity'.
+DayZServer_x64_2026-06-23_04-56-50.RPT:995:known=True: 4:57:19.553 Warning Message: No entry 'bin\config.bin/CfgWorlds/DefaultWorld/Weather/LightingNew/C_Day60.NearCloud'.
+DayZServer_x64_2026-06-23_04-56-50.RPT:996:known=True: 4:57:19.553 Warning Message: No entry 'bin\config.bin/CfgWorlds/DefaultWorld.volFogOffset'.
+DayZServer_x64_2026-06-23_04-56-50.RPT:998:known=True: 4:57:19.553 Warning Message: No entry 'bin\config.bin/CfgWorlds/DefaultWorld.spaceObject'.
+DayZServer_x64_2026-06-23_04-56-50.RPT:1000:known=True: 4:57:19.553 Warning Message: No entry 'bin\config.bin/CfgWorlds/DefaultWorld.atmosphereObject'.
+DayZServer_x64_2026-06-23_04-56-50.RPT:1003:known=True: 4:57:19.553 Warning Message: No entry 'bin\config.bin/CfgWorlds/DefaultWorld.nearCloudObject'.
+DayZServer_x64_2026-06-23_04-56-50.RPT:1005:known=True: 4:57:19.553 Warning Message: No entry 'bin\config.bin/CfgWorlds/DefaultWorld.cloudObject'.
+DayZServer_x64_2026-06-23_04-56-50.RPT:1007:known=True: 4:57:19.553 Warning Message: No entry 'bin\config.bin/CfgWorlds/DefaultWorld.horizonObject'.
+DayZServer_x64_2026-06-23_04-56-50.RPT:1037:known=True: 4:57:47.276 Warning Message: No entry 'bin\config.bin/CfgVehicles/Inventory_Base/DamageSystem.DamageZones'.
+DayZServer_x64_2026-06-23_04-56-50.RPT:1038:known=True: 4:57:47.276 Warning Message: No entry 'bin\config.bin/CfgVehicles/Inventory_Base/DamageSystem.DamageZones'.
+DayZServer_x64_2026-06-23_04-56-50.RPT:1039:known=True: 4:57:47.276 Warning Message: No entry 'bin\config.bin/CfgVehicles/Inventory_Base/DamageSystem.DamageZones'.
+DayZServer_x64_2026-06-23_04-56-50.RPT:1040:known=True: 4:57:47.276 Warning Message: No entry 'bin\config.bin/CfgVehicles/Inventory_Base/DamageSystem.DamageZones'.
+DayZServer_x64_2026-06-23_04-56-50.RPT:1041:known=True: 4:57:47.276 Warning Message: No entry 'bin\config.bin/CfgVehicles/Inventory_Base/DamageSystem.DamageZones'.
+DayZServer_x64_2026-06-23_04-56-50.RPT:1042:known=True: 4:57:47.276 Warning Message: No entry 'bin\config.bin/CfgVehicles/Inventory_Base/DamageSystem.DamageZones'.
+DayZServer_x64_2026-06-23_04-56-50.RPT:1043:known=True: 4:57:47.276 Warning Message: No entry 'bin\config.bin/CfgVehicles/Inventory_Base/DamageSystem.DamageZones'.
+DayZServer_x64_2026-06-23_04-56-50.RPT:1044:known=True: 4:57:47.276 Warning Message: No entry 'bin\config.bin/CfgVehicles/Inventory_Base/DamageSystem.DamageZones'.
+DayZServer_x64_2026-06-23_04-56-50.RPT:1045:known=True: 4:57:47.276 Warning Message: No entry 'bin\config.bin/CfgVehicles/Inventory_Base/DamageSystem.DamageZones'.
+DayZServer_x64_2026-06-23_04-56-50.RPT:1046:known=True: 4:57:47.276 Warning Message: No entry 'bin\config.bin/CfgVehicles/Inventory_Base/DamageSystem.DamageZones'.
+DayZServer_x64_2026-06-23_04-56-50.RPT:1047:known=True: 4:57:47.276 Warning Message: No entry 'bin\config.bin/CfgVehicles/Clothing_Base/DamageSystem.DamageZones'.
+DayZServer_x64_2026-06-23_04-56-50.RPT:1048:known=True: 4:57:47.276 Warning Message: No entry 'bin\config.bin/CfgVehicles/Inventory_Base/DamageSystem.DamageZones'.
+DayZServer_x64_2026-06-23_04-56-50.RPT:1049:known=True: 4:57:47.276 Warning Message: No entry 'bin\config.bin/CfgVehicles/Inventory_Base/DamageSystem.DamageZones'.
+DayZServer_x64_2026-06-23_04-56-50.RPT:1050:known=True: 4:57:47.276 Warning Message: No entry 'bin\config.bin/CfgVehicles/Inventory_Base/DamageSystem.DamageZones'.
+DayZServer_x64_2026-06-23_04-56-50.RPT:1051:known=True: 4:57:47.276 Warning Message: No entry 'bin\config.bin/CfgVehicles/Inventory_Base/DamageSystem.DamageZones'.
+DayZServer_x64_2026-06-23_04-56-50.RPT:1052:known=True: 4:57:47.276 Warning Message: No entry 'bin\config.bin/CfgVehicles/Inventory_Base/DamageSystem.DamageZones'.
+DayZServer_x64_2026-06-23_04-56-50.RPT:1053:known=True: 4:57:47.276 Warning Message: No entry 'bin\config.bin/CfgVehicles/Inventory_Base/DamageSystem.DamageZones'.
+DayZServer_x64_2026-06-23_04-56-50.RPT:1054:known=True: 4:57:47.276 Warning Message: No entry 'bin\config.bin/CfgVehicles/Inventory_Base/DamageSystem.DamageZones'.
+DayZServer_x64_2026-06-23_04-56-50.RPT:1055:known=True: 4:57:47.276 Warning Message: No entry 'bin\config.bin/CfgVehicles/ExpansionMoneyBanknote_Base/DamageSystem.DamageZones'.
+DayZServer_x64_2026-06-23_04-56-50.RPT:1056:known=True: 4:57:47.276 Warning Message: No entry 'bin\config.bin/CfgVehicles/Inventory_Base/DamageSystem.DamageZones'.
+DayZServer_x64_2026-06-23_04-56-50.RPT:1057:known=True: 4:57:47.276 Warning Message: No entry 'bin\config.bin/CfgVehicles/Inventory_Base/DamageSystem.DamageZones'.
+DayZServer_x64_2026-06-23_04-56-50.RPT:1058:known=True: 4:57:47.276 Warning Message: No entry 'bin\config.bin/CfgVehicles/Inventory_Base/DamageSystem.DamageZones'.
+DayZServer_x64_2026-06-23_04-56-50.RPT:1059:known=True: 4:57:47.276 Warning Message: No entry 'bin\config.bin/CfgVehicles/Inventory_Base/DamageSystem.DamageZones'.
+DayZServer_x64_2026-06-23_04-56-50.RPT:1060:known=True: 4:57:47.276 Warning Message: No entry 'bin\config.bin/CfgVehicles/ExpansionMoneyBanknote_InsanityStack/DamageSystem.DamageZones'.
+DayZServer_x64_2026-06-23_04-56-50.RPT:1061:known=True: 4:57:47.276 Warning Message: No entry 'bin\config.bin/CfgVehicles/Inventory_Base/DamageSystem.DamageZones'.
+DayZServer_x64_2026-06-23_04-56-50.RPT:1062:known=True: 4:57:47.276 Warning Message: No entry 'bin\config.bin/CfgVehicles/Inventory_Base/DamageSystem.DamageZones'.
+DayZServer_x64_2026-06-23_04-56-50.RPT:1063:known=True: 4:57:47.276 Warning Message: No entry 'bin\config.bin/CfgVehicles/Inventory_Base/DamageSystem.DamageZones'.
+DayZServer_x64_2026-06-23_04-56-50.RPT:1064:known=True: 4:57:47.276 Warning Message: No entry 'bin\config.bin/CfgVehicles/Inventory_Base/DamageSystem.DamageZones'.
+DayZServer_x64_2026-06-23_04-56-50.RPT:1065:known=True: 4:57:47.276 Warning Message: No entry 'bin\config.bin/CfgVehicles/Inventory_Base/DamageSystem.DamageZones'.
+DayZServer_x64_2026-06-23_04-56-50.RPT:1066:known=True: 4:57:47.276 Warning Message: No entry 'bin\config.bin/CfgVehicles/Inventory_Base/DamageSystem.DamageZones'.
+DayZServer_x64_2026-06-23_04-56-50.RPT:1067:known=True: 4:57:47.276 Warning Message: No entry 'bin\config.bin/CfgVehicles/Inventory_Base/DamageSystem.DamageZones'.
+DayZServer_x64_2026-06-23_04-56-50.RPT:1068:known=True: 4:57:47.276 Warning Message: No entry 'bin\config.bin/CfgVehicles/Inventory_Base/DamageSystem.DamageZones'.
+DayZServer_x64_2026-06-23_04-56-50.RPT:1069:known=True: 4:57:47.276 Warning Message: No entry 'bin\config.bin/CfgVehicles/Inventory_Base/DamageSystem.DamageZones'.
+DayZServer_x64_2026-06-23_04-56-50.RPT:1070:known=True: 4:57:47.276 Warning Message: No entry 'bin\config.bin/CfgVehicles/Inventory_Base/DamageSystem.DamageZones'.
+DayZServer_x64_2026-06-23_04-56-50.RPT:1071:known=True: 4:57:47.276 Warning Message: No entry 'bin\config.bin/CfgVehicles/ExpansionKitBase/DamageSystem/GlobalHealth/GlobalArmor.hitpoints'.
+DayZServer_x64_2026-06-23_04-56-50.RPT:1073:known=True: 4:57:47.276 Warning Message: No entry 'bin\config.bin/CfgVehicles/ExpansionKitBase/DamageSystem.DamageZones'.
+DayZServer_x64_2026-06-23_04-56-50.RPT:1074:known=True: 4:57:47.276 Warning Message: No entry 'bin\config.bin/CfgVehicles/ExpansionKitBase/DamageSystem/GlobalHealth/GlobalArmor.hitpoints'.
+DayZServer_x64_2026-06-23_04-56-50.RPT:1076:known=True: 4:57:47.276 Warning Message: No entry 'bin\config.bin/CfgVehicles/ExpansionKitBase/DamageSystem.DamageZones'.
+DayZServer_x64_2026-06-23_04-56-50.RPT:1077:known=True: 4:57:47.276 Warning Message: No entry 'bin\config.bin/CfgVehicles/ExpansionKitBase/DamageSystem/GlobalHealth/GlobalArmor.hitpoints'.
+DayZServer_x64_2026-06-23_04-56-50.RPT:1079:known=True: 4:57:47.276 Warning Message: No entry 'bin\config.bin/CfgVehicles/ExpansionKitBase/DamageSystem.DamageZones'.
+DayZServer_x64_2026-06-23_04-56-50.RPT:1080:known=True: 4:57:47.276 Warning Message: No entry 'bin\config.bin/CfgVehicles/ExpansionKitBase/DamageSystem/GlobalHealth/GlobalArmor.hitpoints'.
+DayZServer_x64_2026-06-23_04-56-50.RPT:1082:known=True: 4:57:47.276 Warning Message: No entry 'bin\config.bin/CfgVehicles/ExpansionKitBase/DamageSystem.DamageZones'.
+DayZServer_x64_2026-06-23_04-56-50.RPT:1083:known=True: 4:57:47.276 Warning Message: No entry 'bin\config.bin/CfgVehicles/Inventory_Base/DamageSystem.DamageZones'.
+DayZServer_x64_2026-06-23_04-56-50.RPT:1084:known=True: 4:57:47.292 Warning Message: No entry 'bin\config.bin/CfgVehicles/ExpansionFloorBase/DamageSystem.DamageZones'.
+DayZServer_x64_2026-06-23_04-56-50.RPT:1085:known=True: 4:57:47.292 Warning Message: No entry 'bin\config.bin/CfgVehicles/Inventory_Base/DamageSystem.DamageZones'.
+DayZServer_x64_2026-06-23_04-56-50.RPT:1086:known=True: 4:57:47.292 Warning Message: No entry 'bin\config.bin/CfgVehicles/Inventory_Base/DamageSystem.DamageZones'.
+DayZServer_x64_2026-06-23_04-56-50.RPT:1087:known=True: 4:57:47.292 Warning Message: No entry 'bin\config.bin/CfgVehicles/Inventory_Base/DamageSystem.DamageZones'.
+DayZServer_x64_2026-06-23_04-56-50.RPT:1088:known=True: 4:57:47.292 Warning Message: No entry 'bin\config.bin/CfgVehicles/ExpansionSafeBase/DamageSystem.DamageZones'.
+DayZServer_x64_2026-06-23_04-56-50.RPT:1089:known=True: 4:57:47.292 Warning Message: No entry 'bin\config.bin/CfgVehicles/ExpansionStairBase/DamageSystem.DamageZones'.
+DayZServer_x64_2026-06-23_04-56-50.RPT:1090:known=True: 4:57:47.292 Warning Message: No entry 'bin\config.bin/CfgVehicles/Inventory_Base/DamageSystem.DamageZones'.
+DayZServer_x64_2026-06-23_04-56-50.RPT:1091:known=True: 4:57:47.292 Warning Message: No entry 'bin\config.bin/CfgVehicles/Inventory_Base/DamageSystem.DamageZones'.
+DayZServer_x64_2026-06-23_04-56-50.RPT:1092:known=True: 4:57:47.292 Warning Message: No entry 'bin\config.bin/CfgVehicles/Inventory_Base/DamageSystem.DamageZones'.
+DayZServer_x64_2026-06-23_04-56-50.RPT:1093:known=True: 4:57:47.292 Warning Message: No entry 'bin\config.bin/CfgVehicles/Inventory_Base/DamageSystem.DamageZones'.
+DayZServer_x64_2026-06-23_04-56-50.RPT:1094:known=True: 4:57:47.292 Warning Message: No entry 'bin\config.bin/CfgVehicles/Inventory_Base/DamageSystem.DamageZones'.
+DayZServer_x64_2026-06-23_04-56-50.RPT:1095:known=True: 4:57:47.292 Warning Message: No entry 'bin\config.bin/CfgVehicles/Inventory_Base/DamageSystem.DamageZones'.
+DayZServer_x64_2026-06-23_04-56-50.RPT:1096:known=True: 4:57:47.292 Warning Message: No entry 'bin\config.bin/CfgVehicles/Inventory_Base/DamageSystem.DamageZones'.
+DayZServer_x64_2026-06-23_04-56-50.RPT:1097:known=True: 4:57:47.292 Warning Message: No entry 'bin\config.bin/CfgVehicles/Inventory_Base/DamageSystem.DamageZones'.
+DayZServer_x64_2026-06-23_04-56-50.RPT:1098:known=True: 4:57:47.292 Warning Message: No entry 'bin\config.bin/CfgVehicles/Inventory_Base/DamageSystem.DamageZones'.
+DayZServer_x64_2026-06-23_04-56-50.RPT:1101:known=True: 4:57:47.292 Warning Message: No entry 'bin\config.bin/CfgVehicles/Animal_GallusGallusDomesticusF/DamageSystem.DamageZones'.
+DayZServer_x64_2026-06-23_04-56-50.RPT:1102:known=True: 4:57:47.292 Warning Message: No entry 'bin\config.bin/CfgVehicles/Clothing_Base/DamageSystem.DamageZones'.
+DayZServer_x64_2026-06-23_04-56-50.RPT:1103:known=True: 4:57:47.292 Warning Message: No entry 'bin\config.bin/CfgVehicles/WorkingGloves_ColorBase/DamageSystem.DamageZones'.
+DayZServer_x64_2026-06-23_04-56-50.RPT:1104:known=True: 4:57:47.292 Warning Message: No entry 'bin\config.bin/CfgVehicles/TacticalGloves_ColorBase/DamageSystem.DamageZones'.
+DayZServer_x64_2026-06-23_04-56-50.RPT:1105:known=True: 4:57:47.292 Warning Message: No entry 'bin\config.bin/CfgVehicles/NBCGloves_ColorBase/DamageSystem.DamageZones'.
+DayZServer_x64_2026-06-23_04-56-50.RPT:1106:known=True: 4:57:47.292 Warning Message: No entry 'bin\config.bin/CfgVehicles/SurgicalGloves_ColorBase/DamageSystem.DamageZones'.
+DayZServer_x64_2026-06-23_04-56-50.RPT:1107:known=True: 4:57:47.292 Warning Message: No entry 'bin\config.bin/CfgVehicles/LeatherGloves_ColorBase/DamageSystem.DamageZones'.
+DayZServer_x64_2026-06-23_04-56-50.RPT:1108:known=True: 4:57:47.292 Warning Message: No entry 'bin\config.bin/CfgVehicles/OMNOGloves_ColorBase/DamageSystem.DamageZones'.
+DayZServer_x64_2026-06-23_04-56-50.RPT:1109:known=True: 4:57:47.292 Warning Message: No entry 'bin\config.bin/CfgVehicles/WoolGloves_ColorBase/DamageSystem.DamageZones'.
+DayZServer_x64_2026-06-23_04-56-50.RPT:1110:known=True: 4:57:47.292 Warning Message: No entry 'bin\config.bin/CfgVehicles/WoolGlovesFingerless_ColorBase/DamageSystem.DamageZones'.
+DayZServer_x64_2026-06-23_04-56-50.RPT:1111:known=True: 4:57:47.292 Warning Message: No entry 'bin\config.bin/CfgVehicles/PaddedGloves_ColorBase/DamageSystem.DamageZones'.
+DayZServer_x64_2026-06-23_04-56-50.RPT:1112:known=True: 4:57:47.292 Warning Message: No entry 'bin\config.bin/CfgVehicles/SkiGloves_ColorBase/DamageSystem.DamageZones'.
+DayZServer_x64_2026-06-23_04-56-50.RPT:1113:known=True: 4:57:47.292 Warning Message: No entry 'bin\config.bin/CfgVehicles/BallisticHelmet_ColorBase/DamageSystem.DamageZones'.
+DayZServer_x64_2026-06-23_04-56-50.RPT:1114:known=True: 4:57:47.292 Warning Message: No entry 'bin\config.bin/CfgVehicles/BaseballCap_ColorBase/DamageSystem.DamageZones'.
+DayZServer_x64_2026-06-23_04-56-50.RPT:1115:known=True: 4:57:47.292 Warning Message: No entry 'bin\config.bin/CfgVehicles/ConstructionHelmet_ColorBase/DamageSystem.DamageZones'.
+DayZServer_x64_2026-06-23_04-56-50.RPT:1116:known=True: 4:57:47.292 Warning Message: No entry 'bin\config.bin/CfgVehicles/BeanieHat_ColorBase/DamageSystem.DamageZones'.
+DayZServer_x64_2026-06-23_04-56-50.RPT:1117:known=True: 4:57:47.307 Warning Message: No entry 'bin\config.bin/CfgVehicles/Ushanka_ColorBase/DamageSystem.DamageZones'.
+DayZServer_x64_2026-06-23_04-56-50.RPT:1118:known=True: 4:57:47.307 Warning Message: No entry 'bin\config.bin/CfgVehicles/MotoHelmet_ColorBase/DamageSystem.DamageZones'.
+DayZServer_x64_2026-06-23_04-56-50.RPT:1119:known=True: 4:57:47.307 Warning Message: No entry 'bin\config.bin/CfgVehicles/DarkMotoHelmet_ColorBase/DamageSystem.DamageZones'.
+DayZServer_x64_2026-06-23_04-56-50.RPT:1120:known=True: 4:57:47.307 Warning Message: No entry 'bin\config.bin/CfgVehicles/Headtorch_ColorBase/DamageSystem.DamageZones'.
+DayZServer_x64_2026-06-23_04-56-50.RPT:1121:known=True: 4:57:47.307 Warning Message: No entry 'bin\config.bin/CfgVehicles/Bandana_ColorBase/DamageSystem.DamageZones'.
+DayZServer_x64_2026-06-23_04-56-50.RPT:1122:known=True: 4:57:47.307 Warning Message: No entry 'bin\config.bin/CfgVehicles/Shemag_ColorBase/DamageSystem.DamageZones'.
+DayZServer_x64_2026-06-23_04-56-50.RPT:1123:known=True: 4:57:47.307 Warning Message: No entry 'bin\config.bin/CfgVehicles/RadarCap_ColorBase/DamageSystem.DamageZones'.
+DayZServer_x64_2026-06-23_04-56-50.RPT:1124:known=True: 4:57:47.307 Warning Message: No entry 'bin\config.bin/CfgVehicles/MilitaryBeret_ColorBase/DamageSystem.DamageZones'.
+DayZServer_x64_2026-06-23_04-56-50.RPT:1125:known=True: 4:57:47.307 Warning Message: No entry 'bin\config.bin/CfgVehicles/FlatCap_ColorBase/DamageSystem.DamageZones'.
+DayZServer_x64_2026-06-23_04-56-50.RPT:1126:known=True: 4:57:47.307 Warning Message: No entry 'bin\config.bin/CfgVehicles/ZmijovkaCap_ColorBase/DamageSystem.DamageZones'.
+DayZServer_x64_2026-06-23_04-56-50.RPT:1127:known=True: 4:57:47.307 Warning Message: No entry 'bin\config.bin/CfgVehicles/CowboyHat_ColorBase/DamageSystem.DamageZones'.
+DayZServer_x64_2026-06-23_04-56-50.RPT:1128:known=True: 4:57:47.307 Warning Message: No entry 'bin\config.bin/CfgVehicles/BoonieHat_ColorBase/DamageSystem.DamageZones'.
+Server wird beendet: PID 13052
+Hard pattern count: 2
+Known warning count: 120
+Operation safe boot: False

@@ -1,0 +1,10 @@
+﻿DeutschZ Online-Testserver Package Report Runde 1 - 2026-06-23T04:41:06.3561757+02:00
+Paketmod OK: @DeutschZ_Core
+Paketmod OK: @DeutschZ_ExpansionBridge
+Paketmod OK: @DeutschZ_KotHZ
+Paketmod OK: @DeutschZ_ConvoyZ
+Paketmod OK: @DeutschZ_GroundZero
+Paketmod OK: @DeutschZ_CourierZ
+Paketmod OK: @DeutschZ_OperationDeutschZ
+Online-Testserver-Paket erzeugt: P:\GitHub_DeutschZModZ\DeutschZModZ\online_testserver_package
+PackageRoot: P:\GitHub_DeutschZModZ\DeutschZModZ\online_testserver_package

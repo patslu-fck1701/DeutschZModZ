@@ -1,0 +1,13 @@
+﻿DeutschZ Online-Testserver Package
+Generated: 2026-06-23T04:58:27.8026978+02:00
+Source: P:\GitHub_DeutschZModZ\DeutschZModZ
+ReadyMods: P:\ReadyMods
+Signing key: DeutschZLocal
+
+Server batch: F:\Programme\steamapps\common\DayZServer\start.bat
+Profile path: F:\Programme\steamapps\common\DayZServer\profiles
+Server alive after test window: True
+Hard pattern count: 2
+Known warning count: 120
+OperationDeutschZ in batch: False
+OperationDeutschZ safe boot: False

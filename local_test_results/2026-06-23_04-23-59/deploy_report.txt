@@ -1,0 +1,4 @@
+﻿DeutschZ Deploy Report - Runde 1 - 2026-06-23T04:23:59.0677602+02:00
+Alte Artefakte entfernt: P:\ReadyMods\@DeutschZ_Core\Addons
+Alte Artefakte entfernt: F:\Programme\steamapps\common\DayZServer\@DeutschZ_Core\Addons
+FEHLER: Setting breakpad minidump AppID = 830640

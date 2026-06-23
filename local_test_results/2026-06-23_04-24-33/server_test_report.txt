@@ -1,0 +1,2 @@
+﻿DeutschZ Server Test Report - Runde 1 - 2026-06-23T04:24:33.4175754+02:00
+FEHLER: Illegales Zeichen im Pfad.

@@ -1,0 +1,55 @@
+﻿DeutschZ Server Test Report - Runde 1 - 2026-06-23T04:25:41.2780522+02:00
+Server-Batch: F:\Programme\steamapps\common\DayZServer\start.bat
+Profile-Pfad: F:\Programme\steamapps\common\DayZServer\profiles
+Startzeit: 2026-06-23T04:26:15.7255006+02:00
+Vor Test liefen DayZServer-Prozesse: 4860, 5224, 10700, 10760, 11196
+Batch-Prozess gestartet: PID 3840
+DayZServer-Prozess erkannt: PID 1488
+Alive nach 75 Sekunden: True
+profiles\DeutschZ fehlte und wurde aus Fallback kopiert: P:\GitHub_DeutschZModZ\DeutschZModZ\DeutschZ_PROFILE_CONFIGS_COPY_TO_PROFILES\DeutschZ -> F:\Programme\steamapps\common\DayZServer\profiles\DeutschZ
+
+Expected config status:
+profiles\DeutschZ\Core\CoreConfig.json : False
+profiles\DeutschZ\ConvoyZ\Settings.json : False
+profiles\DeutschZ\ConvoyZ\Events.json : False
+profiles\DeutschZ\CourierZ\CourierZConfig.json : False
+profiles\DeutschZ\CourierZ\CourierZState.json : False
+profiles\DeutschZ\KotHZ\Config\KotH_Config_Chernarus.json : False
+profiles\DeutschZ\KotHZ\Config\Loot_Pools.json : False
+profiles\DeutschZ\GroundZero\GroundZeroConfig.json : False
+profiles\DeutschZ\GroundZero\GroundZeroState.json : False
+
+Detected error patterns:
+DayZServer_x64_2026-06-23_04-26-16.RPT:943: 4:27:06.524 Warning Message: No entry 'bin\config.bin/CfgWorlds/DefaultWorld/Weather/Overcast/Weather1.farCloud'.
+DayZServer_x64_2026-06-23_04-26-16.RPT:945: 4:27:06.524 Warning Message: No entry 'bin\config.bin/CfgWorlds/DefaultWorld/Weather/Overcast/Weather1.cloud'.
+DayZServer_x64_2026-06-23_04-26-16.RPT:947: 4:27:06.524 Warning Message: No entry 'bin\config.bin/CfgWorlds/DefaultWorld/Weather/Overcast/Weather2.farCloud'.
+DayZServer_x64_2026-06-23_04-26-16.RPT:949: 4:27:06.524 Warning Message: No entry 'bin\config.bin/CfgWorlds/DefaultWorld/Weather/Overcast/Weather2.cloud'.
+DayZServer_x64_2026-06-23_04-26-16.RPT:951: 4:27:06.524 Warning Message: No entry 'bin\config.bin/CfgWorlds/DefaultWorld/Weather/Overcast/Weather3.farCloud'.
+DayZServer_x64_2026-06-23_04-26-16.RPT:953: 4:27:06.524 Warning Message: No entry 'bin\config.bin/CfgWorlds/DefaultWorld/Weather/Overcast/Weather3.cloud'.
+DayZServer_x64_2026-06-23_04-26-16.RPT:955: 4:27:06.524 Warning Message: No entry 'bin\config.bin/CfgWorlds/DefaultWorld/Weather/Overcast/Weather4.farCloud'.
+DayZServer_x64_2026-06-23_04-26-16.RPT:957: 4:27:06.524 Warning Message: No entry 'bin\config.bin/CfgWorlds/DefaultWorld/Weather/Overcast/Weather4.cloud'.
+DayZServer_x64_2026-06-23_04-26-16.RPT:959: 4:27:06.524 Warning Message: No entry 'bin\config.bin/CfgWorlds/DefaultWorld/Weather/Overcast/Weather5.farCloud'.
+DayZServer_x64_2026-06-23_04-26-16.RPT:961: 4:27:06.524 Warning Message: No entry 'bin\config.bin/CfgWorlds/DefaultWorld/Weather/Overcast/Weather5.cloud'.
+DayZServer_x64_2026-06-23_04-26-16.RPT:963: 4:27:06.524 Warning Message: No entry 'bin\config.bin/CfgWorlds/DefaultWorld/Weather/LightingNew/C_Day60.spaceIntensity'.
+DayZServer_x64_2026-06-23_04-26-16.RPT:965: 4:27:06.524 Warning Message: No entry 'bin\config.bin/CfgWorlds/DefaultWorld/Weather/LightingNew/C_Day60.starsIntensity'.
+DayZServer_x64_2026-06-23_04-26-16.RPT:967: 4:27:06.524 Warning Message: No entry 'bin\config.bin/CfgWorlds/DefaultWorld/Weather/LightingNew/C_Day60.atmosphereIntensity'.
+DayZServer_x64_2026-06-23_04-26-16.RPT:969: 4:27:06.524 Warning Message: No entry 'bin\config.bin/CfgWorlds/DefaultWorld/Weather/LightingNew/C_Day60.NearCloud'.
+
+Detected success patterns:
+script_2026-06-23_04-26-54.log:26:SCRIPT    (W): @"DeutschZ_KotHZ/scripts/4_World/deutschz_kothz\deutschzkothzfogemitter.c,33": FIX-ME: Overriding function 'AfterStoreLoad' but not marked as 'override'
+script_2026-06-23_04-26-54.log:27:SCRIPT    (W): @"DeutschZ_KotHZ/scripts/4_World/deutschz_kothz\deutschzkothzfogemitter.c,38": FIX-ME: Overriding function 'EEOnAfterLoad' but not marked as 'override'
+DayZServer_x64_2026-06-23_04-26-16.RPT:3:== "DayZServer_x64.exe" -config=serverDZ.cfg -port=2302 "-profiles=profiles" "-mod=@CF;@Dabs Framework;@DayZ-Expansion-Bundle;@DayZ-Expansion-Licensed;@SNAFU Weapons;@DeutschZ_Core;@DeutschZ_ExpansionBridge;@DeutschZ_KotHZ;@DeutschZ_ConvoyZ;@DeutschZ_GroundZero;@DeutschZ_CourierZ" -cpuCount=2 -dologs -adminlog -netlog -freezecheck
+DayZServer_x64_2026-06-23_04-26-16.RPT:50: 4:26:22.123 Warning Message: Addon 'DeutschZ_Core' requires addon 'DZ_Gear_Radio'
+DayZServer_x64_2026-06-23_04-26-16.RPT:715: 4:26:54.410 ENGINE       : FileSystem: Adding package 'F:\Programme\steamapps\common\DayZServer\@DeutschZ_ExpansionBridge\addons\DeutschZ_ExpansionBridge.pbo' to RV filesystem
+DayZServer_x64_2026-06-23_04-26-16.RPT:778: 4:26:54.448 ENGINE       : FileSystem: Adding package 'F:\Programme\steamapps\common\DayZServer\@DeutschZ_GroundZero\addons\DeutschZ_GroundZero.pbo' to RV filesystem
+DayZServer_x64_2026-06-23_04-26-16.RPT:800: 4:26:54.463 ENGINE       : FileSystem: Adding package 'F:\Programme\steamapps\common\DayZServer\@DeutschZ_CourierZ\addons\DeutschZ_CourierZ.pbo' to RV filesystem
+DayZServer_x64_2026-06-23_04-26-16.RPT:802: 4:26:54.465 ENGINE       : FileSystem: Adding package 'F:\Programme\steamapps\common\DayZServer\@DeutschZ_ConvoyZ\addons\DeutschZ_ConvoyZ.pbo' to RV filesystem
+DayZServer_x64_2026-06-23_04-26-16.RPT:818: 4:26:54.475 ENGINE       : FileSystem: Adding package 'F:\Programme\steamapps\common\DayZServer\@DeutschZ_KotHZ\addons\DeutschZ_KotHZ.pbo' to RV filesystem
+DayZServer_x64_2026-06-23_04-26-16.RPT:836: 4:26:54.488 ENGINE       : FileSystem: Adding package 'F:\Programme\steamapps\common\DayZServer\@DeutschZ_Core\addons\DeutschZ_Core.pbo' to RV filesystem
+DayZServer_x64_2026-06-23_04-26-16.RPT:917: 4:27:05.04  ANIMATION (E): Can't load @DeutschZ_CourierZ/Anims/cfg/skeletons.anim.xml
+DayZServer_x64_2026-06-23_04-26-16.RPT:919: 4:27:05.05  ANIMATION (E): Can't load @DeutschZ_GroundZero/Anims/cfg/skeletons.anim.xml
+DayZServer_x64_2026-06-23_04-26-16.RPT:921: 4:27:05.05  ANIMATION (E): Can't load @DeutschZ_ConvoyZ/Anims/cfg/skeletons.anim.xml
+DayZServer_x64_2026-06-23_04-26-16.RPT:923: 4:27:05.05  ANIMATION (E): Can't load @DeutschZ_KotHZ/Anims/cfg/skeletons.anim.xml
+DayZServer_x64_2026-06-23_04-26-16.RPT:925: 4:27:05.05  ANIMATION (E): Can't load @DeutschZ_ExpansionBridge/Anims/cfg/skeletons.anim.xml
+DayZServer_x64_2026-06-23_04-26-16.RPT:927: 4:27:05.05  ANIMATION (E): Can't load @DeutschZ_Core/Anims/cfg/skeletons.anim.xml
+Server wird beendet: PID 1488

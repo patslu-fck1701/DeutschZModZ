@@ -1,0 +1,28 @@
+﻿DeutschZ Server Start Report Runde 1 - 2026-06-23T04:43:17.3971895+02:00
+Server-Batch: F:\Programme\steamapps\common\DayZServer\start.bat
+Profile-Pfad: F:\Programme\steamapps\common\DayZServer\profiles
+Batch-Modline: @CF;@Dabs Framework;@DayZ-Expansion-Bundle;@DayZ-Expansion-Licensed;@SNAFU Weapons;@DeutschZ_Core;@DeutschZ_ExpansionBridge;@DeutschZ_KotHZ;@DeutschZ_ConvoyZ;@DeutschZ_GroundZero;@DeutschZ_CourierZ
+OperationDeutschZ in Batch-Modline: False
+Startzeit: 2026-06-23T04:43:45.2561285+02:00
+Batch-Prozess gestartet: PID 7888
+DayZServer-Prozess erkannt: PID 13396
+Alive nach 75 Sekunden: True
+
+Detected error/warning patterns:
+DayZServer_x64_2026-06-23_04-43-45.RPT:944:known=True: 4:45:00.705 Warning Message: No entry 'bin\config.bin/CfgWorlds/DefaultWorld/Weather/Overcast/Weather1.farCloud'.
+DayZServer_x64_2026-06-23_04-43-45.RPT:946:known=True: 4:45:00.705 Warning Message: No entry 'bin\config.bin/CfgWorlds/DefaultWorld/Weather/Overcast/Weather1.cloud'.
+DayZServer_x64_2026-06-23_04-43-45.RPT:948:known=True: 4:45:00.705 Warning Message: No entry 'bin\config.bin/CfgWorlds/DefaultWorld/Weather/Overcast/Weather2.farCloud'.
+DayZServer_x64_2026-06-23_04-43-45.RPT:950:known=True: 4:45:00.705 Warning Message: No entry 'bin\config.bin/CfgWorlds/DefaultWorld/Weather/Overcast/Weather2.cloud'.
+DayZServer_x64_2026-06-23_04-43-45.RPT:952:known=True: 4:45:00.705 Warning Message: No entry 'bin\config.bin/CfgWorlds/DefaultWorld/Weather/Overcast/Weather3.farCloud'.
+DayZServer_x64_2026-06-23_04-43-45.RPT:954:known=True: 4:45:00.705 Warning Message: No entry 'bin\config.bin/CfgWorlds/DefaultWorld/Weather/Overcast/Weather3.cloud'.
+DayZServer_x64_2026-06-23_04-43-45.RPT:956:known=True: 4:45:00.705 Warning Message: No entry 'bin\config.bin/CfgWorlds/DefaultWorld/Weather/Overcast/Weather4.farCloud'.
+DayZServer_x64_2026-06-23_04-43-45.RPT:958:known=True: 4:45:00.705 Warning Message: No entry 'bin\config.bin/CfgWorlds/DefaultWorld/Weather/Overcast/Weather4.cloud'.
+DayZServer_x64_2026-06-23_04-43-45.RPT:960:known=True: 4:45:00.705 Warning Message: No entry 'bin\config.bin/CfgWorlds/DefaultWorld/Weather/Overcast/Weather5.farCloud'.
+DayZServer_x64_2026-06-23_04-43-45.RPT:962:known=True: 4:45:00.705 Warning Message: No entry 'bin\config.bin/CfgWorlds/DefaultWorld/Weather/Overcast/Weather5.cloud'.
+DayZServer_x64_2026-06-23_04-43-45.RPT:964:known=True: 4:45:00.705 Warning Message: No entry 'bin\config.bin/CfgWorlds/DefaultWorld/Weather/LightingNew/C_Day60.spaceIntensity'.
+DayZServer_x64_2026-06-23_04-43-45.RPT:966:known=True: 4:45:00.705 Warning Message: No entry 'bin\config.bin/CfgWorlds/DefaultWorld/Weather/LightingNew/C_Day60.starsIntensity'.
+DayZServer_x64_2026-06-23_04-43-45.RPT:968:known=True: 4:45:00.705 Warning Message: No entry 'bin\config.bin/CfgWorlds/DefaultWorld/Weather/LightingNew/C_Day60.atmosphereIntensity'.
+Server wird beendet: PID 13396
+Hard pattern count: 0
+Known warning count: 13
+Operation safe boot: False

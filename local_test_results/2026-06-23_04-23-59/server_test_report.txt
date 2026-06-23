@@ -1,0 +1,2 @@
+﻿DeutschZ Server Test Report - Runde 1 - 2026-06-23T04:23:59.0677602+02:00
+FEHLER: Setting breakpad minidump AppID = 830640

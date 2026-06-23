@@ -1,0 +1,6 @@
+﻿1. Copy all @DeutschZ_* folders to the server root.
+2. Copy keys\DeutschZLocal.bikey to the server keys folder.
+3. Copy profiles\DeutschZ to the server profile root or merge it with an existing DeutschZ profile.
+4. Use the load order from LOADORDER_ONLINE_TESTSERVER.txt.
+5. Add @DeutschZ_OperationDeutschZ after the six existing DeutschZ mods for safe-boot testing.
+6. Keep EnableOperationDeutschZ = 0 for the first online test.

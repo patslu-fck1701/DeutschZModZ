@@ -1,0 +1,6 @@
+﻿DeutschZ Server Test Report - Runde 1 - 2026-06-23T04:28:14.4163170+02:00
+Server-Batch: F:\Programme\steamapps\common\DayZServer\start.bat
+Profile-Pfad: F:\Programme\steamapps\common\DayZServer\profiles
+Startzeit: 2026-06-23T04:28:48.2699923+02:00
+Vor Test liefen DayZServer-Prozesse, werden beendet: 4860, 5224, 10700, 10760, 11196
+FEHLER: Die Variable "PID" kann nicht überschrieben werden, da sie konstant oder schreibgeschützt ist.

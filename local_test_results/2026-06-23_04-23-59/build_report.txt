@@ -1,0 +1,17 @@
+﻿DeutschZ Local Build Report - Runde 1 - 2026-06-23T04:23:59.0365128+02:00
+RepoRoot: P:\GitHub_DeutschZModZ\DeutschZModZ
+ServerRoot: F:\Programme\steamapps\common\DayZServer
+DeployRoot: P:\ReadyMods
+DeutschZ_Core source OK: P:\GitHub_DeutschZModZ\DeutschZModZ\mods\DeutschZ_Core
+DeutschZ_ExpansionBridge source OK: P:\GitHub_DeutschZModZ\DeutschZModZ\mods\DeutschZ_ExpansionBridge
+DeutschZ_CourierZ source OK: P:\GitHub_DeutschZModZ\DeutschZModZ\mods\DeutschZ_CourierZ
+DeutschZ_ConvoyZ source OK: P:\GitHub_DeutschZModZ\DeutschZModZ\mods\DeutschZ_ConvoyZ
+DeutschZ_KotHZ source OK: P:\GitHub_DeutschZModZ\DeutschZModZ\mods\DeutschZ_KotHZ
+DeutschZ_GroundZero source OK: P:\GitHub_DeutschZModZ\DeutschZModZ\mods\DeutschZ_GroundZero
+
+Signing-Key erstellt: P:\ReadyMods\_keys\DeutschZLocal.biprivatekey
+
+===== BUILD DeutschZ_Core =====
+Source: P:\GitHub_DeutschZModZ\DeutschZModZ\mods\DeutschZ_Core
+Output: P:\ReadyMods\@DeutschZ_Core\Addons
+FEHLER: Setting breakpad minidump AppID = 830640

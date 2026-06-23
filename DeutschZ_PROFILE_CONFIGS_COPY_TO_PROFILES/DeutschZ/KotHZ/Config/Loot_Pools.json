@@ -1,0 +1,1252 @@
+{
+    "ConfigInfo": "DeutschZ_KotHZ FIX17 ready loot config. Active test pool is high value and fast-test friendly. Weapons/attachments are based on uploaded All-classes-and-their-attachments.json where applicable.",
+    "LootPools": [
+        {
+            "EditHint": "ACTIVE TEST POOL. Rich reward crate for quick server testing. Existing profile pool with this name is refreshed by FIX17 code.",
+            "PoolName": "DeutschZ_Test_HighValue",
+            "RewardMode": 1,
+            "CrateClassName": "DeutschZKotHZ_RewardCrate",
+            "CrateSpawnAtFlagpole": 1,
+            "CrateSpawnDistanceFromFlagpole": 6.0,
+            "CrateLifetimeSeconds": 7200,
+            "DeleteCrateOnEventEnd": 0,
+            "Rewards": [
+                {
+                    "EditHint": "FIX17 reward entry. Quantity -1 = normal item. SpawnChance is percent.",
+                    "ClassName": "DeutschZKotHZ_BiohazardReader",
+                    "Quantity": -1,
+                    "SpawnChance": 100,
+                    "MaxSpawnable": 1,
+                    "MagazineClassName": "",
+                    "AlternativeClassNames": [],
+                    "AttachmentItems": [],
+                    "CargoItems": [],
+                    "ExtraRewardItems": []
+                },
+                {
+                    "EditHint": "FIX17 reward entry. Quantity -1 = normal item. SpawnChance is percent.",
+                    "ClassName": "DeutschZKotHZ_AccessCard",
+                    "Quantity": -1,
+                    "SpawnChance": 100,
+                    "MaxSpawnable": 2,
+                    "MagazineClassName": "",
+                    "AlternativeClassNames": [],
+                    "AttachmentItems": [],
+                    "CargoItems": [],
+                    "ExtraRewardItems": []
+                },
+                {
+                    "EditHint": "FIX17 reward entry. Quantity -1 = normal item. SpawnChance is percent.",
+                    "ClassName": "DeutschZKotHZ_ResearchDocument",
+                    "Quantity": -1,
+                    "SpawnChance": 100,
+                    "MaxSpawnable": 2,
+                    "MagazineClassName": "",
+                    "AlternativeClassNames": [],
+                    "AttachmentItems": [],
+                    "CargoItems": [],
+                    "ExtraRewardItems": []
+                },
+                {
+                    "EditHint": "FIX17 reward entry. Quantity -1 = normal item. SpawnChance is percent.",
+                    "ClassName": "DeutschZKotHZ_CommanderInsignia",
+                    "Quantity": -1,
+                    "SpawnChance": 100,
+                    "MaxSpawnable": 1,
+                    "MagazineClassName": "",
+                    "AlternativeClassNames": [],
+                    "AttachmentItems": [],
+                    "CargoItems": [],
+                    "ExtraRewardItems": []
+                },
+                {
+                    "EditHint": "FIX17 reward entry. Quantity -1 = normal item. SpawnChance is percent.",
+                    "ClassName": "GCGN_M82_Barret",
+                    "Quantity": -1,
+                    "SpawnChance": 100,
+                    "MaxSpawnable": 1,
+                    "MagazineClassName": "GCGN_M82_Mag",
+                    "AlternativeClassNames": [
+                        "SNAFUGM6Lynx",
+                        "SVD"
+                    ],
+                    "AttachmentItems": [
+                        {
+                            "EditHint": "FIX17 reward entry. Quantity -1 = normal item. SpawnChance is percent.",
+                            "ClassName": "SNAFU_Nightforce",
+                            "Quantity": -1,
+                            "SpawnChance": 100.0,
+                            "MaxSpawnable": 1,
+                            "MagazineClassName": "",
+                            "AlternativeClassNames": [],
+                            "AttachmentItems": [],
+                            "CargoItems": [],
+                            "ExtraRewardItems": []
+                        },
+                        {
+                            "EditHint": "FIX17 reward entry. Quantity -1 = normal item. SpawnChance is percent.",
+                            "ClassName": "SNAFU_50bmg_Suppressor_B",
+                            "Quantity": -1,
+                            "SpawnChance": 75,
+                            "MaxSpawnable": 1,
+                            "MagazineClassName": "",
+                            "AlternativeClassNames": [],
+                            "AttachmentItems": [],
+                            "CargoItems": [],
+                            "ExtraRewardItems": []
+                        }
+                    ],
+                    "CargoItems": [
+                        {
+                            "EditHint": "FIX17 reward entry. Quantity -1 = normal item. SpawnChance is percent.",
+                            "ClassName": "GCGN_M82_Mag",
+                            "Quantity": 3,
+                            "SpawnChance": 100.0,
+                            "MaxSpawnable": 3,
+                            "MagazineClassName": "",
+                            "AlternativeClassNames": [],
+                            "AttachmentItems": [],
+                            "CargoItems": [],
+                            "ExtraRewardItems": []
+                        },
+                        {
+                            "EditHint": "FIX17 reward entry. Quantity -1 = normal item. SpawnChance is percent.",
+                            "ClassName": "GCGN_Ammo_50Cal",
+                            "Quantity": 2,
+                            "SpawnChance": 100.0,
+                            "MaxSpawnable": 2,
+                            "MagazineClassName": "",
+                            "AlternativeClassNames": [],
+                            "AttachmentItems": [],
+                            "CargoItems": [],
+                            "ExtraRewardItems": []
+                        },
+                        {
+                            "EditHint": "FIX17 reward entry. Quantity -1 = normal item. SpawnChance is percent.",
+                            "ClassName": "TTC_Ammo_50BMG",
+                            "Quantity": 2,
+                            "SpawnChance": 80,
+                            "MaxSpawnable": 2,
+                            "MagazineClassName": "",
+                            "AlternativeClassNames": [],
+                            "AttachmentItems": [],
+                            "CargoItems": [],
+                            "ExtraRewardItems": []
+                        }
+                    ],
+                    "ExtraRewardItems": []
+                },
+                {
+                    "EditHint": "FIX17 reward entry. Quantity -1 = normal item. SpawnChance is percent.",
+                    "ClassName": "SNAFU_AS50_GUN",
+                    "Quantity": -1,
+                    "SpawnChance": 65,
+                    "MaxSpawnable": 1,
+                    "MagazineClassName": "SNAFU_AS50_Mag",
+                    "AlternativeClassNames": [
+                        "GCGN_M82_Barret",
+                        "SVD"
+                    ],
+                    "AttachmentItems": [
+                        {
+                            "EditHint": "FIX17 reward entry. Quantity -1 = normal item. SpawnChance is percent.",
+                            "ClassName": "SNAFU_Nightforce",
+                            "Quantity": -1,
+                            "SpawnChance": 100.0,
+                            "MaxSpawnable": 1,
+                            "MagazineClassName": "",
+                            "AlternativeClassNames": [],
+                            "AttachmentItems": [],
+                            "CargoItems": [],
+                            "ExtraRewardItems": []
+                        }
+                    ],
+                    "CargoItems": [
+                        {
+                            "EditHint": "FIX17 reward entry. Quantity -1 = normal item. SpawnChance is percent.",
+                            "ClassName": "SNAFU_AS50_Mag",
+                            "Quantity": 3,
+                            "SpawnChance": 100.0,
+                            "MaxSpawnable": 3,
+                            "MagazineClassName": "",
+                            "AlternativeClassNames": [],
+                            "AttachmentItems": [],
+                            "CargoItems": [],
+                            "ExtraRewardItems": []
+                        },
+                        {
+                            "EditHint": "FIX17 reward entry. Quantity -1 = normal item. SpawnChance is percent.",
+                            "ClassName": "GCGN_Ammo_50Cal",
+                            "Quantity": 2,
+                            "SpawnChance": 100.0,
+                            "MaxSpawnable": 2,
+                            "MagazineClassName": "",
+                            "AlternativeClassNames": [],
+                            "AttachmentItems": [],
+                            "CargoItems": [],
+                            "ExtraRewardItems": []
+                        },
+                        {
+                            "EditHint": "FIX17 reward entry. Quantity -1 = normal item. SpawnChance is percent.",
+                            "ClassName": "TTC_Ammo_50BMG",
+                            "Quantity": 2,
+                            "SpawnChance": 80,
+                            "MaxSpawnable": 2,
+                            "MagazineClassName": "",
+                            "AlternativeClassNames": [],
+                            "AttachmentItems": [],
+                            "CargoItems": [],
+                            "ExtraRewardItems": []
+                        }
+                    ],
+                    "ExtraRewardItems": []
+                },
+                {
+                    "EditHint": "FIX17 reward entry. Quantity -1 = normal item. SpawnChance is percent.",
+                    "ClassName": "SNAFUGM6Lynx",
+                    "Quantity": -1,
+                    "SpawnChance": 75,
+                    "MaxSpawnable": 1,
+                    "MagazineClassName": "SNAFUGM6Lynx_5rdMag",
+                    "AlternativeClassNames": [
+                        "GCGN_M82_Barret",
+                        "SVD"
+                    ],
+                    "AttachmentItems": [
+                        {
+                            "EditHint": "FIX17 reward entry. Quantity -1 = normal item. SpawnChance is percent.",
+                            "ClassName": "SNAFU_Nightforce",
+                            "Quantity": -1,
+                            "SpawnChance": 100.0,
+                            "MaxSpawnable": 1,
+                            "MagazineClassName": "",
+                            "AlternativeClassNames": [],
+                            "AttachmentItems": [],
+                            "CargoItems": [],
+                            "ExtraRewardItems": []
+                        }
+                    ],
+                    "CargoItems": [
+                        {
+                            "EditHint": "FIX17 reward entry. Quantity -1 = normal item. SpawnChance is percent.",
+                            "ClassName": "SNAFUGM6Lynx_5rdMag",
+                            "Quantity": 3,
+                            "SpawnChance": 100.0,
+                            "MaxSpawnable": 3,
+                            "MagazineClassName": "",
+                            "AlternativeClassNames": [],
+                            "AttachmentItems": [],
+                            "CargoItems": [],
+                            "ExtraRewardItems": []
+                        },
+                        {
+                            "EditHint": "FIX17 reward entry. Quantity -1 = normal item. SpawnChance is percent.",
+                            "ClassName": "GCGN_Ammo_50Cal",
+                            "Quantity": 2,
+                            "SpawnChance": 100.0,
+                            "MaxSpawnable": 2,
+                            "MagazineClassName": "",
+                            "AlternativeClassNames": [],
+                            "AttachmentItems": [],
+                            "CargoItems": [],
+                            "ExtraRewardItems": []
+                        }
+                    ],
+                    "ExtraRewardItems": []
+                },
+                {
+                    "EditHint": "FIX17 reward entry. Quantity -1 = normal item. SpawnChance is percent.",
+                    "ClassName": "SNAFUTac21",
+                    "Quantity": -1,
+                    "SpawnChance": 100,
+                    "MaxSpawnable": 1,
+                    "MagazineClassName": "SNAFUTac21_5rdMag",
+                    "AlternativeClassNames": [
+                        "Winchester70"
+                    ],
+                    "AttachmentItems": [
+                        {
+                            "EditHint": "FIX17 reward entry. Quantity -1 = normal item. SpawnChance is percent.",
+                            "ClassName": "SNAFU_Nightforce",
+                            "Quantity": -1,
+                            "SpawnChance": 100.0,
+                            "MaxSpawnable": 1,
+                            "MagazineClassName": "",
+                            "AlternativeClassNames": [],
+                            "AttachmentItems": [],
+                            "CargoItems": [],
+                            "ExtraRewardItems": []
+                        },
+                        {
+                            "EditHint": "FIX17 reward entry. Quantity -1 = normal item. SpawnChance is percent.",
+                            "ClassName": "SNAFUKivaari_338_Supp",
+                            "Quantity": -1,
+                            "SpawnChance": 50,
+                            "MaxSpawnable": 1,
+                            "MagazineClassName": "",
+                            "AlternativeClassNames": [],
+                            "AttachmentItems": [],
+                            "CargoItems": [],
+                            "ExtraRewardItems": []
+                        }
+                    ],
+                    "CargoItems": [
+                        {
+                            "EditHint": "FIX17 reward entry. Quantity -1 = normal item. SpawnChance is percent.",
+                            "ClassName": "SNAFUTac21_5rdMag",
+                            "Quantity": 4,
+                            "SpawnChance": 100.0,
+                            "MaxSpawnable": 4,
+                            "MagazineClassName": "",
+                            "AlternativeClassNames": [],
+                            "AttachmentItems": [],
+                            "CargoItems": [],
+                            "ExtraRewardItems": []
+                        },
+                        {
+                            "EditHint": "FIX17 reward entry. Quantity -1 = normal item. SpawnChance is percent.",
+                            "ClassName": "SNAFU_Ammo_338",
+                            "Quantity": 3,
+                            "SpawnChance": 100.0,
+                            "MaxSpawnable": 3,
+                            "MagazineClassName": "",
+                            "AlternativeClassNames": [],
+                            "AttachmentItems": [],
+                            "CargoItems": [],
+                            "ExtraRewardItems": []
+                        },
+                        {
+                            "EditHint": "FIX17 reward entry. Quantity -1 = normal item. SpawnChance is percent.",
+                            "ClassName": "Ammo_Expansion_338",
+                            "Quantity": 2,
+                            "SpawnChance": 60,
+                            "MaxSpawnable": 2,
+                            "MagazineClassName": "",
+                            "AlternativeClassNames": [],
+                            "AttachmentItems": [],
+                            "CargoItems": [],
+                            "ExtraRewardItems": []
+                        }
+                    ],
+                    "ExtraRewardItems": []
+                },
+                {
+                    "EditHint": "FIX17 reward entry. Quantity -1 = normal item. SpawnChance is percent.",
+                    "ClassName": "Snafu_ScarH_Black_GUN",
+                    "Quantity": -1,
+                    "SpawnChance": 80,
+                    "MaxSpawnable": 1,
+                    "MagazineClassName": "SNAFU_ScarH_100RND_Mag_Black",
+                    "AlternativeClassNames": [
+                        "FAL"
+                    ],
+                    "AttachmentItems": [
+                        {
+                            "EditHint": "FIX17 reward entry. Quantity -1 = normal item. SpawnChance is percent.",
+                            "ClassName": "SNAFU_HNightforce",
+                            "Quantity": -1,
+                            "SpawnChance": 80,
+                            "MaxSpawnable": 1,
+                            "MagazineClassName": "",
+                            "AlternativeClassNames": [],
+                            "AttachmentItems": [],
+                            "CargoItems": [],
+                            "ExtraRewardItems": []
+                        },
+                        {
+                            "EditHint": "FIX17 reward entry. Quantity -1 = normal item. SpawnChance is percent.",
+                            "ClassName": "Snafu_ScarH_SIL_Black",
+                            "Quantity": -1,
+                            "SpawnChance": 70,
+                            "MaxSpawnable": 1,
+                            "MagazineClassName": "",
+                            "AlternativeClassNames": [],
+                            "AttachmentItems": [],
+                            "CargoItems": [],
+                            "ExtraRewardItems": []
+                        }
+                    ],
+                    "CargoItems": [
+                        {
+                            "EditHint": "FIX17 reward entry. Quantity -1 = normal item. SpawnChance is percent.",
+                            "ClassName": "SNAFU_ScarH_100RND_Mag_Black",
+                            "Quantity": 2,
+                            "SpawnChance": 100.0,
+                            "MaxSpawnable": 2,
+                            "MagazineClassName": "",
+                            "AlternativeClassNames": [],
+                            "AttachmentItems": [],
+                            "CargoItems": [],
+                            "ExtraRewardItems": []
+                        },
+                        {
+                            "EditHint": "FIX17 reward entry. Quantity -1 = normal item. SpawnChance is percent.",
+                            "ClassName": "Snafu_ScarH_25RND_Mag_BK",
+                            "Quantity": 4,
+                            "SpawnChance": 100.0,
+                            "MaxSpawnable": 4,
+                            "MagazineClassName": "",
+                            "AlternativeClassNames": [],
+                            "AttachmentItems": [],
+                            "CargoItems": [],
+                            "ExtraRewardItems": []
+                        },
+                        {
+                            "EditHint": "FIX17 reward entry. Quantity -1 = normal item. SpawnChance is percent.",
+                            "ClassName": "AmmoBox_308Win_20Rnd",
+                            "Quantity": 4,
+                            "SpawnChance": 100.0,
+                            "MaxSpawnable": 4,
+                            "MagazineClassName": "",
+                            "AlternativeClassNames": [],
+                            "AttachmentItems": [],
+                            "CargoItems": [],
+                            "ExtraRewardItems": []
+                        }
+                    ],
+                    "ExtraRewardItems": []
+                },
+                {
+                    "EditHint": "FIX17 reward entry. Quantity -1 = normal item. SpawnChance is percent.",
+                    "ClassName": "GCGN_M249",
+                    "Quantity": -1,
+                    "SpawnChance": 100,
+                    "MaxSpawnable": 1,
+                    "MagazineClassName": "GCGN_M249_Mag",
+                    "AlternativeClassNames": [
+                        "M4A1"
+                    ],
+                    "AttachmentItems": [
+                        {
+                            "EditHint": "FIX17 reward entry. Quantity -1 = normal item. SpawnChance is percent.",
+                            "ClassName": "SNAFU_EOTech_EXPS3",
+                            "Quantity": -1,
+                            "SpawnChance": 80,
+                            "MaxSpawnable": 1,
+                            "MagazineClassName": "",
+                            "AlternativeClassNames": [],
+                            "AttachmentItems": [],
+                            "CargoItems": [],
+                            "ExtraRewardItems": []
+                        }
+                    ],
+                    "CargoItems": [
+                        {
+                            "EditHint": "FIX17 reward entry. Quantity -1 = normal item. SpawnChance is percent.",
+                            "ClassName": "GCGN_M249_Mag",
+                            "Quantity": 2,
+                            "SpawnChance": 80,
+                            "MaxSpawnable": 2,
+                            "MagazineClassName": "",
+                            "AlternativeClassNames": [],
+                            "AttachmentItems": [],
+                            "CargoItems": [],
+                            "ExtraRewardItems": []
+                        },
+                        {
+                            "EditHint": "FIX17 reward entry. Quantity -1 = normal item. SpawnChance is percent.",
+                            "ClassName": "AmmoBox_556x45_20Rnd",
+                            "Quantity": 6,
+                            "SpawnChance": 100.0,
+                            "MaxSpawnable": 6,
+                            "MagazineClassName": "",
+                            "AlternativeClassNames": [],
+                            "AttachmentItems": [],
+                            "CargoItems": [],
+                            "ExtraRewardItems": []
+                        }
+                    ],
+                    "ExtraRewardItems": []
+                },
+                {
+                    "EditHint": "FIX17 reward entry. Quantity -1 = normal item. SpawnChance is percent.",
+                    "ClassName": "M4A1",
+                    "Quantity": -1,
+                    "SpawnChance": 100,
+                    "MaxSpawnable": 1,
+                    "MagazineClassName": "Mag_STANAG_60Rnd",
+                    "AlternativeClassNames": [],
+                    "AttachmentItems": [
+                        {
+                            "EditHint": "FIX17 reward entry. Quantity -1 = normal item. SpawnChance is percent.",
+                            "ClassName": "M4_PlasticHndgrd",
+                            "Quantity": -1,
+                            "SpawnChance": 100.0,
+                            "MaxSpawnable": 1,
+                            "MagazineClassName": "",
+                            "AlternativeClassNames": [],
+                            "AttachmentItems": [],
+                            "CargoItems": [],
+                            "ExtraRewardItems": []
+                        },
+                        {
+                            "EditHint": "FIX17 reward entry. Quantity -1 = normal item. SpawnChance is percent.",
+                            "ClassName": "M4_OEBttstck",
+                            "Quantity": -1,
+                            "SpawnChance": 100.0,
+                            "MaxSpawnable": 1,
+                            "MagazineClassName": "",
+                            "AlternativeClassNames": [],
+                            "AttachmentItems": [],
+                            "CargoItems": [],
+                            "ExtraRewardItems": []
+                        },
+                        {
+                            "EditHint": "FIX17 reward entry. Quantity -1 = normal item. SpawnChance is percent.",
+                            "ClassName": "M68Optic",
+                            "Quantity": -1,
+                            "SpawnChance": 100.0,
+                            "MaxSpawnable": 1,
+                            "MagazineClassName": "",
+                            "AlternativeClassNames": [],
+                            "AttachmentItems": [],
+                            "CargoItems": [],
+                            "ExtraRewardItems": []
+                        },
+                        {
+                            "EditHint": "FIX17 reward entry. Quantity -1 = normal item. SpawnChance is percent.",
+                            "ClassName": "M4_Suppressor",
+                            "Quantity": -1,
+                            "SpawnChance": 80,
+                            "MaxSpawnable": 1,
+                            "MagazineClassName": "",
+                            "AlternativeClassNames": [],
+                            "AttachmentItems": [],
+                            "CargoItems": [],
+                            "ExtraRewardItems": []
+                        }
+                    ],
+                    "CargoItems": [
+                        {
+                            "EditHint": "FIX17 reward entry. Quantity -1 = normal item. SpawnChance is percent.",
+                            "ClassName": "Mag_STANAG_60Rnd",
+                            "Quantity": 4,
+                            "SpawnChance": 100.0,
+                            "MaxSpawnable": 4,
+                            "MagazineClassName": "",
+                            "AlternativeClassNames": [],
+                            "AttachmentItems": [],
+                            "CargoItems": [],
+                            "ExtraRewardItems": []
+                        },
+                        {
+                            "EditHint": "FIX17 reward entry. Quantity -1 = normal item. SpawnChance is percent.",
+                            "ClassName": "AmmoBox_556x45_20Rnd",
+                            "Quantity": 5,
+                            "SpawnChance": 100.0,
+                            "MaxSpawnable": 5,
+                            "MagazineClassName": "",
+                            "AlternativeClassNames": [],
+                            "AttachmentItems": [],
+                            "CargoItems": [],
+                            "ExtraRewardItems": []
+                        }
+                    ],
+                    "ExtraRewardItems": []
+                },
+                {
+                    "EditHint": "FIX17 reward entry. Quantity -1 = normal item. SpawnChance is percent.",
+                    "ClassName": "AKM",
+                    "Quantity": -1,
+                    "SpawnChance": 100,
+                    "MaxSpawnable": 1,
+                    "MagazineClassName": "Mag_AKM_Drum75Rnd",
+                    "AlternativeClassNames": [],
+                    "AttachmentItems": [
+                        {
+                            "EditHint": "FIX17 reward entry. Quantity -1 = normal item. SpawnChance is percent.",
+                            "ClassName": "AK_PlasticBttstck_Black",
+                            "Quantity": -1,
+                            "SpawnChance": 100.0,
+                            "MaxSpawnable": 1,
+                            "MagazineClassName": "",
+                            "AlternativeClassNames": [],
+                            "AttachmentItems": [],
+                            "CargoItems": [],
+                            "ExtraRewardItems": []
+                        },
+                        {
+                            "EditHint": "FIX17 reward entry. Quantity -1 = normal item. SpawnChance is percent.",
+                            "ClassName": "KobraOptic",
+                            "Quantity": -1,
+                            "SpawnChance": 80,
+                            "MaxSpawnable": 1,
+                            "MagazineClassName": "",
+                            "AlternativeClassNames": [],
+                            "AttachmentItems": [],
+                            "CargoItems": [],
+                            "ExtraRewardItems": []
+                        },
+                        {
+                            "EditHint": "FIX17 reward entry. Quantity -1 = normal item. SpawnChance is percent.",
+                            "ClassName": "AK_Suppressor",
+                            "Quantity": -1,
+                            "SpawnChance": 80,
+                            "MaxSpawnable": 1,
+                            "MagazineClassName": "",
+                            "AlternativeClassNames": [],
+                            "AttachmentItems": [],
+                            "CargoItems": [],
+                            "ExtraRewardItems": []
+                        }
+                    ],
+                    "CargoItems": [
+                        {
+                            "EditHint": "FIX17 reward entry. Quantity -1 = normal item. SpawnChance is percent.",
+                            "ClassName": "Mag_AKM_Drum75Rnd",
+                            "Quantity": 2,
+                            "SpawnChance": 100.0,
+                            "MaxSpawnable": 2,
+                            "MagazineClassName": "",
+                            "AlternativeClassNames": [],
+                            "AttachmentItems": [],
+                            "CargoItems": [],
+                            "ExtraRewardItems": []
+                        },
+                        {
+                            "EditHint": "FIX17 reward entry. Quantity -1 = normal item. SpawnChance is percent.",
+                            "ClassName": "Mag_AKM_30Rnd",
+                            "Quantity": 4,
+                            "SpawnChance": 100.0,
+                            "MaxSpawnable": 4,
+                            "MagazineClassName": "",
+                            "AlternativeClassNames": [],
+                            "AttachmentItems": [],
+                            "CargoItems": [],
+                            "ExtraRewardItems": []
+                        },
+                        {
+                            "EditHint": "FIX17 reward entry. Quantity -1 = normal item. SpawnChance is percent.",
+                            "ClassName": "AmmoBox_762x39_20Rnd",
+                            "Quantity": 5,
+                            "SpawnChance": 100.0,
+                            "MaxSpawnable": 5,
+                            "MagazineClassName": "",
+                            "AlternativeClassNames": [],
+                            "AttachmentItems": [],
+                            "CargoItems": [],
+                            "ExtraRewardItems": []
+                        }
+                    ],
+                    "ExtraRewardItems": []
+                },
+                {
+                    "EditHint": "FIX17 reward entry. Quantity -1 = normal item. SpawnChance is percent.",
+                    "ClassName": "SVD",
+                    "Quantity": -1,
+                    "SpawnChance": 100,
+                    "MaxSpawnable": 1,
+                    "MagazineClassName": "Mag_SVD_10Rnd",
+                    "AlternativeClassNames": [],
+                    "AttachmentItems": [
+                        {
+                            "EditHint": "FIX17 reward entry. Quantity -1 = normal item. SpawnChance is percent.",
+                            "ClassName": "PSO1Optic",
+                            "Quantity": -1,
+                            "SpawnChance": 100.0,
+                            "MaxSpawnable": 1,
+                            "MagazineClassName": "",
+                            "AlternativeClassNames": [],
+                            "AttachmentItems": [],
+                            "CargoItems": [],
+                            "ExtraRewardItems": []
+                        },
+                        {
+                            "EditHint": "FIX17 reward entry. Quantity -1 = normal item. SpawnChance is percent.",
+                            "ClassName": "AK_Suppressor",
+                            "Quantity": -1,
+                            "SpawnChance": 90,
+                            "MaxSpawnable": 1,
+                            "MagazineClassName": "",
+                            "AlternativeClassNames": [],
+                            "AttachmentItems": [],
+                            "CargoItems": [],
+                            "ExtraRewardItems": []
+                        }
+                    ],
+                    "CargoItems": [
+                        {
+                            "EditHint": "FIX17 reward entry. Quantity -1 = normal item. SpawnChance is percent.",
+                            "ClassName": "Mag_SVD_10Rnd",
+                            "Quantity": 4,
+                            "SpawnChance": 100.0,
+                            "MaxSpawnable": 4,
+                            "MagazineClassName": "",
+                            "AlternativeClassNames": [],
+                            "AttachmentItems": [],
+                            "CargoItems": [],
+                            "ExtraRewardItems": []
+                        },
+                        {
+                            "EditHint": "FIX17 reward entry. Quantity -1 = normal item. SpawnChance is percent.",
+                            "ClassName": "AmmoBox_762x54_20Rnd",
+                            "Quantity": 4,
+                            "SpawnChance": 100.0,
+                            "MaxSpawnable": 4,
+                            "MagazineClassName": "",
+                            "AlternativeClassNames": [],
+                            "AttachmentItems": [],
+                            "CargoItems": [],
+                            "ExtraRewardItems": []
+                        }
+                    ],
+                    "ExtraRewardItems": []
+                },
+                {
+                    "EditHint": "FIX17 reward entry. Quantity -1 = normal item. SpawnChance is percent.",
+                    "ClassName": "NVGoggles",
+                    "Quantity": -1,
+                    "SpawnChance": 100,
+                    "MaxSpawnable": 2,
+                    "MagazineClassName": "",
+                    "AlternativeClassNames": [],
+                    "AttachmentItems": [],
+                    "CargoItems": [],
+                    "ExtraRewardItems": []
+                },
+                {
+                    "EditHint": "FIX17 reward entry. Quantity -1 = normal item. SpawnChance is percent.",
+                    "ClassName": "NVGHeadstrap",
+                    "Quantity": -1,
+                    "SpawnChance": 100,
+                    "MaxSpawnable": 1,
+                    "MagazineClassName": "",
+                    "AlternativeClassNames": [],
+                    "AttachmentItems": [],
+                    "CargoItems": [],
+                    "ExtraRewardItems": []
+                },
+                {
+                    "EditHint": "FIX17 reward entry. Quantity -1 = normal item. SpawnChance is percent.",
+                    "ClassName": "PlateCarrierVest",
+                    "Quantity": -1,
+                    "SpawnChance": 100,
+                    "MaxSpawnable": 1,
+                    "MagazineClassName": "",
+                    "AlternativeClassNames": [],
+                    "AttachmentItems": [],
+                    "CargoItems": [],
+                    "ExtraRewardItems": []
+                },
+                {
+                    "EditHint": "FIX17 reward entry. Quantity -1 = normal item. SpawnChance is percent.",
+                    "ClassName": "PlateCarrierPouches",
+                    "Quantity": -1,
+                    "SpawnChance": 100,
+                    "MaxSpawnable": 1,
+                    "MagazineClassName": "",
+                    "AlternativeClassNames": [],
+                    "AttachmentItems": [],
+                    "CargoItems": [],
+                    "ExtraRewardItems": []
+                },
+                {
+                    "EditHint": "FIX17 reward entry. Quantity -1 = normal item. SpawnChance is percent.",
+                    "ClassName": "PlateCarrierHolster",
+                    "Quantity": -1,
+                    "SpawnChance": 100,
+                    "MaxSpawnable": 1,
+                    "MagazineClassName": "",
+                    "AlternativeClassNames": [],
+                    "AttachmentItems": [],
+                    "CargoItems": [],
+                    "ExtraRewardItems": []
+                },
+                {
+                    "EditHint": "FIX17 reward entry. Quantity -1 = normal item. SpawnChance is percent.",
+                    "ClassName": "Mich2001Helmet",
+                    "Quantity": -1,
+                    "SpawnChance": 100,
+                    "MaxSpawnable": 1,
+                    "MagazineClassName": "",
+                    "AlternativeClassNames": [],
+                    "AttachmentItems": [],
+                    "CargoItems": [],
+                    "ExtraRewardItems": []
+                },
+                {
+                    "EditHint": "FIX17 reward entry. Quantity -1 = normal item. SpawnChance is percent.",
+                    "ClassName": "Rangefinder",
+                    "Quantity": -1,
+                    "SpawnChance": 100,
+                    "MaxSpawnable": 1,
+                    "MagazineClassName": "",
+                    "AlternativeClassNames": [],
+                    "AttachmentItems": [],
+                    "CargoItems": [],
+                    "ExtraRewardItems": []
+                },
+                {
+                    "EditHint": "FIX17 reward entry. Quantity -1 = normal item. SpawnChance is percent.",
+                    "ClassName": "Battery9V",
+                    "Quantity": 4,
+                    "SpawnChance": 100,
+                    "MaxSpawnable": 4,
+                    "MagazineClassName": "",
+                    "AlternativeClassNames": [],
+                    "AttachmentItems": [],
+                    "CargoItems": [],
+                    "ExtraRewardItems": []
+                },
+                {
+                    "EditHint": "FIX17 reward entry. Quantity -1 = normal item. SpawnChance is percent.",
+                    "ClassName": "TetracyclineAntibiotics",
+                    "Quantity": -1,
+                    "SpawnChance": 100,
+                    "MaxSpawnable": 2,
+                    "MagazineClassName": "",
+                    "AlternativeClassNames": [],
+                    "AttachmentItems": [],
+                    "CargoItems": [],
+                    "ExtraRewardItems": []
+                },
+                {
+                    "EditHint": "FIX17 reward entry. Quantity -1 = normal item. SpawnChance is percent.",
+                    "ClassName": "Morphine",
+                    "Quantity": 3,
+                    "SpawnChance": 100,
+                    "MaxSpawnable": 3,
+                    "MagazineClassName": "",
+                    "AlternativeClassNames": [],
+                    "AttachmentItems": [],
+                    "CargoItems": [],
+                    "ExtraRewardItems": []
+                },
+                {
+                    "EditHint": "FIX17 reward entry. Quantity -1 = normal item. SpawnChance is percent.",
+                    "ClassName": "Epinephrine",
+                    "Quantity": 3,
+                    "SpawnChance": 100,
+                    "MaxSpawnable": 3,
+                    "MagazineClassName": "",
+                    "AlternativeClassNames": [],
+                    "AttachmentItems": [],
+                    "CargoItems": [],
+                    "ExtraRewardItems": []
+                },
+                {
+                    "EditHint": "FIX17 reward entry. Quantity -1 = normal item. SpawnChance is percent.",
+                    "ClassName": "SalineBagIV",
+                    "Quantity": 3,
+                    "SpawnChance": 100,
+                    "MaxSpawnable": 3,
+                    "MagazineClassName": "",
+                    "AlternativeClassNames": [],
+                    "AttachmentItems": [],
+                    "CargoItems": [],
+                    "ExtraRewardItems": []
+                },
+                {
+                    "EditHint": "FIX17 reward entry. Quantity -1 = normal item. SpawnChance is percent.",
+                    "ClassName": "WeaponCleaningKit",
+                    "Quantity": 2,
+                    "SpawnChance": 100,
+                    "MaxSpawnable": 2,
+                    "MagazineClassName": "",
+                    "AlternativeClassNames": [],
+                    "AttachmentItems": [],
+                    "CargoItems": [],
+                    "ExtraRewardItems": []
+                },
+                {
+                    "EditHint": "FIX17 reward entry. Quantity -1 = normal item. SpawnChance is percent.",
+                    "ClassName": "DuctTape",
+                    "Quantity": 2,
+                    "SpawnChance": 100,
+                    "MaxSpawnable": 2,
+                    "MagazineClassName": "",
+                    "AlternativeClassNames": [],
+                    "AttachmentItems": [],
+                    "CargoItems": [],
+                    "ExtraRewardItems": []
+                },
+                {
+                    "EditHint": "FIX17 reward entry. Quantity -1 = normal item. SpawnChance is percent.",
+                    "ClassName": "NailBox",
+                    "Quantity": 5,
+                    "SpawnChance": 100,
+                    "MaxSpawnable": 5,
+                    "MagazineClassName": "",
+                    "AlternativeClassNames": [],
+                    "AttachmentItems": [],
+                    "CargoItems": [],
+                    "ExtraRewardItems": []
+                },
+                {
+                    "EditHint": "FIX17 reward entry. Quantity -1 = normal item. SpawnChance is percent.",
+                    "ClassName": "MetalPlate",
+                    "Quantity": 8,
+                    "SpawnChance": 100,
+                    "MaxSpawnable": 8,
+                    "MagazineClassName": "",
+                    "AlternativeClassNames": [],
+                    "AttachmentItems": [],
+                    "CargoItems": [],
+                    "ExtraRewardItems": []
+                },
+                {
+                    "EditHint": "FIX17 reward entry. Quantity -1 = normal item. SpawnChance is percent.",
+                    "ClassName": "CombinationLock",
+                    "Quantity": 2,
+                    "SpawnChance": 100,
+                    "MaxSpawnable": 2,
+                    "MagazineClassName": "",
+                    "AlternativeClassNames": [],
+                    "AttachmentItems": [],
+                    "CargoItems": [],
+                    "ExtraRewardItems": []
+                }
+            ]
+        },
+        {
+            "EditHint": "Balanced live pool. Valuable, but not every raid-level item is guaranteed.",
+            "PoolName": "DeutschZ_Live_HighValue_Balanced",
+            "RewardMode": 1,
+            "CrateClassName": "DeutschZKotHZ_RewardCrate",
+            "CrateSpawnAtFlagpole": 1,
+            "CrateSpawnDistanceFromFlagpole": 6.0,
+            "CrateLifetimeSeconds": 5400,
+            "DeleteCrateOnEventEnd": 0,
+            "Rewards": [
+                {
+                    "EditHint": "FIX17 reward entry. Quantity -1 = normal item. SpawnChance is percent.",
+                    "ClassName": "DeutschZKotHZ_AccessCard",
+                    "Quantity": -1,
+                    "SpawnChance": 100,
+                    "MaxSpawnable": 1,
+                    "MagazineClassName": "",
+                    "AlternativeClassNames": [],
+                    "AttachmentItems": [],
+                    "CargoItems": [],
+                    "ExtraRewardItems": []
+                },
+                {
+                    "EditHint": "FIX17 reward entry. Quantity -1 = normal item. SpawnChance is percent.",
+                    "ClassName": "DeutschZKotHZ_ResearchDocument",
+                    "Quantity": -1,
+                    "SpawnChance": 75,
+                    "MaxSpawnable": 1,
+                    "MagazineClassName": "",
+                    "AlternativeClassNames": [],
+                    "AttachmentItems": [],
+                    "CargoItems": [],
+                    "ExtraRewardItems": []
+                },
+                {
+                    "EditHint": "FIX17 reward entry. Quantity -1 = normal item. SpawnChance is percent.",
+                    "ClassName": "SNAFUTac21",
+                    "Quantity": -1,
+                    "SpawnChance": 20,
+                    "MaxSpawnable": 1,
+                    "MagazineClassName": "SNAFUTac21_5rdMag",
+                    "AlternativeClassNames": [
+                        "Winchester70"
+                    ],
+                    "AttachmentItems": [
+                        {
+                            "EditHint": "FIX17 reward entry. Quantity -1 = normal item. SpawnChance is percent.",
+                            "ClassName": "SNAFU_Nightforce",
+                            "Quantity": -1,
+                            "SpawnChance": 50,
+                            "MaxSpawnable": 1,
+                            "MagazineClassName": "",
+                            "AlternativeClassNames": [],
+                            "AttachmentItems": [],
+                            "CargoItems": [],
+                            "ExtraRewardItems": []
+                        }
+                    ],
+                    "CargoItems": [
+                        {
+                            "EditHint": "FIX17 reward entry. Quantity -1 = normal item. SpawnChance is percent.",
+                            "ClassName": "SNAFUTac21_5rdMag",
+                            "Quantity": 2,
+                            "SpawnChance": 100.0,
+                            "MaxSpawnable": 2,
+                            "MagazineClassName": "",
+                            "AlternativeClassNames": [],
+                            "AttachmentItems": [],
+                            "CargoItems": [],
+                            "ExtraRewardItems": []
+                        },
+                        {
+                            "EditHint": "FIX17 reward entry. Quantity -1 = normal item. SpawnChance is percent.",
+                            "ClassName": "SNAFU_Ammo_338",
+                            "Quantity": 1,
+                            "SpawnChance": 100.0,
+                            "MaxSpawnable": 1,
+                            "MagazineClassName": "",
+                            "AlternativeClassNames": [],
+                            "AttachmentItems": [],
+                            "CargoItems": [],
+                            "ExtraRewardItems": []
+                        }
+                    ],
+                    "ExtraRewardItems": []
+                },
+                {
+                    "EditHint": "FIX17 reward entry. Quantity -1 = normal item. SpawnChance is percent.",
+                    "ClassName": "GCGN_M249",
+                    "Quantity": -1,
+                    "SpawnChance": 25,
+                    "MaxSpawnable": 1,
+                    "MagazineClassName": "GCGN_M249_Mag",
+                    "AlternativeClassNames": [
+                        "M4A1"
+                    ],
+                    "AttachmentItems": [
+                        {
+                            "EditHint": "FIX17 reward entry. Quantity -1 = normal item. SpawnChance is percent.",
+                            "ClassName": "M68Optic",
+                            "Quantity": -1,
+                            "SpawnChance": 75,
+                            "MaxSpawnable": 1,
+                            "MagazineClassName": "",
+                            "AlternativeClassNames": [],
+                            "AttachmentItems": [],
+                            "CargoItems": [],
+                            "ExtraRewardItems": []
+                        }
+                    ],
+                    "CargoItems": [
+                        {
+                            "EditHint": "FIX17 reward entry. Quantity -1 = normal item. SpawnChance is percent.",
+                            "ClassName": "AmmoBox_556x45_20Rnd",
+                            "Quantity": 3,
+                            "SpawnChance": 100.0,
+                            "MaxSpawnable": 3,
+                            "MagazineClassName": "",
+                            "AlternativeClassNames": [],
+                            "AttachmentItems": [],
+                            "CargoItems": [],
+                            "ExtraRewardItems": []
+                        }
+                    ],
+                    "ExtraRewardItems": []
+                },
+                {
+                    "EditHint": "FIX17 reward entry. Quantity -1 = normal item. SpawnChance is percent.",
+                    "ClassName": "SVD",
+                    "Quantity": -1,
+                    "SpawnChance": 35,
+                    "MaxSpawnable": 1,
+                    "MagazineClassName": "Mag_SVD_10Rnd",
+                    "AlternativeClassNames": [],
+                    "AttachmentItems": [
+                        {
+                            "EditHint": "FIX17 reward entry. Quantity -1 = normal item. SpawnChance is percent.",
+                            "ClassName": "PSO1Optic",
+                            "Quantity": -1,
+                            "SpawnChance": 80,
+                            "MaxSpawnable": 1,
+                            "MagazineClassName": "",
+                            "AlternativeClassNames": [],
+                            "AttachmentItems": [],
+                            "CargoItems": [],
+                            "ExtraRewardItems": []
+                        }
+                    ],
+                    "CargoItems": [
+                        {
+                            "EditHint": "FIX17 reward entry. Quantity -1 = normal item. SpawnChance is percent.",
+                            "ClassName": "Mag_SVD_10Rnd",
+                            "Quantity": 2,
+                            "SpawnChance": 100.0,
+                            "MaxSpawnable": 2,
+                            "MagazineClassName": "",
+                            "AlternativeClassNames": [],
+                            "AttachmentItems": [],
+                            "CargoItems": [],
+                            "ExtraRewardItems": []
+                        },
+                        {
+                            "EditHint": "FIX17 reward entry. Quantity -1 = normal item. SpawnChance is percent.",
+                            "ClassName": "AmmoBox_762x54_20Rnd",
+                            "Quantity": 2,
+                            "SpawnChance": 100.0,
+                            "MaxSpawnable": 2,
+                            "MagazineClassName": "",
+                            "AlternativeClassNames": [],
+                            "AttachmentItems": [],
+                            "CargoItems": [],
+                            "ExtraRewardItems": []
+                        }
+                    ],
+                    "ExtraRewardItems": []
+                },
+                {
+                    "EditHint": "FIX17 reward entry. Quantity -1 = normal item. SpawnChance is percent.",
+                    "ClassName": "M4A1",
+                    "Quantity": -1,
+                    "SpawnChance": 45,
+                    "MaxSpawnable": 1,
+                    "MagazineClassName": "Mag_STANAG_60Rnd",
+                    "AlternativeClassNames": [],
+                    "AttachmentItems": [
+                        {
+                            "EditHint": "FIX17 reward entry. Quantity -1 = normal item. SpawnChance is percent.",
+                            "ClassName": "M68Optic",
+                            "Quantity": -1,
+                            "SpawnChance": 80,
+                            "MaxSpawnable": 1,
+                            "MagazineClassName": "",
+                            "AlternativeClassNames": [],
+                            "AttachmentItems": [],
+                            "CargoItems": [],
+                            "ExtraRewardItems": []
+                        }
+                    ],
+                    "CargoItems": [
+                        {
+                            "EditHint": "FIX17 reward entry. Quantity -1 = normal item. SpawnChance is percent.",
+                            "ClassName": "Mag_STANAG_60Rnd",
+                            "Quantity": 2,
+                            "SpawnChance": 100.0,
+                            "MaxSpawnable": 2,
+                            "MagazineClassName": "",
+                            "AlternativeClassNames": [],
+                            "AttachmentItems": [],
+                            "CargoItems": [],
+                            "ExtraRewardItems": []
+                        },
+                        {
+                            "EditHint": "FIX17 reward entry. Quantity -1 = normal item. SpawnChance is percent.",
+                            "ClassName": "AmmoBox_556x45_20Rnd",
+                            "Quantity": 3,
+                            "SpawnChance": 100.0,
+                            "MaxSpawnable": 3,
+                            "MagazineClassName": "",
+                            "AlternativeClassNames": [],
+                            "AttachmentItems": [],
+                            "CargoItems": [],
+                            "ExtraRewardItems": []
+                        }
+                    ],
+                    "ExtraRewardItems": []
+                },
+                {
+                    "EditHint": "FIX17 reward entry. Quantity -1 = normal item. SpawnChance is percent.",
+                    "ClassName": "AKM",
+                    "Quantity": -1,
+                    "SpawnChance": 45,
+                    "MaxSpawnable": 1,
+                    "MagazineClassName": "Mag_AKM_30Rnd",
+                    "AlternativeClassNames": [],
+                    "AttachmentItems": [
+                        {
+                            "EditHint": "FIX17 reward entry. Quantity -1 = normal item. SpawnChance is percent.",
+                            "ClassName": "KobraOptic",
+                            "Quantity": -1,
+                            "SpawnChance": 60,
+                            "MaxSpawnable": 1,
+                            "MagazineClassName": "",
+                            "AlternativeClassNames": [],
+                            "AttachmentItems": [],
+                            "CargoItems": [],
+                            "ExtraRewardItems": []
+                        }
+                    ],
+                    "CargoItems": [
+                        {
+                            "EditHint": "FIX17 reward entry. Quantity -1 = normal item. SpawnChance is percent.",
+                            "ClassName": "Mag_AKM_30Rnd",
+                            "Quantity": 3,
+                            "SpawnChance": 100.0,
+                            "MaxSpawnable": 3,
+                            "MagazineClassName": "",
+                            "AlternativeClassNames": [],
+                            "AttachmentItems": [],
+                            "CargoItems": [],
+                            "ExtraRewardItems": []
+                        },
+                        {
+                            "EditHint": "FIX17 reward entry. Quantity -1 = normal item. SpawnChance is percent.",
+                            "ClassName": "AmmoBox_762x39_20Rnd",
+                            "Quantity": 3,
+                            "SpawnChance": 100.0,
+                            "MaxSpawnable": 3,
+                            "MagazineClassName": "",
+                            "AlternativeClassNames": [],
+                            "AttachmentItems": [],
+                            "CargoItems": [],
+                            "ExtraRewardItems": []
+                        }
+                    ],
+                    "ExtraRewardItems": []
+                },
+                {
+                    "EditHint": "FIX17 reward entry. Quantity -1 = normal item. SpawnChance is percent.",
+                    "ClassName": "NVGoggles",
+                    "Quantity": -1,
+                    "SpawnChance": 30,
+                    "MaxSpawnable": 1,
+                    "MagazineClassName": "",
+                    "AlternativeClassNames": [],
+                    "AttachmentItems": [],
+                    "CargoItems": [],
+                    "ExtraRewardItems": []
+                },
+                {
+                    "EditHint": "FIX17 reward entry. Quantity -1 = normal item. SpawnChance is percent.",
+                    "ClassName": "PlateCarrierVest",
+                    "Quantity": -1,
+                    "SpawnChance": 35,
+                    "MaxSpawnable": 1,
+                    "MagazineClassName": "",
+                    "AlternativeClassNames": [],
+                    "AttachmentItems": [],
+                    "CargoItems": [],
+                    "ExtraRewardItems": []
+                },
+                {
+                    "EditHint": "FIX17 reward entry. Quantity -1 = normal item. SpawnChance is percent.",
+                    "ClassName": "NailBox",
+                    "Quantity": 2,
+                    "SpawnChance": 70,
+                    "MaxSpawnable": 2,
+                    "MagazineClassName": "",
+                    "AlternativeClassNames": [],
+                    "AttachmentItems": [],
+                    "CargoItems": [],
+                    "ExtraRewardItems": []
+                },
+                {
+                    "EditHint": "FIX17 reward entry. Quantity -1 = normal item. SpawnChance is percent.",
+                    "ClassName": "MetalPlate",
+                    "Quantity": 4,
+                    "SpawnChance": 50,
+                    "MaxSpawnable": 4,
+                    "MagazineClassName": "",
+                    "AlternativeClassNames": [],
+                    "AttachmentItems": [],
+                    "CargoItems": [],
+                    "ExtraRewardItems": []
+                },
+                {
+                    "EditHint": "FIX17 reward entry. Quantity -1 = normal item. SpawnChance is percent.",
+                    "ClassName": "WeaponCleaningKit",
+                    "Quantity": 1,
+                    "SpawnChance": 75,
+                    "MaxSpawnable": 1,
+                    "MagazineClassName": "",
+                    "AlternativeClassNames": [],
+                    "AttachmentItems": [],
+                    "CargoItems": [],
+                    "ExtraRewardItems": []
+                },
+                {
+                    "EditHint": "FIX17 reward entry. Quantity -1 = normal item. SpawnChance is percent.",
+                    "ClassName": "Morphine",
+                    "Quantity": 2,
+                    "SpawnChance": 75,
+                    "MaxSpawnable": 2,
+                    "MagazineClassName": "",
+                    "AlternativeClassNames": [],
+                    "AttachmentItems": [],
+                    "CargoItems": [],
+                    "ExtraRewardItems": []
+                }
+            ]
+        }
+    ]
+}

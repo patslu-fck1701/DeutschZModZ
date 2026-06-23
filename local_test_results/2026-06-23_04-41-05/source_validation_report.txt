@@ -1,0 +1,15 @@
+﻿DeutschZ Source Validation Report Runde 1 - 2026-06-23T04:41:05.9635771+02:00
+Mode: Full
+RunDir: P:\GitHub_DeutschZModZ\DeutschZModZ\local_test_results\2026-06-23_04-41-05
+RepoRoot OK: P:\GitHub_DeutschZModZ\DeutschZModZ
+ServerRoot OK: F:\Programme\steamapps\common\DayZServer
+DeployRoot OK: P:\ReadyMods
+Server-Batch unveraendert verwendet: F:\Programme\steamapps\common\DayZServer\start.bat
+Batch-Modline: @CF;@Dabs Framework;@DayZ-Expansion-Bundle;@DayZ-Expansion-Licensed;@SNAFU Weapons;@DeutschZ_Core;@DeutschZ_ExpansionBridge;@DeutschZ_KotHZ;@DeutschZ_ConvoyZ;@DeutschZ_GroundZero;@DeutschZ_CourierZ
+DeutschZ_Core source OK: P:\GitHub_DeutschZModZ\DeutschZModZ\mods\DeutschZ_Core
+DeutschZ_ExpansionBridge source OK: P:\GitHub_DeutschZModZ\DeutschZModZ\mods\DeutschZ_ExpansionBridge
+DeutschZ_KotHZ source OK: P:\GitHub_DeutschZModZ\DeutschZModZ\mods\DeutschZ_KotHZ
+DeutschZ_ConvoyZ source OK: P:\GitHub_DeutschZModZ\DeutschZModZ\mods\DeutschZ_ConvoyZ
+DeutschZ_GroundZero source OK: P:\GitHub_DeutschZModZ\DeutschZModZ\mods\DeutschZ_GroundZero
+DeutschZ_CourierZ source OK: P:\GitHub_DeutschZModZ\DeutschZModZ\mods\DeutschZ_CourierZ
+DeutschZ_OperationDeutschZ source OK: P:\GitHub_DeutschZModZ\DeutschZModZ\mods\DeutschZ_OperationDeutschZ

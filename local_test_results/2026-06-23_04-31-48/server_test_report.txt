@@ -1,0 +1,144 @@
+﻿DeutschZ Server Test Report - Runde 1 - 2026-06-23T04:31:48.7550589+02:00
+Server-Batch: F:\Programme\steamapps\common\DayZServer\start.bat
+Profile-Pfad: F:\Programme\steamapps\common\DayZServer\profiles
+Startzeit: 2026-06-23T04:32:14.0424186+02:00
+Batch-Prozess gestartet: PID 8556
+DayZServer-Prozess erkannt: PID 14360
+Alive nach 75 Sekunden: True
+profiles\DeutschZ fehlte/war unvollstaendig und wurde aus Fallback kopiert: P:\GitHub_DeutschZModZ\DeutschZModZ\DeutschZ_PROFILE_CONFIGS_COPY_TO_PROFILES\DeutschZ -> F:\Programme\steamapps\common\DayZServer\profiles\DeutschZ
+Vor Fallback fehlten: DeutschZ\Core\CoreConfig.json, DeutschZ\ConvoyZ\Settings.json, DeutschZ\ConvoyZ\Events.json, DeutschZ\CourierZ\CourierZConfig.json, DeutschZ\CourierZ\CourierZState.json, DeutschZ\KotHZ\Config\KotH_Config_Chernarus.json, DeutschZ\KotHZ\Config\Loot_Pools.json, DeutschZ\GroundZero\GroundZeroConfig.json, DeutschZ\GroundZero\GroundZeroState.json
+
+Expected config status:
+profiles\DeutschZ\Core\CoreConfig.json : True
+profiles\DeutschZ\ConvoyZ\Settings.json : True
+profiles\DeutschZ\ConvoyZ\Events.json : True
+profiles\DeutschZ\CourierZ\CourierZConfig.json : True
+profiles\DeutschZ\CourierZ\CourierZState.json : True
+profiles\DeutschZ\KotHZ\Config\KotH_Config_Chernarus.json : True
+profiles\DeutschZ\KotHZ\Config\Loot_Pools.json : True
+profiles\DeutschZ\GroundZero\GroundZeroConfig.json : True
+profiles\DeutschZ\GroundZero\GroundZeroState.json : True
+
+Detected error patterns:
+DayZServer_x64_2026-06-23_04-32-14.RPT:943: 4:32:41.675 Warning Message: No entry 'bin\config.bin/CfgWorlds/DefaultWorld/Weather/Overcast/Weather1.farCloud'.
+DayZServer_x64_2026-06-23_04-32-14.RPT:945: 4:32:41.675 Warning Message: No entry 'bin\config.bin/CfgWorlds/DefaultWorld/Weather/Overcast/Weather1.cloud'.
+DayZServer_x64_2026-06-23_04-32-14.RPT:947: 4:32:41.675 Warning Message: No entry 'bin\config.bin/CfgWorlds/DefaultWorld/Weather/Overcast/Weather2.farCloud'.
+DayZServer_x64_2026-06-23_04-32-14.RPT:949: 4:32:41.675 Warning Message: No entry 'bin\config.bin/CfgWorlds/DefaultWorld/Weather/Overcast/Weather2.cloud'.
+DayZServer_x64_2026-06-23_04-32-14.RPT:951: 4:32:41.675 Warning Message: No entry 'bin\config.bin/CfgWorlds/DefaultWorld/Weather/Overcast/Weather3.farCloud'.
+DayZServer_x64_2026-06-23_04-32-14.RPT:953: 4:32:41.675 Warning Message: No entry 'bin\config.bin/CfgWorlds/DefaultWorld/Weather/Overcast/Weather3.cloud'.
+DayZServer_x64_2026-06-23_04-32-14.RPT:955: 4:32:41.675 Warning Message: No entry 'bin\config.bin/CfgWorlds/DefaultWorld/Weather/Overcast/Weather4.farCloud'.
+DayZServer_x64_2026-06-23_04-32-14.RPT:957: 4:32:41.675 Warning Message: No entry 'bin\config.bin/CfgWorlds/DefaultWorld/Weather/Overcast/Weather4.cloud'.
+DayZServer_x64_2026-06-23_04-32-14.RPT:959: 4:32:41.675 Warning Message: No entry 'bin\config.bin/CfgWorlds/DefaultWorld/Weather/Overcast/Weather5.farCloud'.
+DayZServer_x64_2026-06-23_04-32-14.RPT:961: 4:32:41.675 Warning Message: No entry 'bin\config.bin/CfgWorlds/DefaultWorld/Weather/Overcast/Weather5.cloud'.
+DayZServer_x64_2026-06-23_04-32-14.RPT:963: 4:32:41.675 Warning Message: No entry 'bin\config.bin/CfgWorlds/DefaultWorld/Weather/LightingNew/C_Day60.spaceIntensity'.
+DayZServer_x64_2026-06-23_04-32-14.RPT:965: 4:32:41.675 Warning Message: No entry 'bin\config.bin/CfgWorlds/DefaultWorld/Weather/LightingNew/C_Day60.starsIntensity'.
+DayZServer_x64_2026-06-23_04-32-14.RPT:967: 4:32:41.675 Warning Message: No entry 'bin\config.bin/CfgWorlds/DefaultWorld/Weather/LightingNew/C_Day60.atmosphereIntensity'.
+DayZServer_x64_2026-06-23_04-32-14.RPT:969: 4:32:41.675 Warning Message: No entry 'bin\config.bin/CfgWorlds/DefaultWorld/Weather/LightingNew/C_Day60.NearCloud'.
+DayZServer_x64_2026-06-23_04-32-14.RPT:970: 4:32:41.675 Warning Message: No entry 'bin\config.bin/CfgWorlds/DefaultWorld/Weather/Overcast/Weather1.farCloud'.
+DayZServer_x64_2026-06-23_04-32-14.RPT:972: 4:32:41.675 Warning Message: No entry 'bin\config.bin/CfgWorlds/DefaultWorld/Weather/Overcast/Weather1.cloud'.
+DayZServer_x64_2026-06-23_04-32-14.RPT:974: 4:32:41.675 Warning Message: No entry 'bin\config.bin/CfgWorlds/DefaultWorld/Weather/Overcast/Weather2.farCloud'.
+DayZServer_x64_2026-06-23_04-32-14.RPT:976: 4:32:41.675 Warning Message: No entry 'bin\config.bin/CfgWorlds/DefaultWorld/Weather/Overcast/Weather2.cloud'.
+DayZServer_x64_2026-06-23_04-32-14.RPT:978: 4:32:41.675 Warning Message: No entry 'bin\config.bin/CfgWorlds/DefaultWorld/Weather/Overcast/Weather3.farCloud'.
+DayZServer_x64_2026-06-23_04-32-14.RPT:980: 4:32:41.675 Warning Message: No entry 'bin\config.bin/CfgWorlds/DefaultWorld/Weather/Overcast/Weather3.cloud'.
+DayZServer_x64_2026-06-23_04-32-14.RPT:982: 4:32:41.675 Warning Message: No entry 'bin\config.bin/CfgWorlds/DefaultWorld/Weather/Overcast/Weather4.farCloud'.
+DayZServer_x64_2026-06-23_04-32-14.RPT:984: 4:32:41.675 Warning Message: No entry 'bin\config.bin/CfgWorlds/DefaultWorld/Weather/Overcast/Weather4.cloud'.
+DayZServer_x64_2026-06-23_04-32-14.RPT:986: 4:32:41.675 Warning Message: No entry 'bin\config.bin/CfgWorlds/DefaultWorld/Weather/Overcast/Weather5.farCloud'.
+DayZServer_x64_2026-06-23_04-32-14.RPT:988: 4:32:41.675 Warning Message: No entry 'bin\config.bin/CfgWorlds/DefaultWorld/Weather/Overcast/Weather5.cloud'.
+DayZServer_x64_2026-06-23_04-32-14.RPT:990: 4:32:41.675 Warning Message: No entry 'bin\config.bin/CfgWorlds/DefaultWorld/Weather/LightingNew/C_Day60.spaceIntensity'.
+DayZServer_x64_2026-06-23_04-32-14.RPT:992: 4:32:41.675 Warning Message: No entry 'bin\config.bin/CfgWorlds/DefaultWorld/Weather/LightingNew/C_Day60.starsIntensity'.
+DayZServer_x64_2026-06-23_04-32-14.RPT:994: 4:32:41.675 Warning Message: No entry 'bin\config.bin/CfgWorlds/DefaultWorld/Weather/LightingNew/C_Day60.atmosphereIntensity'.
+DayZServer_x64_2026-06-23_04-32-14.RPT:996: 4:32:41.675 Warning Message: No entry 'bin\config.bin/CfgWorlds/DefaultWorld/Weather/LightingNew/C_Day60.NearCloud'.
+DayZServer_x64_2026-06-23_04-32-14.RPT:997: 4:32:41.675 Warning Message: No entry 'bin\config.bin/CfgWorlds/DefaultWorld.volFogOffset'.
+DayZServer_x64_2026-06-23_04-32-14.RPT:999: 4:32:41.675 Warning Message: No entry 'bin\config.bin/CfgWorlds/DefaultWorld.spaceObject'.
+DayZServer_x64_2026-06-23_04-32-14.RPT:1001: 4:32:41.675 Warning Message: No entry 'bin\config.bin/CfgWorlds/DefaultWorld.atmosphereObject'.
+DayZServer_x64_2026-06-23_04-32-14.RPT:1004: 4:32:41.675 Warning Message: No entry 'bin\config.bin/CfgWorlds/DefaultWorld.nearCloudObject'.
+DayZServer_x64_2026-06-23_04-32-14.RPT:1006: 4:32:41.675 Warning Message: No entry 'bin\config.bin/CfgWorlds/DefaultWorld.cloudObject'.
+DayZServer_x64_2026-06-23_04-32-14.RPT:1008: 4:32:41.675 Warning Message: No entry 'bin\config.bin/CfgWorlds/DefaultWorld.horizonObject'.
+DayZServer_x64_2026-06-23_04-32-14.RPT:1038: 4:33:16.471 Warning Message: No entry 'bin\config.bin/CfgVehicles/Inventory_Base/DamageSystem.DamageZones'.
+DayZServer_x64_2026-06-23_04-32-14.RPT:1039: 4:33:16.471 Warning Message: No entry 'bin\config.bin/CfgVehicles/Inventory_Base/DamageSystem.DamageZones'.
+DayZServer_x64_2026-06-23_04-32-14.RPT:1040: 4:33:16.471 Warning Message: No entry 'bin\config.bin/CfgVehicles/Inventory_Base/DamageSystem.DamageZones'.
+DayZServer_x64_2026-06-23_04-32-14.RPT:1041: 4:33:16.471 Warning Message: No entry 'bin\config.bin/CfgVehicles/Inventory_Base/DamageSystem.DamageZones'.
+DayZServer_x64_2026-06-23_04-32-14.RPT:1042: 4:33:16.471 Warning Message: No entry 'bin\config.bin/CfgVehicles/Inventory_Base/DamageSystem.DamageZones'.
+DayZServer_x64_2026-06-23_04-32-14.RPT:1043: 4:33:16.471 Warning Message: No entry 'bin\config.bin/CfgVehicles/Inventory_Base/DamageSystem.DamageZones'.
+DayZServer_x64_2026-06-23_04-32-14.RPT:1044: 4:33:16.471 Warning Message: No entry 'bin\config.bin/CfgVehicles/Inventory_Base/DamageSystem.DamageZones'.
+DayZServer_x64_2026-06-23_04-32-14.RPT:1045: 4:33:16.471 Warning Message: No entry 'bin\config.bin/CfgVehicles/Inventory_Base/DamageSystem.DamageZones'.
+DayZServer_x64_2026-06-23_04-32-14.RPT:1046: 4:33:16.471 Warning Message: No entry 'bin\config.bin/CfgVehicles/Inventory_Base/DamageSystem.DamageZones'.
+DayZServer_x64_2026-06-23_04-32-14.RPT:1047: 4:33:16.471 Warning Message: No entry 'bin\config.bin/CfgVehicles/Inventory_Base/DamageSystem.DamageZones'.
+DayZServer_x64_2026-06-23_04-32-14.RPT:1048: 4:33:16.474 Warning Message: No entry 'bin\config.bin/CfgVehicles/Clothing_Base/DamageSystem.DamageZones'.
+DayZServer_x64_2026-06-23_04-32-14.RPT:1049: 4:33:16.474 Warning Message: No entry 'bin\config.bin/CfgVehicles/Inventory_Base/DamageSystem.DamageZones'.
+DayZServer_x64_2026-06-23_04-32-14.RPT:1050: 4:33:16.474 Warning Message: No entry 'bin\config.bin/CfgVehicles/Inventory_Base/DamageSystem.DamageZones'.
+DayZServer_x64_2026-06-23_04-32-14.RPT:1051: 4:33:16.474 Warning Message: No entry 'bin\config.bin/CfgVehicles/Inventory_Base/DamageSystem.DamageZones'.
+DayZServer_x64_2026-06-23_04-32-14.RPT:1052: 4:33:16.477 Warning Message: No entry 'bin\config.bin/CfgVehicles/Inventory_Base/DamageSystem.DamageZones'.
+DayZServer_x64_2026-06-23_04-32-14.RPT:1053: 4:33:16.477 Warning Message: No entry 'bin\config.bin/CfgVehicles/Inventory_Base/DamageSystem.DamageZones'.
+DayZServer_x64_2026-06-23_04-32-14.RPT:1054: 4:33:16.478 Warning Message: No entry 'bin\config.bin/CfgVehicles/Inventory_Base/DamageSystem.DamageZones'.
+DayZServer_x64_2026-06-23_04-32-14.RPT:1055: 4:33:16.478 Warning Message: No entry 'bin\config.bin/CfgVehicles/Inventory_Base/DamageSystem.DamageZones'.
+DayZServer_x64_2026-06-23_04-32-14.RPT:1056: 4:33:16.478 Warning Message: No entry 'bin\config.bin/CfgVehicles/ExpansionMoneyBanknote_Base/DamageSystem.DamageZones'.
+DayZServer_x64_2026-06-23_04-32-14.RPT:1057: 4:33:16.478 Warning Message: No entry 'bin\config.bin/CfgVehicles/Inventory_Base/DamageSystem.DamageZones'.
+DayZServer_x64_2026-06-23_04-32-14.RPT:1058: 4:33:16.478 Warning Message: No entry 'bin\config.bin/CfgVehicles/Inventory_Base/DamageSystem.DamageZones'.
+DayZServer_x64_2026-06-23_04-32-14.RPT:1059: 4:33:16.478 Warning Message: No entry 'bin\config.bin/CfgVehicles/Inventory_Base/DamageSystem.DamageZones'.
+DayZServer_x64_2026-06-23_04-32-14.RPT:1060: 4:33:16.478 Warning Message: No entry 'bin\config.bin/CfgVehicles/Inventory_Base/DamageSystem.DamageZones'.
+DayZServer_x64_2026-06-23_04-32-14.RPT:1061: 4:33:16.478 Warning Message: No entry 'bin\config.bin/CfgVehicles/ExpansionMoneyBanknote_InsanityStack/DamageSystem.DamageZones'.
+DayZServer_x64_2026-06-23_04-32-14.RPT:1062: 4:33:16.478 Warning Message: No entry 'bin\config.bin/CfgVehicles/Inventory_Base/DamageSystem.DamageZones'.
+DayZServer_x64_2026-06-23_04-32-14.RPT:1063: 4:33:16.478 Warning Message: No entry 'bin\config.bin/CfgVehicles/Inventory_Base/DamageSystem.DamageZones'.
+DayZServer_x64_2026-06-23_04-32-14.RPT:1064: 4:33:16.479 Warning Message: No entry 'bin\config.bin/CfgVehicles/Inventory_Base/DamageSystem.DamageZones'.
+DayZServer_x64_2026-06-23_04-32-14.RPT:1065: 4:33:16.479 Warning Message: No entry 'bin\config.bin/CfgVehicles/Inventory_Base/DamageSystem.DamageZones'.
+DayZServer_x64_2026-06-23_04-32-14.RPT:1066: 4:33:16.479 Warning Message: No entry 'bin\config.bin/CfgVehicles/Inventory_Base/DamageSystem.DamageZones'.
+DayZServer_x64_2026-06-23_04-32-14.RPT:1067: 4:33:16.479 Warning Message: No entry 'bin\config.bin/CfgVehicles/Inventory_Base/DamageSystem.DamageZones'.
+DayZServer_x64_2026-06-23_04-32-14.RPT:1068: 4:33:16.479 Warning Message: No entry 'bin\config.bin/CfgVehicles/Inventory_Base/DamageSystem.DamageZones'.
+DayZServer_x64_2026-06-23_04-32-14.RPT:1069: 4:33:16.479 Warning Message: No entry 'bin\config.bin/CfgVehicles/Inventory_Base/DamageSystem.DamageZones'.
+DayZServer_x64_2026-06-23_04-32-14.RPT:1070: 4:33:16.479 Warning Message: No entry 'bin\config.bin/CfgVehicles/Inventory_Base/DamageSystem.DamageZones'.
+DayZServer_x64_2026-06-23_04-32-14.RPT:1071: 4:33:16.479 Warning Message: No entry 'bin\config.bin/CfgVehicles/Inventory_Base/DamageSystem.DamageZones'.
+DayZServer_x64_2026-06-23_04-32-14.RPT:1072: 4:33:16.492 Warning Message: No entry 'bin\config.bin/CfgVehicles/ExpansionKitBase/DamageSystem/GlobalHealth/GlobalArmor.hitpoints'.
+DayZServer_x64_2026-06-23_04-32-14.RPT:1074: 4:33:16.492 Warning Message: No entry 'bin\config.bin/CfgVehicles/ExpansionKitBase/DamageSystem.DamageZones'.
+DayZServer_x64_2026-06-23_04-32-14.RPT:1075: 4:33:16.492 Warning Message: No entry 'bin\config.bin/CfgVehicles/ExpansionKitBase/DamageSystem/GlobalHealth/GlobalArmor.hitpoints'.
+DayZServer_x64_2026-06-23_04-32-14.RPT:1077: 4:33:16.492 Warning Message: No entry 'bin\config.bin/CfgVehicles/ExpansionKitBase/DamageSystem.DamageZones'.
+DayZServer_x64_2026-06-23_04-32-14.RPT:1078: 4:33:16.492 Warning Message: No entry 'bin\config.bin/CfgVehicles/ExpansionKitBase/DamageSystem/GlobalHealth/GlobalArmor.hitpoints'.
+DayZServer_x64_2026-06-23_04-32-14.RPT:1080: 4:33:16.492 Warning Message: No entry 'bin\config.bin/CfgVehicles/ExpansionKitBase/DamageSystem.DamageZones'.
+DayZServer_x64_2026-06-23_04-32-14.RPT:1081: 4:33:16.492 Warning Message: No entry 'bin\config.bin/CfgVehicles/ExpansionKitBase/DamageSystem/GlobalHealth/GlobalArmor.hitpoints'.
+DayZServer_x64_2026-06-23_04-32-14.RPT:1083: 4:33:16.492 Warning Message: No entry 'bin\config.bin/CfgVehicles/ExpansionKitBase/DamageSystem.DamageZones'.
+DayZServer_x64_2026-06-23_04-32-14.RPT:1084: 4:33:16.492 Warning Message: No entry 'bin\config.bin/CfgVehicles/Inventory_Base/DamageSystem.DamageZones'.
+DayZServer_x64_2026-06-23_04-32-14.RPT:1085: 4:33:16.517 Warning Message: No entry 'bin\config.bin/CfgVehicles/ExpansionFloorBase/DamageSystem.DamageZones'.
+DayZServer_x64_2026-06-23_04-32-14.RPT:1086: 4:33:16.517 Warning Message: No entry 'bin\config.bin/CfgVehicles/Inventory_Base/DamageSystem.DamageZones'.
+DayZServer_x64_2026-06-23_04-32-14.RPT:1087: 4:33:16.517 Warning Message: No entry 'bin\config.bin/CfgVehicles/Inventory_Base/DamageSystem.DamageZones'.
+
+Detected success patterns:
+script_2026-06-23_04-32-28.log:26:SCRIPT    (W): @"DeutschZ_KotHZ/scripts/4_World/deutschz_kothz\deutschzkothzfogemitter.c,33": FIX-ME: Overriding function 'AfterStoreLoad' but not marked as 'override'
+script_2026-06-23_04-32-28.log:27:SCRIPT    (W): @"DeutschZ_KotHZ/scripts/4_World/deutschz_kothz\deutschzkothzfogemitter.c,38": FIX-ME: Overriding function 'EEOnAfterLoad' but not marked as 'override'
+DayZServer_x64_2026-06-23_04-32-14.RPT:3:== "DayZServer_x64.exe" -config=serverDZ.cfg -port=2302 "-profiles=profiles" "-mod=@CF;@Dabs Framework;@DayZ-Expansion-Bundle;@DayZ-Expansion-Licensed;@SNAFU Weapons;@DeutschZ_Core;@DeutschZ_ExpansionBridge;@DeutschZ_KotHZ;@DeutschZ_ConvoyZ;@DeutschZ_GroundZero;@DeutschZ_CourierZ" -cpuCount=2 -dologs -adminlog -netlog -freezecheck
+DayZServer_x64_2026-06-23_04-32-14.RPT:50: 4:32:20.448 Warning Message: Addon 'DeutschZ_Core' requires addon 'DZ_Gear_Radio'
+DayZServer_x64_2026-06-23_04-32-14.RPT:715: 4:32:29.169 ENGINE       : FileSystem: Adding package 'F:\Programme\steamapps\common\DayZServer\@DeutschZ_ExpansionBridge\addons\DeutschZ_ExpansionBridge.pbo' to RV filesystem
+DayZServer_x64_2026-06-23_04-32-14.RPT:778: 4:32:29.203 ENGINE       : FileSystem: Adding package 'F:\Programme\steamapps\common\DayZServer\@DeutschZ_GroundZero\addons\DeutschZ_GroundZero.pbo' to RV filesystem
+DayZServer_x64_2026-06-23_04-32-14.RPT:800: 4:32:29.215 ENGINE       : FileSystem: Adding package 'F:\Programme\steamapps\common\DayZServer\@DeutschZ_CourierZ\addons\DeutschZ_CourierZ.pbo' to RV filesystem
+DayZServer_x64_2026-06-23_04-32-14.RPT:802: 4:32:29.216 ENGINE       : FileSystem: Adding package 'F:\Programme\steamapps\common\DayZServer\@DeutschZ_ConvoyZ\addons\DeutschZ_ConvoyZ.pbo' to RV filesystem
+DayZServer_x64_2026-06-23_04-32-14.RPT:818: 4:32:29.225 ENGINE       : FileSystem: Adding package 'F:\Programme\steamapps\common\DayZServer\@DeutschZ_KotHZ\addons\DeutschZ_KotHZ.pbo' to RV filesystem
+DayZServer_x64_2026-06-23_04-32-14.RPT:836: 4:32:29.234 ENGINE       : FileSystem: Adding package 'F:\Programme\steamapps\common\DayZServer\@DeutschZ_Core\addons\DeutschZ_Core.pbo' to RV filesystem
+DayZServer_x64_2026-06-23_04-32-14.RPT:917: 4:32:40.13  ANIMATION (E): Can't load @DeutschZ_CourierZ/Anims/cfg/skeletons.anim.xml
+DayZServer_x64_2026-06-23_04-32-14.RPT:919: 4:32:40.13  ANIMATION (E): Can't load @DeutschZ_GroundZero/Anims/cfg/skeletons.anim.xml
+DayZServer_x64_2026-06-23_04-32-14.RPT:921: 4:32:40.13  ANIMATION (E): Can't load @DeutschZ_ConvoyZ/Anims/cfg/skeletons.anim.xml
+DayZServer_x64_2026-06-23_04-32-14.RPT:923: 4:32:40.13  ANIMATION (E): Can't load @DeutschZ_KotHZ/Anims/cfg/skeletons.anim.xml
+DayZServer_x64_2026-06-23_04-32-14.RPT:925: 4:32:40.13  ANIMATION (E): Can't load @DeutschZ_ExpansionBridge/Anims/cfg/skeletons.anim.xml
+DayZServer_x64_2026-06-23_04-32-14.RPT:927: 4:32:40.13  ANIMATION (E): Can't load @DeutschZ_Core/Anims/cfg/skeletons.anim.xml
+DayZServer_x64_2026-06-23_04-32-14.RPT:1012: 4:32:43.953 SCRIPT    (W): @"DeutschZ_KotHZ/scripts/4_World/deutschz_kothz\deutschzkothzfogemitter.c,33": FIX-ME: Overriding function 'AfterStoreLoad' but not marked as 'override'
+DayZServer_x64_2026-06-23_04-32-14.RPT:1013: 4:32:43.953 SCRIPT    (W): @"DeutschZ_KotHZ/scripts/4_World/deutschz_kothz\deutschzkothzfogemitter.c,38": FIX-ME: Overriding function 'EEOnAfterLoad' but not marked as 'override'
+DayZServer_x64_2026-06-23_04-32-14.RPT:15276: 4:33:24.654 Warning Message: No entry 'bin\config.bin/CfgVehicles/DeutschZKotHZ_RuntimeFogEmitter.EnfAnimSys'.
+DayZServer_x64_2026-06-23_04-32-14.RPT:15277: 4:33:24.654 Warning Message: No entry 'bin\config.bin/CfgVehicles/DeutschZKotHZ_RuntimeFlagpole.EnfAnimSys'.
+DayZServer_x64_2026-06-23_04-32-14.RPT:15278: 4:33:24.654 Warning Message: No entry 'bin\config.bin/CfgVehicles/DeutschZKotHZ_EventFlagpole.EnfAnimSys'.
+DayZServer_x64_2026-06-23_04-32-14.RPT:15279: 4:33:24.654 Warning Message: No entry 'bin\config.bin/CfgVehicles/DeutschZKotHZ_LegacyFlagpoleCleanupAlias.EnfAnimSys'.
+DayZServer_x64_2026-06-23_04-32-14.RPT:15280: 4:33:24.654 Warning Message: No entry 'bin\config.bin/CfgVehicles/DeutschZKotHZ_RewardCrate.EnfAnimSys'.
+DayZServer_x64_2026-06-23_04-32-14.RPT:15281: 4:33:24.654 Warning Message: No entry 'bin\config.bin/CfgVehicles/DeutschZKotHZ_DropCrate.EnfAnimSys'.
+DayZServer_x64_2026-06-23_04-32-14.RPT:15282: 4:33:24.654 Warning Message: No entry 'bin\config.bin/CfgVehicles/DeutschZKotHZ_Flag.EnfAnimSys'.
+DayZServer_x64_2026-06-23_04-32-14.RPT:15283: 4:33:24.654 Warning Message: No entry 'bin\config.bin/CfgVehicles/DeutschZKotHZ_DeutschZ_KotHZ_Flag.EnfAnimSys'.
+DayZServer_x64_2026-06-23_04-32-14.RPT:15284: 4:33:24.654 Warning Message: No entry 'bin\config.bin/CfgVehicles/DeutschZKotHZ_NWAF_Flag.EnfAnimSys'.
+DayZServer_x64_2026-06-23_04-32-14.RPT:15285: 4:33:24.654 Warning Message: No entry 'bin\config.bin/CfgVehicles/DeutschZKotHZ_Tisy_Flag.EnfAnimSys'.
+DayZServer_x64_2026-06-23_04-32-14.RPT:15286: 4:33:24.654 Warning Message: No entry 'bin\config.bin/CfgVehicles/DeutschZKotHZ_LOPA_Flag.EnfAnimSys'.
+DayZServer_x64_2026-06-23_04-32-14.RPT:15287: 4:33:24.654 Warning Message: No entry 'bin\config.bin/CfgVehicles/DeutschZKotHZ_YRAP_Flag.EnfAnimSys'.
+DayZServer_x64_2026-06-23_04-32-14.RPT:15288: 4:33:24.654 Warning Message: No entry 'bin\config.bin/CfgVehicles/DeutschZKotHZ_Basebuild_Flag.EnfAnimSys'.
+DayZServer_x64_2026-06-23_04-32-14.RPT:15289: 4:33:24.654 Warning Message: No entry 'bin\config.bin/CfgVehicles/DeutschZKotHZ_Alt_One_Flag.EnfAnimSys'.
+DayZServer_x64_2026-06-23_04-32-14.RPT:15290: 4:33:24.654 Warning Message: No entry 'bin\config.bin/CfgVehicles/DeutschZKotHZ_Alt_Two_Flag.EnfAnimSys'.
+DayZServer_x64_2026-06-23_04-32-14.RPT:15291: 4:33:24.654 Warning Message: No entry 'bin\config.bin/CfgVehicles/DeutschZKotHZ_Alt_Three_Flag.EnfAnimSys'.
+DayZServer_x64_2026-06-23_04-32-14.RPT:15292: 4:33:24.654 Warning Message: No entry 'bin\config.bin/CfgVehicles/DeutschZKotHZ_BiohazardReader.EnfAnimSys'.
+DayZServer_x64_2026-06-23_04-32-14.RPT:15293: 4:33:24.654 Warning Message: No entry 'bin\config.bin/CfgVehicles/DeutschZKotHZ_AccessCard.EnfAnimSys'.
+DayZServer_x64_2026-06-23_04-32-14.RPT:15294: 4:33:24.654 Warning Message: No entry 'bin\config.bin/CfgVehicles/DeutschZKotHZ_ResearchDocument.EnfAnimSys'.
+DayZServer_x64_2026-06-23_04-32-14.RPT:15295: 4:33:24.654 Warning Message: No entry 'bin\config.bin/CfgVehicles/DeutschZKotHZ_CommanderInsignia.EnfAnimSys'.
+DayZServer_x64_2026-06-23_04-32-14.RPT:15412: 4:33:25.788 Hostname of server: "DeutschZ"
+Server wird beendet: PID 14360

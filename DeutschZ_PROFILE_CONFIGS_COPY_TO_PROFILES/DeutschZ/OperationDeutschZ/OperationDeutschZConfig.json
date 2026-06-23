@@ -1,0 +1,16 @@
+{
+  "Version": "0.1.0-online-test-safe",
+  "EnableOperationDeutschZ": 0,
+  "EnableDebugLogs": 1,
+  "EnableCampaignProgression": 0,
+  "EnableThreatLevel": 0,
+  "EnableEventChain": 0,
+  "EnableVipCrateUnlock": 0,
+  "RequiredEventMods": [
+    "DeutschZ_KotHZ",
+    "DeutschZ_ConvoyZ",
+    "DeutschZ_GroundZero",
+    "DeutschZ_CourierZ"
+  ],
+  "SafeBootOnly": 1
+}

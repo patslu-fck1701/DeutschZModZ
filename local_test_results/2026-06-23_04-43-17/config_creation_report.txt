@@ -1,0 +1,15 @@
+﻿DeutschZ Config Creation Report Runde 1 - 2026-06-23T04:43:17.3983804+02:00
+Profile-Fallbacks kopiert/gegengeprueft nach: F:\Programme\steamapps\common\DayZServer\profiles\DeutschZ
+Expected config status:
+DeutschZ\Core\CoreConfig.json : True
+DeutschZ\ConvoyZ\Settings.json : True
+DeutschZ\ConvoyZ\Events.json : True
+DeutschZ\CourierZ\CourierZConfig.json : True
+DeutschZ\CourierZ\CourierZState.json : True
+DeutschZ\CourierZ\CourierZState.backup.json : True
+DeutschZ\KotHZ\Config\KotH_Config_Chernarus.json : True
+DeutschZ\KotHZ\Config\Loot_Pools.json : True
+DeutschZ\GroundZero\GroundZeroConfig.json : True
+DeutschZ\GroundZero\GroundZeroState.json : True
+DeutschZ\OperationDeutschZ\OperationDeutschZConfig.json : True
+DeutschZ\OperationDeutschZ\OperationDeutschZState.json : True

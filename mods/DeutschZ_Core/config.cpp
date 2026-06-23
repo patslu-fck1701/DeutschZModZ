@@ -5,7 +5,7 @@ class CfgPatches
         units[] = {"DZ_EventToken", "DZ_BossDogtag", "DZ_RedZChip", "DZ_BrokenTransmitter", "DZ_BloodSample", "DZ_ContainmentSeal", "DZ_TacticalCase", "DZ_RewardKey", "DZ_SupplyVoucher", "DZ_HazardCanister", "DZ_MilitaryLedger", "DZ_SecureSSD", "DZ_FieldNote", "DZ_AccessFuse", "DZ_SignalBattery", "DZ_RadioCrystal", "DZ_EventCore", "DZ_RedSmokeBeacon"};
         weapons[] = {};
         requiredVersion = 0.1;
-        requiredAddons[] = {"DZ_Data", "DZ_Scripts", "DZ_Gear_Containers", "DZ_Gear_Navigation", "DZ_Gear_Consumables", "DZ_Gear_Medical", "DZ_Gear_Tools", "DZ_Gear_Radio"};
+        requiredAddons[] = {"DZ_Data", "DZ_Scripts", "DZ_Gear_Containers", "DZ_Gear_Navigation", "DZ_Gear_Consumables", "DZ_Gear_Medical", "DZ_Gear_Tools"};
     };
 };
 
@@ -49,7 +49,7 @@ class CfgVehicles
     class Battery9V;
     class BloodTestKit;
     class GasMask_Filter;
-    class PersonalRadio;
+    class Inventory_Base;
     class ElectronicRepairKit;
 
     class DZ_EventToken: PunchedCard
@@ -79,7 +79,7 @@ class CfgVehicles
         weight = 60;
     };
 
-    class DZ_BrokenTransmitter: PersonalRadio
+    class DZ_BrokenTransmitter: Inventory_Base
     {
         scope = 2;
         displayName = "DeutschZ defekter Sender";
@@ -206,7 +206,7 @@ class CfgVehicles
         weight = 800;
     };
 
-    class DZ_RedSmokeBeacon: PersonalRadio
+    class DZ_RedSmokeBeacon: Inventory_Base
     {
         scope = 2;
         displayName = "DeutschZ roter Smoke-Beacon";

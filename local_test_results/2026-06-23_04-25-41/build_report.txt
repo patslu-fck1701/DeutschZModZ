@@ -1,0 +1,287 @@
+﻿DeutschZ Local Build Report - Runde 1 - 2026-06-23T04:25:41.2625342+02:00
+RepoRoot: P:\GitHub_DeutschZModZ\DeutschZModZ
+ServerRoot: F:\Programme\steamapps\common\DayZServer
+DeployRoot: P:\ReadyMods
+DeutschZ_Core source OK: P:\GitHub_DeutschZModZ\DeutschZModZ\mods\DeutschZ_Core
+DeutschZ_ExpansionBridge source OK: P:\GitHub_DeutschZModZ\DeutschZModZ\mods\DeutschZ_ExpansionBridge
+DeutschZ_CourierZ source OK: P:\GitHub_DeutschZModZ\DeutschZModZ\mods\DeutschZ_CourierZ
+DeutschZ_ConvoyZ source OK: P:\GitHub_DeutschZModZ\DeutschZModZ\mods\DeutschZ_ConvoyZ
+DeutschZ_KotHZ source OK: P:\GitHub_DeutschZModZ\DeutschZModZ\mods\DeutschZ_KotHZ
+DeutschZ_GroundZero source OK: P:\GitHub_DeutschZModZ\DeutschZModZ\mods\DeutschZ_GroundZero
+Signing-Key vorhanden: P:\ReadyMods\_keys\DeutschZLocal.biprivatekey
+
+===== BUILD DeutschZ_Core =====
+Source: P:\GitHub_DeutschZModZ\DeutschZModZ\mods\DeutschZ_Core
+Output: P:\ReadyMods\@DeutschZ_Core\Addons
+Command: F:\Programme\steamapps\common\DayZ Tools\Bin\AddonBuilder\AddonBuilder.exe P:\GitHub_DeutschZModZ\DeutschZModZ\mods\DeutschZ_Core P:\ReadyMods\@DeutschZ_Core\Addons -clear -packonly -prefix=DeutschZ_Core
+[2026-06-23 04:25:42,420] [INFO ]: ==========================================================================
+[2026-06-23 04:25:42,420] [INFO ]: WELCOME TO ADDON BUILDER
+[2026-06-23 04:25:42,420] [INFO ]: Version: 1.0.240639
+[2026-06-23 04:25:42,420] [INFO ]: ==========================================================================
+[2026-06-23 04:25:42,420] [INFO ]: 
+[2026-06-23 04:25:42,420] [INFO ]: DayZ Tools path retrived from the last use with steam 'F:\Programme\steamapps\common\DayZ Tools'.
+[2026-06-23 04:25:42,436] [INFO ]: --------------------
+[2026-06-23 04:25:42,436] [INFO ]:        Binarize -      found: 'F:\Programme\steamapps\common\DayZ Tools\bin\Binarize\binarize.exe'.
+[2026-06-23 04:25:42,436] [INFO ]:      CfgConvert -      found: 'F:\Programme\steamapps\common\DayZ Tools\bin\CfgConvert\CfgConvert.exe'.
+[2026-06-23 04:25:42,436] [INFO ]:      DsSignFile -      found: 'F:\Programme\steamapps\common\DayZ Tools\bin\DsUtils\DSSignFile.exe'.
+[2026-06-23 04:25:42,436] [INFO ]:        FileBank -      found: 'F:\Programme\steamapps\common\DayZ Tools\bin\PboUtils\FileBank.exe'.
+[2026-06-23 04:25:42,436] [INFO ]: --------------------
+[2026-06-23 04:25:42,458] [INFO ]: Builder starting...
+[2026-06-23 04:25:42,471] [INFO ]: Clearing temp folder. [temp=]=C:\Users\patsl\AppData\Local\Temp\deutschz_core
+[2026-06-23 04:25:43,839] [INFO ]: Done.
+[2026-06-23 04:25:43,839] [INFO ]: 
+[2026-06-23 04:25:43,839] [INFO ]: Copying to temp...
+[2026-06-23 04:25:44,112] [INFO ]: Copy done.
+[2026-06-23 04:25:44,112] [INFO ]: 
+[2026-06-23 04:25:44,122] [INFO ]: 
+[2026-06-23 04:25:44,122] [INFO ]: Deleting empty folders in "C:\Users\patsl\AppData\Local\Temp\deutschz_core"
+[2026-06-23 04:25:44,126] [INFO ]: Done.
+[2026-06-23 04:25:44,126] [INFO ]: 
+[2026-06-23 04:25:44,126] [INFO ]: Binarizing texture headers...
+[2026-06-23 04:25:44,256] [INFO ]: Done.
+[2026-06-23 04:25:44,256] [INFO ]: 
+[2026-06-23 04:25:44,257] [INFO ]: Packing "C:\Users\patsl\AppData\Local\Temp\deutschz_core"...
+[2026-06-23 04:25:44,491] [INFO ]: Done.
+[2026-06-23 04:25:44,491] [INFO ]: 
+[2026-06-23 04:25:44,507] [INFO ]: Copying PBO. [source]=C:\Users\patsl\AppData\Local\Temp\DeutschZ_Core.pbo, [dest]=P:\ReadyMods\@DeutschZ_Core\Addons\DeutschZ_Core.pbo
+[2026-06-23 04:25:44,507] [INFO ]: Done.
+[2026-06-23 04:25:44,507] [INFO ]: 
+[2026-06-23 04:25:44,507] [INFO ]: Build Successful
+
+Setting breakpad minidump AppID = 830640
+Steam_SetMinidumpSteamID:  Caching Steam ID:  76561199819501556 [API loaded no]
+
+Command: F:\Programme\steamapps\common\DayZ Tools\Bin\DsUtils\DSSignFile.exe P:\ReadyMods\_keys\DeutschZLocal.biprivatekey DeutschZ_Core.pbo
+
+
+Build/sign OK: P:\ReadyMods\@DeutschZ_Core\Addons\DeutschZ_Core.pbo
+
+===== BUILD DeutschZ_ExpansionBridge =====
+Source: P:\GitHub_DeutschZModZ\DeutschZModZ\mods\DeutschZ_ExpansionBridge
+Output: P:\ReadyMods\@DeutschZ_ExpansionBridge\Addons
+Command: F:\Programme\steamapps\common\DayZ Tools\Bin\AddonBuilder\AddonBuilder.exe P:\GitHub_DeutschZModZ\DeutschZModZ\mods\DeutschZ_ExpansionBridge P:\ReadyMods\@DeutschZ_ExpansionBridge\Addons -clear -packonly -prefix=DeutschZ_ExpansionBridge
+[2026-06-23 04:25:45,471] [INFO ]: ==========================================================================
+[2026-06-23 04:25:45,490] [INFO ]: WELCOME TO ADDON BUILDER
+[2026-06-23 04:25:45,491] [INFO ]: Version: 1.0.240639
+[2026-06-23 04:25:45,491] [INFO ]: ==========================================================================
+[2026-06-23 04:25:45,491] [INFO ]: 
+[2026-06-23 04:25:45,491] [INFO ]: DayZ Tools path retrived from the last use with steam 'F:\Programme\steamapps\common\DayZ Tools'.
+[2026-06-23 04:25:45,507] [INFO ]: --------------------
+[2026-06-23 04:25:45,507] [INFO ]:        Binarize -      found: 'F:\Programme\steamapps\common\DayZ Tools\bin\Binarize\binarize.exe'.
+[2026-06-23 04:25:45,507] [INFO ]:      CfgConvert -      found: 'F:\Programme\steamapps\common\DayZ Tools\bin\CfgConvert\CfgConvert.exe'.
+[2026-06-23 04:25:45,507] [INFO ]:      DsSignFile -      found: 'F:\Programme\steamapps\common\DayZ Tools\bin\DsUtils\DSSignFile.exe'.
+[2026-06-23 04:25:45,507] [INFO ]:        FileBank -      found: 'F:\Programme\steamapps\common\DayZ Tools\bin\PboUtils\FileBank.exe'.
+[2026-06-23 04:25:45,507] [INFO ]: --------------------
+[2026-06-23 04:25:45,523] [INFO ]: Builder starting...
+[2026-06-23 04:25:45,523] [INFO ]: Clearing temp folder. [temp=]=C:\Users\patsl\AppData\Local\Temp\deutschz_expansionbridge
+[2026-06-23 04:25:46,839] [INFO ]: Done.
+[2026-06-23 04:25:46,839] [INFO ]: 
+[2026-06-23 04:25:46,839] [INFO ]: Copying to temp...
+[2026-06-23 04:25:46,956] [INFO ]: Copy done.
+[2026-06-23 04:25:46,956] [INFO ]: 
+[2026-06-23 04:25:46,956] [INFO ]: 
+[2026-06-23 04:25:46,956] [INFO ]: Deleting empty folders in "C:\Users\patsl\AppData\Local\Temp\deutschz_expansionbridge"
+[2026-06-23 04:25:46,972] [INFO ]: Done.
+[2026-06-23 04:25:46,972] [INFO ]: 
+[2026-06-23 04:25:46,972] [INFO ]: Binarizing texture headers...
+[2026-06-23 04:25:47,148] [INFO ]: Done.
+[2026-06-23 04:25:47,149] [INFO ]: 
+[2026-06-23 04:25:47,150] [INFO ]: Packing "C:\Users\patsl\AppData\Local\Temp\deutschz_expansionbridge"...
+[2026-06-23 04:25:47,356] [INFO ]: Done.
+[2026-06-23 04:25:47,356] [INFO ]: 
+[2026-06-23 04:25:47,357] [INFO ]: Copying PBO. [source]=C:\Users\patsl\AppData\Local\Temp\DeutschZ_ExpansionBridge.pbo, [dest]=P:\ReadyMods\@DeutschZ_ExpansionBridge\Addons\DeutschZ_ExpansionBridge.pbo
+[2026-06-23 04:25:47,359] [INFO ]: Done.
+[2026-06-23 04:25:47,359] [INFO ]: 
+[2026-06-23 04:25:47,359] [INFO ]: Build Successful
+
+Setting breakpad minidump AppID = 830640
+Steam_SetMinidumpSteamID:  Caching Steam ID:  76561199819501556 [API loaded no]
+
+Command: F:\Programme\steamapps\common\DayZ Tools\Bin\DsUtils\DSSignFile.exe P:\ReadyMods\_keys\DeutschZLocal.biprivatekey DeutschZ_ExpansionBridge.pbo
+
+
+Build/sign OK: P:\ReadyMods\@DeutschZ_ExpansionBridge\Addons\DeutschZ_ExpansionBridge.pbo
+
+===== BUILD DeutschZ_CourierZ =====
+Source: P:\GitHub_DeutschZModZ\DeutschZModZ\mods\DeutschZ_CourierZ
+Output: P:\ReadyMods\@DeutschZ_CourierZ\Addons
+Command: F:\Programme\steamapps\common\DayZ Tools\Bin\AddonBuilder\AddonBuilder.exe P:\GitHub_DeutschZModZ\DeutschZModZ\mods\DeutschZ_CourierZ P:\ReadyMods\@DeutschZ_CourierZ\Addons -clear -packonly -prefix=DeutschZ_CourierZ
+[2026-06-23 04:25:48,310] [INFO ]: ==========================================================================
+[2026-06-23 04:25:48,312] [INFO ]: WELCOME TO ADDON BUILDER
+[2026-06-23 04:25:48,319] [INFO ]: Version: 1.0.240639
+[2026-06-23 04:25:48,320] [INFO ]: ==========================================================================
+[2026-06-23 04:25:48,320] [INFO ]: 
+[2026-06-23 04:25:48,321] [INFO ]: DayZ Tools path retrived from the last use with steam 'F:\Programme\steamapps\common\DayZ Tools'.
+[2026-06-23 04:25:48,333] [INFO ]: --------------------
+[2026-06-23 04:25:48,334] [INFO ]:        Binarize -      found: 'F:\Programme\steamapps\common\DayZ Tools\bin\Binarize\binarize.exe'.
+[2026-06-23 04:25:48,334] [INFO ]:      CfgConvert -      found: 'F:\Programme\steamapps\common\DayZ Tools\bin\CfgConvert\CfgConvert.exe'.
+[2026-06-23 04:25:48,334] [INFO ]:      DsSignFile -      found: 'F:\Programme\steamapps\common\DayZ Tools\bin\DsUtils\DSSignFile.exe'.
+[2026-06-23 04:25:48,336] [INFO ]:        FileBank -      found: 'F:\Programme\steamapps\common\DayZ Tools\bin\PboUtils\FileBank.exe'.
+[2026-06-23 04:25:48,336] [INFO ]: --------------------
+[2026-06-23 04:25:48,348] [INFO ]: Builder starting...
+[2026-06-23 04:25:48,355] [INFO ]: Clearing temp folder. [temp=]=C:\Users\patsl\AppData\Local\Temp\deutschz_courierz
+[2026-06-23 04:25:50,019] [INFO ]: Done.
+[2026-06-23 04:25:50,019] [INFO ]: 
+[2026-06-23 04:25:50,019] [INFO ]: Copying to temp...
+[2026-06-23 04:25:50,439] [INFO ]: Copy done.
+[2026-06-23 04:25:50,440] [INFO ]: 
+[2026-06-23 04:25:50,448] [INFO ]: 
+[2026-06-23 04:25:50,449] [INFO ]: Deleting empty folders in "C:\Users\patsl\AppData\Local\Temp\deutschz_courierz"
+[2026-06-23 04:25:50,458] [INFO ]: Done.
+[2026-06-23 04:25:50,458] [INFO ]: 
+[2026-06-23 04:25:50,459] [INFO ]: Binarizing texture headers...
+[2026-06-23 04:25:51,340] [INFO ]: Done.
+[2026-06-23 04:25:51,340] [INFO ]: 
+[2026-06-23 04:25:51,341] [INFO ]: Packing "C:\Users\patsl\AppData\Local\Temp\deutschz_courierz"...
+[2026-06-23 04:25:51,639] [INFO ]: Done.
+[2026-06-23 04:25:51,639] [INFO ]: 
+[2026-06-23 04:25:51,639] [INFO ]: Copying PBO. [source]=C:\Users\patsl\AppData\Local\Temp\DeutschZ_CourierZ.pbo, [dest]=P:\ReadyMods\@DeutschZ_CourierZ\Addons\DeutschZ_CourierZ.pbo
+[2026-06-23 04:25:51,639] [INFO ]: Done.
+[2026-06-23 04:25:51,639] [INFO ]: 
+[2026-06-23 04:25:51,639] [INFO ]: Build Successful
+
+Setting breakpad minidump AppID = 830640
+Steam_SetMinidumpSteamID:  Caching Steam ID:  76561199819501556 [API loaded no]
+
+Command: F:\Programme\steamapps\common\DayZ Tools\Bin\DsUtils\DSSignFile.exe P:\ReadyMods\_keys\DeutschZLocal.biprivatekey DeutschZ_CourierZ.pbo
+
+
+Build/sign OK: P:\ReadyMods\@DeutschZ_CourierZ\Addons\DeutschZ_CourierZ.pbo
+
+===== BUILD DeutschZ_ConvoyZ =====
+Source: P:\GitHub_DeutschZModZ\DeutschZModZ\mods\DeutschZ_ConvoyZ
+Output: P:\ReadyMods\@DeutschZ_ConvoyZ\Addons
+Command: F:\Programme\steamapps\common\DayZ Tools\Bin\AddonBuilder\AddonBuilder.exe P:\GitHub_DeutschZModZ\DeutschZModZ\mods\DeutschZ_ConvoyZ P:\ReadyMods\@DeutschZ_ConvoyZ\Addons -clear -packonly -prefix=DeutschZ_ConvoyZ
+[2026-06-23 04:25:53,670] [INFO ]: ==========================================================================
+[2026-06-23 04:25:53,670] [INFO ]: WELCOME TO ADDON BUILDER
+[2026-06-23 04:25:53,694] [INFO ]: Version: 1.0.240639
+[2026-06-23 04:25:53,694] [INFO ]: ==========================================================================
+[2026-06-23 04:25:53,695] [INFO ]: 
+[2026-06-23 04:25:53,696] [INFO ]: DayZ Tools path retrived from the last use with steam 'F:\Programme\steamapps\common\DayZ Tools'.
+[2026-06-23 04:25:53,702] [INFO ]: --------------------
+[2026-06-23 04:25:53,702] [INFO ]:        Binarize -      found: 'F:\Programme\steamapps\common\DayZ Tools\bin\Binarize\binarize.exe'.
+[2026-06-23 04:25:53,702] [INFO ]:      CfgConvert -      found: 'F:\Programme\steamapps\common\DayZ Tools\bin\CfgConvert\CfgConvert.exe'.
+[2026-06-23 04:25:53,702] [INFO ]:      DsSignFile -      found: 'F:\Programme\steamapps\common\DayZ Tools\bin\DsUtils\DSSignFile.exe'.
+[2026-06-23 04:25:53,702] [INFO ]:        FileBank -      found: 'F:\Programme\steamapps\common\DayZ Tools\bin\PboUtils\FileBank.exe'.
+[2026-06-23 04:25:53,702] [INFO ]: --------------------
+[2026-06-23 04:25:53,702] [INFO ]: Builder starting...
+[2026-06-23 04:25:53,717] [INFO ]: Clearing temp folder. [temp=]=C:\Users\patsl\AppData\Local\Temp\deutschz_convoyz
+[2026-06-23 04:25:56,140] [INFO ]: Done.
+[2026-06-23 04:25:56,154] [INFO ]: 
+[2026-06-23 04:25:56,155] [INFO ]: Copying to temp...
+[2026-06-23 04:25:56,479] [INFO ]: Copy done.
+[2026-06-23 04:25:56,479] [INFO ]: 
+[2026-06-23 04:25:56,508] [INFO ]: 
+[2026-06-23 04:25:56,508] [INFO ]: Deleting empty folders in "C:\Users\patsl\AppData\Local\Temp\deutschz_convoyz"
+[2026-06-23 04:25:56,524] [INFO ]: Done.
+[2026-06-23 04:25:56,524] [INFO ]: 
+[2026-06-23 04:25:56,524] [INFO ]: Binarizing texture headers...
+[2026-06-23 04:25:57,407] [INFO ]: Done.
+[2026-06-23 04:25:57,407] [INFO ]: 
+[2026-06-23 04:25:57,407] [INFO ]: Packing "C:\Users\patsl\AppData\Local\Temp\deutschz_convoyz"...
+[2026-06-23 04:25:57,957] [INFO ]: Done.
+[2026-06-23 04:25:57,957] [INFO ]: 
+[2026-06-23 04:25:57,957] [INFO ]: Copying PBO. [source]=C:\Users\patsl\AppData\Local\Temp\DeutschZ_ConvoyZ.pbo, [dest]=P:\ReadyMods\@DeutschZ_ConvoyZ\Addons\DeutschZ_ConvoyZ.pbo
+[2026-06-23 04:25:57,957] [INFO ]: Done.
+[2026-06-23 04:25:57,957] [INFO ]: 
+[2026-06-23 04:25:57,957] [INFO ]: Build Successful
+
+Setting breakpad minidump AppID = 830640
+Steam_SetMinidumpSteamID:  Caching Steam ID:  76561199819501556 [API loaded no]
+
+Command: F:\Programme\steamapps\common\DayZ Tools\Bin\DsUtils\DSSignFile.exe P:\ReadyMods\_keys\DeutschZLocal.biprivatekey DeutschZ_ConvoyZ.pbo
+
+
+Build/sign OK: P:\ReadyMods\@DeutschZ_ConvoyZ\Addons\DeutschZ_ConvoyZ.pbo
+
+===== BUILD DeutschZ_KotHZ =====
+Source: P:\GitHub_DeutschZModZ\DeutschZModZ\mods\DeutschZ_KotHZ
+Output: P:\ReadyMods\@DeutschZ_KotHZ\Addons
+Command: F:\Programme\steamapps\common\DayZ Tools\Bin\AddonBuilder\AddonBuilder.exe P:\GitHub_DeutschZModZ\DeutschZModZ\mods\DeutschZ_KotHZ P:\ReadyMods\@DeutschZ_KotHZ\Addons -clear -packonly -prefix=DeutschZ_KotHZ
+[2026-06-23 04:26:00,307] [INFO ]: ==========================================================================
+[2026-06-23 04:26:00,307] [INFO ]: WELCOME TO ADDON BUILDER
+[2026-06-23 04:26:00,323] [INFO ]: Version: 1.0.240639
+[2026-06-23 04:26:00,323] [INFO ]: ==========================================================================
+[2026-06-23 04:26:00,323] [INFO ]: 
+[2026-06-23 04:26:00,323] [INFO ]: DayZ Tools path retrived from the last use with steam 'F:\Programme\steamapps\common\DayZ Tools'.
+[2026-06-23 04:26:00,339] [INFO ]: --------------------
+[2026-06-23 04:26:00,339] [INFO ]:        Binarize -      found: 'F:\Programme\steamapps\common\DayZ Tools\bin\Binarize\binarize.exe'.
+[2026-06-23 04:26:00,339] [INFO ]:      CfgConvert -      found: 'F:\Programme\steamapps\common\DayZ Tools\bin\CfgConvert\CfgConvert.exe'.
+[2026-06-23 04:26:00,339] [INFO ]:      DsSignFile -      found: 'F:\Programme\steamapps\common\DayZ Tools\bin\DsUtils\DSSignFile.exe'.
+[2026-06-23 04:26:00,339] [INFO ]:        FileBank -      found: 'F:\Programme\steamapps\common\DayZ Tools\bin\PboUtils\FileBank.exe'.
+[2026-06-23 04:26:00,339] [INFO ]: --------------------
+[2026-06-23 04:26:00,354] [INFO ]: Builder starting...
+[2026-06-23 04:26:00,354] [INFO ]: Clearing temp folder. [temp=]=C:\Users\patsl\AppData\Local\Temp\deutschz_kothz
+[2026-06-23 04:26:01,870] [INFO ]: Done.
+[2026-06-23 04:26:01,870] [INFO ]: 
+[2026-06-23 04:26:01,870] [INFO ]: Copying to temp...
+[2026-06-23 04:26:04,325] [INFO ]: Copy done.
+[2026-06-23 04:26:04,325] [INFO ]: 
+[2026-06-23 04:26:04,357] [INFO ]: 
+[2026-06-23 04:26:04,357] [INFO ]: Deleting empty folders in "C:\Users\patsl\AppData\Local\Temp\deutschz_kothz"
+[2026-06-23 04:26:04,374] [INFO ]: Done.
+[2026-06-23 04:26:04,374] [INFO ]: 
+[2026-06-23 04:26:04,374] [INFO ]: Binarizing texture headers...
+[2026-06-23 04:26:05,472] [INFO ]: Done.
+[2026-06-23 04:26:05,472] [INFO ]: 
+[2026-06-23 04:26:05,472] [INFO ]: Packing "C:\Users\patsl\AppData\Local\Temp\deutschz_kothz"...
+[2026-06-23 04:26:06,361] [INFO ]: Done.
+[2026-06-23 04:26:06,361] [INFO ]: 
+[2026-06-23 04:26:06,361] [INFO ]: Copying PBO. [source]=C:\Users\patsl\AppData\Local\Temp\DeutschZ_KotHZ.pbo, [dest]=P:\ReadyMods\@DeutschZ_KotHZ\Addons\DeutschZ_KotHZ.pbo
+[2026-06-23 04:26:06,361] [INFO ]: Done.
+[2026-06-23 04:26:06,361] [INFO ]: 
+[2026-06-23 04:26:06,361] [INFO ]: Build Successful
+
+Setting breakpad minidump AppID = 830640
+Steam_SetMinidumpSteamID:  Caching Steam ID:  76561199819501556 [API loaded no]
+
+Command: F:\Programme\steamapps\common\DayZ Tools\Bin\DsUtils\DSSignFile.exe P:\ReadyMods\_keys\DeutschZLocal.biprivatekey DeutschZ_KotHZ.pbo
+
+
+Build/sign OK: P:\ReadyMods\@DeutschZ_KotHZ\Addons\DeutschZ_KotHZ.pbo
+
+===== BUILD DeutschZ_GroundZero =====
+Source: P:\GitHub_DeutschZModZ\DeutschZModZ\mods\DeutschZ_GroundZero
+Output: P:\ReadyMods\@DeutschZ_GroundZero\Addons
+Command: F:\Programme\steamapps\common\DayZ Tools\Bin\AddonBuilder\AddonBuilder.exe P:\GitHub_DeutschZModZ\DeutschZModZ\mods\DeutschZ_GroundZero P:\ReadyMods\@DeutschZ_GroundZero\Addons -clear -packonly -prefix=DeutschZ_GroundZero
+[2026-06-23 04:26:12,097] [INFO ]: ==========================================================================
+[2026-06-23 04:26:12,097] [INFO ]: WELCOME TO ADDON BUILDER
+[2026-06-23 04:26:12,112] [INFO ]: Version: 1.0.240639
+[2026-06-23 04:26:12,112] [INFO ]: ==========================================================================
+[2026-06-23 04:26:12,112] [INFO ]: 
+[2026-06-23 04:26:12,112] [INFO ]: DayZ Tools path retrived from the last use with steam 'F:\Programme\steamapps\common\DayZ Tools'.
+[2026-06-23 04:26:12,128] [INFO ]: --------------------
+[2026-06-23 04:26:12,128] [INFO ]:        Binarize -      found: 'F:\Programme\steamapps\common\DayZ Tools\bin\Binarize\binarize.exe'.
+[2026-06-23 04:26:12,128] [INFO ]:      CfgConvert -      found: 'F:\Programme\steamapps\common\DayZ Tools\bin\CfgConvert\CfgConvert.exe'.
+[2026-06-23 04:26:12,128] [INFO ]:      DsSignFile -      found: 'F:\Programme\steamapps\common\DayZ Tools\bin\DsUtils\DSSignFile.exe'.
+[2026-06-23 04:26:12,128] [INFO ]:        FileBank -      found: 'F:\Programme\steamapps\common\DayZ Tools\bin\PboUtils\FileBank.exe'.
+[2026-06-23 04:26:12,128] [INFO ]: --------------------
+[2026-06-23 04:26:12,139] [INFO ]: Builder starting...
+[2026-06-23 04:26:12,139] [INFO ]: Clearing temp folder. [temp=]=C:\Users\patsl\AppData\Local\Temp\deutschz_groundzero
+[2026-06-23 04:26:13,811] [INFO ]: Done.
+[2026-06-23 04:26:13,827] [INFO ]: 
+[2026-06-23 04:26:13,827] [INFO ]: Copying to temp...
+[2026-06-23 04:26:14,855] [INFO ]: Copy done.
+[2026-06-23 04:26:14,855] [INFO ]: 
+[2026-06-23 04:26:14,855] [INFO ]: 
+[2026-06-23 04:26:14,855] [INFO ]: Deleting empty folders in "C:\Users\patsl\AppData\Local\Temp\deutschz_groundzero"
+[2026-06-23 04:26:14,870] [INFO ]: Done.
+[2026-06-23 04:26:14,870] [INFO ]: 
+[2026-06-23 04:26:14,870] [INFO ]: Binarizing texture headers...
+[2026-06-23 04:26:14,995] [INFO ]: Done.
+[2026-06-23 04:26:14,995] [INFO ]: 
+[2026-06-23 04:26:14,995] [INFO ]: Packing "C:\Users\patsl\AppData\Local\Temp\deutschz_groundzero"...
+[2026-06-23 04:26:15,407] [INFO ]: Done.
+[2026-06-23 04:26:15,407] [INFO ]: 
+[2026-06-23 04:26:15,407] [INFO ]: Copying PBO. [source]=C:\Users\patsl\AppData\Local\Temp\DeutschZ_GroundZero.pbo, [dest]=P:\ReadyMods\@DeutschZ_GroundZero\Addons\DeutschZ_GroundZero.pbo
+[2026-06-23 04:26:15,407] [INFO ]: Done.
+[2026-06-23 04:26:15,407] [INFO ]: 
+[2026-06-23 04:26:15,407] [INFO ]: Build Successful
+
+Setting breakpad minidump AppID = 830640
+Steam_SetMinidumpSteamID:  Caching Steam ID:  76561199819501556 [API loaded no]
+
+Command: F:\Programme\steamapps\common\DayZ Tools\Bin\DsUtils\DSSignFile.exe P:\ReadyMods\_keys\DeutschZLocal.biprivatekey DeutschZ_GroundZero.pbo
+
+
+Build/sign OK: P:\ReadyMods\@DeutschZ_GroundZero\Addons\DeutschZ_GroundZero.pbo

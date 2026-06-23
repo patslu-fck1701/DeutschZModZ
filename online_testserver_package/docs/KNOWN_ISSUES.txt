@@ -1,0 +1,5 @@
+﻿Known issues / notes
+
+- Local start.bat is not modified by the pipeline.
+- OperationDeutschZ safe-boot log lines appear only when start.bat or the online testserver modline loads @DeutschZ_OperationDeutschZ.
+- Vanilla/third-party DayZ warnings about CfgWorlds/CfgVehicles No entry are classified separately from DeutschZ compile/signature failures.

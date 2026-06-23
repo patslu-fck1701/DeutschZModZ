@@ -1,0 +1,16 @@
+﻿DeutschZ OperationDeutschZ Report Runde 1 - 2026-06-23T04:56:21.6896590+02:00
+OperationDeutschZ in unveraenderter Batch-Modline: False
+
+OperationDeutschZ expected log lines:
+[DeutschZ_OperationDeutschZ] Init start : False
+[DeutschZ_OperationDeutschZ] Profile folders ensured : False
+[DeutschZ_OperationDeutschZ] Config created : False
+[DeutschZ_OperationDeutschZ] Config loaded : False
+[DeutschZ_OperationDeutschZ] State created : False
+[DeutschZ_OperationDeutschZ] State loaded : False
+[DeutschZ_OperationDeutschZ] Init done : False
+
+OperationDeutschZ config vorhanden: True
+OperationDeutschZ state vorhanden: True
+OperationDeutschZ Safe-Boot bestanden: False
+BLOCKER: Die originale Batch enthaelt @DeutschZ_OperationDeutschZ nicht. Sie wurde regelgemaess nicht geaendert; deshalb kann der lokale Start die Safe-Boot-Logzeilen nicht erzeugen.
