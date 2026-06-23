@@ -36,7 +36,7 @@ class DeutschZKotHZWaveEntry
         AIClassNames = new array<string>;
         AIClassNames.Insert("eAI_SurvivorM_Boris");
         AIClassNames.Insert("eAI_SurvivorM_Denis");
-        AIClassNames.Insert("eAI_SurvivorM_Mirek");
+        AIClassNames.Insert("eAI_SurvivorM_Cyril");
         SpawnRadiusMin = 16.0;
         SpawnRadiusMax = 40.0;
         SpawnOutdoorOnly = 1;
@@ -189,6 +189,76 @@ class DeutschZKotHZWavePoolsConfig
         WavePools.Insert(base);
     }
 
+    protected void CreateDeutschZNormalPool()
+    {
+        DeutschZKotHZWavePool pool = new DeutschZKotHZWavePool();
+        pool.PoolName = "DeutschZ_Normal_3AI_30Zombies";
+        pool.EditHint = "V0.9.3 normal pool: first contact uses 3 Expansion AI guards with DeutschZ/SNAFU military loadout, then 30 infected over 9-12 minutes.";
+        pool.StartOnlyWhenPlayerInside = 1;
+        pool.CancelOnEventEnd = 1;
+        pool.MaxTotalZombies = 30;
+        pool.Waves.Clear();
+
+        AddDeutschZNormalFirstAIWave(pool);
+        AddDeutschZNormalZombieWave(pool, "Normal Wave 1", 90);
+        AddDeutschZNormalZombieWave(pool, "Normal Wave 2", 210);
+        AddDeutschZNormalZombieWave(pool, "Normal Wave 3", 330);
+        AddDeutschZNormalZombieWave(pool, "Normal Wave 4", 450);
+        AddDeutschZNormalZombieWave(pool, "Normal Wave 5", 570);
+
+        WavePools.Insert(pool);
+    }
+
+    protected void AddDeutschZNormalFirstAIWave(DeutschZKotHZWavePool pool)
+    {
+        DeutschZKotHZWaveEntry wave = new DeutschZKotHZWaveEntry();
+        wave.EditHint = "First KotHZ normal contact wave. Spawns three Expansion AI guards via DeutschZ_ExpansionBridge. Zombie pressure waves continue after this.";
+        wave.WaveName = "First Contact - 3 AI Guards";
+        wave.DelaySeconds = 0;
+        wave.EnemyCount = 0;
+        wave.UseExpansionAI = 1;
+        wave.AIEnemyCount = 3;
+        wave.AILoadoutId = "DeutschZ_KotHZ_SNAFU_Military_AI";
+        wave.SpawnRadiusMin = 12.0;
+        wave.SpawnRadiusMax = 25.0;
+        wave.SpawnOutdoorOnly = 1;
+        wave.ValidateClassBeforeSpawn = 1;
+        wave.EnableClassFallback = 0;
+        wave.FallbackClassName = "";
+        wave.AIClassNames.Clear();
+        wave.AIClassNames.Insert("eAI_SurvivorM_Boris");
+        wave.AIClassNames.Insert("eAI_SurvivorM_Cyril");
+        wave.AIClassNames.Insert("eAI_SurvivorM_Denis");
+        wave.AIClassNames.Insert("eAI_SurvivorM_Elias");
+        wave.EnemyClassNames.Clear();
+        pool.Waves.Insert(wave);
+    }
+
+    protected void AddDeutschZNormalZombieWave(DeutschZKotHZWavePool pool, string waveName, int delaySeconds)
+    {
+        DeutschZKotHZWaveEntry wave = new DeutschZKotHZWaveEntry();
+        wave.EditHint = "Normal KotHZ pressure wave. Five waves with six infected each; total 30 infected over 9-12 minute capture.";
+        wave.WaveName = waveName;
+        wave.DelaySeconds = delaySeconds;
+        wave.EnemyCount = 6;
+        wave.UseExpansionAI = 0;
+        wave.AIEnemyCount = 0;
+        wave.SpawnRadiusMin = 12.0;
+        wave.SpawnRadiusMax = 25.0;
+        wave.SpawnOutdoorOnly = 1;
+        wave.ValidateClassBeforeSpawn = 1;
+        wave.EnableClassFallback = 1;
+        wave.FallbackClassName = "ZmbM_CitizenASkinny_Brown";
+        wave.EnemyClassNames.Clear();
+        wave.EnemyClassNames.Insert("ZmbM_PatrolNormal_Autumn");
+        wave.EnemyClassNames.Insert("ZmbM_PatrolNormal_Summer");
+        wave.EnemyClassNames.Insert("ZmbM_SoldierNormal_Beige");
+        wave.EnemyClassNames.Insert("ZmbM_SoldierHeavy_Green");
+        wave.EnemyClassNames.Insert("ZmbM_NBC_Grey");
+        wave.EnemyClassNames.Insert("ZmbM_NBC_Yellow");
+        pool.Waves.Insert(wave);
+    }
+
     protected void CreateKVM1TestPool()
     {
         DeutschZKotHZWavePool pool = new DeutschZKotHZWavePool();
@@ -227,7 +297,7 @@ class DeutschZKotHZWavePoolsConfig
         wave.AIClassNames.Clear();
         wave.AIClassNames.Insert("eAI_SurvivorM_Boris");
         wave.AIClassNames.Insert("eAI_SurvivorM_Denis");
-        wave.AIClassNames.Insert("eAI_SurvivorM_Mirek");
+        wave.AIClassNames.Insert("eAI_SurvivorM_Cyril");
         wave.EnemyClassNames.Clear();
         pool.Waves.Insert(wave);
     }

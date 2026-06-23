@@ -198,22 +198,10 @@ class DeutschZConvoyZConfig
         {
             DeutschZConvoyZSpawnPoint sp = new DeutschZConvoyZSpawnPoint();
             sp.Position = EventData.EventCenter;
-            if (i == 0)
-            {
-                sp.Position[0] = sp.Position[0] + radius;
-                sp.Position[2] = sp.Position[2] + Math.RandomFloat(-6.0, 6.0);
-            }
-            else if (i == 1)
-            {
-                sp.Position[0] = sp.Position[0] - radius;
-                sp.Position[2] = sp.Position[2] + Math.RandomFloat(-6.0, 6.0);
-            }
-            else
-            {
-                sp.Position[0] = sp.Position[0] + Math.RandomFloat(-6.0, 6.0);
-                sp.Position[2] = sp.Position[2] + radius;
-            }
-            sp.Orientation = "0 0 0";
+            float angle = (120.0 * i) + Math.RandomFloat(-18.0, 18.0);
+            sp.Position[0] = sp.Position[0] + Math.Cos(angle) * radius;
+            sp.Position[2] = sp.Position[2] + Math.Sin(angle) * radius;
+            sp.Orientation = angle.ToString() + " 0 0";
             wave.SpawnPoints.Insert(sp);
         }
 
