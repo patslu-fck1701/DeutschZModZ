@@ -1,3 +1,7 @@
+## 0.9.4-campaign-chain-test - 2026-06-23
+- Added missing central OperationDeutschZ progression items for CourierZ, GroundZero and KotHZ linkage.
+- Polished existing OperationDeutschZ item names/descriptions without changing provider APIs or event load order.
+
 ## 0.9.3-online-test - 2026-06-23
 - Online-Testserver pack/test candidate; config.cpp/script module validation aligned.
 
@@ -82,4 +86,3 @@
 ## 0.1.0
 
 - Initiale Source-Struktur angelegt.
-

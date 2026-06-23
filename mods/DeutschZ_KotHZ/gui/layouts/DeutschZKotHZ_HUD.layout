@@ -6,7 +6,7 @@ FrameWidgetClass KOTHRoot {
  TextWidgetClass KOTHTitle {
   position 0.02 0.08
   size 0.96 0.26
-  text "KOTH"
+  text "#STR_DZKOTHZ_LAYOUT_KOTH"
   font "gui/fonts/sdf_MetronBook24"
   exacttext 1
   textcolor 0xFFFFFFFF

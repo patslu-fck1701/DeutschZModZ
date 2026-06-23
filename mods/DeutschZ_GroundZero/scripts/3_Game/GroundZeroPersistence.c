@@ -13,6 +13,9 @@ class GroundZeroPersistence
     {
         if (!FileExist(GroundZeroConstants.PROFILE_ROOT)) MakeDirectory(GroundZeroConstants.PROFILE_ROOT);
         if (!FileExist(GroundZeroConstants.PROFILE_DIR)) MakeDirectory(GroundZeroConstants.PROFILE_DIR);
+        if (!FileExist(GroundZeroConstants.CONFIG_DIR)) MakeDirectory(GroundZeroConstants.CONFIG_DIR);
+        if (!FileExist(GroundZeroConstants.DATA_DIR)) MakeDirectory(GroundZeroConstants.DATA_DIR);
+        if (!FileExist(GroundZeroConstants.EVENT_LOG_DIR)) MakeDirectory(GroundZeroConstants.EVENT_LOG_DIR);
         if (!FileExist(GroundZeroConstants.LOG_DIR)) MakeDirectory(GroundZeroConstants.LOG_DIR);
     }
 

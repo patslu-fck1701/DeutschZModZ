@@ -14,7 +14,11 @@ class GroundZeroConstants
 
     static const string PROFILE_ROOT = "$profile:DeutschZ/";
     static const string PROFILE_DIR = "$profile:DeutschZ/GroundZero/";
-    static const string CONFIG_PATH = "$profile:DeutschZ/GroundZero/GroundZeroConfig.json";
+    static const string CONFIG_DIR = "$profile:DeutschZ/GroundZero/Config/";
+    static const string DATA_DIR = "$profile:DeutschZ/GroundZero/Data/";
+    static const string EVENT_LOG_DIR = "$profile:DeutschZ/GroundZero/Logs/";
+    static const string CONFIG_PATH = "$profile:DeutschZ/GroundZero/Config/GroundZeroConfig.json";
+    static const string LEGACY_CONFIG_PATH = "$profile:DeutschZ/GroundZero/GroundZeroConfig.json";
     static const string STATE_PATH = "$profile:DeutschZ/GroundZero/GroundZeroState.json";
     static const string STATE_BACKUP_PATH = "$profile:DeutschZ/GroundZero/GroundZeroState.backup.json";
     static const string LOG_DIR = "$profile:DeutschZ/Logs/";

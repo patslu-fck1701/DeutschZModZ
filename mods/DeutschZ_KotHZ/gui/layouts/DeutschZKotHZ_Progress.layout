@@ -31,7 +31,7 @@ FrameWidgetClass rootFrame {
      vexactpos 1
      hexactsize 1
      vexactsize 1
-     text "DeutschZ KotH"
+     text "#STR_DZKOTHZ_LAYOUT_DZ_KOTH"
      font "gui/fonts/sdf_MetronLight16"
      "text halign" center
      "text valign" center
@@ -45,7 +45,7 @@ FrameWidgetClass rootFrame {
      vexactpos 1
      hexactsize 1
      vexactsize 1
-     text "KOTH ready"
+     text "#STR_DZKOTHZ_LAYOUT_KOTH_READY"
      font "gui/fonts/sdf_MetronLight14"
      "text halign" center
      "text valign" center
@@ -92,7 +92,7 @@ FrameWidgetClass rootFrame {
      vexactpos 1
      hexactsize 1
      vexactsize 1
-     text "Spieler: 0 | Zeit: 0:00 / 0:00"
+     text "#STR_DZKOTHZ_LAYOUT_SPIELER_0_ZEIT_0_00_0_00"
      font "gui/fonts/sdf_MetronLight12"
      "text halign" center
      "text valign" center

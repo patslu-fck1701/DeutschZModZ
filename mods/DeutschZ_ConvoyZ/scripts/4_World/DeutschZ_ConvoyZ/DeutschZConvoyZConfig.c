@@ -29,9 +29,10 @@ class DeutschZConvoyZConfig
     {
         MakeDirectory("$profile:DeutschZ");
         MakeDirectory("$profile:DeutschZ/ConvoyZ");
+        MakeDirectory(DeutschZConvoyZConstants.CONFIG_DIR);
         MakeDirectory("$profile:DeutschZ/ConvoyZ/Data");
         MakeDirectory("$profile:DeutschZ/ConvoyZ/Logs");
-        Print("[DeutschZ_ConvoyZ] EnsureFolders done: $profile:DeutschZ/ConvoyZ");
+        Print("[DeutschZ_ConvoyZ] EnsureFolders done: $profile:DeutschZ/ConvoyZ + Config/Data/Logs");
     }
 
     void Load()
@@ -48,8 +49,14 @@ class DeutschZConvoyZConfig
         }
         else
         {
+            if (FileExist(DeutschZConvoyZConstants.LEGACY_SETTINGS_FILE))
+            {
+                JsonFileLoader<DeutschZConvoyZSettings>.JsonLoadFile(DeutschZConvoyZConstants.LEGACY_SETTINGS_FILE, Settings);
+                Print("[DeutschZ_ConvoyZ] Legacy settings imported from: " + DeutschZConvoyZConstants.LEGACY_SETTINGS_FILE);
+            }
+
             JsonFileLoader<DeutschZConvoyZSettings>.JsonSaveFile(DeutschZConvoyZConstants.SETTINGS_FILE, Settings);
-            Print("[DeutschZ_ConvoyZ] Settings CREATED: " + DeutschZConvoyZConstants.SETTINGS_FILE);
+            Print("[DeutschZ_ConvoyZ] Settings CREATED/MIGRATED: " + DeutschZConvoyZConstants.SETTINGS_FILE);
         }
 
         if (!Settings) Settings = new DeutschZConvoyZSettings();
@@ -62,9 +69,18 @@ class DeutschZConvoyZConfig
         }
         else
         {
-            CreateDefaultEvent();
+            if (FileExist(DeutschZConvoyZConstants.LEGACY_EVENTS_FILE))
+            {
+                JsonFileLoader<DeutschZConvoyZEventDef>.JsonLoadFile(DeutschZConvoyZConstants.LEGACY_EVENTS_FILE, EventData);
+                Print("[DeutschZ_ConvoyZ] Legacy events imported from: " + DeutschZConvoyZConstants.LEGACY_EVENTS_FILE);
+            }
+            else
+            {
+                CreateDefaultEvent();
+            }
+
             JsonFileLoader<DeutschZConvoyZEventDef>.JsonSaveFile(DeutschZConvoyZConstants.EVENTS_FILE, EventData);
-            Print("[DeutschZ_ConvoyZ] Events CREATED: " + DeutschZConvoyZConstants.EVENTS_FILE);
+            Print("[DeutschZ_ConvoyZ] Events CREATED/MIGRATED: " + DeutschZConvoyZConstants.EVENTS_FILE);
         }
 
         Normalize();

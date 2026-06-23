@@ -13,6 +13,11 @@ modded class MissionServer
         GroundZero_ScheduleDelayedBootstrap();
     }
 
+    protected GroundZeroCore GroundZero_GetCore()
+    {
+        return GroundZeroCore.Get();
+    }
+
     protected void GroundZero_RequestBootstrap(string source)
     {
         if (!GetGame() || !GetGame().IsServer())
@@ -58,7 +63,7 @@ modded class MissionServer
     override void OnUpdate(float timeslice)
     {
         super.OnUpdate(timeslice);
-        GroundZero_GetCore().Tick(timeslice);
+        GroundZero_GetCore().Tick();
     }
 }
 

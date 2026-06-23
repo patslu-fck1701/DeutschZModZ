@@ -10,7 +10,6 @@ class CfgPatches
             "DZ_Data",
             "DZ_Scripts",
             "DeutschZ_Core",
-            "DeutschZ_ExpansionBridge",
             "DeutschZ_KotHZ",
             "DeutschZ_ConvoyZ",
             "DeutschZ_GroundZero",
@@ -31,7 +30,7 @@ class CfgMods
         hidePicture = 0;
         type = "mod";
         author = "Patrick Sluzalek / fck1701 / DeutschZ";
-        version = "0.9.3-online-test";
+        version = "0.9.4-campaign-chain-test";
         dependencies[] = {"Game", "World", "Mission"};
 
         class defs

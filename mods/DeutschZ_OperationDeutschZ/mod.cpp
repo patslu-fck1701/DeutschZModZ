@@ -7,4 +7,4 @@ tooltip = "DeutschZ OperationDeutschZ";
 overview = "Safe-boot orchestrator and campaign shell for the DeutschZ event mods.";
 action = "";
 author = "Patrick Sluzalek / fck1701 / DeutschZ";
-version = "0.9.3-online-test";
+version = "0.9.4-campaign-chain-test";

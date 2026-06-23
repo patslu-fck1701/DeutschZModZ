@@ -12,8 +12,11 @@ Keine direkte Codeuebernahme aus Drittquellen.
 class DeutschZConvoyZConstants
 {
     static const string PROFILE_ROOT = "$profile:DeutschZ/ConvoyZ/";
-    static const string SETTINGS_FILE = "$profile:DeutschZ/ConvoyZ/Settings.json";
-    static const string EVENTS_FILE = "$profile:DeutschZ/ConvoyZ/Events.json";
+    static const string CONFIG_DIR = "$profile:DeutschZ/ConvoyZ/Config/";
+    static const string SETTINGS_FILE = "$profile:DeutschZ/ConvoyZ/Config/Settings.json";
+    static const string EVENTS_FILE = "$profile:DeutschZ/ConvoyZ/Config/Events.json";
+    static const string LEGACY_SETTINGS_FILE = "$profile:DeutschZ/ConvoyZ/Settings.json";
+    static const string LEGACY_EVENTS_FILE = "$profile:DeutschZ/ConvoyZ/Events.json";
     static const string DATA_DIR = "$profile:DeutschZ/ConvoyZ/Data/";
     static const string LOG_DIR = "$profile:DeutschZ/ConvoyZ/Logs/";
     static const string CLAIMS_FILE = "$profile:DeutschZ/ConvoyZ/Data/RewardClaims.json";

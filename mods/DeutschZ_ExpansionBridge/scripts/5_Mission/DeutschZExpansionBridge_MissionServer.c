@@ -103,6 +103,8 @@ modded class MissionServer
         if (!GetGame() || !GetGame().IsServer())
             return;
 
+        DeutschZExpansionBridge_ConfigSafeBoot.Ensure();
+
         DeutschZExpansionBridge_MarkerProvider markerProvider = new DeutschZExpansionBridge_MarkerProvider();
         DeutschZExpansionBridge_NotificationProvider notificationProvider = new DeutschZExpansionBridge_NotificationProvider();
         DeutschZExpansionBridge_AIProvider aiProvider = new DeutschZExpansionBridge_AIProvider();

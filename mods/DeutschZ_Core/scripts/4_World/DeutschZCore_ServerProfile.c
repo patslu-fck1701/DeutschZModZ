@@ -9,14 +9,17 @@
 class DeutschZCore_ServerProfile
 {
     static const string CORE_PROFILE = "$profile:DeutschZ/Core/";
+    static const string CORE_CONFIG_PROFILE = "$profile:DeutschZ/Core/Config/";
     static const string EVENTS_PROFILE = "$profile:DeutschZ/Events/";
-    static const string CORE_CONFIG = "$profile:DeutschZ/Core/CoreConfig.json";
+    static const string CORE_CONFIG = "$profile:DeutschZ/Core/Config/CoreConfig.json";
+    static const string CORE_LEGACY_CONFIG = "$profile:DeutschZ/Core/CoreConfig.json";
 
     static void EnsureRoot()
     {
         MakeDirectory(DeutschZCore_Constants.ROOT_PROFILE);
         MakeDirectory(DeutschZCore_Constants.LOG_PROFILE);
         MakeDirectory(CORE_PROFILE);
+        MakeDirectory(CORE_CONFIG_PROFILE);
         MakeDirectory(EVENTS_PROFILE);
         EnsureCoreConfig();
     }
@@ -26,6 +29,8 @@ class DeutschZCore_ServerProfile
         if (FileExist(CORE_CONFIG))
             return;
 
+        // FIX CONFIG-AUTOGEN: Always create the canonical Config folder file on server boot.
+        // Existing legacy files in $profile:DeutschZ/Core/CoreConfig.json are left untouched for manual comparison.
         FileHandle file = OpenFile(CORE_CONFIG, FileMode.WRITE);
         if (file)
         {

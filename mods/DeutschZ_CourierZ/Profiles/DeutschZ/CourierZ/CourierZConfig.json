@@ -1,33 +1,33 @@
 {
     "ConfigVersion": 1,
-    "PresetName": "FIX43_DISTINCT_ROUTE_COURIERZ",
+    "PresetName": "COURIERZ_LIVE_NPC_ROUTE_CHAIN",
     "DeutschZEventSettings": {
         "Event": {
             "Enabled": 1,
             "MinOnlinePlayers": 1,
             "MaxSimultaneousEvents": 1,
             "MaxEventsPerRestart": 999,
-            "MaxRuntimeSeconds": 1800,
-            "CleanupDelaySeconds": 60,
+            "MaxRuntimeSeconds": 4200,
+            "CleanupDelaySeconds": 300,
             "DebugLogs": 1
         },
         "Scheduling": {
             "AutoStartAfterRestart": 1,
-            "StartDelayMinSeconds": 420,
-            "StartDelayMaxSeconds": 420,
+            "StartDelayMinSeconds": 3300,
+            "StartDelayMaxSeconds": 5100,
             "RestartAfterFinish": 1,
-            "RestartDelayMinSeconds": 1200,
-            "RestartDelayMaxSeconds": 1200,
-            "NoPlayerRetryDelaySeconds": 60
+            "RestartDelayMinSeconds": 3300,
+            "RestartDelayMaxSeconds": 5100,
+            "NoPlayerRetryDelaySeconds": 300
         },
         "Markers": {
             "Enabled": 1,
             "UseMapMarker": 1,
             "Use3DMarker": 1,
             "UseDynamicPositionUpdates": 1,
-            "UpdateIntervalSeconds": 10,
+            "UpdateIntervalSeconds": 20,
             "ShowEventRadius": 1,
-            "ShowCarrierMarker": 1,
+            "ShowCarrierMarker": 0,
             "ShowDroppedItemMarker": 1,
             "ShowFinalMarker": 1,
             "ShowExtractionMarker": 1,
@@ -42,49 +42,52 @@
             "UseVanillaNotifications": 1,
             "UseChatMessages": 1,
             "StatusNotifications": 1,
-            "StatusIntervalSeconds": 45
+            "StatusIntervalSeconds": 60
         },
         "Testing": {
-            "FastTestMode": 1,
-            "CaptureHoldSeconds": 30,
-            "RequiredKillsToWin": 3,
-            "HackDurationSeconds": 30,
-            "WaveDelaySeconds": 30,
+            "FastTestMode": 0,
+            "CaptureHoldSeconds": 120,
+            "RequiredKillsToWin": 6,
+            "HackDurationSeconds": 45,
+            "WaveDelaySeconds": 60,
             "StageAutoCompleteSeconds": 0,
-            "FinalDefenseSeconds": 120,
-            "ExtractionDurationSeconds": 30
+            "FinalDefenseSeconds": 240,
+            "ExtractionDurationSeconds": 60
         }
     },
     "Courier": {
-        "RequireQuestItem": 0,
-        "RequireContactNPC": 0,
-        "EnableCourierPvPMarker": 1,
+        "RequireQuestItem": 1,
+        "RequireContactNPC": 1,
+        "EnableCourierPvPMarker": 0,
         "CarrierOnlyKnowsDestination": 1,
         "PublicCarrierMarkerDelaySeconds": 300,
         "DropCaseOnDeath": 1,
         "DropCaseOnLogout": 1,
         "PreventStorageTransfer": 1,
-        "DeliveryTimeLimitSeconds": 2400,
+        "DeliveryTimeLimitSeconds": 4200,
         "AllowPickupByOtherPlayers": 1,
         "RewardOnDelivery": 1,
         "FailOnTimeExpired": 1,
         "CleanupDroppedCaseAfterSeconds": 1800,
         "PickupRadius": 5.0,
-        "DeliveryRadius": 10.0,
-        "EnemySpawnRadius": 35.0
+        "DeliveryRadius": 6.0,
+        "EnemySpawnRadius": 80.0
     },
     "ContactPosition": "3120 0 9280",
     "DeliveryPosition": "12140 0 12640",
     "ContactOrientation": "0 0 0",
     "DeliveryOrientation": "0 0 0",
-    "CaseClassName": "DZCR_Aktenkoffer",
+    "CaseClassName": "DZCR_SealedCourierCase",
     "RewardChestClassName": "DZCR_RewardChest",
     "EnemyClassName": "ZmbM_usSoldier_Officer_Desert",
-    "StartEnemyCount": 3,
-    "DeliveryEnemyCount": 4,
+    "StartEnemyCount": 4,
+    "DeliveryEnemyCount": 8,
     "RewardItems": [
-        "BandageDressing",
-        "TacticalBaconCan",
-        "Ammo_556x45"
+        "DZCR_DeliveryStamp",
+        "DZCR_CipherDocument",
+        "DZOP_CipherFragment_Courier",
+        "DZOP_RouteNote_Courier",
+        "Ammo_556x45",
+        "TacticalBaconCan"
     ]
 }
