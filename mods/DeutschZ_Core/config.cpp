@@ -2,11 +2,7 @@ class CfgPatches
 {
     class DeutschZ_Core
     {
-<<<<<<< HEAD
         units[] = {"DZ_EventToken", "DZ_BossDogtag", "DZ_RedZChip", "DZ_BrokenTransmitter", "DZ_BloodSample", "DZ_ContainmentSeal", "DZ_TacticalCase", "DZ_RewardKey", "DZ_SupplyVoucher", "DZ_HazardCanister", "DZ_MilitaryLedger", "DZ_SecureSSD", "DZ_FieldNote", "DZ_AccessFuse", "DZ_SignalBattery", "DZ_RadioCrystal", "DZ_EventCore", "DZ_RedSmokeBeacon", "DZOP_Keycard_ConvoyAlpha", "DZOP_ConvoyLeadNote", "DZOP_TreasureMapFragment_A", "DZOP_DamagedCardReader", "DZOP_DecodedKeycard", "DZOP_OperationTreasureMap", "DZOP_TreasureMapFragment_B", "DZOP_CipherFragment_Courier", "DZOP_RouteNote_Courier", "DZOP_TechnicalFragment_GroundZero", "DZOP_SignalFragment_KotHZ", "DZOP_BurnedNote", "DZOP_DestroyedBlackBox", "DZOP_EncryptedSignalCore"};
-=======
-        units[] = {"DZ_EventToken", "DZ_BossDogtag", "DZ_RedZChip", "DZ_BrokenTransmitter", "DZ_BloodSample", "DZ_ContainmentSeal", "DZ_TacticalCase", "DZ_RewardKey", "DZ_SupplyVoucher", "DZ_HazardCanister", "DZ_MilitaryLedger", "DZ_SecureSSD", "DZ_FieldNote", "DZ_AccessFuse", "DZ_SignalBattery", "DZ_RadioCrystal", "DZ_EventCore", "DZ_RedSmokeBeacon", "DZOP_Keycard_ConvoyAlpha", "DZOP_ConvoyLeadNote", "DZOP_TreasureMapFragment_A", "DZOP_DamagedCardReader", "DZOP_DecodedKeycard", "DZOP_OperationTreasureMap"};
->>>>>>> 39fa93c734f52a69c045816aa7b5632b5a10d772
         weapons[] = {};
         requiredVersion = 0.1;
         requiredAddons[] = {"DZ_Data", "DZ_Scripts", "DZ_Gear_Containers", "DZ_Gear_Navigation", "DZ_Gear_Consumables", "DZ_Gear_Medical", "DZ_Gear_Tools"};
@@ -222,13 +218,8 @@ class CfgVehicles
     class DZOP_Keycard_ConvoyAlpha: PunchedCard
     {
         scope = 2;
-<<<<<<< HEAD
         displayName = "OperationDeutschZ Convoy-Alpha-Keycard";
         descriptionShort = "Alpha-Keycard aus ConvoyZ. Hochwertiges OperationDeutschZ-Progressitem; behalten ist wahrscheinlich wertvoller als verkaufen.";
-=======
-        displayName = "DeutschZ Operation Keycard Alpha";
-        descriptionShort = "Konvoi-Keycard fuer OperationDeutschZ. Nicht verkaufen. Sie kann spaeter mit einem Cardreader kombiniert werden.";
->>>>>>> 39fa93c734f52a69c045816aa7b5632b5a10d772
         itemSize[] = {1, 1};
         weight = 35;
     };
@@ -236,13 +227,8 @@ class CfgVehicles
     class DZOP_ConvoyLeadNote: Paper
     {
         scope = 2;
-<<<<<<< HEAD
         displayName = "OperationDeutschZ Convoy-Leitnotiz";
         descriptionShort = "Notiz aus ConvoyZ mit Verweisen auf eine groessere Operation.";
-=======
-        displayName = "DeutschZ Operation Hinweisnotiz";
-        descriptionShort = "Notiz des Kontaktmanns: Behalte das mal. Das kann spaeter noch wichtig sein.";
->>>>>>> 39fa93c734f52a69c045816aa7b5632b5a10d772
         itemSize[] = {1, 1};
         weight = 10;
     };
@@ -250,13 +236,8 @@ class CfgVehicles
     class DZOP_TreasureMapFragment_A: Paper
     {
         scope = 2;
-<<<<<<< HEAD
         displayName = "OperationDeutschZ Kartenfragment A";
         descriptionShort = "Verbranntes Kartenfragment aus einem unbekannten Signal. Behalten ist wahrscheinlich wertvoller als verkaufen.";
-=======
-        displayName = "DeutschZ Schatzkartenfragment A";
-        descriptionShort = "Zerrissenes Kartenfragment aus der OperationDeutschZ-Kette.";
->>>>>>> 39fa93c734f52a69c045816aa7b5632b5a10d772
         itemSize[] = {1, 2};
         weight = 20;
     };
@@ -264,13 +245,8 @@ class CfgVehicles
     class DZOP_DamagedCardReader: ElectronicRepairKit
     {
         scope = 2;
-<<<<<<< HEAD
         displayName = "OperationDeutschZ beschaedigter CardReader";
         descriptionShort = "Beschaedigter Reader aus GroundZero. Zusammen mit der Convoy-Alpha-Keycard fuer die Kampagnenkette vorbereitet.";
-=======
-        displayName = "DeutschZ beschaedigter Cardreader";
-        descriptionShort = "Beschaedigter Cardreader aus einer anderen Operation. Spaeter kombinierbar mit Keycards.";
->>>>>>> 39fa93c734f52a69c045816aa7b5632b5a10d772
         itemSize[] = {2, 2};
         weight = 420;
     };
@@ -278,13 +254,8 @@ class CfgVehicles
     class DZOP_DecodedKeycard: PunchedCard
     {
         scope = 2;
-<<<<<<< HEAD
         displayName = "OperationDeutschZ dekodierte Keycard";
         descriptionShort = "Dekodierte Keycard fuer spaetere OperationDeutschZ-Kombinationen und Finalfreigaben.";
-=======
-        displayName = "DeutschZ entschluesselte Keycard";
-        descriptionShort = "Aus Keycard und Cardreader entschluesselte OperationDeutschZ-Zugangskarte.";
->>>>>>> 39fa93c734f52a69c045816aa7b5632b5a10d772
         itemSize[] = {1, 1};
         weight = 35;
     };
@@ -292,18 +263,12 @@ class CfgVehicles
     class DZOP_OperationTreasureMap: Paper
     {
         scope = 2;
-<<<<<<< HEAD
         displayName = "OperationDeutschZ Schatzkarte";
         descriptionShort = "Finale Schatzkarte der OperationDeutschZ-Kette. Event-only, kein normaler Mapspawn.";
-=======
-        displayName = "DeutschZ Operations-Schatzkarte";
-        descriptionShort = "Zusammengesetzte Karte fuer ein spaeteres Depot, Finale oder VIP-Ziel.";
->>>>>>> 39fa93c734f52a69c045816aa7b5632b5a10d772
         itemSize[] = {2, 2};
         weight = 30;
     };
 
-<<<<<<< HEAD
     class DZOP_TreasureMapFragment_B: Paper
     {
         scope = 2;
@@ -377,6 +342,3 @@ class CfgVehicles
     };
 
 };
-=======
-};
->>>>>>> 39fa93c734f52a69c045816aa7b5632b5a10d772

@@ -1,0 +1,2 @@
+﻿DeutschZ Online-Testserver Package Report Runde 1 - 2026-06-23T11:27:15.7499090+02:00
+FEHLER: DeutschZ_Core: config.cpp Klammern unbalanciert: {=81 }=82

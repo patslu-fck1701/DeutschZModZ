@@ -1,0 +1,29 @@
+﻿DeutschZ Config.cpp Report Runde 1 - 2026-06-23T11:28:26.1596020+02:00
+DeutschZ_Core config.cpp Pflichtmuster OK
+DeutschZ_Core scripts/3_Game vorhanden
+DeutschZ_Core scripts/4_World vorhanden
+DeutschZ_Core scripts/5_Mission vorhanden
+DeutschZ_ExpansionBridge config.cpp Pflichtmuster OK
+DeutschZ_ExpansionBridge scripts/3_Game vorhanden
+DeutschZ_ExpansionBridge scripts/4_World vorhanden
+DeutschZ_ExpansionBridge scripts/5_Mission vorhanden
+DeutschZ_KotHZ config.cpp Pflichtmuster OK
+DeutschZ_KotHZ scripts/3_Game vorhanden
+DeutschZ_KotHZ scripts/4_World vorhanden
+DeutschZ_KotHZ scripts/5_Mission vorhanden
+DeutschZ_ConvoyZ config.cpp Pflichtmuster OK
+DeutschZ_ConvoyZ scripts/3_Game vorhanden
+DeutschZ_ConvoyZ scripts/4_World vorhanden
+DeutschZ_ConvoyZ scripts/5_Mission vorhanden
+DeutschZ_GroundZero config.cpp Pflichtmuster OK
+DeutschZ_GroundZero scripts/3_Game vorhanden
+DeutschZ_GroundZero scripts/4_World vorhanden
+DeutschZ_GroundZero scripts/5_Mission vorhanden
+DeutschZ_CourierZ config.cpp Pflichtmuster OK
+DeutschZ_CourierZ scripts/3_Game vorhanden
+DeutschZ_CourierZ scripts/4_World vorhanden
+DeutschZ_CourierZ scripts/5_Mission vorhanden
+DeutschZ_OperationDeutschZ config.cpp Pflichtmuster OK
+DeutschZ_OperationDeutschZ scripts/3_Game vorhanden
+DeutschZ_OperationDeutschZ scripts/4_World vorhanden
+DeutschZ_OperationDeutschZ scripts/5_Mission vorhanden

@@ -1,0 +1,9 @@
+﻿DeutschZ Source Validation Report Runde 1 - 2026-06-23T11:27:15.6677299+02:00
+Mode: Validate
+RunDir: P:\GitHub_DeutschZModZ\DeutschZModZ\local_test_results\2026-06-23_11-27-15
+RepoRoot OK: P:\GitHub_DeutschZModZ\DeutschZModZ
+ServerRoot OK: F:\Programme\steamapps\common\DayZServer
+DeployRoot OK: P:\ReadyMods
+Start-Batch unveraendert verwendet: F:\Programme\steamapps\common\DayZServer\start.bat
+Batch-Modline: @CF;@Dabs Framework;@DayZ-Expansion-Bundle;@DayZ-Expansion-Licensed;@SNAFU Weapons;@DeutschZ_Core;@DeutschZ_ExpansionBridge;@DeutschZ_KotHZ;@DeutschZ_ConvoyZ;@DeutschZ_GroundZero;@DeutschZ_CourierZ
+FEHLER: DeutschZ_Core: config.cpp Klammern unbalanciert: {=81 }=82

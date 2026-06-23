@@ -1,0 +1,6 @@
+﻿DeutschZ Config.cpp Report Runde 1 - 2026-06-23T11:27:15.7039522+02:00
+DeutschZ_Core config.cpp Pflichtmuster OK
+DeutschZ_Core scripts/3_Game vorhanden
+DeutschZ_Core scripts/4_World vorhanden
+DeutschZ_Core scripts/5_Mission vorhanden
+FEHLER: DeutschZ_Core: config.cpp Klammern unbalanciert: {=81 }=82
