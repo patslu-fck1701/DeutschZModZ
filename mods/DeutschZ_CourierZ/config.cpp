@@ -12,7 +12,7 @@ class CfgPatches
 {
     class DeutschZ_CourierZ
     {
-        units[] = {"DZCR_SealedLetter", "DZCR_ClassifiedDocument", "DZCR_EncryptedDataDrive", "DZCR_SecretOrder", "DZCR_Aktenkoffer", "DZCR_RewardChest", "DZ_CourierZ_Briefcase", "DZ_CourierZ_SealedCourierFolder", "DZ_CourierZ_SecretDeliveryContract", "DZ_CourierZ_GPSTracker", "DZ_CourierZ_CourierSeal", "DZ_CourierZ_BlackMarketReceipt"};
+        units[] = {"DZCR_SealedLetter", "DZCR_ClassifiedDocument", "DZCR_EncryptedDataDrive", "DZCR_SecretOrder", "DZCR_Aktenkoffer", "DZCR_RewardChest", "DZCR_SealedCourierCase", "DZCR_CourierPackage", "DZCR_DeliveryStamp", "DZCR_CipherDocument", "DZ_CourierZ_Briefcase", "DZ_CourierZ_SealedCourierFolder", "DZ_CourierZ_SecretDeliveryContract", "DZ_CourierZ_GPSTracker", "DZ_CourierZ_CourierSeal", "DZ_CourierZ_BlackMarketReceipt"};
         weapons[] = {};
         requiredVersion = 0.1;
         requiredAddons[] = {"DZ_Data", "DZ_Scripts", "DZ_Gear_Containers", "DZ_Gear_Navigation", "DZ_Gear_Consumables", "DeutschZ_Core", "DeutschZ_ExpansionBridge"};
@@ -32,7 +32,7 @@ class CfgMods
         credits = "Owner: Patrick Sluzalek / Player: fck1701 / Server: DeutschZ";
         author = "Patrick Sluzalek / fck1701";
         authorID = "0";
-        version = "0.1.7-fix45-event-items";
+        version = "0.9.4-campaign-chain-test";
         extra = 0;
         type = "mod";
         dependencies[] = {"Game", "World", "Mission"};
@@ -114,6 +114,44 @@ class CfgVehicles
         weight = 2500;
         canBeSplit = 0;
         quantityBar = 0;
+    };
+
+    class DZCR_SealedCourierCase: DZCR_Aktenkoffer
+    {
+        scope = 2;
+        displayName = "DeutschZ versiegelter Kurierkoffer";
+        descriptionShort = "Versiegelter CourierZ-Koffer fuer mehrstufige NPC-Uebergaben. Zielobjekt, kein normaler Mapspawn.";
+    };
+
+    class DZCR_CourierPackage: SmallProtectorCase
+    {
+        scope = 2;
+        displayName = "DeutschZ CourierZ Lieferpaket";
+        descriptionShort = "Versiegeltes Lieferpaket fuer CourierZ-Routen. Nur durch Eventlogik oder Adminspawn vorgesehen.";
+        model = "DeutschZ_CourierZ/Assets/Case/protector_case.p3d";
+        hiddenSelections[] = {"camo"};
+        hiddenSelectionsTextures[] = {"DeutschZ_CourierZ/Assets/Case/Case.paa"};
+        itemSize[] = {3, 2};
+        weight = 1800;
+        canBeSplit = 0;
+    };
+
+    class DZCR_DeliveryStamp: Paper
+    {
+        scope = 2;
+        displayName = "DeutschZ CourierZ Lieferstempel";
+        descriptionShort = "Nachweis einer bestaetigten CourierZ-Uebergabe. Hochwertiges Event- und Traderitem.";
+        itemSize[] = {1, 1};
+        weight = 10;
+    };
+
+    class DZCR_CipherDocument: Paper
+    {
+        scope = 2;
+        displayName = "DeutschZ CourierZ Chiffredokument";
+        descriptionShort = "Verschluesseltes Kurierdokument mit OperationDeutschZ-Bezug. Behalten ist wahrscheinlich wertvoller als verkaufen.";
+        itemSize[] = {1, 2};
+        weight = 25;
     };
 
     class DZCR_RewardChest: SeaChest

@@ -2,7 +2,7 @@ class CfgPatches
 {
     class DeutschZ_Core
     {
-        units[] = {"DZ_EventToken", "DZ_BossDogtag", "DZ_RedZChip", "DZ_BrokenTransmitter", "DZ_BloodSample", "DZ_ContainmentSeal", "DZ_TacticalCase", "DZ_RewardKey", "DZ_SupplyVoucher", "DZ_HazardCanister", "DZ_MilitaryLedger", "DZ_SecureSSD", "DZ_FieldNote", "DZ_AccessFuse", "DZ_SignalBattery", "DZ_RadioCrystal", "DZ_EventCore", "DZ_RedSmokeBeacon"};
+        units[] = {"DZ_EventToken", "DZ_BossDogtag", "DZ_RedZChip", "DZ_BrokenTransmitter", "DZ_BloodSample", "DZ_ContainmentSeal", "DZ_TacticalCase", "DZ_RewardKey", "DZ_SupplyVoucher", "DZ_HazardCanister", "DZ_MilitaryLedger", "DZ_SecureSSD", "DZ_FieldNote", "DZ_AccessFuse", "DZ_SignalBattery", "DZ_RadioCrystal", "DZ_EventCore", "DZ_RedSmokeBeacon", "DZOP_Keycard_ConvoyAlpha", "DZOP_ConvoyLeadNote", "DZOP_TreasureMapFragment_A", "DZOP_DamagedCardReader", "DZOP_DecodedKeycard", "DZOP_OperationTreasureMap", "DZOP_TreasureMapFragment_B", "DZOP_CipherFragment_Courier", "DZOP_RouteNote_Courier", "DZOP_TechnicalFragment_GroundZero", "DZOP_SignalFragment_KotHZ", "DZOP_BurnedNote", "DZOP_DestroyedBlackBox", "DZOP_EncryptedSignalCore"};
         weapons[] = {};
         requiredVersion = 0.1;
         requiredAddons[] = {"DZ_Data", "DZ_Scripts", "DZ_Gear_Containers", "DZ_Gear_Navigation", "DZ_Gear_Consumables", "DZ_Gear_Medical", "DZ_Gear_Tools"};
@@ -214,4 +214,131 @@ class CfgVehicles
         itemSize[] = {2, 2};
         weight = 650;
     };
+
+    class DZOP_Keycard_ConvoyAlpha: PunchedCard
+    {
+        scope = 2;
+        displayName = "OperationDeutschZ Convoy-Alpha-Keycard";
+        descriptionShort = "Alpha-Keycard aus ConvoyZ. Hochwertiges OperationDeutschZ-Progressitem; behalten ist wahrscheinlich wertvoller als verkaufen.";
+        itemSize[] = {1, 1};
+        weight = 35;
+    };
+
+    class DZOP_ConvoyLeadNote: Paper
+    {
+        scope = 2;
+        displayName = "OperationDeutschZ Convoy-Leitnotiz";
+        descriptionShort = "Notiz aus ConvoyZ mit Verweisen auf eine groessere Operation.";
+        itemSize[] = {1, 1};
+        weight = 10;
+    };
+
+    class DZOP_TreasureMapFragment_A: Paper
+    {
+        scope = 2;
+        displayName = "OperationDeutschZ Kartenfragment A";
+        descriptionShort = "Verbranntes Kartenfragment aus einem unbekannten Signal. Behalten ist wahrscheinlich wertvoller als verkaufen.";
+        itemSize[] = {1, 2};
+        weight = 20;
+    };
+
+    class DZOP_DamagedCardReader: ElectronicRepairKit
+    {
+        scope = 2;
+        displayName = "OperationDeutschZ beschaedigter CardReader";
+        descriptionShort = "Beschaedigter Reader aus GroundZero. Zusammen mit der Convoy-Alpha-Keycard fuer die Kampagnenkette vorbereitet.";
+        itemSize[] = {2, 2};
+        weight = 420;
+    };
+
+    class DZOP_DecodedKeycard: PunchedCard
+    {
+        scope = 2;
+        displayName = "OperationDeutschZ dekodierte Keycard";
+        descriptionShort = "Dekodierte Keycard fuer spaetere OperationDeutschZ-Kombinationen und Finalfreigaben.";
+        itemSize[] = {1, 1};
+        weight = 35;
+    };
+
+    class DZOP_OperationTreasureMap: Paper
+    {
+        scope = 2;
+        displayName = "OperationDeutschZ Schatzkarte";
+        descriptionShort = "Finale Schatzkarte der OperationDeutschZ-Kette. Event-only, kein normaler Mapspawn.";
+        itemSize[] = {2, 2};
+        weight = 30;
+    };
+
+    class DZOP_TreasureMapFragment_B: Paper
+    {
+        scope = 2;
+        displayName = "OperationDeutschZ Kartenfragment B";
+        descriptionShort = "Zusammengesetztes Kartenfragment fuer den fortgeschrittenen Kampagnenfortschritt.";
+        itemSize[] = {1, 2};
+        weight = 15;
+    };
+
+    class DZOP_CipherFragment_Courier: Paper
+    {
+        scope = 2;
+        displayName = "OperationDeutschZ Courier-Chiffrefragment";
+        descriptionShort = "Chiffrefragment aus CourierZ. Teil der spaeteren OperationDeutschZ-Kombination.";
+        itemSize[] = {1, 1};
+        weight = 10;
+    };
+
+    class DZOP_RouteNote_Courier: Paper
+    {
+        scope = 2;
+        displayName = "OperationDeutschZ Courier-Routennotiz";
+        descriptionShort = "Routennotiz mit verschleierter Uebergabekette aus CourierZ.";
+        itemSize[] = {1, 1};
+        weight = 10;
+    };
+
+    class DZOP_TechnicalFragment_GroundZero: ElectronicRepairKit
+    {
+        scope = 2;
+        displayName = "OperationDeutschZ GroundZero-Technikfragment";
+        descriptionShort = "Technisches Fragment aus GroundZero. Kann als Generator- oder Decoderteil genutzt werden.";
+        itemSize[] = {1, 2};
+        weight = 220;
+    };
+
+    class DZOP_SignalFragment_KotHZ: GPSReceiver
+    {
+        scope = 2;
+        displayName = "OperationDeutschZ KotHZ-Signalfragment";
+        descriptionShort = "Signalfragment aus KotHZ. Fuehrt die roten Signale in die OperationDeutschZ-Kette.";
+        itemSize[] = {1, 1};
+        weight = 80;
+    };
+
+    class DZOP_BurnedNote: Paper
+    {
+        scope = 2;
+        displayName = "OperationDeutschZ verbrannte Notiz";
+        descriptionShort = "Angebrannte Notiz mit einem kaum lesbaren Hinweis: Wenn der Himmel schweigt, spricht der Boden.";
+        itemSize[] = {1, 1};
+        weight = 5;
+    };
+
+    class DZOP_DestroyedBlackBox: GPSReceiver
+    {
+        scope = 2;
+        displayName = "OperationDeutschZ zerstoerte Blackbox";
+        descriptionShort = "Zerstoerte Blackbox eines unbekannten Signals. Startfund fuer OperationDeutschZ.";
+        itemSize[] = {2, 2};
+        weight = 900;
+    };
+
+    class DZOP_EncryptedSignalCore: GPSReceiver
+    {
+        scope = 2;
+        displayName = "OperationDeutschZ verschluesselter Signalkern";
+        descriptionShort = "Verschluesselter Signalkern fuer spaetere Final- und Depotlogik.";
+        itemSize[] = {2, 2};
+        weight = 700;
+    };
+
 };

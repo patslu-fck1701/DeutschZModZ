@@ -1,0 +1,4 @@
+DZCV_SNAFU_Recon: SNAFU_MK18_Black / light armor / patrol kit
+DZCV_SNAFU_Assault: SNAFU_HK416_Black / plate carrier / assault optic
+DZCV_SNAFU_Heavy: Snafu_ScarH_Black_GUN / heavy plate / long optic
+Fallbacks remain vanilla-safe if SNAFU classnames differ.

@@ -6,6 +6,9 @@ class CourierZPersistence
     {
         MakeDirectory("$profile:DeutschZ");
         MakeDirectory(CourierZConstants.PROFILE_ROOT);
+        MakeDirectory(CourierZConstants.CONFIG_DIR);
+        MakeDirectory(CourierZConstants.DATA_DIR);
+        MakeDirectory(CourierZConstants.LOG_DIR);
     }
 
     static CourierZState LoadState()

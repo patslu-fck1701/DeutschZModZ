@@ -34,6 +34,8 @@ class DeutschZConvoyZCleanupManager
         DeleteArray(state.SpawnedRewards);
         DeleteArray(state.SmokeObjects);
         DeutschZConvoyZ_RemoveEventMarker(state.EventId);
+        DeutschZConvoyZ_RemoveEventMarker(state.EventId + "_carrier");
+        DeutschZConvoyZ_RemoveEventMarker(state.EventId + "_delivery");
         DeutschZConvoyZ_AIProviderCleanupForEvent(state.EventId, reason);
         
         string eid = state.EventId;

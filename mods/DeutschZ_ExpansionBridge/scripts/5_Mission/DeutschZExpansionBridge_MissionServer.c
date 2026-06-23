@@ -91,41 +91,39 @@ class DeutschZExpansionBridge_NotificationProvider: DeutschZCore_NotificationPro
     }
 }
 
-static int g_DeutschZExpansionBridge_Registered;
-
-void DeutschZExpansionBridge_RegisterProviders(string source)
-{
-    if (!GetGame() || !GetGame().IsServer())
-        return;
-
-    if (g_DeutschZExpansionBridge_Registered == 1)
-        return;
-
-    g_DeutschZExpansionBridge_Registered = 1;
-
-    DeutschZCore_ServiceLocator.RegisterMarkerProvider(new DeutschZExpansionBridge_MarkerProvider);
-    DeutschZCore_ServiceLocator.RegisterNotificationProvider(new DeutschZExpansionBridge_NotificationProvider);
-    DeutschZCore_ServiceLocator.RegisterAIProvider(new DeutschZExpansionBridge_AIProvider);
-    DeutschZCore_Log.Info("ExpansionBridge", "providers registered source=" + source);
-    Print("[DeutschZ_ExpansionBridge] providers registered source=" + source);
-}
-
 modded class MissionServer
 {
     void MissionServer()
     {
-        DeutschZExpansionBridge_RegisterProviders("MissionServer constructor");
+        DeutschZExpansionBridge_RegisterProvidersSafe("MissionServer constructor");
+    }
+
+    protected void DeutschZExpansionBridge_RegisterProvidersSafe(string source)
+    {
+        if (!GetGame() || !GetGame().IsServer())
+            return;
+
+        DeutschZExpansionBridge_MarkerProvider markerProvider = new DeutschZExpansionBridge_MarkerProvider();
+        DeutschZExpansionBridge_NotificationProvider notificationProvider = new DeutschZExpansionBridge_NotificationProvider();
+        DeutschZExpansionBridge_AIProvider aiProvider = new DeutschZExpansionBridge_AIProvider();
+
+        DeutschZCore_ServiceLocator.RegisterMarkerProvider(markerProvider);
+        DeutschZCore_ServiceLocator.RegisterNotificationProvider(notificationProvider);
+        DeutschZCore_ServiceLocator.RegisterAIProvider(aiProvider);
+
+        DeutschZCore_Log.Info("ExpansionBridge", "providers registered source=" + source);
+        Print("[DeutschZ_ExpansionBridge] providers registered source=" + source);
     }
 
     override void OnInit()
     {
         super.OnInit();
-        DeutschZExpansionBridge_RegisterProviders("MissionServer OnInit");
+        DeutschZExpansionBridge_RegisterProvidersSafe("MissionServer OnInit");
     }
 
     override void OnMissionStart()
     {
         super.OnMissionStart();
-        DeutschZExpansionBridge_RegisterProviders("MissionServer OnMissionStart");
+        DeutschZExpansionBridge_RegisterProvidersSafe("MissionServer OnMissionStart");
     }
 }

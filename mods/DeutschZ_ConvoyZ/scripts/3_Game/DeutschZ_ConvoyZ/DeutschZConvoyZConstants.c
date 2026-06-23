@@ -31,6 +31,9 @@ class DeutschZConvoyZConstants
     static const int STATE_REWARD_UNLOCKED = 5;
     static const int STATE_CLEANUP = 6;
     static const int STATE_FAILED = 7;
+    static const int STATE_BLACKBOX_CARRIED = 8;
+    static const int STATE_DELIVERY_ACTIVE = 9;
+    static const int STATE_DELIVERED = 10;
 
     static const string SMOKE_RED = "RED";
     static const string SMOKE_YELLOW = "YELLOW";
@@ -49,6 +52,9 @@ string DeutschZConvoyZ_StateName(int state)
     if (state == DeutschZConvoyZConstants.STATE_REWARD_UNLOCKED) return "REWARD_UNLOCKED";
     if (state == DeutschZConvoyZConstants.STATE_CLEANUP) return "CLEANUP";
     if (state == DeutschZConvoyZConstants.STATE_FAILED) return "FAILED";
+    if (state == DeutschZConvoyZConstants.STATE_BLACKBOX_CARRIED) return "BLACKBOX_CARRIED";
+    if (state == DeutschZConvoyZConstants.STATE_DELIVERY_ACTIVE) return "DELIVERY_ACTIVE";
+    if (state == DeutschZConvoyZConstants.STATE_DELIVERED) return "DELIVERED";
     return "NONE";
 }
 

@@ -52,8 +52,8 @@ class GroundZeroEventCoreSettings
         MinOnlinePlayers = 1;
         MaxSimultaneousEvents = 1;
         MaxEventsPerRestart = 999;
-        MaxRuntimeSeconds = 1800;
-        CleanupDelaySeconds = 60;
+        MaxRuntimeSeconds = 5400;
+        CleanupDelaySeconds = 300;
         DebugLogs = 1;
     }
 
@@ -82,12 +82,12 @@ class GroundZeroEventSchedulingSettings
     void GroundZeroEventSchedulingSettings()
     {
         AutoStartAfterRestart = 1;
-        StartDelayMinSeconds = 300;
-        StartDelayMaxSeconds = 300;
+        StartDelayMinSeconds = 4200;
+        StartDelayMaxSeconds = 6600;
         RestartAfterFinish = 1;
-        RestartDelayMinSeconds = 1200;
-        RestartDelayMaxSeconds = 1200;
-        NoPlayerRetryDelaySeconds = 60;
+        RestartDelayMinSeconds = 4200;
+        RestartDelayMaxSeconds = 6600;
+        NoPlayerRetryDelaySeconds = 600;
     }
 
     void Repair()
@@ -125,7 +125,7 @@ class GroundZeroEventMarkerSettings
         UseMapMarker = 1;
         Use3DMarker = 1;
         UseDynamicPositionUpdates = 1;
-        UpdateIntervalSeconds = 10;
+        UpdateIntervalSeconds = 30;
         ShowEventRadius = 1;
         ShowCarrierMarker = 1;
         ShowDroppedItemMarker = 1;
@@ -241,14 +241,14 @@ class GroundZeroEventTestingSettings
 
     void GroundZeroEventTestingSettings()
     {
-        FastTestMode = 1;
-        CaptureHoldSeconds = 45;
-        RequiredKillsToWin = 4;
-        HackDurationSeconds = 30;
-        WaveDelaySeconds = 30;
+        FastTestMode = 0;
+        CaptureHoldSeconds = 420;
+        RequiredKillsToWin = 12;
+        HackDurationSeconds = 90;
+        WaveDelaySeconds = 90;
         StageAutoCompleteSeconds = 0;
-        FinalDefenseSeconds = 180;
-        ExtractionDurationSeconds = 30;
+        FinalDefenseSeconds = 420;
+        ExtractionDurationSeconds = 60;
     }
 
     void Repair()
@@ -279,8 +279,8 @@ class GroundZeroEventSettings
     void GroundZeroEventSettings()
     {
         SchemaVersion = 1;
-        PresetName = "FAST_TEST";
-        ConfigMode = "FastRestartTest";
+        PresetName = "GROUNDZERO_LIVE_CAMPAIGN_CHAIN";
+        ConfigMode = "LiveCampaignChain";
         Event = new GroundZeroEventCoreSettings();
         Scheduling = new GroundZeroEventSchedulingSettings();
         Markers = new GroundZeroEventMarkerSettings();
@@ -293,8 +293,8 @@ class GroundZeroEventSettings
     void Repair(string fallbackName, string fallbackIcon, string fallbackPrefix)
     {
         if (SchemaVersion < 1) SchemaVersion = 1;
-        if (PresetName == "") PresetName = "FAST_TEST";
-        if (ConfigMode == "") ConfigMode = "FastRestartTest";
+        if (PresetName == "") PresetName = "GROUNDZERO_LIVE_CAMPAIGN_CHAIN";
+        if (ConfigMode == "") ConfigMode = "LiveCampaignChain";
         if (!Event) Event = new GroundZeroEventCoreSettings();
         if (!Scheduling) Scheduling = new GroundZeroEventSchedulingSettings();
         if (!Markers) Markers = new GroundZeroEventMarkerSettings();
@@ -534,13 +534,13 @@ class GroundZeroConfig
         ConfigVersion = 6;
         EnableGroundZero = true;
         AutoStartEnabled = true;
-        AutoStartMinDelaySeconds = 300;
-        AutoStartMaxDelaySeconds = 300;
+        AutoStartMinDelaySeconds = 4200;
+        AutoStartMaxDelaySeconds = 6600;
         MinOnlinePlayersToAutoStart = 1;
 
         EventMinDurationSeconds = 2700;
         EventMaxDurationSeconds = 5400;
-        EventCleanupDelaySeconds = 60;
+        EventCleanupDelaySeconds = 300;
 
         AllowTimedObjectiveFallback = false;
         RetryLimitPerEvent = 3;
@@ -553,9 +553,9 @@ class GroundZeroConfig
         RetryMinimalLoadout.Insert("StoneKnife");
         RetryMinimalLoadout.Insert("WaterBottle");
 
-        CarrierMarkerUpdateSeconds = 60;
-        CarrierDropMarkerUpdateSeconds = 60;
-        MarkerUpdateIntervalSeconds = 10;
+        CarrierMarkerUpdateSeconds = 30;
+        CarrierDropMarkerUpdateSeconds = 30;
+        MarkerUpdateIntervalSeconds = 30;
         MaxActiveInfected = 25;
         MaxSpawnPerBatch = 5;
         SpawnBatchDelaySeconds = 8;
@@ -595,8 +595,8 @@ class GroundZeroConfig
         BossPhaseThreeHealthPercent = 0.33;
 
         FinalActivationSeconds = 30;
-        FinalDefenseSeconds = 900;
-        ExtractionDurationSeconds = 180;
+        FinalDefenseSeconds = 420;
+        ExtractionDurationSeconds = 60;
         ExtractionRadius = 25;
 
         EnableRewards = true;
@@ -620,11 +620,11 @@ class GroundZeroConfig
     void BuildDefaultStages()
     {
         Stages.Clear();
-        AddStage(1, "Signalstation", "Funkstation sichern", ItemAlphaDataModule, 1, 4, 0, 0, 90, 0, false);
-        AddStage(2, "Generatorstation", "Generatorbereich sichern", ItemEnergyCell, 2, 4, 0, 0, 100, 0, false);
-        AddStage(3, "Forschungsstation", "Forschungsbereich sichern", ItemBioSample, 3, 5, 0, 0, 110, 0, false);
-        AddStage(4, "Absturzstelle", "Absturzstelle sichern", ItemAuthChip, 4, 5, 0, 0, 120, 0, false);
-        AddStage(5, "Verseuchte Zone", "Containment-Zone sichern", ItemContainmentKey, 5, 6, 0, 0, 130, 0, false);
+        AddStage(1, "Signalstation", "Signalquelle untersuchen und Datenfragment sichern", ItemAlphaDataModule, 1, 4, 0, 0, 120, 60, true);
+        AddStage(2, "Generatorstation", "Generator pruefen: Spezialteil erforderlich", "DZOP_TechnicalFragment_GroundZero", 2, 4, 0, 0, 120, 60, true);
+        AddStage(3, "Hold-Zone", "Zone halten, letzte Welle traegt das Generator-Zuendmodul", "DZGZ_GeneratorSparkPlug", 3, 12, 0, 0, 35, 420, true);
+        AddStage(4, "Datenterminal", "Containment-Protokoll laden und Forschungsdaten extrahieren", "DZGZ_EncryptedResearchData", 4, 8, 0, 0, 120, 90, true);
+        AddStage(5, "Containment Cache", "Probe sichern, CardReader bergen und finalen Cache freigeben", "DZOP_DamagedCardReader", 5, 10, 0, 0, 120, 120, true);
     }
 
     void AddStage(int id, string name, string objective, string reward, int threat, int z, int m, int r, float radius, float hold, bool manual)

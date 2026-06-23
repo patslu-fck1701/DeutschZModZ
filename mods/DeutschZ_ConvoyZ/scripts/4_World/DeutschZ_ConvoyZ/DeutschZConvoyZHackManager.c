@@ -77,10 +77,15 @@ class DeutschZConvoyZHackManager
         StopTimer();
         Manager.State.ActiveHackerPlayerId = "";
         Manager.State.HackProcessing = 0;
+        DeutschZConvoyZLogger.Log("HackCompleted", Manager.State.EventId, "HACKING", pid, player.GetPosition(), "OK", "");
+        if (Manager.Config && Manager.Config.Settings && Manager.Config.Settings.EnableBlackboxDelivery == 1)
+        {
+            Manager.StartDeliveryStage(player, pid);
+            return;
+        }
         Manager.ChangeState(DeutschZConvoyZConstants.STATE_REWARD_UNLOCKED, "hack complete");
         Manager.SetSmoke(DeutschZConvoyZConstants.SMOKE_GREEN);
         Manager.UnlockReward();
-        DeutschZConvoyZLogger.Log("HackCompleted", Manager.State.EventId, "REWARD_UNLOCKED", pid, player.GetPosition(), "OK", "");
         Manager.ScheduleCleanup();
         Manager.SyncStatusNow();
     }

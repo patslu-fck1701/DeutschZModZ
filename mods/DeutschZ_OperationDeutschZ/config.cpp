@@ -31,7 +31,7 @@ class CfgMods
         hidePicture = 0;
         type = "mod";
         author = "Patrick Sluzalek / fck1701 / DeutschZ";
-        version = "0.1.0-online-test-safe";
+        version = "0.9.4-campaign-chain-test";
         dependencies[] = {"Game", "World", "Mission"};
 
         class defs

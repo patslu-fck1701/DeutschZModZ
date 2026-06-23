@@ -10,6 +10,10 @@ class CfgPatches
             "GroundZero_AuthChip",
             "GroundZero_ContainmentKey",
             "GroundZero_ResearchCore",
+            "DZGZ_GeneratorSparkPlug",
+            "DZGZ_EncryptedResearchData",
+            "DZGZ_ContaminatedSample",
+            "DZGZ_SignalCore",
             "DZ_GroundZero_ContaminatedDataCore",
             "DZ_GroundZero_Sample",
             "DZ_GroundZero_ReactorCode",
@@ -38,7 +42,7 @@ class CfgMods
         name = "DeutschZ GroundZero";
         type = "mod";
         author = "Patrick Sluzalek / fck1701";
-        version = "0.4.13-fix45-event-items";
+        version = "0.9.4-campaign-chain-test";
         dependencies[] = {"Game", "World", "Mission"};
 
         class defs
@@ -95,39 +99,81 @@ class CfgVehicles
     class GroundZero_AlphaDataModule: GroundZero_ComponentBase
     {
         scope = 2;
-        displayName = "Alpha-Datenmodul";
+        displayName = "GroundZero Alpha-Datenmodul";
+        descriptionShort = "Gesichertes Datenmodul aus der Signalquelle. Event-only Bauteil fuer GroundZero und OperationDeutschZ.";
     };
 
     class GroundZero_EnergyCell: GroundZero_ComponentBase
     {
         scope = 2;
-        displayName = "Energiezelle";
+        displayName = "GroundZero Energiezelle";
+        descriptionShort = "Instabile Energiezelle aus der Generatorstation. Nicht fuer normalen Mapspawn vorgesehen.";
     };
 
     class GroundZero_BioSample: GroundZero_ComponentBase
     {
         scope = 2;
-        displayName = "Biologische Probe";
+        displayName = "GroundZero biologische Probe";
+        descriptionShort = "Versiegelte Probe aus einer kontaminierten GroundZero-Zone.";
     };
 
     class GroundZero_AuthChip: GroundZero_ComponentBase
     {
         scope = 2;
-        displayName = "Authentifizierungschip";
+        displayName = "GroundZero Authentifizierungschip";
+        descriptionShort = "Authentifizierungschip fuer Terminal-, Cache- und Kampagnenlogik.";
     };
 
     class GroundZero_ContainmentKey: GroundZero_ComponentBase
     {
         scope = 2;
-        displayName = "Containment-Schlüssel";
+        displayName = "GroundZero Containment-Schluessel";
+        descriptionShort = "Schluessel fuer den finalen Containment-Cache.";
     };
 
     class GroundZero_ResearchCore: GroundZero_ComponentBase
     {
         scope = 2;
-        displayName = "Forschungskern";
+        displayName = "GroundZero Forschungskern";
+        descriptionShort = "Schwerer Forschungskern aus dem Final Cache. Seltenes Event- und Kampagnenitem.";
         itemSize[] = {3, 3};
         weight = 3000;
+    };
+
+    class DZGZ_GeneratorSparkPlug: GroundZero_ComponentBase
+    {
+        scope = 2;
+        displayName = "GroundZero Generator-Zuendmodul";
+        descriptionShort = "Spezialteil fuer die GroundZero-Generatorreparatur. Wird durch die Hold-Zone freigeschaltet und soll nicht normal spawnen.";
+        itemSize[] = {1, 2};
+        weight = 260;
+    };
+
+    class DZGZ_EncryptedResearchData: GroundZero_ComponentBase
+    {
+        scope = 2;
+        displayName = "GroundZero verschluesselte Forschungsdaten";
+        descriptionShort = "Extrahierte Terminaldaten aus GroundZero. Kann spaeter OperationDeutschZ-Hinweise freischalten.";
+        itemSize[] = {1, 1};
+        weight = 90;
+    };
+
+    class DZGZ_ContaminatedSample: GroundZero_ComponentBase
+    {
+        scope = 2;
+        displayName = "GroundZero kontaminierte Probe";
+        descriptionShort = "Versiegelte kontaminierte Probe. Nur fuer Event-, Trader- und Kampagnenlogik gedacht.";
+        itemSize[] = {1, 2};
+        weight = 360;
+    };
+
+    class DZGZ_SignalCore: GroundZero_ComponentBase
+    {
+        scope = 2;
+        displayName = "GroundZero Signalkern";
+        descriptionShort = "Geborgener Signalkern aus einer GroundZero-Anlage. Hochwertiges OperationDeutschZ-Verbindungsitem.";
+        itemSize[] = {2, 2};
+        weight = 950;
     };
 
     class DZ_GroundZero_ContaminatedDataCore: GroundZero_ComponentBase

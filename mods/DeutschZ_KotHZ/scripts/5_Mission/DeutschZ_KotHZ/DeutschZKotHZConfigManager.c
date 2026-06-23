@@ -247,6 +247,19 @@ class DeutschZKotHZConfigManager
         return true;
     }
 
+    protected static int GetNormalCaptureTimeSeconds(string zoneName)
+    {
+        if (zoneName == "NWAF" || zoneName == "NWAF KOTH" || zoneName == "NWAF KOTH TEST")
+            return 720;
+        if (zoneName == "Tisy" || zoneName == "TISY" || zoneName == "Tisy KOTH")
+            return 720;
+        if (zoneName == "LOPA" || zoneName == "Lopa" || zoneName == "LOPA KOTH")
+            return 660;
+        if (zoneName == "YRAP" || zoneName == "Yrap" || zoneName == "YRAP KOTH")
+            return 660;
+        return 600;
+    }
+
     protected static void Validate(DeutschZKotHZConfig config)
     {
         if (config.MaxSimultaneousEvents <= 0)
@@ -261,11 +274,14 @@ class DeutschZKotHZConfigManager
         if (config.OwnershipNotice == "")
             config.OwnershipNotice = "DeutschZ_KotHZ is the custom KOTH framework owned and maintained by Patrick Sluzalek / fck1701 for the DeutschZ server.";
 
-        // FIX17 TESTVERSION: force quick event start and active high-value test loot even when an older profile JSON already exists.
-        config.MinStartDelayMinutes = 1;
-        config.MaxStartDelayMinutes = 1;
+        // V0.9.3 NORMAL: online-test rotation. No more one-minute test spam.
+        config.MinStartDelayMinutes = 35;
+        config.MaxStartDelayMinutes = 55;
         config.MinPlayersToStart = 1;
-        config.DebugMode = 1;
+        config.DebugMode = 0;
+        config.EnableHUD = 1;
+        config.EnableProgressHUD = 1;
+        config.HUDUpdateIntervalSeconds = 1;
 
         if (!config.Zones)
             config.Zones = new array<ref DeutschZKotHZZone>;
@@ -391,16 +407,11 @@ class DeutschZKotHZConfigManager
         if (config.EventMusicSoundSetName == "")
             config.EventMusicSoundSetName = "DeutschZ_KotHZ_EventMusic_SoundSet";
 
-        // FIX45: Musik bleibt verfuegbar, wird aber nicht mehr hart auf aktiv gesetzt.
-        // Serverbetreiber koennen EnableEventMusic und die Phasenflags bewusst in der Config aktivieren.
-        if (config.EnableEventMusic != 0)
-            config.EnableEventMusic = 1;
+        // V093 gameplay test: music is enabled for KotHZ start/captured phases. Ready phase stays quiet.
+        config.EnableEventMusic = 1;
         config.EventMusicPlayOnReady = 0;
-        if (config.EnableEventMusic == 0)
-        {
-            config.EventMusicPlayOnStart = 0;
-            config.EventMusicPlayOnCaptured = 0;
-        }
+        config.EventMusicPlayOnStart = 1;
+        config.EventMusicPlayOnCaptured = 1;
 
         if (config.EventMusicRadius <= 0)
             config.EventMusicRadius = 180.0;
@@ -488,19 +499,26 @@ class DeutschZKotHZConfigManager
             if (!zone)
                 continue;
 
-            // FIX17 TESTVERSION: all zones use the high-value loot pool and reduced capture time.
+            // V0.9.3 NORMAL: all zones use the high-value event item pool and normal online-test pacing.
             zone.RewardPoolName = "DeutschZ_Test_HighValue";
-            zone.CaptureTimeSeconds = 90;
-            zone.ZombieWaveCount = 3;
-            zone.ZombiesPerWave = 4;
-            zone.MaxTotalZombies = 18;
+            zone.Radius = 25.0;
+            zone.CaptureTimeSeconds = GetNormalCaptureTimeSeconds(zone.ZoneName);
+            zone.EnableZombieSpawns = 1;
+            zone.InitialZombieSpawnCount = 0;
+            zone.ZombieWaveCount = 5;
+            zone.ZombiesPerWave = 6;
+            zone.MaxTotalZombies = 30;
+            zone.SecondsBetweenZombieWaves = 120;
+            zone.ZombieSpawnMinDistance = 18.0;
+            zone.ZombieSpawnMaxDistance = 42.0;
+            zone.WavePoolName = "DeutschZ_Normal_3AI_30Zombies";
 
             // v1.0.30: Reward crates should always spawn slightly offset from the KOTH mast.
             // Exact reward positions stay disabled by default because the crate should spawn offset from the mast.
             zone.UseExactRewardCratePosition = 0;
 
-            if (zone.WavePoolName == "")
-                zone.WavePoolName = "KVM1_Test_5x6_Zombies";
+            if (zone.WavePoolName == "" || zone.WavePoolName == "KVM1_Test_5x6_Zombies" || zone.WavePoolName == "NWAF_Military_Zombies" || zone.WavePoolName == "Military_Light_Zombies")
+                zone.WavePoolName = "DeutschZ_Normal_3AI_30Zombies";
 
             if (!zone.StartWavesOnlyWhenPlayerInside)
                 zone.StartWavesOnlyWhenPlayerInside = 1;

@@ -19,8 +19,8 @@ class CourierZEventCoreSettings
         MinOnlinePlayers = 1;
         MaxSimultaneousEvents = 1;
         MaxEventsPerRestart = 999;
-        MaxRuntimeSeconds = 1800;
-        CleanupDelaySeconds = 60;
+        MaxRuntimeSeconds = 4200;
+        CleanupDelaySeconds = 300;
         DebugLogs = 1;
     }
 
@@ -49,12 +49,12 @@ class CourierZEventSchedulingSettings
     void CourierZEventSchedulingSettings()
     {
         AutoStartAfterRestart = 1;
-        StartDelayMinSeconds = 420;
-        StartDelayMaxSeconds = 420;
+        StartDelayMinSeconds = 3300;
+        StartDelayMaxSeconds = 5100;
         RestartAfterFinish = 1;
-        RestartDelayMinSeconds = 1200;
-        RestartDelayMaxSeconds = 1200;
-        NoPlayerRetryDelaySeconds = 60;
+        RestartDelayMinSeconds = 3300;
+        RestartDelayMaxSeconds = 5100;
+        NoPlayerRetryDelaySeconds = 300;
     }
 
     void Repair()
@@ -94,7 +94,7 @@ class CourierZEventMarkerSettings
         UseDynamicPositionUpdates = 1;
         UpdateIntervalSeconds = 10;
         ShowEventRadius = 1;
-        ShowCarrierMarker = 1;
+        ShowCarrierMarker = 0;
         ShowDroppedItemMarker = 1;
         ShowFinalMarker = 1;
         ShowExtractionMarker = 1;
@@ -166,14 +166,14 @@ class CourierZEventTestingSettings
 
     void CourierZEventTestingSettings()
     {
-        FastTestMode = 1;
-        CaptureHoldSeconds = 30;
-        RequiredKillsToWin = 3;
-        HackDurationSeconds = 30;
-        WaveDelaySeconds = 30;
+        FastTestMode = 0;
+        CaptureHoldSeconds = 120;
+        RequiredKillsToWin = 6;
+        HackDurationSeconds = 45;
+        WaveDelaySeconds = 60;
         StageAutoCompleteSeconds = 0;
-        FinalDefenseSeconds = 120;
-        ExtractionDurationSeconds = 15;
+        FinalDefenseSeconds = 240;
+        ExtractionDurationSeconds = 60;
     }
 
     void Repair()
@@ -242,22 +242,22 @@ class CourierZSpecificSettings
 
     void CourierZSpecificSettings()
     {
-        RequireQuestItem = 0;
-        RequireContactNPC = 0;
-        EnableCourierPvPMarker = 1;
+        RequireQuestItem = 1;
+        RequireContactNPC = 1;
+        EnableCourierPvPMarker = 0;
         CarrierOnlyKnowsDestination = 1;
         PublicCarrierMarkerDelaySeconds = 300;
         DropCaseOnDeath = 1;
         DropCaseOnLogout = 1;
         PreventStorageTransfer = 1;
-        DeliveryTimeLimitSeconds = 2400;
+        DeliveryTimeLimitSeconds = 4200;
         AllowPickupByOtherPlayers = 1;
         RewardOnDelivery = 1;
         FailOnTimeExpired = 1;
         CleanupDroppedCaseAfterSeconds = 1800;
         PickupRadius = 5.0;
-        DeliveryRadius = 10.0;
-        EnemySpawnRadius = 35.0;
+        DeliveryRadius = 6.0;
+        EnemySpawnRadius = 80.0;
     }
 
     void Repair()
@@ -307,21 +307,23 @@ class CourierZConfig
     void SetDefaults()
     {
         ConfigVersion = 1;
-        PresetName = "FIX43_DISTINCT_ROUTE_COURIERZ";
+        PresetName = "COURIERZ_LIVE_NPC_ROUTE_CHAIN";
         DeutschZEventSettings = new CourierZUnifiedEventSettings;
         Courier = new CourierZSpecificSettings;
         ContactPosition = "3120 0 9280";
         DeliveryPosition = "12140 0 12640";
         ContactOrientation = "0 0 0";
         DeliveryOrientation = "0 0 0";
-        CaseClassName = "DZCR_Aktenkoffer";
+        CaseClassName = "DZCR_SealedCourierCase";
         RewardChestClassName = "DZCR_RewardChest";
         EnemyClassName = "ZmbM_usSoldier_Officer_Desert";
-        StartEnemyCount = 3;
-        DeliveryEnemyCount = 3;
+        StartEnemyCount = 4;
+        DeliveryEnemyCount = 8;
         RewardItems = new array<string>;
-        RewardItems.Insert("BandageDressing");
-        RewardItems.Insert("TacticalBaconCan");
+        RewardItems.Insert("DZCR_DeliveryStamp");
+        RewardItems.Insert("DZCR_CipherDocument");
+        RewardItems.Insert("DZOP_CipherFragment_Courier");
+        RewardItems.Insert("DZOP_RouteNote_Courier");
         RewardItems.Insert("Ammo_556x45");
     }
 
@@ -333,8 +335,8 @@ class CourierZConfig
         DeutschZEventSettings.Repair();
         Courier.Repair();
         if (ConfigVersion < 1) ConfigVersion = 1;
-        if (PresetName == "") PresetName = "FIX43_DISTINCT_ROUTE_COURIERZ";
-        if (CaseClassName == "") CaseClassName = "DZCR_Aktenkoffer";
+        if (PresetName == "") PresetName = "COURIERZ_LIVE_NPC_ROUTE_CHAIN";
+        if (CaseClassName == "") CaseClassName = "DZCR_SealedCourierCase";
         if (RewardChestClassName == "") RewardChestClassName = "DZCR_RewardChest";
         if (EnemyClassName == "") EnemyClassName = "ZmbM_usSoldier_Officer_Desert";
         if (StartEnemyCount < 0) StartEnemyCount = 0;

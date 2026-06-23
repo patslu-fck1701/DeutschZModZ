@@ -82,6 +82,14 @@ class DeutschZKotHZCoreBridge
         return provider.SpawnInfected("KotHZ_" + eventId, className, position);
     }
 
+    static bool SpawnGuard(string eventId, string loadoutId, vector position)
+    {
+        DeutschZCore_AIProviderAPI provider = DeutschZCore_ServiceLocator.GetAIProvider();
+        if (!provider)
+            return false;
+        return provider.SpawnGuard("KotHZ_" + eventId, loadoutId, position);
+    }
+
     static void CleanupAI(string eventId)
     {
         DeutschZCore_AIProviderAPI provider = DeutschZCore_ServiceLocator.GetAIProvider();

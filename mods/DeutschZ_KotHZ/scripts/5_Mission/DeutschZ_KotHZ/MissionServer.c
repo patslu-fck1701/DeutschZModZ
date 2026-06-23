@@ -9,11 +9,41 @@ Oeffentliche Quellen werden nur zur Konzept- und API-Verifikation genutzt.
 modded class MissionServer
 {
     protected ref DeutschZKotHZManager m_DeutschZKotHZManager;
+    protected int m_DeutschZKotHZ_ConfigBootstrapped;
+
     void MissionServer()
     {
-        Print("[DeutschZ_KotHZ] MissionServer constructor - forcing profile config init.");
+        DeutschZKotHZ_RequestConfigBootstrap("MissionServer constructor");
+        DeutschZKotHZ_ScheduleDelayedConfigBootstrap();
+    }
+
+    protected void DeutschZKotHZ_RequestConfigBootstrap(string source)
+    {
+        if (!GetGame() || !GetGame().IsServer())
+            return;
+
+        if (m_DeutschZKotHZ_ConfigBootstrapped == 1)
+            return;
+
+        m_DeutschZKotHZ_ConfigBootstrapped = 1;
+        Print("[DeutschZ_KotHZ] Config bootstrap requested source=" + source);
         DZKotHZ_ProfileFolders.Ensure();
         DeutschZKotHZConfigManager.Load();
+        Print("[DeutschZ_KotHZ] Config bootstrap finished source=" + source);
+    }
+
+    protected void DeutschZKotHZ_DelayedConfigBootstrap()
+    {
+        DeutschZKotHZ_RequestConfigBootstrap("MissionServer delayed fallback");
+    }
+
+    protected void DeutschZKotHZ_ScheduleDelayedConfigBootstrap()
+    {
+        if (!GetGame())
+            return;
+
+        GetGame().GetCallQueue(CALL_CATEGORY_SYSTEM).CallLater(this.DeutschZKotHZ_DelayedConfigBootstrap, 1000, false);
+        GetGame().GetCallQueue(CALL_CATEGORY_SYSTEM).CallLater(this.DeutschZKotHZ_DelayedConfigBootstrap, 5000, false);
     }
 
     override void OnMissionStart()
@@ -22,12 +52,10 @@ modded class MissionServer
 
         if (GetGame().IsServer())
         {
-            Print("[DeutschZ_KotHZ] OnMissionStart - forcing profile config init.");
-            DZKotHZ_ProfileFolders.Ensure();
-            DeutschZKotHZConfigManager.Load();
+            DeutschZKotHZ_RequestConfigBootstrap("MissionServer OnMissionStart");
+            DeutschZKotHZ_ScheduleDelayedConfigBootstrap();
         }
     }
-
 
     override void OnInit()
     {
@@ -35,13 +63,16 @@ modded class MissionServer
 
         if (GetGame().IsServer())
         {
-            DZKotHZ_ProfileFolders.Ensure();
-            DeutschZKotHZConfigManager.Load();
+            DeutschZKotHZ_RequestConfigBootstrap("MissionServer OnInit");
+            DeutschZKotHZ_ScheduleDelayedConfigBootstrap();
             Print("[DeutschZ_KotHZ] OnInit config bootstrap done.");
-            m_DeutschZKotHZManager = new DeutschZKotHZManager();
-            m_DeutschZKotHZManager.StartScheduler();
-            GetGame().GetCallQueue(CALL_CATEGORY_SYSTEM).CallLater(DeutschZKotHZ_ProcessAdminCommandBus, 500, true);
-            GetGame().GetCallQueue(CALL_CATEGORY_SYSTEM).CallLater(DeutschZKotHZ_ProcessInfectedKillBus, 250, true);
+            if (!m_DeutschZKotHZManager)
+            {
+                m_DeutschZKotHZManager = new DeutschZKotHZManager();
+                m_DeutschZKotHZManager.StartScheduler();
+                GetGame().GetCallQueue(CALL_CATEGORY_SYSTEM).CallLater(this.DeutschZKotHZ_ProcessAdminCommandBus, 500, true);
+                GetGame().GetCallQueue(CALL_CATEGORY_SYSTEM).CallLater(this.DeutschZKotHZ_ProcessInfectedKillBus, 250, true);
+            }
         }
     }
 
@@ -49,7 +80,6 @@ modded class MissionServer
     {
         return m_DeutschZKotHZManager;
     }
-
 
     protected void DeutschZKotHZ_ProcessInfectedKillBus()
     {

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<types>
+    <!-- Event-only progression items. No normal mapspawn. -->
+    <type name="DZOP_Keycard_ConvoyAlpha"><nominal>0</nominal><lifetime>3888000</lifetime><restock>0</restock><min>0</min></type>
+    <type name="DZOP_DamagedCardReader"><nominal>0</nominal><lifetime>3888000</lifetime><restock>0</restock><min>0</min></type>
+    <type name="DZOP_DecodedKeycard"><nominal>0</nominal><lifetime>3888000</lifetime><restock>0</restock><min>0</min></type>
+    <type name="DZOP_TreasureMapFragment_A"><nominal>0</nominal><lifetime>3888000</lifetime><restock>0</restock><min>0</min></type>
+    <type name="DZOP_TreasureMapFragment_B"><nominal>0</nominal><lifetime>3888000</lifetime><restock>0</restock><min>0</min></type>
+    <type name="DZOP_OperationTreasureMap"><nominal>0</nominal><lifetime>3888000</lifetime><restock>0</restock><min>0</min></type>
+    <type name="DZOP_CipherFragment_Courier"><nominal>0</nominal><lifetime>3888000</lifetime><restock>0</restock><min>0</min></type>
+    <type name="DZOP_RouteNote_Courier"><nominal>0</nominal><lifetime>3888000</lifetime><restock>0</restock><min>0</min></type>
+    <type name="DZOP_TechnicalFragment_GroundZero"><nominal>0</nominal><lifetime>3888000</lifetime><restock>0</restock><min>0</min></type>
+    <type name="DZOP_SignalFragment_KotHZ"><nominal>0</nominal><lifetime>3888000</lifetime><restock>0</restock><min>0</min></type>
+    <type name="DZOP_BurnedNote"><nominal>0</nominal><lifetime>3888000</lifetime><restock>0</restock><min>0</min></type>
+    <type name="DZOP_DestroyedBlackBox"><nominal>0</nominal><lifetime>3888000</lifetime><restock>0</restock><min>0</min></type>
+    <type name="DZOP_EncryptedSignalCore"><nominal>0</nominal><lifetime>3888000</lifetime><restock>0</restock><min>0</min></type>
+    <type name="DZCR_CipherDocument"><nominal>0</nominal><lifetime>3888000</lifetime><restock>0</restock><min>0</min></type>
+    <type name="DZGZ_SignalCore"><nominal>0</nominal><lifetime>3888000</lifetime><restock>0</restock><min>0</min></type>
+    <type name="DZGZ_EncryptedResearchData"><nominal>0</nominal><lifetime>3888000</lifetime><restock>0</restock><min>0</min></type>
+</types>

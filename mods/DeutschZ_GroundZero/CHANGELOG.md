@@ -1,3 +1,11 @@
+## 0.9.4-campaign-chain-test - 2026-06-23
+- Added explicit GroundZero campaign item classes for generator repair, encrypted terminal data, contaminated samples and signal core.
+- Updated default profile config from fast-test timing to live-near GroundZero timing: 70-110 minute interval, longer hold, repair and terminal phases.
+- Added Config/Data/Logs profile folders while keeping the existing flat GroundZeroConfig.json path backward compatible.
+
+## 0.9.3-online-test - 2026-06-23
+- Online-Testserver pack/test candidate; config.cpp/script module validation aligned.
+
 ## FIX43 - SafeZone Exclusion, Unique Stage Positions, Radius HUD (2026-06-22)
 - Removed Green Mountain from default GroundZero stage positions because it is Trader/SafeZone and must not host events.
 - Changed default stage builder to use unique staged positions instead of random duplicate positions per stage.
@@ -160,4 +168,3 @@
 - Fixed Game module compile issue in `scripts/3_Game/GroundZeroCore.c`.
 - Renamed member variable `EventManager` to `m_EventManager` to avoid collision with existing DayZ/global type name `EventManager`.
 - No PBO built and no server test performed.
-

@@ -30,7 +30,7 @@ class CfgMods
         credits = "Owner: Patrick Sluzalek / Player: fck1701 / Server: DeutschZ";
         author = "Patrick Sluzalek / fck1701";
         authorID = "0";
-        version = "2.3.5-fix45-event-items-safe-effects";
+        version = "0.9.3-online-test";
         extra = 0;
         type = "mod";
         defines[] = {"DEUTSCHZ_KotHZ"};

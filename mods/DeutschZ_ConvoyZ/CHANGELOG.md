@@ -1,3 +1,6 @@
+## 0.9.3-online-test - 2026-06-23
+- Online-Testserver pack/test candidate; config.cpp/script module validation aligned.
+
 ## FIX43 - Safe Location Split, Smoke-Off Crash Isolation, Military Loadouts (2026-06-22)
 - Moved default ConvoyZ crashsite away from shared 7500/7500 test position and away from Green Mountain Trader/SafeZone.
 - Updated ready-copy ConvoyZ event JSON to the new crashsite, blackbox, reward and AI spawn positions.

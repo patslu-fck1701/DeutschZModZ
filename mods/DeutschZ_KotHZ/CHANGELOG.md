@@ -1,3 +1,6 @@
+## 0.9.3-online-test - 2026-06-23
+- Online-Testserver pack/test candidate; config.cpp/script module validation aligned.
+
 ## FIX42 - KotHZ Flag Texture Compile Hotfix (2026-06-22)
 ## 2.3.3-fix43-music-rpc - 2026-06-22
 - KotHZ event music is no longer hard-disabled in config repair. Default: play on event start and completion, not on ready phase.

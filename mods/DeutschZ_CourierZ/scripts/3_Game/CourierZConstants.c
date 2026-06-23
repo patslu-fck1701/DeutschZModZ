@@ -6,6 +6,9 @@
 class CourierZConstants
 {
     static const string PROFILE_ROOT = "$profile:DeutschZ/CourierZ/";
+    static const string CONFIG_DIR = "$profile:DeutschZ/CourierZ/Config/";
+    static const string DATA_DIR = "$profile:DeutschZ/CourierZ/Data/";
+    static const string LOG_DIR = "$profile:DeutschZ/CourierZ/Logs/";
     static const string CONFIG_PATH = "$profile:DeutschZ/CourierZ/CourierZConfig.json";
     static const string STATE_PATH = "$profile:DeutschZ/CourierZ/CourierZState.json";
     static const string BACKUP_PATH = "$profile:DeutschZ/CourierZ/CourierZState.backup.json";

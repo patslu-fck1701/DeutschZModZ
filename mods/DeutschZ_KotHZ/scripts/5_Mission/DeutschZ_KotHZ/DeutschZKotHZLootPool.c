@@ -162,6 +162,21 @@ class DeutschZKotHZLootPoolsConfig
         AddReward(pool, "DeutschZKotHZ_ResearchDocument", -1, 100.0, 2, "");
         AddReward(pool, "DeutschZKotHZ_CommanderInsignia", -1, 100.0, 1, "");
 
+        // V0.9.3 Operation/Convoy/GroundZero prep items. Missing optional classnames are skipped safely by the reward resolver.
+        AddReward(pool, "DZ_EventToken", -1, 100.0, 3, "");
+        AddReward(pool, "DZ_BossDogtag", -1, 100.0, 1, "");
+        AddReward(pool, "DZ_RedZChip", -1, 100.0, 1, "");
+        AddReward(pool, "DZ_RewardKey", -1, 100.0, 1, "");
+        AddReward(pool, "DZ_SecureSSD", -1, 100.0, 1, "");
+        AddReward(pool, "DZ_MilitaryLedger", -1, 100.0, 1, "");
+        AddReward(pool, "DZ_HazardCanister", -1, 80.0, 1, "");
+        AddReward(pool, "DZCV_EncryptedDataDrive", -1, 100.0, 1, "");
+        AddReward(pool, "DZCV_ClassifiedIntel", -1, 100.0, 1, "");
+        AddReward(pool, "DZ_ConvoyZ_Blackbox", -1, 70.0, 1, "");
+        AddReward(pool, "DZ_ConvoyZ_DieselManifest", -1, 70.0, 1, "");
+        AddReward(pool, "DZ_ConvoyZ_RadioKey", -1, 70.0, 1, "");
+        AddReward(pool, "DZ_ConvoyZ_ArmorPlateBundle", -1, 60.0, 1, "");
+
         LootPools.Insert(pool);
     }
 
