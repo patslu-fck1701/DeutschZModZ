@@ -21,6 +21,21 @@ class DeutschZConvoyZValidator
         return className != "";
     }
 
+    static bool IsConfiguredVehicleClass(string className)
+    {
+        if (className == "") return false;
+        return GetGame().ConfigIsExisting("CfgVehicles " + className);
+    }
+
+    static bool IsConfiguredInventoryClass(string className)
+    {
+        if (className == "") return false;
+        if (GetGame().ConfigIsExisting("CfgVehicles " + className)) return true;
+        if (GetGame().ConfigIsExisting("CfgWeapons " + className)) return true;
+        if (GetGame().ConfigIsExisting("CfgMagazines " + className)) return true;
+        return false;
+    }
+
     static bool ValidateConfig(DeutschZConvoyZConfig cfg)
     {
         if (!cfg || !cfg.Settings || !cfg.EventData) return false;

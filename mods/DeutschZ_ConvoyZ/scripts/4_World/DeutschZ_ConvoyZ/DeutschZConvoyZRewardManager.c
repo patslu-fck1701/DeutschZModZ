@@ -86,6 +86,11 @@ class DeutschZConvoyZRewardManager
                 DeutschZConvoyZLogger.Log("RewardItemBlocked", eventId, "REWARD_UNLOCKED", "", reward.RewardPosition, "BLOCKED", item.ClassName);
                 continue;
             }
+            if (!DeutschZConvoyZValidator.IsConfiguredInventoryClass(item.ClassName))
+            {
+                DeutschZConvoyZLogger.Log("RewardItemClassMissing", eventId, "REWARD_UNLOCKED", "", reward.RewardPosition, "SKIPPED", item.ClassName);
+                continue;
+            }
             if (item.Chance < 1.0 && Math.RandomFloat01() > item.Chance) continue;
             for (int i = 0; i < item.Quantity; i++)
             {
@@ -108,6 +113,7 @@ class DeutschZConvoyZRewardManager
     {
         if (className == "") return;
         if (DeutschZCore_UnsafeClassGuard.IsBlockedClass(className)) return;
+        if (!DeutschZConvoyZValidator.IsConfiguredInventoryClass(className)) return;
         if (quantity <= 0) quantity = 1;
 
         for (int i = 0; i < quantity; i++)

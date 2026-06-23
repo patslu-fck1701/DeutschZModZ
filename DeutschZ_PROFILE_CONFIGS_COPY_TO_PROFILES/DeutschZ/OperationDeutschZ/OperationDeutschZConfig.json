@@ -1,16 +1,61 @@
 {
-  "Version": "0.1.0-online-test-safe",
-  "EnableOperationDeutschZ": 0,
+  "Version": "0.9.4-campaign-chain-test",
+  "EnableOperationDeutschZ": 1,
   "EnableDebugLogs": 1,
-  "EnableCampaignProgression": 0,
+  "EnableCampaignProgression": 1,
   "EnableThreatLevel": 0,
-  "EnableEventChain": 0,
+  "EnableEventChain": 1,
   "EnableVipCrateUnlock": 0,
+  "EnableRiddleStart": 1,
+  "InitialSignalDelayMinMinutes": 20,
+  "InitialSignalDelayMaxMinutes": 45,
+  "PingIntervalMinMinutes": 30,
+  "PingIntervalMaxMinutes": 60,
+  "PingMarkerLifetimeSeconds": 90,
+  "PingMarkerRadiusMeters": 250,
+  "ExactFindRadiusMeters": 8,
+  "EnableItemCombination": 1,
+  "EnableFinalLocation": 0,
+  "EnableFinalReward": 0,
   "RequiredEventMods": [
     "DeutschZ_KotHZ",
     "DeutschZ_ConvoyZ",
     "DeutschZ_GroundZero",
     "DeutschZ_CourierZ"
   ],
-  "SafeBootOnly": 1
+  "CampaignStates": [
+    "WAITING_FOR_SIGNAL",
+    "SIGNAL_NOTIFY_SENT",
+    "PING_ACTIVE",
+    "PING_SILENT_COOLDOWN",
+    "BLACKBOX_DISCOVERED",
+    "FIRST_FRAGMENT_FOUND",
+    "EVENT_ITEMS_REQUIRED",
+    "COMBINATION_READY",
+    "TREASURE_MAP_CREATED",
+    "FINAL_LOCATION_UNLOCKED",
+    "OPERATION_COMPLETE"
+  ],
+  "StartFindItems": [
+    "DZOP_DestroyedBlackBox",
+    "DZOP_BurnedNote",
+    "DZOP_TreasureMapFragment_A"
+  ],
+  "RequiredProgressionItems": [
+    "DZOP_Keycard_ConvoyAlpha",
+    "DZOP_DamagedCardReader",
+    "DZCR_CipherDocument",
+    "DZOP_CipherFragment_Courier",
+    "DZOP_TechnicalFragment_GroundZero",
+    "DZGZ_SignalCore",
+    "DZ_BossDogtag",
+    "DZ_RadioCrystal",
+    "DZOP_SignalFragment_KotHZ"
+  ],
+  "CombinationPlan": [
+    "DZOP_Keycard_ConvoyAlpha + DZOP_DamagedCardReader = DZOP_DecodedKeycard",
+    "DZOP_DecodedKeycard + DZCR_CipherDocument + DZOP_TreasureMapFragment_A = DZOP_TreasureMapFragment_B",
+    "DZOP_TreasureMapFragment_B + DZ_BossDogtag + DZ_RadioCrystal = DZOP_OperationTreasureMap"
+  ],
+  "SafeBootOnly": 0
 }

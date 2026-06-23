@@ -1,0 +1,2 @@
+﻿DeutschZ RequiredAddons Report Runde 1 - 2026-06-23T11:27:15.7035000+02:00
+FEHLER: DeutschZ_Core: config.cpp Klammern unbalanciert: {=81 }=82

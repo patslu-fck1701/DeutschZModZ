@@ -9,8 +9,12 @@ class CourierZConstants
     static const string CONFIG_DIR = "$profile:DeutschZ/CourierZ/Config/";
     static const string DATA_DIR = "$profile:DeutschZ/CourierZ/Data/";
     static const string LOG_DIR = "$profile:DeutschZ/CourierZ/Logs/";
+<<<<<<< HEAD
     static const string CONFIG_PATH = "$profile:DeutschZ/CourierZ/Config/CourierZConfig.json";
     static const string LEGACY_CONFIG_PATH = "$profile:DeutschZ/CourierZ/CourierZConfig.json";
+=======
+    static const string CONFIG_PATH = "$profile:DeutschZ/CourierZ/CourierZConfig.json";
+>>>>>>> 6ddc1089bf072777a5adb0148c9042d3794706a1
     static const string STATE_PATH = "$profile:DeutschZ/CourierZ/CourierZState.json";
     static const string BACKUP_PATH = "$profile:DeutschZ/CourierZ/CourierZState.backup.json";
     static const string LOG_SCOPE = "CourierZ";

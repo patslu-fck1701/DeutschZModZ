@@ -1,0 +1,11 @@
+﻿Full Modline Postfix Test - 2026-06-23T11:36:25.4282456+02:00
+Profile: F:\Programme\steamapps\common\DayZServer\profiles_codex_fulltest_postfix
+Missing mod paths: 
+Arguments: -config=serverDZ.cfg -port=2302 -profiles=F:\Programme\steamapps\common\DayZServer\profiles_codex_fulltest_postfix -mod=F:\Programme\steamapps\common\DayZServer\@CF;F:\Programme\steamapps\common\DayZServer\@Dabs Framework;F:\Programme\steamapps\workshop\content\221100\1564026768;F:\Programme\steamapps\common\DayZServer\@DayZ-Expansion-Bundle;F:\Programme\steamapps\common\DayZServer\@DayZ-Expansion-Licensed;F:\Programme\steamapps\common\DayZServer\@VPPAdminTools;F:\Programme\steamapps\workshop\content\221100\1710977250;F:\Programme\steamapps\workshop\content\221100\1646187754;F:\Programme\steamapps\workshop\content\221100\2825477708;F:\Programme\steamapps\workshop\content\221100\2936887317;F:\Programme\steamapps\workshop\content\221100\2692979668;F:\Programme\steamapps\workshop\content\221100\3556131153;F:\Programme\steamapps\workshop\content\221100\2878980498;F:\Programme\steamapps\workshop\content\221100\2924951779;F:\Programme\steamapps\workshop\content\221100\3728802563;F:\Programme\steamapps\workshop\content\221100\1962144102;F:\Programme\steamapps\common\DayZServer\@SNAFU Weapons;F:\Programme\steamapps\common\DayZServer\@DeutschZ_Core;F:\Programme\steamapps\common\DayZServer\@DeutschZ_ExpansionBridge;F:\Programme\steamapps\common\DayZServer\@DeutschZ_ConvoyZ;F:\Programme\steamapps\common\DayZServer\@DeutschZ_KotHZ;F:\Programme\steamapps\common\DayZServer\@DeutschZ_GroundZero;F:\Programme\steamapps\common\DayZServer\@DeutschZ_CourierZ;F:\Programme\steamapps\common\DayZServer\@DeutschZ_OperationDeutschZ -cpuCount=2 -dologs -adminlog -netlog -freezecheck
+Started PID: 12248
+Alive after 70s: True
+Latest DayZServer_x64_*.RPT: F:\Programme\steamapps\common\DayZServer\profiles_codex_fulltest_postfix\DayZServer_x64_2026-06-23_11-36-25.RPT
+Latest script_*.log: F:\Programme\steamapps\common\DayZServer\profiles_codex_fulltest_postfix\script_2026-06-23_11-36-32.log
+Latest server_console*.log: F:\Programme\steamapps\common\DayZServer\profiles_codex_fulltest_postfix\server_console.log
+Hard pattern matches: 0
+OperationDeutschZ print hits: 0

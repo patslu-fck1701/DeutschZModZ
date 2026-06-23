@@ -258,9 +258,9 @@ class DeutschZConvoyZSettings
         DeliveryNpcPosition = "10620 0 5410";
         DeliveryHintText = "Behalte das mal. Das kann spaeter noch wichtig sein.";
         CarryItemClassName = "DZCV_ConvoyBlackBox";
-        DeliveryRewardItemClassName = "DZOP_Keycard_ConvoyAlpha";
-        DeliveryMapFragmentClassName = "DZOP_TreasureMapFragment_A";
-        DeliveryNoteItemClassName = "DZOP_ConvoyLeadNote";
+        DeliveryRewardItemClassName = "DZCV_CrashSiteKeyFragment";
+        DeliveryMapFragmentClassName = "DZCV_ClassifiedIntel";
+        DeliveryNoteItemClassName = "DZCV_BlackboxDeliveryNote";
     }
 }
 

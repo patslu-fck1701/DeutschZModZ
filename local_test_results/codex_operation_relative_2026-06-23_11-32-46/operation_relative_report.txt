@@ -1,0 +1,16 @@
+﻿Operation Relative Modline Test - 2026-06-23T11:32:46.7367032+02:00
+Profile: F:\Programme\steamapps\common\DayZServer\profiles_codex_operationtest
+Modline: @CF;@Dabs Framework;@DayZ-Expansion-Bundle;@DayZ-Expansion-Licensed;@SNAFU Weapons;@DeutschZ_Core;@DeutschZ_ExpansionBridge;@DeutschZ_ConvoyZ;@DeutschZ_KotHZ;@DeutschZ_GroundZero;@DeutschZ_CourierZ;@DeutschZ_OperationDeutschZ
+Started PID: 11588
+Alive after 65s: False
+Latest DayZServer_x64_*.RPT: F:\Programme\steamapps\common\DayZServer\profiles_codex_operationtest\DayZServer_x64_2026-06-23_11-32-46.RPT
+Pattern 'SCRIPT ERROR': 0
+Pattern 'requires addon': 0
+Pattern 'Can't compile': 0
+Pattern 'Undefined function': 0
+Pattern 'Unknown type': 0
+Pattern 'Can't open file': 0
+Pattern 'Signature mismatch': 0
+Pattern 'Wrong signature': 0
+Pattern 'ACCESS_VIOLATION': 0
+Pattern '[DeutschZ_OperationDeutschZ]': 0

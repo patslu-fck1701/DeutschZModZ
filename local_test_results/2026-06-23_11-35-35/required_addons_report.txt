@@ -1,0 +1,9 @@
+﻿DeutschZ RequiredAddons Report Runde 1 - 2026-06-23T11:35:35.6893508+02:00
+DeutschZ_Core requiredAddons: DZ_Data, DZ_Scripts, DZ_Gear_Containers, DZ_Gear_Navigation, DZ_Gear_Consumables, DZ_Gear_Medical, DZ_Gear_Tools
+DeutschZ_Core radio fix OK: kein DZ_Gear_Radio, keine PersonalRadio-Ableitung fuer DeutschZ-Funkitems.
+DeutschZ_ExpansionBridge requiredAddons: DZ_Data, DZ_Scripts, DayZExpansion_Navigation_Scripts, DeutschZ_Core
+DeutschZ_KotHZ requiredAddons: DZ_Data, DZ_Scripts, DZ_Sounds_Effects, DZ_Gear_Camping, DZ_Gear_Containers, DZ_Gear_Navigation, DZ_Gear_Consumables, JM_CF_Scripts, DeutschZ_Core, DeutschZ_ExpansionBridge
+DeutschZ_ConvoyZ requiredAddons: DZ_Data, DZ_Scripts, DZ_Vehicles_Wheeled, DZ_Gear_Containers, DZ_Gear_Navigation, DZ_Gear_Consumables, DZ_Gear_Tools, DeutschZ_Core, DeutschZ_ExpansionBridge
+DeutschZ_GroundZero requiredAddons: DZ_Data, DZ_Scripts, DZ_Gear_Containers, DeutschZ_Core, DeutschZ_ExpansionBridge
+DeutschZ_CourierZ requiredAddons: DZ_Data, DZ_Scripts, DZ_Gear_Containers, DZ_Gear_Navigation, DZ_Gear_Consumables, DeutschZ_Core, DeutschZ_ExpansionBridge
+DeutschZ_OperationDeutschZ requiredAddons: DZ_Data, DZ_Scripts, DeutschZ_Core, DeutschZ_ExpansionBridge, DeutschZ_KotHZ, DeutschZ_ConvoyZ, DeutschZ_GroundZero, DeutschZ_CourierZ

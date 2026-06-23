@@ -184,6 +184,11 @@ class DeutschZConvoyZManager
     {
         if (!player || className == "") return false;
         if (DeutschZCore_UnsafeClassGuard.IsBlockedClass(className)) return false;
+        if (!DeutschZConvoyZValidator.IsConfiguredInventoryClass(className))
+        {
+            DeutschZConvoyZLogger.Log("GiveItemClassMissing", State.EventId, DeutschZConvoyZ_StateName(State.CurrentState), "", fallbackPos, "SKIPPED", className);
+            return false;
+        }
         EntityAI created = EntityAI.Cast(player.GetInventory().CreateInInventory(className));
         if (!created)
         {

@@ -15,6 +15,11 @@ class DeutschZConvoyZSpawnManager
     {
         if (!GetGame() || !GetGame().IsServer()) return null;
         if (!DeutschZConvoyZValidator.IsClassNameUsable(className)) return null;
+        if (!DeutschZConvoyZValidator.IsConfiguredVehicleClass(className))
+        {
+            DeutschZConvoyZLogger.Log("SpawnClassMissing", eventId, "SPAWNING", "", pos, "FAILED", label + " " + className);
+            return null;
+        }
         vector p = pos;
         if (label == "blackbox" && heightOffset < 1.35)
             heightOffset = 1.35;

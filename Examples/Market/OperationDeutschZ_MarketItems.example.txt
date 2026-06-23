@@ -1,0 +1,18 @@
+// DeutschZ OperationDeutschZ high-value event items.
+// High sell value, but intended to be kept for OperationDeutschZ progression.
+// Buy is intentionally disabled with -1 where the economy should not sell progression.
+
+DZOP_Keycard_ConvoyAlpha,250000,-1
+DZOP_DamagedCardReader,350000,-1
+DZCR_CipherDocument,200000,-1
+DZOP_TreasureMapFragment_A,300000,-1
+DZOP_TreasureMapFragment_B,750000,-1
+DZOP_OperationTreasureMap,1500000,-1
+DZ_BossDogtag,250000,-1
+DZ_RadioCrystal,400000,-1
+DZOP_CipherFragment_Courier,220000,-1
+DZOP_RouteNote_Courier,180000,-1
+DZOP_TechnicalFragment_GroundZero,450000,-1
+DZOP_SignalFragment_KotHZ,500000,-1
+DZGZ_SignalCore,600000,-1
+DZGZ_EncryptedResearchData,350000,-1

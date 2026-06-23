@@ -95,7 +95,7 @@ class DeutschZKotHZConfig
         EnableMarkerFallbackNotifications = 0;
         MarkerMode = "Expansion";
         MarkerEditHint = "DeutschZ KotHZ default: MarkerMode=Expansion only. Third-party marker modes are intentionally not supported in this build. Expansion map marker and 3D marker enabled; vanilla popup/chat disabled by default to avoid duplicates.";
-        ExpansionMarkerColorARGB = ARGB(255, 255, 32, 32);
+        ExpansionMarkerColorARGB = -57312;
         ExpansionMarkerIcon = "Territory";
         RewardCrateMinimumLifetimeSeconds = 1800;
         EnableRewardCrateDespawnWarning = 1;

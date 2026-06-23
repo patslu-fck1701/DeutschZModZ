@@ -1,0 +1,362 @@
+﻿[
+    {
+        "File":  "latest_DayZServer_x64_star.RPT",
+        "Line":  232,
+        "Text":  "11:30:28.245 Warning Message: No entry \u0027bin\\config.bin/CfgWorlds/DefaultWorld/Weather/Overcast/Weather1.farCloud\u0027."
+    },
+    {
+        "File":  "latest_DayZServer_x64_star.RPT",
+        "Line":  234,
+        "Text":  "11:30:28.245 Warning Message: No entry \u0027bin\\config.bin/CfgWorlds/DefaultWorld/Weather/Overcast/Weather1.cloud\u0027."
+    },
+    {
+        "File":  "latest_DayZServer_x64_star.RPT",
+        "Line":  236,
+        "Text":  "11:30:28.245 Warning Message: No entry \u0027bin\\config.bin/CfgWorlds/DefaultWorld/Weather/Overcast/Weather2.farCloud\u0027."
+    },
+    {
+        "File":  "latest_DayZServer_x64_star.RPT",
+        "Line":  238,
+        "Text":  "11:30:28.245 Warning Message: No entry \u0027bin\\config.bin/CfgWorlds/DefaultWorld/Weather/Overcast/Weather2.cloud\u0027."
+    },
+    {
+        "File":  "latest_DayZServer_x64_star.RPT",
+        "Line":  240,
+        "Text":  "11:30:28.245 Warning Message: No entry \u0027bin\\config.bin/CfgWorlds/DefaultWorld/Weather/Overcast/Weather3.farCloud\u0027."
+    },
+    {
+        "File":  "latest_DayZServer_x64_star.RPT",
+        "Line":  242,
+        "Text":  "11:30:28.245 Warning Message: No entry \u0027bin\\config.bin/CfgWorlds/DefaultWorld/Weather/Overcast/Weather3.cloud\u0027."
+    },
+    {
+        "File":  "latest_DayZServer_x64_star.RPT",
+        "Line":  244,
+        "Text":  "11:30:28.245 Warning Message: No entry \u0027bin\\config.bin/CfgWorlds/DefaultWorld/Weather/Overcast/Weather4.farCloud\u0027."
+    },
+    {
+        "File":  "latest_DayZServer_x64_star.RPT",
+        "Line":  246,
+        "Text":  "11:30:28.245 Warning Message: No entry \u0027bin\\config.bin/CfgWorlds/DefaultWorld/Weather/Overcast/Weather4.cloud\u0027."
+    },
+    {
+        "File":  "latest_DayZServer_x64_star.RPT",
+        "Line":  248,
+        "Text":  "11:30:28.245 Warning Message: No entry \u0027bin\\config.bin/CfgWorlds/DefaultWorld/Weather/Overcast/Weather5.farCloud\u0027."
+    },
+    {
+        "File":  "latest_DayZServer_x64_star.RPT",
+        "Line":  250,
+        "Text":  "11:30:28.245 Warning Message: No entry \u0027bin\\config.bin/CfgWorlds/DefaultWorld/Weather/Overcast/Weather5.cloud\u0027."
+    },
+    {
+        "File":  "latest_DayZServer_x64_star.RPT",
+        "Line":  252,
+        "Text":  "11:30:28.245 Warning Message: No entry \u0027bin\\config.bin/CfgWorlds/DefaultWorld/Weather/LightingNew/C_Day60.spaceIntensity\u0027."
+    },
+    {
+        "File":  "latest_DayZServer_x64_star.RPT",
+        "Line":  254,
+        "Text":  "11:30:28.245 Warning Message: No entry \u0027bin\\config.bin/CfgWorlds/DefaultWorld/Weather/LightingNew/C_Day60.starsIntensity\u0027."
+    },
+    {
+        "File":  "latest_DayZServer_x64_star.RPT",
+        "Line":  256,
+        "Text":  "11:30:28.245 Warning Message: No entry \u0027bin\\config.bin/CfgWorlds/DefaultWorld/Weather/LightingNew/C_Day60.atmosphereIntensity\u0027."
+    },
+    {
+        "File":  "latest_DayZServer_x64_star.RPT",
+        "Line":  258,
+        "Text":  "11:30:28.245 Warning Message: No entry \u0027bin\\config.bin/CfgWorlds/DefaultWorld/Weather/LightingNew/C_Day60.NearCloud\u0027."
+    },
+    {
+        "File":  "latest_DayZServer_x64_star.RPT",
+        "Line":  259,
+        "Text":  "11:30:28.245 Warning Message: No entry \u0027bin\\config.bin/CfgWorlds/DefaultWorld/Weather/Overcast/Weather1.farCloud\u0027."
+    },
+    {
+        "File":  "latest_DayZServer_x64_star.RPT",
+        "Line":  261,
+        "Text":  "11:30:28.245 Warning Message: No entry \u0027bin\\config.bin/CfgWorlds/DefaultWorld/Weather/Overcast/Weather1.cloud\u0027."
+    },
+    {
+        "File":  "latest_DayZServer_x64_star.RPT",
+        "Line":  263,
+        "Text":  "11:30:28.245 Warning Message: No entry \u0027bin\\config.bin/CfgWorlds/DefaultWorld/Weather/Overcast/Weather2.farCloud\u0027."
+    },
+    {
+        "File":  "latest_DayZServer_x64_star.RPT",
+        "Line":  265,
+        "Text":  "11:30:28.245 Warning Message: No entry \u0027bin\\config.bin/CfgWorlds/DefaultWorld/Weather/Overcast/Weather2.cloud\u0027."
+    },
+    {
+        "File":  "latest_DayZServer_x64_star.RPT",
+        "Line":  267,
+        "Text":  "11:30:28.245 Warning Message: No entry \u0027bin\\config.bin/CfgWorlds/DefaultWorld/Weather/Overcast/Weather3.farCloud\u0027."
+    },
+    {
+        "File":  "latest_DayZServer_x64_star.RPT",
+        "Line":  269,
+        "Text":  "11:30:28.245 Warning Message: No entry \u0027bin\\config.bin/CfgWorlds/DefaultWorld/Weather/Overcast/Weather3.cloud\u0027."
+    },
+    {
+        "File":  "latest_DayZServer_x64_star.RPT",
+        "Line":  271,
+        "Text":  "11:30:28.245 Warning Message: No entry \u0027bin\\config.bin/CfgWorlds/DefaultWorld/Weather/Overcast/Weather4.farCloud\u0027."
+    },
+    {
+        "File":  "latest_DayZServer_x64_star.RPT",
+        "Line":  273,
+        "Text":  "11:30:28.245 Warning Message: No entry \u0027bin\\config.bin/CfgWorlds/DefaultWorld/Weather/Overcast/Weather4.cloud\u0027."
+    },
+    {
+        "File":  "latest_DayZServer_x64_star.RPT",
+        "Line":  275,
+        "Text":  "11:30:28.245 Warning Message: No entry \u0027bin\\config.bin/CfgWorlds/DefaultWorld/Weather/Overcast/Weather5.farCloud\u0027."
+    },
+    {
+        "File":  "latest_DayZServer_x64_star.RPT",
+        "Line":  277,
+        "Text":  "11:30:28.245 Warning Message: No entry \u0027bin\\config.bin/CfgWorlds/DefaultWorld/Weather/Overcast/Weather5.cloud\u0027."
+    },
+    {
+        "File":  "latest_DayZServer_x64_star.RPT",
+        "Line":  279,
+        "Text":  "11:30:28.245 Warning Message: No entry \u0027bin\\config.bin/CfgWorlds/DefaultWorld/Weather/LightingNew/C_Day60.spaceIntensity\u0027."
+    },
+    {
+        "File":  "latest_DayZServer_x64_star.RPT",
+        "Line":  281,
+        "Text":  "11:30:28.245 Warning Message: No entry \u0027bin\\config.bin/CfgWorlds/DefaultWorld/Weather/LightingNew/C_Day60.starsIntensity\u0027."
+    },
+    {
+        "File":  "latest_DayZServer_x64_star.RPT",
+        "Line":  283,
+        "Text":  "11:30:28.245 Warning Message: No entry \u0027bin\\config.bin/CfgWorlds/DefaultWorld/Weather/LightingNew/C_Day60.atmosphereIntensity\u0027."
+    },
+    {
+        "File":  "latest_DayZServer_x64_star.RPT",
+        "Line":  285,
+        "Text":  "11:30:28.245 Warning Message: No entry \u0027bin\\config.bin/CfgWorlds/DefaultWorld/Weather/LightingNew/C_Day60.NearCloud\u0027."
+    },
+    {
+        "File":  "latest_DayZServer_x64_star.RPT",
+        "Line":  286,
+        "Text":  "11:30:28.245 Warning Message: No entry \u0027bin\\config.bin/CfgWorlds/DefaultWorld.volFogOffset\u0027."
+    },
+    {
+        "File":  "latest_DayZServer_x64_star.RPT",
+        "Line":  288,
+        "Text":  "11:30:28.245 Warning Message: No entry \u0027bin\\config.bin/CfgWorlds/DefaultWorld.spaceObject\u0027."
+    },
+    {
+        "File":  "latest_DayZServer_x64_star.RPT",
+        "Line":  290,
+        "Text":  "11:30:28.245 Warning Message: No entry \u0027bin\\config.bin/CfgWorlds/DefaultWorld.atmosphereObject\u0027."
+    },
+    {
+        "File":  "latest_DayZServer_x64_star.RPT",
+        "Line":  293,
+        "Text":  "11:30:28.245 Warning Message: No entry \u0027bin\\config.bin/CfgWorlds/DefaultWorld.nearCloudObject\u0027."
+    },
+    {
+        "File":  "latest_DayZServer_x64_star.RPT",
+        "Line":  295,
+        "Text":  "11:30:28.245 Warning Message: No entry \u0027bin\\config.bin/CfgWorlds/DefaultWorld.cloudObject\u0027."
+    },
+    {
+        "File":  "latest_DayZServer_x64_star.RPT",
+        "Line":  297,
+        "Text":  "11:30:28.245 Warning Message: No entry \u0027bin\\config.bin/CfgWorlds/DefaultWorld.horizonObject\u0027."
+    },
+    {
+        "File":  "latest_DayZServer_x64_star.RPT",
+        "Line":  333,
+        "Text":  "11:30:38.480 Warning Message: No entry \u0027bin\\config.bin/CfgNonAIVehicles/ProxyCrew.simulation\u0027."
+    },
+    {
+        "File":  "latest_DayZServer_x64_star.RPT",
+        "Line":  336,
+        "Text":  "11:30:38.480 Warning Message: No entry \u0027bin\\config.bin/CfgNonAIVehicles/ProxyCrew.model\u0027."
+    },
+    {
+        "File":  "latest_DayZServer_x64_star.RPT",
+        "Line":  338,
+        "Text":  "11:30:38.480 Warning Message: No entry \u0027bin\\config.bin/CfgNonAIVehicles/ProxyCrew.simulation\u0027."
+    },
+    {
+        "File":  "latest_DayZServer_x64_star.RPT",
+        "Line":  341,
+        "Text":  "11:30:38.636 Warning Message: No entry \u0027bin\\config.bin/CfgSoundShaders.IZH18_Closure_SoundShader\u0027."
+    },
+    {
+        "File":  "latest_DayZServer_x64_star.RPT",
+        "Line":  342,
+        "Text":  "11:30:38.636 Warning Message: No entry \u0027.samples\u0027."
+    },
+    {
+        "File":  "latest_DayZServer_x64_star.RPT",
+        "Line":  395,
+        "Text":  "11:30:42.651 Warning Message: No entry \u0027bin\\config.bin/CfgNonAIVehicles/ProxyCrew_Driver.simulation\u0027."
+    },
+    {
+        "File":  "latest_DayZServer_x64_star.RPT",
+        "Line":  398,
+        "Text":  "11:30:42.651 Warning Message: No entry \u0027bin\\config.bin/CfgNonAIVehicles/ProxyCrew_Driver.simulation\u0027."
+    },
+    {
+        "File":  "latest_DayZServer_x64_star.RPT",
+        "Line":  400,
+        "Text":  "11:30:42.651 Warning Message: No entry \u0027bin\\config.bin/CfgNonAIVehicles/ProxyCrew_Cargo.simulation\u0027."
+    },
+    {
+        "File":  "latest_DayZServer_x64_star.RPT",
+        "Line":  403,
+        "Text":  "11:30:42.651 Warning Message: No entry \u0027bin\\config.bin/CfgNonAIVehicles/ProxyCrew_Cargo.simulation\u0027."
+    },
+    {
+        "File":  "latest_DayZServer_x64_star.RPT",
+        "Line":  442,
+        "Text":  "11:30:44.790 Warning Message: No entry \u0027bin\\config.bin/CfgWorlds/CAWorld/Weather/LightingNew/C_Night.NearCloud\u0027."
+    },
+    {
+        "File":  "latest_DayZServer_x64_star.RPT",
+        "Line":  443,
+        "Text":  "11:30:44.790 Warning Message: No entry \u0027bin\\config.bin/CfgWorlds/CAWorld/Weather/LightingNew/C_Astro1.NearCloud\u0027."
+    },
+    {
+        "File":  "latest_DayZServer_x64_star.RPT",
+        "Line":  444,
+        "Text":  "11:30:44.790 Warning Message: No entry \u0027bin\\config.bin/CfgWorlds/CAWorld/Weather/LightingNew/C_Astro2.NearCloud\u0027."
+    },
+    {
+        "File":  "latest_DayZServer_x64_star.RPT",
+        "Line":  445,
+        "Text":  "11:30:44.790 Warning Message: No entry \u0027bin\\config.bin/CfgWorlds/CAWorld/Weather/LightingNew/C_Astro3.NearCloud\u0027."
+    },
+    {
+        "File":  "latest_DayZServer_x64_star.RPT",
+        "Line":  446,
+        "Text":  "11:30:44.790 Warning Message: No entry \u0027bin\\config.bin/CfgWorlds/CAWorld/Weather/LightingNew/C_Nautical1.NearCloud\u0027."
+    },
+    {
+        "File":  "latest_DayZServer_x64_star.RPT",
+        "Line":  447,
+        "Text":  "11:30:44.790 Warning Message: No entry \u0027bin\\config.bin/CfgWorlds/CAWorld/Weather/LightingNew/C_Nautical2.NearCloud\u0027."
+    },
+    {
+        "File":  "latest_DayZServer_x64_star.RPT",
+        "Line":  448,
+        "Text":  "11:30:44.790 Warning Message: No entry \u0027bin\\config.bin/CfgWorlds/CAWorld/Weather/LightingNew/C_Nautical3.NearCloud\u0027."
+    },
+    {
+        "File":  "latest_DayZServer_x64_star.RPT",
+        "Line":  449,
+        "Text":  "11:30:44.790 Warning Message: No entry \u0027bin\\config.bin/CfgWorlds/CAWorld/Weather/LightingNew/C_Civil1.NearCloud\u0027."
+    },
+    {
+        "File":  "latest_DayZServer_x64_star.RPT",
+        "Line":  450,
+        "Text":  "11:30:44.790 Warning Message: No entry \u0027bin\\config.bin/CfgWorlds/CAWorld/Weather/LightingNew/C_Civil2.NearCloud\u0027."
+    },
+    {
+        "File":  "latest_DayZServer_x64_star.RPT",
+        "Line":  451,
+        "Text":  "11:30:44.790 Warning Message: No entry \u0027bin\\config.bin/CfgWorlds/CAWorld/Weather/LightingNew/C_Civil3.NearCloud\u0027."
+    },
+    {
+        "File":  "latest_DayZServer_x64_star.RPT",
+        "Line":  452,
+        "Text":  "11:30:44.790 Warning Message: No entry \u0027bin\\config.bin/CfgWorlds/CAWorld/Weather/LightingNew/C_Day0.NearCloud\u0027."
+    },
+    {
+        "File":  "latest_DayZServer_x64_star.RPT",
+        "Line":  453,
+        "Text":  "11:30:44.795 Warning Message: No entry \u0027bin\\config.bin/CfgWorlds/CAWorld/Weather/LightingNew/C_Day4.NearCloud\u0027."
+    },
+    {
+        "File":  "latest_DayZServer_x64_star.RPT",
+        "Line":  454,
+        "Text":  "11:30:44.795 Warning Message: No entry \u0027bin\\config.bin/CfgWorlds/CAWorld/Weather/LightingNew/C_Day8.NearCloud\u0027."
+    },
+    {
+        "File":  "latest_DayZServer_x64_star.RPT",
+        "Line":  455,
+        "Text":  "11:30:44.795 Warning Message: No entry \u0027bin\\config.bin/CfgWorlds/CAWorld/Weather/LightingNew/C_Day12.NearCloud\u0027."
+    },
+    {
+        "File":  "latest_DayZServer_x64_star.RPT",
+        "Line":  456,
+        "Text":  "11:30:44.795 Warning Message: No entry \u0027bin\\config.bin/CfgWorlds/CAWorld/Weather/LightingNew/C_Day16.NearCloud\u0027."
+    },
+    {
+        "File":  "latest_DayZServer_x64_star.RPT",
+        "Line":  457,
+        "Text":  "11:30:44.795 Warning Message: No entry \u0027bin\\config.bin/CfgWorlds/CAWorld/Weather/LightingNew/C_Day35.NearCloud\u0027."
+    },
+    {
+        "File":  "latest_DayZServer_x64_star.RPT",
+        "Line":  458,
+        "Text":  "11:30:44.795 Warning Message: No entry \u0027bin\\config.bin/CfgWorlds/CAWorld/Weather/LightingNew/C_Day60.NearCloud\u0027."
+    },
+    {
+        "File":  "latest_DayZServer_x64_star.RPT",
+        "Line":  459,
+        "Text":  "11:30:44.795 Warning Message: No entry \u0027bin\\config.bin/CfgWorlds/CAWorld/Weather/LightingNew/O_Night.NearCloud\u0027."
+    },
+    {
+        "File":  "latest_DayZServer_x64_star.RPT",
+        "Line":  460,
+        "Text":  "11:30:44.795 Warning Message: No entry \u0027bin\\config.bin/CfgWorlds/CAWorld/Weather/LightingNew/O_Astro1.NearCloud\u0027."
+    },
+    {
+        "File":  "latest_DayZServer_x64_star.RPT",
+        "Line":  461,
+        "Text":  "11:30:44.795 Warning Message: No entry \u0027bin\\config.bin/CfgWorlds/CAWorld/Weather/LightingNew/O_Nautical1.NearCloud\u0027."
+    },
+    {
+        "File":  "latest_DayZServer_x64_star.RPT",
+        "Line":  462,
+        "Text":  "11:30:44.795 Warning Message: No entry \u0027bin\\config.bin/CfgWorlds/CAWorld/Weather/LightingNew/O_Civil1.NearCloud\u0027."
+    },
+    {
+        "File":  "latest_DayZServer_x64_star.RPT",
+        "Line":  463,
+        "Text":  "11:30:44.795 Warning Message: No entry \u0027bin\\config.bin/CfgWorlds/CAWorld/Weather/LightingNew/O_Civil2.NearCloud\u0027."
+    },
+    {
+        "File":  "latest_DayZServer_x64_star.RPT",
+        "Line":  464,
+        "Text":  "11:30:44.795 Warning Message: No entry \u0027bin\\config.bin/CfgWorlds/CAWorld/Weather/LightingNew/O_Day0.NearCloud\u0027."
+    },
+    {
+        "File":  "latest_DayZServer_x64_star.RPT",
+        "Line":  465,
+        "Text":  "11:30:44.795 Warning Message: No entry \u0027bin\\config.bin/CfgWorlds/CAWorld/Weather/LightingNew/O_Day4.NearCloud\u0027."
+    },
+    {
+        "File":  "latest_DayZServer_x64_star.RPT",
+        "Line":  466,
+        "Text":  "11:30:44.795 Warning Message: No entry \u0027bin\\config.bin/CfgWorlds/CAWorld/Weather/LightingNew/O_Day8.NearCloud\u0027."
+    },
+    {
+        "File":  "latest_DayZServer_x64_star.RPT",
+        "Line":  467,
+        "Text":  "11:30:44.795 Warning Message: No entry \u0027bin\\config.bin/CfgWorlds/CAWorld/Weather/LightingNew/O_Day12.NearCloud\u0027."
+    },
+    {
+        "File":  "latest_DayZServer_x64_star.RPT",
+        "Line":  468,
+        "Text":  "11:30:44.795 Warning Message: No entry \u0027bin\\config.bin/CfgWorlds/CAWorld/Weather/LightingNew/O_Day35.NearCloud\u0027."
+    },
+    {
+        "File":  "latest_DayZServer_x64_star.RPT",
+        "Line":  469,
+        "Text":  "11:30:44.795 Warning Message: No entry \u0027bin\\config.bin/CfgWorlds/CAWorld/Weather/LightingNew/O_Day60.NearCloud\u0027."
+    },
+    {
+        "File":  "latest_DayZServer_x64_star.RPT",
+        "Line":  582,
+        "Text":  "11:30:44.847 Warning Message: No entry \u0027bin\\config.bin/CfgWorlds/ChernarusPlus.nearCloudObject\u0027."
+    }
+]

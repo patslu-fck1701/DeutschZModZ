@@ -1,0 +1,18 @@
+// Example trader entries only. Do not copy over live economy without review.
+// High sell value, but intended to be kept for OperationDeutschZ progression.
+
+<Trader> DeutschZ OperationDeutschZ
+DZOP_Keycard_ConvoyAlpha | Sell 250000 | Buy disabled
+DZOP_DamagedCardReader | Sell 350000 | Buy disabled
+DZCR_CipherDocument | Sell 200000 | Buy disabled
+DZOP_TreasureMapFragment_A | Sell 300000 | Buy disabled
+DZOP_TreasureMapFragment_B | Sell 750000 | Buy disabled
+DZOP_OperationTreasureMap | Sell 1500000 | Buy disabled
+DZ_BossDogtag | Sell 250000 | Buy disabled
+DZ_RadioCrystal | Sell 400000 | Buy disabled
+DZOP_CipherFragment_Courier | Sell 220000 | Buy disabled
+DZOP_RouteNote_Courier | Sell 180000 | Buy disabled
+DZOP_TechnicalFragment_GroundZero | Sell 450000 | Buy disabled
+DZOP_SignalFragment_KotHZ | Sell 500000 | Buy disabled
+DZGZ_SignalCore | Sell 600000 | Buy disabled
+DZGZ_EncryptedResearchData | Sell 350000 | Buy disabled

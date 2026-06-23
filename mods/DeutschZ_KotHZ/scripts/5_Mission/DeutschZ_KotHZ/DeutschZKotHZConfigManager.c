@@ -36,6 +36,9 @@ class DeutschZKotHZConfigManager
         }
         else
         {
+            if (SanitizeMainConfigBeforeLoad())
+                saveConsolidated = true;
+
             config = new DeutschZKotHZConfig();
             JsonFileLoader<DeutschZKotHZConfig>.JsonLoadFile(KOTH_CONFIG, config);
         }
@@ -115,6 +118,75 @@ class DeutschZKotHZConfigManager
         MakeDirectory(KOTH_FOLDER);
         MakeDirectory(CONFIG_FOLDER);
         Print("[DeutschZ_KotHZ] Profile folders ensured: " + CONFIG_FOLDER);
+    }
+
+    protected static bool SanitizeMainConfigBeforeLoad()
+    {
+        // FIX: Some generated/test configs used unsigned ARGB JSON (4294909984).
+        // DayZ Enforce int is signed; JsonLoadFile throws before Validate() can repair it.
+        // Repair the file as plain text before JsonLoadFile touches it.
+        if (!FileExist(KOTH_CONFIG))
+            return false;
+
+        string content = ReadTextFile(KOTH_CONFIG);
+        if (content == "")
+            return false;
+
+        bool changed = false;
+
+        if (content.IndexOf("\"ExpansionMarkerColorARGB\": 4294909984") >= 0)
+        {
+            content.Replace("\"ExpansionMarkerColorARGB\": 4294909984", "\"ExpansionMarkerColorARGB\": -57312");
+            changed = true;
+        }
+
+        if (content.IndexOf("\"ExpansionMarkerColorARGB\": \"4294909984\"") >= 0)
+        {
+            content.Replace("\"ExpansionMarkerColorARGB\": \"4294909984\"", "\"ExpansionMarkerColorARGB\": -57312");
+            changed = true;
+        }
+
+        if (content.IndexOf("\"ExpansionMarkerColorARGB\": 4278190335") >= 0)
+        {
+            content.Replace("\"ExpansionMarkerColorARGB\": 4278190335", "\"ExpansionMarkerColorARGB\": -16776961");
+            changed = true;
+        }
+
+        if (changed)
+        {
+            WriteTextFile(KOTH_CONFIG, content);
+            Print("[DeutschZ_KotHZ] Repaired JSON-safe signed ExpansionMarkerColorARGB before JsonLoadFile: " + KOTH_CONFIG);
+        }
+
+        return changed;
+    }
+
+    protected static string ReadTextFile(string path)
+    {
+        string content = "";
+        FileHandle file = OpenFile(path, FileMode.READ);
+        if (!file)
+            return content;
+
+        string line;
+        while (FGets(file, line) >= 0)
+        {
+            content = content + line + "\n";
+        }
+
+        CloseFile(file);
+        return content;
+    }
+
+    protected static bool WriteTextFile(string path, string content)
+    {
+        FileHandle file = OpenFile(path, FileMode.WRITE);
+        if (!file)
+            return false;
+
+        FPrintln(file, content);
+        CloseFile(file);
+        return true;
     }
 
     protected static bool ImportLegacySplitConfigs(DeutschZKotHZConfig config)
@@ -420,7 +492,9 @@ class DeutschZKotHZConfigManager
             config.EventMusicVolume = 1.0;
 
         // DeutschZ KotHZ marker: klares Rot, getrennt von ConvoyZ/CourierZ/GroundZero.
-        config.ExpansionMarkerColorARGB = ARGB(255, 255, 32, 32);
+        // IMPORTANT: keep this as signed 32-bit JSON-safe int. 0xFFFF2020 as unsigned (4294909984)
+        // crashes JsonLoadFile with "Cannot convert to int" on DayZ servers.
+        config.ExpansionMarkerColorARGB = -57312;
 
 
         // KOTH rewards spawn as a visible DeutschZ reward crate by default.
