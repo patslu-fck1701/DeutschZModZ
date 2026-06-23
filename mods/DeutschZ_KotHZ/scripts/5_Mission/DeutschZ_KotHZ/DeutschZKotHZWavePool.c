@@ -128,9 +128,10 @@ class DeutschZKotHZWavePoolsConfig
 
     void DeutschZKotHZWavePoolsConfig()
     {
-        ConfigInfo = "DeutschZ_KotHZ wave pool config. Counts are reduced for fast test runs. Waves start when a player enters the zone.";
+        ConfigInfo = "DeutschZ_KotHZ wave pool config. V0.9.3 normal: first contact 3 Expansion AI, then 30 infected over controlled waves.";
         WavePools = new array<ref DeutschZKotHZWavePool>;
 
+        CreateDeutschZNormalPool();
         CreateKVM1TestPool();
 
         DeutschZKotHZWavePool nwaf = new DeutschZKotHZWavePool();

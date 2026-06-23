@@ -13,7 +13,7 @@ class DeutschZConvoyZActionHackBlackboxCB : ActionContinuousBaseCB
 {
     override void CreateActionComponent()
     {
-        m_ActionData.m_ActionComponent = new CAContinuousTime(120.0);
+        m_ActionData.m_ActionComponent = new CAContinuousTime(90.0);
     }
 }
 

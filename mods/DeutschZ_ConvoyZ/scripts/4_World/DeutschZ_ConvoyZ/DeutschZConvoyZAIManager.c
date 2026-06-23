@@ -97,52 +97,72 @@ class DeutschZConvoyZAIManager
     {
         if (!ai) return;
 
-        if (loadoutName == "DZCV_MilitaryLight")
+        SpawnLoadoutItemOrFallback(ai, "USMCJacket_Woodland", "BDUJacket");
+        SpawnLoadoutItemOrFallback(ai, "USMCPants_Woodland", "BDUPants");
+        SpawnLoadoutItemOrFallback(ai, "CombatBoots_Green", "CombatBoots_Black");
+        SpawnLoadoutItemOrFallback(ai, "PlateCarrierVest", "HighCapacityVest_Olive");
+        SpawnLoadoutItem(ai, "PlateCarrierPouches");
+        SpawnLoadoutItem(ai, "PlateCarrierHolster");
+        SpawnLoadoutItemOrFallback(ai, "BallisticHelmet_Green", "Mich2001Helmet");
+        SpawnLoadoutItemOrFallback(ai, "TacticalGloves_Green", "WorkingGloves_Black");
+        SpawnLoadoutItem(ai, "BandageDressing");
+        SpawnLoadoutItem(ai, "Morphine");
+
+        if (loadoutName == "DZCV_SNAFU_Heavy" || loadoutName == "DZCV_MilitaryHeavy")
         {
-            SpawnLoadoutItem(ai, "TacticalShirt_Olive");
-            SpawnLoadoutItem(ai, "CargoPants_Green");
-            SpawnLoadoutItem(ai, "CombatBoots_Green");
-            SpawnLoadoutItem(ai, "UKAssVest_Olive");
-            SpawnLoadoutItem(ai, "Mich2001Helmet");
-            SpawnLoadoutItem(ai, "AK74");
-            SpawnLoadoutItem(ai, "Mag_AK74_30Rnd");
-            SpawnLoadoutItem(ai, "Mag_AK74_30Rnd");
-            SpawnLoadoutItem(ai, "Ammo_545x39");
+            SpawnLoadoutItemOrFallback(ai, "Snafu_ScarH_Black_GUN", "M4A1");
+            SpawnLoadoutItemOrFallback(ai, "SNAFU_ScarH_100RND_Mag_Black", "Mag_STANAG_60Rnd");
+            SpawnLoadoutItemOrFallback(ai, "SNAFU_ScarH_100RND_Mag_Black", "Mag_STANAG_60Rnd");
+            SpawnLoadoutItemOrFallback(ai, "SNAFU_HNightforce", "ACOGOptic");
+            SpawnLoadoutItem(ai, "AmmoBox_308Win_20Rnd");
             return;
         }
 
-        if (loadoutName == "DZCV_MilitaryHeavy")
+        if (loadoutName == "DZCV_SNAFU_Assault" || loadoutName == "DZCV_MilitaryRifleman")
         {
-            SpawnLoadoutItem(ai, "GorkaEJacket_Flat");
-            SpawnLoadoutItem(ai, "GorkaPants_Flat");
-            SpawnLoadoutItem(ai, "CombatBoots_Black");
-            SpawnLoadoutItem(ai, "PlateCarrierVest");
-            SpawnLoadoutItem(ai, "BallisticHelmet_Green");
-            SpawnLoadoutItem(ai, "M4A1");
-            SpawnLoadoutItem(ai, "Mag_STANAG_30Rnd");
-            SpawnLoadoutItem(ai, "Mag_STANAG_30Rnd");
-            SpawnLoadoutItem(ai, "Ammo_556x45");
+            SpawnLoadoutItemOrFallback(ai, "SNAFU_HK416_Black", "M4A1");
+            SpawnLoadoutItemOrFallback(ai, "SNAFU_HK416_Mag", "Mag_STANAG_30Rnd");
+            SpawnLoadoutItemOrFallback(ai, "SNAFU_HK416_Mag", "Mag_STANAG_30Rnd");
+            SpawnLoadoutItemOrFallback(ai, "SNAFU_EOTech_EXPS3", "M68Optic");
+            SpawnLoadoutItem(ai, "AmmoBox_556x45_20Rnd");
             return;
         }
 
-        // Default rifleman / legacy PoliceLoadout compatibility.
-        SpawnLoadoutItem(ai, "BDUJacket");
-        SpawnLoadoutItem(ai, "BDUPants");
-        SpawnLoadoutItem(ai, "CombatBoots_Black");
-        SpawnLoadoutItem(ai, "PlateCarrierVest");
-        SpawnLoadoutItem(ai, "Mich2001Helmet");
-        SpawnLoadoutItem(ai, "AKM");
-        SpawnLoadoutItem(ai, "Mag_AKM_30Rnd");
-        SpawnLoadoutItem(ai, "Mag_AKM_30Rnd");
-        SpawnLoadoutItem(ai, "Ammo_762x39");
+        // Default / light convoy guard.
+        SpawnLoadoutItemOrFallback(ai, "SNAFU_MK18_Black", "AK74");
+        SpawnLoadoutItemOrFallback(ai, "SNAFU_MK18_Mag", "Mag_AK74_30Rnd");
+        SpawnLoadoutItemOrFallback(ai, "SNAFU_MK18_Mag", "Mag_AK74_30Rnd");
+        SpawnLoadoutItemOrFallback(ai, "SNAFU_EOTech_EXPS3", "KobraOptic");
+        SpawnLoadoutItem(ai, "Ammo_545x39");
+    }
+
+    bool IsLoadoutClassConfigured(string className)
+    {
+        if (className == "") return false;
+        if (GetGame().ConfigIsExisting("CfgVehicles " + className)) return true;
+        if (GetGame().ConfigIsExisting("CfgWeapons " + className)) return true;
+        if (GetGame().ConfigIsExisting("CfgMagazines " + className)) return true;
+        return false;
+    }
+
+    bool TrySpawnLoadoutItem(EntityAI ai, string className)
+    {
+        if (!ai || className == "") return false;
+        if (DeutschZCore_UnsafeClassGuard.IsBlockedClass(className)) return false;
+        if (!IsLoadoutClassConfigured(className)) return false;
+        EntityAI item = ai.GetInventory().CreateInInventory(className);
+        return item != null;
     }
 
     void SpawnLoadoutItem(EntityAI ai, string className)
     {
-        if (!ai || className == "") return;
-        if (DeutschZCore_UnsafeClassGuard.IsBlockedClass(className)) return;
-        if (!GetGame().ConfigIsExisting("CfgVehicles " + className)) return;
-        ai.GetInventory().CreateInInventory(className);
+        TrySpawnLoadoutItem(ai, className);
+    }
+
+    void SpawnLoadoutItemOrFallback(EntityAI ai, string preferred, string fallback)
+    {
+        if (TrySpawnLoadoutItem(ai, preferred)) return;
+        TrySpawnLoadoutItem(ai, fallback);
     }
 
     string NormalizeAIClassName(string className)

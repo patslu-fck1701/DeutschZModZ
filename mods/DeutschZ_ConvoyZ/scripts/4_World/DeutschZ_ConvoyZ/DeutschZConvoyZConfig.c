@@ -95,6 +95,131 @@ class DeutschZConvoyZConfig
         return className;
     }
 
+    void AddOrRefreshRewardItem(string className, int quantity, float chance)
+    {
+        if (!EventData || !EventData.Reward || !EventData.Reward.Items || className == "") return;
+
+        foreach (DeutschZConvoyZRewardItemDef existing: EventData.Reward.Items)
+        {
+            if (!existing) continue;
+            if (existing.ClassName == className)
+            {
+                existing.Quantity = quantity;
+                existing.Chance = chance;
+                return;
+            }
+        }
+
+        DeutschZConvoyZRewardItemDef item = new DeutschZConvoyZRewardItemDef();
+        item.ClassName = className;
+        item.Quantity = quantity;
+        item.Chance = chance;
+        EventData.Reward.Items.Insert(item);
+    }
+
+    void ApplyNormalOnlineSettings()
+    {
+        if (!Settings) Settings = new DeutschZConvoyZSettings();
+        Settings.EnableConvoyZEvent = 1;
+        Settings.RequiredAiKills = 6;
+        Settings.HackDurationSeconds = 90;
+        Settings.BlackboxMaxHackDistance = 3.5;
+        Settings.EnableAiWaves = 1;
+        Settings.WaveDelaySeconds = 150;
+        Settings.UseEventMarker = 1;
+        Settings.UseEvent3DMarker = 1;
+        Settings.EventMarkerIcon = "Vehicle";
+        Settings.EventMarkerName = "DeutschZ ConvoyZ Crash";
+        Settings.EnableStatusNotifications = 1;
+        Settings.StatusBarUpdateIntervalSeconds = 1;
+        Settings.StatusNotifyIntervalSeconds = 20;
+        Settings.StatusSyncRadius = 650.0;
+        Settings.AutoStartOnMissionInit = 1;
+        Settings.InitialStartDelayMinSeconds = 2100;
+        Settings.InitialStartDelayMaxSeconds = 3300;
+        Settings.RestartEventAfterCleanup = 1;
+        Settings.RestartDelayMinSeconds = 2100;
+        Settings.RestartDelayMaxSeconds = 3300;
+        Settings.MaxSimultaneousEvents = 1;
+        Settings.MaxEventsPerRestart = 0;
+        Settings.MinOnlinePlayersToStart = 1;
+        Settings.NoPlayerRetryDelaySeconds = 300;
+        Settings.MaxEventRuntimeSeconds = 5400;
+        Settings.BlackboxReadyTimeoutSeconds = 1800;
+        Settings.AutoFailStuckEvent = 1;
+        Settings.EnableDebugLogs = 0;
+    }
+
+    void EnsureNormalRewardItems()
+    {
+        if (!EventData.Reward) EventData.Reward = new DeutschZConvoyZRewardDef();
+        if (!EventData.Reward.Items) EventData.Reward.Items = new array<ref DeutschZConvoyZRewardItemDef>;
+
+        AddOrRefreshRewardItem("DZCV_BlackboxCore", 1, 1.0);
+        AddOrRefreshRewardItem("DZCV_EncryptedDataDrive", 1, 1.0);
+        AddOrRefreshRewardItem("DZCV_ClassifiedIntel", 2, 1.0);
+        AddOrRefreshRewardItem("DZCV_AccessCard", 1, 1.0);
+        AddOrRefreshRewardItem("DZCV_CardReader", 1, 0.8);
+        AddOrRefreshRewardItem("DZ_ConvoyZ_Blackbox", 1, 1.0);
+        AddOrRefreshRewardItem("DZ_ConvoyZ_EncryptedDataModule", 1, 0.9);
+        AddOrRefreshRewardItem("DZ_ConvoyZ_SealedWeaponCase", 1, 0.7);
+        AddOrRefreshRewardItem("DZ_ConvoyZ_DieselManifest", 1, 0.8);
+        AddOrRefreshRewardItem("DZ_ConvoyZ_RadioKey", 1, 0.7);
+        AddOrRefreshRewardItem("DZ_ConvoyZ_ArmorPlateBundle", 1, 0.7);
+        AddOrRefreshRewardItem("DZ_EventToken", 2, 1.0);
+        AddOrRefreshRewardItem("DZ_SecureSSD", 1, 0.8);
+        AddOrRefreshRewardItem("DZ_MilitaryLedger", 1, 0.8);
+        AddOrRefreshRewardItem("WeaponCleaningKit", 2, 1.0);
+        AddOrRefreshRewardItem("NailBox", 3, 1.0);
+        AddOrRefreshRewardItem("MetalPlate", 6, 0.8);
+    }
+
+    void RebuildNormalAIWaves()
+    {
+        if (!EventData.AIWaves) EventData.AIWaves = new array<ref DeutschZConvoyZAIWaveDef>;
+        EventData.AIWaves.Clear();
+
+        InsertNormalAIWave("wave_1", 0, 3, "eAI_SurvivorM_Denis", "DZCV_SNAFU_Rifleman", 32.0);
+        InsertNormalAIWave("wave_2", 150, 3, "eAI_SurvivorM_Boris", "DZCV_SNAFU_Assault", 38.0);
+        InsertNormalAIWave("wave_3", 300, 3, "eAI_SurvivorM_Elias", "DZCV_SNAFU_Heavy", 44.0);
+    }
+
+    void InsertNormalAIWave(string waveId, int delaySeconds, int count, string aiClass, string loadoutName, float radius)
+    {
+        DeutschZConvoyZAIWaveDef wave = new DeutschZConvoyZAIWaveDef();
+        wave.WaveId = waveId;
+        wave.DelaySeconds = delaySeconds;
+        wave.Count = count;
+        wave.AIClassName = aiClass;
+        wave.DeutschZAIProfileId = "";
+        wave.LoadoutName = loadoutName;
+
+        for (int i = 0; i < 3; i++)
+        {
+            DeutschZConvoyZSpawnPoint sp = new DeutschZConvoyZSpawnPoint();
+            sp.Position = EventData.EventCenter;
+            if (i == 0)
+            {
+                sp.Position[0] = sp.Position[0] + radius;
+                sp.Position[2] = sp.Position[2] + Math.RandomFloat(-6.0, 6.0);
+            }
+            else if (i == 1)
+            {
+                sp.Position[0] = sp.Position[0] - radius;
+                sp.Position[2] = sp.Position[2] + Math.RandomFloat(-6.0, 6.0);
+            }
+            else
+            {
+                sp.Position[0] = sp.Position[0] + Math.RandomFloat(-6.0, 6.0);
+                sp.Position[2] = sp.Position[2] + radius;
+            }
+            sp.Orientation = "0 0 0";
+            wave.SpawnPoints.Insert(sp);
+        }
+
+        EventData.AIWaves.Insert(wave);
+    }
+
     void Normalize()
     {
         if (!EventData) EventData = new DeutschZConvoyZEventDef();
@@ -105,6 +230,17 @@ class DeutschZConvoyZConfig
         if (!EventData.AIWaves) EventData.AIWaves = new array<ref DeutschZConvoyZAIWaveDef>;
         if (!EventData.Reward) EventData.Reward = new DeutschZConvoyZRewardDef();
         if (!EventData.Reward.Items) EventData.Reward.Items = new array<ref DeutschZConvoyZRewardItemDef>;
+
+        ApplyNormalOnlineSettings();
+        EventData.EventRadius = 450.0;
+        EventData.RequiredAiKills = 6;
+        EventData.HackDurationSeconds = 90;
+        EventData.Blackbox.ClassName = "Land_HACKEDCRATE";
+        if (EventData.Blackbox.Position == vector.Zero) EventData.Blackbox.Position = "10124 0 5414";
+        EventData.Reward.RewardContainerClassName = "DZCV_SealedRewardChest";
+        EnsureNormalRewardItems();
+        RebuildNormalAIWaves();
+
         if (EventData.Vehicles && EventData.Vehicles.Count() > 0)
         {
             foreach (DeutschZConvoyZVehicleDef veh: EventData.Vehicles)
@@ -138,9 +274,9 @@ class DeutschZConvoyZConfig
             if (!wave) continue;
             if (wave.LoadoutName == "")
             {
-                if (waveIndex == 0) wave.LoadoutName = "DZCV_MilitaryLight";
-                else if (waveIndex == 1) wave.LoadoutName = "DZCV_MilitaryRifleman";
-                else wave.LoadoutName = "DZCV_MilitaryHeavy";
+                if (waveIndex == 0) wave.LoadoutName = "DZCV_SNAFU_Rifleman";
+                else if (waveIndex == 1) wave.LoadoutName = "DZCV_SNAFU_Assault";
+                else wave.LoadoutName = "DZCV_SNAFU_Heavy";
             }
             if (wave.DeutschZAIProfileId == "convoy_guard") wave.DeutschZAIProfileId = "";
             waveIndex++;
@@ -199,8 +335,8 @@ class DeutschZConvoyZConfig
     {
         EventData = new DeutschZConvoyZEventDef();
         EventData.EventCenter = "10120 0 5410";
-        EventData.RequiredAiKills = 4;
-        EventData.HackDurationSeconds = 30;
+        EventData.RequiredAiKills = 6;
+        EventData.HackDurationSeconds = 90;
 
         // FIX44: static military convoy scene. No drivable vehicles; use raised vanilla wreck objects.
         InsertCrashObject("Land_Wreck_V3S", "10120 0 5410", "35 0 0", 1, 1.0);
@@ -222,29 +358,7 @@ class DeutschZConvoyZConfig
         item.Chance = 1.0;
         EventData.Reward.Items.Insert(item);
 
-        for (int i = 0; i < 3; i++)
-        {
-            DeutschZConvoyZAIWaveDef wave = new DeutschZConvoyZAIWaveDef();
-            wave.WaveId = "wave_" + (i + 1).ToString();
-            wave.DelaySeconds = i * 90;
-            wave.Count = 4;
-            if (i == 0) wave.AIClassName = DeutschZConvoyZConstants.DEFAULT_EXPANSION_AI_CLASS;
-            else if (i == 1) wave.AIClassName = "eAI_SurvivorM_Denis";
-            else wave.AIClassName = "eAI_SurvivorM_Boris";
-            wave.DeutschZAIProfileId = "";
-            if (i == 0) wave.LoadoutName = "DZCV_MilitaryLight";
-            else if (i == 1) wave.LoadoutName = "DZCV_MilitaryRifleman";
-            else wave.LoadoutName = "DZCV_MilitaryHeavy";
-
-            DeutschZConvoyZSpawnPoint sp = new DeutschZConvoyZSpawnPoint();
-            sp.Position = EventData.EventCenter;
-            float sx = Math.RandomFloat(-35, 35);
-            float sz = Math.RandomFloat(-35, 35);
-            sp.Position[0] = sp.Position[0] + sx;
-            sp.Position[2] = sp.Position[2] + sz;
-            wave.SpawnPoints.Insert(sp);
-
-            EventData.AIWaves.Insert(wave);
-        }
+        EnsureNormalRewardItems();
+        RebuildNormalAIWaves();
     }
 }

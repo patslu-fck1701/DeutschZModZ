@@ -160,8 +160,8 @@ class DeutschZConvoyZEventDef
         Blackbox = new DeutschZConvoyZBlackboxDef();
         Smoke = new DeutschZConvoyZSmokeDef();
         AIWaves = new array<ref DeutschZConvoyZAIWaveDef>;
-        RequiredAiKills = 4;
-        HackDurationSeconds = 30;
+        RequiredAiKills = 6;
+        HackDurationSeconds = 90;
         Reward = new DeutschZConvoyZRewardDef();
     }
 }
@@ -207,12 +207,12 @@ class DeutschZConvoyZSettings
     {
         EnableConvoyZEvent = 1;
         EventConfigPath = DeutschZConvoyZConstants.EVENTS_FILE;
-        RequiredAiKills = 4;
-        HackDurationSeconds = 30;
-        BlackboxMaxHackDistance = 3.0;
+        RequiredAiKills = 6;
+        HackDurationSeconds = 90;
+        BlackboxMaxHackDistance = 3.5;
         AllowHackProgressResetOnAbort = 1;
         EnableAiWaves = 1;
-        WaveDelaySeconds = 180;
+        WaveDelaySeconds = 150;
         UseEventMarker = 1;
         UseEvent3DMarker = 1;
         EventMarkerIcon = "Vehicle";
@@ -224,16 +224,16 @@ class DeutschZConvoyZSettings
         EnableDebugLogs = 1;
         StatusBarUpdateIntervalSeconds = 1;
         EnableStatusNotifications = 1;
-        StatusNotifyIntervalSeconds = 30;
-        StatusSyncRadius = 750.0;
+        StatusNotifyIntervalSeconds = 20;
+        StatusSyncRadius = 650.0;
         AutoStartOnMissionInit = 1;
-        InitialStartDelayMinSeconds = 180;
-        InitialStartDelayMaxSeconds = 180;
+        InitialStartDelayMinSeconds = 2100;
+        InitialStartDelayMaxSeconds = 3300;
         RestartEventAfterCleanup = 1;
-        RestartDelayMinSeconds = 900;
-        RestartDelayMaxSeconds = 900;
+        RestartDelayMinSeconds = 2100;
+        RestartDelayMaxSeconds = 3300;
         MaxSimultaneousEvents = 1;
-        MaxEventsPerRestart = 3;
+        MaxEventsPerRestart = 0;
         MinOnlinePlayersToStart = 1;
         NoPlayerRetryDelaySeconds = 300;
         MaxEventRuntimeSeconds = 5400;
