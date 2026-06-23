@@ -108,8 +108,6 @@ void DeutschZExpansionBridge_RegisterProviders(string source)
     DeutschZCore_ServiceLocator.RegisterAIProvider(new DeutschZExpansionBridge_AIProvider);
     DeutschZCore_Log.Info("ExpansionBridge", "providers registered source=" + source);
     Print("[DeutschZ_ExpansionBridge] providers registered source=" + source);
-<<<<<<< Updated upstream
-=======
 }
 
 void DeutschZExpansionBridge_DelayedRegisterProviders()
@@ -124,7 +122,6 @@ void DeutschZExpansionBridge_ScheduleDelayedRegisterProviders()
 
     GetGame().GetCallQueue(CALL_CATEGORY_SYSTEM).CallLater(DeutschZExpansionBridge_DelayedRegisterProviders, 1000, false);
     GetGame().GetCallQueue(CALL_CATEGORY_SYSTEM).CallLater(DeutschZExpansionBridge_DelayedRegisterProviders, 5000, false);
->>>>>>> Stashed changes
 }
 
 modded class MissionServer
@@ -139,19 +136,13 @@ modded class MissionServer
     {
         super.OnInit();
         DeutschZExpansionBridge_RegisterProviders("MissionServer OnInit");
-<<<<<<< Updated upstream
-=======
         DeutschZExpansionBridge_ScheduleDelayedRegisterProviders();
->>>>>>> Stashed changes
     }
 
     override void OnMissionStart()
     {
         super.OnMissionStart();
         DeutschZExpansionBridge_RegisterProviders("MissionServer OnMissionStart");
-<<<<<<< Updated upstream
-=======
         DeutschZExpansionBridge_ScheduleDelayedRegisterProviders();
->>>>>>> Stashed changes
     }
 }

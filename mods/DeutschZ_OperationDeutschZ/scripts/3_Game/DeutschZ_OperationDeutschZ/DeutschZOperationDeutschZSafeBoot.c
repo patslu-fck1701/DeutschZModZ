@@ -6,11 +6,7 @@ class DeutschZOperationDeutschZConstants
     static const string LOG_DIR = "$profile:DeutschZ/OperationDeutschZ/Logs/";
     static const string CONFIG_PATH = "$profile:DeutschZ/OperationDeutschZ/OperationDeutschZConfig.json";
     static const string STATE_PATH = "$profile:DeutschZ/OperationDeutschZ/OperationDeutschZState.json";
-<<<<<<< Updated upstream
-    static const string VERSION = "0.1.0-online-test-safe";
-=======
     static const string VERSION = "0.9.3-online-test";
->>>>>>> Stashed changes
 }
 
 class DeutschZOperationDeutschZConfig
