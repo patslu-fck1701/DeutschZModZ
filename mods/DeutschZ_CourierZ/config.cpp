@@ -42,17 +42,17 @@ class CfgMods
             class gameScriptModule
             {
                 value = "";
-                files[] = {"DeutschZ_CourierZ/scripts/3_Game"};
+                files[] = {"DeutschZ_CourierZ/scripts/3_Game", "scripts/3_Game"};
             };
             class worldScriptModule
             {
                 value = "";
-                files[] = {"DeutschZ_CourierZ/scripts/4_World"};
+                files[] = {"DeutschZ_CourierZ/scripts/4_World", "scripts/4_World"};
             };
             class missionScriptModule
             {
                 value = "";
-                files[] = {"DeutschZ_CourierZ/scripts/5_Mission"};
+                files[] = {"DeutschZ_CourierZ/scripts/5_Mission", "scripts/5_Mission"};
             };
         };
     };

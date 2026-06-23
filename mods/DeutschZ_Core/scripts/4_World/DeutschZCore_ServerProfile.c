@@ -2,17 +2,48 @@
     DeutschZ ModZ
     Autor/Eigentuemer: Patrick Sluzalek / fck1701
     Projekt: DeutschZ
-    Zweck: Eigene DeutschZ-Implementierung fuer Core, ExpansionBridge und Event-Module.
-    Quellen-/Konzeptnachweis: Eigenentwickelte Struktur; DayZ, CF und Expansion nur als Laufzeit-API/Abhaengigkeit.
+    Zweck: Serverprofile, Config-Root und sichere Default-Config-Erzeugung.
     No-Copy-Bestaetigung: Kein Code, keine Assets und keine Configs aus fremden Mods kopiert.
 */
 
 class DeutschZCore_ServerProfile
 {
+    static const string CORE_PROFILE = "$profile:DeutschZ/Core/";
+    static const string EVENTS_PROFILE = "$profile:DeutschZ/Events/";
+    static const string CORE_CONFIG = "$profile:DeutschZ/Core/CoreConfig.json";
+
     static void EnsureRoot()
     {
         MakeDirectory(DeutschZCore_Constants.ROOT_PROFILE);
         MakeDirectory(DeutschZCore_Constants.LOG_PROFILE);
+        MakeDirectory(CORE_PROFILE);
+        MakeDirectory(EVENTS_PROFILE);
+        EnsureCoreConfig();
+    }
+
+    static void EnsureCoreConfig()
+    {
+        if (FileExist(CORE_CONFIG))
+            return;
+
+        FileHandle file = OpenFile(CORE_CONFIG, FileMode.WRITE);
+        if (file)
+        {
+            FPrintln(file, "{");
+            FPrintln(file, "    \"ConfigVersion\": 1,");
+            FPrintln(file, "    \"ProfileRoot\": \"$profile:DeutschZ/\",");
+            FPrintln(file, "    \"EnableDebugLogs\": 1,");
+            FPrintln(file, "    \"EnableUnsafeClassGuard\": 1,");
+            FPrintln(file, "    \"BlockedClasses\": [\"M249\", \"Mag_M249_Box200Rnd\"],");
+            FPrintln(file, "    \"AllowedM249Prefixes\": [\"GCGN_M249\", \"GCGNM249\"]");
+            FPrintln(file, "}");
+            CloseFile(file);
+            Print("[DeutschZ_Core] Config created: " + CORE_CONFIG);
+        }
+        else
+        {
+            Print("[DeutschZ_Core][ERROR] Could not create config: " + CORE_CONFIG);
+        }
     }
 
     static string SystemPath(string systemName)

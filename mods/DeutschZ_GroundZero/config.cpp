@@ -46,27 +46,27 @@ class CfgMods
             class engineScriptModule
             {
                 value = "";
-                files[] = {"DeutschZ_GroundZero/scripts/1_Core"};
+                files[] = {"DeutschZ_GroundZero/scripts/1_Core", "scripts/1_Core"};
             };
             class gameLibScriptModule
             {
                 value = "";
-                files[] = {"DeutschZ_GroundZero/scripts/2_GameLib"};
+                files[] = {"DeutschZ_GroundZero/scripts/2_GameLib", "scripts/2_GameLib"};
             };
             class gameScriptModule
             {
                 value = "";
-                files[] = {"DeutschZ_GroundZero/scripts/3_Game"};
+                files[] = {"DeutschZ_GroundZero/scripts/3_Game", "scripts/3_Game"};
             };
             class worldScriptModule
             {
                 value = "";
-                files[] = {"DeutschZ_GroundZero/scripts/4_World"};
+                files[] = {"DeutschZ_GroundZero/scripts/4_World", "scripts/4_World"};
             };
             class missionScriptModule
             {
                 value = "";
-                files[] = {"DeutschZ_GroundZero/scripts/5_Mission"};
+                files[] = {"DeutschZ_GroundZero/scripts/5_Mission", "scripts/5_Mission"};
             };
         };
     };

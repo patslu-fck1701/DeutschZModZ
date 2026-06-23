@@ -2,17 +2,44 @@
     DeutschZ_GroundZero
     Owner: Patrick Sluzalek / fck1701
     Module: 5_Mission / GroundZeroMissionHooks
-    Purpose: Thin MissionServer wiring only. Player hooks stay in 4_World.
-    Dependencies: DayZ MissionServer. No foreign mod code.
+    Purpose: Robust MissionServer bootstrap. Player hooks stay in 4_World.
     Compliance: Original DeutschZ implementation. No copied foreign mod code, assets, configs or stubs.
 */
 
+static int g_GroundZero_Bootstrapped;
+
+void GroundZero_RequestBootstrap(string source)
+{
+    if (!GetGame() || !GetGame().IsServer())
+        return;
+
+    if (g_GroundZero_Bootstrapped == 1)
+        return;
+
+    g_GroundZero_Bootstrapped = 1;
+
+    Print("[DeutschZ_GroundZero] Bootstrap requested source=" + source);
+    GroundZeroCore.Get().InitServer();
+    Print("[DeutschZ_GroundZero] Bootstrap finished source=" + source);
+}
+
 modded class MissionServer
 {
+    void MissionServer()
+    {
+        GroundZero_RequestBootstrap("MissionServer constructor");
+    }
+
     override void OnInit()
     {
         super.OnInit();
-        GroundZeroCore.Get().InitServer();
+        GroundZero_RequestBootstrap("MissionServer OnInit");
+    }
+
+    override void OnMissionStart()
+    {
+        super.OnMissionStart();
+        GroundZero_RequestBootstrap("MissionServer OnMissionStart");
     }
 
     override void OnUpdate(float timeslice)
@@ -21,7 +48,6 @@ modded class MissionServer
         GroundZeroCore.Get().Tick();
     }
 }
-
 
 modded class MissionGameplay
 {

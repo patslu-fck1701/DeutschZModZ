@@ -23,17 +23,17 @@ class CfgMods
             class gameScriptModule
             {
                 value = "";
-                files[] = {"DeutschZ_ExpansionBridge/scripts/3_Game"};
+                files[] = {"DeutschZ_ExpansionBridge/scripts/3_Game", "scripts/3_Game"};
             };
             class worldScriptModule
             {
                 value = "";
-                files[] = {"DeutschZ_ExpansionBridge/scripts/4_World"};
+                files[] = {"DeutschZ_ExpansionBridge/scripts/4_World", "scripts/4_World"};
             };
             class missionScriptModule
             {
                 value = "";
-                files[] = {"DeutschZ_ExpansionBridge/scripts/5_Mission"};
+                files[] = {"DeutschZ_ExpansionBridge/scripts/5_Mission", "scripts/5_Mission"};
             };
         };
     };

@@ -91,14 +91,41 @@ class DeutschZExpansionBridge_NotificationProvider: DeutschZCore_NotificationPro
     }
 }
 
+static int g_DeutschZExpansionBridge_Registered;
+
+void DeutschZExpansionBridge_RegisterProviders(string source)
+{
+    if (!GetGame() || !GetGame().IsServer())
+        return;
+
+    if (g_DeutschZExpansionBridge_Registered == 1)
+        return;
+
+    g_DeutschZExpansionBridge_Registered = 1;
+
+    DeutschZCore_ServiceLocator.RegisterMarkerProvider(new DeutschZExpansionBridge_MarkerProvider);
+    DeutschZCore_ServiceLocator.RegisterNotificationProvider(new DeutschZExpansionBridge_NotificationProvider);
+    DeutschZCore_ServiceLocator.RegisterAIProvider(new DeutschZExpansionBridge_AIProvider);
+    DeutschZCore_Log.Info("ExpansionBridge", "providers registered source=" + source);
+    Print("[DeutschZ_ExpansionBridge] providers registered source=" + source);
+}
+
 modded class MissionServer
 {
+    void MissionServer()
+    {
+        DeutschZExpansionBridge_RegisterProviders("MissionServer constructor");
+    }
+
     override void OnInit()
     {
         super.OnInit();
-        DeutschZCore_ServiceLocator.RegisterMarkerProvider(new DeutschZExpansionBridge_MarkerProvider);
-        DeutschZCore_ServiceLocator.RegisterNotificationProvider(new DeutschZExpansionBridge_NotificationProvider);
-        DeutschZCore_ServiceLocator.RegisterAIProvider(new DeutschZExpansionBridge_AIProvider);
-        DeutschZCore_Log.Info("ExpansionBridge", "providers registered");
+        DeutschZExpansionBridge_RegisterProviders("MissionServer OnInit");
+    }
+
+    override void OnMissionStart()
+    {
+        super.OnMissionStart();
+        DeutschZExpansionBridge_RegisterProviders("MissionServer OnMissionStart");
     }
 }
