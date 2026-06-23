@@ -93,56 +93,37 @@ class DeutschZExpansionBridge_NotificationProvider: DeutschZCore_NotificationPro
 
 modded class MissionServer
 {
-    protected int m_DeutschZExpansionBridge_Registered;
-
     void MissionServer()
     {
-        DeutschZExpansionBridge_RegisterProviders("MissionServer constructor");
-        DeutschZExpansionBridge_ScheduleDelayedRegisterProviders();
+        DeutschZExpansionBridge_RegisterProvidersSafe("MissionServer constructor");
     }
 
-    protected void DeutschZExpansionBridge_RegisterProviders(string source)
+    protected void DeutschZExpansionBridge_RegisterProvidersSafe(string source)
     {
         if (!GetGame() || !GetGame().IsServer())
             return;
 
-        if (m_DeutschZExpansionBridge_Registered == 1)
-            return;
+        DeutschZExpansionBridge_MarkerProvider markerProvider = new DeutschZExpansionBridge_MarkerProvider();
+        DeutschZExpansionBridge_NotificationProvider notificationProvider = new DeutschZExpansionBridge_NotificationProvider();
+        DeutschZExpansionBridge_AIProvider aiProvider = new DeutschZExpansionBridge_AIProvider();
 
-        m_DeutschZExpansionBridge_Registered = 1;
+        DeutschZCore_ServiceLocator.RegisterMarkerProvider(markerProvider);
+        DeutschZCore_ServiceLocator.RegisterNotificationProvider(notificationProvider);
+        DeutschZCore_ServiceLocator.RegisterAIProvider(aiProvider);
 
-        DeutschZCore_ServiceLocator.RegisterMarkerProvider(new DeutschZExpansionBridge_MarkerProvider);
-        DeutschZCore_ServiceLocator.RegisterNotificationProvider(new DeutschZExpansionBridge_NotificationProvider);
-        DeutschZCore_ServiceLocator.RegisterAIProvider(new DeutschZExpansionBridge_AIProvider);
         DeutschZCore_Log.Info("ExpansionBridge", "providers registered source=" + source);
         Print("[DeutschZ_ExpansionBridge] providers registered source=" + source);
-    }
-
-    protected void DeutschZExpansionBridge_DelayedRegisterProviders()
-    {
-        DeutschZExpansionBridge_RegisterProviders("MissionServer delayed fallback");
-    }
-
-    protected void DeutschZExpansionBridge_ScheduleDelayedRegisterProviders()
-    {
-        if (!GetGame())
-            return;
-
-        GetGame().GetCallQueue(CALL_CATEGORY_SYSTEM).CallLater(this.DeutschZExpansionBridge_DelayedRegisterProviders, 1000, false);
-        GetGame().GetCallQueue(CALL_CATEGORY_SYSTEM).CallLater(this.DeutschZExpansionBridge_DelayedRegisterProviders, 5000, false);
     }
 
     override void OnInit()
     {
         super.OnInit();
-        DeutschZExpansionBridge_RegisterProviders("MissionServer OnInit");
-        DeutschZExpansionBridge_ScheduleDelayedRegisterProviders();
+        DeutschZExpansionBridge_RegisterProvidersSafe("MissionServer OnInit");
     }
 
     override void OnMissionStart()
     {
         super.OnMissionStart();
-        DeutschZExpansionBridge_RegisterProviders("MissionServer OnMissionStart");
-        DeutschZExpansionBridge_ScheduleDelayedRegisterProviders();
+        DeutschZExpansionBridge_RegisterProvidersSafe("MissionServer OnMissionStart");
     }
 }
