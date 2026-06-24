@@ -1,0 +1,35 @@
+﻿DeutschZ System Manager - Arbeitsstand aktuell
+==============================================
+
+Datum: 06/24/2026 19:08:34
+Aktuelle Version: v0.4.1 MEMORY-COMMIT-PACKAGE
+Startdatei: Start_DZSM_v0_4_1_MEMORY_COMMIT_PACKAGE.bat
+
+Aktive Struktur:
+- Base: D:\DeutschZ_System_Manager
+- Backups: D:\DeutschZ_System_Manager\backups
+- App: D:\DeutschZ_System_Manager\app
+- Docs: D:\DeutschZ_System_Manager\docs
+- DZSM_v0_1: D:\DeutschZ_System_Manager\DZSM_v0_1
+- Reports: D:\DeutschZ_System_Manager\reports
+- Scripts: D:\DeutschZ_System_Manager\scripts
+- BugReports: D:\DeutschZ_System_Manager\bugreports
+- Memory: D:\DeutschZ_System_Manager\memory
+- UploadPackage: D:\DeutschZ_System_Manager\reports\_UPLOAD_FUER_CHATGPT
+- GitHub Export: P:\GitHub_DeutschZModZ\DeutschZModZ\DeutschZ_SystemManager_Tool
+- Safety-Dokumentation: P:\GitHub_DeutschZModZ\DeutschZModZ\DeutschZ_SystemManager_Tool_Dokumentation
+- BuildWrapper: P:\GitHub_DeutschZModZ\DeutschZModZ\tools\build_wrapper
+- GitCommitHelper: P:\GitHub_DeutschZModZ\DeutschZModZ\tools\git_commit_helper
+
+Projekt-Regeln:
+- Sauberer Projektstand: P:\GitHub_DeutschZModZ\DeutschZModZ
+- P:\Root: DayZ Tools WorkDrive/Vanilla-Arbeitsbereich + Legacy/Mischbereich
+- ReadyMods: Build-/PBO-Ausgabe, nicht GitHub-Quelle
+- P:\ niemals Backup-Ziel
+- Keine automatische Loeschung/Verschiebung von DayZ-Tools-/Vanilla-Daten
+- SAFE AUTO BACKUP nutzt kein /MIR und kein /PURGE
+
+Letzter Lauf:
+- PC: DESKTOP-Q69GEEG
+- Benutzer: patsl
+- Drive-Modus: D_AVAILABLE_STANDARD_STRUCTURE

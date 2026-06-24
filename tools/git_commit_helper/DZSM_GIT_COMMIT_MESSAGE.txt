@@ -1,0 +1,11 @@
+﻿chore(dzsm): add system manager, safety docs, upload package and build wrapper
+
+- add/update DeutschZ System Manager tool export
+- add safety and usage documentation
+- add ChatGPT memory package for project continuity
+- add upload package for support/report transfer
+- add build wrapper check-only setup
+- keep P:\Root as DayZ Tools WorkDrive/legacy area
+- keep ReadyMods as build/PBO output
+- avoid Workshop file changes
+- avoid backing up/exporting LM Studio models
