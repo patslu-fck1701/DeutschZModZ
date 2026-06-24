@@ -1,0 +1,215 @@
+{
+    "ConfigVersion": 6,
+    "DeutschZEventSettings": {
+        "SchemaVersion": 1,
+        "PresetName": "GROUNDZERO_LIVE_CAMPAIGN_CHAIN",
+        "ConfigMode": "LiveCampaignChain",
+        "Event": {
+            "Enabled": 1,
+            "MinOnlinePlayers": 1,
+            "MaxSimultaneousEvents": 1,
+            "MaxEventsPerRestart": 999,
+            "MaxRuntimeSeconds": 5400,
+            "CleanupDelaySeconds": 300,
+            "DebugLogs": 1
+        },
+        "Scheduling": {
+            "AutoStartAfterRestart": 1,
+            "StartDelayMinSeconds": 4200,
+            "StartDelayMaxSeconds": 6600,
+            "RestartAfterFinish": 1,
+            "RestartDelayMinSeconds": 4200,
+            "RestartDelayMaxSeconds": 6600,
+            "NoPlayerRetryDelaySeconds": 600
+        },
+        "Markers": {
+            "Enabled": 1,
+            "UseMapMarker": 1,
+            "Use3DMarker": 1,
+            "UseDynamicPositionUpdates": 1,
+            "UpdateIntervalSeconds": 30,
+            "ShowEventRadius": 1,
+            "ShowCarrierMarker": 1,
+            "ShowDroppedItemMarker": 1,
+            "ShowFinalMarker": 1,
+            "ShowExtractionMarker": 1,
+            "MarkerName": "DeutschZ GroundZero",
+            "MarkerIcon": "ContaminatedArea",
+            "MarkerColorARGB": -16711834,
+            "MarkerPrefix": "GroundZero_"
+        },
+        "Notifications": {
+            "Enabled": 1,
+            "UseExpansionNotifications": 1,
+            "UseVanillaNotifications": 1,
+            "UseChatMessages": 1,
+            "StatusNotifications": 1,
+            "StatusIntervalSeconds": 60,
+            "NotifyOnScheduled": 1,
+            "NotifyOnStart": 1,
+            "NotifyOnStageChange": 1,
+            "NotifyOnMarkerUpdate": 0,
+            "NotifyOnComplete": 1,
+            "NotifyOnFail": 1
+        },
+        "Rewards": {
+            "Enabled": 1,
+            "RewardLifetimeSeconds": 1800,
+            "DespawnWarningEnabled": 1,
+            "DespawnWarningSeconds": 300
+        },
+        "Testing": {
+            "FastTestMode": 0,
+            "CaptureHoldSeconds": 420,
+            "RequiredKillsToWin": 12,
+            "HackDurationSeconds": 90,
+            "WaveDelaySeconds": 90,
+            "StageAutoCompleteSeconds": 0,
+            "FinalDefenseSeconds": 420,
+            "ExtractionDurationSeconds": 60
+        }
+    },
+    "EnableGroundZero": true,
+    "AutoStartEnabled": true,
+    "AutoStartMinDelaySeconds": 4200,
+    "AutoStartMaxDelaySeconds": 6600,
+    "MinOnlinePlayersToAutoStart": 1,
+    "EventCleanupDelaySeconds": 300,
+    "CarrierMarkerUpdateSeconds": 30,
+    "CarrierDropMarkerUpdateSeconds": 30,
+    "FinalDefenseSeconds": 420,
+    "ExtractionDurationSeconds": 60,
+    "EnableGlobalNotifications": true,
+    "EnableMapMarkers": true,
+    "Enable3DMarkers": true,
+    "EnableDebugLogs": true,
+    "EnableZombies": true,
+    "EnableMilitaryFaction": false,
+    "EnableRogueFaction": false,
+    "EnableCarrierAISearchTeams": false,
+    "EnableVanillaAISafetyFallback": true,
+    "EventMinDurationSeconds": 2700,
+    "EventMaxDurationSeconds": 5400,
+    "AllowTimedObjectiveFallback": false,
+    "EnableExpansionAI": false,
+    "Stages": [
+        {
+            "StageId": 1,
+            "StageName": "Signalstation",
+            "ObjectiveText": "Signalquelle untersuchen und Datenfragment sichern",
+            "RewardItemClass": "GroundZero_AlphaDataModule",
+            "ZombieThreatLevel": 1,
+            "ZombieCount": 4,
+            "MilitaryAICount": 0,
+            "RogueAICount": 0,
+            "StageRadius": 120,
+            "CompletionHoldSeconds": 60,
+            "RequireManualObjectiveCompletion": true
+        },
+        {
+            "StageId": 2,
+            "StageName": "Generatorstation",
+            "ObjectiveText": "Generator pruefen: Spezialteil erforderlich",
+            "RewardItemClass": "DZOP_TechnicalFragment_GroundZero",
+            "ZombieThreatLevel": 2,
+            "ZombieCount": 4,
+            "MilitaryAICount": 0,
+            "RogueAICount": 0,
+            "StageRadius": 120,
+            "CompletionHoldSeconds": 60,
+            "RequireManualObjectiveCompletion": true
+        },
+        {
+            "StageId": 3,
+            "StageName": "Hold-Zone",
+            "ObjectiveText": "Zone halten, letzte Welle traegt das Generator-Zuendmodul",
+            "RewardItemClass": "DZGZ_GeneratorSparkPlug",
+            "ZombieThreatLevel": 3,
+            "ZombieCount": 12,
+            "MilitaryAICount": 0,
+            "RogueAICount": 0,
+            "StageRadius": 35,
+            "CompletionHoldSeconds": 420,
+            "RequireManualObjectiveCompletion": true
+        },
+        {
+            "StageId": 4,
+            "StageName": "Datenterminal",
+            "ObjectiveText": "Containment-Protokoll laden und Forschungsdaten extrahieren",
+            "RewardItemClass": "DZGZ_EncryptedResearchData",
+            "ZombieThreatLevel": 4,
+            "ZombieCount": 8,
+            "MilitaryAICount": 0,
+            "RogueAICount": 0,
+            "StageRadius": 120,
+            "CompletionHoldSeconds": 90,
+            "RequireManualObjectiveCompletion": true
+        },
+        {
+            "StageId": 5,
+            "StageName": "Containment Cache",
+            "ObjectiveText": "Probe sichern, CardReader bergen und finalen Cache freigeben",
+            "RewardItemClass": "DZOP_DamagedCardReader",
+            "ZombieThreatLevel": 5,
+            "ZombieCount": 10,
+            "MilitaryAICount": 0,
+            "RogueAICount": 0,
+            "StageRadius": 120,
+            "CompletionHoldSeconds": 120,
+            "RequireManualObjectiveCompletion": true
+        }
+    ],
+    "FinalWaves": [
+        {
+            "WaveId": 1,
+            "WaveName": "Militaerzombies",
+            "ZombieThreatLevel": 2,
+            "ZombieCount": 4,
+            "MilitaryAICount": 0,
+            "RogueAICount": 0,
+            "DelaySeconds": 0
+        },
+        {
+            "WaveId": 2,
+            "WaveName": "Hunter",
+            "ZombieThreatLevel": 3,
+            "ZombieCount": 4,
+            "MilitaryAICount": 0,
+            "RogueAICount": 0,
+            "DelaySeconds": 30
+        },
+        {
+            "WaveId": 3,
+            "WaveName": "Elite-Welle",
+            "ZombieThreatLevel": 5,
+            "ZombieCount": 5,
+            "MilitaryAICount": 0,
+            "RogueAICount": 0,
+            "DelaySeconds": 60
+        }
+    ],
+    "RestartDelaySeconds": 1200,
+    "StatusNotificationIntervalSeconds": 60,
+    "MarkerUpdateIntervalSeconds": 10,
+    "MaxActiveInfected": 25,
+    "MaxSpawnPerBatch": 5,
+    "SpawnBatchDelaySeconds": 8,
+    "WaveDelaySeconds": 90,
+    "PossibleStagePositions": [
+        "4510 0 8280",
+        "6570 0 6020",
+        "8250 0 10820",
+        "1660 0 14230",
+        "12070 0 12600"
+    ],
+    "PossibleFinalFacilityPositions": [
+        "1680 0 14240",
+        "12070 0 12600",
+        "10450 0 9800"
+    ],
+    "PossibleExtractionPositions": [
+        "10500 0 9800",
+        "3200 0 6800",
+        "11950 0 3480"
+    ]
+}

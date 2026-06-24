@@ -1,0 +1,197 @@
+{
+    "m_Version": 12,
+    "DisplayName": "SNAFU_Event_Restricted",
+    "Icon": "Shotgun",
+    "Color": "FBFCFEFF",
+    "IsExchange": 0,
+    "InitStockPercent": 60.0,
+    "Items": [
+        {
+            "ClassName": "GCGN_M200",
+            "MaxPriceThreshold": 5000000,
+            "MinPriceThreshold": 1500000,
+            "SellPricePercent": 10.0,
+            "MaxStockThreshold": 2,
+            "MinStockThreshold": 1,
+            "QuantityPercent": -1,
+            "SpawnAttachments": [],
+            "Variants": []
+        },
+        {
+            "ClassName": "GCGN_M200_Tan",
+            "MaxPriceThreshold": 5000000,
+            "MinPriceThreshold": 1500000,
+            "SellPricePercent": 10.0,
+            "MaxStockThreshold": 2,
+            "MinStockThreshold": 1,
+            "QuantityPercent": -1,
+            "SpawnAttachments": [],
+            "Variants": []
+        },
+        {
+            "ClassName": "GCGN_M249",
+            "MaxPriceThreshold": 5000000,
+            "MinPriceThreshold": 1500000,
+            "SellPricePercent": 10.0,
+            "MaxStockThreshold": 2,
+            "MinStockThreshold": 1,
+            "QuantityPercent": -1,
+            "SpawnAttachments": [],
+            "Variants": []
+        },
+        {
+            "ClassName": "SNAFU_AS50_GUN",
+            "MaxPriceThreshold": 5000000,
+            "MinPriceThreshold": 1500000,
+            "SellPricePercent": 10.0,
+            "MaxStockThreshold": 2,
+            "MinStockThreshold": 1,
+            "QuantityPercent": -1,
+            "SpawnAttachments": [],
+            "Variants": []
+        },
+        {
+            "ClassName": "SNAFU_M200B_BK",
+            "MaxPriceThreshold": 5000000,
+            "MinPriceThreshold": 1500000,
+            "SellPricePercent": 10.0,
+            "MaxStockThreshold": 2,
+            "MinStockThreshold": 1,
+            "QuantityPercent": -1,
+            "SpawnAttachments": [],
+            "Variants": []
+        },
+        {
+            "ClassName": "SNAFU_M200Green",
+            "MaxPriceThreshold": 5000000,
+            "MinPriceThreshold": 1500000,
+            "SellPricePercent": 10.0,
+            "MaxStockThreshold": 2,
+            "MinStockThreshold": 1,
+            "QuantityPercent": -1,
+            "SpawnAttachments": [],
+            "Variants": []
+        },
+        {
+            "ClassName": "SNAFU_M200SNOW",
+            "MaxPriceThreshold": 5000000,
+            "MinPriceThreshold": 1500000,
+            "SellPricePercent": 10.0,
+            "MaxStockThreshold": 2,
+            "MinStockThreshold": 1,
+            "QuantityPercent": -1,
+            "SpawnAttachments": [],
+            "Variants": []
+        },
+        {
+            "ClassName": "SNAFU_M200S_BK",
+            "MaxPriceThreshold": 5000000,
+            "MinPriceThreshold": 1500000,
+            "SellPricePercent": 10.0,
+            "MaxStockThreshold": 2,
+            "MinStockThreshold": 1,
+            "QuantityPercent": -1,
+            "SpawnAttachments": [],
+            "Variants": []
+        },
+        {
+            "ClassName": "SNAFU_M200S_Green",
+            "MaxPriceThreshold": 5000000,
+            "MinPriceThreshold": 1500000,
+            "SellPricePercent": 10.0,
+            "MaxStockThreshold": 2,
+            "MinStockThreshold": 1,
+            "QuantityPercent": -1,
+            "SpawnAttachments": [],
+            "Variants": []
+        },
+        {
+            "ClassName": "SNAFU_M200S_Snow",
+            "MaxPriceThreshold": 5000000,
+            "MinPriceThreshold": 1500000,
+            "SellPricePercent": 10.0,
+            "MaxStockThreshold": 2,
+            "MinStockThreshold": 1,
+            "QuantityPercent": -1,
+            "SpawnAttachments": [],
+            "Variants": []
+        },
+        {
+            "ClassName": "SNAFU_M200S_Tan",
+            "MaxPriceThreshold": 5000000,
+            "MinPriceThreshold": 1500000,
+            "SellPricePercent": 10.0,
+            "MaxStockThreshold": 2,
+            "MinStockThreshold": 1,
+            "QuantityPercent": -1,
+            "SpawnAttachments": [],
+            "Variants": []
+        },
+        {
+            "ClassName": "SNAFU_M300BK",
+            "MaxPriceThreshold": 5000000,
+            "MinPriceThreshold": 1500000,
+            "SellPricePercent": 10.0,
+            "MaxStockThreshold": 2,
+            "MinStockThreshold": 1,
+            "QuantityPercent": -1,
+            "SpawnAttachments": [],
+            "Variants": []
+        },
+        {
+            "ClassName": "SNAFU_M300Green",
+            "MaxPriceThreshold": 5000000,
+            "MinPriceThreshold": 1500000,
+            "SellPricePercent": 10.0,
+            "MaxStockThreshold": 2,
+            "MinStockThreshold": 1,
+            "QuantityPercent": -1,
+            "SpawnAttachments": [],
+            "Variants": []
+        },
+        {
+            "ClassName": "SNAFU_M300TAN",
+            "MaxPriceThreshold": 5000000,
+            "MinPriceThreshold": 1500000,
+            "SellPricePercent": 10.0,
+            "MaxStockThreshold": 2,
+            "MinStockThreshold": 1,
+            "QuantityPercent": -1,
+            "SpawnAttachments": [],
+            "Variants": []
+        },
+        {
+            "ClassName": "SNAFU_RPK16_Black",
+            "MaxPriceThreshold": 5000000,
+            "MinPriceThreshold": 1500000,
+            "SellPricePercent": 10.0,
+            "MaxStockThreshold": 2,
+            "MinStockThreshold": 1,
+            "QuantityPercent": -1,
+            "SpawnAttachments": [],
+            "Variants": []
+        },
+        {
+            "ClassName": "SNAFU_RPK16_Green",
+            "MaxPriceThreshold": 5000000,
+            "MinPriceThreshold": 1500000,
+            "SellPricePercent": 10.0,
+            "MaxStockThreshold": 2,
+            "MinStockThreshold": 1,
+            "QuantityPercent": -1,
+            "SpawnAttachments": [],
+            "Variants": []
+        },
+        {
+            "ClassName": "SNAFU_RPK16_Tan",
+            "MaxPriceThreshold": 5000000,
+            "MinPriceThreshold": 1500000,
+            "SellPricePercent": 10.0,
+            "MaxStockThreshold": 2,
+            "MinStockThreshold": 1,
+            "QuantityPercent": -1,
+            "SpawnAttachments": [],
+            "Variants": []
+        }
+    ]
+}

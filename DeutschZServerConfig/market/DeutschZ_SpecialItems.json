@@ -1,0 +1,197 @@
+{
+    "m_Version": 12,
+    "DisplayName": "DeutschZ_SpecialItems",
+    "Icon": "Deliver",
+    "Color": "FBFCFEFF",
+    "IsExchange": 0,
+    "InitStockPercent": 20.0,
+    "Items": [
+        {
+            "ClassName": "DZOP_Keycard_ConvoyAlpha",
+            "MaxPriceThreshold": 2500000,
+            "MinPriceThreshold": 2500000,
+            "SellPricePercent": 10.0,
+            "MaxStockThreshold": 5,
+            "MinStockThreshold": 1,
+            "QuantityPercent": -1,
+            "SpawnAttachments": [],
+            "Variants": []
+        },
+        {
+            "ClassName": "DZOP_DamagedCardReader",
+            "MaxPriceThreshold": 3500000,
+            "MinPriceThreshold": 3500000,
+            "SellPricePercent": 10.0,
+            "MaxStockThreshold": 5,
+            "MinStockThreshold": 1,
+            "QuantityPercent": -1,
+            "SpawnAttachments": [],
+            "Variants": []
+        },
+        {
+            "ClassName": "DZOP_DecodedKeycard",
+            "MaxPriceThreshold": 5000000,
+            "MinPriceThreshold": 5000000,
+            "SellPricePercent": 10.0,
+            "MaxStockThreshold": 5,
+            "MinStockThreshold": 1,
+            "QuantityPercent": -1,
+            "SpawnAttachments": [],
+            "Variants": []
+        },
+        {
+            "ClassName": "DZOP_TreasureMapFragment_A",
+            "MaxPriceThreshold": 3000000,
+            "MinPriceThreshold": 3000000,
+            "SellPricePercent": 10.0,
+            "MaxStockThreshold": 5,
+            "MinStockThreshold": 1,
+            "QuantityPercent": -1,
+            "SpawnAttachments": [],
+            "Variants": []
+        },
+        {
+            "ClassName": "DZOP_TreasureMapFragment_B",
+            "MaxPriceThreshold": 7500000,
+            "MinPriceThreshold": 7500000,
+            "SellPricePercent": 10.0,
+            "MaxStockThreshold": 5,
+            "MinStockThreshold": 1,
+            "QuantityPercent": -1,
+            "SpawnAttachments": [],
+            "Variants": []
+        },
+        {
+            "ClassName": "DZOP_OperationTreasureMap",
+            "MaxPriceThreshold": 15000000,
+            "MinPriceThreshold": 15000000,
+            "SellPricePercent": 10.0,
+            "MaxStockThreshold": 5,
+            "MinStockThreshold": 1,
+            "QuantityPercent": -1,
+            "SpawnAttachments": [],
+            "Variants": []
+        },
+        {
+            "ClassName": "DZOP_CipherFragment_Courier",
+            "MaxPriceThreshold": 2200000,
+            "MinPriceThreshold": 2200000,
+            "SellPricePercent": 10.0,
+            "MaxStockThreshold": 5,
+            "MinStockThreshold": 1,
+            "QuantityPercent": -1,
+            "SpawnAttachments": [],
+            "Variants": []
+        },
+        {
+            "ClassName": "DZOP_TechnicalFragment_GroundZero",
+            "MaxPriceThreshold": 4500000,
+            "MinPriceThreshold": 4500000,
+            "SellPricePercent": 10.0,
+            "MaxStockThreshold": 5,
+            "MinStockThreshold": 1,
+            "QuantityPercent": -1,
+            "SpawnAttachments": [],
+            "Variants": []
+        },
+        {
+            "ClassName": "DZOP_SignalFragment_KotHZ",
+            "MaxPriceThreshold": 5000000,
+            "MinPriceThreshold": 5000000,
+            "SellPricePercent": 10.0,
+            "MaxStockThreshold": 5,
+            "MinStockThreshold": 1,
+            "QuantityPercent": -1,
+            "SpawnAttachments": [],
+            "Variants": []
+        },
+        {
+            "ClassName": "DZOP_BurnedNote",
+            "MaxPriceThreshold": 1250000,
+            "MinPriceThreshold": 1250000,
+            "SellPricePercent": 10.0,
+            "MaxStockThreshold": 5,
+            "MinStockThreshold": 1,
+            "QuantityPercent": -1,
+            "SpawnAttachments": [],
+            "Variants": []
+        },
+        {
+            "ClassName": "DZOP_DestroyedBlackBox",
+            "MaxPriceThreshold": 3000000,
+            "MinPriceThreshold": 3000000,
+            "SellPricePercent": 10.0,
+            "MaxStockThreshold": 5,
+            "MinStockThreshold": 1,
+            "QuantityPercent": -1,
+            "SpawnAttachments": [],
+            "Variants": []
+        },
+        {
+            "ClassName": "DZOP_EncryptedSignalCore",
+            "MaxPriceThreshold": 6500000,
+            "MinPriceThreshold": 6500000,
+            "SellPricePercent": 10.0,
+            "MaxStockThreshold": 5,
+            "MinStockThreshold": 1,
+            "QuantityPercent": -1,
+            "SpawnAttachments": [],
+            "Variants": []
+        },
+        {
+            "ClassName": "DZCR_CipherDocument",
+            "MaxPriceThreshold": 2000000,
+            "MinPriceThreshold": 2000000,
+            "SellPricePercent": 10.0,
+            "MaxStockThreshold": 5,
+            "MinStockThreshold": 1,
+            "QuantityPercent": -1,
+            "SpawnAttachments": [],
+            "Variants": []
+        },
+        {
+            "ClassName": "DZGZ_SignalCore",
+            "MaxPriceThreshold": 6000000,
+            "MinPriceThreshold": 6000000,
+            "SellPricePercent": 10.0,
+            "MaxStockThreshold": 5,
+            "MinStockThreshold": 1,
+            "QuantityPercent": -1,
+            "SpawnAttachments": [],
+            "Variants": []
+        },
+        {
+            "ClassName": "DZGZ_EncryptedResearchData",
+            "MaxPriceThreshold": 3500000,
+            "MinPriceThreshold": 3500000,
+            "SellPricePercent": 10.0,
+            "MaxStockThreshold": 5,
+            "MinStockThreshold": 1,
+            "QuantityPercent": -1,
+            "SpawnAttachments": [],
+            "Variants": []
+        },
+        {
+            "ClassName": "DZ_BossDogtag",
+            "MaxPriceThreshold": 2500000,
+            "MinPriceThreshold": 2500000,
+            "SellPricePercent": 10.0,
+            "MaxStockThreshold": 5,
+            "MinStockThreshold": 1,
+            "QuantityPercent": -1,
+            "SpawnAttachments": [],
+            "Variants": []
+        },
+        {
+            "ClassName": "DZ_RadioCrystal",
+            "MaxPriceThreshold": 4000000,
+            "MinPriceThreshold": 4000000,
+            "SellPricePercent": 10.0,
+            "MaxStockThreshold": 5,
+            "MinStockThreshold": 1,
+            "QuantityPercent": -1,
+            "SpawnAttachments": [],
+            "Variants": []
+        }
+    ]
+}

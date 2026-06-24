@@ -1,13 +1,5 @@
-﻿# DeutschZ System Manager - GitHub Export
-
-# Keine privaten/temporären Daten ins Repo
-backups/
+﻿backups/
 reports/
-_archive_old_versions/
 *.log
-*.tmp
-*.bak
 *.zip
-
-Thumbs.db
-Desktop.ini
+_archive_old_versions/

@@ -1,0 +1,63 @@
+﻿[h1]DEUTSCHZ CONVOYZ[/h1]
+[i]Finde die Crashsite. Sichere die Blackbox. Hol dir die Belohnung.[/i]
+
+[h2]Beschreibung[/h2]
+[list]
+[*]Convoy-, Crashsite- und Blackbox-Event fuer DeutschZ
+[*]Spieler finden das Ziel und sichern den Bereich
+[*]Hack-, Loot- und Wave-Flow mit klaren Statusmeldungen
+[*]Rewards nach erfolgreichem Abschluss
+[*]Optionaler Bridge-Pfad fuer Marker und Nachrichten
+[/list]
+
+[h1]DEUTSCHZ CONVOYZ[/h1]
+[i]Find the crash site. Secure the black box. Claim the reward.[/i]
+
+[h2]Description[/h2]
+[list]
+[*]Convoy, crash-site and black-box event for DeutschZ
+[*]Players find the target and secure the area
+[*]Hack, loot and wave flow with clear status messages
+[*]Rewards after successful completion
+[*]Optional bridge path for markers and messages
+[/list]
+
+[h1]DEUTSCHZ CONVOYZ[/h1]
+[i]Найди место крушения. Забери черный ящик. Получи награду.[/i]
+
+[h2]Описание[/h2]
+[list]
+[*]Событие DeutschZ с конвоем, местом крушения и черным ящиком
+[*]Игроки находят цель и удерживают область
+[*]Хак, лут и волны с понятными статусами
+[*]Награды после успешного завершения
+[*]Опциональный Bridge-путь для маркеров и сообщений
+[/list]
+
+[h2]Links / Support[/h2]
+Workshop: https://steamcommunity.com/sharedfiles/filedetails/?id=3745946832
+GitHub: https://github.com/patslu-fck1701/DeutschZModZ
+DeutschZModZ Support: https://discord.gg/WM5GkDbw7C
+
+[h2]Loadorder[/h2]
+[list]
+[*]@CF, falls von deiner Server-Modliste benoetigt
+[*]@DayZ-Expansion, falls Expansion-Funktionen aktiv genutzt werden
+[*]@DeutschZ_Core
+[*]@DeutschZ_ExpansionBridge
+[*]@DeutschZ_KotHZ
+[*]@DeutschZ_ConvoyZ
+[*]@DeutschZ_GroundZero
+[*]@DeutschZ_CourierZ
+[/list]
+
+[h2]Support-Hinweis[/h2]
+Bei Fehlern bitte direkt im DeutschZModZ-Support melden und folgende Dateien mitsenden:
+[list]
+[*]crash_*.log
+[*]script_*.log
+[*]DayZServer_x64_*.RPT
+[*]server_console.log
+[*]vollstaendige Modlist / Loadorder
+[*]kurze Beschreibung, was direkt vor dem Fehler passiert ist
+[/list]

@@ -1,0 +1,98 @@
+{
+    "m_Version": 12,
+    "DisplayName": "MVS_Holsters",
+    "Icon": "Vest",
+    "Color": "FBFCFEFF",
+    "IsExchange": 0,
+    "InitStockPercent": 55.0,
+    "Items": [
+        {
+            "ClassName": "MVS_Holster_Black",
+            "MaxPriceThreshold": 180000,
+            "MinPriceThreshold": 50000,
+            "SellPricePercent": 40,
+            "MaxStockThreshold": 30,
+            "MinStockThreshold": 1,
+            "QuantityPercent": -1,
+            "SpawnAttachments": [],
+            "Variants": []
+        },
+        {
+            "ClassName": "MVS_Holster_ERDL",
+            "MaxPriceThreshold": 180000,
+            "MinPriceThreshold": 50000,
+            "SellPricePercent": 40,
+            "MaxStockThreshold": 30,
+            "MinStockThreshold": 1,
+            "QuantityPercent": -1,
+            "SpawnAttachments": [],
+            "Variants": []
+        },
+        {
+            "ClassName": "MVS_Holster_Multicam",
+            "MaxPriceThreshold": 180000,
+            "MinPriceThreshold": 50000,
+            "SellPricePercent": 40,
+            "MaxStockThreshold": 30,
+            "MinStockThreshold": 1,
+            "QuantityPercent": -1,
+            "SpawnAttachments": [],
+            "Variants": []
+        },
+        {
+            "ClassName": "MVS_Holster_Multicam_Black",
+            "MaxPriceThreshold": 180000,
+            "MinPriceThreshold": 50000,
+            "SellPricePercent": 40,
+            "MaxStockThreshold": 30,
+            "MinStockThreshold": 1,
+            "QuantityPercent": -1,
+            "SpawnAttachments": [],
+            "Variants": []
+        },
+        {
+            "ClassName": "MVS_Holster_Multicam_Tropic",
+            "MaxPriceThreshold": 180000,
+            "MinPriceThreshold": 50000,
+            "SellPricePercent": 40,
+            "MaxStockThreshold": 30,
+            "MinStockThreshold": 1,
+            "QuantityPercent": -1,
+            "SpawnAttachments": [],
+            "Variants": []
+        },
+        {
+            "ClassName": "MVS_Holster_OD",
+            "MaxPriceThreshold": 180000,
+            "MinPriceThreshold": 50000,
+            "SellPricePercent": 40,
+            "MaxStockThreshold": 30,
+            "MinStockThreshold": 1,
+            "QuantityPercent": -1,
+            "SpawnAttachments": [],
+            "Variants": []
+        },
+        {
+            "ClassName": "MVS_Holster_Snow",
+            "MaxPriceThreshold": 180000,
+            "MinPriceThreshold": 50000,
+            "SellPricePercent": 40,
+            "MaxStockThreshold": 30,
+            "MinStockThreshold": 1,
+            "QuantityPercent": -1,
+            "SpawnAttachments": [],
+            "Variants": []
+        },
+        {
+            "ClassName": "MVS_Holster_Tan",
+            "MaxPriceThreshold": 180000,
+            "MinPriceThreshold": 50000,
+            "SellPricePercent": 40,
+            "MaxStockThreshold": 30,
+            "MinStockThreshold": 1,
+            "QuantityPercent": -1,
+            "SpawnAttachments": [],
+            "Variants": []
+        }
+    ]
+}

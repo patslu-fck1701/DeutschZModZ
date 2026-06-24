@@ -1,0 +1,49 @@
+{
+    "LoadoutId": "DeutschZ_KotHZ_SNAFU_Military_AI",
+    "Purpose": "First KotHZ contact wave: three Expansion AI guards, military look, armor, SNAFU-preferred weapons with vanilla fallback.",
+    "Body": [
+        "USMCJacket_Desert",
+        "USMCJacket_Woodland",
+        "BDUJacket",
+        "TTsKOJacket_Camo"
+    ],
+    "Legs": [
+        "USMCPants_Desert",
+        "USMCPants_Woodland",
+        "BDUPants",
+        "TTSKOPants"
+    ],
+    "Vest": [
+        "PlateCarrierVest",
+        "HighCapacityVest_Olive"
+    ],
+    "Headgear": [
+        "BallisticHelmet_Black",
+        "BallisticHelmet_Green",
+        "Mich2001Helmet"
+    ],
+    "Back": [
+        "CoyoteBag_Green",
+        "CoyoteBag_Brown",
+        "AssaultBag_Green"
+    ],
+    "WeaponsPreferred": [
+        "SNAFU_MK18_Black",
+        "SNAFU_HK416_Black",
+        "SNAFU_M4A1_Black",
+        "SNAFU_SCARH_Black"
+    ],
+    "WeaponsFallback": [
+        "M4A1",
+        "M16A2",
+        "Aug",
+        "FAMAS"
+    ],
+    "Magazines": [
+        "Mag_STANAG_60Rnd",
+        "Mag_STANAG_30Rnd",
+        "Mag_CMAG_40Rnd",
+        "Mag_CMAG_30Rnd"
+    ],
+    "Note": "Runtime loadout is implemented in DeutschZ_ExpansionBridge AI provider; this file documents the intended item style. Missing classes are skipped safely."
+}

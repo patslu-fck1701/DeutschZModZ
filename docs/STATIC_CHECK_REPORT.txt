@@ -1,0 +1,50 @@
+DeutschZ Deployment Static Check Report
+Date: 2026-06-24
+Scope: current stable deployment split built from mods(13) repaired base
+
+Required Core/Bridge API files:
+- OK: DeutschZ_Core/scripts/3_Game/DeutschZCore_ProviderAPIs.c
+- OK: DeutschZ_Core/scripts/3_Game/DeutschZCore_ServiceLocator.c
+- OK: DeutschZ_Core/scripts/3_Game/DeutschZCore_UnsafeClassGuard.c
+- OK: DeutschZ_Core/scripts/4_World/DeutschZCore_ServerProfile.c
+- OK: DeutschZ_ExpansionBridge/scripts/4_World/DeutschZExpansionBridge_API.c
+- OK: DeutschZ_ExpansionBridge/scripts/5_Mission/DeutschZExpansionBridge_MissionServer.c
+
+Script-level direct Expansion marker API calls in KotHZ/ConvoyZ:
+- OK: No active script-level direct ExpansionMarkerModule/ExpansionMarkerData/CreateServerMarker/RemoveServerMarker calls found in KotHZ/ConvoyZ.
+- Marker path remains: Event mod -> DeutschZ_Core MarkerProviderAPI -> DeutschZ_ExpansionBridge -> DayZ Expansion marker API.
+
+JsonLoadFile mentions in KotHZ/ConvoyZ scripts:
+- NOTE: Mentions found are comments/log text in the safe boot files below, not active unsafe bootstrap load calls:
+DeutschZ_KotHZ/scripts/5_Mission/DeutschZ_KotHZ/DeutschZKotHZConfigManager.c:26: // FIX FINAL: do not JsonLoadFile stale KotHZ profile JSON during server bootstrap.
+DeutschZ_KotHZ/scripts/5_Mission/DeutschZ_KotHZ/DeutschZKotHZConfigManager.c:95: // DayZ Enforce int is signed; JsonLoadFile throws before Validate() can repair it.
+DeutschZ_KotHZ/scripts/5_Mission/DeutschZ_KotHZ/DeutschZKotHZConfigManager.c:96: // Repair the file as plain text before JsonLoadFile touches it.
+DeutschZ_KotHZ/scripts/5_Mission/DeutschZ_KotHZ/DeutschZKotHZConfigManager.c:127: Print("[DeutschZ_KotHZ] Repaired JSON-safe signed ExpansionMarkerColorARGB before JsonLoadFile: " + KOTH_CONFIG);
+DeutschZ_KotHZ/scripts/5_Mission/DeutschZ_KotHZ/DeutschZKotHZConfigManager.c:163: // FIX_FINAL: legacy JSON import disabled during bootstrap to prevent native JsonLoadFile crashes.
+DeutschZ_KotHZ/scripts/5_Mission/DeutschZ_KotHZ/DeutschZKotHZConfigManager.c:172: Print("[DeutschZ_KotHZ] FIX_FINAL generated default loot pools without unsafe JsonLoadFile: " + LOOT_POOLS_CONFIG);
+DeutschZ_KotHZ/scripts/5_Mission/DeutschZ_KotHZ/DeutschZKotHZConfigManager.c:396: // crashes JsonLoadFile with "Cannot convert to int" on DayZ servers.
+DeutschZ_ConvoyZ/scripts/4_World/DeutschZ_ConvoyZ/DeutschZConvoyZConfig.c:99: // FIX FINAL: server-start config generation must never call JsonLoadFile on stale or incompatible profile JSON.
+DeutschZ_ConvoyZ/scripts/4_World/DeutschZ_ConvoyZ/DeutschZConvoyZRewardManager.c:24: // FIX_FINAL: avoid unsafe JsonLoadFile during boot; start with clean runtime claims and save them safely.
+
+config.cpp requiredAddons/dependencies summary:
+[DeutschZ_Core]
+  requiredAddons[] = {"DZ_Data", "DZ_Scripts", "DZ_Gear_Containers", "DZ_Gear_Navigation", "DZ_Gear_Consumables", "DZ_Gear_Medical", "DZ_Gear_Tools"}
+  dependencies[] = {"Game", "World", "Mission"}
+[DeutschZ_ExpansionBridge]
+  requiredAddons[] = {"DZ_Data", "DZ_Scripts", "DayZExpansion_Navigation_Scripts", "DeutschZ_Core"}
+  dependencies[] = {"Game", "World", "Mission"}
+[DeutschZ_KotHZ]
+  requiredAddons[] = {"DZ_Data", "DZ_Scripts", "DZ_Sounds_Effects", "DZ_Gear_Camping", "DZ_Gear_Containers", "DZ_Gear_Navigation", "DZ_Gear_Consumables", "DeutschZ_Core"}
+  dependencies[] = {"Game", "World", "Mission"}
+[DeutschZ_ConvoyZ]
+  requiredAddons[] = {"DZ_Data", "DZ_Scripts", "DZ_Vehicles_Wheeled", "DZ_Gear_Containers", "DZ_Gear_Navigation", "DZ_Gear_Consumables", "DZ_Gear_Tools", "DeutschZ_Core"}
+  dependencies[] = {"Game", "World", "Mission"}
+[DeutschZ_GroundZero]
+  requiredAddons[] = {"DZ_Data",             "DZ_Scripts",             "DZ_Gear_Containers",             "DeutschZ_Core"}
+  dependencies[] = {"Game", "World", "Mission"}
+[DeutschZ_CourierZ]
+  requiredAddons[] = {"DZ_Data", "DZ_Scripts", "DZ_Gear_Containers", "DZ_Gear_Navigation", "DZ_Gear_Consumables", "DeutschZ_Core"}
+  dependencies[] = {"Game", "World", "Mission"}
+[DeutschZ_OperationDeutschZ]
+  requiredAddons[] = {"DZ_Data",             "DZ_Scripts",             "DeutschZ_Core",             "DeutschZ_KotHZ",             "DeutschZ_ConvoyZ",             "DeutschZ_GroundZero",             "DeutschZ_CourierZ"}
+  dependencies[] = {"Game", "World", "Mission"}

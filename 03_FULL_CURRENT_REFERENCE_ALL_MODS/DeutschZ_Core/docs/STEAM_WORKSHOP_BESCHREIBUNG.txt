@@ -1,0 +1,60 @@
+﻿[h1]DEUTSCHZ CORE[/h1]
+[i]Das technische Fundament des DeutschZ-Modsystems.[/i]
+
+[h2]Beschreibung[/h2]
+[list]
+[*]Gemeinsame Serverprofil-Pfade und Logging-Grundlage
+[*]Provider-APIs fuer Marker, Nachrichten und optionale AI-Anbindungen
+[*]Stabile Basis fuer KotHZ, ConvoyZ, GroundZero und CourierZ
+[*]Enthaelt keine eigenen Mapspawn-Items
+[/list]
+
+[h1]DEUTSCHZ CORE[/h1]
+[i]The technical foundation of the DeutschZ mod system.[/i]
+
+[h2]Description[/h2]
+[list]
+[*]Shared server profile paths and logging foundation
+[*]Provider APIs for markers, messages and optional AI integrations
+[*]Stable base for KotHZ, ConvoyZ, GroundZero and CourierZ
+[*]Contains no own map-spawn economy items
+[/list]
+
+[h1]DEUTSCHZ CORE[/h1]
+[i]Техническая основа модульной системы DeutschZ.[/i]
+
+[h2]Описание[/h2]
+[list]
+[*]Общие пути профиля сервера и базовое логирование
+[*]Provider API для маркеров, сообщений и опциональных AI-интеграций
+[*]Стабильная основа для KotHZ, ConvoyZ, GroundZero и CourierZ
+[*]Не содержит собственных предметов для случайного спавна на карте
+[/list]
+
+[h2]Links / Support[/h2]
+Workshop: https://steamcommunity.com/sharedfiles/filedetails/?id=3748421029
+GitHub: https://github.com/patslu-fck1701/DeutschZModZ
+DeutschZModZ Support: https://discord.gg/WM5GkDbw7C
+
+[h2]Loadorder[/h2]
+[list]
+[*]@CF, falls von deiner Server-Modliste benoetigt
+[*]@DayZ-Expansion, falls Expansion-Funktionen aktiv genutzt werden
+[*]@DeutschZ_Core
+[*]@DeutschZ_ExpansionBridge
+[*]@DeutschZ_KotHZ
+[*]@DeutschZ_ConvoyZ
+[*]@DeutschZ_GroundZero
+[*]@DeutschZ_CourierZ
+[/list]
+
+[h2]Support-Hinweis[/h2]
+Bei Fehlern bitte direkt im DeutschZModZ-Support melden und folgende Dateien mitsenden:
+[list]
+[*]crash_*.log
+[*]script_*.log
+[*]DayZServer_x64_*.RPT
+[*]server_console.log
+[*]vollstaendige Modlist / Loadorder
+[*]kurze Beschreibung, was direkt vor dem Fehler passiert ist
+[/list]

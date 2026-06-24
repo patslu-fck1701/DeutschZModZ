@@ -1,0 +1,63 @@
+﻿[h1]DEUTSCHZ GROUND ZERO[/h1]
+[i]Ein mehrstufiges Kampagnen-Event fuer gefaehrliche Zonen.[/i]
+
+[h2]Beschreibung[/h2]
+[list]
+[*]Mehrstufiges PvE-Kampagnen- und Eventsystem
+[*]PvE-Fokus mit moeglichem PvP-Einfluss durch Hotspots
+[*]Aufgaben, Stufen und Finale fuehren durch den Ablauf
+[*]Marker und Statusmeldungen zeigen den naechsten Schritt
+[*]Belohnung nach erfolgreichem Abschluss
+[/list]
+
+[h1]DEUTSCHZ GROUND ZERO[/h1]
+[i]A staged campaign event for dangerous zones.[/i]
+
+[h2]Description[/h2]
+[list]
+[*]Staged PvE campaign and event system
+[*]PvE focus with possible PvP pressure around hotspots
+[*]Objectives, stages and finale guide the flow
+[*]Markers and status messages show the next step
+[*]Reward after successful completion
+[/list]
+
+[h1]DEUTSCHZ GROUND ZERO[/h1]
+[i]Многоэтапное кампанийное событие для опасных зон.[/i]
+
+[h2]Описание[/h2]
+[list]
+[*]Многоэтапная PvE-кампания и event-система
+[*]PvE-фокус с возможным PvP-давлением в горячих точках
+[*]Задачи, этапы и финал ведут игрока по событию
+[*]Маркеры и статусы показывают следующий шаг
+[*]Награда после успешного завершения
+[/list]
+
+[h2]Links / Support[/h2]
+Workshop: https://steamcommunity.com/sharedfiles/filedetails/?id=3748422786
+GitHub: https://github.com/patslu-fck1701/DeutschZModZ
+DeutschZModZ Support: https://discord.gg/WM5GkDbw7C
+
+[h2]Loadorder[/h2]
+[list]
+[*]@CF, falls von deiner Server-Modliste benoetigt
+[*]@DayZ-Expansion, falls Expansion-Funktionen aktiv genutzt werden
+[*]@DeutschZ_Core
+[*]@DeutschZ_ExpansionBridge
+[*]@DeutschZ_KotHZ
+[*]@DeutschZ_ConvoyZ
+[*]@DeutschZ_GroundZero
+[*]@DeutschZ_CourierZ
+[/list]
+
+[h2]Support-Hinweis[/h2]
+Bei Fehlern bitte direkt im DeutschZModZ-Support melden und folgende Dateien mitsenden:
+[list]
+[*]crash_*.log
+[*]script_*.log
+[*]DayZServer_x64_*.RPT
+[*]server_console.log
+[*]vollstaendige Modlist / Loadorder
+[*]kurze Beschreibung, was direkt vor dem Fehler passiert ist
+[/list]

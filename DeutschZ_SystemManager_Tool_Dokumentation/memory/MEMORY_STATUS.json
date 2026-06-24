@@ -1,10 +1,8 @@
 ﻿{
     "memory_status":  "AKTUALISIERT",
     "memory_action_for_chatgpt":  "NEU_SPEICHERN_WENN_DIESER_STAND_FEHLT_ODER_ABWEICHT",
-    "version":  "DZSM v0.4.1 MEMORY-COMMIT-PACKAGE",
-    "date":  "2026-06-24T19:08:43",
-    "user_note":  "Patrick will eventuell alte Chats loeschen; diese Datei ins Uploadpaket legen und bei Bedarf neu in Memory speichern.",
+    "version":  "DZSM v0.4.4 GIT-MERGE-DIAGNOSTICS",
+    "date":  "2026-06-24T20:16:18",
     "secrets_included":  false,
-    "should_store_if_missing":  true,
-    "should_not_store_passwords_or_keys":  true
+    "should_store_if_missing":  true
 }

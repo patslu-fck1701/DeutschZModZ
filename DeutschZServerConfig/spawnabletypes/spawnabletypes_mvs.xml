@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<spawnabletypes>
+    <!-- Conservative MVS attachment presets; not every spawn is fully equipped. -->
+    <type name="MVS_Combat_Vest_Black">
+        <attachments chance="0.45"><item name="MVS_Admin_Pouch_Black" chance="1.00" /></attachments>
+        <attachments chance="0.22"><item name="MVS_Belt_Black" chance="1.00" /></attachments>
+        <attachments chance="0.10"><item name="MVS_Holster_Black" chance="1.00" /></attachments>
+    </type>
+    <type name="MVS_Combat_Vest_ERDL">
+        <attachments chance="0.45"><item name="MVS_Admin_Pouch_ERDL" chance="1.00" /></attachments>
+        <attachments chance="0.22"><item name="MVS_Belt_ERDL" chance="1.00" /></attachments>
+        <attachments chance="0.10"><item name="MVS_Holster_ERDL" chance="1.00" /></attachments>
+    </type>
+    <type name="MVS_Combat_Vest_Heavy_Black">
+        <attachments chance="0.45"><item name="MVS_Admin_Pouch_Multicam" chance="1.00" /></attachments>
+        <attachments chance="0.22"><item name="MVS_Belt_Multicam" chance="1.00" /></attachments>
+        <attachments chance="0.10"><item name="MVS_Holster_Multicam" chance="1.00" /></attachments>
+    </type>
+    <type name="MVS_Combat_Vest_Heavy_ERDL">
+        <attachments chance="0.45"><item name="MVS_Admin_Pouch_Multicam_Black" chance="1.00" /></attachments>
+        <attachments chance="0.22"><item name="MVS_Belt_Multicam_Black" chance="1.00" /></attachments>
+        <attachments chance="0.10"><item name="MVS_Holster_Multicam_Black" chance="1.00" /></attachments>
+    </type>
+    <type name="MVS_Combat_Vest_Heavy_Multicam">
+        <attachments chance="0.45"><item name="MVS_Admin_Pouch_Multicam_Tropic" chance="1.00" /></attachments>
+        <attachments chance="0.22"><item name="MVS_Belt_Multicam_Tropic" chance="1.00" /></attachments>
+        <attachments chance="0.10"><item name="MVS_Holster_Multicam_Tropic" chance="1.00" /></attachments>
+    </type>
+    <type name="MVS_Combat_Vest_Heavy_Multicam_Black">
+        <attachments chance="0.45"><item name="MVS_Admin_Pouch_OD" chance="1.00" /></attachments>
+        <attachments chance="0.22"><item name="MVS_Belt_OD" chance="1.00" /></attachments>
+        <attachments chance="0.10"><item name="MVS_Holster_OD" chance="1.00" /></attachments>
+    </type>
+    <type name="MVS_Combat_Vest_Heavy_Multicam_Tropic">
+        <attachments chance="0.45"><item name="MVS_Admin_Pouch_Snow" chance="1.00" /></attachments>
+        <attachments chance="0.22"><item name="MVS_Belt_Snow" chance="1.00" /></attachments>
+        <attachments chance="0.10"><item name="MVS_Holster_Snow" chance="1.00" /></attachments>
+    </type>
+    <type name="MVS_Combat_Vest_Heavy_OD">
+        <attachments chance="0.45"><item name="MVS_Admin_Pouch_Tan" chance="1.00" /></attachments>
+        <attachments chance="0.22"><item name="MVS_Belt_Tan" chance="1.00" /></attachments>
+        <attachments chance="0.10"><item name="MVS_Holster_Tan" chance="1.00" /></attachments>
+    </type>
+    <type name="MVS_Combat_Vest_Heavy_Snow">
+        <attachments chance="0.45"><item name="MVS_Assault_Pack_Black" chance="1.00" /></attachments>
+        <attachments chance="0.22"><item name="MVS_Belt_Black" chance="1.00" /></attachments>
+        <attachments chance="0.10"><item name="MVS_Holster_Black" chance="1.00" /></attachments>
+    </type>
+    <type name="MVS_Combat_Vest_Heavy_Tan">
+        <attachments chance="0.45"><item name="MVS_Assault_Pack_ERDL" chance="1.00" /></attachments>
+        <attachments chance="0.22"><item name="MVS_Belt_ERDL" chance="1.00" /></attachments>
+        <attachments chance="0.10"><item name="MVS_Holster_ERDL" chance="1.00" /></attachments>
+    </type>
+    <type name="MVS_6B47_Helmet_Black" />
+    <type name="MVS_6B47_Helmet_OD" />
+    <type name="MVS_6B47_Helmet_Tan" />
+    <type name="MVS_Altyn_Black" />
+    <type name="MVS_Altyn_OD" />
+    <type name="MVS_Altyn_Tan" />
+    <type name="MVS_Altyn_Visor" />
+    <type name="MVS_Altyn_Visor_Black" />
+    <type name="MVS_Altyn_Visor_Lifted" />
+    <type name="MVS_Altyn_Visor_Lifted_Black" />
+</spawnabletypes>

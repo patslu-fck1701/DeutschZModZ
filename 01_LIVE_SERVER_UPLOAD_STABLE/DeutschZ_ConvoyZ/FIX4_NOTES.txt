@@ -1,0 +1,4 @@
+FIX4:
+- Removed MissionGameplay OnRPC override because this server setup does not expose OnRPC in MissionGameplay.
+- Status sync helper remains as DeutschZConvoyZ_ShowStatus without override.
+- Server compile should continue past Mission script module error from FIX3.

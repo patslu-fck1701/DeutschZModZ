@@ -1,0 +1,98 @@
+{
+    "m_Version": 12,
+    "DisplayName": "MVS_Belts",
+    "Icon": "Vest",
+    "Color": "FBFCFEFF",
+    "IsExchange": 0,
+    "InitStockPercent": 55.0,
+    "Items": [
+        {
+            "ClassName": "MVS_Belt_Black",
+            "MaxPriceThreshold": 180000,
+            "MinPriceThreshold": 50000,
+            "SellPricePercent": 40,
+            "MaxStockThreshold": 30,
+            "MinStockThreshold": 1,
+            "QuantityPercent": -1,
+            "SpawnAttachments": [],
+            "Variants": []
+        },
+        {
+            "ClassName": "MVS_Belt_ERDL",
+            "MaxPriceThreshold": 180000,
+            "MinPriceThreshold": 50000,
+            "SellPricePercent": 40,
+            "MaxStockThreshold": 30,
+            "MinStockThreshold": 1,
+            "QuantityPercent": -1,
+            "SpawnAttachments": [],
+            "Variants": []
+        },
+        {
+            "ClassName": "MVS_Belt_Multicam",
+            "MaxPriceThreshold": 180000,
+            "MinPriceThreshold": 50000,
+            "SellPricePercent": 40,
+            "MaxStockThreshold": 30,
+            "MinStockThreshold": 1,
+            "QuantityPercent": -1,
+            "SpawnAttachments": [],
+            "Variants": []
+        },
+        {
+            "ClassName": "MVS_Belt_Multicam_Black",
+            "MaxPriceThreshold": 180000,
+            "MinPriceThreshold": 50000,
+            "SellPricePercent": 40,
+            "MaxStockThreshold": 30,
+            "MinStockThreshold": 1,
+            "QuantityPercent": -1,
+            "SpawnAttachments": [],
+            "Variants": []
+        },
+        {
+            "ClassName": "MVS_Belt_Multicam_Tropic",
+            "MaxPriceThreshold": 180000,
+            "MinPriceThreshold": 50000,
+            "SellPricePercent": 40,
+            "MaxStockThreshold": 30,
+            "MinStockThreshold": 1,
+            "QuantityPercent": -1,
+            "SpawnAttachments": [],
+            "Variants": []
+        },
+        {
+            "ClassName": "MVS_Belt_OD",
+            "MaxPriceThreshold": 180000,
+            "MinPriceThreshold": 50000,
+            "SellPricePercent": 40,
+            "MaxStockThreshold": 30,
+            "MinStockThreshold": 1,
+            "QuantityPercent": -1,
+            "SpawnAttachments": [],
+            "Variants": []
+        },
+        {
+            "ClassName": "MVS_Belt_Snow",
+            "MaxPriceThreshold": 180000,
+            "MinPriceThreshold": 50000,
+            "SellPricePercent": 40,
+            "MaxStockThreshold": 30,
+            "MinStockThreshold": 1,
+            "QuantityPercent": -1,
+            "SpawnAttachments": [],
+            "Variants": []
+        },
+        {
+            "ClassName": "MVS_Belt_Tan",
+            "MaxPriceThreshold": 180000,
+            "MinPriceThreshold": 50000,
+            "SellPricePercent": 40,
+            "MaxStockThreshold": 30,
+            "MinStockThreshold": 1,
+            "QuantityPercent": -1,
+            "SpawnAttachments": [],
+            "Variants": []
+        }
+    ]
+}

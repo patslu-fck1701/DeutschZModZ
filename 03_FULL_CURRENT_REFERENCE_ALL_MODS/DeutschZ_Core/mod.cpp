@@ -1,0 +1,10 @@
+name = "DeutschZ Core";
+picture = "";
+logo = "";
+logoSmall = "";
+logoOver = "";
+tooltip = "DeutschZ Core";
+overview = "Shared DeutschZ base for profile folders, logging, provider APIs, safe profile paths and visible fallback event notifications.";
+action = "";
+author = "Patrick Sluzalek / fck1701";
+version = "0.9.4-campaign-chain-test";

@@ -1,0 +1,98 @@
+{
+    "m_Version": 12,
+    "DisplayName": "SNAFU_SMG",
+    "Icon": "Shotgun",
+    "Color": "FBFCFEFF",
+    "IsExchange": 0,
+    "InitStockPercent": 60.0,
+    "Items": [
+        {
+            "ClassName": "SNAFUP90",
+            "MaxPriceThreshold": 180000,
+            "MinPriceThreshold": 80000,
+            "SellPricePercent": 45,
+            "MaxStockThreshold": 30,
+            "MinStockThreshold": 1,
+            "QuantityPercent": -1,
+            "SpawnAttachments": [],
+            "Variants": []
+        },
+        {
+            "ClassName": "SNAFUSten",
+            "MaxPriceThreshold": 180000,
+            "MinPriceThreshold": 80000,
+            "SellPricePercent": 45,
+            "MaxStockThreshold": 30,
+            "MinStockThreshold": 1,
+            "QuantityPercent": -1,
+            "SpawnAttachments": [],
+            "Variants": []
+        },
+        {
+            "ClassName": "SNAFUUzi",
+            "MaxPriceThreshold": 180000,
+            "MinPriceThreshold": 80000,
+            "SellPricePercent": 45,
+            "MaxStockThreshold": 30,
+            "MinStockThreshold": 1,
+            "QuantityPercent": -1,
+            "SpawnAttachments": [],
+            "Variants": []
+        },
+        {
+            "ClassName": "SNAFUVECTOR_45acp_GUN",
+            "MaxPriceThreshold": 180000,
+            "MinPriceThreshold": 80000,
+            "SellPricePercent": 45,
+            "MaxStockThreshold": 30,
+            "MinStockThreshold": 1,
+            "QuantityPercent": -1,
+            "SpawnAttachments": [],
+            "Variants": []
+        },
+        {
+            "ClassName": "SNAFUVECTOR_9mm_GUN",
+            "MaxPriceThreshold": 180000,
+            "MinPriceThreshold": 80000,
+            "SellPricePercent": 45,
+            "MaxStockThreshold": 30,
+            "MinStockThreshold": 1,
+            "QuantityPercent": -1,
+            "SpawnAttachments": [],
+            "Variants": []
+        },
+        {
+            "ClassName": "SNAFU_Agram_GUN",
+            "MaxPriceThreshold": 180000,
+            "MinPriceThreshold": 80000,
+            "SellPricePercent": 45,
+            "MaxStockThreshold": 30,
+            "MinStockThreshold": 1,
+            "QuantityPercent": -1,
+            "SpawnAttachments": [],
+            "Variants": []
+        },
+        {
+            "ClassName": "SNAFU_MP9_GUN",
+            "MaxPriceThreshold": 180000,
+            "MinPriceThreshold": 80000,
+            "SellPricePercent": 45,
+            "MaxStockThreshold": 30,
+            "MinStockThreshold": 1,
+            "QuantityPercent": -1,
+            "SpawnAttachments": [],
+            "Variants": []
+        },
+        {
+            "ClassName": "SNAFU_MPX_GUN",
+            "MaxPriceThreshold": 180000,
+            "MinPriceThreshold": 80000,
+            "SellPricePercent": 45,
+            "MaxStockThreshold": 30,
+            "MinStockThreshold": 1,
+            "QuantityPercent": -1,
+            "SpawnAttachments": [],
+            "Variants": []
+        }
+    ]
+}

@@ -1,0 +1,60 @@
+﻿[h1]DEUTSCHZ EXPANSION BRIDGE[/h1]
+[i]Markers, Notifications und AI-Anbindungen ueber eine saubere Bruecke.[/i]
+
+[h2]Beschreibung[/h2]
+[list]
+[*]Zentrale optionale Verbindung zu DayZ Expansion Funktionen
+[*]Eventmods bleiben frei von direkten Expansion Calls
+[*]Marker- und 3D-Marker-Anfragen laufen gebuendelt ueber die Bridge
+[*]Core/Bridge Architektur bleibt sauber trennbar
+[/list]
+
+[h1]DEUTSCHZ EXPANSION BRIDGE[/h1]
+[i]Markers, notifications and AI integration through one clean bridge.[/i]
+
+[h2]Description[/h2]
+[list]
+[*]Central optional connection to DayZ Expansion features
+[*]Event mods stay free of direct Expansion calls
+[*]Marker and 3D marker requests are routed through the bridge
+[*]Core/Bridge architecture stays cleanly separated
+[/list]
+
+[h1]DEUTSCHZ EXPANSION BRIDGE[/h1]
+[i]Маркеры, уведомления и AI-интеграции через аккуратный мост.[/i]
+
+[h2]Описание[/h2]
+[list]
+[*]Центральное опциональное подключение к функциям DayZ Expansion
+[*]Event-моды не вызывают Expansion напрямую
+[*]Запросы маркеров и 3D-маркеров проходят через Bridge
+[*]Архитектура Core/Bridge остается разделенной
+[/list]
+
+[h2]Links / Support[/h2]
+Workshop: https://steamcommunity.com/sharedfiles/filedetails/?id=3748421850
+GitHub: https://github.com/patslu-fck1701/DeutschZModZ
+DeutschZModZ Support: https://discord.gg/WM5GkDbw7C
+
+[h2]Loadorder[/h2]
+[list]
+[*]@CF, falls von deiner Server-Modliste benoetigt
+[*]@DayZ-Expansion, falls Expansion-Funktionen aktiv genutzt werden
+[*]@DeutschZ_Core
+[*]@DeutschZ_ExpansionBridge
+[*]@DeutschZ_KotHZ
+[*]@DeutschZ_ConvoyZ
+[*]@DeutschZ_GroundZero
+[*]@DeutschZ_CourierZ
+[/list]
+
+[h2]Support-Hinweis[/h2]
+Bei Fehlern bitte direkt im DeutschZModZ-Support melden und folgende Dateien mitsenden:
+[list]
+[*]crash_*.log
+[*]script_*.log
+[*]DayZServer_x64_*.RPT
+[*]server_console.log
+[*]vollstaendige Modlist / Loadorder
+[*]kurze Beschreibung, was direkt vor dem Fehler passiert ist
+[/list]

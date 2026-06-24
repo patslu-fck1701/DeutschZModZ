@@ -1,0 +1,142 @@
+{
+    "m_Version": 12,
+    "DisplayName": "SNAFU_Shotguns",
+    "Icon": "Shotgun",
+    "Color": "FBFCFEFF",
+    "IsExchange": 0,
+    "InitStockPercent": 60.0,
+    "Items": [
+        {
+            "ClassName": "AA12_Gun",
+            "MaxPriceThreshold": 180000,
+            "MinPriceThreshold": 80000,
+            "SellPricePercent": 45,
+            "MaxStockThreshold": 30,
+            "MinStockThreshold": 1,
+            "QuantityPercent": -1,
+            "SpawnAttachments": [],
+            "Variants": []
+        },
+        {
+            "ClassName": "SNAFU_Shotgunchoke_Black",
+            "MaxPriceThreshold": 180000,
+            "MinPriceThreshold": 80000,
+            "SellPricePercent": 45,
+            "MaxStockThreshold": 30,
+            "MinStockThreshold": 1,
+            "QuantityPercent": -1,
+            "SpawnAttachments": [],
+            "Variants": []
+        },
+        {
+            "ClassName": "SNAFU_Shotgunchoke_Blue",
+            "MaxPriceThreshold": 180000,
+            "MinPriceThreshold": 80000,
+            "SellPricePercent": 45,
+            "MaxStockThreshold": 30,
+            "MinStockThreshold": 1,
+            "QuantityPercent": -1,
+            "SpawnAttachments": [],
+            "Variants": []
+        },
+        {
+            "ClassName": "SNAFU_Shotgunchoke_Brown",
+            "MaxPriceThreshold": 180000,
+            "MinPriceThreshold": 80000,
+            "SellPricePercent": 45,
+            "MaxStockThreshold": 30,
+            "MinStockThreshold": 1,
+            "QuantityPercent": -1,
+            "SpawnAttachments": [],
+            "Variants": []
+        },
+        {
+            "ClassName": "SNAFU_Shotgunchoke_Green",
+            "MaxPriceThreshold": 180000,
+            "MinPriceThreshold": 80000,
+            "SellPricePercent": 45,
+            "MaxStockThreshold": 30,
+            "MinStockThreshold": 1,
+            "QuantityPercent": -1,
+            "SpawnAttachments": [],
+            "Variants": []
+        },
+        {
+            "ClassName": "SNAFU_Shotgunchoke_Purple",
+            "MaxPriceThreshold": 180000,
+            "MinPriceThreshold": 80000,
+            "SellPricePercent": 45,
+            "MaxStockThreshold": 30,
+            "MinStockThreshold": 1,
+            "QuantityPercent": -1,
+            "SpawnAttachments": [],
+            "Variants": []
+        },
+        {
+            "ClassName": "SNAFU_Shotgunchoke_Red",
+            "MaxPriceThreshold": 180000,
+            "MinPriceThreshold": 80000,
+            "SellPricePercent": 45,
+            "MaxStockThreshold": 30,
+            "MinStockThreshold": 1,
+            "QuantityPercent": -1,
+            "SpawnAttachments": [],
+            "Variants": []
+        },
+        {
+            "ClassName": "SNAFU_Shotgunchoke_Tur",
+            "MaxPriceThreshold": 180000,
+            "MinPriceThreshold": 80000,
+            "SellPricePercent": 45,
+            "MaxStockThreshold": 30,
+            "MinStockThreshold": 1,
+            "QuantityPercent": -1,
+            "SpawnAttachments": [],
+            "Variants": []
+        },
+        {
+            "ClassName": "SNAFU_Shotgunchoke_Yellow",
+            "MaxPriceThreshold": 180000,
+            "MinPriceThreshold": 80000,
+            "SellPricePercent": 45,
+            "MaxStockThreshold": 30,
+            "MinStockThreshold": 1,
+            "QuantityPercent": -1,
+            "SpawnAttachments": [],
+            "Variants": []
+        },
+        {
+            "ClassName": "SN_Auto_Shotgun",
+            "MaxPriceThreshold": 180000,
+            "MinPriceThreshold": 80000,
+            "SellPricePercent": 45,
+            "MaxStockThreshold": 30,
+            "MinStockThreshold": 1,
+            "QuantityPercent": -1,
+            "SpawnAttachments": [],
+            "Variants": []
+        },
+        {
+            "ClassName": "Spas12_Gun",
+            "MaxPriceThreshold": 180000,
+            "MinPriceThreshold": 80000,
+            "SellPricePercent": 45,
+            "MaxStockThreshold": 30,
+            "MinStockThreshold": 1,
+            "QuantityPercent": -1,
+            "SpawnAttachments": [],
+            "Variants": []
+        },
+        {
+            "ClassName": "VR80_Gun",
+            "MaxPriceThreshold": 180000,
+            "MinPriceThreshold": 80000,
+            "SellPricePercent": 45,
+            "MaxStockThreshold": 30,
+            "MinStockThreshold": 1,
+            "QuantityPercent": -1,
+            "SpawnAttachments": [],
+            "Variants": []
+        }
+    ]
+}

@@ -1,0 +1,131 @@
+{
+    "m_Version": 12,
+    "DisplayName": "SNAFU_DMR",
+    "Icon": "Shotgun",
+    "Color": "FBFCFEFF",
+    "IsExchange": 0,
+    "InitStockPercent": 60.0,
+    "Items": [
+        {
+            "ClassName": "SNAFU_KAC_Gun",
+            "MaxPriceThreshold": 750000,
+            "MinPriceThreshold": 300000,
+            "SellPricePercent": 25,
+            "MaxStockThreshold": 12,
+            "MinStockThreshold": 1,
+            "QuantityPercent": -1,
+            "SpawnAttachments": [],
+            "Variants": []
+        },
+        {
+            "ClassName": "SNAFU_M14",
+            "MaxPriceThreshold": 750000,
+            "MinPriceThreshold": 300000,
+            "SellPricePercent": 25,
+            "MaxStockThreshold": 12,
+            "MinStockThreshold": 1,
+            "QuantityPercent": -1,
+            "SpawnAttachments": [],
+            "Variants": []
+        },
+        {
+            "ClassName": "SNAFU_M76",
+            "MaxPriceThreshold": 750000,
+            "MinPriceThreshold": 300000,
+            "SellPricePercent": 25,
+            "MaxStockThreshold": 12,
+            "MinStockThreshold": 1,
+            "QuantityPercent": -1,
+            "SpawnAttachments": [],
+            "Variants": []
+        },
+        {
+            "ClassName": "SNAFU_SR25_Gun",
+            "MaxPriceThreshold": 750000,
+            "MinPriceThreshold": 300000,
+            "SellPricePercent": 25,
+            "MaxStockThreshold": 12,
+            "MinStockThreshold": 1,
+            "QuantityPercent": -1,
+            "SpawnAttachments": [],
+            "Variants": []
+        },
+        {
+            "ClassName": "Snafu_ScarH_Black_GUN",
+            "MaxPriceThreshold": 750000,
+            "MinPriceThreshold": 300000,
+            "SellPricePercent": 25,
+            "MaxStockThreshold": 12,
+            "MinStockThreshold": 1,
+            "QuantityPercent": -1,
+            "SpawnAttachments": [],
+            "Variants": []
+        },
+        {
+            "ClassName": "Snafu_ScarH_DKMC_GUN",
+            "MaxPriceThreshold": 750000,
+            "MinPriceThreshold": 300000,
+            "SellPricePercent": 25,
+            "MaxStockThreshold": 12,
+            "MinStockThreshold": 1,
+            "QuantityPercent": -1,
+            "SpawnAttachments": [],
+            "Variants": []
+        },
+        {
+            "ClassName": "Snafu_ScarH_OD_GUN",
+            "MaxPriceThreshold": 750000,
+            "MinPriceThreshold": 300000,
+            "SellPricePercent": 25,
+            "MaxStockThreshold": 12,
+            "MinStockThreshold": 1,
+            "QuantityPercent": -1,
+            "SpawnAttachments": [],
+            "Variants": []
+        },
+        {
+            "ClassName": "Snafu_ScarH_SIL_Black",
+            "MaxPriceThreshold": 750000,
+            "MinPriceThreshold": 300000,
+            "SellPricePercent": 25,
+            "MaxStockThreshold": 12,
+            "MinStockThreshold": 1,
+            "QuantityPercent": -1,
+            "SpawnAttachments": [],
+            "Variants": []
+        },
+        {
+            "ClassName": "Snafu_ScarH_SIL_Tan",
+            "MaxPriceThreshold": 750000,
+            "MinPriceThreshold": 300000,
+            "SellPricePercent": 25,
+            "MaxStockThreshold": 12,
+            "MinStockThreshold": 1,
+            "QuantityPercent": -1,
+            "SpawnAttachments": [],
+            "Variants": []
+        },
+        {
+            "ClassName": "Snafu_ScarH_Snow_GUN",
+            "MaxPriceThreshold": 750000,
+            "MinPriceThreshold": 300000,
+            "SellPricePercent": 25,
+            "MaxStockThreshold": 12,
+            "MinStockThreshold": 1,
+            "QuantityPercent": -1,
+            "SpawnAttachments": [],
+            "Variants": []
+        },
+        {
+            "ClassName": "Snafu_ScarH_Tan_GUN",
+            "MaxPriceThreshold": 750000,
+            "MinPriceThreshold": 300000,
+            "SellPricePercent": 25,
+            "MaxStockThreshold": 12,
+            "MinStockThreshold": 1,
+            "QuantityPercent": -1,
+            "SpawnAttachments": [],
+            "Variants": []
+        }
+    ]
+}

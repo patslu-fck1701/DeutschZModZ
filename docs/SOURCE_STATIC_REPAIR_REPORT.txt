@@ -1,0 +1,77 @@
+DeutschZ CURRENT STABLE package from mods(13).zip
+Date: 2026-06-23
+
+Included mods:
+1 DeutschZ_Core
+2 DeutschZ_ExpansionBridge
+3 DeutschZ_KotHZ
+4 DeutschZ_ConvoyZ
+5 DeutschZ_GroundZero
+6 DeutschZ_CourierZ
+7 DeutschZ_OperationDeutschZ
+
+Stability decisions:
+- mods(13).zip used as current full base.
+- KotHZ and ConvoyZ marker path kept as Core -> DeutschZ_ExpansionBridge -> Expansion.
+- No direct ExpansionMarkerModule / ExpansionMarkerData / CreateServerMarker / RemoveServerMarker calls in KotHZ or ConvoyZ script code.
+- DeutschZ_ExpansionBridge remains the only direct Expansion marker layer.
+- KotHZ and ConvoyZ keep server-start config generation without unsafe active JsonLoadFile bootstrap calls.
+- Removed eAI_SurvivorM_Mirek from ExpansionBridge AI fallback candidate list to avoid the forbidden Mirek fallback pattern.
+- No Steam Workshop description files intentionally changed.
+
+Install/load order:
+@DeutschZ_Core
+@DeutschZ_ExpansionBridge
+@DeutschZ_KotHZ
+@DeutschZ_ConvoyZ
+@DeutschZ_GroundZero
+@DeutschZ_CourierZ
+@DeutschZ_OperationDeutschZ optional, after all four event mods only
+
+Before first test:
+- Completely replace old mod folders; do not copy over old Addons/PBOs.
+- Backup/remove old broken profile config folders for KotHZ and ConvoyZ if they came from failed FIX5-FIX10 attempts.
+- Pack in load order and test with Core, Bridge, KotHZ, ConvoyZ first before enabling OperationDeutschZ.
+
+Static checks performed:
+- RequiredAddons checked for Core/Bridge/KotHZ/ConvoyZ.
+- Direct Expansion marker API references checked in event script code.
+- JsonLoadFile crash risk checked for KotHZ/ConvoyZ bootstrap paths.
+- PBO prefix files checked.
+- Basic config.cpp brace balance checked.
+
+Validation output:
+Top-level mods:
+DeutschZ_ConvoyZ
+DeutschZ_Core
+DeutschZ_CourierZ
+DeutschZ_ExpansionBridge
+DeutschZ_GroundZero
+DeutschZ_KotHZ
+DeutschZ_OperationDeutschZ
+
+Direct Expansion refs in event scripts/configs (should only be comments/config field names, not API calls):
+DeutschZ_KotHZ/scripts/4_World/DeutschZ_KotHZ/DeutschZKotHZCoreBridge.c:5:    - No direct ExpansionMarkerModule / ExpansionMarkerData usage in KotHZ.
+DeutschZ_ConvoyZ/scripts/4_World/DeutschZ_ConvoyZ/DeutschZConvoyZCoreBridge.c:5:    - No direct ExpansionMarkerModule / ExpansionMarkerData usage in ConvoyZ.
+
+JsonLoadFile in KotHZ/ConvoyZ scripts:
+DeutschZ_KotHZ/scripts/5_Mission/DeutschZ_KotHZ/DeutschZKotHZConfigManager.c:26:        // FIX FINAL: do not JsonLoadFile stale KotHZ profile JSON during server bootstrap.
+DeutschZ_KotHZ/scripts/5_Mission/DeutschZ_KotHZ/DeutschZKotHZConfigManager.c:95:        // DayZ Enforce int is signed; JsonLoadFile throws before Validate() can repair it.
+DeutschZ_KotHZ/scripts/5_Mission/DeutschZ_KotHZ/DeutschZKotHZConfigManager.c:96:        // Repair the file as plain text before JsonLoadFile touches it.
+DeutschZ_KotHZ/scripts/5_Mission/DeutschZ_KotHZ/DeutschZKotHZConfigManager.c:127:            Print("[DeutschZ_KotHZ] Repaired JSON-safe signed ExpansionMarkerColorARGB before JsonLoadFile: " + KOTH_CONFIG);
+DeutschZ_KotHZ/scripts/5_Mission/DeutschZ_KotHZ/DeutschZKotHZConfigManager.c:163:        // FIX_FINAL: legacy JSON import disabled during bootstrap to prevent native JsonLoadFile crashes.
+DeutschZ_KotHZ/scripts/5_Mission/DeutschZ_KotHZ/DeutschZKotHZConfigManager.c:172:        Print("[DeutschZ_KotHZ] FIX_FINAL generated default loot pools without unsafe JsonLoadFile: " + LOOT_POOLS_CONFIG);
+DeutschZ_KotHZ/scripts/5_Mission/DeutschZ_KotHZ/DeutschZKotHZConfigManager.c:396:        // crashes JsonLoadFile with "Cannot convert to int" on DayZ servers.
+DeutschZ_ConvoyZ/scripts/4_World/DeutschZ_ConvoyZ/DeutschZConvoyZConfig.c:99:        // FIX FINAL: server-start config generation must never call JsonLoadFile on stale or incompatible profile JSON.
+DeutschZ_ConvoyZ/scripts/4_World/DeutschZ_ConvoyZ/DeutschZConvoyZRewardManager.c:24:        // FIX_FINAL: avoid unsafe JsonLoadFile during boot; start with clean runtime claims and save them safely.
+
+SurvivorM_Mirek in scripts/configs:
+
+config.cpp brace balance:
+DeutschZ_ConvoyZ/config.cpp: balance=0, min=0
+DeutschZ_Core/config.cpp: balance=0, min=0
+DeutschZ_CourierZ/config.cpp: balance=0, min=0
+DeutschZ_ExpansionBridge/config.cpp: balance=0, min=0
+DeutschZ_GroundZero/config.cpp: balance=0, min=0
+DeutschZ_KotHZ/config.cpp: balance=0, min=0
+DeutschZ_OperationDeutschZ/config.cpp: balance=0, min=0

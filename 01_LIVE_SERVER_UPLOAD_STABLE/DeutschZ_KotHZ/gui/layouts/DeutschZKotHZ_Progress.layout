@@ -1,0 +1,103 @@
+FrameWidgetClass rootFrame {
+ color 1 1 1 1
+ position 0.006 0.105
+ size 420 122
+ halign right_ref
+ valign bottom_ref
+ hexactpos 0
+ vexactpos 0
+ hexactsize 1
+ vexactsize 1
+ {
+  PanelWidgetClass BgFrame {
+   visible 1
+   ignorepointer 1
+   color 0.02 0.02 0.02 0.72
+   size 420 122
+   halign center_ref
+   valign top_ref
+   hexactpos 1
+   vexactpos 1
+   hexactsize 1
+   vexactsize 1
+   style editor_quad
+   {
+    TextWidgetClass TitleText {
+     ignorepointer 1
+     position 0 5
+     size 400 18
+     halign center_ref
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     text "#STR_DZKOTHZ_LAYOUT_DZ_KOTH"
+     font "gui/fonts/sdf_MetronLight16"
+     "text halign" center
+     "text valign" center
+    }
+    TextWidgetClass StatusMsg {
+     ignorepointer 1
+     position 0 28
+     size 400 18
+     halign center_ref
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     text "#STR_DZKOTHZ_LAYOUT_KOTH_READY"
+     font "gui/fonts/sdf_MetronLight14"
+     "text halign" center
+     "text valign" center
+    }
+    ProgressBarWidgetClass Progress {
+     disabled 0
+     ignorepointer 1
+     color 0.0 1.0 0.08 1
+     position 0 54
+     size 360 24
+     halign center_ref
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     draggable 0
+     style Quantity
+     current 0
+     vertical 0
+     flipped 0
+     {
+      TextWidgetClass ProgressText {
+       ignorepointer 1
+       size 100 24
+       halign center_ref
+       valign center_ref
+       hexactpos 1
+       vexactpos 1
+       hexactsize 1
+       vexactsize 1
+       text "0%"
+       font "gui/fonts/sdf_MetronLight14"
+       "text halign" center
+       "text valign" center
+      }
+     }
+    }
+    TextWidgetClass PlayerCount {
+     ignorepointer 1
+     position 0 91
+     size 400 20
+     halign center_ref
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     text "#STR_DZKOTHZ_LAYOUT_SPIELER_0_ZEIT_0_00_0_00"
+     font "gui/fonts/sdf_MetronLight12"
+     "text halign" center
+     "text valign" center
+    }
+   }
+  }
+ }
+}

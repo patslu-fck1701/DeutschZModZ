@@ -1,0 +1,37 @@
+{
+    "snafu_type_count": 472,
+    "snafu_market_counts": {
+        "SNAFU_Assault_Rifles": 60,
+        "SNAFU_Sniper_Rifles": 17,
+        "SNAFU_DMR": 11,
+        "SNAFU_SMG": 8,
+        "SNAFU_Shotguns": 12,
+        "SNAFU_Pistols": 12,
+        "SNAFU_Magazines": 80,
+        "SNAFU_Attachments": 58,
+        "SNAFU_Optics": 61,
+        "SNAFU_Suppressors": 23,
+        "SNAFU_Event_Restricted": 17
+    },
+    "mvs_extracted_class_count": 890,
+    "mvs_market_counts": {
+        "MVS_Vests": 32,
+        "MVS_Pouches": 80,
+        "MVS_Belts": 8,
+        "MVS_Holsters": 8,
+        "MVS_Helmets": 55,
+        "MVS_Accessories": 66,
+        "MVS_HighEnd_Armor": 35
+    },
+    "sources": {
+        "snafu_types": "F:\\Programme\\steamapps\\common\\DayZServer\\@SNAFU Weapons\\XML_and_Clasnames\\SNAFU_types.xml",
+        "snafu_spawnabletypes": "F:\\Programme\\steamapps\\common\\DayZServer\\@SNAFU Weapons\\XML_and_Clasnames\\snafuspawnabletypes25percent.xml",
+        "mvs_pbo": "F:\\Programme\\steamapps\\workshop\\content\\221100\\1962144102\\Addons\\ModularVestSystem.pbo",
+        "expansion_market_template": "F:\\Programme\\steamapps\\common\\DayZServer\\profiles\\ExpansionMod\\Market\\Assault_Rifles.json",
+        "expansion_trader_template": "F:\\Programme\\steamapps\\common\\DayZServer\\profiles\\ExpansionMod\\Traders\\Weapons.json"
+    },
+    "mvs_extracted_class_count_raw": 890,
+    "mvs_filtered_itemlike_count": 249,
+    "mvs_filter_note": "Generated from class declarations; excluded Proxy, Slot, Base, parent and vanilla classes.",
+    "mvs_class_declarations_raw": 798
+}

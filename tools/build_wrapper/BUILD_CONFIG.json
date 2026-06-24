@@ -1,26 +1,6 @@
 ﻿{
     "name":  "DeutschZ Build Wrapper",
-    "version":  "0.4.0",
+    "version":  "0.5.2",
     "allow_real_build":  false,
-    "mode":  "check-only by default",
-    "repo_root":  "P:\\GitHub_DeutschZModZ\\DeutschZModZ",
-    "mods_root":  "P:\\GitHub_DeutschZModZ\\DeutschZModZ\\mods",
-    "readymods_root":  "P:\\ReadyMods",
-    "active_mod_order":  [
-                             "DeutschZ_Core",
-                             "DeutschZ_ExpansionBridge",
-                             "DeutschZ_KotHZ",
-                             "DeutschZ_ConvoyZ",
-                             "DeutschZ_GroundZero",
-                             "DeutschZ_CourierZ",
-                             "DeutschZ_OperationDeutschZ"
-                         ],
-    "rules":  {
-                  "expansion_bridge_only_direct_expansion_layer":  true,
-                  "no_workshop_file_changes":  true,
-                  "no_legacy_delete":  true,
-                  "no_p_root_cleanup":  true,
-                  "check_p_drive_readiness":  true,
-                  "no_mixed_readymods_state":  true
-              }
+    "mode":  "check-only source-locator"
 }

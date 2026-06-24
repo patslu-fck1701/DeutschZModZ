@@ -1,0 +1,100 @@
+## 0.9.4-campaign-chain-test - 2026-06-23
+- Added explicit CourierZ campaign item classes for sealed courier case, package, delivery stamp and cipher document.
+- Updated default profile config from fast-test timing to live-near CourierZ timing: 55-85 minute interval, NPC/quest requirements and stronger delivery pressure.
+- Added Config/Data/Logs profile folders while keeping the existing flat CourierZConfig.json path backward compatible.
+
+## 0.9.3-online-test - 2026-06-23
+- Online-Testserver pack/test candidate; config.cpp/script module validation aligned.
+
+## FIX43 - Distinct Courier Route Locations (2026-06-22)
+- Moved Operation Aktenkoffer pickup and delivery away from the ConvoyZ crashsite and away from Green Mountain Trader/SafeZone.
+- Updated code defaults and ready-copy CourierZConfig.json to use a separated west-to-north courier route.
+- Kept CourierZ self-contained with its own Aktenkoffer and reward chest classes; no dependency on ConvoyZ or other event mods.
+- Increased delivery-side enemy count slightly for a clearer second stage without changing Core or ExpansionBridge.
+
+## FIX41 - EventFlow Aktenkoffer und Delivery Hold (2026-06-22)
+- CourierZ Aktenkoffer nutzt eine eigene sichtbare DeutschZ-Kofferklasse mit lokal mitgelieferten DeutschZ-Assets, ohne Abhaengigkeit zu ConvoyZ.
+- CourierZ Reward verwendet weiter eine eigene DeutschZ Rewardchest mit eigener Textur.
+- Abgabe ist jetzt nicht mehr sofort fertig: Spieler muss kurz im Zielradius bleiben, die Uebergabe laeuft sichtbar per Statusmeldungen.
+- Spieler erhalten klare Meldungen fuer Kofferaufnahme, Zielradius, pausierte Uebergabe und Reward-Freigabe.
+- Alte generische Barrel-/SeaChest-Fallbacks werden fuer den Hauptreward auf `DZCR_RewardChest` normalisiert.
+
+﻿## Publishing Cleanup - Workshop/Types/Config Guides (2026-06-22)
+- Workshop description refreshed to German, English and Russian only.
+- Added `DeutschZ_CourierZ_types.xml` with courier/event classes at `nominal=0` for adminspawn/trader/event rewards, not random mapspawn.
+- Added admin-friendly config guide under `docs/config/`.
+- Credit remains: idea/concept Einarvargr / Konfliktzone; development/integration Patrick Sluzalek / fck1701 / DeutschZ.
+## FIX41 - Reward Unsafe-Class Guard (2026-06-22)
+- CourierZ delivery reward item insertion now blocks exact unsafe vanilla `M249` and `Mag_M249_Box200Rnd`.
+- `GCGN_M249` remains allowed by the shared Core guard.
+- Courier flow, credits and existing compile guards remain unchanged.
+
+## FIX39 - Full DeutschZ Baseline / Changelog Refresh (2026-06-22)
+- Included in the full DeutschZ source replacement package after KotHZ live-test regression fixes.
+- No CourierZ code changes in this pass.
+- FIX32 strong-ref persistence/config compile guard remains active.
+
+## FIX37 - Repo Clean / Changelog Baseline (2026-06-22)
+- Repository-Basis auf aktuellen CourierZ-FIX36-Stand abgeglichen.
+- Behaelt FIX32 Compile-Audit fuer starke ref-Locals in Config/Persistence bei.
+- Behaelt naeheren Start, Courier-Flow, Credits und Workshoplink bei.
+- Changelog fuer kuenftige Full-Source-Pakete aktualisiert.
+
+## FIX36 - Event Ausbau Stage 1 / closer staged starts
+- Adjusted staged test-start order: KotHZ 1 min, ConvoyZ 3 min, GroundZero 5 min, CourierZ 7 min.
+- Keeps crash-risk features off: KotHZ music, physical smoke/fog cannons and heavy marker fallback objects remain disabled.
+- Re-enables/keeps stable gameplay additions only: visible flags, Expansion markers, HUD/progress, infected/waves, rewards and reduced no-spam status messages.
+- ConvoyZ now routes its 3D marker request through Core/ExpansionBridge when enabled.
+
+# CHANGELOG
+
+## 2026-06-22 - FIX32 CourierZ Compile Audit
+
+- Fixed Game module compile error in `CourierZPersistence.c`: weak/temporary state parameter was no longer assigned a newly created object.
+- Changed persistence load path to use strong `ref CourierZState` locals before JSON load/save.
+- Changed config load path to use a strong `ref CourierZConfig` local before JSON load/save.
+- Checked CourierZ against the current DeutschZ regression list: PlayerBase remains only in 4_World, MissionServer remains only in 5_Mission, no direct Expansion calls, no forbidden legacy names, staggered 1200-second start remains unchanged.
+- No gameplay feature changes. This is a compile/safe-boot hotfix only.
+
+## 2026-06-20 - FIX26 Credit/Discord/Serverlinks
+
+- Removed the first-name reference from CourierZ idea credit on request of the ideator.
+- CourierZ idea credit now shows only: Playername Einarvargr / Server Konfliktzone.
+- Added DeutschZ Discord link: https://discord.gg/FHzZ7BykFk
+- Added DeutschZ server connection: 193.135.10.128:20076
+- Added Konfliktzone Discord link: https://discord.gg/tRtSbWtrsm
+- Added Konfliktzone World description and server list:
+  - Konfliktzone|Chernarus (PVE) - Main Server: 217.146.80.188:2302
+  - Konfliktzone|Napf (PVE/PVP): 46.4.112.91:2680
+  - Konfliktzone|Banov (PVE): 168.119.79.147:2680
+- Updated Workshop descriptions and public provenance documentation.
+
+
+## 2026-06-20 - FIX25 Staggered Event Test / Marker Notify Stabilization
+
+- Staggered autogenerated test startup defaults so events start one after another instead of simultaneously.
+- Reduced notification spam by throttling status messages and suppressing marker-channel popup/chat spam.
+- Kept ExpansionBridge marker/3D marker requests logged and routed through Core/Bridge.
+- Stabilized visible test flow for server validation.
+
+## 2026-06-20 - FIX24b Credit Documentation
+
+- Added explicit CourierZ idea/concept credit: Einarvargr / Konfliktzone.
+- Clarified that development, source, configs, persistence and DeutschZ integration are implemented by Patrick Sluzalek / fck1701.
+- Added documentation note that the credit refers to the concept idea and does not represent copied files, classes, config structures, UI, assets or PBO content.
+
+
+## 2026-06-20 - 0.1.0 Safe-Boot Event Skeleton
+
+- Added DeutschZ_CourierZ as new Operation Aktenkoffer event module.
+- Added server-authoritative courier event skeleton with autogenerated FAST_TEST config.
+- Added case pickup by proximity, carrier state, delivery target and reward test flow.
+- Added marker/3D-marker requests through DeutschZ Core/ExpansionBridge only.
+- Added chat/popup notification flow through DeutschZ_ExpansionBridge.
+- Added vanilla infected fallback enemies for testing.
+- Added compliance and workshop documentation placeholders.
+## 2026-06-20 - FIX24c CourierZ Workshop Link
+
+- Added final Steam Workshop link for DeutschZ_CourierZ: https://steamcommunity.com/sharedfiles/filedetails/?id=3748646981
+- Replaced temporary workshop-link placeholders in CourierZ documentation and Workshop descriptions.
+- No gameplay or script changes.

@@ -1,0 +1,142 @@
+{
+    "m_Version": 12,
+    "DisplayName": "SNAFU_Pistols",
+    "Icon": "Shotgun",
+    "Color": "FBFCFEFF",
+    "IsExchange": 0,
+    "InitStockPercent": 60.0,
+    "Items": [
+        {
+            "ClassName": "SNAFUAPS",
+            "MaxPriceThreshold": 180000,
+            "MinPriceThreshold": 80000,
+            "SellPricePercent": 45,
+            "MaxStockThreshold": 30,
+            "MinStockThreshold": 1,
+            "QuantityPercent": -1,
+            "SpawnAttachments": [],
+            "Variants": []
+        },
+        {
+            "ClassName": "SNAFUM96",
+            "MaxPriceThreshold": 180000,
+            "MinPriceThreshold": 80000,
+            "SellPricePercent": 45,
+            "MaxStockThreshold": 30,
+            "MinStockThreshold": 1,
+            "QuantityPercent": -1,
+            "SpawnAttachments": [],
+            "Variants": []
+        },
+        {
+            "ClassName": "SNAFUM98B_Atac_GUN",
+            "MaxPriceThreshold": 180000,
+            "MinPriceThreshold": 80000,
+            "SellPricePercent": 45,
+            "MaxStockThreshold": 30,
+            "MinStockThreshold": 1,
+            "QuantityPercent": -1,
+            "SpawnAttachments": [],
+            "Variants": []
+        },
+        {
+            "ClassName": "SNAFUM98B_Digi_GUN",
+            "MaxPriceThreshold": 180000,
+            "MinPriceThreshold": 80000,
+            "SellPricePercent": 45,
+            "MaxStockThreshold": 30,
+            "MinStockThreshold": 1,
+            "QuantityPercent": -1,
+            "SpawnAttachments": [],
+            "Variants": []
+        },
+        {
+            "ClassName": "SNAFUM98B_Ger_GUN",
+            "MaxPriceThreshold": 180000,
+            "MinPriceThreshold": 80000,
+            "SellPricePercent": 45,
+            "MaxStockThreshold": 30,
+            "MinStockThreshold": 1,
+            "QuantityPercent": -1,
+            "SpawnAttachments": [],
+            "Variants": []
+        },
+        {
+            "ClassName": "SNAFUM98B_Mc_GUN",
+            "MaxPriceThreshold": 180000,
+            "MinPriceThreshold": 80000,
+            "SellPricePercent": 45,
+            "MaxStockThreshold": 30,
+            "MinStockThreshold": 1,
+            "QuantityPercent": -1,
+            "SpawnAttachments": [],
+            "Variants": []
+        },
+        {
+            "ClassName": "SNAFUM98B_Snow_GUN",
+            "MaxPriceThreshold": 180000,
+            "MinPriceThreshold": 80000,
+            "SellPricePercent": 45,
+            "MaxStockThreshold": 30,
+            "MinStockThreshold": 1,
+            "QuantityPercent": -1,
+            "SpawnAttachments": [],
+            "Variants": []
+        },
+        {
+            "ClassName": "SNAFUM98B_Wood_GUN",
+            "MaxPriceThreshold": 180000,
+            "MinPriceThreshold": 80000,
+            "SellPricePercent": 45,
+            "MaxStockThreshold": 30,
+            "MinStockThreshold": 1,
+            "QuantityPercent": -1,
+            "SpawnAttachments": [],
+            "Variants": []
+        },
+        {
+            "ClassName": "SNAFU_Fort12_GUN",
+            "MaxPriceThreshold": 180000,
+            "MinPriceThreshold": 80000,
+            "SellPricePercent": 45,
+            "MaxStockThreshold": 30,
+            "MinStockThreshold": 1,
+            "QuantityPercent": -1,
+            "SpawnAttachments": [],
+            "Variants": []
+        },
+        {
+            "ClassName": "SN_Glock19",
+            "MaxPriceThreshold": 180000,
+            "MinPriceThreshold": 80000,
+            "SellPricePercent": 45,
+            "MaxStockThreshold": 30,
+            "MinStockThreshold": 1,
+            "QuantityPercent": -1,
+            "SpawnAttachments": [],
+            "Variants": []
+        },
+        {
+            "ClassName": "SN_M9",
+            "MaxPriceThreshold": 180000,
+            "MinPriceThreshold": 80000,
+            "SellPricePercent": 45,
+            "MaxStockThreshold": 30,
+            "MinStockThreshold": 1,
+            "QuantityPercent": -1,
+            "SpawnAttachments": [],
+            "Variants": []
+        },
+        {
+            "ClassName": "SN_USP",
+            "MaxPriceThreshold": 180000,
+            "MinPriceThreshold": 80000,
+            "SellPricePercent": 45,
+            "MaxStockThreshold": 30,
+            "MinStockThreshold": 1,
+            "QuantityPercent": -1,
+            "SpawnAttachments": [],
+            "Variants": []
+        }
+    ]
+}
