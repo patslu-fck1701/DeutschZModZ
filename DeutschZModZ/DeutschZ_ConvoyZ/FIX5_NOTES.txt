@@ -1,4 +1,0 @@
-FIX5:
-- Removed MissionServer/MissionBase OnRPC override from DeutschZConvoyZRpcHandler.c.
-- RPC handler is now a compatibility-safe placeholder.
-- Server-side hack flow remains controlled by ActionHackBlackbox and HackManager.
