@@ -1,0 +1,80 @@
+{
+  "Version": "0.6.7-fix25-ready-source-paths",
+  "BasePackage": "DZSM_v0_6_6_FULL_ANALYSIS_FIX_24_PHASE_A_BOM_SAFE_PACKAGE.zip",
+  "GeneratedAt": "2026-06-25",
+  "SystemManagerRoot": "D:\\DeutschZ_System_Manager",
+  "DZSMRoot": "D:\\DeutschZ_System_Manager\\DZSM_v0_1",
+  "ReportsRoot": "D:\\DeutschZ_System_Manager\\reports",
+  "UploadForChatGPT": "D:\\DeutschZ_System_Manager\\reports\\_UPLOAD_FUER_CHATGPT\\DZSM_UPLOAD_PACKAGE.zip",
+  "LiveSettingsRoot": "\\\\DESKTOP-9P1CO5V\\Users\\Public\\DayZ_Settings\\Neue",
+  "ReadyModsPath": "\\\\DESKTOP-9P1CO5V\\Users\\Public\\DayZ_Settings\\Neue\\Ready Mods",
+  "SourceFilesPath": "\\\\DESKTOP-9P1CO5V\\Users\\Public\\DayZ_Settings\\Neue\\Source Files",
+  "PhaseAModListFile": "config\\PhaseA_Current_Modlist.txt",
+  "PhaseAMods": [
+    {
+      "Key": "Core",
+      "ReadyFolder": "@DeutschZ_Core",
+      "SourceFolder": "DeutschZ_Core",
+      "ExpectedCfgMod": "DeutschZ_Core",
+      "ExpectedPboBase": "DeutschZ_Core",
+      "Required": true
+    },
+    {
+      "Key": "ExpansionBridge",
+      "ReadyFolder": "@DeutschZ_ExpansionBridge",
+      "SourceFolder": "DeutschZ_ExpansionBridge",
+      "ExpectedCfgMod": "DeutschZ_ExpansionBridge",
+      "ExpectedPboBase": "DeutschZ_ExpansionBridge",
+      "Required": true
+    },
+    {
+      "Key": "KotHZ",
+      "ReadyFolder": "@DeutschZ_KotHZ(InfectedSiege)",
+      "SourceFolder": "DeutschZ_KotHZ",
+      "ExpectedCfgMod": "DeutschZ_KotHZ",
+      "ExpectedPboBase": "DeutschZ_KotHZ",
+      "Required": true
+    },
+    {
+      "Key": "ConvoyZ",
+      "ReadyFolder": "@DeutschZ_ConvoyZ",
+      "SourceFolder": "DeutschZ_ConvoyZ",
+      "ExpectedCfgMod": "DeutschZ_ConvoyZ",
+      "ExpectedPboBase": "DeutschZ_ConvoyZ",
+      "Required": true
+    },
+    {
+      "Key": "ScreenMenu",
+      "ReadyFolder": "@DeutschZ_Screen_Menu",
+      "SourceFolder": "DeutschZ_Screen_Menu",
+      "ExpectedCfgMod": "DeutsZ_Loadingscreen",
+      "ExpectedPboBase": "DeutschZ_Screen_Menu",
+      "Required": false
+    }
+  ],
+  "KnownLaterSources": [
+    "DeutschZ_GroundZero",
+    "DeutschZ_CourierZ",
+    "DeutschZ_OperationDeutschZ"
+  ],
+  "ForbiddenLegacyNames": [
+    "LBmaster",
+    "LBAdvancedGroups",
+    "LBAdminTool",
+    "SFKOTH",
+    "BasicMap",
+    "VPPAdmin",
+    "AdvancedGroups",
+    "MarkerBridge",
+    "MarkerBackend",
+    "ExpansionEventAI",
+    "SurvivorM_Mirek"
+  ],
+  "NoActionPolicy": {
+    "NoGit": true,
+    "NoBuild": true,
+    "NoPboPack": true,
+    "NoWorkshopUpload": true,
+    "NoSecretsExport": true
+  }
+}

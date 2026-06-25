@@ -162,7 +162,8 @@ class DeutschZKotHZLootPoolsConfig
         AddReward(pool, "DeutschZKotHZ_ResearchDocument", -1, 100.0, 2, "");
         AddReward(pool, "DeutschZKotHZ_CommanderInsignia", -1, 100.0, 1, "");
 
-        // V0.9.3 Operation/Convoy/GroundZero prep items. Missing optional classnames are skipped safely by the reward resolver.
+        // FIX45: shared chain items must come from DeutschZ_Core only.
+        // KotHZ must not depend on ConvoyZ/DZCV/DZ_ConvoyZ classes.
         AddReward(pool, "DZ_EventToken", -1, 100.0, 3, "");
         AddReward(pool, "DZ_BossDogtag", -1, 100.0, 1, "");
         AddReward(pool, "DZ_RedZChip", -1, 100.0, 1, "");
@@ -170,12 +171,12 @@ class DeutschZKotHZLootPoolsConfig
         AddReward(pool, "DZ_SecureSSD", -1, 100.0, 1, "");
         AddReward(pool, "DZ_MilitaryLedger", -1, 100.0, 1, "");
         AddReward(pool, "DZ_HazardCanister", -1, 80.0, 1, "");
-        AddReward(pool, "DZCV_EncryptedDataDrive", -1, 100.0, 1, "");
-        AddReward(pool, "DZCV_ClassifiedIntel", -1, 100.0, 1, "");
-        AddReward(pool, "DZ_ConvoyZ_Blackbox", -1, 70.0, 1, "");
-        AddReward(pool, "DZ_ConvoyZ_DieselManifest", -1, 70.0, 1, "");
-        AddReward(pool, "DZ_ConvoyZ_RadioKey", -1, 70.0, 1, "");
-        AddReward(pool, "DZ_ConvoyZ_ArmorPlateBundle", -1, 60.0, 1, "");
+        AddReward(pool, "DZ_FieldNote", -1, 100.0, 1, "");
+        AddReward(pool, "DZOP_SignalFragment_KotHZ", -1, 100.0, 1, "");
+        AddReward(pool, "DZOP_DestroyedBlackBox", -1, 70.0, 1, "");
+        AddReward(pool, "DZOP_EncryptedSignalCore", -1, 70.0, 1, "");
+        AddReward(pool, "DZOP_ConvoyLeadNote", -1, 70.0, 1, "");
+        AddReward(pool, "DZOP_Keycard_ConvoyAlpha", -1, 60.0, 1, "");
 
         LootPools.Insert(pool);
     }

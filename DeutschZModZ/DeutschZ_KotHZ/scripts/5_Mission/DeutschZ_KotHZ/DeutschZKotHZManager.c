@@ -49,6 +49,7 @@ class DeutschZKotHZManager
     protected bool m_DZKZ_FirstAIWaveSpawned;
 
     protected string m_DeutschZKotHZMarkerId;
+    protected string m_DeutschZKotHZCoreEventId;
 
     void DeutschZKotHZManager()
     {
@@ -91,6 +92,7 @@ class DeutschZKotHZManager
         m_DZKZ_ContestedAnnounced = false;
         m_DZKZ_FirstAIWaveSpawned = false;
         m_DeutschZKotHZMarkerId = "";
+        m_DeutschZKotHZCoreEventId = "";
     }
 
     void StartScheduler()
@@ -215,6 +217,16 @@ class DeutschZKotHZManager
             ScheduleNextEvent();
             return;
         }
+
+        string coordinatorReason = "";
+        string coordinatorEventId = "KotHZ_" + GetGame().GetTime().ToString();
+        if (!DeutschZCore_EventCoordinator.TryReserve("KotHZ", coordinatorEventId, coordinatorReason))
+        {
+            Print("[DeutschZ_KotHZ] Start blocked by DeutschZ_Core EventCoordinator: " + coordinatorReason);
+            ScheduleNextEvent();
+            return;
+        }
+        m_DeutschZKotHZCoreEventId = coordinatorEventId;
 
         m_ActiveZone = m_Config.Zones.GetRandomElement();
         ApplyGlobalSpawnSettingsIfNeeded();
@@ -438,6 +450,16 @@ class DeutschZKotHZManager
         if (m_DZKZ_PlayersInSignalRadius)
             m_DZKZ_PlayersInSignalRadius.Clear();
         m_DZKZ_ContestedAnnounced = false;
+
+        if (m_DeutschZKotHZCoreEventId != "")
+        {
+            DeutschZCore_EventCoordinator.Release("KotHZ", m_DeutschZKotHZCoreEventId, "KotHZ StopEvent");
+            m_DeutschZKotHZCoreEventId = "";
+        }
+        else
+        {
+            DeutschZCore_EventCoordinator.Release("KotHZ", "", "KotHZ StopEvent");
+        }
 
         if (m_Config && m_Config.EnableKOTH)
             ScheduleNextEvent();
@@ -1046,7 +1068,7 @@ class DeutschZKotHZManager
         if (className == "")
             return false;
 
-        return DeutschZCore_UnsafeClassGuard.IsBlockedClass(className);
+        return DeutschZKotHZClassGuard.IsBlockedClass(className);
     }
 
     protected string ResolveRewardClassName(DeutschZKotHZReward reward)
@@ -2496,7 +2518,7 @@ class DeutschZKotHZManager
 
         foreach (string itemName : m_ActiveZone.NPCLoadoutClassNames)
         {
-            if (itemName != "" && !DeutschZCore_UnsafeClassGuard.IsBlockedClass(itemName))
+            if (itemName != "" && !DeutschZKotHZClassGuard.IsBlockedClass(itemName))
                 entity.GetInventory().CreateInInventory(itemName);
         }
     }

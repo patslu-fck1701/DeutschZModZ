@@ -1,0 +1,13 @@
+﻿DZSM BugReport Laufnotiz
+========================
+
+Datum: 06/24/2026 18:37:55
+Version: v0.3.7 SHORTCUT-BUGREPORT-FIX
+PC: DESKTOP-Q69GEEG
+Benutzer: patsl
+
+Gepruefte Regeln:
+- Desktop-Verknuepfung DeutschZ_System_Manager - Verknuepfung.lnk darf nicht geloescht werden.
+- Nur exakt bekannte Auto-Links werden ersetzt.
+- BugReport-Arbeitsordner existiert.
+- Fehler und Loesungswege werden dokumentiert.

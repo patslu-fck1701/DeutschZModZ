@@ -1,5 +1,5 @@
 {
-    "ConfigInfo": "DeutschZ_KotHZ FIX44. Event polish: corrected flag path, radius music, stronger infected and 7500 HP Mummy boss.",
+    "ConfigInfo": "DeutschZ_KotHZ FIX45. Core EventCoordinator compatible with ConvoyZ; production-safe timing.",
     "EditHint": "Copy this to profiles/DeutschZ/KotHZ/Config/KotH_Config_Chernarus.json for immediate fast test. Existing profile configs are also normalized by FIX17.",
     "OwnerName": "Patrick Sluzalek",
     "OwnerPlayerName": "fck1701",
@@ -8,8 +8,8 @@
     "MarkerEditHint": "Expansion marker and Expansion notify only; vanilla duplicate notifications off.",
     "EnableKOTH": 1,
     "MaxSimultaneousEvents": 1,
-    "MinStartDelayMinutes": 1,
-    "MaxStartDelayMinutes": 1,
+    "MinStartDelayMinutes": 35,
+    "MaxStartDelayMinutes": 55,
     "MinPlayersToStart": 1,
     "AnnounceEvent": 1,
     "DebugMode": 1,

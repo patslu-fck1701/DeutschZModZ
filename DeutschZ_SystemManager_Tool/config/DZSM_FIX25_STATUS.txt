@@ -1,0 +1,5 @@
+DZSM FIX25 installed overlay expected.
+Ready Mods = current Steam/Workshop upload state.
+Source Files = current active mod source state.
+Do not use P:\ or ReadyMods as Source.
+Do not use Source Files as server upload target.

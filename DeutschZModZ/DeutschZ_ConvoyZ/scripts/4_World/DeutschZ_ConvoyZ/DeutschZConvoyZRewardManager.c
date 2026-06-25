@@ -21,7 +21,8 @@ class DeutschZConvoyZRewardManager
     void Load()
     {
         Claims = new DeutschZConvoyZRewardClaims();
-        if (FileExist(DeutschZConvoyZConstants.CLAIMS_FILE)) JsonFileLoader<DeutschZConvoyZRewardClaims>.JsonLoadFile(DeutschZConvoyZConstants.CLAIMS_FILE, Claims);
+        // FIX_FINAL: avoid unsafe JsonLoadFile during boot; start with clean runtime claims and save them safely.
+        JsonFileLoader<DeutschZConvoyZRewardClaims>.JsonSaveFile(DeutschZConvoyZConstants.CLAIMS_FILE, Claims);
         if (!Claims || !Claims.Claims) Claims = new DeutschZConvoyZRewardClaims();
     }
 
@@ -81,7 +82,7 @@ class DeutschZConvoyZRewardManager
         foreach (DeutschZConvoyZRewardItemDef item: reward.Items)
         {
             if (!item || item.ClassName == "" || item.Quantity <= 0) continue;
-            if (DeutschZCore_UnsafeClassGuard.IsBlockedClass(item.ClassName))
+            if (DeutschZConvoyZClassGuard.IsBlockedClass(item.ClassName))
             {
                 DeutschZConvoyZLogger.Log("RewardItemBlocked", eventId, "REWARD_UNLOCKED", "", reward.RewardPosition, "BLOCKED", item.ClassName);
                 continue;
@@ -112,7 +113,7 @@ class DeutschZConvoyZRewardManager
     void SpawnRewardItemSafe(EntityAI container, string className, int quantity, vector fallbackPos)
     {
         if (className == "") return;
-        if (DeutschZCore_UnsafeClassGuard.IsBlockedClass(className)) return;
+        if (DeutschZConvoyZClassGuard.IsBlockedClass(className)) return;
         if (!DeutschZConvoyZValidator.IsConfiguredInventoryClass(className)) return;
         if (quantity <= 0) quantity = 1;
 

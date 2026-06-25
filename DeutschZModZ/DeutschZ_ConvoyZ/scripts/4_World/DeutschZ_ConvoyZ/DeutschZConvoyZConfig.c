@@ -94,30 +94,56 @@ class DeutschZConvoyZConfig
 
     void Load()
     {
-        // DeutschZ HARD AUTOCONFIG SAFEBOOT 2026-06-23
-        // Do not JsonLoadFile old profile configs during mission bootstrap.
-        // Broken/old Settings.json or Events.json can crash the DayZ VM before repair code runs.
-        // Always create fresh defaults and save them to profile.
         EnsureFolders();
+
+        bool generatedSettings = false;
+        bool generatedEvents = false;
 
         Settings = new DeutschZConvoyZSettings();
         EventData = new DeutschZConvoyZEventDef();
 
+        // DeutschZ FIX: Do NOT overwrite existing profile JSON on every server start.
+        // Defaults are generated only when the file is missing/deleted.
+        if (FileExist(DeutschZConvoyZConstants.SETTINGS_FILE))
+        {
+            JsonFileLoader<DeutschZConvoyZSettings>.JsonLoadFile(DeutschZConvoyZConstants.SETTINGS_FILE, Settings);
+            Print("[DeutschZ_ConvoyZ] Loaded existing config: " + DeutschZConvoyZConstants.SETTINGS_FILE);
+        }
+        else
+        {
+            generatedSettings = true;
+            Print("[DeutschZ_ConvoyZ] Settings missing, generating defaults once: " + DeutschZConvoyZConstants.SETTINGS_FILE);
+        }
+
+        if (FileExist(DeutschZConvoyZConstants.EVENTS_FILE))
+        {
+            JsonFileLoader<DeutschZConvoyZEventDef>.JsonLoadFile(DeutschZConvoyZConstants.EVENTS_FILE, EventData);
+            Print("[DeutschZ_ConvoyZ] Loaded existing events: " + DeutschZConvoyZConstants.EVENTS_FILE);
+        }
+        else
+        {
+            generatedEvents = true;
+            CreateDefaultEvent();
+            Print("[DeutschZ_ConvoyZ] Events missing, generating defaults once: " + DeutschZConvoyZConstants.EVENTS_FILE);
+        }
+
+        if (!Settings) Settings = new DeutschZConvoyZSettings();
+        if (!EventData) EventData = new DeutschZConvoyZEventDef();
+
         Settings.EventConfigPath = DeutschZConvoyZConstants.EVENTS_FILE;
-        ApplyNormalOnlineSettings();
-        CreateDefaultEvent();
         Normalize();
 
-        JsonFileLoader<DeutschZConvoyZSettings>.JsonSaveFile(DeutschZConvoyZConstants.SETTINGS_FILE, Settings);
-        JsonFileLoader<DeutschZConvoyZEventDef>.JsonSaveFile(DeutschZConvoyZConstants.EVENTS_FILE, EventData);
+        // Only persist defaults for missing files. Existing admin-edited JSON stays untouched.
+        if (generatedSettings)
+            JsonFileLoader<DeutschZConvoyZSettings>.JsonSaveFile(DeutschZConvoyZConstants.SETTINGS_FILE, Settings);
 
-        Print("[DeutschZ_ConvoyZ] HARD AUTOCONFIG: default Settings.json and Events.json generated/refreshed; old profile JSON was not loaded.");
-        Print("[DeutschZ_ConvoyZ] Generated: " + DeutschZConvoyZConstants.SETTINGS_FILE);
-        Print("[DeutschZ_ConvoyZ] Generated: " + DeutschZConvoyZConstants.EVENTS_FILE);
+        if (generatedEvents)
+            JsonFileLoader<DeutschZConvoyZEventDef>.JsonSaveFile(DeutschZConvoyZConstants.EVENTS_FILE, EventData);
+
         Print("[DeutschZ_ConvoyZ] Runtime config folder: $profile:DeutschZ/ConvoyZ");
 
         DeutschZConvoyZLogger.SetDebug(Settings.EnableDebugLogs);
-        DeutschZConvoyZLogger.Log("ConfigAutoGenerate", "", "", "", EventData.EventCenter, "OK", DeutschZConvoyZConstants.EVENTS_FILE);
+        DeutschZConvoyZLogger.Log("ConfigLoad", "", "", "", EventData.EventCenter, "OK", DeutschZConvoyZConstants.EVENTS_FILE);
     }
 
     string NormalizeCrashClassName(string className)

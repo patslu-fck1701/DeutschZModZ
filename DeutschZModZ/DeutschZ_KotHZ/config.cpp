@@ -30,7 +30,7 @@ class CfgMods
         credits = "Owner: Patrick Sluzalek / Player: fck1701 / Server: DeutschZ";
         author = "Patrick Sluzalek / fck1701";
         authorID = "0";
-        version = "0.9.3-online-test";
+        version = "0.9.4-fix45-core-event-lock";
         extra = 0;
         type = "mod";
         defines[] = {"DEUTSCHZ_KotHZ"};

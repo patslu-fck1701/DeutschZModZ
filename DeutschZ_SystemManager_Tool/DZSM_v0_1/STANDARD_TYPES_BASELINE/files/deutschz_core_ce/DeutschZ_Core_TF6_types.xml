@@ -1,0 +1,705 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<types>
+    <type name="OKP3Optic">
+        <nominal>3</nominal>
+        <restock>1800</restock>
+        <lifetime>14400</lifetime>
+        <min>1</min>
+        <quantmin>-1</quantmin>
+        <quantmax>-1</quantmax>
+        <cost>100</cost>
+        <flags count_in_hoarder="0" count_in_player="0" count_in_map="1" count_in_cargo="0" crafted="0" deloot="0" />
+        <category name="weapons" />
+        <usage name="Military" />
+        <value name="Tier3" />
+    </type>
+    <type name="HolosunOptic">
+        <nominal>3</nominal>
+        <restock>1800</restock>
+        <lifetime>14400</lifetime>
+        <min>1</min>
+        <quantmin>-1</quantmin>
+        <quantmax>-1</quantmax>
+        <cost>100</cost>
+        <flags count_in_hoarder="0" count_in_player="0" count_in_map="1" count_in_cargo="0" crafted="0" deloot="0" />
+        <category name="weapons" />
+        <usage name="Military" />
+        <value name="Tier3" />
+    </type>
+    <type name="HolosunOptic_Camo">
+        <nominal>3</nominal>
+        <restock>1800</restock>
+        <lifetime>14400</lifetime>
+        <min>1</min>
+        <quantmin>-1</quantmin>
+        <quantmax>-1</quantmax>
+        <cost>100</cost>
+        <flags count_in_hoarder="0" count_in_player="0" count_in_map="1" count_in_cargo="0" crafted="0" deloot="0" />
+        <category name="weapons" />
+        <usage name="Military" />
+        <value name="Tier3" />
+    </type>
+    <type name="HolosunOptic_Digitan">
+        <nominal>3</nominal>
+        <restock>1800</restock>
+        <lifetime>14400</lifetime>
+        <min>1</min>
+        <quantmin>-1</quantmin>
+        <quantmax>-1</quantmax>
+        <cost>100</cost>
+        <flags count_in_hoarder="0" count_in_player="0" count_in_map="1" count_in_cargo="0" crafted="0" deloot="0" />
+        <category name="weapons" />
+        <usage name="Military" />
+        <value name="Tier3" />
+    </type>
+    <type name="HolosunOptic_Tan">
+        <nominal>3</nominal>
+        <restock>1800</restock>
+        <lifetime>14400</lifetime>
+        <min>1</min>
+        <quantmin>-1</quantmin>
+        <quantmax>-1</quantmax>
+        <cost>100</cost>
+        <flags count_in_hoarder="0" count_in_player="0" count_in_map="1" count_in_cargo="0" crafted="0" deloot="0" />
+        <category name="weapons" />
+        <usage name="Military" />
+        <value name="Tier3" />
+    </type>
+    <type name="HolosunOptic_Ucp">
+        <nominal>3</nominal>
+        <restock>1800</restock>
+        <lifetime>14400</lifetime>
+        <min>1</min>
+        <quantmin>-1</quantmin>
+        <quantmax>-1</quantmax>
+        <cost>100</cost>
+        <flags count_in_hoarder="0" count_in_player="0" count_in_map="1" count_in_cargo="0" crafted="0" deloot="0" />
+        <category name="weapons" />
+        <usage name="Military" />
+        <value name="Tier3" />
+    </type>
+    <type name="EXPS3Optic">
+        <nominal>3</nominal>
+        <restock>1800</restock>
+        <lifetime>14400</lifetime>
+        <min>1</min>
+        <quantmin>-1</quantmin>
+        <quantmax>-1</quantmax>
+        <cost>100</cost>
+        <flags count_in_hoarder="0" count_in_player="0" count_in_map="1" count_in_cargo="0" crafted="0" deloot="0" />
+        <category name="weapons" />
+        <usage name="Military" />
+        <value name="Tier3" />
+    </type>
+    <type name="EXPS3Optic_Tan">
+        <nominal>3</nominal>
+        <restock>1800</restock>
+        <lifetime>14400</lifetime>
+        <min>1</min>
+        <quantmin>-1</quantmin>
+        <quantmax>-1</quantmax>
+        <cost>100</cost>
+        <flags count_in_hoarder="0" count_in_player="0" count_in_map="1" count_in_cargo="0" crafted="0" deloot="0" />
+        <category name="weapons" />
+        <usage name="Military" />
+        <value name="Tier3" />
+    </type>
+    <type name="EXPS3G33Optic">
+        <nominal>3</nominal>
+        <restock>1800</restock>
+        <lifetime>14400</lifetime>
+        <min>1</min>
+        <quantmin>-1</quantmin>
+        <quantmax>-1</quantmax>
+        <cost>100</cost>
+        <flags count_in_hoarder="0" count_in_player="0" count_in_map="1" count_in_cargo="0" crafted="0" deloot="0" />
+        <category name="weapons" />
+        <usage name="Military" />
+        <value name="Tier3" />
+    </type>
+    <type name="EXPS3G33Optic_Tan">
+        <nominal>3</nominal>
+        <restock>1800</restock>
+        <lifetime>14400</lifetime>
+        <min>1</min>
+        <quantmin>-1</quantmin>
+        <quantmax>-1</quantmax>
+        <cost>100</cost>
+        <flags count_in_hoarder="0" count_in_player="0" count_in_map="1" count_in_cargo="0" crafted="0" deloot="0" />
+        <category name="weapons" />
+        <usage name="Military" />
+        <value name="Tier3" />
+    </type>
+    <type name="Romeo3Optic">
+        <nominal>3</nominal>
+        <restock>1800</restock>
+        <lifetime>14400</lifetime>
+        <min>1</min>
+        <quantmin>-1</quantmin>
+        <quantmax>-1</quantmax>
+        <cost>100</cost>
+        <flags count_in_hoarder="0" count_in_player="0" count_in_map="1" count_in_cargo="0" crafted="0" deloot="0" />
+        <category name="weapons" />
+        <usage name="Military" />
+        <value name="Tier3" />
+    </type>
+    <type name="Romeo3Optic_FDE">
+        <nominal>3</nominal>
+        <restock>1800</restock>
+        <lifetime>14400</lifetime>
+        <min>1</min>
+        <quantmin>-1</quantmin>
+        <quantmax>-1</quantmax>
+        <cost>100</cost>
+        <flags count_in_hoarder="0" count_in_player="0" count_in_map="1" count_in_cargo="0" crafted="0" deloot="0" />
+        <category name="weapons" />
+        <usage name="Military" />
+        <value name="Tier3" />
+    </type>
+    <type name="Romeo3Optic_Grey">
+        <nominal>3</nominal>
+        <restock>1800</restock>
+        <lifetime>14400</lifetime>
+        <min>1</min>
+        <quantmin>-1</quantmin>
+        <quantmax>-1</quantmax>
+        <cost>100</cost>
+        <flags count_in_hoarder="0" count_in_player="0" count_in_map="1" count_in_cargo="0" crafted="0" deloot="0" />
+        <category name="weapons" />
+        <usage name="Military" />
+        <value name="Tier3" />
+    </type>
+    <type name="PN23Optic">
+        <nominal>3</nominal>
+        <restock>1800</restock>
+        <lifetime>14400</lifetime>
+        <min>1</min>
+        <quantmin>-1</quantmin>
+        <quantmax>-1</quantmax>
+        <cost>100</cost>
+        <flags count_in_hoarder="0" count_in_player="0" count_in_map="1" count_in_cargo="0" crafted="0" deloot="0" />
+        <category name="weapons" />
+        <usage name="Military" />
+        <value name="Tier3" />
+    </type>
+    <type name="VortexRazorOptic">
+        <nominal>3</nominal>
+        <restock>1800</restock>
+        <lifetime>14400</lifetime>
+        <min>1</min>
+        <quantmin>-1</quantmin>
+        <quantmax>-1</quantmax>
+        <cost>100</cost>
+        <flags count_in_hoarder="0" count_in_player="0" count_in_map="1" count_in_cargo="0" crafted="0" deloot="0" />
+        <category name="weapons" />
+        <usage name="Military" />
+        <value name="Tier3" />
+    </type>
+    <type name="VortexRazorOptic_Black">
+        <nominal>3</nominal>
+        <restock>1800</restock>
+        <lifetime>14400</lifetime>
+        <min>1</min>
+        <quantmin>-1</quantmin>
+        <quantmax>-1</quantmax>
+        <cost>100</cost>
+        <flags count_in_hoarder="0" count_in_player="0" count_in_map="1" count_in_cargo="0" crafted="0" deloot="0" />
+        <category name="weapons" />
+        <usage name="Military" />
+        <value name="Tier3" />
+    </type>
+    <type name="SpecterOptic">
+        <nominal>3</nominal>
+        <restock>1800</restock>
+        <lifetime>14400</lifetime>
+        <min>1</min>
+        <quantmin>-1</quantmin>
+        <quantmax>-1</quantmax>
+        <cost>100</cost>
+        <flags count_in_hoarder="0" count_in_player="0" count_in_map="1" count_in_cargo="0" crafted="0" deloot="0" />
+        <category name="weapons" />
+        <usage name="Military" />
+        <value name="Tier3" />
+    </type>
+    <type name="SpecterOptic_FDE">
+        <nominal>3</nominal>
+        <restock>1800</restock>
+        <lifetime>14400</lifetime>
+        <min>1</min>
+        <quantmin>-1</quantmin>
+        <quantmax>-1</quantmax>
+        <cost>100</cost>
+        <flags count_in_hoarder="0" count_in_player="0" count_in_map="1" count_in_cargo="0" crafted="0" deloot="0" />
+        <category name="weapons" />
+        <usage name="Military" />
+        <value name="Tier3" />
+    </type>
+    <type name="NightforceOptic">
+        <nominal>3</nominal>
+        <restock>1800</restock>
+        <lifetime>14400</lifetime>
+        <min>1</min>
+        <quantmin>-1</quantmin>
+        <quantmax>-1</quantmax>
+        <cost>100</cost>
+        <flags count_in_hoarder="0" count_in_player="0" count_in_map="1" count_in_cargo="0" crafted="0" deloot="0" />
+        <category name="weapons" />
+        <usage name="Military" />
+        <value name="Tier3" />
+    </type>
+    <type name="NightforceOptic_Black">
+        <nominal>3</nominal>
+        <restock>1800</restock>
+        <lifetime>14400</lifetime>
+        <min>1</min>
+        <quantmin>-1</quantmin>
+        <quantmax>-1</quantmax>
+        <cost>100</cost>
+        <flags count_in_hoarder="0" count_in_player="0" count_in_map="1" count_in_cargo="0" crafted="0" deloot="0" />
+        <category name="weapons" />
+        <usage name="Military" />
+        <value name="Tier3" />
+    </type>
+    <type name="SparcOptic">
+        <nominal>3</nominal>
+        <restock>1800</restock>
+        <lifetime>14400</lifetime>
+        <min>1</min>
+        <quantmin>-1</quantmin>
+        <quantmax>-1</quantmax>
+        <cost>100</cost>
+        <flags count_in_hoarder="0" count_in_player="0" count_in_map="1" count_in_cargo="0" crafted="0" deloot="0" />
+        <category name="weapons" />
+        <usage name="Military" />
+        <value name="Tier3" />
+    </type>
+    <type name="RX01Optic">
+        <nominal>3</nominal>
+        <restock>1800</restock>
+        <lifetime>14400</lifetime>
+        <min>1</min>
+        <quantmin>-1</quantmin>
+        <quantmax>-1</quantmax>
+        <cost>100</cost>
+        <flags count_in_hoarder="0" count_in_player="0" count_in_map="1" count_in_cargo="0" crafted="0" deloot="0" />
+        <category name="weapons" />
+        <usage name="Military" />
+        <value name="Tier3" />
+    </type>
+    <type name="SusatOptic">
+        <nominal>3</nominal>
+        <restock>1800</restock>
+        <lifetime>14400</lifetime>
+        <min>1</min>
+        <quantmin>-1</quantmin>
+        <quantmax>-1</quantmax>
+        <cost>100</cost>
+        <flags count_in_hoarder="0" count_in_player="0" count_in_map="1" count_in_cargo="0" crafted="0" deloot="0" />
+        <category name="weapons" />
+        <usage name="Military" />
+        <value name="Tier3" />
+    </type>
+    <type name="OldScopeOptic">
+        <nominal>3</nominal>
+        <restock>1800</restock>
+        <lifetime>14400</lifetime>
+        <min>1</min>
+        <quantmin>-1</quantmin>
+        <quantmax>-1</quantmax>
+        <cost>100</cost>
+        <flags count_in_hoarder="0" count_in_player="0" count_in_map="1" count_in_cargo="0" crafted="0" deloot="0" />
+        <category name="weapons" />
+        <usage name="Military" />
+        <value name="Tier3" />
+    </type>
+    <type name="Kobra3Optic">
+        <nominal>3</nominal>
+        <restock>1800</restock>
+        <lifetime>14400</lifetime>
+        <min>1</min>
+        <quantmin>-1</quantmin>
+        <quantmax>-1</quantmax>
+        <cost>100</cost>
+        <flags count_in_hoarder="0" count_in_player="0" count_in_map="1" count_in_cargo="0" crafted="0" deloot="0" />
+        <category name="weapons" />
+        <usage name="Military" />
+        <value name="Tier3" />
+    </type>
+    <type name="ATACROptic">
+        <nominal>3</nominal>
+        <restock>1800</restock>
+        <lifetime>14400</lifetime>
+        <min>1</min>
+        <quantmin>-1</quantmin>
+        <quantmax>-1</quantmax>
+        <cost>100</cost>
+        <flags count_in_hoarder="0" count_in_player="0" count_in_map="1" count_in_cargo="0" crafted="0" deloot="0" />
+        <category name="weapons" />
+        <usage name="Military" />
+        <value name="Tier3" />
+    </type>
+    <type name="VortexAMGOptic">
+        <nominal>3</nominal>
+        <restock>1800</restock>
+        <lifetime>14400</lifetime>
+        <min>1</min>
+        <quantmin>-1</quantmin>
+        <quantmax>-1</quantmax>
+        <cost>100</cost>
+        <flags count_in_hoarder="0" count_in_player="0" count_in_map="1" count_in_cargo="0" crafted="0" deloot="0" />
+        <category name="weapons" />
+        <usage name="Military" />
+        <value name="Tier3" />
+    </type>
+    <type name="AK_Rail">
+        <nominal>3</nominal>
+        <restock>1800</restock>
+        <lifetime>14400</lifetime>
+        <min>1</min>
+        <quantmin>-1</quantmin>
+        <quantmax>-1</quantmax>
+        <cost>100</cost>
+        <flags count_in_hoarder="0" count_in_player="0" count_in_map="1" count_in_cargo="0" crafted="0" deloot="0" />
+        <category name="weapons" />
+        <usage name="Military" />
+        <value name="Tier3" />
+    </type>
+    <type name="PKASOptic">
+        <nominal>3</nominal>
+        <restock>1800</restock>
+        <lifetime>14400</lifetime>
+        <min>1</min>
+        <quantmin>-1</quantmin>
+        <quantmax>-1</quantmax>
+        <cost>100</cost>
+        <flags count_in_hoarder="0" count_in_player="0" count_in_map="1" count_in_cargo="0" crafted="0" deloot="0" />
+        <category name="weapons" />
+        <usage name="Military" />
+        <value name="Tier3" />
+    </type>
+    <type name="OKP7Optic">
+        <nominal>3</nominal>
+        <restock>1800</restock>
+        <lifetime>14400</lifetime>
+        <min>1</min>
+        <quantmin>-1</quantmin>
+        <quantmax>-1</quantmax>
+        <cost>100</cost>
+        <flags count_in_hoarder="0" count_in_player="0" count_in_map="1" count_in_cargo="0" crafted="0" deloot="0" />
+        <category name="weapons" />
+        <usage name="Military" />
+        <value name="Tier3" />
+    </type>
+    <type name="OKP3Optic_AK">
+        <nominal>3</nominal>
+        <restock>1800</restock>
+        <lifetime>14400</lifetime>
+        <min>1</min>
+        <quantmin>-1</quantmin>
+        <quantmax>-1</quantmax>
+        <cost>100</cost>
+        <flags count_in_hoarder="0" count_in_player="0" count_in_map="1" count_in_cargo="0" crafted="0" deloot="0" />
+        <category name="weapons" />
+        <usage name="Military" />
+        <value name="Tier3" />
+    </type>
+    <type name="HolosunOptic_AK">
+        <nominal>3</nominal>
+        <restock>1800</restock>
+        <lifetime>14400</lifetime>
+        <min>1</min>
+        <quantmin>-1</quantmin>
+        <quantmax>-1</quantmax>
+        <cost>100</cost>
+        <flags count_in_hoarder="0" count_in_player="0" count_in_map="1" count_in_cargo="0" crafted="0" deloot="0" />
+        <category name="weapons" />
+        <usage name="Military" />
+        <value name="Tier3" />
+    </type>
+    <type name="HolosunOptic_Camo_AK">
+        <nominal>3</nominal>
+        <restock>1800</restock>
+        <lifetime>14400</lifetime>
+        <min>1</min>
+        <quantmin>-1</quantmin>
+        <quantmax>-1</quantmax>
+        <cost>100</cost>
+        <flags count_in_hoarder="0" count_in_player="0" count_in_map="1" count_in_cargo="0" crafted="0" deloot="0" />
+        <category name="weapons" />
+        <usage name="Military" />
+        <value name="Tier3" />
+    </type>
+    <type name="HolosunOptic_Digitan_AK">
+        <nominal>3</nominal>
+        <restock>1800</restock>
+        <lifetime>14400</lifetime>
+        <min>1</min>
+        <quantmin>-1</quantmin>
+        <quantmax>-1</quantmax>
+        <cost>100</cost>
+        <flags count_in_hoarder="0" count_in_player="0" count_in_map="1" count_in_cargo="0" crafted="0" deloot="0" />
+        <category name="weapons" />
+        <usage name="Military" />
+        <value name="Tier3" />
+    </type>
+    <type name="HolosunOptic_Tan_AK">
+        <nominal>3</nominal>
+        <restock>1800</restock>
+        <lifetime>14400</lifetime>
+        <min>1</min>
+        <quantmin>-1</quantmin>
+        <quantmax>-1</quantmax>
+        <cost>100</cost>
+        <flags count_in_hoarder="0" count_in_player="0" count_in_map="1" count_in_cargo="0" crafted="0" deloot="0" />
+        <category name="weapons" />
+        <usage name="Military" />
+        <value name="Tier3" />
+    </type>
+    <type name="HolosunOptic_Ucp_AK">
+        <nominal>3</nominal>
+        <restock>1800</restock>
+        <lifetime>14400</lifetime>
+        <min>1</min>
+        <quantmin>-1</quantmin>
+        <quantmax>-1</quantmax>
+        <cost>100</cost>
+        <flags count_in_hoarder="0" count_in_player="0" count_in_map="1" count_in_cargo="0" crafted="0" deloot="0" />
+        <category name="weapons" />
+        <usage name="Military" />
+        <value name="Tier3" />
+    </type>
+    <type name="EXPS3Optic_AK">
+        <nominal>3</nominal>
+        <restock>1800</restock>
+        <lifetime>14400</lifetime>
+        <min>1</min>
+        <quantmin>-1</quantmin>
+        <quantmax>-1</quantmax>
+        <cost>100</cost>
+        <flags count_in_hoarder="0" count_in_player="0" count_in_map="1" count_in_cargo="0" crafted="0" deloot="0" />
+        <category name="weapons" />
+        <usage name="Military" />
+        <value name="Tier3" />
+    </type>
+    <type name="EXPS3Optic_Tan_AK">
+        <nominal>3</nominal>
+        <restock>1800</restock>
+        <lifetime>14400</lifetime>
+        <min>1</min>
+        <quantmin>-1</quantmin>
+        <quantmax>-1</quantmax>
+        <cost>100</cost>
+        <flags count_in_hoarder="0" count_in_player="0" count_in_map="1" count_in_cargo="0" crafted="0" deloot="0" />
+        <category name="weapons" />
+        <usage name="Military" />
+        <value name="Tier3" />
+    </type>
+    <type name="EXPS3G33Optic_AK">
+        <nominal>3</nominal>
+        <restock>1800</restock>
+        <lifetime>14400</lifetime>
+        <min>1</min>
+        <quantmin>-1</quantmin>
+        <quantmax>-1</quantmax>
+        <cost>100</cost>
+        <flags count_in_hoarder="0" count_in_player="0" count_in_map="1" count_in_cargo="0" crafted="0" deloot="0" />
+        <category name="weapons" />
+        <usage name="Military" />
+        <value name="Tier3" />
+    </type>
+    <type name="EXPS3G33Optic_Tan_AK">
+        <nominal>3</nominal>
+        <restock>1800</restock>
+        <lifetime>14400</lifetime>
+        <min>1</min>
+        <quantmin>-1</quantmin>
+        <quantmax>-1</quantmax>
+        <cost>100</cost>
+        <flags count_in_hoarder="0" count_in_player="0" count_in_map="1" count_in_cargo="0" crafted="0" deloot="0" />
+        <category name="weapons" />
+        <usage name="Military" />
+        <value name="Tier3" />
+    </type>
+    <type name="Romeo3Optic_AK">
+        <nominal>3</nominal>
+        <restock>1800</restock>
+        <lifetime>14400</lifetime>
+        <min>1</min>
+        <quantmin>-1</quantmin>
+        <quantmax>-1</quantmax>
+        <cost>100</cost>
+        <flags count_in_hoarder="0" count_in_player="0" count_in_map="1" count_in_cargo="0" crafted="0" deloot="0" />
+        <category name="weapons" />
+        <usage name="Military" />
+        <value name="Tier3" />
+    </type>
+    <type name="Romeo3Optic_FDE_AK">
+        <nominal>3</nominal>
+        <restock>1800</restock>
+        <lifetime>14400</lifetime>
+        <min>1</min>
+        <quantmin>-1</quantmin>
+        <quantmax>-1</quantmax>
+        <cost>100</cost>
+        <flags count_in_hoarder="0" count_in_player="0" count_in_map="1" count_in_cargo="0" crafted="0" deloot="0" />
+        <category name="weapons" />
+        <usage name="Military" />
+        <value name="Tier3" />
+    </type>
+    <type name="Romeo3Optic_Grey_AK">
+        <nominal>3</nominal>
+        <restock>1800</restock>
+        <lifetime>14400</lifetime>
+        <min>1</min>
+        <quantmin>-1</quantmin>
+        <quantmax>-1</quantmax>
+        <cost>100</cost>
+        <flags count_in_hoarder="0" count_in_player="0" count_in_map="1" count_in_cargo="0" crafted="0" deloot="0" />
+        <category name="weapons" />
+        <usage name="Military" />
+        <value name="Tier3" />
+    </type>
+    <type name="PN23Optic_AK">
+        <nominal>3</nominal>
+        <restock>1800</restock>
+        <lifetime>14400</lifetime>
+        <min>1</min>
+        <quantmin>-1</quantmin>
+        <quantmax>-1</quantmax>
+        <cost>100</cost>
+        <flags count_in_hoarder="0" count_in_player="0" count_in_map="1" count_in_cargo="0" crafted="0" deloot="0" />
+        <category name="weapons" />
+        <usage name="Military" />
+        <value name="Tier3" />
+    </type>
+    <type name="VortexRazorOptic_AK">
+        <nominal>3</nominal>
+        <restock>1800</restock>
+        <lifetime>14400</lifetime>
+        <min>1</min>
+        <quantmin>-1</quantmin>
+        <quantmax>-1</quantmax>
+        <cost>100</cost>
+        <flags count_in_hoarder="0" count_in_player="0" count_in_map="1" count_in_cargo="0" crafted="0" deloot="0" />
+        <category name="weapons" />
+        <usage name="Military" />
+        <value name="Tier3" />
+    </type>
+    <type name="VortexRazorOptic_Black_AK">
+        <nominal>3</nominal>
+        <restock>1800</restock>
+        <lifetime>14400</lifetime>
+        <min>1</min>
+        <quantmin>-1</quantmin>
+        <quantmax>-1</quantmax>
+        <cost>100</cost>
+        <flags count_in_hoarder="0" count_in_player="0" count_in_map="1" count_in_cargo="0" crafted="0" deloot="0" />
+        <category name="weapons" />
+        <usage name="Military" />
+        <value name="Tier3" />
+    </type>
+    <type name="SpecterOptic_AK">
+        <nominal>3</nominal>
+        <restock>1800</restock>
+        <lifetime>14400</lifetime>
+        <min>1</min>
+        <quantmin>-1</quantmin>
+        <quantmax>-1</quantmax>
+        <cost>100</cost>
+        <flags count_in_hoarder="0" count_in_player="0" count_in_map="1" count_in_cargo="0" crafted="0" deloot="0" />
+        <category name="weapons" />
+        <usage name="Military" />
+        <value name="Tier3" />
+    </type>
+    <type name="SpecterOptic_FDE_AK">
+        <nominal>3</nominal>
+        <restock>1800</restock>
+        <lifetime>14400</lifetime>
+        <min>1</min>
+        <quantmin>-1</quantmin>
+        <quantmax>-1</quantmax>
+        <cost>100</cost>
+        <flags count_in_hoarder="0" count_in_player="0" count_in_map="1" count_in_cargo="0" crafted="0" deloot="0" />
+        <category name="weapons" />
+        <usage name="Military" />
+        <value name="Tier3" />
+    </type>
+    <type name="SparcOptic_AK">
+        <nominal>3</nominal>
+        <restock>1800</restock>
+        <lifetime>14400</lifetime>
+        <min>1</min>
+        <quantmin>-1</quantmin>
+        <quantmax>-1</quantmax>
+        <cost>100</cost>
+        <flags count_in_hoarder="0" count_in_player="0" count_in_map="1" count_in_cargo="0" crafted="0" deloot="0" />
+        <category name="weapons" />
+        <usage name="Military" />
+        <value name="Tier3" />
+    </type>
+    <type name="RX01Optic_AK">
+        <nominal>3</nominal>
+        <restock>1800</restock>
+        <lifetime>14400</lifetime>
+        <min>1</min>
+        <quantmin>-1</quantmin>
+        <quantmax>-1</quantmax>
+        <cost>100</cost>
+        <flags count_in_hoarder="0" count_in_player="0" count_in_map="1" count_in_cargo="0" crafted="0" deloot="0" />
+        <category name="weapons" />
+        <usage name="Military" />
+        <value name="Tier3" />
+    </type>
+    <type name="SusatOptic_AK">
+        <nominal>3</nominal>
+        <restock>1800</restock>
+        <lifetime>14400</lifetime>
+        <min>1</min>
+        <quantmin>-1</quantmin>
+        <quantmax>-1</quantmax>
+        <cost>100</cost>
+        <flags count_in_hoarder="0" count_in_player="0" count_in_map="1" count_in_cargo="0" crafted="0" deloot="0" />
+        <category name="weapons" />
+        <usage name="Military" />
+        <value name="Tier3" />
+    </type>
+    <type name="Kobra3Optic_AK">
+        <nominal>3</nominal>
+        <restock>1800</restock>
+        <lifetime>14400</lifetime>
+        <min>1</min>
+        <quantmin>-1</quantmin>
+        <quantmax>-1</quantmax>
+        <cost>100</cost>
+        <flags count_in_hoarder="0" count_in_player="0" count_in_map="1" count_in_cargo="0" crafted="0" deloot="0" />
+        <category name="weapons" />
+        <usage name="Military" />
+        <value name="Tier3" />
+    </type>
+    <type name="ATACROptic_AK">
+        <nominal>3</nominal>
+        <restock>1800</restock>
+        <lifetime>14400</lifetime>
+        <min>1</min>
+        <quantmin>-1</quantmin>
+        <quantmax>-1</quantmax>
+        <cost>100</cost>
+        <flags count_in_hoarder="0" count_in_player="0" count_in_map="1" count_in_cargo="0" crafted="0" deloot="0" />
+        <category name="weapons" />
+        <usage name="Military" />
+        <value name="Tier3" />
+    </type>
+    <type name="VortexAMGOptic_AK">
+        <nominal>3</nominal>
+        <restock>1800</restock>
+        <lifetime>14400</lifetime>
+        <min>1</min>
+        <quantmin>-1</quantmin>
+        <quantmax>-1</quantmax>
+        <cost>100</cost>
+        <flags count_in_hoarder="0" count_in_player="0" count_in_map="1" count_in_cargo="0" crafted="0" deloot="0" />
+        <category name="weapons" />
+        <usage name="Military" />
+        <value name="Tier3" />
+    </type>
+</types>

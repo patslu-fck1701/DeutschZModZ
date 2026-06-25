@@ -1,15 +1,21 @@
-DeutschZ System Manager v0.5.2 CURRENT-LAUNCHER-FULL-ANALYSIS
+DeutschZ System Manager
+=======================
+Aktuelle Version:
+v0.7.9 FIX36 OUTPUT ARCHIVE WEBHOOK CHOICE REPAIR
 
-Wichtig:
-Diese ZIP EINMAL direkt starten:
-Start_DZSM_v0_5_2_CURRENT_LAUNCHER_FULL_ANALYSIS.bat
+Start:
+DZSM_v_0_7_9.bat
 
-Danach zeigt der Desktop-Link auf:
-D:\DeutschZ_System_Manager\DZSM_v0_1\Start_DZSM_AKTUELL.bat
+Regeln:
+- Kurze Dateinamen, alte DZSM-Dateien werden archiviert.
+- Desktop-Link Analyse Starten zeigt auf aktuelle BAT.
+- Desktop Datei Ausgabe wird vor jedem Start als kategorisiertes ZIP archiviert.
+- Neue Datei Ausgabe wird nach Kategorien erzeugt.
+- Types- und Fahrzeugspawn-Auswahl wartet aktiv auf Tastendruck.
+- Webhook wird lokal aus ServerToolSettings\webhooks.txt gelesen, gecheckt und Status wird gesendet.
+- Webhooks/Passwoerter/Tokens werden nicht ins Uploadpaket geschrieben.
+- Kein Git commit/push/reset/clean, kein Build, kein Live-Write.
 
-Ab dann kann der Desktop-Link benutzt werden.
+Repo-Source aktuell/read-only: P:\GitHub_DeutschZModZ\DeutschZModZ\DeutschZModZ
 
-Neue Versionen:
-- einmal direkt aus ZIP starten
-- sie aktualisieren Start_DZSM_AKTUELL.bat
-- danach wieder Desktop-Link nutzen
+FIX37: Auswahl jetzt per Read-Host + ENTER statt choice.exe. Unter DONE wird eine gruene Zusammenfassung angezeigt. Webhook wird aus ToolDir oder Desktop-Kopie gelesen.

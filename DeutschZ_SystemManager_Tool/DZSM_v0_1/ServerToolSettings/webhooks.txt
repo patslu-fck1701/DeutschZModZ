@@ -1,0 +1,7 @@
+# DeutschZ System Manager Webhooks
+# Hier lokale Webhooks eintragen. Diese Datei bleibt lokal und wird nicht ins Uploadpaket kopiert.
+# Discord Invite Links/Steam Links duerfen in Reports bleiben, API-Webhooks werden redacted.
+DiscordStatusWebhook=
+
+# Beispiel nur als Platzhalter:
+# DiscordStatusWebhook=https://discord.com/api/webhooks/DEINE_ID/DEIN_TOKEN

@@ -56,6 +56,13 @@ class DeutschZConvoyZManager
         EventLock = 1;
         State = new DeutschZConvoyZRuntimeState();
         State.EventId = Config.EventData.EventIdPrefix + "_" + GetGame().GetTime().ToString();
+
+        // DeutschZ FIX: ConvoyZ must not reserve the global DeutschZ_Core EventCoordinator.
+        // KotHZ, ConvoyZ, CourierZ and GroundZero are allowed to run independently.
+        // ConvoyZ parallel protection stays local through CanStartNewEvent(), EventLock,
+        // RejectParallelEventStarts and MaxSimultaneousEvents.
+        DeutschZConvoyZLogger.Log("LocalEventLock", State.EventId, "SPAWNING", "", Config.EventData.EventCenter, "OK", "ConvoyZ uses local lock only; Core EventCoordinator skipped");
+
         State.EventProcessing = 1;
         State.EventStartedAt = GetGame().GetTime();
         EventsStartedThisRestart++;
@@ -183,7 +190,7 @@ class DeutschZConvoyZManager
     bool GiveItemToPlayer(PlayerBase player, string className, vector fallbackPos)
     {
         if (!player || className == "") return false;
-        if (DeutschZCore_UnsafeClassGuard.IsBlockedClass(className)) return false;
+        if (DeutschZConvoyZClassGuard.IsBlockedClass(className)) return false;
         if (!DeutschZConvoyZValidator.IsConfiguredInventoryClass(className))
         {
             DeutschZConvoyZLogger.Log("GiveItemClassMissing", State.EventId, DeutschZConvoyZ_StateName(State.CurrentState), "", fallbackPos, "SKIPPED", className);
@@ -330,6 +337,10 @@ class DeutschZConvoyZManager
         if (!Config.Settings) return false;
         if (Config.Settings.EnableConvoyZEvent == 0) return false;
 
+        // DeutschZ FIX: local ConvoyZ lock only.
+        // Do not ask DeutschZ_Core EventCoordinator here; other DeutschZ events may run in parallel.
+        if (EventLock == 1) return false;
+
         if (State)
         {
             if (State.EventProcessing == 1) return false;
@@ -446,6 +457,12 @@ class DeutschZConvoyZManager
 
     void OnEventCleanupFinished(string eventId, string reason)
     {
+        // DeutschZ FIX: No Core EventCoordinator release here.
+        // ConvoyZ no longer reserves the global Core coordinator, so it must not release it.
+        // This prevents ConvoyZ from blocking KotHZ and prevents accidental release of other systems.
+        vector logPos = "0 0 0";
+        if (Config && Config.EventData) logPos = Config.EventData.EventCenter;
+        DeutschZConvoyZLogger.Log("LocalEventLock", eventId, "CLEANUP", "", logPos, "OK", "Core EventCoordinator release skipped: " + reason);
         EventLock = 0;
         GetGame().GetCallQueue(CALL_CATEGORY_SYSTEM).Remove(this.Tick);
         if (!Config || !Config.Settings) return;

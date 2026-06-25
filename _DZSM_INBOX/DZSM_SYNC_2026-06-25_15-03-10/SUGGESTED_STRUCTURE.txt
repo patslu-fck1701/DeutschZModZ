@@ -1,0 +1,17 @@
+SUGGESTED REPO STRUCTURE
+========================
+Repo: P:\GitHub_DeutschZModZ\DeutschZModZ
+Aktueller Source-Pfad laut Patrick: P:\GitHub_DeutschZModZ\DeutschZModZ\DeutschZModZ
+
+ModZ/DeutschZ_Core/
+ModZ/DeutschZ_ExpansionBridge/
+ModZ/DeutschZ_KotHZ/
+ModZ/DeutschZ_ConvoyZ/
+ModZ/DeutschZ_GroundZero/
+ModZ/DeutschZ_CourierZ/
+ModZ/DeutschZ_OperationDeutschZ/
+ServerSettings/README.md
+DZSM/README.md
+Docs/
+
+Nicht ins Repo: profiles, storage, logs, crashlogs, RPT, ADM, mdmp, secrets, tokens, pbo, bisign, biprivatekey, Workshop Upload Runtime.

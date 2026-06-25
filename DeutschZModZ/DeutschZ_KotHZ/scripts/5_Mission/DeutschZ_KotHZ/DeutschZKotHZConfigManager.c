@@ -21,25 +21,36 @@ class DeutschZKotHZConfigManager
 
     static ref DeutschZKotHZConfig Load()
     {
-        // DeutschZ HARD AUTOCONFIG SAFEBOOT 2026-06-23
-        // Do not JsonLoadFile old profile configs during mission bootstrap.
-        // Broken/old JSON can crash the DayZ VM before Validate() can repair it.
-        // Always create a fresh default config and write it to profile first.
         EnsureProfileFolder();
+
+        bool generatedMainConfig = false;
+
+        // DeutschZ FIX: Do NOT overwrite existing profile JSON on every server start.
+        // Defaults are generated only when the file is missing/deleted.
+        LoadOrCreateLootPools();
 
         DeutschZKotHZConfig config = new DeutschZKotHZConfig();
 
-        DeutschZKotHZLootPoolsConfig defaultLoot = new DeutschZKotHZLootPoolsConfig();
-        if (defaultLoot && defaultLoot.LootPools)
-            s_LootPools = defaultLoot.LootPools;
+        if (FileExist(KOTH_CONFIG))
+        {
+            SanitizeMainConfigBeforeLoad();
+            JsonFileLoader<DeutschZKotHZConfig>.JsonLoadFile(KOTH_CONFIG, config);
+            Print("[DeutschZ_KotHZ] Loaded existing config: " + KOTH_CONFIG);
+        }
+        else
+        {
+            generatedMainConfig = true;
+            Print("[DeutschZ_KotHZ] Main config missing, generating defaults once: " + KOTH_CONFIG);
+        }
 
-        EnsureFix17TestLootPool();
+        if (!config)
+            config = new DeutschZKotHZConfig();
+
         Validate(config);
-        SaveAll(config);
 
-        Print("[DeutschZ_KotHZ] HARD AUTOCONFIG: default configs generated/refreshed; old profile JSON was not loaded.");
-        Print("[DeutschZ_KotHZ] Generated: " + KOTH_CONFIG);
-        Print("[DeutschZ_KotHZ] Generated: " + LOOT_POOLS_CONFIG);
+        // Only persist defaults for missing files. Existing admin-edited JSON stays untouched.
+        if (generatedMainConfig)
+            JsonFileLoader<DeutschZKotHZConfig>.JsonSaveFile(KOTH_CONFIG, config);
 
         return config;
     }
@@ -166,24 +177,35 @@ class DeutschZKotHZConfigManager
 
     protected static bool ImportLegacySplitConfigs(DeutschZKotHZConfig config)
     {
-        // HARD AUTOCONFIG SAFEBOOT: legacy split configs are intentionally not loaded during startup.
-        // Reason: JsonLoadFile on stale profile files can crash the VM before fallback code executes.
+        // FIX_FINAL: legacy JSON import disabled during bootstrap to prevent native JsonLoadFile crashes.
         return false;
     }
 
     protected static bool LoadOrCreateLootPools()
     {
-        // HARD AUTOCONFIG SAFEBOOT: never load old Loot_Pools.json during startup.
-        DeutschZKotHZLootPoolsConfig defaultLoot = new DeutschZKotHZLootPoolsConfig();
-        if (defaultLoot && defaultLoot.LootPools)
-            s_LootPools = defaultLoot.LootPools;
+        DeutschZKotHZLootPoolsConfig lootConfig = new DeutschZKotHZLootPoolsConfig();
 
-        EnsureFix17TestLootPool();
+        // DeutschZ FIX: keep existing Loot_Pools.json. Only generate defaults when missing/deleted.
+        if (FileExist(LOOT_POOLS_CONFIG))
+        {
+            JsonFileLoader<DeutschZKotHZLootPoolsConfig>.JsonLoadFile(LOOT_POOLS_CONFIG, lootConfig);
+            if (lootConfig && lootConfig.LootPools)
+                s_LootPools = lootConfig.LootPools;
+            Print("[DeutschZ_KotHZ] Loaded existing loot pools: " + LOOT_POOLS_CONFIG);
+        }
+        else
+        {
+            s_LootPools = lootConfig.LootPools;
+            JsonFileLoader<DeutschZKotHZLootPoolsConfig>.JsonSaveFile(LOOT_POOLS_CONFIG, lootConfig);
+            Print("[DeutschZ_KotHZ] Loot pools missing, generating defaults once: " + LOOT_POOLS_CONFIG);
+        }
 
-        DeutschZKotHZLootPoolsConfig saveLoot = new DeutschZKotHZLootPoolsConfig();
-        saveLoot.LootPools = GetLootPools();
-        JsonFileLoader<DeutschZKotHZLootPoolsConfig>.JsonSaveFile(LOOT_POOLS_CONFIG, saveLoot);
-        Print("[DeutschZ_KotHZ] HARD AUTOCONFIG: Loot_Pools.json generated/refreshed without JsonLoadFile.");
+        if (!s_LootPools)
+        {
+            DeutschZKotHZLootPoolsConfig fallbackLoot = new DeutschZKotHZLootPoolsConfig();
+            s_LootPools = fallbackLoot.LootPools;
+        }
+
         return true;
     }
 
@@ -260,14 +282,20 @@ class DeutschZKotHZConfigManager
         if (config.OwnershipNotice == "")
             config.OwnershipNotice = "DeutschZ_KotHZ is the custom KOTH framework owned and maintained by Patrick Sluzalek / fck1701 for the DeutschZ server.";
 
-        // V0.9.3 NORMAL: online-test rotation. No more one-minute test spam.
-        config.MinStartDelayMinutes = 35;
-        config.MaxStartDelayMinutes = 55;
-        config.MinPlayersToStart = 1;
+        // DeutschZ FIX: keep admin-edited timing values from profile JSON.
+        // Defaults are only used for missing/invalid values.
+        if (config.MinStartDelayMinutes <= 0)
+            config.MinStartDelayMinutes = 35;
+        if (config.MaxStartDelayMinutes < config.MinStartDelayMinutes)
+            config.MaxStartDelayMinutes = config.MinStartDelayMinutes;
+        if (config.MinPlayersToStart < 0)
+            config.MinPlayersToStart = 1;
+        if (config.HUDUpdateIntervalSeconds <= 0)
+            config.HUDUpdateIntervalSeconds = 1;
+
         config.DebugMode = 0;
         config.EnableHUD = 1;
         config.EnableProgressHUD = 1;
-        config.HUDUpdateIntervalSeconds = 1;
 
         if (!config.Zones)
             config.Zones = new array<ref DeutschZKotHZZone>;

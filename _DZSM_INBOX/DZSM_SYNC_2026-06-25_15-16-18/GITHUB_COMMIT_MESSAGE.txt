@@ -1,0 +1,15 @@
+DZSM: update system manager and server analysis state
+
+- Version: v0.7.9 FIX37 INPUT_DISCORD_DONE_SUMMARY
+- Timestamp: 2026-06-25 15:17
+- Mode: A
+- Live paths: Source Files, Ready Mods, Mission/CE, Profiles
+- Repo current source path checked read-only
+- Upload package: slim ChatGPT package generated
+- Safety: no git commit/push executed by DZSM
+- Warnings: 2
+
+Notes:
+- Secrets/passwords/webhooks filtered from safe text exports
+- Discord invite links and Steam links kept
+- Commit via GitHub Desktop after review

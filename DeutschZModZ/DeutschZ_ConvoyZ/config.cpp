@@ -32,7 +32,7 @@ class CfgMods
         name = "DeutschZ_ConvoyZ";
         credits = "DeutschZ";
         author = "DeutschZ";
-        version = "0.9.3-online-test";
+        version = "0.9.4-fix45-core-event-lock";
         type = "mod";
         dependencies[] = {"Game", "World", "Mission"};
         class defs
