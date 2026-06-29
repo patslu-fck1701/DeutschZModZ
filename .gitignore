@@ -1,17 +1,106 @@
-# DayZ build/output
+# DeutschZModZ / DayZ source repository ignore rules
+# Keep source, documentation and intentionally reviewed configs.
+# Keep local builds, runtime output, secrets and release artifacts out of Git.
+
+# --- DayZ build/output artifacts ---
 *.pbo
 *.bisign
 *.biprivatekey
 *.bikey
-*.log
-*.rpt
-*.mdmp
-*.ADM
+*.ebo
+*.dep
+*.map.bin
+*.rap
+*.cpp.bin
+*.bin
+
+# --- Release/build folders ---
+releases/
+release/
+Release/
+build/
+Build/
+build-*/
+out/
+output/
+ReadyMods/
+ready_mods/
+changed_files/
+*_Output/
+*_Release/
+*_Bundle/
+*.zip
+*.7z
+*.rar
+
+# --- DayZ mod package folders generated locally ---
 @*/Addons/
 @*/Keys/
-releases/
-build/
-workbench/
+@*/meta.cpp
+@*/mod.cpp.tmp
+
+# --- DayZ logs, crash dumps and admin/runtime files ---
+*.log
+*.rpt
+*.RPT
+*.mdmp
+*.ADM
+*.mdmp.*
+DayZServer_x64_*.RPT
+script_*.log
+crash_*.log
+
+# --- Local profiles / persistence / runtime state ---
+profiles/
+Profiles/
+profile/
+serverprofile/
+ServerProfile/
+storage_*/
+mpmissions/*/storage_*/
+mpmissions/*/expansion_ce/
+mpmissions/*/expansion\_backup*/
+mpmissions/*/_codex_backup*/
+*_codex_backup*/
+*_backup*/
+
+# --- Sensitive local configs / credentials ---
+.env
+.env.*
+*.secret
+*.secrets
+secrets/
+private/
+credentials/
+webhook*.txt
+rcon*.txt
+RCON*.txt
+BEServer*.cfg
+cfggameplay.secret.json
+
+# --- IDE / OS noise ---
+.vscode/
+.idea/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
 .DS_Store
 Thumbs.db
+desktop.ini
+
+# --- Workbench / temporary files ---
+workbench/
+Workbench/
+temp/
+tmp/
+*.tmp
+*.bak
+*.swp
+*.old
+*.orig
+.cache/
+Testing/
+
+# --- Existing legacy ignored bundle ---
 mods/mods.zip
